@@ -68,6 +68,19 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 - Virus / culture ช้า-อันตราย: HIV viral load, HBV/HCV-RNA, respiratory panel → real-time PCR. Infant HIV → DNA/RNA PCR ไม่ใช่ Ab.
 - หลัก: molecular เมื่อ culture ช้า/อันตราย/sens ต่ำ, ต้องการ resistance gene เร็ว, เชื้อเพาะยาก. Culture ชนะตอนต้องการ isolate ไปทำ AST เต็ม + cost.
 
+### FORK 7 — Specimen-site → เชื้อที่คาด + media ตาม syndrome (อย่าหว่านจานเดียวกันทุก site)
+อ่าน **site + host + syndrome** กำหนด workup ก่อนเพาะ:
+- **CSF/meningitis:** อ่าน CSF profile ก่อนเดา — neutrophil↑ + glucose↓มาก + protein↑ = bacterial (รายงานด่วน); lymphocyte + glucose ปกติ = viral; lymphocyte + glucose↓ ปานกลาง = TB/fungal · เชื้อตาม **อายุ** (newborn GBS/E.coli/Listeria · เด็ก Nm/Spn/Hib · สูงอายุ +GNB/Listeria) · ⚠️ Cryptococcus cell count อาจปกติ → **สั่ง CrAg/India ink เสมอ อย่าตัดออกเพราะ cell ปกติ**
+- **LRTI:** Gram screen ก่อนเพาะ (PMN>25 + squamous<10/LPF = รับ) · **VAP/BAL = quantitative** (≥10⁴ CFU/ml = จริง) ไม่ใช่ qualitative · TB ใช้ early-morning sputum ×3
+- **Stool:** เพาะเมื่อ bloody/leukocyte+/ไข้/travel · media ตาม syndrome (TCBS+APW→Vibrio · SS/XLD/HE+enrich→Salmonella/Shigella · CCFA→C.diff · 42°C microaerophilic→Campylobacter) · ⚠️ ไม่ enrich = จับ Vibrio/Salmonella ไม่ได้
+- **Genital:** GC→Thayer-Martin/VCN · **BV ไม่เพาะ** ใช้ pH>4.5 + whiff + clue cells
+- **Sterile fluid** (pleural/peritoneal/joint/CSF): เชื้อใดก็ significant → ลง BA/CA/MC + **thioglycollate (anaerobe, ดู 7 วัน)**; อย่ามองข้าม anaerobe ใน deep pus
+
+### FORK 8 — Special-organism pathways (fungi · mycobacteria · zoonosis/Rickettsia)
+- **Fungi yeast-vs-mold:** KOH/calcofluor direct → SDA ± additive · ⚠️ **cycloheximide กด opportunistic mold (Aspergillus/Fusarium/Zygomycetes/Cryptococcus) + Nocardia** → ถ้าสงสัยพวกนี้ **อย่าใช้สื่อ cycloheximide จานเดียว** · Cryptococcus → CrAg เร็วกว่ารอเพาะ
+- **Mycobacteria ladder:** ZN/auramine smear (sens ต่ำ 5,000–10,000/ml, **smear-neg ไม่ตัด TB**, แยก MTB/NTM ไม่ได้) → culture gold (MGIT 1–3wk เร็วกว่า LJ 6–8wk) → MTB-vs-NTM (niacin+/nitrate+/MPT64+) → DST/GeneXpert สำหรับ MDR
+- **Zoonosis/Rickettsia/Chlamydia:** serology+molecular เป็นหลัก, culture ทำไม่ได้/ต้อง BSL-3 → paired serology 4-fold + IFA + PCR · Weil-Felix = screening หยาบ ไม่ confirm · ⚠️ **Leptospira/PCR ห้าม heparin** (ยับยั้ง Taq + citrate ฆ่าเชื้อ) · ผู้ป่วยหนัก ใช้ PCR/Giemsa buffy coat เร็วกว่ารอ serology
+
 ## กับดัก (Anti-patterns)
 1. รายงาน contaminant เป็น pathogen — CoNS 1 ขวด, urine 3+ ชนิด, sputum oral flora.
 2. ไม่ correlate กับ Gram เดิม — AST/ID ขัด Gram smear = หยุด ทวน.

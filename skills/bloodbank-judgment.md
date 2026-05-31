@@ -37,7 +37,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 | เคส | เบาะแส | resolve | จ่ายเลือด |
 |---|---|---|---|
 | **Acquired B** (RBC extra) | group A + มะเร็งลำไส้/septicemia (E.coli) | anti-B acidified pH6, autocontrol (ตัวเองไม่จับ) | **group A** (หมู่จริง) |
-| **B(A)/A(B)** (RBC extra) | weak extra reaction | molecular/ref lab ยืนยัน | ตามหมู่จริง |
+| **B(A)/A(B)** (RBC extra) | weak extra reaction, autosomal dominant | molecular/ref lab ยืนยัน | ตามหมู่จริง (B(A)→B) |
+| **cis-AB** (inheritance ผิดคาด) | พ่อ/แม่ O × ลูก "AB"? — A+B อยู่บน chromosome เดียว ถ่ายทอดคู่กัน; A หรือ B มัก weak | family study + molecular; **อย่าด่วนสรุป parentage ผิด** | ตามหมู่จริง (มัก A₂B-like) |
 | **Mixed-field** (RBC) | บางเซลล์จับ; post-BMT / ได้ O เยอะ / A3 | ดูประวัติ transfuse-transplant + titer | ฉุกเฉิน **O** ก่อน |
 | **anti-A1** (serum extra) | A2/A2B reverse จับ A1 cell | A1 vs A2 cell + **anti-A1 lectin (Dolichos)** | **A2 หรือ O** |
 | **Cold autoAb** (serum extra) | anti-I/IH; **screen+ AND auto+** | **prewarm 37°C** / cold autoadsorption | warm Ab ที่เหลือ |

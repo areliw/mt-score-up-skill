@@ -84,7 +84,8 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 ### Fork 9 — Pharmacogenomics: test "ก่อน" ให้ยา (สำคัญในคนไทย)
 - **HLA-B*15:02 ก่อน carbamazepine** → กัน SJS/TEN (**prevalence สูงในคนไทย/จีน** = high-yield จริง)
 - **HLA-B*57:01 ก่อน abacavir** · **HLA-B*58:01 ก่อน allopurinol** · **CYP2C19 + clopidogrel** (poor metabolizer → ยาไม่ทำงาน)
-> ตรวจ **ก่อน** prescribe ไม่ใช่หลังเกิด ADR — เฉพาะยา/เชื้อชาติที่ risk สูง (ไม่ใช่ทุกยา)
+- **G6PD ก่อน primaquine / dapsone / rasburicase / ยา oxidant** → กัน acute hemolysis (G6PD def พบบ่อยในไทย/มาเลย์ + เกี่ยวกับ malaria → ตรวจก่อนให้ primaquine เสมอ) · **TPMT/NUDT15 ก่อน thiopurine** (azathioprine/6-MP → myelosuppression รุนแรงถ้า deficient; NUDT15 สำคัญในเอเชีย) · **DPYD ก่อน 5-FU/capecitabine**
+> ตรวจ **ก่อน** prescribe ไม่ใช่หลังเกิด ADR — เฉพาะยา/เชื้อชาติที่ risk สูง (ไม่ใช่ทุกยา) · ⚠️ คู่ที่ขาดบ่อยในไทย: **G6PD↔primaquine** (malaria) + **HLA-B*15:02↔carbamazepine** (SJS)
 
 ---
 

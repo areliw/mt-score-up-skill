@@ -3,7 +3,7 @@ skill: toxicology-judgment
 title: ตัวช่วยตัดสินใจงานพิษวิทยา/นิติพิษวิทยา (Toxicology Judgment)
 type: ADVISE
 needs: any
-author: "Phanuphong Tameesak - MT Score UP!"
+author: "MT Score UP!"
 reviewed: 2026-06-01
 status: draft
 disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

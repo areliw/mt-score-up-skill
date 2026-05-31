@@ -3,7 +3,7 @@ skill: clinmicro-judgment
 title: ตัวช่วยตัดสินใจแล็บจุลชีววิทยาคลินิก (Clinical Micro Judgment)
 type: ADVISE
 needs: any
-author: "Phanuphong Tameesak - MT Score UP!"
+author: "MT Score UP!"
 reviewed: 2026-06-01
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บจุลชีววิทยาคลินิกเพื่อการศึกษา ไม่ตัดสินแทน และไม่ใช่คำสั่งวินิจฉัย/รักษา ทุกผลต้อง correlate กับ Gram stain + clinical + colony morphology และทำตาม SOP/QC ของห้องแล็บเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง ความผิดพลาดในการรายงานเชื้อก่อโรค/ความไวต่อยา อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

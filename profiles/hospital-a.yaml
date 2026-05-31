@@ -1,0 +1,13 @@
+# Layout profile — โรงพยาบาลตัวอย่าง A
+# Maps canonical WI fields → this hospital's header layout. (content lives in the WI; this is presentation only)
+slug: hospital-a
+org: โรงพยาบาลตัวอย่าง A
+org_unit: งานห้องปฏิบัติการทางการแพทย์
+doc_type: ระเบียบปฏิบัติ
+logo: profiles/hospital-a-logo.png
+# header rows — pipe-separated cells; {field} substituted from canonical WI frontmatter
+header:
+  - "{doc_type} | เอกสารเลขที่ : {doc_code} | หน้าที่ : {page}/{total_pages}"
+  - "เรื่อง : {doc_subject} | แก้ไขครั้งที่ : {rev_no} | วันที่เริ่มใช้ : {effective_date}"
+  - "ผู้จัดทำ : {author} | หน่วยงาน : {org_unit}"
+  - "ผู้ตรวจสอบ : {reviewer} | ผู้อนุมัติ : {approver}"

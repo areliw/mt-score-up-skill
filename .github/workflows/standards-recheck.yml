@@ -1,0 +1,71 @@
+name: Monthly standards recheck
+
+on:
+  schedule:
+    # 02:00 UTC = 09:00 Thailand. Day 1 of every month.
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run recheck script
+        id: run
+        run: |
+          set +e
+          python scripts/recheck_standards.py
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Commit and push if STANDARDS.md changed
+        if: steps.run.outputs.exit_code == '0' || steps.run.outputs.exit_code == '2'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain STANDARDS.md)" ]; then
+            git add STANDARDS.md
+            if [ "${{ steps.run.outputs.exit_code }}" = "2" ]; then
+              MSG="chore(standards): auto-detect newer edition ($(date -u +%Y-%m-%d))"
+            else
+              MSG="chore(standards): monthly recheck — no change ($(date -u +%Y-%m-%d))"
+            fi
+            git commit -m "$MSG"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Open issue on script error
+        if: steps.run.outputs.exit_code == '1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const today = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[standards-recheck] Monthly recheck error — ${today}`,
+              body: [
+                'Auto-recheck workflow detected an error fetching or parsing a standards source page.',
+                '',
+                `**Workflow run:** ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+                '',
+                'Likely causes:',
+                '- iso.org or aabb.org changed HTML structure',
+                '- Network timeout (transient — re-run workflow)',
+                '',
+                'Action: manually verify current editions at iso.org / aabb.org and update `STANDARDS.md`. If a source page restructured, update the regex in `scripts/recheck_standards.py`.',
+              ].join('\n'),
+              labels: ['standards-recheck', 'needs-attention'],
+            });

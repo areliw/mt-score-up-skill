@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local memory / user data (privacy)
+.kabin-wi/
+~/.kabin-wi/
+memory/
+*.local.md
+
+# WI outputs (ห้ามขึ้น repo — อาจมีข้อมูลคนไข้)
+outputs/
+*.docx
+!templates/*.docx
+
+# Hospital-specific templates + logos = PII (real MT names) + proprietary (logo) — keep LOCAL ONLY
+# (overrides !templates/*.docx above — order matters, later rule wins)
+templates/*-template.docx
+templates/*-MARKED.docx
+templates/*-logo.*
+
+# Rendered HTML / docx test artifacts (derived; may embed hospital logo) — regenerable, keep local
+inbox/*.html
+pomodoro/*.html
+
+# WI section drafts = hospital procedure content (references real รพ. org) — keep local
+docs/wi-drafts/
+
+# Rendered PDF pages for inspection (scanned hospital docs = PII: signatures) — keep local
+_pdf-inspect/
+
+# Hospital logos in profiles (proprietary) — keep local; profile .yaml (layout) is safe to commit
+profiles/*-logo.*
+
+# Logs
+*.log
+logs/
+
+# OS
+desktop.ini

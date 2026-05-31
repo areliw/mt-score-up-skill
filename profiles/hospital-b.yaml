@@ -1,0 +1,11 @@
+# Layout profile — โรงพยาบาลตัวอย่าง B (กลุ่มงานเทคนิคการแพทย์และพยาธิวิทยาคลินิก)
+# Different layout from ตัวอย่าง A: 3-row doc-control box, signatures live in FOOTER (not header).
+slug: hospital-b
+org: กลุ่มงานเทคนิคการแพทย์และพยาธิวิทยาคลินิก โรงพยาบาลตัวอย่าง B
+org_unit: งานธนาคารเลือด
+doc_type: วิธีปฏิบัติ
+logo: profiles/hospital-b-logo.png
+header:
+  - "วิธีปฏิบัติเรื่อง : {doc_subject}"
+  - "รหัสเอกสาร : {doc_code} | หน้าที่ : {page}/{total_pages}"
+  - "ทบทวนแก้ไขครั้งที่ : {rev_no} วันที่ {effective_date}"

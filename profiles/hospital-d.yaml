@@ -1,0 +1,13 @@
+# Layout profile — โรงพยาบาลตัวอย่าง D (Hospital D Hospital, จ.พระนครศรีอยุธยา)
+# Layout variant 4: org banner + logo, then doc-control rows. The hospital's full WI also
+# has a separate cover page (signatures), a table of contents, and a revision-history table.
+slug: hospital-d
+org: โรงพยาบาลตัวอย่าง D
+org_unit: กลุ่มงานเทคนิคการแพทย์
+doc_type: วิธีปฏิบัติงาน
+logo: profiles/hospital-d-logo.png
+header:
+  - "รหัสเอกสาร : {doc_code} | หน้า : {page}/{total_pages}"
+  - "วิธีปฏิบัติงานเรื่อง : {doc_subject}"
+  - "วันที่ประกาศใช้ : {effective_date} | แก้ไขครั้งที่ : {rev_no}"
+  - "จัดทำโดย : {org_unit}"

@@ -1,0 +1,87 @@
+---
+skill: research-design-judgment
+title: โค้ชออกแบบวิจัย — เลือก design + กัน bias/confounder (Research Design Judgment)
+type: ADVISE               # ช่วยตัดสินใจออกแบบวิจัย ไม่ใช่ตำราระเบียบวิธี
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "Phanuphong Tameesak - MT Score UP!"
+reviewed: 2026-06-01
+status: draft
+disclaimer: "ช่วยคิดออกแบบวิจัยเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/จริยธรรมทางการ — design/ethics ต้องผ่านอาจารย์ที่ปรึกษา + IRB/EC จริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ชออกแบบวิจัย — เลือก design + กัน bias/confounder
+
+วาง R2R/thesis แล้วต้องตัดสิน "ใช้ design ไหน · ข้อมูลชนิดอะไร · bias/confounder ตรงไหน · ผ่าน IRB ยัง" → โค้ชนี้ช่วยเลือก + เลี่ยงกับดักที่ reviewer ตีกลับ
+
+> reviewer reject งานวิจัยส่วนใหญ่ไม่ใช่เพราะ "คำนวณผิด" แต่เพราะ **design ผิด/ตอบคำถามไม่ได้, bias/confounder ไม่คุม, ตีความ association เป็น causation, ไม่มี ethics**. skill นี้เก็บการตัดสินใจ "ก่อนเก็บข้อมูล" เหล่านั้น
+> ตั้งโจทย์ → `r2r-research-proposal` · หา N → `sample-size-power` · เลือก test → `choose-stat-test` · รัน/แปลผล → `r2r-stats` · เขียนเล่ม → `manuscript-judgment`
+
+## ใช้เมื่อ
+- จะวางโครงวิจัย/thesis → เลือก study design
+- กังวล bias / confounder / validity
+- ต้องเตรียม IRB/consent ก่อนเก็บตัวอย่าง
+- นิยามตัวแปร (operational definition) + ชนิดข้อมูล → กำหนดทิศสถิติ
+
+## วิธีใช้
+วาง skill นี้ + เล่าคำถามวิจัย + ข้อมูลที่จะเก็บ → AI ชี้ design + bias ที่ต้องระวัง + วิธีคุม confounder + gate ethics
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
+
+### Fork 1 — Descriptive vs Analytic (จุดแยกแรก)
+- **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — ไม่ทดสอบสมมติฐาน
+- **Analytic** = ทดสอบความสัมพันธ์ exposure ↔ outcome (มี hypothesis test) — งานที่ตีพิมพ์ดีมักเป็น analytic
+> H0 (ไม่ต่าง/ไม่สัมพันธ์) vs H1 (ต่าง/สัมพันธ์) · test ได้แค่ **reject / fail to reject H0** ไม่เคย "ยอมรับว่า H1 จริง" (กับดักภาษาที่ reviewer จับ) · **default two-tailed** (one-tailed เพื่อให้ p ผ่านง่าย = p-hacking)
+
+### Fork 2 — เลือก study design ตามคำถาม
+| คำถามแบบ | design | หมายเหตุ |
+|---|---|---|
+| ความชุก/ค่าปกติเท่าไหร่ | **Cross-sectional (descriptive)** | survey, ถูก/เร็ว |
+| exposure สัมพันธ์ outcome มั้ย (วัดพร้อมกัน) | **Cross-sectional analytic** | default ของงานเทียบ genotype↔phenotype; วัดครั้งเดียว |
+| คนเป็นโรค vs ไม่เป็น ต่างที่ exposure มั้ย | **Case-control** (ย้อนหลัง) | ดีเมื่อ **outcome หายาก** |
+| exposure → outcome ตามเวลามั้ย | **Cohort** (ไปข้างหน้า) | ดีเมื่อ **exposure หายาก**; แพง/นาน |
+| intervention/ยา ได้ผลมั้ย | **RCT** | gold standard causation; randomize + control |
+- rule: outcome หายาก → case-control · exposure หายาก → cohort · อยากรู้ "สัมพันธ์มั้ย ณ จุดเดียว" + เวลาจำกัด (thesis 1-2 ปี) → cross-sectional
+
+### Fork 3 — ชนิดตัวแปร (scale) → กำหนดทิศสถิติ
+- **Nominal** (หมู่เลือด/genotype/เพศ) → สัดส่วน/chi-square · **Ordinal** (เกรด/score) → median/non-parametric · **Interval** (°C, ไม่มี 0 จริง) → parametric · **Ratio** (Hb/Hct/%/อายุ, มี 0 จริง) → parametric เต็มที่
+- ระบุ **independent (exposure)** vs **dependent (outcome)** · เลือก test ลึก → `choose-stat-test`
+- **operational definition:** นิยามทุกตัวแปรให้วัดซ้ำได้ (เช่น cutoff ของ "ค่าสูง", coding ของ genotype, นิยาม carrier) — ไม่นิยาม = reviewer ตีกลับ · ⚠️ อย่า **dichotomize** ต่อเนื่องเป็น 2 กลุ่มถ้าไม่จำเป็น (เสีย info; เลือก cutoff ทีหลังให้ p สวย = p-hacking)
+
+### Fork 4 — Validity / Reliability + Bias
+- **Validity** = วัดสิ่งที่ตั้งใจวัดจริงไหม · **Reliability** = วัดซ้ำได้ค่าเดิมไหม (precision; CV ของเครื่องแล็บ = ตัววัด reliability) · reliable แต่ไม่ valid = แม่นแต่ผิดเป้า
+- **Selection bias:** sample ไม่เป็นตัวแทน (convenience/volunteer/snowball เสี่ยงสูง) · **Volunteer bias:** คนอาสา ≠ คนไม่อาสา
+- งานที่เก็บจากตัวอย่างที่มีอยู่ (residual/donor) มัก convenience → **เขียน limitation selection bias ตรงๆ + เกณฑ์ inclusion/exclusion ให้ชัด**
+
+### Fork 5 — Confounder → คุมยังไง (กับดักยอดฮิตที่ reject genomics paper)
+- confounder = ตัวแปรที่สัมพันธ์กับทั้ง exposure และ outcome แต่ไม่ใช่ตัวกลางในเส้นทาง → ทำให้ association เป็น "ของปลอม"
+- ตัวอย่าง: ในงานหา genotype↔phenotype ของ thalassemia/HbF → **α-thalassemia co-inheritance, อายุ, เพศ** เป็น confounder ต่อ HbF
+- คุมด้วย: **restriction / matching (ตอน design)** หรือ **stratify / multivariable regression (ตอนวิเคราะห์)** — ระบุวิธีคุมตั้งแต่ proposal
+
+### Fork 6 — Ethics / IRB gate (ก่อนเก็บข้อมูลเสมอ)
+- งานในมนุษย์ **ต้องผ่าน IRB/EC ก่อนเก็บ** — ไม่มีเลข approval = ตีพิมพ์ไม่ได้ + ผิดกฎหมาย
+- **Informed consent** (เป็นลายลักษณ์): วัตถุประสงค์ + ความเสี่ยง + สิทธิถอนตัว · หลัก 3: respect (autonomy), beneficence (ประโยชน์>เสี่ยง), justice
+- ใช้เลือด/DNA/ข้อมูลพันธุกรรม = **sensitive data** → IRB + consent + **PDPA (de-identify)** · residual sample ก็มักต้องขอ waiver/approval
+
+---
+
+## กับดัก (Anti-patterns)
+- **ตีความ cross-sectional เป็น causation** — วัดพร้อมกันบอก "associated with" เท่านั้น อย่าเขียน "ทำให้/causes"
+- **confounder ไม่คุม** → association ปลอม (α-thal/อายุ/เพศ ฯลฯ); คุม stratify/regression
+- **selection bias** — convenience/volunteer แล้วอ้าง generalize; เขียน limitation + inclusion/exclusion
+- **design ไม่ตรงคำถาม** — เอา cross-sectional ตอบคำถาม temporality, ใช้ case-control กับ outcome ไม่หายาก
+- **เลือก scale/ชนิดข้อมูลผิด** → เลือก stat ผิดทั้ง chain (เอา nominal ไปหา mean)
+- **dichotomize / one-tail / เลือก cutoff ทีหลัง** เพื่อให้ p สวย = p-hacking → ตั้ง hypothesis + analysis plan ก่อนเก็บ
+- **ไม่มี IRB/consent** → เก็บตัวอย่างคนไข้โดยไม่ผ่านจริยธรรม = ตีพิมพ์ไม่ได้ + ผิด PDPA
+
+---
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> เติมเคสจริง เช่น:
+> - *"(MT R2R) งานที่ผมเลือก design... เพราะ outcome/exposure มันลักษณะ..."*
+> - *"confounder ที่ reviewer ในสายผมจับบ่อย คือ... คุมโดย..."*
+> - *"IRB ที่ รพ./คณะ เรา ใช้เวลา... ต้องเตรียม..."*
+
+---
+*ช่วยคิดออกแบบวิจัยเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/จริยธรรมทางการ — design/ethics ต้องผ่านอาจารย์ที่ปรึกษา + IRB/EC จริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*

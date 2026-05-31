@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**36 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**38 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -27,6 +27,8 @@
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
+- **research-design-judgment** — เลือก study design (descriptive/analytic · cross-sectional/case-control/cohort/RCT) + ชนิดตัวแปร + bias/confounder + gate IRB/ethics
+- **manuscript-judgment** — เขียน proposal/manuscript (IMRaD) ให้ผ่าน reviewer + เกณฑ์ accept/reject + objective=results=conclusion
 - **choose-stat-test** — decision tree เลือก statistical test จาก 3 คำถาม (เป้าหมาย × ชนิด outcome × กี่กลุ่ม)
 - **sample-size-power** — หาขนาดตัวอย่าง N ด้วย power analysis + สูตร + ตัวอย่างมีเลข
 - **r2r-stats** — ผู้ช่วยรัน/แปลผลสถิติ R2R + กับดัก lab (method comparison ≠ validation ฯลฯ) `needs: code-interpreter`
@@ -74,7 +76,7 @@
 *confirm lane:* reactive screen → `immunoassay-judgment` + `molecular-judgment` (ยืนยัน) · ⚠️ **MT ตีความ/flag/ส่งต่อ — การวินิจฉัยเป็นหน้าที่แพทย์**
 
 **🔬 ทำวิจัย R2R ครบวงจร**
-`r2r-research-proposal` → `choose-stat-test` → `sample-size-power` → `r2r-stats` → `polite-but-clear` (ตอบ reviewer) + `explain-simply` (อธิบายผลให้คนทั่วไป)
+`r2r-research-proposal` (โจทย์) → `research-design-judgment` (design+bias+IRB) → `sample-size-power` (N) → `choose-stat-test` (test) → `r2r-stats` (รัน) → `manuscript-judgment` (เขียน/ตีพิมพ์) + `polite-but-clear` (ตอบ reviewer)
 
 **💻 โปรเจกต์ data/ML**
 `data-project-survival` (วางโครง) → `ml-judgment` (เลือกโมเดล/metric) → `cv-judgment` (ถ้าเป็นภาพ) → `python-coach`/`db-judgment` (เขียนจริง) → `offload-to-automation` + `anti-hallucination` (กันพลาด + verify)

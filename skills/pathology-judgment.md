@@ -14,7 +14,7 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 อ่านกลไกโรค + ตัดสิน pattern ทางพยาธิ — "นี่ benign/malignant? injury กลับได้ไหม? อักเสบบอกอะไร? ต้อง confirm ด้วยอะไร" ไม่ใช่ท่องลิสต์โรค/Robbins (= commodity ดูตำรา)
 
 > หลัก: พยาธิ = **"อ่าน pattern + ให้เกณฑ์"** — อย่าฟันธงด้วยความรู้สึก ใช้ **เกณฑ์ที่ชัด** (เกณฑ์ malignancy, basement membrane, lines of Zahn) แล้ว **confirm ด้วย test ที่ถูก**
-> เชื่อมเคส lab → วินิจฉัย → ดู `clinical-correlation-judgment`
+> เชื่อมเคส lab → ตั้ง DDx/ชี้ทาง (ส่งต่อแพทย์) → ดู `clinical-correlation-judgment`
 
 ## ใช้เมื่อ
 - อ่านชิ้นเนื้อ/รายงานพยาธิ/เคส → **benign หรือ malignant**, dysplasia ข้ามเส้นยัง, grade/stage

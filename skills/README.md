@@ -23,7 +23,7 @@
 - **pathology-judgment** — อ่าน pattern: benign/malignant (5 แกน) · cell injury reversible/irreversible · necrosis type · acute/chronic อักเสบ · grading/staging · dysplasia→cancer (basement membrane) · granuloma/hypersensitivity
 - **parasitology-judgment** — เลือก concentration/stain ตามเป้า · malaria thick vs thin + ตรวจซ้ำ · single-stool false-neg · artifact vs parasite
 - **toxicology-judgment** — screen vs confirm · antidote tree (OP/carbamate/paraquat/โลหะ) · chelator คู่โลหะ · RBC-AChE vs plasma ChE · TDM timing · chain of custody
-- **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็น 1 วินิจฉัย (pivotal value → DDx → rule-out → cause-effect chain)
+- **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็นภาพเดียว ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal value → DDx → rule-out → cause-effect chain) · *MT ไม่วินิจฉัย*
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
@@ -69,9 +69,9 @@
 
 > สกิลเดี่ยวก็ใช้ได้ แต่ของจริงคือ **ต่อกันเป็นสาย** — วางหลายไฟล์พร้อมกันในแชต แล้วบอก AI ว่าจะทำงานแบบไหน
 
-**🩸 อ่านผลแล็บ → วินิจฉัย**
-`clinical-correlation-judgment` (ร้อยผลข้ามแขนง) → สกิลแล็บเฉพาะทาง (`hematology`/`clinchem`/`clinmicro`/`immunoassay`/`bloodbank`/`molecular`/`pathology`...) → `anti-hallucination` (กันมั่วค่า/อ้างอิง) → `explain-simply` (อธิบายผลให้คนไข้/แพทย์)
-*confirm lane:* reactive screen → `immunoassay-judgment` + `molecular-judgment` (ยืนยัน)
+**🩸 อ่านผลแล็บ → correlate + ชี้ทาง (ส่งต่อแพทย์วินิจฉัย)**
+`clinical-correlation-judgment` (ร้อยผลข้ามแขนง → ตั้ง DDx/flag) → สกิลแล็บเฉพาะทาง (`hematology`/`clinchem`/`clinmicro`/`immunoassay`/`bloodbank`/`molecular`/`pathology`...) → `anti-hallucination` (กันมั่วค่า/อ้างอิง) → `explain-simply` (สื่อสารผล/อธิบายในขอบเขต)
+*confirm lane:* reactive screen → `immunoassay-judgment` + `molecular-judgment` (ยืนยัน) · ⚠️ **MT ตีความ/flag/ส่งต่อ — การวินิจฉัยเป็นหน้าที่แพทย์**
 
 **🔬 ทำวิจัย R2R ครบวงจร**
 `r2r-research-proposal` → `choose-stat-test` → `sample-size-power` → `r2r-stats` → `polite-but-clear` (ตอบ reviewer) + `explain-simply` (อธิบายผลให้คนทั่วไป)

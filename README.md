@@ -25,7 +25,7 @@
 | [pathology-judgment](./skills/pathology-judgment.md) | อ่าน pattern: benign/malignant · necrosis · อักเสบ · grading/staging · dysplasia |
 | [parasitology-judgment](./skills/parasitology-judgment.md) | เลือก concentration/stain · malaria thick/thin + ตรวจซ้ำ · single-stool false-neg |
 | [toxicology-judgment](./skills/toxicology-judgment.md) | screen vs confirm · antidote (OP/carbamate/paraquat) · chelator · TDM timing |
-| [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → 1 วินิจฉัย (pivotal → DDx → rule-out) |
+| [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal → DDx → rule-out) |
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 | skill | ช่วยอะไร |

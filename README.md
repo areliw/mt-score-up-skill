@@ -100,7 +100,7 @@
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 18 สกิล — copy ไฟล์ไปวางในแชต AI
+├── skills/        # ★ 36 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
 ├── templates/     # WI .docx templates (generic)

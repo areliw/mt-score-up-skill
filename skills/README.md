@@ -69,6 +69,10 @@
 
 > สกิลเดี่ยวก็ใช้ได้ แต่ของจริงคือ **ต่อกันเป็นสาย** — วางหลายไฟล์พร้อมกันในแชต แล้วบอก AI ว่าจะทำงานแบบไหน
 
+**🩸 อ่านผลแล็บ → วินิจฉัย**
+`clinical-correlation-judgment` (ร้อยผลข้ามแขนง) → สกิลแล็บเฉพาะทาง (`hematology`/`clinchem`/`clinmicro`/`immunoassay`/`bloodbank`/`molecular`/`pathology`...) → `anti-hallucination` (กันมั่วค่า/อ้างอิง) → `explain-simply` (อธิบายผลให้คนไข้/แพทย์)
+*confirm lane:* reactive screen → `immunoassay-judgment` + `molecular-judgment` (ยืนยัน)
+
 **🔬 ทำวิจัย R2R ครบวงจร**
 `r2r-research-proposal` → `choose-stat-test` → `sample-size-power` → `r2r-stats` → `polite-but-clear` (ตอบ reviewer) + `explain-simply` (อธิบายผลให้คนทั่วไป)
 
@@ -82,12 +86,12 @@
 `content-creator-judgment` (เลือกหัวข้อ) → `explain-simply` (ทำให้ง่าย) → `anti-hallucination` (อย่ามั่ว) → `polite-but-clear` (ปรับโทน)
 
 **🧭 ตัดสินใจชีวิต / อาชีพ**
-`what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `crm-judgment` (ถ้าไป sales/คลินิก)
+`what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `crm-judgment`/`finance-judgment` (สาย sales/ธุรกิจ) + `digital-judgment` (PDPA/กัน scam)
 
 **🛠️ จัดการงาน / ทรัพยากร**
 `never-lose-a-file` (จัดไฟล์) + `optimization-judgment` (จัดเวร/จัดสรร) + `offload-to-automation` (อัตโนมัติ)
 
-> เคล็ด: ไม่รู้จะเริ่ม combo ไหน → เริ่มที่ `what-skill-do-i-need` · อยากให้ AI route เอง → ใช้ `ai-agent-team` เป็นหัวหน้าทีมคอยหยิบสกิลที่ใช่
+> เคล็ด: ไม่รู้จะเริ่ม combo ไหน → เริ่มที่ `what-skill-do-i-need` · อยากให้ AI route เอง → ใช้ `ai-agent-team` เป็นหัวหน้าทีม · **อยากเห็น AI ทำถึงไหน → วาง `progress-tracker` คู่ combo ไหนก็ได้**
 
 ---
 

@@ -82,7 +82,7 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 
 ### Method 2: Email (ถ้าไม่ใช้ GitHub)
 
-ส่ง .md / .docx file มาที่: [email TBD]
+เปิด **GitHub Issue** ของ repo นี้ → เล่าเคส/แปะเนื้อหามาในนั้นได้เลย (ไม่ต้อง fork/PR) → maintainer แปลงเป็น skill/expert-fill ให้
 Title: `[CONTRIB] <topic> - <ชื่อย่อ>`
 
 ## ✅ Review criteria

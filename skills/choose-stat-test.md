@@ -36,6 +36,27 @@ disclaimer: "ช่วยชี้ว่าควรใช้ test ไหนเ�
 
 ### ขั้น 2 — ใช้ decision tree
 
+```mermaid
+flowchart TD
+  A["ถาม 3: เป้าหมาย? · outcome ชนิดไหน? · กี่กลุ่ม จับคู่ไหม?"] --> B{เป้าหมาย}
+  B -->|เปรียบเทียบค่าเฉลี่ย| C{กี่กลุ่ม จับคู่ไหม}
+  C -->|1 กลุ่ม vs ค่าอ้าง| C1["one-sample t-test"]
+  C -->|2 กลุ่ม จับคู่| C2["paired t-test"]
+  C -->|2 กลุ่ม อิสระ| C3["two-sample Welch"]
+  C -->|3 กลุ่มขึ้นไป| C4["ANOVA + post-hoc"]
+  C -->|skew หรือ n เล็ก หรือ ordinal| C5["non-parametric (Mann-Whitney/Wilcoxon/Kruskal)"]
+  B -->|สัดส่วน นับ| D{ลักษณะ}
+  D -->|1-2 สัดส่วน| D1["z-test proportion (SE ใช้ p0)"]
+  D -->|ตาราง RxC| D2["Chi-square (expected 5+)"]
+  D -->|2x2 cell เล็ก| D3["Fisher exact"]
+  B -->|ความสัมพันธ์ ทำนาย| E{outcome}
+  E -->|2 ตัวเลข เชิงเส้น| E1["Pearson / linear regression"]
+  E -->|binary| E2["logistic regression (OR=e^b)"]
+  B -->|ความสอดคล้อง เทียบวิธีวัด| F{ชนิด}
+  F -->|ตัวเลข| F1["Bland-Altman + ICC (ไม่ใช่ correlation)"]
+  F -->|หมวด| F2["Cohen kappa (ordinal→weighted)"]
+```
+
 **A. เปรียบเทียบค่าเฉลี่ย (outcome = ตัวเลข)**
 - 1 กลุ่ม เทียบค่าอ้างอิง → **one-sample t-test**
 - 2 กลุ่ม **จับคู่** (ก่อน-หลัง, วัดซ้ำหน่วยเดียว) → **paired t-test** (ทำผลต่างก่อน)

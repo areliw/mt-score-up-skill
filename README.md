@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (34 สกิล)
+## 📚 ส่วนที่ 1 — Skills (35 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
@@ -43,6 +43,7 @@
 | [what-skill-do-i-need](./skills/what-skill-do-i-need.md) | วินิจฉัยว่าคุณต้องการ skill ไหนจริงๆ |
 | [offload-to-automation](./skills/offload-to-automation.md) | งานเป๊ะให้ code ทำ AI เป็นคนคุม+ตรวจ |
 | [anti-hallucination](./skills/anti-hallucination.md) | กัน + จับ AI มั่วข้อเท็จจริง/อ้างอิง |
+| [progress-tracker](./skills/progress-tracker.md) | วางคู่สกิลไหนก็ได้ → AI โชว์ checklist/flowchart ว่าทำถึงไหน |
 
 ### 💬 สื่อสาร
 | skill | ช่วยอะไร |

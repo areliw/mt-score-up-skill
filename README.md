@@ -6,10 +6,22 @@
 
 ---
 
-## 📚 ส่วนที่ 1 — Skills (23 สกิล)
+## 📚 ส่วนที่ 1 — Skills (32 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
+
+### 🩸 งานแล็บ (Lab bench)
+| skill | ช่วยอะไร |
+|---|---|
+| [bloodbank-judgment](./skills/bloodbank-judgment.md) | ตัดสินใจหน้างานธนาคารเลือด — ABO discrepancy / antibody ID / crossmatch / transfusion reaction |
+| [hematology-judgment](./skills/hematology-judgment.md) | อ่าน CBC/smear/coag — review smear เมื่อไหร่ · anemia path · blast · thal vs IDA · PT/aPTT |
+| [clinchem-judgment](./skills/clinchem-judgment.md) | QC accept/reject (Westgard) · interference HIL · critical value · recalibrate vs troubleshoot |
+| [clinmicro-judgment](./skills/clinmicro-judgment.md) | เชื้อจริง vs contaminate · ID workflow · อ่าน AST/MDR · culture vs molecular |
+| [immunoassay-judgment](./skills/immunoassay-judgment.md) | เลือก format · อ่าน HBV/HIV/syphilis/ANA panel · prozone/hook/window |
+| [parasitology-judgment](./skills/parasitology-judgment.md) | เลือก concentration/stain · malaria thick/thin + ตรวจซ้ำ · single-stool false-neg |
+| [toxicology-judgment](./skills/toxicology-judgment.md) | screen vs confirm · antidote (OP/carbamate/paraquat) · chelator · TDM timing |
+| [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → 1 วินิจฉัย (pivotal → DDx → rule-out) |
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 | skill | ช่วยอะไร |
@@ -42,6 +54,7 @@
 | [ikigai-finder](./skills/ikigai-finder.md) | หา ikigai แบบไม่หลอกตัวเอง |
 | [self-development-coach](./skills/self-development-coach.md) | โค้ชพัฒนาตัวเองแบบตรงไปตรงมา |
 | [crm-judgment](./skills/crm-judgment.md) | คิดแบบลูกค้า สำหรับ MT สาย sales/คลินิก/แอป |
+| [digital-judgment](./skills/digital-judgment.md) | privacy/PDPA/security/ลิขสิทธิ์/ลงทุน — ไม่โดนหลอก |
 
 ### 💻 โค้ด / เทคนิค / data
 | skill | ช่วยอะไร |

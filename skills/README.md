@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**23 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**32 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -12,6 +12,16 @@
 ---
 
 ## รายการ
+
+### 🩸 งานแล็บ (Lab bench)
+- **bloodbank-judgment** — ตัดสินใจหน้างานธนาคารเลือด (CLERICAL ก่อน · ABO discrepancy 8 เคส · antibody ID · crossmatch IS/AHG/electronic · เมื่อไหร่ irradiate · transfusion reaction) — patient-safety สูงสุด
+- **hematology-judgment** — อ่าน CBC/smear/coag (review smear เมื่อไหร่ · anemia ตาม MCV · blast=urgent · thal vs IDA · PT/aPTT + mixing test · platelet จริงหรือ pseudo)
+- **clinchem-judgment** — accept/reject QC run (Westgard) · interference HIL กระทบ analyte ไหน · critical value · recalibrate vs troubleshoot · dilute/repeat/report
+- **clinmicro-judgment** — เชื้อจริง vs contaminate · ID workflow + เมื่อไหร่พอ · อ่าน AST (ESBL/MRSA/inducible-clinda/CRE) · เลือก media/atmosphere · culture vs molecular
+- **immunoassay-judgment** — เลือก format (sandwich/competitive/CLIA/lateral flow) · อ่าน HBV/HIV/syphilis/ANA panel · prozone/hook/window/confirm
+- **parasitology-judgment** — เลือก concentration/stain ตามเป้า · malaria thick vs thin + ตรวจซ้ำ · single-stool false-neg · artifact vs parasite
+- **toxicology-judgment** — screen vs confirm · antidote tree (OP/carbamate/paraquat/โลหะ) · chelator คู่โลหะ · RBC-AChE vs plasma ChE · TDM timing · chain of custody
+- **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็น 1 วินิจฉัย (pivotal value → DDx → rule-out → cause-effect chain)
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
@@ -36,6 +46,7 @@
 - **ikigai-finder** — หา ikigai แบบไม่หลอกตัวเอง → จบที่ "1 การทดลอง" ไม่ใช่ลาออกตามฝัน
 - **self-development-coach** — โค้ชพัฒนาตัวเองแบบตรงไปตรงมา ไม่ปลอบใจลอยๆ
 - **crm-judgment** — คิดแบบลูกค้า (segment/CLV 2×2/CF-CBF/วิกฤต PR) สำหรับ MT สาย sales/คลินิก/แอป
+- **digital-judgment** — privacy/PDPA/de-identify/security/ลิขสิทธิ์/ลงทุนออนไลน์ — ตัดสินใจปลอดภัย ไม่โดนหลอก
 
 ### 💻 โค้ด / เทคนิค / data
 - **python-coach** — เลือก data structure/วิธี + กับดัก Python (.sort() คืน None, mutable default ฯลฯ)

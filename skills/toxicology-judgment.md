@@ -1,0 +1,113 @@
+---
+skill: toxicology-judgment
+title: ตัวช่วยตัดสินใจงานพิษวิทยา/นิติพิษวิทยา (Toxicology Judgment)
+type: ADVISE
+needs: any
+author: "Phanuphong Tameesak - MT Score UP!"
+reviewed: 2026-06-01
+status: draft
+disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# ตัวช่วยตัดสินใจงานพิษวิทยา/นิติพิษวิทยา
+
+ตัวช่วยตัดสินใจในงานพิษวิทยา/นิติพิษวิทยา (clinical + forensic tox lab) — เน้น "ตัดสินใจอะไร + พลาดตรงไหนแล้วอันตราย" ไม่ใช่ท่องตาราง LD50/ชื่อยา
+
+> กฎความปลอดภัยหลัก: ผล screen-positive ต้อง confirm ด้วย GC-MS/LC-MS ก่อนรายงานเสมอ และการให้ antidote/chelator ผิดคู่ = อันตรายถึงชีวิต — ช่วยคิดเท่านั้น ไม่ตัดสินใจแทนแพทย์/ศูนย์พิษวิทยา
+
+## ใช้เมื่อ
+- "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"
+- "antidote ตัวนี้ให้อะไร?" · OP / carbamate / paraquat / โลหะหนัก poisoning
+- "เก็บ specimen อะไร / เจาะตอนไหน?" · TDM trough vs peak
+- forensic case → chain of custody / ใช้ในศาลได้ไหม
+
+## วิธีใช้
+วาง skill นี้ + บอกเคส (สารที่สงสัย / clinical หรือ forensic / specimen ที่มี / เป้าหมาย screen-confirm-quantify) → AI ช่วยคิดทาง decision fork + เตือนกับดักที่อันตราย แล้วชี้ขั้นตอนที่ต้อง confirm/ยืนยันกับแพทย์
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+ก่อนแนะนำ ให้ clarify 4 อย่างก่อนเสมอ:
+1. clinical หรือ forensic? — forensic = ทุกขั้นต้องมี chain of custody + confirm (ใช้ในศาล); clinical = เร็ว เพื่อรักษา
+2. สารอะไร / สงสัยกลุ่มไหน (opioid / ATS / OP / โลหะ / volatile…) — กำหนด specimen + วิธี + antidote
+3. acute หรือ chronic + เวลาที่สัมผัส — เลือก specimen (blood/urine/hair) + marker (RBC vs plasma ChE)
+4. เป้าหมาย: screen / confirm / quantify (TDM, BAC) — คนละวิธี คนละ tube
+
+### Fork 1 — Screen vs Confirm (กฎเหล็ก)
+- Screen (immunoassay: EMIT/FPIA/KIMS, color test, latex agglutination) = เร็ว ถูก ไว แต่ cross-react → false positive
+- Confirm (GC-MS / LC-MS/MS = gold standard; TLC/HPLC รองลงมา) = จำเพาะ ระบุตัวสารชัด
+- กฎ: positive จาก screen → ต้อง CONFIRM ด้วย GC-MS/LC-MS ก่อนรายงาน "positive" เสมอ โดยเฉพาะ forensic/ทางกฎหมาย
+- cross-react ที่ต้องระวัง: amphetamine screen ↔ ephedrine/pseudoephedrine/phenylpropanolamine/ranitidine/chloroquine · opiate immunoassay ↔ poppy seed/codeine
+- 6-MAM (6-monoacetylmorphine) = marker จำเพาะ heroin (แยก heroin จาก morphine/codeine) — ใช้ตอน confirm
+
+### Fork 2 — เลือก specimen (ตามสาร + ช่วงเวลา)
+| ต้องการ | เลือก specimen | เหตุผล |
+|---|---|---|
+| alcohol / toluene / volatile | whole blood (+ GC-headspace) | ระเหย, ปิดสนิท |
+| acute drug level / สดๆ | blood (morphine, MA, sedative, ChE) | สะท้อนระดับ ณ เวลานั้น |
+| ใช้/สัมผัสล่าสุด (วัน) | urine (morphine, MA, THC-COOH) | ปริมาณมาก metabolite |
+| ย้อนหลังหลายสัปดาห์-เดือน | hair (>50 เส้น/2g ตัดชิดโคน), เล็บ | timeline ยาว |
+| heroin โดยจำเพาะ | tracheal swab + 6-MAM | marker จำเพาะ |
+| โลหะหนัก | blood 10 ml / urine 200 ml | ปริมาณขั้นต่ำต่างชนิด |
+
+THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC สด
+
+### Fork 3 — Antidote (decision tree — ผิด = ตาย)
+- OP (organophosphate) → SLUDGE + muscarinic + nicotinic → Atropine (block muscarinic) + 2-PAM/Pralidoxime (reactivate AChE) — 2-PAM ต้องให้ก่อน "aging" ไม่งั้นไม่ได้ผล
+- Carbamate → คล้าย OP แต่ reversible (carbamylation) → Atropine อย่างเดียว · 2-PAM ไม่จำเป็น/อาจแย่ลง
+- Paraquat → ไม่มี antidote จำเพาะ; redox cycling → lung fibrosis · Fuller's earth 30% + hemoperfusion <10 ชม. · ห้ามให้ O₂ มาก (เร่ง radical)
+- Opioid (miosis + resp depression + coma) → Naloxone IV
+- Methanol → NaHCO₃ (แก้ acidosis) + ethanol แย่ง ADH (กัน formic acid → ตาบอด); fomepizole ก็ได้
+- Cyanide → จับ cytochrome → ชุด antidote (nitrite/thiosulfate/hydroxocobalamin)
+- Warfarin/coumarin rodenticide → Vitamin K
+- โลหะหนัก → chelator ตามโลหะ (Fork 4)
+
+### Fork 4 — Chelator ไหนสำหรับโลหะอะไร (ห้ามจับผิดคู่)
+| โลหะ | chelator แรก | ห้าม / caveat |
+|---|---|---|
+| Pb (lead) | Ca-EDTA (หรือ BAL/penicillamine) | ห้ามใช้เกลือ Na-EDTA → hypocalcemic tetany |
+| As / Hg | BAL (dimercaprol) / DMPS | — |
+| Cd (cadmium) | (ประคับประคอง) | BAL ห้ามใช้กับ Cd → เพิ่มพิษไต |
+| Cu / Wilson's | Penicillamine | ห้ามในคนแพ้ penicillin |
+| Fe เกิน / transfusion | Desferrioxamine | — |
+| Nickel carbonyl (acute) | Dithiocarb (DDC) | DOC |
+
+### Fork 5 — RBC-AChE (chronic) vs plasma ChE (acute)
+- Plasma pseudocholinesterase (butyryl-ChE) = สังเคราะห์ที่ตับ ฟื้นเร็ว → ไวต่อ acute แต่ ลดได้จากตับวาย/ทุพโภชนาการ (false low)
+- RBC-AChE (true ChE) = ตัวเดียวกับที่ NMJ/CNS → สะท้อนผลต่อ target จริง + chronic/cumulative, ฟื้นช้า
+- OP poisoning จริง: ChE ลด >50% จาก baseline · ref ~3,500–8,000 U/L
+
+### Fork 6 — TDM timing (LADME + steady state)
+- เจาะที่ steady state เสมอ
+- Trough = เจาะก่อน dose ถัดไป (ต่ำสุด) → ประเมิน toxicity (ใช้บ่อยสุด)
+- Peak = หลัง dose → ประเมินประสิทธิภาพ (aminoglycoside)
+- specimen: serum preferred · gel separator tube ดูดซับยา (phenytoin) → ใช้ plain tube · tacrolimus + cyclosporine ใช้ whole blood
+- ยา narrow-range: phenytoin/phenobarbital/valproate, digoxin, lithium, vancomycin/aminoglycoside, tacrolimus/cyclosporine/sirolimus, theophylline, methotrexate
+
+### Fork 7 — Forensic chain of custody
+- forensic specimen ทุกขั้น: ปิดผนึก + เซ็นชื่อ + log ผู้ถือครองทุกทอด + ป้องกัน tampering
+- chain หลุดแม้ขั้นเดียว = หลักฐานใช้ในศาลไม่ได้ (inadmissible) แม้ผลแลบถูก
+- forensic = ต้อง confirm (GC-MS/LC-MS) เสมอ
+
+## กับดัก (Anti-patterns)
+- 🔴 รายงาน "positive" จาก screen โดยไม่ confirm → false positive จาก cross-react — confirm GC-MS/LC-MS ก่อนเสมอ
+- 🔴 ให้ antidote ผิด — carbamate ไปให้ 2-PAM (อาจแย่ลง) · ลืม atropine+2-PAM ใน OP · naloxone ใน OP
+- 🔴 paraquat ให้ O₂ มาก = แย่ลง (เร่ง redox/radical)
+- 🔴 TDM เจาะผิดเวลา — เจาะก่อน steady state / peak ตอนควร trough → ปรับ dose ผิด
+- 🔴 chain of custody หลุด → ผลถูกแต่ใช้ในศาลไม่ได้
+- 🔴 specimen ผิดชนิด — volatile (alcohol/CN) เก็บ tube เปิด/gel = ระเหย/ดูดซับ · tacrolimus ใช้ serum (ควร whole blood) · phenytoin ใน gel tube
+- 🔴 plasma ChE false-low จากตับวาย → วินิจฉัย OP เกินจริง — ดู RBC-AChE + baseline
+- 🔴 BAL กับ Cd / Na-EDTA กับ Pb → เพิ่มพิษไต / hypocalcemic tetany
+- 🔴 corrosive ingestion → ทำให้อาเจียน/neutralize = re-expose หลอดอาหาร/เกิดความร้อน → ห้าม; เจือจางด้วยน้ำ/นม
+- 🔴 organochlorine ชัก → ให้ epinephrine = myocardial irritability (ห้าม); ใช้ diazepam/phenobarbital
+
+> NOTE: ความรู้พื้นฐาน (LD50 class, ADME, drug/metal/plant lists, TLC method) → ดู "ตำรา/แหล่งอ้างอิงมาตรฐาน"
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> เติม cutoff/ref-range ของ analyzer + protocol confirm ที่ห้องแลบของคุณใช้จริง (เครื่อง/reagent อะไร)
+> เติม antidote/chelator stock + dosing protocol + ช่องทางปรึกษาศูนย์พิษวิทยาในพื้นที่ของคุณ
+> เติม cross-react list ของ immunoassay kit ที่ใช้จริง + ยา/อาหารท้องถิ่นที่เคยทำให้ false positive
+
+---
+*skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*

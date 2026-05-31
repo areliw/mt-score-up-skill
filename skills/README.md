@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**38 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**40 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -50,9 +50,13 @@
 ### 🧭 ชีวิต / อาชีพ
 - **ikigai-finder** — หา ikigai แบบไม่หลอกตัวเอง → จบที่ "1 การทดลอง" ไม่ใช่ลาออกตามฝัน
 - **self-development-coach** — โค้ชพัฒนาตัวเองแบบตรงไปตรงมา ไม่ปลอบใจลอยๆ
-- **crm-judgment** — คิดแบบลูกค้า (segment/CLV 2×2/CF-CBF/วิกฤต PR) สำหรับ MT สาย sales/คลินิก/แอป
 - **digital-judgment** — privacy/PDPA/de-identify/security/ลิขสิทธิ์/ลงทุนออนไลน์ — ตัดสินใจปลอดภัย ไม่โดนหลอก
 - **finance-judgment** — การเงิน/ลงทุน/ธุรกิจ (บันไดเงิน · asset ตาม horizon · อ่านงบ/CFO · valuation · หนี้ดี-เลว · go/pivot · จับ scam)
+
+### 💼 บริหารแล็บ / ขาย IVD
+- **lab-management-judgment** — บริหารแล็บ: accreditation (ISO 15189/LA/HA) · QC strategy (sigma metric/IQCP) · งบ (เครื่อง=ลงทุน vs น้ำยา=ดำเนินงาน) · verification vs validation · inventory/FEFO
+- **ivd-sales-judgment** — ขาย IVD/diagnostics: ขายผลลัพธ์บริหารไม่ใช่สเปก · budget-pocket (rental→opex) · sigma-ROI · cost-per-reportable-result · spec-in · after-sales
+- **crm-judgment** — คิดแบบลูกค้า (segment/CLV 2×2/CF-CBF/วิกฤต PR) สำหรับ MT สาย sales/คลินิก/แอป
 
 ### 💻 โค้ด / เทคนิค / data
 - **python-coach** — เลือก data structure/วิธี + กับดัก Python (.sort() คืน None, mutable default ฯลฯ)
@@ -88,7 +92,10 @@
 `content-creator-judgment` (เลือกหัวข้อ) → `explain-simply` (ทำให้ง่าย) → `anti-hallucination` (อย่ามั่ว) → `polite-but-clear` (ปรับโทน)
 
 **🧭 ตัดสินใจชีวิต / อาชีพ**
-`what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `crm-judgment`/`finance-judgment` (สาย sales/ธุรกิจ) + `digital-judgment` (PDPA/กัน scam)
+`what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `finance-judgment` (เงิน/ธุรกิจ) + `digital-judgment` (PDPA/กัน scam) · สาย sales/แล็บ ดูคอมโบ 💼
+
+**💼 บริหารแล็บ / ขาย IVD**
+`lab-management-judgment` (เข้าใจ QMS/QC/งบของแล็บ) → `ivd-sales-judgment` (ขายผลลัพธ์บริหาร) → `crm-judgment` (คิดแบบลูกค้า) + `finance-judgment` (ROI/CPR) + `polite-but-clear` (คุยลูกค้า) · คู่กับ `clinchem-judgment` (QC หน้า bench ↔ QC strategy)
 
 **🛠️ จัดการงาน / ทรัพยากร**
 `never-lose-a-file` (จัดไฟล์) + `optimization-judgment` (จัดเวร/จัดสรร) + `offload-to-automation` (อัตโนมัติ)

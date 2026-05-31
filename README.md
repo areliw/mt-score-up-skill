@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (38 สกิล)
+## 📚 ส่วนที่ 1 — Skills (40 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
@@ -60,9 +60,15 @@
 |---|---|
 | [ikigai-finder](./skills/ikigai-finder.md) | หา ikigai แบบไม่หลอกตัวเอง |
 | [self-development-coach](./skills/self-development-coach.md) | โค้ชพัฒนาตัวเองแบบตรงไปตรงมา |
-| [crm-judgment](./skills/crm-judgment.md) | คิดแบบลูกค้า สำหรับ MT สาย sales/คลินิก/แอป |
 | [digital-judgment](./skills/digital-judgment.md) | privacy/PDPA/security/ลิขสิทธิ์/ลงทุน — ไม่โดนหลอก |
 | [finance-judgment](./skills/finance-judgment.md) | การเงิน/ลงทุน/อ่านงบ/ธุรกิจ — ลำดับเงิน + กันกับดัก/scam |
+
+### 💼 บริหารแล็บ / ขาย IVD
+| skill | ช่วยอะไร |
+|---|---|
+| [lab-management-judgment](./skills/lab-management-judgment.md) | QMS/ISO 15189 · QC strategy (sigma/IQCP) · งบ · verification · inventory |
+| [ivd-sales-judgment](./skills/ivd-sales-judgment.md) | ขาย IVD/diagnostics — ขายผลลัพธ์บริหาร · budget-pocket · ROI · spec-in |
+| [crm-judgment](./skills/crm-judgment.md) | คิดแบบลูกค้า สำหรับ MT สาย sales/คลินิก/แอป |
 
 ### 💻 โค้ด / เทคนิค / data
 | skill | ช่วยอะไร |
@@ -102,7 +108,7 @@
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 36 สกิล — copy ไฟล์ไปวางในแชต AI
+├── skills/        # ★ 40 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
 ├── templates/     # WI .docx templates (generic)

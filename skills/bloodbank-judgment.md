@@ -18,6 +18,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 ## ใช้เมื่อ
 - ABO ไม่ตรง (cell ≠ serum) · antibody screen บวก → จะ ID ยังไง · DAT/IAT อันไหน · crossmatch แบบไหน
 - เลือก component / เมื่อไหร่ irradiate / leukoreduce · transfusion reaction → workup · ฉุกเฉินจ่าย O เมื่อไหร่
+- HDN/HDFN (Rh vs ABO + RhIG) · เมื่อไหร่ใช้ genotype แทน serology · enhancement (enzyme/LISS/adsorption/elution) · support transplant/HSCT
 
 ## วิธีใช้
 วาง skill นี้ + เล่าเคส (ผล forward/reverse, screen, ประวัติ) → AI ชี้ "ทำอะไรก่อน" + กับดักอันตราย
@@ -45,13 +46,17 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 | **Rouleaux** (serum) | โปรตีนสูง (myeloma), "stack of coins" | **saline replacement** | ตามหมู่จริง |
 | **anti-H / Bombay** (serum extra) | screen+, **auto−**, จับ O cell แรง; XM ไม่เข้ากับ O ใครเลย | ยืนยัน Bombay RBC + saliva | **เลือด Bombay เท่านั้น** |
 | **Missing/weak Ab** (serum) | ทารก/สูงอายุ/hypogamma/BMT/myeloma | incubate RT/4°C นานขึ้น + autocontrol | ตามหมู่ที่ยืนยันได้ |
+| **Rhnull** (Rh typing ลบหมด) | complete Rh phenotype ลบทุก Ag → สร้าง **anti-Rh29** | molecular/ref lab ยืนยัน | **เลือด Rhnull เท่านั้น** (rare registry/family/autologous) |
+| **Passive anti-A,B** (serum/DAT extra) | ผู้ป่วย A/B ได้ **group O platelet/plasma** → DAT+ / eluate = anti-A,B | ดู Hx component (ไม่ใช่ auto/allo) | **O RBC ชั่วคราว** จน passive หาย → กลับ type-specific |
 
 ### Fork 2 — antibody screen บวก → ID strategy
 - **อ่าน autocontrol ก่อน:** auto− = **allo**antibody (panel ID ปกติ) · auto+ → คิด AIHA/cold-auto/recent transfusion ก่อน
 - **rule-out บน panel:** ขีดฆ่า antigen ที่ "cell ลบแต่ reaction บวก" → เหลือตัวที่ fit ทุกแถว = candidate; **ต้อง rule-out ด้วย homozygous cell** (เลี่ยง dosage บัง)
+- **95% (3-cell) rule:** สรุป Ab ได้เมื่อมี **≥3 cell (Ag+ → react+)** และ **≥3 cell (Ag− → react−)**; ไม่ครบ → หา selected cell เพิ่ม
+- **units to crossmatch ≈ requested ÷ Π(freq ของ Ag-negative)** — เช่น ขอ 3 unit + anti-E (E−0.7) + anti-Jka (Jka−0.25) → 3/(0.7×0.25) ≈ **17 units**
 - **dosage:** anti-Jk/Rh/Duffy/Kell/MNS จับ homo แรงกว่า het → het cell อ่าน "ลบลวง" ได้
 - **enzyme (ficin/papain):** Rh/Kidd/P/Lewis **เด่นขึ้น** · MNS/Duffy **ถูกทำลาย** → ใช้แยก 2 ระบบทับกัน
-- **multiple/pan-react:** ไม่ fit ตัวเดียว → selected cell + enzyme + เผื่อ HTLA/HFA → ส่ง ref lab (ศูนย์อ้างอิงระดับชาติ)
+- **multiple/pan-react หรือ XM ไม่เข้ากับ unit ใดเลย:** ไม่ fit ตัวเดียว → selected cell + enzyme + เผื่อ **antibody ต่อ high-incidence Ag** (anti-H/Bombay · **anti-Rh29/Rhnull** → ต้องเลือดชนิดเดียวกันจาก rare registry) + HTLA/HFA → ส่ง ref lab (ศูนย์อ้างอิงระดับชาติ)
 
 ### Fork 3 — DAT vs IAT เมื่อไหร่
 - **DAT** = RBC ถูกเคลือบ in vivo → สงสัย **AIHA / HDFN (cord) / HTR / drug-induced**; sample = **EDTA whole blood**
@@ -67,6 +72,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 | cold autoAb / Bombay / anti-H บัง | **prewarmed 37°C** |
 | ฉุกเฉินไม่ทันรอ | **O uncrossmatched** (ดู Fork 7) |
 > ⚠️ เคยมี clinically-sig Ab แม้ตอนนี้ screen ลบ (titer ตก) → **ยังต้องให้ antigen-neg + AHG XM** (anti-Jk anamnestic = delayed HTR)
+- **CAT/gel card:** grading objective + inter-observer ต่ำ (เหตุที่แทน tube) · ⚠️ **เลือกการ์ดถูกชนิด — ABO/IgM ใช้ neutral card (ไม่มี AHG); IAT/screen/XM ใช้ anti-IgG (Coombs) card** — ผิดการ์ด = อ่านผิด
+- ⚠️ **ก่อนจ่ายทุก unit ที่ XM ผ่าน → phenotype unit ว่า Ag-negative** ต่อ Ab ผู้ป่วย (เคส weak Ab/dosage: unit heterozygous อาจมี Ag จริงแต่ XM compatible ลวง)
 
 ### Fork 5 — component selection + เมื่อไหร่ irradiate/leukoreduce
 - **PRC:** anemia/thalassemia · **FFP:** ↑PT/aPTT, factor deficiency, warfarin reversal · **Platelet:** thrombocytopenia/bleeding (20-22°C agitation, ห้ามแช่เย็น) · **Cryo:** fibrinogen<100-150, FVIII, vWF, FXIII
@@ -87,6 +94,37 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - เลือดออกมาก/shock รอ XM ไม่ได้ → **O RBC** ทันที (หญิงวัยเจริญพันธุ์/เด็ก = **O neg**; ชาย/หญิงสูงอายุ = O pos ได้เมื่อ O neg ขาด)
 - เก็บ pretransfusion sample **ก่อน** ให้เลือดเสมอ · แพทย์เซ็น emergency release · ยืนยันหมู่แล้วสลับ type-specific เร็วสุด → full XM ภายหลัง
 
+### Fork 8 — HDN/HDFN: Rh vs ABO (แยกให้ขาด)
+กลไกร่วม: **IgG แม่** ผ่านรก → จับ Ag ทารก (รับจากพ่อ) → ทำลายที่ม้าม → ซีด + indirect hyperbilirubinemia → hydrops/kernicterus
+| | **Rh (anti-D)** | **ABO** |
+|---|---|---|
+| ครรภ์ | **ที่ 2+** (ต้อง sensitize ก่อน) | **แรกได้เลย** (anti-A,B natural IgG) |
+| คู่แม่-ลูก | แม่ Rh− ลูก Rh+ | แม่ **O** ลูก A/B |
+| ความรุนแรง | มาก | มักเบา |
+| **DAT ทารก** | **บวกชัด** | **มักลบ/อ่อน** (Ag น้อยบนเซลล์ทารก) |
+| smear | nucleated RBC | **spherocyte** |
+- ⚠️ ทารก hemolysis + DAT บวก แต่ไม่ใช่ ABO/Rh + **DAT แม่ลบ** → **Ab หมู่อื่น** (anti-c/E/Kell/Duffy/Kidd) → ID จาก maternal serum · Kell HDN กด erythropoiesis (bili อาจไม่สูงมาก)
+- ⚠️ **ABO HDN DAT ลบ ≠ ตัดทิ้ง** — ใช้ IAT + smear (spherocyte); ABO HDN + hydrops = ผิดปกติ หาเหตุอื่น (G6PD/HS)
+- **RhIG (anti-D):** แม่ Rh− (พ่อ Rh+) ให้ที่ **~28 wk + หลังคลอด 72 ชม.** (ถ้าลูก Rh+) + หลัง event เสี่ยง FMH (แท้ง/เจาะน้ำคร่ำ/ล้วงรก) · anti-D titer ≥ critical (~1:16) → ultrasound serial + ΔOD450
+- **เลือดให้ทารก/exchange:** PRC **O Rh−, low-titer, compatible serum แม่, <5-7 วัน, CMV-neg, leukodepleted, irradiated**; เกินเกณฑ์ bilirubin → exchange, เบากว่า → phototherapy
+
+### Fork 9 — เมื่อไหร่ใช้ molecular (genotype) แทน serology
+- **เพิ่ง transfuse (mixed-field) / DAT บวกแรง (auto-Ab เคลือบจน type ไม่ได้)** → genotype · **antigen ไม่มี antisera/หายาก** · **fetal RHD typing** จาก maternal plasma/amniotic (กัน HDFN โดยไม่เจาะเด็ก — ถ้าทารก Rh− ก็ไม่ต้องให้ RhIG เกินจำเป็น) · mass screen หา rare phenotype
+- เลือก method/แปล qPCR/กัน false +/− → ดู `molecular-judgment` (RFLP จำกัดที่ SNP ต้องตรง restriction site · ASP บอก homo/het · SSO/SSP throughput · SYBR false-pos จาก primer-dimer)
+- discrepancy **genotype vs phenotype** (weak D/partial D/Rh variant) = ต้องรู้ทั้งคู่ก่อนตัดสินจ่าย
+
+### Fork 10 — Enhancement: enzyme / LISS / adsorption / elution (+ controls)
+- **Enzyme (papain/ficin):** enhance **Rh/Kidd/P/Lewis/I** · destroy **MNS/Duffy** → "differential destruction" แยก Ab ปนกัน · ⚠️ ใช้ enzyme cell ตรวจ anti-Fya/M = false negative
+- **LISS:** ลด incubate (60-90→10-20 นาที) · ⚠️ **สัดส่วน serum:cell:LISS ตาม leaflet เป๊ะ** — มากไป false+, น้อยไป false−
+- **Adsorption** (ดูด Ab ออกจาก serum, แยก auto vs allo): ยืนยัน RBC มี Ag จริง; post-adsorbed serum ต้อง **IAT ลบ** = สำเร็จ
+- **Elution** (ดึง Ab จาก RBC เคลือบ DAT บวก → อยากรู้ Ab อะไร: HDN/AIHA/delayed HTR): ⚠️ **last-wash NSS = negative control** — last-wash บวก = ล้างไม่พอ eluate ใช้ไม่ได้
+
+### Fork 11 — Transplant/HSCT support (BB เกี่ยวตรงไหน)
+- **GvHD vs rejection (ใครโจมตีใคร):** rejection = ผู้รับโจมตี graft · **GvHD = donor lymphocyte โจมตีผู้รับ** → กันด้วย **irradiate component (Fork 5) + T-cell depletion**
+- **Hyperacute rejection = preexisting Ab** (เคยรับเลือด/ตั้งครรภ์/ปลูกถ่าย) → กันด้วย **crossmatch ก่อนปลูกถ่าย**
+- **HLA matching HSCT:** A/B/C/DRB1 = **8/8**, +DQB1 (10/10) ยิ่งดี; ลำดับ sib-identical → unrelated → haplo/cord
+- **ABO-incompatible graft:** RBC-deplete (major) / plasma-reduce; post-transplant **monitor ABO Ab titer**; CD34+ count (flow) = quantify progenitor
+
 ---
 
 ## กับดัก (Anti-patterns) — อันตราย เช็คทุกเคส
@@ -101,6 +139,10 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **DAT false neg จากล้างไม่พอ** → CCC ยืนยันทุก negative AHG
 - **rouleaux อ่านเป็น true agglutination** → saline replacement แยก
 - **platelet แช่เย็น / RBC นอกตู้** = storage lesion (RBC 1-6°C, platelet 20-22°C agitation, thawed plasma ใช้ใน 4 ชม. ห้าม refreeze)
+- **ตัด ABO HDN ทิ้งเพราะ DAT ลบ** → DAT มักลบ/อ่อน; ใช้ IAT + spherocyte smear · ทารก DAT+ ที่ไม่ใช่ ABO/Rh = หา Ab หมู่อื่นจาก serum แม่
+- **ลืม control ของ enhancement** → last-wash NSS (elution) / สัดส่วน LISS ผิด = อ่าน eluate/reaction ผิดทั้ง run
+- **parentage จาก serology = exclude ได้เท่านั้น ไม่ confirm** — "ไม่ขัด" ≠ "เป็นพ่อ"; ยืนยันความเป็นพ่อต้อง molecular/STR
+- **passive anti-A,B จาก O component อ่านเป็น auto/alloAb** → เช็ค Hx ได้ platelet/plasma หมู่ O ก่อน (DAT+/eluate anti-A,B)
 
 ---
 

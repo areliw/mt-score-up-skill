@@ -9,9 +9,9 @@
 
 ## Last full verification
 
-**Date:** 2026-05-27
+**Date:** 2026-06-01
 **Method:** WebSearch via Claude Code agent
-**Next scheduled recheck:** 2026-06-26 (30-day cadence — see Layer 3 in [README](README.md))
+**Next scheduled recheck:** 2026-07-01 (30-day cadence — see Layer 3 in [README](README.md))
 
 ---
 
@@ -21,8 +21,8 @@
 
 | Standard | Current edition | Published | Notes | Last verified |
 |---|---|---|---|---|
-| **ISO 15189** | `:2022` (4th ed) | 2022-12 | Replaces :2012. Risk-based thinking + ISO 22870 (POCT) merged in. | 2026-05-27 |
-| **ISO 15190** | `:2020` | 2020 | Replaces :2003. ⚠️ **ISO/AWI 15190 in draft** (Nov 2025) — monitor | 2026-05-27 |
+| **ISO 15189** | `:2022` (4th ed) | 2022-12 | Replaces :2012. Risk-based thinking + ISO 22870 (POCT) merged in. | 2026-06-01 |
+| **ISO 15190** | `:2020` | 2020 | Replaces :2003. ⚠️ **ISO/AWI 15190 in draft** (Nov 2025) — monitor | 2026-06-01 |
 | **AABB Technical Manual** | `21st edition` | 2023 | Blood Bank — used in PRC/component prep WIs | 2026-05-27 |
 
 ### Secondary (ใช้ตามแผนก/ความเกี่ยวข้อง)

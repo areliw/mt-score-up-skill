@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
-Standards recheck — fetch current published edition from iso.org / aabb.org,
-update STANDARDS.md if newer edition detected.
+Standards recheck — fetch current published edition from iso.org and refresh
+STANDARDS.md date stamps on a clean run. A newer edition is NOT auto-applied:
+the script leaves STANDARDS.md untouched and signals for human review, so a
+fresh "verified" date is never stamped over an un-applied edition change.
 
 Exit codes:
-    0 = success, no changes (Last verified date refreshed only)
-    1 = error (e.g., page unreachable, HTML pattern changed) — workflow opens issue
-    2 = changes detected (newer edition found) — workflow commits + pushes
+    0 = clean run, current editions confirmed — date stamps refreshed
+    1 = error (page unreachable / HTML pattern changed) — workflow opens issue;
+        date stamps NOT refreshed (never stamp "verified" on a failed check)
+    2 = newer edition detected — STANDARDS.md left unchanged; workflow opens an
+        issue/PR for human review (no silent auto-commit)
 
 Run: python scripts/recheck_standards.py [--dry-run]
 """
@@ -80,6 +84,8 @@ def check_source(source: dict) -> dict:
 
 
 def update_file(results: list, dry_run: bool) -> bool:
+    """Refresh STANDARDS.md date stamps. Call ONLY on a clean run — never when an
+    edition change is pending, or the fresh date would mask staleness."""
     text = STANDARDS_FILE.read_text(encoding="utf-8")
     new_text = text
 
@@ -140,12 +146,23 @@ def main() -> int:
         else:
             print(f"  [OK]  {r['name']}: confirmed :{r['detected_year']}")
 
-    update_file(results, dry_run=dry_run)
-
+    # A detected edition change must NOT silently rewrite STANDARDS.md or refresh the
+    # "last verified" stamp — that would mask staleness. Leave the file untouched and
+    # signal for human review (the workflow opens an issue/PR on exit 2).
     if has_change:
+        print(
+            "\n[ACTION] Newer edition detected — STANDARDS.md left unchanged.\n"
+            "         A human must verify the edition, update STANDARDS.md, and bump\n"
+            "         current_year in this script via PR."
+        )
         return 2
+
+    # On a fetch/parse error, do NOT refresh date stamps — stamping "verified" when a
+    # source was unreachable would itself mask staleness.
     if has_error:
         return 1
+
+    update_file(results, dry_run=dry_run)
     return 0
 
 

@@ -12,7 +12,7 @@ value with the corresponding `{{ placeholder }}`. The exact cell location doesn'
 matter — docxtpl finds placeholders wherever they are.
 
 Usage:
-    python scripts/mark_template_hospital-b.py <input.docx> <output_marked.docx>
+    python scripts/mark_template.py <input.docx> <output_marked.docx>
 """
 from __future__ import annotations
 
@@ -29,7 +29,7 @@ if sys.platform == "win32":
         pass
 
 
-def mark_hospital-b_template(src: Path, dst: Path) -> None:
+def mark_hospital_b_template(src: Path, dst: Path) -> None:
     """Programmatically add docxtpl placeholders at known ตัวอย่าง B positions.
 
     Section header structure (3 rows × 1 col):
@@ -81,7 +81,7 @@ def main() -> int:
     if not src.exists():
         print(f"ERROR: {src} not found")
         return 1
-    mark_hospital-b_template(src, dst)
+    mark_hospital_b_template(src, dst)
     return 0
 
 

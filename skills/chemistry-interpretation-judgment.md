@@ -16,6 +16,8 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 > นี่คือชั้น "ค่าออกมาแล้วแปลผล" — ส่วน QC/accept-reject run/Westgard ดู `clinchem-judgment` · ร้อยผลข้ามแขนง → ตั้ง DDx → ส่งต่อแพทย์ ดู `clinical-correlation-judgment`
 > ⚠️ MT ตีความ/flag/ชี้ทาง — **การวินิจฉัยเป็นหน้าที่แพทย์**
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - อ่าน LFT/renal/cardiac/ABG/tumor marker แล้วต้องบอก pattern + ขั้นถัดไป
 - เลือก marker/สูตร (eGFR ตัวไหน · marker หัวใจตามเวลา · tumor marker ใช้/ไม่ใช้)

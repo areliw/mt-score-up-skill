@@ -15,6 +15,8 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 
 > MT ไม่สั่งจ่ายยา — แต่ต้องรู้ทันว่า **ยาบิดค่าแล็บ/ทำให้แพ้/ตีกัน** ยังไง + จุดที่ genomics เชื่อมกับยา · pharmacogenomics ดู `molecular-judgment` · พิษยา/overdose ดู `toxicology-judgment` · ร้อยกับเคส ดู `clinical-correlation-judgment`
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - อ่านอาการ/ค่าแล็บแล้วสงสัยเกี่ยวกับยา (drug effect/interaction บิดผล)
 - แยก **ผลข้างเคียง vs แพ้ยา** · เฝ้าระวังแพ้รุนแรง (SJS/TEN)

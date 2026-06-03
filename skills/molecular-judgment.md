@@ -16,6 +16,8 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 > ความผิดพลาด molecular ที่เจ็บสุดคือ **false-negative จาก inhibitor/ลืม control** (บอกคนไข้ไม่มีเชื้อ/ไม่มี mutation ผิด) และ **false-positive จาก contamination** (carryover) — skill นี้นำด้วย 3 ด่านความปลอดภัยก่อนทุกการแปลผล
 > เลือกโมเดล ML ต่อจาก genotype → ดู `ml-judgment` · วาง stat/sens-spec → `choose-stat-test`
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - ต้อง detect mutation/SNP/fusion/เชื้อ → **เลือก method ไหน** (cost/turnaround/known-vs-unknown variant)
 - แปล real-time PCR (Ct, melt curve, HRM) · ตัดสิน positive/negative/invalid

@@ -15,6 +15,8 @@ disclaimer: "ช่วยคิดงานจุลชีววิทยาป�
 
 > คนละเลนกับ clinical micro (เจอเชื้อในคนไข้ → ID+AST ดู `clinmicro-judgment`) · เลือก molecular method/แปล qPCR → `molecular-judgment` · บริหาร/ขายเครื่องตรวจ → `lab-management-judgment`
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - เลือกวิธีถนอมอาหาร / เข้าใจทำไม spoilage เกิด
 - ตรวจหา food-borne pathogen — เลือก conventional vs rapid vs molecular

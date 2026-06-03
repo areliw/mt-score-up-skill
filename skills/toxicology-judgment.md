@@ -15,6 +15,8 @@ disclaimer: "skill นี้เป็นเครื่องช่วยคิ�
 
 > กฎความปลอดภัยหลัก: ผล screen-positive ต้อง confirm ด้วย GC-MS/LC-MS ก่อนรายงานเสมอ และการให้ antidote/chelator ผิดคู่ = อันตรายถึงชีวิต — ช่วยคิดเท่านั้น ไม่ตัดสินใจแทนแพทย์/ศูนย์พิษวิทยา
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"
 - "antidote ตัวนี้ให้อะไร?" · OP / carbamate / paraquat / โลหะหนัก poisoning

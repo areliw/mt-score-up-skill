@@ -15,6 +15,8 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพ
 
 > กฎเหล็ก: reactive screen ≠ diagnosis — ต้อง confirm ด้วย test ที่ specificity สูงก่อน report เสมอ. และเลือก format ตาม analyte (ใหญ่ = sandwich, เล็ก = competitive).
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - ต้องเลือก immunoassay format ให้เหมาะกับ analyte (sandwich vs competitive vs CLIA/ECLIA vs lateral flow)
 - ต้องตีความ serology panel — HBV, HIV algorithm, syphilis NTT/TT, ANA pattern

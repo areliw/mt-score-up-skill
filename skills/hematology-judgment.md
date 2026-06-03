@@ -15,6 +15,8 @@ disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศ
 
 > flag จากเครื่อง = สัญญาณ ไม่ใช่คำตอบ · ทุก flag ที่กระทบการรักษา (blast, platelet ต่ำจริง) ต้อง review smear ด้วยตาก่อน report เสมอ
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - เห็น CBC/analyzer flag → ต้อง review smear ด้วยตามั้ย? reflex test อะไร?
 - วาง anemia workup · แยก thal vs IDA · เจอ blast/abnormal cell · platelet ต่ำ จริงหรือ artifact

@@ -16,6 +16,8 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 > สำหรับ MT/lab ที่จับ specimen ติดเชื้อทุกวัน + งาน IPC · เชื้อก่อโรค/AST ดู `clinmicro-judgment` · ความปลอดภัยระดับระบบ (ISO 15190) ดู `lab-management-judgment`
 > หลัก: **เลือกระดับการป้องกันตาม "ทางแพร่เชื้อ" (contact/droplet/airborne)** + รู้ข้อยกเว้นที่ default พลาด (spore, airborne)
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - เคสนี้ใช้ PPE อะไร / precaution แบบไหน / ห้องความดันบวกหรือลบ
 - เข็มตำ/สัมผัสสารคัดหลั่ง → ทำอะไรต่อ

@@ -15,6 +15,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 
 > หลักความปลอดภัย: **Sample integrity gate มาก่อน QC; QC gate มาก่อนปล่อยผล.** ปล่อยผลผิด 1 ค่า = หมอรักษาผิด 1 คน. เมื่อสงสัย → repeat/hold ก่อน report เสมอ.
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - ดู QC แล้วต้องตัดสิน accept หรือ reject run · Westgard ตัวไหน fire · L-J chart shift/trend แปลว่าอะไร
 - เจอ sample hemolyzed/lipemic/icteric/clotted → ปล่อยผลได้มั้ย ตัวไหนเชื่อไม่ได้

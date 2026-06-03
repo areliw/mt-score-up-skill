@@ -15,6 +15,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 
 > งาน BB คือจุดที่ "ตัดสินใจผิด = คนไข้ตาย" ตรงไปตรงมาที่สุดในวิชาชีพ MT — **ABO mislabel = สาเหตุ #1 ของ fatal acute hemolytic reaction**. skill นี้จึงนำด้วยความปลอดภัย: clerical ก่อน serology เสมอ
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - ABO ไม่ตรง (cell ≠ serum) · antibody screen บวก → จะ ID ยังไง · DAT/IAT อันไหน · crossmatch แบบไหน
 - เลือก component / เมื่อไหร่ irradiate / leukoreduce · transfusion reaction → workup · ฉุกเฉินจ่าย O เมื่อไหร่

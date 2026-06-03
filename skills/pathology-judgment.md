@@ -16,6 +16,8 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 > หลัก: พยาธิ = **"อ่าน pattern + ให้เกณฑ์"** — อย่าฟันธงด้วยความรู้สึก ใช้ **เกณฑ์ที่ชัด** (เกณฑ์ malignancy, basement membrane, lines of Zahn) แล้ว **confirm ด้วย test ที่ถูก**
 > เชื่อมเคส lab → ตั้ง DDx/ชี้ทาง (ส่งต่อแพทย์) → ดู `clinical-correlation-judgment`
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - อ่านชิ้นเนื้อ/รายงานพยาธิ/เคส → **benign หรือ malignant**, dysplasia ข้ามเส้นยัง, grade/stage
 - เชื่อมโยง **lab/morphology → กลไกโรค** (ทำไมค่านี้ผิด, อักเสบแบบไหน, injury กลับได้ไหม)

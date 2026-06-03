@@ -15,6 +15,8 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 
 > กฎเหล็ก: correlate กับ Gram/clinical เดิมเสมอ ก่อน report. ผลที่ขัดกับ Gram smear, site, หรือ colony morphology = หยุด ทวนก่อน.
 
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
 ## ใช้เมื่อ
 - ต้อง decide ในงาน Micro — เชื้อจริงหรือปน, ID พอยัง, อ่าน AST, รายงาน MDR
 - รับ/ปฏิเสธ specimen, เลือก culture vs molecular

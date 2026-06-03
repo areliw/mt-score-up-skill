@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**46 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**47 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -63,6 +63,7 @@
 - **ivd-sales-judgment** — ขาย IVD/diagnostics: ขายผลลัพธ์บริหารไม่ใช่สเปก · budget-pocket (rental→opex) · sigma-ROI · cost-per-reportable-result · spec-in · after-sales
 - **crm-judgment** — คิดแบบลูกค้า (segment/CLV 2×2/CF-CBF/วิกฤต PR) สำหรับ MT สาย sales/คลินิก/แอป
 - **marketing-judgment** — กลยุทธ์การตลาด B2B: STP ก่อน 4P · buying center 5 บทบาท · pricing (อย่าตัดราคา/elasticity) · positioning · push vs pull · razor-blade install base
+- **sales-psychology-judgment** — จิตวิทยาการขาย/อ่านคน: อ่านแรงจูงใจ (Maslow/McClelland) · คนซื้อด้วย Ideal/Public self · active listening · trust/social proof · เทคนิคโน้มน้าว + เส้นจริยธรรม · เจรจา win-win
 
 ### 💻 โค้ด / เทคนิค / data
 - **python-coach** — เลือก data structure/วิธี + กับดัก Python (.sort() คืน None, mutable default ฯลฯ)
@@ -101,7 +102,7 @@
 `what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `finance-judgment` (เงิน/ธุรกิจ) + `digital-judgment` (PDPA/กัน scam) · สาย sales/แล็บ ดูคอมโบ 💼
 
 **💼 บริหารแล็บ / ขาย IVD**
-`marketing-judgment` (กลยุทธ์/STP/buying center) → `lab-management-judgment` (เข้าใจ QMS/QC/งบ) → `ivd-sales-judgment` (ปิดดีล) → `crm-judgment` (คิดแบบลูกค้า) + `finance-judgment` (ROI/CPR) + `mt-law-ethics-judgment` (กฎหมายเครื่องมือแพทย์/เคลมไม่เกินจริง) · คู่กับ `clinchem-judgment` (QC bench ↔ strategy)
+`marketing-judgment` (กลยุทธ์/STP/buying center) → `sales-psychology-judgment` (อ่านคน/โน้มน้าว/เจรจา) → `lab-management-judgment` (เข้าใจ QMS/QC/งบ) → `ivd-sales-judgment` (ปิดดีล) → `crm-judgment` (คิดแบบลูกค้า) + `finance-judgment` (ROI/CPR) + `mt-law-ethics-judgment` (กฎหมายเครื่องมือแพทย์/เคลมไม่เกินจริง) · คู่กับ `clinchem-judgment` (QC bench ↔ strategy)
 
 **🛠️ จัดการงาน / ทรัพยากร**
 `never-lose-a-file` (จัดไฟล์) + `optimization-judgment` (จัดเวร/จัดสรร) + `offload-to-automation` (อัตโนมัติ)

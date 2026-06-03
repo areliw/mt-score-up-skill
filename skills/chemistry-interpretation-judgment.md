@@ -71,6 +71,12 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 - **Drug method-dependent:** Jaffe Cr ↑ (ceph/ASA/vit C) · ดู `clinchem-judgment` สำหรับ HIL index/QC angle
 > หลัก "method matters" — ค่าแปลกสวน clinical → สงสัย interference ก่อนเชื่อ/ก่อนรายงาน
 
+### Fork 7 — Protein electrophoresis (SPEP) + lipid: อ่าน pattern
+- **SPEP region (จาก anode):** prealbumin (malnutrition ไว) · albumin (↓ inflammation/liver/nephrotic/malnutrition) · **α1** (α1-antitrypsin — ขาด→emphysema; AFP) · **α2** (**haptoglobin ↓ = hemolysis**; α2-macroglobulin↑ nephrotic; ceruloplasmin↓ Wilson) · **β** (**transferrin** — แยก anemia DDx; C3/C4) · **γ** (immunoglobulin)
+- **pattern ที่ต้องอ่าน:** **polyclonal gammopathy** (γ กว้าง = infection/chronic inflammation) vs **monoclonal (M-spike/paraprotein = แหลมเดียว)** → **สงสัย multiple myeloma** → confirm **immunofixation (IFE)** + free light chain (ดู `immunoassay-judgment`) · TP↑ dehydration/myeloma · TP↓ liver/nephrotic
+- 🩸 **haptoglobin ↓ = hemolysis marker** (โยง transfusion reaction/hemolytic anemia); transferrin/iron = anemia DDx
+- **Friedewald LDL = TC − HDL − TG/5** ⚠️ **ใช้ไม่ได้เมื่อ TG > 400** → ต้อง direct LDL
+
 ---
 
 ## กับดัก (Anti-patterns)
@@ -82,6 +88,8 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 - **ตัด DKA เพราะ urine ketone ลบ** (early DKA β-OHB เด่น; dipstick จับ acetoacetate)
 - **เชื่อ calculated SO2** เมื่อมี CO/MetHb — ต้อง co-oximeter
 - **อ่าน LFT/bilirubin ทีละตัว** แทน pattern (DB/TB + AST:ALT + GGT)
+- **มองข้าม M-spike (monoclonal)** บน SPEP — แหลมเดียว = สงสัย myeloma → IFE confirm; haptoglobin↓ = hemolysis อย่ามองข้าม
+- **ใช้ Friedewald LDL เมื่อ TG > 400** — ผิด ต้อง direct LDL
 
 ---
 

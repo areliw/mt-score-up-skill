@@ -42,6 +42,7 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 
 ### Fork 3 — ยาตีกัน (drug interaction) — ยา-ยา / ยา-อาหาร / ยา-โรค
 - หลัก: **ใช้ยาน้อยชนิดที่สุด** (interaction เกิดเมื่อ >1 ตัว)
+- **CYP450 enzyme (กลไกที่มองข้ามบ่อย):** inducer (rifampicin/ยากันชัก/บุหรี่) → เร่ง metabolism → ยาตัวอื่นออกฤทธิ์**ลด** · inhibitor (ketoconazole/erythromycin/น้ำเกรปฟรุต) → ยาค้าง → **toxic** · + ยาแย่ง plasma-protein binding (warfarin โดน displace → free สูง)
 - **ยา-อาหาร:** ⚠️ tetracycline + นม/ธาตุเหล็ก → ไม่ดูดซึม (กินห่าง 2 ชม.) · พาราเซตามอล + แอลกอฮอล์ → พิษตับ · warfarin + วิตามิน K → ยาไม่ได้ผล
 - **ยา-โรค (ห้ามคู่):** โรคกระเพาะ ✗ NSAIDs · **ธาลัสซีเมีย ✗ ยาเสริมธาตุเหล็ก** · โรคตับ ✗ พาราเซตามอลขนาดสูง
 - 🩸 ค่าแล็บที่ยาบิด: warfarin→INR · ยาหลายตัว→LFT/renal · → correlate ยาเสมอก่อนสรุปค่าผิดปกติ
@@ -62,6 +63,17 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 - **clinical trial 4 phase + placebo** = เหตุผลที่ "ยา ≠ อาหารเสริม" (อาหารเสริมไม่มีกลุ่มเปรียบเทียบ)
 - ⚠️ **AEFI: "เกิดหลังฉีดวัคซีน ≠ เกิดจากวัคซีน"** — 5 สาเหตุ (ปฏิกิริยาจริง / error การเก็บ-ฉีด / ความกลัว(เป็นลม) / เหตุร่วมบังเอิญ / ไม่ทราบ) → ต้องสอบสวน
 
+### Fork 7 — TDM (therapeutic drug monitoring): จุดที่ยา↔แล็บมาเจอ
+- **TDM เมื่อ:** **TI (therapeutic index) แคบ** + มี therapeutic range ชัด + conc↔response ตรง + เดา dose ยาก/เสี่ยงพิษ · ยา TI แคบ: **digoxin, phenytoin, warfarin, theophylline, aminoglycoside, vancomycin, lithium, carbamazepine**
+- **จังหวะเจาะ:** ที่ **steady state (~4-5 t½)** หลัง absorption/distribution เสร็จ · **efficacy → เจาะ trough** (ก่อน dose ถัดไป) · **toxicity → เจาะ peak** · ⚠️ **aminoglycoside เจาะทั้ง peak (ฆ่าเชื้อ) + trough (กัน nephro/ototoxic)**
+- ⚠️ **digoxin + hypokalemia → พิษแรงขึ้น** → อ่าน K⁺ คู่กับ digoxin level เสมอ · **zero-order kinetics** (phenytoin/ethanol/aspirin สูง): เพิ่ม dose นิด → conc พุ่ง toxic (ไม่เป็นเส้นตรง)
+
+### Fork 8 — ยา anticoagulant ↔ coag test (อย่าสลับ)
+- **Heparin → monitor aPTT** (กระตุ้น antithrombin III; antidote = protamine; ออกฤทธิ์ **in vitro ได้** → เป็น tube anticoagulant ได้) · ⚠️ **HIT (heparin-induced thrombocytopenia)**
+- **Warfarin → monitor PT/INR** (ยับยั้ง factor II/VII/IX/X + protein C/S; antidote = vit K; **in vivo เท่านั้น**; ผ่านรก ห้ามตั้งครรภ์)
+- ⚠️ **DOAC (dabigatran/rivaroxaban/apixaban) ทำ PT/aPTT เพี้ยนแบบไม่สะท้อนระดับยาจริง** → อย่าแปล coag "ปกติ/ผิดปกติ" โดยไม่รู้ว่าได้ DOAC · ไม่ต้อง routine monitor
+- 🩸 ก่อนตีความ PT/aPTT **ต้องรู้ว่าคนไข้ได้ anticoagulant อะไร**
+
 ---
 
 ## กับดัก (Anti-patterns)
@@ -70,6 +82,8 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 - **ลืมยาแล้วกิน 2 เท่า** — อันตราย (ยกเว้นยาคุม)
 - **กินยาฆ่าเชื้อจนหายแล้วหยุด** — ดื้อยา
 - **ไม่ correlate ยาก่อนสรุปค่าแล็บผิดปกติ** — warfarin/ยาหลายตัวบิดค่า
+- **ยา TI แคบไม่ TDM / เจาะผิดจังหวะ** (ไม่ steady state, peak↔trough สลับ) — digoxin/phenytoin/aminoglycoside; **digoxin + K⁺ ต่ำ = พิษแรง** (อ่าน K คู่)
+- **สลับ heparin↔aPTT กับ warfarin↔PT/INR**; DOAC ทำ PT/aPTT เพี้ยน — อย่าตีว่า "ไม่มียา"
 - **"มี อย. = ปลอดภัย/ได้ผล"** — แค่ได้รับอนุญาตขาย
 - **"เกิดหลังฉีดวัคซีน = วัคซีนทำ"** — อาจเป็นเหตุร่วมบังเอิญ ต้องสอบสวน
 - **ให้ธาตุเหล็กในธาลัสซีเมีย** — ห้ามคู่

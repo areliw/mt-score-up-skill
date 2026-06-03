@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจ Immunoassay และ Serol
 type: ADVISE
 needs: any
 author: "MT Score UP!"
-reviewed: 2026-06-01
+last_edited: 2026-06-01
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพื่อการศึกษาเรื่อง immunoassay/serology ไม่ใช่คำสั่งวินิจฉัย/รักษา ผล reactive screen ไม่เท่ากับการวินิจฉัย ต้อง confirm ด้วย test ที่ specificity สูงก่อนรายงานเสมอ ทุกผลต้องยืนยันกับ MT/แพทย์ และทำตาม SOP/QC ของห้องแล็บ ความผิดพลาดในการตีความ serology อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -56,6 +56,8 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 - HIV algorithm: screen 4th-gen Ag/Ab combo (p24 + Ab) → reactive → confirm (Ab differentiation / particle agglutination / WB) → discordant/acute → NAT (viral load). อย่ารายงาน positive จาก screen เดี่ยว.
 - Syphilis: NTT (RPR/VDRL, titer ติดตามการรักษา) + TT (TPHA/TPPA/FTA, จำเพาะ, บวกตลอดชีวิต). Traditional: NTT screen → TT confirm. Reverse: TT screen → NTT confirm + titer. TT+ NTT− → early หรือ treated-old → TT ตัวที่สอง. **Fourfold (4×) rule:** titer ขึ้น ≥4× = รักษาล้มเหลว/reinfection; ลด ≥4× = ตอบสนองดี (เทียบ test+lab เดียวกัน). **Congenital:** titer ทารก **≥4× มารดา** = วินิจฉัย. ⚠️ prozone (Ab สูง→false neg, dilute) + BFP (ตั้งครรภ์/SLE/HIV/TB).
 - **Viral serology (อ่านเป็น "ระยะ"):** HCV — **anti-HCV+ ≠ ติดอยู่** ต้อง **HCV RNA ยืนยัน** (Ab คงอยู่แม้หาย ไม่มีภูมิป้องกัน) · HBV window — HBsAg/anti-HBs ลบทั้งคู่ อย่าสรุป "ไม่ติด" → เช็ค **anti-HBc IgM** · **Herpes (HSV/CMV/EBV) IgG+ = เคยติด/latent ไม่ใช่ acute** → acute ต้อง IgM/seroconversion/PCR · ทารก<18-24 ด. ใช้ **DNA-PCR ไม่ใช่ Ab** (maternal IgG)
+- **IgG avidity (ใช้ "date" การติดเชื้อ):** **avidity ต่ำ = ปฐมภูมิเพิ่งติด (recent primary)** · **สูง = ติดนานแล้ว/past** — สำคัญใน **TORCH หญิงตั้งครรภ์** (Toxo/CMV/Rubella: low avidity = เพิ่งติดในครรภ์ = เสี่ยงต่อทารกสูง) เพราะ IgM อยู่นาน/false+ ได้ → avidity ฟันธง "เพิ่งติดจริงไหม"
+- **Dengue (ไทยออกบ่อย — อ่านเป็นระยะ + primary/secondary):** **NS1 Ag ขึ้นช่วงแรก (วันแรกๆ ของไข้)** · **IgM เด่น = primary** · **IgG ขึ้นเร็ว/สูงกว่า IgM = secondary** (เคยติด serotype อื่น) → secondary เสี่ยง **DHF/พลาสมารั่ว** สูงกว่า = flag clinical
 - ANA (IIF บน HEp-2 = gold) → รายงาน pattern + titer: Homogeneous → dsDNA/histone → SLE/drug-induced; Speckled → Sm/RNP; Peripheral/rim → active SLE; Nucleolar → scleroderma; Centromere → CREST. ↑titer → ↓false-positive. confirm ด้วย anti-dsDNA / anti-ENA.
 
 ### FORK 3 — เมื่อไหร่ "ต้อง CONFIRM" reactive screen

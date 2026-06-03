@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจงานพิษวิท�
 type: ADVISE
 needs: any
 author: "MT Score UP!"
-reviewed: 2026-06-01
+last_edited: 2026-06-01
 status: draft
 disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -55,7 +55,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 
 ### Fork 3 — Antidote (decision tree — ผิด = ตาย)
 - OP (organophosphate) → SLUDGE + muscarinic + nicotinic → Atropine (block muscarinic) + 2-PAM/Pralidoxime (reactivate AChE) — 2-PAM ต้องให้ก่อน "aging" ไม่งั้นไม่ได้ผล
-- Carbamate → คล้าย OP แต่ reversible (carbamylation) → Atropine อย่างเดียว · 2-PAM ไม่จำเป็น/อาจแย่ลง
+- Carbamate → คล้าย OP แต่ reversible (carbamylation, ฟื้นเอง ~24-48 ชม.) → **Atropine เป็นหลัก** · 2-PAM มักไม่จำเป็น (หลักฐาน "อาจแย่ลง" มาจาก carbaryl เก่า ยังถกเถียง) · ⚠️ **ถ้าแยก OP กับ carbamate ไม่ได้ (unknown cholinergic crisis) → ให้ 2-PAM ไปก่อนจน rule out OP** — พลาด OP อันตรายกว่า (2-PAM ต้องทันก่อน aging) · **ให้คู่ atropine เสมอ — 2-PAM เดี่ยวอาจแย่ลง**
 - Paraquat → ไม่มี antidote จำเพาะ; redox cycling → lung fibrosis · Fuller's earth 30% + hemoperfusion <10 ชม. · ห้ามให้ O₂ มาก (เร่ง radical)
 - Opioid (miosis + resp depression + coma) → Naloxone IV
 - Methanol → NaHCO₃ (แก้ acidosis) + ethanol แย่ง ADH (กัน formic acid → ตาบอด); fomepizole ก็ได้
@@ -76,7 +76,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 ### Fork 5 — RBC-AChE (chronic) vs plasma ChE (acute)
 - Plasma pseudocholinesterase (butyryl-ChE) = สังเคราะห์ที่ตับ ฟื้นเร็ว → ไวต่อ acute แต่ ลดได้จากตับวาย/ทุพโภชนาการ (false low)
 - RBC-AChE (true ChE) = ตัวเดียวกับที่ NMJ/CNS → สะท้อนผลต่อ target จริง + chronic/cumulative, ฟื้นช้า
-- OP poisoning จริง: ChE ลด >50% จาก baseline · ref ~3,500–8,000 U/L
+- OP poisoning จริง: ChE ลด >50% จาก baseline · ref ~3,500–8,000 U/L (⚠️ *เลข illustrative — RBC-AChE ขึ้นกับวิธี/เครื่อง ต้องยึดช่วงอ้างอิง + baseline ของแล็บตัวเอง ไม่ใช่ค่ากล่อง — ดู `lab-management-judgment`*)
 
 ### Fork 6 — TDM timing (LADME + steady state)
 - เจาะที่ steady state เสมอ
@@ -92,7 +92,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 
 ## กับดัก (Anti-patterns)
 - 🔴 รายงาน "positive" จาก screen โดยไม่ confirm → false positive จาก cross-react — confirm GC-MS/LC-MS ก่อนเสมอ
-- 🔴 ให้ antidote ผิด — carbamate ไปให้ 2-PAM (อาจแย่ลง) · ลืม atropine+2-PAM ใน OP · naloxone ใน OP
+- 🔴 ให้ antidote ผิด — carbamate ที่ **confirm แล้ว** ไปให้ 2-PAM โดยไม่จำเป็น (แต่ unknown/สงสัย OP = ต้องให้ก่อน rule out) · ลืม atropine+2-PAM ใน OP · naloxone ใน OP
 - 🔴 paraquat ให้ O₂ มาก = แย่ลง (เร่ง redox/radical)
 - 🔴 TDM เจาะผิดเวลา — เจาะก่อน steady state / peak ตอนควร trough → ปรับ dose ผิด
 - 🔴 chain of custody หลุด → ผลถูกแต่ใช้ในศาลไม่ได้

@@ -4,7 +4,7 @@ title: โค้ชแปลผลเคมีคลินิก — เลื�
 type: ADVISE               # ช่วยแปลผล/เลือก marker ไม่ใช่ตำราค่า analyte
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-reviewed: 2026-06-01
+last_edited: 2026-06-01
 status: draft
 disclaimer: "ช่วยคิดแปลผลเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — MT ตีความ/flag/ส่งต่อ การวินิจฉัยเป็นหน้าที่แพทย์ · ทุกผลต้อง correlate clinical + ทำตาม SOP/reference range ของห้องแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -62,6 +62,7 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 - **Metabolic acidosis → AG = (Na+K)−(Cl+HCO3):** **high AG** = DKA/lactic/renal/toxin (methanol/glycol/salicylate) · **normal AG (hyperchloremic)** = diarrhea/RTA/CA-inhibitor
 - **Metabolic alkalosis:** urine Cl<10 = **saline-responsive** (vomit/NG/diuretic) · >20 = **saline-resistant** (mineralocorticoid excess)
 - ⚠️ **calculated SO2 จาก ABG ผิด** ถ้ามี COHb/MetHb → ต้อง **co-oximeter** (วัดจริง) ไม่ใช่คำนวณจาก PO2
+- ⚠️ **ABG pre-analytical (เช็คก่อนเชื่อค่า):** ฟองอากาศ/สัมผัสอากาศ → **pO₂↑ pCO₂↓ pH↑** · ทิ้งนานไม่แช่เย็น (เซลล์ยังใช้ O₂) → **pO₂↓ pCO₂↑ pH↓** · ต้องกันด้วย **heparin (balanced/dried) ไม่ใช่ NaF** · ไม่รีบวัด = แช่น้ำแข็ง
 
 ### Fork 6 — Interference (HIL/paraprotein/drug): ตัดออกก่อนเชื่อค่า
 - **Hemolysis:** K⁺↑ (intracellular ~40×), LDH/AST/phosphate↑ → **อย่ารายงาน K critical จากตัวอย่าง hemolyzed**

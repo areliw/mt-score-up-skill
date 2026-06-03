@@ -4,7 +4,7 @@ title: โค้ชบริหารแล็บ — QMS/accreditation/QC strat
 type: ADVISE               # ช่วยตัดสินใจบริหารแล็บ ไม่ใช่ตำรา ISO
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-reviewed: 2026-06-01
+last_edited: 2026-06-01
 status: draft
 disclaimer: "ช่วยคิดบริหารแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษา accreditation/จัดซื้อ/กฎหมายทางการ — ข้อกำหนด ISO/มาตรฐานจริงต้องอ้างฉบับล่าสุด + ผู้ตรวจประเมิน/ผู้มีอำนาจของหน่วยงาน · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -14,7 +14,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 ตัดสินใจระดับ "บริหารแล็บ" — เลือก accreditation ไหน · วางแผน QC ให้ประหยัด · สั่งน้ำยายังไง · ของบเครื่องลงช่องไหน · verify เครื่องใหม่ ไม่ใช่ท่องข้อกำหนด ISO (= commodity ดูมาตรฐานตัวจริง)
 
 > นี่คือชั้น "วางระบบ/วางแผน" เหนือหน้า bench — QC accept/reject รายวันดู `clinchem-judgment`; skill นี้คือ **ออกแบบ QC ทั้งระบบ + ผ่าน audit + คุมต้นทุน**
-> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (70% error อยู่ที่ pre-analytical)
+> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~60-70% error อยู่ที่ pre-analytical)
 
 ## ใช้เมื่อ
 - เตรียม/ต่ออายุ accreditation (ISO 15189 / LA / HA) — เลือกระดับ + เตรียมเอกสาร
@@ -39,7 +39,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 - **EQA/PT** (ส่งเทียบ peer) คุม **accuracy** → ได้ **bias** = (mean lab − mean peer)/mean peer ×100
 - กับดัก: **IQC ผ่านสวยแต่ inaccurate ได้** (bias คงที่ L-J จับไม่ได้ — ต้องพึ่ง EQA)
 
-### Fork 3 — Sigma-based QC planning (จุดประหยัดจริง) ⭐
+### Fork 3 — Sigma-based QC planning (จุดประหยัดจริง)
 ```
 Sigma = [TEa(%) − Bias(%)] / CV(%)
 ```
@@ -53,7 +53,7 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)
 - **IQCP** (Individualized QC Plan, CLSI EP23): วาง QC ตามความเสี่ยงจริงของ 5 จุด — **Specimen / Operator / Reagent / Environment / Measuring system** → ลด QC ได้อย่างมีหลักฐาน
 
 ### Fork 4 — error อยู่ phase ไหน → ลงทุนแก้ตรงนั้น
-- **Pre (~70%)** หลอดผิด/สัดส่วนเลือด-สารกันแข็ง/hemolysis/label ผิด → คุมด้วยระบบ/automation/barcode (คุ้มสุด)
+- **Pre (~60-70%)** หลอดผิด/สัดส่วนเลือด-สารกันแข็ง/hemolysis/label ผิด → คุมด้วยระบบ/automation/barcode (คุ้มสุด)
 - **Analytical** calibration drift/lot เสื่อม/อุณหภูมิ → MT + QC
 - **Post** พิมพ์ผิด/ไม่แจ้ง critical/TAT เกิน → LIS auto-verify
 > อย่าทุ่มแก้ analytical ทั้งที่ปัญหาจริงอยู่ pre-analytical

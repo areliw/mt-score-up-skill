@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจในแลบโลหิ�
 type: ADVISE
 needs: any
 author: "MT Score UP!"
-reviewed: 2026-06-01
+last_edited: 2026-06-01
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -29,7 +29,7 @@ disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศ
 ## วิธีตัดสินใจ (AI: ทำตามนี้)
 
 ### ก่อนแปลผลเสมอ — ดู 3 อย่าง
-1. ตัวอย่าง OK มั้ย — clot? hemolysis? lipemia? เก็บนานเกิน? (pre-analytical = error >60%)
+1. ตัวอย่าง OK มั้ย — clot? hemolysis? lipemia? เก็บนานเกิน? (pre-analytical = error ~60-70%)
 2. บริบทคน — อายุ/เพศ/ตั้งครรภ์/ประวัติ transfusion/ยา (warfarin, heparin, aspirin)
 3. เทียบของเดิม (delta check) + correlate ค่า analyzer กับ smear
 
@@ -54,6 +54,7 @@ Review smear เสมอเมื่อ:
 ### Fork 3 — เจอ blast / abnormal cell → URGENT escalate
 - blast บน smear = critical/urgent → แจ้งแพทย์ทันที + ไม่ auto-release; ส่ง bone marrow + cytochemistry/flow
 - แยก lineage: MPO/SBB + → myeloid (AML) · MPO − + PAS block + → lymphoid (ALL) · NSE + (ยับยั้งด้วย NaF) → monocytic
+- ⚠️ **Auer rod / "faggot cell" (Auer หลายอันมัดรวม) → สงสัย APL (AML-M3, t(15;17))** = leukemia ที่ฉุกเฉินสุดเพราะมาคู่ **DIC/เลือดออกรุนแรง** → flag แพทย์ + ส่ง **coag (PT/aPTT/fibrinogen/D-dimer)** ทันที ไม่รอ confirm marrow
 - WBC สูงมาก: CML (full myeloid spectrum + baso/eos, LAP ต่ำ <20) vs leukemoid reaction (toxic granule, LAP สูง >100)
 
 ### Fork 4 — Platelet ต่ำ → "จริงหรือ pseudo"

@@ -4,7 +4,7 @@ title: โค้ชกลยุทธ์สอบใบประกอบฯ MT 
 type: ADVISE               # ช่วยวางกลยุทธ์สอบ ไม่ใช่คลังเนื้อหารายวิชา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-reviewed: 2026-06-01
+last_edited: 2026-06-01
 status: draft
 disclaimer: "ช่วยคิดกลยุทธ์เตรียมสอบใบประกอบวิชาชีพ MT เพื่อการศึกษา — โครงสร้าง/น้ำหนักข้อสอบเปลี่ยนได้ ต้องเช็คประกาศสภาเทคนิคการแพทย์ + แนวล่าสุดเสมอ · ไม่รับประกันผลสอบ · เนื้อหารายวิชาต้องยืนยันกับตำรา/สกิลรายสาขา · ผู้นำไปใช้รับผิดชอบเอง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -36,7 +36,7 @@ disclaimer: "ช่วยคิดกลยุทธ์เตรียมสอ�
 
 ### Fork 2 — จับ distractor ที่ผู้ออกชอบลวง (โกงแต้มได้)
 - **สลับคู่ (ออกบ่อยสุด):** Fab↔Fc · MHC I↔II · HbA1c↔fructosamine · spherocyte↔schistocyte · precision↔accuracy · trend↔shift · RBC-selection↔WBC-selection (O vs AB) · sensitivity↔specificity · "เร็วที่สุด (TAT)"↔"ไวที่สุด (sensitivity)"
-- **ตัวเลขลวง:** timeline กฎหมาย (1/2/5 ปี) · อดอาหาร 12 ชม. · blast acute leukemia 20% · citrate 9:1 · NRBC >10% · TG>400 (Friedewald ใช้ไม่ได้)
+- **ตัวเลขลวง:** timeline กฎหมาย (⚠️ **เพิกถอนใบอนุญาต→ขอใหม่เมื่อพ้น 2 ปี** [ม.46] vs **ยื่นซ้ำหลังถูกปฏิเสธ 1 ปี** — ข้อสอบสลับ 2 เลขนี้; เก็บเอกสารผู้ป่วย 5 ปี; กล่าวหา 1 ปี) · อดอาหาร 12 ชม. · blast acute leukemia 20% · citrate 9:1 · NRBC >10% · TG>400 (Friedewald ใช้ไม่ได้)
 - **"ตัวเลือกครบ keyword ทุกตัว มักถูก"** — โดยเฉพาะนิยาม/มาตรฐาน/การคัดกรอง (อย่าเลือกตัวสั้นที่ "ดูพอได้")
 
 ### Fork 3 — Answer heuristic ตอนลังเล

@@ -4,7 +4,7 @@ title: โค้ชถ่ายภาพ/วิดีโอ + photomicrography (
 type: ADVISE               # ช่วยตัดสินใจการถ่าย ไม่ใช่ตำรากล้อง
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-reviewed: 2026-06-01
+last_edited: 2026-06-01
 status: draft
 disclaimer: "ช่วยคิดการถ่ายภาพ/วิดีโอ + ถ่ายงานแล็บ เพื่อการศึกษา · การถ่ายภาพคนไข้/สิ่งส่งตรวจต้องเคารพความลับ/consent ตามกฎหมาย (ดู mt-law-ethics-judgment) · ผู้นำไปใช้รับผิดชอบการนำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---

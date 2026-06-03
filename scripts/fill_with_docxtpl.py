@@ -8,7 +8,7 @@ Workflow:
   3. This script:
      a. docxtpl renders placeholders (anywhere in doc — header, footer, body) from frontmatter
      b. python-docx finds anchor "1. วัตถุประสงค์" in body → deletes body section
-     c. Inserts TOC field, then renders markdown body content as new paragraphs
+     c. Renders markdown body content as new paragraphs (Heading 1/2/3 → Navigation Pane)
      d. Appends "หน้า X จาก Y" page footer + auto-detects AI-disclaimer → wraps as warning box
 
 Body rendering applies:
@@ -29,7 +29,7 @@ from pathlib import Path
 
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
-from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor
@@ -407,47 +407,9 @@ def add_page_footer(doc, total_pages_label: str = "จาก") -> int:
     return touched
 
 
-# ----------------------------------------------------------------------------
-# Table of Contents (proposal 04)
-# ----------------------------------------------------------------------------
-
-def insert_toc(doc, title: str = "สารบัญ") -> None:
-    """Insert a Word TOC field at the current end of body.
-
-    Caller should invoke this BEFORE render_markdown() so TOC lands at top of body.
-    User must press F9 (or right-click → Update Field) in Word once to populate.
-    """
-    p_title = doc.add_paragraph()
-    run_title = p_title.add_run(title)
-    run_title.bold = True
-    run_title.font.size = Pt(16)
-    _set_run_cs_size(run_title, 16)
-    p_title.paragraph_format.space_after = Pt(8)
-    p_title.paragraph_format.keep_with_next = True
-
-    p = doc.add_paragraph()
-    run = p.add_run()
-
-    fld_begin = OxmlElement("w:fldChar")
-    fld_begin.set(qn("w:fldCharType"), "begin")
-
-    instr = OxmlElement("w:instrText")
-    instr.set(qn("xml:space"), "preserve")
-    instr.text = r'TOC \o "1-1" \h \z \u'
-
-    fld_sep = OxmlElement("w:fldChar")
-    fld_sep.set(qn("w:fldCharType"), "separate")
-
-    placeholder = OxmlElement("w:t")
-    placeholder.text = "กด F9 เพื่ออัปเดตสารบัญ / Right-click → Update Field"
-
-    fld_end = OxmlElement("w:fldChar")
-    fld_end.set(qn("w:fldCharType"), "end")
-
-    run._r.extend([fld_begin, instr, fld_sep, placeholder, fld_end])
-
-    # Page break after TOC so content starts on next page
-    p.add_run().add_break(WD_BREAK.PAGE)
+# Table of Contents: intentionally NOT generated. The F9-to-populate UX confused MT
+# users, so navigation relies on Heading 1/2/3 styles (View → Navigation Pane) instead.
+# (Previous insert_toc() helper removed as dead code.)
 
 
 # ----------------------------------------------------------------------------

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-Fill a Word template with markdown body content.
+Fill a Word template with markdown body content. [DEPRECATED — see scripts/README.md]
+
+⚠️ SUPERSEDED by `fill_with_docxtpl.py` (mark template once with mark_template.py →
+fill with docxtpl placeholders + native numbering + warning box + page footer). This
+basic version (doc-control box via paragraph.text, no docxtpl/numbering) is kept for
+reference only. For scratch-build with no template, use `md_to_docx.py`.
 
 Preserves template header (logo banner, doc control box, signatures, etc.).
 Locates anchor heading "1. วัตถุประสงค์" in template and replaces everything

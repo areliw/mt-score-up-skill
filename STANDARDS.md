@@ -23,7 +23,8 @@
 |---|---|---|---|---|
 | **ISO 15189** | `:2022` (4th ed) | 2022-12 | Replaces :2012. Risk-based thinking + ISO 22870 (POCT) merged in. | 2026-06-01 |
 | **ISO 15190** | `:2020` | 2020 | Replaces :2003. ⚠️ **ISO/AWI 15190 in draft** (Nov 2025) — monitor | 2026-06-01 |
-| **AABB Technical Manual** | `21st edition` | 2023 | Blood Bank — used in PRC/component prep WIs | 2026-05-27 |
+| **AABB Technical Manual** | `21st edition` | 2023 | Blood Bank — *เนื้อหาเทคนิค/วิธี* (PRC/component prep WIs) | 2026-06-03 |
+| **AABB Standards (BB/TS)** | `35th edition` | 2026-04 (effective 1 Apr 2026) | Standards for Blood Banks & Transfusion Services — *ข้อกำหนด accreditation* (**คนละเล่มกับ Technical Manual**); รอบ 24 เดือน ถัดไป ~เม.ย. 2028 | 2026-06-03 |
 
 ### Secondary (ใช้ตามแผนก/ความเกี่ยวข้อง)
 
@@ -43,6 +44,7 @@
 | ISO 15189:2012 | Superseded | ISO 15189:2022 |
 | ISO 15190:2003 | Superseded | ISO 15190:2020 |
 | AABB Tech Manual 20th | Superseded | 21st edition (2023) |
+| AABB Standards 34th | Superseded | 35th edition (effective 1 Apr 2026) |
 
 ---
 

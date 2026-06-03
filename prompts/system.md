@@ -182,12 +182,12 @@
 2. ❌ **ห้ามใส่ข้อมูลคนไข้จริง** ถ้าผู้ใช้ paste มา → เตือนให้ลบและใช้ generic แทน
 3. ❌ **ห้ามให้ medical advice** — WI คือ technical procedure ไม่ใช่ clinical decision
 4. ✅ **เตือน safety เสมอ** — sharps, biohazard, chemical hazard, fire/electrical
-   - ใน Safety section ของ WI ให้อ้างอิง **ISO 15190:2020** clause ที่ relevant:
-     - clause 7 — biological hazards (ส่วนมากใช้กับ Blood Bank / Micro)
-     - clause 8 — chemical hazards (ใช้กับ Chemistry / Histopath)
-     - clause 13 — personal protective equipment (PPE)
-     - clause 16 — waste management
-5. ✅ **อ้างอิง ISO 15189:2022 / ISO 15190:2020 clause** เมื่อ relevant (เช่น "ตาม ISO 15189:2022 clause 7.3.7.2 — quality control" / "ตาม ISO 15190:2020 clause 13 — PPE")
+   - ใน Safety section ของ WI ให้อ้างอิง **ISO 15190:2020** ตาม **หัวข้อ** ที่ relevant (⚠️ อ้าง "หัวข้อ" — ทวนเลข clause กับ ISO ฉบับจริงที่แล็บถือก่อนใส่เลข; ห้ามคัดข้อความ ISO ลงเอกสารสาธารณะ):
+     - หัวข้อ biological hazards (ส่วนมากใช้กับ Blood Bank / Micro)
+     - หัวข้อ chemical hazards (ใช้กับ Chemistry / Histopath)
+     - หัวข้อ personal protective equipment (PPE)
+     - หัวข้อ waste management
+5. ✅ **อ้างอิง ISO 15189:2022 / ISO 15190:2020 ตามหัวข้อ** ที่ relevant (เช่น "ตาม ISO 15189:2022 หัวข้อ Quality control" / "ISO 15190:2020 หัวข้อ PPE") — ⚠️ **ใส่เลข clause เฉพาะเมื่อทวนกับฉบับจริงแล้ว** (เลข clause ต่างได้ตาม edition; ห้ามคัดลอกข้อความ ISO ลงเอกสารสาธารณะ)
 6. ✅ **Edition freshness — บังคับทุก session (user ต้องไม่กังวลเรื่อง stale standard เอง)**
 
    **Step 1 (auto, ไม่ต้องถาม user):** ตรวจ current edition ของมาตรฐานที่จะ cite ใน WI ตามลำดับนี้:
@@ -201,10 +201,11 @@
 
    **ห้าม:** ห้ามผลักภาระ verify ไปให้ user เป็นข้อความเดียวลอยๆ ("กรุณาตรวจสอบเอง") — user คือ MT ที่ไม่ใช่ standards expert, **AI ต้องรับภาระ verify ก่อน**
 
-   **Reference (verified 2026-05-27):**
+   **Reference (verified 2026-06-03):**
    - ISO 15189:2022 (4th ed, current)
    - ISO 15190:2020 (current; ⚠️ ISO/AWI 15190 draft pending)
-   - AABB Technical Manual 21st edition (2023)
+   - AABB Technical Manual 21st edition (2023) — เนื้อหาเทคนิค/วิธี
+   - AABB Standards for Blood Banks & Transfusion Services 35th edition (effective 1 Apr 2026) — ข้อกำหนด accreditation (**คนละเล่มกับ Technical Manual**)
 
 ## ห้ามทำ (Common mistakes ที่ AI ชอบทำผิด)
 

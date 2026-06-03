@@ -11,13 +11,17 @@ Searches ALL locations: body paragraphs + body tables + every section's
 header/footer paragraphs + header/footer tables.
 
 Usage:
-    python scripts/replace_personnel.py <doc.docx> "<old name>=<new name>" ["<old2>=<new2>" ...]
+    python scripts/replace_personnel.py <doc.docx> "<old name>=<new name>" ["<old2>=<new2>" ...] [--dry-run]
+
+  --dry-run : report replacement count without writing. Otherwise the input docx is
+              overwritten in place AND a <doc>.docx.bak backup is written first.
 
 Example:
     python scripts/replace_personnel.py wi.docx "[ชื่อเดิม นามสกุล]=[ชื่อใหม่ นามสกุล]"
 """
 from __future__ import annotations
 
+import shutil
 import sys
 from pathlib import Path
 
@@ -82,12 +86,14 @@ def replace_all(doc, replacements: dict[str, str]) -> int:
 
 
 def main() -> int:
-    if len(sys.argv) < 3:
+    dry_run = "--dry-run" in sys.argv
+    args = [a for a in sys.argv[1:] if a != "--dry-run"]
+    if len(args) < 2:
         print(__doc__)
         return 2
-    doc_path = Path(sys.argv[1])
+    doc_path = Path(args[0])
     replacements: dict[str, str] = {}
-    for pair in sys.argv[2:]:
+    for pair in args[1:]:
         if "=" in pair:
             old, _, new = pair.partition("=")
             replacements[old.strip()] = new.strip()
@@ -97,10 +103,20 @@ def main() -> int:
 
     doc = Document(doc_path)
     n = replace_all(doc, replacements)
-    doc.save(doc_path)
-    print(f"Replaced {n} occurrence(s) in {doc_path.name}")
     for old, new in replacements.items():
         print(f"  '{old}' -> '{new}'")
+
+    if dry_run:
+        print(f"DRY RUN — {n} occurrence(s) would change in {doc_path.name} (not saved)")
+        return 0
+
+    # This script overwrites its input in place → back up the original first.
+    backup = doc_path.with_suffix(doc_path.suffix + ".bak")
+    if not backup.exists():
+        shutil.copy2(doc_path, backup)
+        print(f"Backup saved: {backup.name}")
+    doc.save(doc_path)
+    print(f"Replaced {n} occurrence(s) in {doc_path.name}")
     return 0
 
 

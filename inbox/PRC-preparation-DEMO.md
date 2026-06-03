@@ -123,8 +123,8 @@
 |---|---|---|---|
 | Volume | 250-300 mL (CPDA-1) / 250-350 mL (SAGM) | ทุก unit | discard หรือ adjust |
 | Hematocrit | 65-75% (CPDA-1) / 50-70% (SAGM) | 4 units/เดือน random sampling | review centrifuge speed/time |
-| Hemolysis | < 0.8% ของ red cell mass ใน last day of expiry | 1 unit/เดือน | review storage temp + handling |
-| Sterility | ไม่พบเชื้อใน 10% ของ products at expiry | quarterly | re-train staff + review SOP |
+| Hemolysis | < 0.8% ของ red cell mass ใน last day of expiry *(ค่า illustrative — ทวนกับ AABB Standards ฉบับจริง)* | 1 unit/เดือน | review storage temp + handling |
+| Sterility | ไม่พบเชื้อใน 10% ของ products at expiry *(ค่า illustrative — ทวนกับ AABB Standards ฉบับจริง)* | quarterly | re-train staff + review SOP |
 | Storage temp | 2-6°C continuous | 24/7 monitoring | corrective action ตาม WI-BB-temp |
 
 ## 8. การคิดคำนวณ / การแปลผล

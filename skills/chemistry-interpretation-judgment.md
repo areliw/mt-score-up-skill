@@ -46,7 +46,7 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 ### Fork 3 — LFT: อ่าน pattern อย่าอ่านทีละตัว
 - จัดกลุ่ม: **hepatocellular** (AST/ALT) · **cholestatic** (ALP/GGT/5'-NT) · **synthetic** (albumin/PT) · **excretion** (bilirubin)
 - **AST:ALT ratio:** ตับเจ็บทั่วไป ALT>AST · **≥2:1 = alcoholic** (GGT/ALP หนุน; **AST>500 ในคนดื่ม = ผิดปกติ หาเหตุอื่น** alcoholic มัก <300)
-- **DB/TB ratio** (ตัวตัดสิน bilirubin): <20% unconjugated → **hemolysis/Gilbert** (prehepatic) · >70% conjugated → **cholestasis/obstruction** · 30-60% mixed → hepatitis/cirrhosis
+- **DB/TB ratio** (ตัวตัดสิน bilirubin; % = สัดส่วน direct/conjugated): <20% (ส่วนใหญ่ unconjugated) → **hemolysis/Gilbert** (prehepatic) · >70% conjugated → **cholestasis/obstruction** · 30-60% mixed → hepatitis/cirrhosis
 - **ALP สูง → ตับหรือกระดูก?** confirm ด้วย GGT/5'-NT (สูงคู่=ตับ; ปกติ=กระดูก)
 - **PT prolong → ตับหรือ vit K?** ฉีด vit K ดีขึ้น = **cholestasis** (ดูดซึมไม่ได้); ไม่ดีขึ้น = **hepatocellular** (สร้าง factor ไม่ได้)
 - ⚠️ **ischemic hepatitis "shock liver":** AST/ALT พุ่ง >2000 แต่ลงเร็วใน 1 สัปดาห์ (low-flow: HF/shock/sepsis) — เลขน่ากลัวแต่ self-limited อย่าตื่น

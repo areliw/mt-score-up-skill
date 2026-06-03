@@ -56,7 +56,7 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 ตัวชี้ขาด vaccinated vs recovered = anti-HBc.
 
 - HIV algorithm: screen 4th-gen Ag/Ab combo (p24 + Ab) → reactive → confirm (Ab differentiation / particle agglutination / WB) → discordant/acute → NAT (viral load). อย่ารายงาน positive จาก screen เดี่ยว.
-- Syphilis: NTT (RPR/VDRL, titer ติดตามการรักษา) + TT (TPHA/TPPA/FTA, จำเพาะ, บวกตลอดชีวิต). Traditional: NTT screen → TT confirm. Reverse: TT screen → NTT confirm + titer. TT+ NTT− → early หรือ treated-old → TT ตัวที่สอง. **Fourfold (4×) rule:** titer ขึ้น ≥4× = รักษาล้มเหลว/reinfection; ลด ≥4× = ตอบสนองดี (เทียบ test+lab เดียวกัน). **Congenital:** titer ทารก **≥4× มารดา** = วินิจฉัย. ⚠️ prozone (Ab สูง→false neg, dilute) + BFP (ตั้งครรภ์/SLE/HIV/TB).
+- Syphilis: NTT (RPR/VDRL, titer ติดตามการรักษา) + TT (TPHA/TPPA/FTA, จำเพาะ, มักบวกตลอดชีวิต (ส่วนน้อย serorevert ได้ โดยเฉพาะรักษาเร็วในระยะแรก)). Traditional: NTT screen → TT confirm. Reverse: TT screen → NTT confirm + titer. TT+ NTT− → early หรือ treated-old → TT ตัวที่สอง. **Fourfold (4×) rule:** titer ขึ้น ≥4× = รักษาล้มเหลว/reinfection; ลด ≥4× = ตอบสนองดี (เทียบ test+lab เดียวกัน). **Congenital:** titer ทารก **≥4× มารดา** = เข้าเกณฑ์/บ่งชี้ congenital → flag แพทย์. ⚠️ prozone (Ab สูง→false neg, dilute) + BFP (ตั้งครรภ์/SLE/HIV/TB).
 - **Viral serology (อ่านเป็น "ระยะ"):** HCV — **anti-HCV+ ≠ ติดอยู่** ต้อง **HCV RNA ยืนยัน** (Ab คงอยู่แม้หาย ไม่มีภูมิป้องกัน) · HBV window — HBsAg/anti-HBs ลบทั้งคู่ อย่าสรุป "ไม่ติด" → เช็ค **anti-HBc IgM** · **Herpes (HSV/CMV/EBV) IgG+ = เคยติด/latent ไม่ใช่ acute** → acute ต้อง IgM/seroconversion/PCR · ทารก<18-24 ด. ใช้ **DNA-PCR ไม่ใช่ Ab** (maternal IgG)
 - **IgG avidity (ใช้ "date" การติดเชื้อ):** **avidity ต่ำ = ปฐมภูมิเพิ่งติด (recent primary)** · **สูง = ติดนานแล้ว/past** — สำคัญใน **TORCH หญิงตั้งครรภ์** (Toxo/CMV/Rubella: low avidity = เพิ่งติดในครรภ์ = เสี่ยงต่อทารกสูง) เพราะ IgM อยู่นาน/false+ ได้ → avidity ฟันธง "เพิ่งติดจริงไหม"
 - **Dengue (ไทยออกบ่อย — อ่านเป็นระยะ + primary/secondary):** **NS1 Ag ขึ้นช่วงแรก (วันแรกๆ ของไข้)** · **IgM เด่น = primary** · **IgG ขึ้นเร็ว/สูงกว่า IgM = secondary** (เคยติด serotype อื่น) → secondary เสี่ยง **DHF/พลาสมารั่ว** สูงกว่า = flag clinical
@@ -88,7 +88,7 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 5. อ่าน HBV panel ทีละตัว — HBsAg+ เดี่ยวไม่บอก acute vs chronic; anti-HBs+ เดี่ยวไม่บอก vaccinated vs recovered → ดู anti-HBc.
 6. สับ competitive กับ sandwich — ใช้ sandwich กับ hapten เล็ก = พัง; ใช้ competitive แล้วลืม signal ผกผัน = อ่านกลับด้าน.
 7. ลืมเตรียม specimen — ไม่ heat-inactivate complement (56°C 30 นาที); lipemia/hemolysis รบกวน optical; IgM ทำงานดีที่เย็น.
-8. ใช้ test ผิดจุดประสงค์ — screen ไปใช้ confirm; TT (บวกตลอดชีวิต) ไปติดตามการรักษาแทน NTT titer → ตีความผิดว่า "ไม่หาย".
+8. ใช้ test ผิดจุดประสงค์ — screen ไปใช้ confirm; TT (มักบวกตลอดชีวิต (ส่วนน้อย serorevert ได้ โดยเฉพาะรักษาเร็วในระยะแรก)) ไปติดตามการรักษาแทน NTT titer → ตีความผิดว่า "ไม่หาย".
 9. HAMA (human anti-mouse Ab) — คนไข้เคยรับ mAb บำบัด → จับ capture+detection Ab ของ sandwich → false +/− → ต้อง blocking reagent.
 10. Biotin interference — กิน biotin (วิตามินผม/เล็บ) สูง รบกวน assay biotin-streptavidin → ผลเพี้ยน (TSH/troponin ต่ำปลอม อันตราย) → งด biotin ก่อนเจาะ.
 11. Competitive / lateral-flow อ่านกลับด้าน — สัญญาณต่ำ หรือ "ไม่มีแถบ test" = analyte สูง (ชุดยาเสพติด); **control line ไม่ขึ้น = invalid ไม่ใช่ลบ**.

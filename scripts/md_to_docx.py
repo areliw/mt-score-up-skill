@@ -292,7 +292,7 @@ def flush_table(doc: Document, rows: list[list[str]]) -> None:
 
 
 def is_table_separator(cells: list[str]) -> bool:
-    return all(re.match(r"^:?-+:?$", c.strip()) for c in cells if c.strip())
+    return bool([c for c in cells if c.strip()]) and all(re.match(r"^:?-+:?$", c.strip()) for c in cells if c.strip())
 
 
 def cells_from(line: str) -> list[str]:

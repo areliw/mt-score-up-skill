@@ -51,7 +51,7 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 | Urine CoNS/α-strep/diphtheroid นับน้อย | urethral flora? | normal flora → ไม่ต้อง ID/AST เว้นแต่ predominant + count สูง |
 | Sputum ขึ้น normal oral flora ล้วน | Q-score ผ่านไหม? | คุณภาพแย่ → ปฏิเสธ/ขอใหม่ |
 
-Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated pathogen (ID+AST); 10⁴–10⁵ = suspected; <10³ = "no significant growth".
+Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated pathogen (ID+AST); 10⁴–10⁵ = suspected; 10³–10⁴ = แปลตาม site/อาการ/single-vs-mixed (borderline); <10³ = "no significant growth".
 - หลัก: site + count + จำนวนชนิด + clinical ประกอบกัน.
 
 ### FORK 4 — AST: เลือก method + อ่าน S/I/R + escalate MDR
@@ -61,7 +61,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 - (สาย sales/MolDx) GeneXpert Carba-R / mecA PCR = ตัดเวลา confirmatory phenotype.
 
 ### FORK 5 — Specimen quality: รับหรือปฏิเสธ
-- Sputum Q-score/Bartlett: WBC เยอะ + squamous epithelial cell น้อย = ดี → process. SEC เยอะ (>25/lpf) = ปนน้ำลาย → ปฏิเสธ ขอใหม่.
+- Sputum Q-score/Bartlett: accept ถ้า SEC <10/lpf + PMN >25/lpf (เป็น LRT จริง) · reject ถ้า SEC >25/lpf (ปนน้ำลาย) → ขอใหม่ · 10–25/lpf = borderline correlate กับ Gram/clinical ก่อนตัดสิน.
 - Reject เมื่อ: ฉลากไม่ตรง/ไม่มี, container รั่ว, transport ผิด, ปริมาณไม่พอ, ซ้ำใน 24h ไม่จำเป็น.
 - GIGO. แต่ specimen หายาก (CSF, biopsy, intraop) → อย่าทิ้ง ติดต่อแพทย์/process + note limitation.
 
@@ -73,7 +73,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 ### FORK 7 — Specimen-site → เชื้อที่คาด + media ตาม syndrome (อย่าหว่านจานเดียวกันทุก site)
 อ่าน **site + host + syndrome** กำหนด workup ก่อนเพาะ:
 - **CSF/meningitis:** อ่าน CSF profile ก่อนเดา — neutrophil↑ + glucose↓มาก + protein↑ = bacterial (รายงานด่วน); lymphocyte + glucose ปกติ = viral; lymphocyte + glucose↓ ปานกลาง = TB/fungal · เชื้อตาม **อายุ** (newborn GBS/E.coli/Listeria · เด็ก Nm/Spn/Hib · สูงอายุ +GNB/Listeria) · ⚠️ Cryptococcus cell count อาจปกติ → **สั่ง CrAg/India ink เสมอ อย่าตัดออกเพราะ cell ปกติ**
-- **LRTI:** Gram screen ก่อนเพาะ (PMN>25 + squamous<10/LPF = รับ) · **VAP/BAL = quantitative** (≥10⁴ CFU/ml = จริง) ไม่ใช่ qualitative · TB ใช้ early-morning sputum ×3
+- **LRTI:** Gram screen ก่อนเพาะ (accept PMN>25 + SEC<10/lpf; reject SEC>25/lpf; 10–25 = borderline — ตรงกับ FORK 5) · **VAP/BAL = quantitative** (≥10⁴ CFU/ml = จริง) ไม่ใช่ qualitative · TB ใช้ early-morning sputum ×3
 - **Stool:** เพาะเมื่อ bloody/leukocyte+/ไข้/travel · media ตาม syndrome (TCBS+APW→Vibrio · SS/XLD/HE+enrich→Salmonella/Shigella · CCFA→C.diff · 42°C microaerophilic→Campylobacter) · ⚠️ ไม่ enrich = จับ Vibrio/Salmonella ไม่ได้
 - **Genital:** GC→Thayer-Martin/VCN · **BV ไม่เพาะ** ใช้ pH>4.5 + whiff + clue cells
 - **Sterile fluid** (pleural/peritoneal/joint/CSF): เชื้อใดก็ significant → ลง BA/CA/MC + **thioglycollate (anaerobe, ดู 7 วัน)**; อย่ามองข้าม anaerobe ใน deep pus

@@ -9,7 +9,7 @@
 
 ## Last full verification
 
-**Date:** 2026-06-01
+**Date:** 2026-06-03
 **Method:** WebSearch via Claude Code agent
 **Next scheduled recheck:** 2026-07-01 (30-day cadence — see "Automation (Layer 3 — active)" below + [scripts/README](scripts/README.md))
 
@@ -68,11 +68,11 @@
 [GitHub Action workflow](.github/workflows/standards-recheck.yml) ตั้งให้ run **ทุกวันที่ 1 ของเดือน 09:00 ไทย** (02:00 UTC):
 
 1. รัน [`scripts/recheck_standards.py`](scripts/recheck_standards.py) — fetch iso.org สำหรับ ISO 15189 / ISO 15190 → regex หา current edition
-2. ถ้าพบ newer edition → update STANDARDS.md → auto-commit + push to main
+2. ถ้าพบ newer edition → STANDARDS.md ไม่ถูกแก้ → เปิด issue/PR ให้คนรีวิว/อัปเดตเอง (ไม่มี auto-commit/push)
 3. ถ้า fetch/parse error → open GitHub issue ติด label `standards-recheck` `needs-attention`
-4. ถ้าไม่มี diff → update เฉพาะ "Last full verification" + "Next scheduled" → commit
+4. ถ้าไม่มี diff → update เฉพาะ "Last full verification" + "Next scheduled" → commit (auto-commit เฉพาะกรณีนี้)
 
-**User effort = 0** — ระบบ self-heal เมื่อ ISO ออก revision ใหม่ + เตือนเมื่อต้องดู
+**User effort ต่ำ** — ระบบ auto-refresh วันที่เมื่อไม่มี diff + เปิด issue/PR เตือนเมื่อ ISO ออก revision ใหม่ (การ apply edition ใหม่เข้า STANDARDS.md ยังต้องให้คนรีวิว ไม่ apply เอง)
 
 **Manual trigger** ได้ที่ GitHub repo → Actions tab → "Monthly standards recheck" → "Run workflow"
 

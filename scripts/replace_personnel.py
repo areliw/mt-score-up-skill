@@ -45,7 +45,7 @@ def replace_in_paragraph(paragraph, replacements: dict[str, str]) -> int:
     changed = 0
     new_full = full
     for old, new in replacements.items():
-        if old in new_full:
+        if old in new_full and old != new:
             new_full = new_full.replace(old, new)
             changed += 1
     if changed and new_full != full:

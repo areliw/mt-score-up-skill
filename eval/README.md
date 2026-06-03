@@ -2,8 +2,9 @@
 
 **Status: PRELIMINARY.** This is a *method + worked cases*, not a powered study. The claim
 "skills reduce AI error" is **not yet proven at scale** — treat the cases below as
-illustrative until a larger, blinded eval is run. (Listed as audit item #14 — "เคลมลอย"
-until this exists for real.)
+illustrative until a larger, blinded eval is run. (Tracked as a known limitation — see
+[`docs/audit-2026-06-03.md`](../docs/audit-2026-06-03.md) and the CHANGELOG "Known limitations" —
+"เคลมลอย" until this exists for real.)
 
 ## Method (paired prompts)
 

@@ -77,7 +77,7 @@ Decision: negative ครั้งแรก ≠ negative — repeat ก่อน
 Ag detection (Crypto/Giardia/Histolytica feces; Plasmodium/Wuchereria เลือด) ปรากฏเร็วกว่า Ab + สัมพันธ์ปริมาณเชื้อ
 
 ### FORK 5 — Specimen timing
-- Microfilaria (W.bancrofti/B.malayi) → เจาะเลือดกลางคืน (nocturnal periodicity) หรือ provocation: DEC 2mg/kg → เจาะ 0.1ml ใน 15-30นาที–5ชม. · เจาะกลางวัน = false-neg
+- Microfilaria (W.bancrofti/B.malayi) → เจาะเลือดกลางคืน (nocturnal periodicity) หรือ provocation: DEC 2mg/kg → เจาะ ~30-60 นาทีหลัง DEC (peak, ตาม SOP) · เจาะกลางวัน = false-neg
 - Enterobius (pinworm) → Scotch tape ก้น ตอนเช้าก่อนอาบน้ำ/ถ่าย · หาในอุจจาระ = พลาด
 - Trophozoite → ตรวจภายใน 30 นาที หลังถ่าย
 - Trichinella → muscle biopsy ~3–4 สัปดาห์หลังกิน (รอ encyst)

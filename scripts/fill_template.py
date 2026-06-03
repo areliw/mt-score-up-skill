@@ -66,13 +66,11 @@ def delete_from_anchor_to_sectpr(doc, anchor_para) -> int:
     return removed
 
 
-def strip_frontmatter(text: str) -> str:
-    if not text.startswith("---"):
-        return text
-    end = text.find("\n---", 4)
-    if end == -1:
-        return text
-    return text[end + 4 :].lstrip("\n")
+def _unquote(s: str) -> str:
+    s = s.strip()
+    if len(s) >= 2 and s[0] == s[-1] and s[0] in ("'", '"'):
+        return s[1:-1]
+    return s
 
 
 def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
@@ -89,7 +87,7 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
     for line in fm_text.splitlines():
         if ":" in line:
             key, _, value = line.partition(":")
-            meta[key.strip()] = value.strip()
+            meta[key.strip()] = _unquote(value)
     return meta, body
 
 
@@ -148,7 +146,7 @@ def update_doc_control_box(doc, meta: dict[str, str]) -> None:
 
 
 def is_table_separator(cells: list[str]) -> bool:
-    return all(re.match(r"^:?-+:?$", c.strip()) for c in cells if c.strip())
+    return bool([c for c in cells if c.strip()]) and all(re.match(r"^:?-+:?$", c.strip()) for c in cells if c.strip())
 
 
 def cells_from(line: str) -> list[str]:

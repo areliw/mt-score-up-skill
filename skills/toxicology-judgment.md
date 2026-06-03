@@ -57,11 +57,11 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 
 ### Fork 3 — Antidote (decision tree — ผิด = ตาย)
 - OP (organophosphate) → SLUDGE + muscarinic + nicotinic → Atropine (block muscarinic) + 2-PAM/Pralidoxime (reactivate AChE) — 2-PAM ต้องให้ก่อน "aging" ไม่งั้นไม่ได้ผล
-- Carbamate → คล้าย OP แต่ reversible (carbamylation, ฟื้นเอง ~24-48 ชม.) → **Atropine เป็นหลัก** · 2-PAM มักไม่จำเป็น (หลักฐาน "อาจแย่ลง" มาจาก carbaryl เก่า ยังถกเถียง) · ⚠️ **ถ้าแยก OP กับ carbamate ไม่ได้ (unknown cholinergic crisis) → ให้ 2-PAM ไปก่อนจน rule out OP** — พลาด OP อันตรายกว่า (2-PAM ต้องทันก่อน aging) · **ให้คู่ atropine เสมอ — 2-PAM เดี่ยวอาจแย่ลง**
+- Carbamate → คล้าย OP แต่ reversible (carbamylation, ฟื้นเอง ~24-48 ชม.) → **Atropine เป็นหลัก** · 2-PAM มักไม่จำเป็น (หลักฐาน "อาจแย่ลง" มาจาก carbaryl เก่า ยังถกเถียง) · ⚠️ **ถ้าแยก OP กับ carbamate ไม่ได้ (unknown cholinergic crisis) → flag ว่าควรให้ 2-PAM ก่อนจน rule out OP (แพทย์/ศูนย์พิษวิทยาเป็นผู้สั่ง)** — พลาด OP อันตรายกว่า (2-PAM ต้องทันก่อน aging) · **ให้คู่ atropine เสมอ — 2-PAM เดี่ยวอาจแย่ลง**
 - Paraquat → ไม่มี antidote จำเพาะ; redox cycling → lung fibrosis · Fuller's earth 30% + hemoperfusion <10 ชม. · ห้ามให้ O₂ มาก (เร่ง radical)
 - Opioid (miosis + resp depression + coma) → Naloxone IV
-- Methanol → **fomepizole (ADH inhibitor ตัวเลือกแรก)** หรือ **ethanol** ถ้าไม่มี fomepizole + NaHCO₃ (แก้ acidosis) ± hemodialysis (กัน formic acid → ตาบอด)
-- Cyanide → จับ cytochrome → ชุด antidote (nitrite/thiosulfate/hydroxocobalamin)
+- Methanol → **fomepizole/ethanol = block ADH (กัน formate เกิด)** (fomepizole ตัวเลือกแรก, ethanol ถ้าไม่มี) + NaHCO₃ (แก้ acidosis) ± **hemodialysis = remove methanol+formate** (กันตาบอด)
+- Cyanide → จับ cytochrome → ชุด antidote (nitrite/thiosulfate/hydroxocobalamin) · **hydroxocobalamin = ตัวเลือกแรก/ปลอดภัยเมื่อสงสัย CO ร่วม (nitrite ทำ metHb เพิ่มพิษใน smoke inhalation)**
 - Warfarin/coumarin rodenticide → Vitamin K
 - โลหะหนัก → chelator ตามโลหะ (Fork 4)
 

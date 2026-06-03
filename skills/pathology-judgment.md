@@ -24,7 +24,7 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 - (สาย sales) เข้าใจ pathophysiology โรค → ทำไม test/biomarker/companion Dx จำเป็นใน pathway
 
 ## วิธีใช้
-วาง skill นี้ + เล่าภาพ/รายงาน/เคส → AI ให้ verdict (benign/malignant · reversible/irreversible · acute/chronic) + เกณฑ์ + วิธี confirm
+วาง skill นี้ + เล่าภาพ/รายงาน/เคส → AI อ่าน pattern + เกณฑ์ (benign/malignant · reversible/irreversible · acute/chronic) → confirm + ส่งต่อพยาธิแพทย์
 
 ---
 

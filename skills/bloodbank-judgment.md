@@ -131,7 +131,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 ### Fork 12 — Delayed/late reactions (ที่ตาราง acute ไม่ครอบ)
 - **DHTR/DSTR (anamnestic):** เคย sensitize → titer ตกจน **screen ลบตอนเตรียมเลือด** → ได้ Ag-positive unit → boost ใน 3 วัน-สัปดาห์ → hemolysis · ความถี่ **Kidd > Duffy > Kell > MNS** (Jka titer drop ง่ายสุด); DSTR (ไม่มี hemolysis marker) พบบ่อยกว่า DHTR · **ป้องกัน: ใช้ตัวอย่าง ≤3 วันก่อนจ่าย + บันทึก Ab เก่า → เลี่ยง Ag เดิมแม้ screen ลบ**
 - **TA-GVHD:** donor lymphocyte ตี recipient → **marrow aplasia/pancytopenia → ตาย 1-3 สัปดาห์, รักษาแทบไม่ได้ → ป้องกันทางเดียว** · ⚠️ **เลือดญาติ (directed) = เสี่ยงสูงสุด** (one-way HLA: donor homozygous ตรงกับ recipient heterozygous → **คนภูมิปกติก็เป็นได้**) → **irradiate 25 Gy เสมอ; leukoreduction อย่างเดียวไม่กัน**
-- **PTP (post-transfusion purpura):** เกล็ดตกฮวบ **~1 สัปดาห์** หลังเลือด, หญิงเคยตั้งครรภ์, Ab = **anti-HPA-1a** (ทำลายเกล็ดตัวเอง HPA-1a-neg ด้วย) · DDx ITP/HIT/DIC/drug — ธง = ก่อนเลือด plt ปกติ · รักษา **IVIG** (ดีสุด), อย่าให้ washed
+- **PTP (post-transfusion purpura):** เกล็ดตกฮวบ **~1 สัปดาห์** หลังเลือด, หญิงเคยตั้งครรภ์, Ab = **anti-HPA-1a** (ทำลายเกล็ดตัวเอง HPA-1a-neg ด้วย) · DDx ITP/HIT/DIC/drug — ธง = ก่อนเลือด plt ปกติ · รักษา **IVIG** (ดีสุด), หลีกเลี่ยง platelet transfusion เพิ่ม (ทำให้แย่ลง); ถ้าจำเป็นตอนเลือดออกรุนแรง ใช้ HPA-1a-negative platelet
 - **Iron overload:** RBC 1 unit ≈ Fe 200-250 mg, ขับได้ ~1 mg/วัน → สะสมตับ/หัวใจ · 🩸 **thalassemia/chronic transfusion เสี่ยงตายจากเหล็ก > จากซีด** → ติดตาม ferritin + chelator (deferiprone เสี่ยง agranulocytosis · deferasirox กินวันละครั้ง)
 - **Hemovigilance:** reaction ส่วนใหญ่พลาดเพราะ "ไม่สังเกต" + "ไม่รายงาน" → ต้องมีระบบรายงาน; เคสตายแจ้งหน่วยกำกับ
 
@@ -159,7 +159,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **parentage จาก serology = exclude ได้เท่านั้น ไม่ confirm** — "ไม่ขัด" ≠ "เป็นพ่อ"; ยืนยันความเป็นพ่อต้อง molecular/STR
 - **passive anti-A,B จาก O component อ่านเป็น auto/alloAb** → เช็ค Hx ได้ platelet/plasma หมู่ O ก่อน (DAT+/eluate anti-A,B)
 - **TA-GVHD จากเลือดญาติ (one-way HLA match)** = เสี่ยงสุด คนภูมิปกติก็เป็น → **irradiate เสมอ**; leukoreduction ไม่กัน
-- **PTP (เกล็ดต่ำ ~1 สัปดาห์, anti-HPA-1a)** สับกับ ITP/HIT/TA-GVHD → ธง: ก่อนเลือด plt ปกติ; รักษา IVIG
+- **PTP (เกล็ดต่ำ ~1 สัปดาห์, anti-HPA-1a)** สับกับ ITP/HIT/TA-GVHD → ธง: ก่อนเลือด plt ปกติ; รักษา IVIG (first line), หลีกเลี่ยง platelet transfusion เพิ่ม (ทำให้แย่ลง); ถ้าจำเป็นตอนเลือดออกรุนแรง ใช้ HPA-1a-negative platelet
 - **เลือกสารพิเศษผิด → ลบ Ag ที่อยากตรวจ** — DTT ทำลาย Kell · chloroquine ทำลาย HLA-I/Rh · enzyme ทำลาย MNS/Duffy
 - **PEG ห้ามปั่น / ห้ามใช้กับ IgM (ABO/Lewis) · Polybrene ใช้กับ Kell ไม่ได้ · LISS ห้ามใน titration**
 - **ลืม autocontrol ในเทคนิคพิเศษ** (prewarmed/cold/low-pH/enhance) → แยก cold-auto vs allo ไม่ออก

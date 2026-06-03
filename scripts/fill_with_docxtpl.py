@@ -80,6 +80,13 @@ INDENT_STEP_PT = 18  # ~6 mm per level
 # Frontmatter + context
 # ----------------------------------------------------------------------------
 
+def _unquote(s: str) -> str:
+    s = s.strip()
+    if len(s) >= 2 and s[0] == s[-1] and s[0] in ("'", '"'):
+        return s[1:-1]
+    return s
+
+
 def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
     if not text.startswith("---"):
         return {}, text
@@ -92,7 +99,7 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
     for line in fm_text.splitlines():
         if ":" in line:
             key, _, value = line.partition(":")
-            meta[key.strip()] = value.strip()
+            meta[key.strip()] = _unquote(value)
     return meta, body
 
 
@@ -418,7 +425,7 @@ def add_page_footer(doc, total_pages_label: str = "จาก") -> int:
 # ----------------------------------------------------------------------------
 
 def is_table_separator(cells: list[str]) -> bool:
-    return all(re.match(r"^:?-+:?$", c.strip()) for c in cells if c.strip())
+    return bool([c for c in cells if c.strip()]) and all(re.match(r"^:?-+:?$", c.strip()) for c in cells if c.strip())
 
 
 def cells_from(line: str) -> list[str]:

@@ -55,7 +55,7 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 
 ### Fork 5 — Post-exposure (เข็มตำ/สัมผัสสารคัดหลั่ง)
 - หยุด+ล้าง → ประเมินแหล่ง (HIV/HBV/HCV status) → **report + รับ PEP ตามโปรโตคอล** (HIV PEP ยิ่งเร็วยิ่งดี; HBV ดู immune status/HBIG)
-- **บุคลากรควรมีภูมิล่วงหน้า:** HBV, varicella, MMR, influenza (ภูมิขึ้น ~2-3 สัปดาห์หลังฉีด)
+- **บุคลากรควรมีภูมิล่วงหน้า:** HBV, varicella, MMR, influenza · ⚠️ single-dose (เช่น influenza) ภูมิขึ้น ~2-3 สัปดาห์หลังฉีด แต่ **HBV/varicella/MMR เป็น multi-dose series — ต้องฉีดครบชุดก่อนถึงจะถือว่ามีภูมิ** (HBV ยืนยันด้วย anti-HBs ≥10 mIU/mL หลังครบ 3 เข็ม)
 
 ### Fork 6 — Biosafety ในแล็บ
 - จัดการ specimen ตามระดับความเสี่ยงเชื้อ (BSL) · เชื้ออันตราย (**M. tuberculosis culture, Burkholderia pseudomallei AST**) = **ต้อง BSL-3** (lab ทั่วไป BSL-2 ทำไม่ได้)

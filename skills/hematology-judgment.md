@@ -47,7 +47,7 @@ Review smear เสมอเมื่อ:
 หลัก: flag ที่กระทบการรักษาทันที (blast, plt ต่ำจริง) = smear ก่อน report เสมอ
 
 ### Fork 2 — Anemia workup เดินตาม MCV ก่อน
-- Microcytic (MCV < 80): IDA / thal / chronic dz / sideroblastic / lead → reflex Fe studies (ferritin) + ถ้าสงสัย thal → OFT/DCIP → Hb typing. RDW + RBC count ช่วยฟันธง
+- Microcytic (MCV < 80): IDA / thal / chronic dz / sideroblastic → reflex Fe studies (ferritin) + ถ้าสงสัย thal → OFT/DCIP → Hb typing. RDW + RBC count ช่วยฟันธง · (lead = normo-to-microcytic + basophilic stippling — ไม่ใช่ pure microcytic cause; เบาะแสคือ stippling + ประวัติสัมผัสตะกั่ว)
 - Normocytic (80–100): ดู retic ก่อน — retic สูง / RPI ≥2 → hemolysis/acute blood loss → reflex hemolysis panel (LDH, bilirubin, haptoglobin, DAT); retic ต่ำ / RPI <2 → hypoproliferative (chronic dz/CKD/aplastic/early IDA)
 - Macrocytic (MCV > 100): B12/folate / liver / alcohol / MDS / reticulocytosis (macro เทียม) → reflex retic ก่อน — retic สูง = macro เทียมจาก hemolysis; retic ปกติ → B12/folate + smear (hypersegmented neutrophil)
 

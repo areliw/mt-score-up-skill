@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**47 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**48 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -26,7 +26,8 @@
 - **parasitology-judgment** — เลือก concentration/stain ตามเป้า · malaria thick vs thin + ตรวจซ้ำ · single-stool false-neg · artifact vs parasite
 - **toxicology-judgment** — screen vs confirm · antidote tree (OP/carbamate/paraquat/โลหะ) · chelator คู่โลหะ · RBC-AChE vs plasma ChE · TDM timing · chain of custody
 - **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็นภาพเดียว ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal value → DDx → rule-out → cause-effect chain) · *MT ไม่วินิจฉัย*
-- **pharmacology-judgment** — ยาเบื้องต้นมุม MT: ADME (ตับ/ไตเสื่อม→พิษ) · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน (ยา-ยา/อาหาร/โรค) · ใช้ยาถูก (ห้ามบด EC/SR) · pharmacogenomics — *MT ไม่สั่งจ่ายยา*
+- **pharmacology-judgment** — ยาเบื้องต้นมุม MT: ADME (ตับ/ไตเสื่อม→พิษ) · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน (ยา-ยา/อาหาร/โรค) · ใช้ยาถูก (ห้ามบด EC/SR) · TDM (peak/trough) · anticoag↔coag · pharmacogenomics — *MT ไม่สั่งจ่ายยา*
+- **infection-control-judgment** — ป้องกันการติดเชื้อ/biosafety: hand hygiene (alcohol vs สบู่ C.diff spore) · N95 vs surgical · transmission precaution (contact/droplet/airborne) · ห้องความดันลบ/บวก · post-exposure · BSL
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method

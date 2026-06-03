@@ -54,7 +54,7 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 ตัวชี้ขาด vaccinated vs recovered = anti-HBc.
 
 - HIV algorithm: screen 4th-gen Ag/Ab combo (p24 + Ab) → reactive → confirm (Ab differentiation / particle agglutination / WB) → discordant/acute → NAT (viral load). อย่ารายงาน positive จาก screen เดี่ยว.
-- Syphilis: NTT (RPR/VDRL, titer ติดตามการรักษา) + TT (TPHA/TPPA/FTA, จำเพาะ, บวกตลอดชีวิต). Traditional: NTT screen → TT confirm. Reverse: TT screen → NTT confirm + titer. TT+ NTT− → early หรือ treated-old → TT ตัวที่สอง.
+- Syphilis: NTT (RPR/VDRL, titer ติดตามการรักษา) + TT (TPHA/TPPA/FTA, จำเพาะ, บวกตลอดชีวิต). Traditional: NTT screen → TT confirm. Reverse: TT screen → NTT confirm + titer. TT+ NTT− → early หรือ treated-old → TT ตัวที่สอง. **Fourfold (4×) rule:** titer ขึ้น ≥4× = รักษาล้มเหลว/reinfection; ลด ≥4× = ตอบสนองดี (เทียบ test+lab เดียวกัน). **Congenital:** titer ทารก **≥4× มารดา** = วินิจฉัย. ⚠️ prozone (Ab สูง→false neg, dilute) + BFP (ตั้งครรภ์/SLE/HIV/TB).
 - ANA (IIF บน HEp-2 = gold) → รายงาน pattern + titer: Homogeneous → dsDNA/histone → SLE/drug-induced; Speckled → Sm/RNP; Peripheral/rim → active SLE; Nucleolar → scleroderma; Centromere → CREST. ↑titer → ↓false-positive. confirm ด้วย anti-dsDNA / anti-ENA.
 
 ### FORK 3 — เมื่อไหร่ "ต้อง CONFIRM" reactive screen

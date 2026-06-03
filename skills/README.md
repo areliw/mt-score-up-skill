@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**51 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**53 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -56,6 +56,8 @@
 ### 🧭 ชีวิต / อาชีพ
 - **ikigai-finder** — หา ikigai แบบไม่หลอกตัวเอง → จบที่ "1 การทดลอง" ไม่ใช่ลาออกตามฝัน
 - **self-development-coach** — โค้ชพัฒนาตัวเองแบบตรงไปตรงมา ไม่ปลอบใจลอยๆ
+- **know-yourself** — สัมภาษณ์ตัวเองให้ลึก → master profile ก้อนเดียวที่ slice ไปใช้ได้ (resume/LinkedIn/เตรียมสัมภาษณ์/เปลี่ยนสาย/ป้อน AI ให้รู้จักเรา)
+- **mt-career-judgment** — เส้นทางอาชีพ MT (bench→industry/commercial/AI): แผนที่สาย · ladder ฝั่งขาย+โครงรายได้ · skill gap (KOL/English/commercial-craft) · T-shaped Data&AI 3 ระดับ · เป็นเจ้าของแล็บ
 - **digital-judgment** — privacy/PDPA/de-identify/security/ลิขสิทธิ์/ลงทุนออนไลน์ — ตัดสินใจปลอดภัย ไม่โดนหลอก
 - **finance-judgment** — การเงิน/ลงทุน/ธุรกิจ (บันไดเงิน · asset ตาม horizon · อ่านงบ/CFO · valuation · หนี้ดี-เลว · go/pivot · จับ scam · เลนส์ econ: opportunity cost/elasticity/real-vs-nominal)
 - **financial-statement-judgment** — อ่านงบ 5 ฉบับ + ลำดับอ่าน (audit→CFO→ฐานันดรกำไร→งบดุล→หมายเหตุ) + คุณภาพกำไร + จับ window-dressing (OCI recycling/ตีราคา/FIFO/cookie-jar/งบรวม)

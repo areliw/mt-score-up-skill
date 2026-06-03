@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (51 สกิล)
+## 📚 ส่วนที่ 1 — Skills (53 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
@@ -66,6 +66,8 @@
 |---|---|
 | [ikigai-finder](./skills/ikigai-finder.md) | หา ikigai แบบไม่หลอกตัวเอง |
 | [self-development-coach](./skills/self-development-coach.md) | โค้ชพัฒนาตัวเองแบบตรงไปตรงมา |
+| [know-yourself](./skills/know-yourself.md) | สัมภาษณ์ตัวเองให้ลึก → master profile ที่ reuse ได้ (resume/LinkedIn/สัมภาษณ์/pivot) |
+| [mt-career-judgment](./skills/mt-career-judgment.md) | เส้นทางอาชีพ MT: bench→industry/commercial/AI · ladder+โครงรายได้+skill gap · T-shaped Data&AI · เป็นเจ้าของแล็บ |
 | [digital-judgment](./skills/digital-judgment.md) | privacy/PDPA/security/ลิขสิทธิ์/ลงทุน — ไม่โดนหลอก |
 | [finance-judgment](./skills/finance-judgment.md) | การเงิน/ลงทุน/อ่านงบ/ธุรกิจ — ลำดับเงิน + กันกับดัก/scam + เลนส์ econ |
 | [financial-statement-judgment](./skills/financial-statement-judgment.md) | อ่านงบ 5 ฉบับ + ลำดับอ่าน + คุณภาพกำไร (CFO) + จับ window-dressing/OCI |
@@ -119,7 +121,7 @@
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 51 สกิล — copy ไฟล์ไปวางในแชต AI
+├── skills/        # ★ 53 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
 ├── scripts/       # md→docx + standards auto-recheck (ดู scripts/README.md)

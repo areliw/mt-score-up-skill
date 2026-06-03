@@ -271,7 +271,7 @@
 1. [ ] **ครบ 12 ส่วน** (header, purpose, scope, responsibility, definitions, materials, procedure, QC, calculation, records, references, revision)?
 2. [ ] **ภาษาไทยทางการ** ตลอด — ไม่มีภาษาพูด / emoji เกินจำเป็น / "ฉัน เรา"?
 3. [ ] **ตัวเลข parameter** มี unit + tolerance หรือ mark `[ระบุตาม manual]`?
-4. [ ] **อ้างอิง ISO 15189:2022 / ISO 15190:2020 clause** ในจุดที่ relevant (โดยเฉพาะ Safety section ต้องอ้าง ISO 15190:2020)?
+4. [ ] **อ้างอิง ISO 15189:2022 / ISO 15190:2020 ตามหัวข้อ** ในจุดที่ relevant (ใส่เลข clause เฉพาะเมื่อทวนฉบับจริง; Safety section อ้าง ISO 15190:2020)?
 5. [ ] **ไม่มีข้อมูล identifying** คนไข้/บุคลากร/lot number เฉพาะ?
 6. [ ] **Safety warning ⚠️** ใส่ในขั้นตอนที่อันตราย (sharps, biohazard, chemical, electrical)?
 7. [ ] **Critical step ระบุ acceptance criteria** ("centrifuge ต้องเป็น 3,500 rpm ห้ามต่ำกว่า")?

@@ -1,4 +1,4 @@
-# Layout profile — โรงพยาบาลตัวอย่าง D (Hospital D Hospital, จ.พระนครศรีอยุธยา)
+# Layout profile — โรงพยาบาลตัวอย่าง D (org-banner + logo variant)
 # Layout variant 4: org banner + logo, then doc-control rows. The hospital's full WI also
 # has a separate cover page (signatures), a table of contents, and a revision-history table.
 slug: hospital-d

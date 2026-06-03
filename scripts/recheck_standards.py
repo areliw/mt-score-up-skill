@@ -71,9 +71,9 @@ def check_source(source: dict) -> dict:
     if not matches:
         return {"name": source["name"], "error": "edition pattern not found on page"}
 
-    # Use the most recent year found on page — guards against stale entries
-    # (the page lists the current edition first / most prominently)
-    detected_year = max(matches)
+    # Use the most recent year found on page — guards against stale entries.
+    # key=int → numeric comparison (robust if a stray non-4-digit token is ever matched).
+    detected_year = max(matches, key=int)
 
     return {
         "name": source["name"],

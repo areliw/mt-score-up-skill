@@ -60,8 +60,9 @@ ALLOWED_PLACEHOLDER_KEYS = {
 
 ANCHOR_PATTERNS = ["1. วัตถุประสงค์", "วัตถุประสงค์"]
 
-# Markdown heading level → Word built-in style name.
-# `##` (top-level section in our markdown) → Heading 1 so it appears in TOC + Navigation Pane.
+# Markdown heading level → Word built-in style name. NOTE: # and ## BOTH map to Heading 1
+# (## is our top-level section), ### → Heading 2, #### → Heading 3 — so # and ## render at
+# the same Navigation-Pane outline level.
 _HEADING_STYLE_BY_LEVEL = {1: "Heading 1", 2: "Heading 1", 3: "Heading 2", 4: "Heading 3"}
 
 # Native multilevel numbering — uses numId definitions already in the marked template.
@@ -584,27 +585,29 @@ def main() -> int:
 
     with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp:
         tmp_path = Path(tmp.name)
-    tpl.save(tmp_path)
-    print(f"Pass 1 done: placeholders rendered → {tmp_path.name}")
+    try:
+        tpl.save(tmp_path)
+        print(f"Pass 1 done: placeholders rendered → {tmp_path.name}")
 
-    # Pass 2: python-docx replaces body section starting at anchor
-    doc = Document(tmp_path)
-    anchor = find_anchor(doc)
-    if anchor is None:
-        print("WARNING: anchor 'วัตถุประสงค์' not found in template — appending body at end")
-    else:
-        removed = delete_from_anchor_to_sectpr(doc, anchor)
-        print(f"Pass 2: deleted {removed} body elements, will append markdown content")
+        # Pass 2: python-docx replaces body section starting at anchor
+        doc = Document(tmp_path)
+        anchor = find_anchor(doc)
+        if anchor is None:
+            print("WARNING: anchor 'วัตถุประสงค์' not found in template — appending body at end")
+        else:
+            removed = delete_from_anchor_to_sectpr(doc, anchor)
+            print(f"Pass 2: deleted {removed} body elements, will append markdown content")
 
-    # TOC removed — Word's F9-to-populate UX is confusing for MT users.
-    # Navigation Pane (View → Navigation Pane) provides outline navigation via
-    # Heading 1 styles already applied to `##` sections.
-    render_markdown(doc, md_body)
-    sections_with_footer = add_page_footer(doc)
-    print(f"Pass 3: page footer added to {sections_with_footer} section(s)")
+        # TOC removed — Word's F9-to-populate UX is confusing for MT users.
+        # Navigation Pane (View → Navigation Pane) provides outline navigation via
+        # Heading 1 styles already applied to `##` sections.
+        render_markdown(doc, md_body)
+        sections_with_footer = add_page_footer(doc)
+        print(f"Pass 3: page footer added to {sections_with_footer} section(s)")
 
-    doc.save(output_path)
-    tmp_path.unlink(missing_ok=True)
+        doc.save(output_path)
+    finally:
+        tmp_path.unlink(missing_ok=True)  # never orphan the temp file, even on failure
 
     print(f"Saved: {output_path}")
     return 0

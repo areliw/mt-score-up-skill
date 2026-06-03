@@ -80,7 +80,7 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 5. Push + open Pull Request
 6. Maintainer review (~3-7 วัน)
 
-### Method 2: Email (ถ้าไม่ใช้ GitHub)
+### Method 2: GitHub Issue (ไม่ต้อง fork/PR)
 
 เปิด **GitHub Issue** ของ repo นี้ → เล่าเคส/แปะเนื้อหามาในนั้นได้เลย (ไม่ต้อง fork/PR) → maintainer แปลงเป็น skill/expert-fill ให้
 Title: `[CONTRIB] <topic> - <ชื่อย่อ>`
@@ -96,7 +96,7 @@ PR จะถูก review ตาม:
 
 ## 🙏 Credit
 
-Contributors จะถูก list ใน [CONTRIBUTORS.md](./CONTRIBUTORS.md) (สร้างเมื่อมี contributor คนแรก)
+Contributors จะถูก list ใน `CONTRIBUTORS.md` (สร้างเมื่อมี contributor คนแรก)
 
 ใส่ในรูปแบบ: `[ชื่อ-นามสกุล] - [โรงพยาบาล/สังกัด] - [contribution]`
 

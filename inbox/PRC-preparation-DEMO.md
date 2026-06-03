@@ -142,9 +142,9 @@
 
 ## 10. เอกสารอ้างอิง (References)
 
-- AABB Technical Manual, 21st edition (2023), Chapter 6 — Component Preparation
-- ISO 15189:2022, clause 7.3.7 — Quality control
-- ISO 15190:2020, clause 7 (biological hazards) + clause 13 (PPE) + clause 16 (waste management) — Laboratory safety
+- AABB Technical Manual, 21st edition (2023) — Component Preparation section
+- ISO 15189:2022 — หัวข้อ Quality control (ทวนเลข clause กับฉบับจริงที่แล็บถือ)
+- ISO 15190:2020 — หัวข้อ biological hazards / PPE / waste management (ทวนเลข clause กับฉบับจริง)
 - Manual เครื่อง centrifuge: [ระบุยี่ห้อ/รุ่น/version]
 - SOP-BB-001 — General Blood Bank Operations
 - WI-BB-002 — Temperature Monitoring of Blood Storage Refrigerators

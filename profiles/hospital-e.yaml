@@ -1,4 +1,4 @@
-# Layout profile — โรงพยาบาลตัวอย่าง E (Hospital E Hospital, จ.ตาก)
+# Layout profile — หน่วยงานตัวอย่าง E (org-banner + logo + in-header signature variant)
 # Layout variant 5: org banner + logo, doc-control, and the signature block (ผู้จัดทำ/
 # ผู้รับรอง/ผู้อนุมัติ) carried IN the header. Page format uses "N ของ M" (not "N/M").
 slug: hospital-e

@@ -122,10 +122,14 @@ mt-score-up-skill/
 ├── skills/        # ★ 51 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
+├── scripts/       # md→docx + standards auto-recheck (ดู scripts/README.md)
 ├── templates/     # WI .docx templates (generic)
 ├── profiles/      # Layout profile ต่อโรงพยาบาล (generic)
 ├── inbox/         # Drop WI ตัวอย่าง — AI scan ใช้เป็น template
-└── docs/          # Vision, setup guides
+├── eval/          # Paired-prompt eval (preliminary — ดู eval/README.md)
+├── docs/          # Vision, setup guides
+├── STANDARDS.md   # Source-of-truth edition + auto-recheck รายเดือน
+└── CHANGELOG.md   # Version history (v0.1.0)
 ```
 
 ## Privacy & ความปลอดภัย

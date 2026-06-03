@@ -1,4 +1,4 @@
-# Layout profile — หน่วยงานตัวอย่าง C (Thai Red Cross, Microbiology)
+# Layout profile — หน่วยงานตัวอย่าง C (compact-header variant, Microbiology)
 # Layout variant 3: COMPACT header — logo (carries the org identity) + WI title + doc-control.
 # NO org banner band (identity lives in the logo). In this org's docs the signature block and
 # revision-history are SEPARATE body tables, not part of the header.

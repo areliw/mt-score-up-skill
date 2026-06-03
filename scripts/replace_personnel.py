@@ -7,8 +7,8 @@ person leaves/changes role, their name in the template's signature block (footer
 header, or body) must update across all WIs. Template hardcodes names (not
 placeholders), so we post-process the rendered docx.
 
-Searches ALL locations: body paragraphs + body tables + every section's
-header/footer paragraphs + header/footer tables.
+Searches body paragraphs + tables + each section's primary header/footer
+(and any explicitly-defined first/even header/footer) paragraphs + tables.
 
 Usage:
     python scripts/replace_personnel.py <doc.docx> "<old name>=<new name>" ["<old2>=<new2>" ...] [--dry-run]
@@ -100,6 +100,9 @@ def main() -> int:
     if not doc_path.exists():
         print(f"ERROR: {doc_path} not found")
         return 1
+    if not replacements:
+        print("ERROR: no valid 'old=new' pair given (need '=' in each)")
+        return 2
 
     doc = Document(doc_path)
     n = replace_all(doc, replacements)

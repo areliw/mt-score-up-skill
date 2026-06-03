@@ -11,7 +11,7 @@
 
 **Date:** 2026-06-01
 **Method:** WebSearch via Claude Code agent
-**Next scheduled recheck:** 2026-07-01 (30-day cadence — see Layer 3 in [README](README.md))
+**Next scheduled recheck:** 2026-07-01 (30-day cadence — see "Automation (Layer 3 — active)" below + [scripts/README](scripts/README.md))
 
 ---
 

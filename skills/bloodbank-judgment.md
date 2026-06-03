@@ -19,6 +19,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - ABO ไม่ตรง (cell ≠ serum) · antibody screen บวก → จะ ID ยังไง · DAT/IAT อันไหน · crossmatch แบบไหน
 - เลือก component / เมื่อไหร่ irradiate / leukoreduce · transfusion reaction → workup · ฉุกเฉินจ่าย O เมื่อไหร่
 - HDN/HDFN (Rh vs ABO + RhIG) · เมื่อไหร่ใช้ genotype แทน serology · enhancement (enzyme/LISS/adsorption/elution) · support transplant/HSCT
+- delayed/late reactions (DHTR/TA-GVHD/PTP/iron overload) · เลือก special technique (potentiator/ลบ Ab) ตอนผลไม่ชัด
 
 ## วิธีใช้
 วาง skill นี้ + เล่าเคส (ผล forward/reverse, screen, ประวัติ) → AI ชี้ "ทำอะไรก่อน" + กับดักอันตราย
@@ -125,6 +126,18 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **HLA matching HSCT:** A/B/C/DRB1 = **8/8**, +DQB1 (10/10) ยิ่งดี; ลำดับ sib-identical → unrelated → haplo/cord
 - **ABO-incompatible graft:** RBC-deplete (major) / plasma-reduce; post-transplant **monitor ABO Ab titer**; CD34+ count (flow) = quantify progenitor
 
+### Fork 12 — Delayed/late reactions (ที่ตาราง acute ไม่ครอบ)
+- **DHTR/DSTR (anamnestic):** เคย sensitize → titer ตกจน **screen ลบตอนเตรียมเลือด** → ได้ Ag-positive unit → boost ใน 3 วัน-สัปดาห์ → hemolysis · ความถี่ **Kidd > Duffy > Kell > MNS** (Jka titer drop ง่ายสุด); DSTR (ไม่มี hemolysis marker) พบบ่อยกว่า DHTR · **ป้องกัน: ใช้ตัวอย่าง ≤3 วันก่อนจ่าย + บันทึก Ab เก่า → เลี่ยง Ag เดิมแม้ screen ลบ**
+- **TA-GVHD:** donor lymphocyte ตี recipient → **marrow aplasia/pancytopenia → ตาย 1-3 สัปดาห์, รักษาแทบไม่ได้ → ป้องกันทางเดียว** · ⚠️ **เลือดญาติ (directed) = เสี่ยงสูงสุด** (one-way HLA: donor homozygous ตรงกับ recipient heterozygous → **คนภูมิปกติก็เป็นได้**) → **irradiate 25 Gy เสมอ; leukoreduction อย่างเดียวไม่กัน**
+- **PTP (post-transfusion purpura):** เกล็ดตกฮวบ **~1 สัปดาห์** หลังเลือด, หญิงเคยตั้งครรภ์, Ab = **anti-HPA-1a** (ทำลายเกล็ดตัวเอง HPA-1a-neg ด้วย) · DDx ITP/HIT/DIC/drug — ธง = ก่อนเลือด plt ปกติ · รักษา **IVIG** (ดีสุด), อย่าให้ washed
+- **Iron overload:** RBC 1 unit ≈ Fe 200-250 mg, ขับได้ ~1 mg/วัน → สะสมตับ/หัวใจ · 🩸 **thalassemia/chronic transfusion เสี่ยงตายจากเหล็ก > จากซีด** → ติดตาม ferritin + chelator (deferiprone เสี่ยง agranulocytosis · deferasirox กินวันละครั้ง)
+- **Hemovigilance:** reaction ส่วนใหญ่พลาดเพราะ "ไม่สังเกต" + "ไม่รายงาน" → ต้องมีระบบรายงาน; เคสตายแจ้งหน่วยกำกับ
+
+### Fork 13 — Special techniques: เลือก potentiator + ลบ/แยก Ab (ทุกอันต้องมี autocontrol)
+- **ปฏิกิริยาอ่อน → potentiator:** **LISS** (routine; ต้องมี glycine; **ห้ามใน titration**) · **PEG** (IgG ดีมาก · ⚠️ **ห้ามปั่นหลังเติม** + **ยับยั้ง IgM** ABO/Lewis) · **Polybrene** (เร็ว · ⚠️ **ใช้กับ Kell ไม่ได้**) · Albumin (เลิกใช้แล้ว — AHG พอ)
+- **Ab รบกวน → ลบ/แยก (ตามชนิดตัวกวน):** IgM บัง IgG → **DTT/2-ME** (⚠️ DTT ทำลาย **Kell** ด้วย) · cold autoAb → **prewarmed 37°C** · warm autoAb (DAT+) → **adsorption** · IgG เคลือบจน type Ag ไม่ได้ → **chloroquine** (⚠️ ไม่ลบ complement → อ่านด้วย anti-IgG monospecific; ห้ามเกิน 2 ชม.) · Ab จริงหรือ non-specific → **inhibition** (soluble Lewis/P1/Sd + saline control)
+- ⚠️ **ทุก enhancement/เทคนิคพิเศษ (prewarmed/cold/low-pH/enhance) ต้องรัน autocontrol คู่เสมอ** — ไม่งั้นแยก auto vs allo (เช่น anti-I บัง) ไม่ออก
+
 ---
 
 ## กับดัก (Anti-patterns) — อันตราย เช็คทุกเคส
@@ -143,6 +156,11 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **ลืม control ของ enhancement** → last-wash NSS (elution) / สัดส่วน LISS ผิด = อ่าน eluate/reaction ผิดทั้ง run
 - **parentage จาก serology = exclude ได้เท่านั้น ไม่ confirm** — "ไม่ขัด" ≠ "เป็นพ่อ"; ยืนยันความเป็นพ่อต้อง molecular/STR
 - **passive anti-A,B จาก O component อ่านเป็น auto/alloAb** → เช็ค Hx ได้ platelet/plasma หมู่ O ก่อน (DAT+/eluate anti-A,B)
+- **TA-GVHD จากเลือดญาติ (one-way HLA match)** = เสี่ยงสุด คนภูมิปกติก็เป็น → **irradiate เสมอ**; leukoreduction ไม่กัน
+- **PTP (เกล็ดต่ำ ~1 สัปดาห์, anti-HPA-1a)** สับกับ ITP/HIT/TA-GVHD → ธง: ก่อนเลือด plt ปกติ; รักษา IVIG
+- **เลือกสารพิเศษผิด → ลบ Ag ที่อยากตรวจ** — DTT ทำลาย Kell · chloroquine ทำลาย HLA-I/Rh · enzyme ทำลาย MNS/Duffy
+- **PEG ห้ามปั่น / ห้ามใช้กับ IgM (ABO/Lewis) · Polybrene ใช้กับ Kell ไม่ได้ · LISS ห้ามใน titration**
+- **ลืม autocontrol ในเทคนิคพิเศษ** (prewarmed/cold/low-pH/enhance) → แยก cold-auto vs allo ไม่ออก
 
 ---
 

@@ -81,6 +81,13 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 - **Mycobacteria ladder:** ZN/auramine smear (sens ต่ำ 5,000–10,000/ml, **smear-neg ไม่ตัด TB**, แยก MTB/NTM ไม่ได้) → culture gold (MGIT 1–3wk เร็วกว่า LJ 6–8wk) → MTB-vs-NTM (niacin+/nitrate+/MPT64+) → DST/GeneXpert สำหรับ MDR
 - **Zoonosis/Rickettsia/Chlamydia:** serology+molecular เป็นหลัก, culture ทำไม่ได้/ต้อง BSL-3 → paired serology 4-fold + IFA + PCR · Weil-Felix = screening หยาบ ไม่ confirm · ⚠️ **Leptospira/PCR ห้าม heparin** (ยับยั้ง Taq + citrate ฆ่าเชื้อ) · ผู้ป่วยหนัก ใช้ PCR/Giemsa buffy coat เร็วกว่ารอ serology
 
+### FORK 9 — Gram triage power + ID-fork refinements + virulence→test
+- **Gram = triage อันดับ 1** กำหนด media/atmosphere/เดาเชื้อ/รายงาน direct ก่อน culture เสร็จ + บอกคุณภาพ specimen (squamous เยอะ=ปนน้ำลาย) + ชนิด WBC (PMN=bacterial · lympho=viral/TB)
+- ⚠️ **Gram misread:** over-decolorize (GP→ดู GN; colony เก่า decolorize ง่าย → ใช้ **fresh colony**) · under-decolorize (GN→ดู GP) · gram-variable (Gardnerella/Clostridium/เซลล์แก่) · stain precipitate ดูเป็น GPC → correlate รูปร่าง+culture, อย่ารายงานจาก smear ที่ control ไม่ผ่าน
+- **GPC fork:** catalase (Staph+/Strep−) → coagulase (aureus+/CoNS−; **slide=clumping 20วิ; ลบต้อง confirm tube 4ชม.**) → **novobiocin (S. saprophyticus = R)** · ⚠️ **catalase ห้ามทำบน blood agar** (RBC มี catalase → false+)
+- **GNB fork:** **oxidase แยกขั้ว** — ลบ = Enterobacterales (ferment glucose ทุกตัว) · บวก = Vibrio/Aeromonas (fermenter) หรือ NFGNB (Pseudomonas ox+ / Acinetobacter ox−) → lactose/TSI/IMViC/urease แยก genus
+- **virulence → test:** **endotoxin (LPS) = เฉพาะ GNB** (ปล่อยตอนเซลล์แตก) · **exotoxin = จำเพาะ ตรวจตรงได้** (ELEK ของ diphtheria · Shiga toxin · C.diff toxin A/B · TSST-1) · capsule = target serotyping/วัคซีน
+
 ## กับดัก (Anti-patterns)
 1. รายงาน contaminant เป็น pathogen — CoNS 1 ขวด, urine 3+ ชนิด, sputum oral flora.
 2. ไม่ correlate กับ Gram เดิม — AST/ID ขัด Gram smear = หยุด ทวน.
@@ -95,6 +102,8 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 11. heparin ใน specimen ที่จะส่ง PCR/Leptospira — heparin ยับยั้ง Taq (PCR fail), citrate ฆ่า Lepto → molecular ใช้ EDTA; รู้ assay ปลายทางก่อนเลือก tube.
 12. เพาะ/รายงานหลังให้ ATB = no-growth ลวง — เก็บ culture ก่อนยาเสมอ · และอย่าตัด Cryptococcus เพราะ CSF cell count ปกติ → สั่ง CrAg/India ink เมื่อสงสัย.
 13. cycloheximide media จานเดียวกับที่สงสัย opportunistic mold — กด Aspergillus/Mucor/Cryptococcus/Nocardia → "no fungus" ลวงในผู้ป่วย immunocompromised.
+14. anaerobe ด้วย swab + transport ธรรมดา/แช่เย็น = เชื้อตายก่อนถึงแล็บ → **aspirate (ไม่ใช่ swab) + anaerobic transport + ไม่แช่เย็น**; ฝี/แผลลึกต้องตั้ง anaerobe เสมอ.
+15. serology ไวรัส Flavivirus (dengue/JE/Zika) cross-react สูง → acute ใช้ **Ag/PCR (dengue NS1)**, IgG ต้อง paired; **enveloped virus ส่งเย็น/เปราะ** (RNA สลายง่าย).
 
 > NOTE: knowledge (taxonomy, media recipes, colony-count tables, MIC/MBC, AFB grading) → point to "ตำรา/แหล่งอ้างอิงมาตรฐาน", no path.
 

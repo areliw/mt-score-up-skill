@@ -1,0 +1,95 @@
+---
+skill: chemistry-interpretation-judgment
+title: โค้ชแปลผลเคมีคลินิก — เลือก marker + อ่าน pattern (Clinical Chemistry Interpretation Judgment)
+type: ADVISE               # ช่วยแปลผล/เลือก marker ไม่ใช่ตำราค่า analyte
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+reviewed: 2026-06-01
+status: draft
+disclaimer: "ช่วยคิดแปลผลเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — MT ตีความ/flag/ส่งต่อ การวินิจฉัยเป็นหน้าที่แพทย์ · ทุกผลต้อง correlate clinical + ทำตาม SOP/reference range ของห้องแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ชแปลผลเคมีคลินิก — เลือก marker + อ่าน pattern
+
+ค่าเคมีออกมาแล้ว "แปลว่าอะไร + เลือก marker/สูตรไหนเมื่อไหร่" แบบ organ-system ไม่ใช่ท่องค่า analyte (= commodity ดูตำรา)
+
+> นี่คือชั้น "ค่าออกมาแล้วแปลผล" — ส่วน QC/accept-reject run/Westgard ดู `clinchem-judgment` · ร้อยผลข้ามแขนง → ตั้ง DDx → ส่งต่อแพทย์ ดู `clinical-correlation-judgment`
+> ⚠️ MT ตีความ/flag/ชี้ทาง — **การวินิจฉัยเป็นหน้าที่แพทย์**
+
+## ใช้เมื่อ
+- อ่าน LFT/renal/cardiac/ABG/tumor marker แล้วต้องบอก pattern + ขั้นถัดไป
+- เลือก marker/สูตร (eGFR ตัวไหน · marker หัวใจตามเวลา · tumor marker ใช้/ไม่ใช้)
+- ค่าแปลกสวนอาการ → สงสัย interference (HIL/paraprotein/drug/method)
+- (สาย sales) เข้าใจ "method matters" → คุย lab ลูกค้า (ดู `ivd-sales-judgment`)
+
+## วิธีใช้
+วาง skill นี้ + ค่าที่เจอ + clinical → AI ชี้ pattern + marker/สูตรที่เหมาะ + interference ที่ต้องตัดออกก่อนเชื่อค่า
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
+
+### Fork 1 — Tumor marker: ใช้/ไม่ใช้เมื่อไหร่
+- ⚠️ **ไม่ใช่ screening คนทั่วไป** (sens+spec ต่ำ → false +/− ท่วม) · gold standard diagnosis = **histology** · marker ส่วนใหญ่ใช้ **monitor/recurrence/prognosis** ไม่ใช่จับมะเร็งครั้งแรก
+- benign ที่ดันค่าสูงปลอม (กับดัก): PSA↔prostatitis/BPH · AFP↔cirrhosis/ตั้งครรภ์ · CEA↔**สูบบุหรี่**/IBD · CA125↔**ประจำเดือน/ตั้งครรภ์/endometriosis** · β-hCG↔ตั้งครรภ์
+- กฎสั่ง: **ห้ามเชื่อค่าเดียว** · **serial = assay/kit/ห้องเดิม** (assay ต่าง → ค่าต่าง) · ดู **half-life** (hCG เร็วสุด · PSA หลัง radiotherapy ช้าหลายเดือน) — ลดช้ากว่าคาด = residual/ดื้อยา · screen เฉพาะ high-risk (HBV/cirrhosis → AFP+US)
+
+### Fork 2 — Renal: เลือก marker + สูตร
+- **BUN↑เดี่ยว** (Cr ปกติ) → prerenal/dehydration/**GI bleed**/high-protein/steroid · **BUN+Cr↑** → GFR ลดจริง · BUN:Cr >20 = prerenal/GI bleed
+- **CrCl (24h urine)** กับดัก: เก็บไม่ครบ (urine Cr ควร ≥8.5 mg/kg/day) · GFR ต่ำมาก → tubule หลั่ง Cr → **CrCl overestimate**
+- **eGFR (serum Cr):** CKD-EPI (แม่นเมื่อ GFR>60) · MDRD (<60) · Cockcroft-Gault · gold จริง = inulin (ไม่ routine)
+- ⚠️ **Cr ปกติ ≠ ไตปกติ:** glomerulus เสีย <25% Cr ยังปกติ · **คนแก่** muscle↓ ชน GFR↓ หักล้าง · **cirrhosis** สร้าง creatine น้อย → Cr ต่ำปลอม eGFR สูงเกินจริง → ใช้ **cystatin C** (ไม่ขึ้น muscle)
+- **Jaffe vs enzymatic:** Jaffe ถูกแต่ interference เยอะ (glucose/protein/vit C/ASA/ceph ↑ปลอม; bilirubin ↓) → overestimate GFR → **enzymatic creatinine** สำหรับคำนวณ GFR
+
+### Fork 3 — LFT: อ่าน pattern อย่าอ่านทีละตัว
+- จัดกลุ่ม: **hepatocellular** (AST/ALT) · **cholestatic** (ALP/GGT/5'-NT) · **synthetic** (albumin/PT) · **excretion** (bilirubin)
+- **AST:ALT ratio:** ตับเจ็บทั่วไป ALT>AST · **≥2:1 = alcoholic** (GGT/ALP หนุน; **AST>500 ในคนดื่ม = ผิดปกติ หาเหตุอื่น** alcoholic มัก <300)
+- **DB/TB ratio** (ตัวตัดสิน bilirubin): <20% unconjugated → **hemolysis/Gilbert** (prehepatic) · >70% conjugated → **cholestasis/obstruction** · 30-60% mixed → hepatitis/cirrhosis
+- **ALP สูง → ตับหรือกระดูก?** confirm ด้วย GGT/5'-NT (สูงคู่=ตับ; ปกติ=กระดูก)
+- **PT prolong → ตับหรือ vit K?** ฉีด vit K ดีขึ้น = **cholestasis** (ดูดซึมไม่ได้); ไม่ดีขึ้น = **hepatocellular** (สร้าง factor ไม่ได้)
+- ⚠️ **ischemic hepatitis "shock liver":** AST/ALT พุ่ง >2000 แต่ลงเร็วใน 1 สัปดาห์ (low-flow: HF/shock/sepsis) — เลขน่ากลัวแต่ self-limited อย่าตื่น
+
+### Fork 4 — Cardiac marker: timing คือทุกอย่าง
+| marker | ขึ้นหลังเจ็บอก | คงอยู่ | บทบาท/กับดัก |
+|---|---|---|---|
+| **Myoglobin** | 1-3 h (เร็วสุด) | สั้น | early, spec ต่ำ; **ห้ามใช้ในไตวาย** (สูงปลอม) |
+| **CK-MB mass** | 3-6 h | 2-3 วัน | ดู **re-infarction** ดี; index (MB×100/CK) **>5%=cardiac** |
+| **cTnI/cTnT** | 3-7 h | 7-14 วัน | **definitive** (sens+spec สูงสุด) + risk stratify |
+- ⚠️ **troponin↑ ≠ MI เสมอ** (ไตวาย/sepsis/PE/HF/exercise) → ดู **rise/fall (delta 0h/1h) + clinical + EKG** · **BNP/NT-proBNP = heart failure** ไม่ใช่ MI
+
+### Fork 5 — Acid-base/ABG: 5 ขั้น + anion gap
+1. pH → acidosis/alkalosis · 2. PCO2 (↑=resp acid) · 3. HCO3⁻ (↓=metabolic acid) · 4. ตัวที่ไปทางเดียวกับ pH = สาเหตุ (CO2→resp / HCO3→metabolic) · 5. compensation (un/partial/full)
+- **Metabolic acidosis → AG = (Na+K)−(Cl+HCO3):** **high AG** = DKA/lactic/renal/toxin (methanol/glycol/salicylate) · **normal AG (hyperchloremic)** = diarrhea/RTA/CA-inhibitor
+- **Metabolic alkalosis:** urine Cl<10 = **saline-responsive** (vomit/NG/diuretic) · >20 = **saline-resistant** (mineralocorticoid excess)
+- ⚠️ **calculated SO2 จาก ABG ผิด** ถ้ามี COHb/MetHb → ต้อง **co-oximeter** (วัดจริง) ไม่ใช่คำนวณจาก PO2
+
+### Fork 6 — Interference (HIL/paraprotein/drug): ตัดออกก่อนเชื่อค่า
+- **Hemolysis:** K⁺↑ (intracellular ~40×), LDH/AST/phosphate↑ → **อย่ารายงาน K critical จากตัวอย่าง hemolyzed**
+- **Lipemia:** **pseudo-hyponatremia** (indirect ISE), รบกวน 340nm → fast 12h / clear ก่อนวัด
+- **Icterus:** bilirubin รบกวน assay ที่ใช้ H₂O₂
+- **Paraprotein:** ⚠️ **ตาไม่เห็น (gross ปกติ)** แต่รบกวน → สงสัยเมื่อค่าแปลกในผู้ป่วย myeloma
+- **Drug method-dependent:** Jaffe Cr ↑ (ceph/ASA/vit C) · ดู `clinchem-judgment` สำหรับ HIL index/QC angle
+> หลัก "method matters" — ค่าแปลกสวน clinical → สงสัย interference ก่อนเชื่อ/ก่อนรายงาน
+
+---
+
+## กับดัก (Anti-patterns)
+- **ใช้ tumor marker screen คนทั่วไป** / เชื่อค่าเดียว / serial คนละ assay
+- **troponin↑ = MI เสมอ** — ดู delta + clinical (ไตวาย/sepsis/PE ก็ขึ้น)
+- **Cr ปกติ = ไตปกติ** ในคนแก่/cirrhosis — ใช้ eGFR/cystatin C
+- **รายงาน K สูงจากตัวอย่าง hemolyzed** (สูงปลอม → critical ปลอม)
+- **ตื่นกับ ischemic hepatitis** AST/ALT >2000 ที่ self-limited
+- **ตัด DKA เพราะ urine ketone ลบ** (early DKA β-OHB เด่น; dipstick จับ acetoacetate)
+- **เชื่อ calculated SO2** เมื่อมี CO/MetHb — ต้อง co-oximeter
+- **อ่าน LFT/bilirubin ทีละตัว** แทน pattern (DB/TB + AST:ALT + GGT)
+
+---
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> เติมเคสจริง เช่น:
+> - *"(MT chem) เคสที่ค่าแปลกเพราะ interference ... จับได้เพราะ..."*
+> - *"reference range / method ของแล็บผม (Jaffe vs enzymatic, hs-troponin cutoff) คือ..."*
+> - *"pattern LFT/ABG ที่ผมเคยอ่านพลาด คือ..."*
+
+---
+*ช่วยคิดแปลผลเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — MT ตีความ/flag/ส่งต่อ การวินิจฉัยเป็นหน้าที่แพทย์ · ทุกผลต้อง correlate clinical + ทำตาม SOP/reference range ของห้องแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*

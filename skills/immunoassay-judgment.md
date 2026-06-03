@@ -20,6 +20,7 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพ
 - ต้องตีความ serology panel — HBV, HIV algorithm, syphilis NTT/TT, ANA pattern
 - ก้ำกึ่งว่า reactive screen ต้อง confirm ไหม / dilute เพราะ prozone-hook ไหม
 - ผลลบสวนอาการ หรือ ผลบวกในคน prevalence ต่ำ — ต้องตัดสินใจว่าเชื่อหรือทวน
+- เลือก/อ่าน non-label (agglutination/nephelometry/precipitation) · immunoblot/Western · IGRA (QFT) · ระวัง HAMA/biotin interference
 - (สาย sales/IVD) เตรียมคุยงาน diagnostics — Abbott Architect/Alinity, Roche Elecsys/cobas, Bio-Rad, Siemens
 
 ## วิธีใช้
@@ -60,6 +61,20 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 - screen sensitivity สูง (↓FN) → มี false-positive ปนเสมอ. reactive screen ≠ diagnosis. ต้อง confirm ด้วย test specificity สูง (↓FP) ก่อนรายงาน (HIV, syphilis, HCV).
 - PPV ขึ้นกับ prevalence: prevalence ต่ำ + screen reactive → ส่วนใหญ่อาจ false-pos → confirm ยิ่งจำเป็น.
 
+### FORK 4 — Non-label techniques + agglutination
+- **Precipitin zone:** ตะกอนเฉพาะ equivalence · **prozone (Ab เกิน) / postzone (Ag เกิน)** → false negative → เจือจางแล้วซ้ำ
+- **Turbidimetry vs Nephelometry:** turbidimetry วัดแสง**ลด** (180°) · **nephelometry วัด scatter** (10-90°) ไวกว่า → ใช้กับ Ig/complement/CRP/RF · particle-enhanced (latex) ตรวจ analyte เล็กลงได้
+- **RID/Ouchterlony/IFE:** RID = quant Ag จากวงตะกอน · Ouchterlony = identity/non-identity · **IFE = typing monoclonal protein** (myeloma)
+- **Agglutination 4 ชนิด:** Direct (Ag บน particle เอง — blood typing) · Passive (soluble Ag เคลือบ → ตรวจ Ab) · **Reverse passive** (Ab เคลือบ → ตรวจ Ag: CRP/HBsAg latex) · Inhibition (ยับยั้ง=บวก, hapten) · **IgM จับกลุ่มดีกว่า IgG มาก** (10 site) · titer = dilution สูงสุดที่ยังบวก
+
+### FORK 5 — Immunoblotting / Western blot (confirm + characterize)
+- SDS-PAGE แยกตาม **ขนาด (MW)** → blot ลง membrane → block → Ab จำเพาะ → enzyme/chemiluminescent substrate
+- ใช้: **confirmatory** (Ab จับโปรตีนเป้าตัวไหน) + **characterize Ag** · **reducing (+2-ME) vs non-reducing** → MW เปลี่ยน = มี disulfide bond
+
+### FORK 6 — Cell-based / IGRA (เช่น QFT-TB)
+- whole blood + peptide จำเพาะ TB (ESAT-6/CFP-10) → วัด **IFN-γ ที่ T cell หลั่ง ด้วย ELISA (sandwich)** = ตรวจ cell-mediated immunity (รวม latent TB) แทน/เสริม TST (ไม่ false+ จาก BCG)
+- ⚠️ **Indeterminate** = mitogen control ไม่ขึ้น / nil สูง → ตีความไม่ได้ ต้องเจาะใหม่ · clotted = invalid
+
 ## กับดัก (Anti-patterns)
 1. Prozone (false-negative ที่ titer สูง) #1 — Ab เกินมาก → ไม่เกิด lattice → ผลลบทั้งที่ป่วยหนัก (RPR ใน secondary syphilis). เจอ clinical สงสัยแต่ผลลบ → เจือจาง (dilute) ทดสอบใหม่. Postzone = Ag เกิน. optimal = equivalence.
 2. Hook effect (high-dose hook) — sandwich CLIA: analyte สูงมาก (tumor marker, β-hCG) → saturate Ab ทั้งสองข้าง → signal ต่ำหลอก. ผลต่ำสวนอาการ → dilute ซ้ำ.
@@ -69,6 +84,9 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 6. สับ competitive กับ sandwich — ใช้ sandwich กับ hapten เล็ก = พัง; ใช้ competitive แล้วลืม signal ผกผัน = อ่านกลับด้าน.
 7. ลืมเตรียม specimen — ไม่ heat-inactivate complement (56°C 30 นาที); lipemia/hemolysis รบกวน optical; IgM ทำงานดีที่เย็น.
 8. ใช้ test ผิดจุดประสงค์ — screen ไปใช้ confirm; TT (บวกตลอดชีวิต) ไปติดตามการรักษาแทน NTT titer → ตีความผิดว่า "ไม่หาย".
+9. HAMA (human anti-mouse Ab) — คนไข้เคยรับ mAb บำบัด → จับ capture+detection Ab ของ sandwich → false +/− → ต้อง blocking reagent.
+10. Biotin interference — กิน biotin (วิตามินผม/เล็บ) สูง รบกวน assay biotin-streptavidin → ผลเพี้ยน (TSH/troponin ต่ำปลอม อันตราย) → งด biotin ก่อนเจาะ.
+11. Competitive / lateral-flow อ่านกลับด้าน — สัญญาณต่ำ หรือ "ไม่มีแถบ test" = analyte สูง (ชุดยาเสพติด); **control line ไม่ขึ้น = invalid ไม่ใช่ลบ**.
 
 > NOTE: knowledge (Ig class, complement pathway, hypersensitivity I-IV, Sens/Spec/PPV/NPV) → point to "ตำรา/แหล่งอ้างอิงมาตรฐาน", no path.
 

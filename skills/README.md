@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**40 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**46 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -17,13 +17,16 @@
 - **bloodbank-judgment** — ตัดสินใจหน้างานธนาคารเลือด (CLERICAL ก่อน · ABO discrepancy 8 เคส · antibody ID · crossmatch IS/AHG/electronic · เมื่อไหร่ irradiate · transfusion reaction) — patient-safety สูงสุด
 - **hematology-judgment** — อ่าน CBC/smear/coag (review smear เมื่อไหร่ · anemia ตาม MCV · blast=urgent · thal vs IDA · PT/aPTT + mixing test · platelet จริงหรือ pseudo)
 - **clinchem-judgment** — accept/reject QC run (Westgard) · interference HIL กระทบ analyte ไหน · critical value · recalibrate vs troubleshoot · dilute/repeat/report
+- **chemistry-interpretation-judgment** — แปลผล organ-system (ค่าออกมาแล้วแปลว่าอะไร): tumor marker ใช้/ไม่ใช้ · renal (eGFR/cystatin/Jaffe) · LFT pattern (AST:ALT, DB/TB) · cardiac timing (troponin/CK-MB) · acid-base + anion gap · interference (HIL/paraprotein/drug) — *MT ไม่วินิจฉัย*
 - **clinmicro-judgment** — เชื้อจริง vs contaminate · ID workflow + เมื่อไหร่พอ · อ่าน AST (ESBL/MRSA/inducible-clinda/CRE) · เลือก media/atmosphere · culture vs molecular
+- **applied-microbiology-judgment** — จุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม/สิ่งแวดล้อม คนละเลน clinical): ถนอมอาหาร · food pathogen screen≠confirm · culture-dependent vs metagenomics vs polyphasic · bioremediation · probiotic/prebiotic/FMT
 - **immunoassay-judgment** — เลือก format (sandwich/competitive/CLIA/lateral flow) · อ่าน HBV/HIV/syphilis/ANA panel · prozone/hook/window/confirm
 - **molecular-judgment** — เลือก method detect variant (RFLP/ASO/HRM/Sanger/NGS) · real-time chemistry · แปล Ct/melt valid-invalid · กัน contamination/false-neg · HLA typing · pharmacogenomics
 - **pathology-judgment** — อ่าน pattern: benign/malignant (5 แกน) · cell injury reversible/irreversible · necrosis type · acute/chronic อักเสบ · grading/staging · dysplasia→cancer (basement membrane) · granuloma/hypersensitivity
 - **parasitology-judgment** — เลือก concentration/stain ตามเป้า · malaria thick vs thin + ตรวจซ้ำ · single-stool false-neg · artifact vs parasite
 - **toxicology-judgment** — screen vs confirm · antidote tree (OP/carbamate/paraquat/โลหะ) · chelator คู่โลหะ · RBC-AChE vs plasma ChE · TDM timing · chain of custody
 - **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็นภาพเดียว ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal value → DDx → rule-out → cause-effect chain) · *MT ไม่วินิจฉัย*
+- **pharmacology-judgment** — ยาเบื้องต้นมุม MT: ADME (ตับ/ไตเสื่อม→พิษ) · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน (ยา-ยา/อาหาร/โรค) · ใช้ยาถูก (ห้ามบด EC/SR) · pharmacogenomics — *MT ไม่สั่งจ่ายยา*
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
@@ -46,17 +49,20 @@
 - **polite-but-clear** — ปรับข้อความห้วน/แรง → สุภาพ แต่ยังได้ใจความ (ปฏิเสธ/ตักเตือน/แย้งหัวหน้า)
 - **explain-simply** — อธิบายเรื่องยากแบบเด็ก ป.3 — ง่ายแต่ห้ามผิด (โดยเฉพาะเรื่องแพทย์)
 - **content-creator-judgment** — เลือกหัวข้อคอนเทนต์ให้ความรู้ (มี hook ไหม/จับเทรนด์ตอนไหน) + ไม่ทำให้เพจตาย
+- **photography-judgment** — ถ่ายภาพ/วิดีโอ + photomicrography: exposure triangle · DOF เพื่อสื่อความหมาย · composition · WB/metering · ถ่ายสไลด์/colony/gel ให้คม-สีตรง · video grammar
 
 ### 🧭 ชีวิต / อาชีพ
 - **ikigai-finder** — หา ikigai แบบไม่หลอกตัวเอง → จบที่ "1 การทดลอง" ไม่ใช่ลาออกตามฝัน
 - **self-development-coach** — โค้ชพัฒนาตัวเองแบบตรงไปตรงมา ไม่ปลอบใจลอยๆ
 - **digital-judgment** — privacy/PDPA/de-identify/security/ลิขสิทธิ์/ลงทุนออนไลน์ — ตัดสินใจปลอดภัย ไม่โดนหลอก
-- **finance-judgment** — การเงิน/ลงทุน/ธุรกิจ (บันไดเงิน · asset ตาม horizon · อ่านงบ/CFO · valuation · หนี้ดี-เลว · go/pivot · จับ scam)
+- **finance-judgment** — การเงิน/ลงทุน/ธุรกิจ (บันไดเงิน · asset ตาม horizon · อ่านงบ/CFO · valuation · หนี้ดี-เลว · go/pivot · จับ scam · เลนส์ econ: opportunity cost/elasticity/real-vs-nominal)
+- **mt-law-ethics-judgment** — กฎหมาย/จรรยาบรรณวิชาชีพ MT: ใบอนุญาต+CMTE · ขอบเขตวิชาชีพ (ทำได้/ต้องมีแพทย์/ทำไม่ได้) · ความลับ+PDPA · กฎหมายเครื่องมือแพทย์ (ขาย IVD) · คิดก่อนโพสต์
 
 ### 💼 บริหารแล็บ / ขาย IVD
 - **lab-management-judgment** — บริหารแล็บ: accreditation (ISO 15189/LA/HA) · QC strategy (sigma metric/IQCP) · งบ (เครื่อง=ลงทุน vs น้ำยา=ดำเนินงาน) · verification vs validation · inventory/FEFO
 - **ivd-sales-judgment** — ขาย IVD/diagnostics: ขายผลลัพธ์บริหารไม่ใช่สเปก · budget-pocket (rental→opex) · sigma-ROI · cost-per-reportable-result · spec-in · after-sales
 - **crm-judgment** — คิดแบบลูกค้า (segment/CLV 2×2/CF-CBF/วิกฤต PR) สำหรับ MT สาย sales/คลินิก/แอป
+- **marketing-judgment** — กลยุทธ์การตลาด B2B: STP ก่อน 4P · buying center 5 บทบาท · pricing (อย่าตัดราคา/elasticity) · positioning · push vs pull · razor-blade install base
 
 ### 💻 โค้ด / เทคนิค / data
 - **python-coach** — เลือก data structure/วิธี + กับดัก Python (.sort() คืน None, mutable default ฯลฯ)
@@ -76,7 +82,7 @@
 > สกิลเดี่ยวก็ใช้ได้ แต่ของจริงคือ **ต่อกันเป็นสาย** — วางหลายไฟล์พร้อมกันในแชต แล้วบอก AI ว่าจะทำงานแบบไหน
 
 **🩸 อ่านผลแล็บ → correlate + ชี้ทาง (ส่งต่อแพทย์วินิจฉัย)**
-`clinical-correlation-judgment` (ร้อยผลข้ามแขนง → ตั้ง DDx/flag) → สกิลแล็บเฉพาะทาง (`hematology`/`clinchem`/`clinmicro`/`immunoassay`/`bloodbank`/`molecular`/`pathology`...) → `anti-hallucination` (กันมั่วค่า/อ้างอิง) → `explain-simply` (สื่อสารผล/อธิบายในขอบเขต)
+`clinical-correlation-judgment` (ร้อยผลข้ามแขนง → ตั้ง DDx/flag) → สกิลแล็บเฉพาะทาง (`hematology`/`clinchem`/`chemistry-interpretation`/`clinmicro`/`immunoassay`/`bloodbank`/`molecular`/`pathology`...) → `anti-hallucination` (กันมั่วค่า/อ้างอิง) → `explain-simply` (สื่อสารผล/อธิบายในขอบเขต)
 *confirm lane:* reactive screen → `immunoassay-judgment` + `molecular-judgment` (ยืนยัน) · ⚠️ **MT ตีความ/flag/ส่งต่อ — การวินิจฉัยเป็นหน้าที่แพทย์**
 
 **🔬 ทำวิจัย R2R ครบวงจร**
@@ -89,13 +95,13 @@
 `what-skill-do-i-need` (ขาดอะไร) → `ai-assistant-calibration` (ตั้งนิสัย) → `ai-agent-team` (ตั้งทีม) → `offload-to-automation` + `anti-hallucination` (กันพลาด) → `self-improving-agent` (เก่งขึ้นข้ามวัน)
 
 **💬 ทำคอนเทนต์ / สื่อสาร**
-`content-creator-judgment` (เลือกหัวข้อ) → `explain-simply` (ทำให้ง่าย) → `anti-hallucination` (อย่ามั่ว) → `polite-but-clear` (ปรับโทน)
+`content-creator-judgment` (เลือกหัวข้อ) → `photography-judgment` (ถ่าย/ตัดต่อให้คม) → `explain-simply` (ทำให้ง่าย) → `anti-hallucination` (อย่ามั่ว) → `polite-but-clear` (ปรับโทน)
 
 **🧭 ตัดสินใจชีวิต / อาชีพ**
 `what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `finance-judgment` (เงิน/ธุรกิจ) + `digital-judgment` (PDPA/กัน scam) · สาย sales/แล็บ ดูคอมโบ 💼
 
 **💼 บริหารแล็บ / ขาย IVD**
-`lab-management-judgment` (เข้าใจ QMS/QC/งบของแล็บ) → `ivd-sales-judgment` (ขายผลลัพธ์บริหาร) → `crm-judgment` (คิดแบบลูกค้า) + `finance-judgment` (ROI/CPR) + `polite-but-clear` (คุยลูกค้า) · คู่กับ `clinchem-judgment` (QC หน้า bench ↔ QC strategy)
+`marketing-judgment` (กลยุทธ์/STP/buying center) → `lab-management-judgment` (เข้าใจ QMS/QC/งบ) → `ivd-sales-judgment` (ปิดดีล) → `crm-judgment` (คิดแบบลูกค้า) + `finance-judgment` (ROI/CPR) + `mt-law-ethics-judgment` (กฎหมายเครื่องมือแพทย์/เคลมไม่เกินจริง) · คู่กับ `clinchem-judgment` (QC bench ↔ strategy)
 
 **🛠️ จัดการงาน / ทรัพยากร**
 `never-lose-a-file` (จัดไฟล์) + `optimization-judgment` (จัดเวร/จัดสรร) + `offload-to-automation` (อัตโนมัติ)

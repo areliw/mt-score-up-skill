@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (40 สกิล)
+## 📚 ส่วนที่ 1 — Skills (46 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
@@ -19,12 +19,15 @@
 | [bloodbank-judgment](./skills/bloodbank-judgment.md) | ตัดสินใจหน้างานธนาคารเลือด — ABO discrepancy / antibody ID / crossmatch / transfusion reaction |
 | [hematology-judgment](./skills/hematology-judgment.md) | อ่าน CBC/smear/coag — review smear เมื่อไหร่ · anemia path · blast · thal vs IDA · PT/aPTT |
 | [clinchem-judgment](./skills/clinchem-judgment.md) | QC accept/reject (Westgard) · interference HIL · critical value · recalibrate vs troubleshoot |
+| [chemistry-interpretation-judgment](./skills/chemistry-interpretation-judgment.md) | แปลผล organ-system: tumor/renal(eGFR)/LFT pattern/cardiac timing/ABG+anion gap |
 | [clinmicro-judgment](./skills/clinmicro-judgment.md) | เชื้อจริง vs contaminate · ID workflow · อ่าน AST/MDR · culture vs molecular |
+| [applied-microbiology-judgment](./skills/applied-microbiology-judgment.md) | จุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม): ถนอม · screen≠confirm · metagenomics · bioremediation · probiotic |
 | [immunoassay-judgment](./skills/immunoassay-judgment.md) | เลือก format · อ่าน HBV/HIV/syphilis/ANA panel · prozone/hook/window |
 | [molecular-judgment](./skills/molecular-judgment.md) | เลือก method (RFLP/ASO/HRM/Sanger/NGS) · แปล qPCR/Ct · กัน false +/− · pharmacogenomics |
 | [pathology-judgment](./skills/pathology-judgment.md) | อ่าน pattern: benign/malignant · necrosis · อักเสบ · grading/staging · dysplasia |
 | [parasitology-judgment](./skills/parasitology-judgment.md) | เลือก concentration/stain · malaria thick/thin + ตรวจซ้ำ · single-stool false-neg |
 | [toxicology-judgment](./skills/toxicology-judgment.md) | screen vs confirm · antidote (OP/carbamate/paraquat) · chelator · TDM timing |
+| [pharmacology-judgment](./skills/pharmacology-judgment.md) | ยาเบื้องต้น: ADME · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน · pharmacogenomics |
 | [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal → DDx → rule-out) |
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
@@ -54,6 +57,7 @@
 | [polite-but-clear](./skills/polite-but-clear.md) | ปรับถ้อยคำให้สุภาพแต่ยังได้ใจความ |
 | [explain-simply](./skills/explain-simply.md) | อธิบายเรื่องยากแบบเด็ก ป.3 (ไม่ผิด) |
 | [content-creator-judgment](./skills/content-creator-judgment.md) | เลือกหัวข้อคอนเทนต์ให้ความรู้ + ไม่ทำให้เพจตาย |
+| [photography-judgment](./skills/photography-judgment.md) | ถ่ายภาพ/วิดีโอ + photomicrography (สไลด์/colony/gel): exposure/DOF/composition/WB |
 
 ### 🧭 ชีวิต / อาชีพ
 | skill | ช่วยอะไร |
@@ -61,7 +65,8 @@
 | [ikigai-finder](./skills/ikigai-finder.md) | หา ikigai แบบไม่หลอกตัวเอง |
 | [self-development-coach](./skills/self-development-coach.md) | โค้ชพัฒนาตัวเองแบบตรงไปตรงมา |
 | [digital-judgment](./skills/digital-judgment.md) | privacy/PDPA/security/ลิขสิทธิ์/ลงทุน — ไม่โดนหลอก |
-| [finance-judgment](./skills/finance-judgment.md) | การเงิน/ลงทุน/อ่านงบ/ธุรกิจ — ลำดับเงิน + กันกับดัก/scam |
+| [finance-judgment](./skills/finance-judgment.md) | การเงิน/ลงทุน/อ่านงบ/ธุรกิจ — ลำดับเงิน + กันกับดัก/scam + เลนส์ econ |
+| [mt-law-ethics-judgment](./skills/mt-law-ethics-judgment.md) | กฎหมาย/จรรยาบรรณ MT: ใบอนุญาต · ขอบเขตวิชาชีพ · ความลับ/PDPA · เครื่องมือแพทย์ |
 
 ### 💼 บริหารแล็บ / ขาย IVD
 | skill | ช่วยอะไร |
@@ -69,6 +74,7 @@
 | [lab-management-judgment](./skills/lab-management-judgment.md) | QMS/ISO 15189 · QC strategy (sigma/IQCP) · งบ · verification · inventory |
 | [ivd-sales-judgment](./skills/ivd-sales-judgment.md) | ขาย IVD/diagnostics — ขายผลลัพธ์บริหาร · budget-pocket · ROI · spec-in |
 | [crm-judgment](./skills/crm-judgment.md) | คิดแบบลูกค้า สำหรับ MT สาย sales/คลินิก/แอป |
+| [marketing-judgment](./skills/marketing-judgment.md) | กลยุทธ์การตลาด B2B: STP · buying center · pricing · positioning · push/pull |
 
 ### 💻 โค้ด / เทคนิค / data
 | skill | ช่วยอะไร |
@@ -108,7 +114,7 @@
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 40 สกิล — copy ไฟล์ไปวางในแชต AI
+├── skills/        # ★ 46 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
 ├── templates/     # WI .docx templates (generic)

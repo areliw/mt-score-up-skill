@@ -54,7 +54,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 
 ### Fork 2 — antibody screen บวก → ID strategy
 - **อ่าน autocontrol ก่อน:** auto− = **allo**antibody (panel ID ปกติ) · auto+ → คิด AIHA/cold-auto/recent transfusion ก่อน
-- **rule-out บน panel:** ขีดฆ่า antigen ที่ "cell ลบแต่ reaction บวก" → เหลือตัวที่ fit ทุกแถว = candidate; **ต้อง rule-out ด้วย homozygous cell** (เลี่ยง dosage บัง)
+- **rule-out บน panel:** ขีดฆ่า antibody เมื่อ reagent cell ที่ **Ag-positive ให้ reaction ลบ (Ag+/react−)** → เหลือตัวที่ fit ทุกแถว = candidate; **rule-out ด้วย homozygous cell** (เลี่ยง dosage บัง)
 - **95% (3-cell) rule:** สรุป Ab ได้เมื่อมี **≥3 cell (Ag+ → react+)** และ **≥3 cell (Ag− → react−)**; ไม่ครบ → หา selected cell เพิ่ม
 - **units to crossmatch ≈ requested ÷ Π(freq ของ Ag-negative)** — เช่น ขอ 3 unit + anti-E (E−0.7) + anti-Jka (Jka−0.25) → 3/(0.7×0.25) ≈ **17 units**
 - **dosage:** anti-Jk/Rh/Duffy/Kell/MNS จับ homo แรงกว่า het → het cell อ่าน "ลบลวง" ได้
@@ -72,7 +72,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 |---|---|
 | screen ลบ + ไม่มีประวัติ Ab + ยืนยัน ABO 2 ครั้ง | **electronic / immediate-spin** พอ |
 | screen บวก / มีประวัติ clinically-sig Ab | **full AHG XM** + antigen-negative unit |
-| cold autoAb / Bombay / anti-H บัง | **prewarmed 37°C** |
+| cold autoAb (anti-I/IH) บัง | **prewarmed 37°C** |
 | ฉุกเฉินไม่ทันรอ | **O uncrossmatched** (ดู Fork 7) |
 > ⚠️ เคยมี clinically-sig Ab แม้ตอนนี้ screen ลบ (titer ตก) → **ยังต้องให้ antigen-neg + AHG XM** (anti-Jk anamnestic = delayed HTR)
 - **CAT/gel card:** grading objective + inter-observer ต่ำ (เหตุที่แทน tube) · ⚠️ **เลือกการ์ดถูกชนิด — ABO/IgM ใช้ neutral card (ไม่มี AHG); IAT/screen/XM ใช้ anti-IgG (Coombs) card** — ผิดการ์ด = อ่านผิด

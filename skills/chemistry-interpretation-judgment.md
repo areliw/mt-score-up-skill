@@ -38,10 +38,10 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 
 ### Fork 2 — Renal: เลือก marker + สูตร
 - **BUN↑เดี่ยว** (Cr ปกติ) → prerenal/dehydration/**GI bleed**/high-protein/steroid · **BUN+Cr↑** → GFR ลดจริง · BUN:Cr >20 = prerenal/GI bleed
-- **CrCl (24h urine)** กับดัก: เก็บไม่ครบ (urine Cr ควร ≥8.5 mg/kg/day) · GFR ต่ำมาก → tubule หลั่ง Cr → **CrCl overestimate**
-- **eGFR (serum Cr):** CKD-EPI (แม่นเมื่อ GFR>60) · MDRD (<60) · Cockcroft-Gault · gold จริง = inulin (ไม่ routine)
+- **CrCl (24h urine)** กับดัก: เก็บไม่ครบ (urine Cr ควร ~ชาย 18.5–25 · หญิง 15–20 mg/kg/day; ต่ำกว่า ~15 มาก = under-collect) · GFR ต่ำมาก → tubule หลั่ง Cr → **CrCl overestimate**
+- **eGFR (serum Cr):** **CKD-EPI 2021 (race-free) = default ทุกช่วง GFR** · MDRD = legacy · Cockcroft-Gault (ปรับยา) · gold จริง = inulin (ไม่ routine)
 - ⚠️ **Cr ปกติ ≠ ไตปกติ:** glomerulus เสีย <25% Cr ยังปกติ · **คนแก่** muscle↓ ชน GFR↓ หักล้าง · **cirrhosis** สร้าง creatine น้อย → Cr ต่ำปลอม eGFR สูงเกินจริง → ใช้ **cystatin C** (ไม่ขึ้น muscle)
-- **Jaffe vs enzymatic:** Jaffe ถูกแต่ interference เยอะ (glucose/protein/vit C/ASA/ceph ↑ปลอม; bilirubin ↓) → overestimate GFR → **enzymatic creatinine** สำหรับคำนวณ GFR
+- **Jaffe vs enzymatic:** Jaffe ถูกแต่ interference เยอะ — positive chromogen (glucose/protein/vit C/ASA/ceph/ketone) **↑Cr ปลอม → UNDERestimate GFR** (เกินจริงว่าไตเสีย); bilirubin **↓Cr → overestimate GFR** → ใช้ **enzymatic creatinine** คำนวณ GFR
 
 ### Fork 3 — LFT: อ่าน pattern อย่าอ่านทีละตัว
 - จัดกลุ่ม: **hepatocellular** (AST/ALT) · **cholestatic** (ALP/GGT/5'-NT) · **synthetic** (albumin/PT) · **excretion** (bilirubin)
@@ -55,7 +55,7 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 | marker | ขึ้นหลังเจ็บอก | คงอยู่ | บทบาท/กับดัก |
 |---|---|---|---|
 | **Myoglobin** | 1-3 h (เร็วสุด) | สั้น | early, spec ต่ำ; **ห้ามใช้ในไตวาย** (สูงปลอม) |
-| **CK-MB mass** | 3-6 h | 2-3 วัน | ดู **re-infarction** ดี; index (MB×100/CK) **>5%=cardiac** |
+| **CK-MB mass** | 3-6 h | 2-3 วัน | ดู **re-infarction** ดี; index (MB×100/CK) <~2.5% skeletal · >5% cardiac · 2.5–5% ก้ำกึ่ง (lab-dependent; รอง troponin) |
 | **cTnI/cTnT** | 3-7 h | 7-14 วัน | **definitive** (sens+spec สูงสุด) + risk stratify |
 - ⚠️ **troponin↑ ≠ MI เสมอ** (ไตวาย/sepsis/PE/HF/exercise) → ดู **rise/fall (delta 0h/1h) + clinical + EKG** · **BNP/NT-proBNP = heart failure** ไม่ใช่ MI
 

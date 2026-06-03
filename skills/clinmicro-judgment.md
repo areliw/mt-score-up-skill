@@ -81,7 +81,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 ### FORK 8 — Special-organism pathways (fungi · mycobacteria · zoonosis/Rickettsia)
 - **Fungi yeast-vs-mold:** KOH/calcofluor direct → SDA ± additive · ⚠️ **cycloheximide กด opportunistic mold (Aspergillus/Fusarium/Zygomycetes/Cryptococcus) + Nocardia** → ถ้าสงสัยพวกนี้ **อย่าใช้สื่อ cycloheximide จานเดียว** · Cryptococcus → CrAg เร็วกว่ารอเพาะ
 - **Mycobacteria ladder:** ZN/auramine smear (sens ต่ำ 5,000–10,000/ml, **smear-neg ไม่ตัด TB**, แยก MTB/NTM ไม่ได้) → culture gold (MGIT 1–3wk เร็วกว่า LJ 6–8wk) → MTB-vs-NTM (niacin+/nitrate+/MPT64+) → DST/GeneXpert สำหรับ MDR
-- **Zoonosis/Rickettsia/Chlamydia:** serology+molecular เป็นหลัก, culture ทำไม่ได้/ต้อง BSL-3 → paired serology 4-fold + IFA + PCR · Weil-Felix = screening หยาบ ไม่ confirm · ⚠️ **Leptospira/PCR ห้าม heparin** (ยับยั้ง Taq + citrate ฆ่าเชื้อ) · ผู้ป่วยหนัก ใช้ PCR/Giemsa buffy coat เร็วกว่ารอ serology
+- **Zoonosis/Rickettsia/Chlamydia:** serology+molecular เป็นหลัก, culture ทำไม่ได้/ต้อง BSL-3 → paired serology 4-fold + IFA + PCR · Weil-Felix = screening หยาบ ไม่ confirm · ⚠️ **Leptospira PCR ใช้ EDTA — ห้าม heparin** (heparin ยับยั้ง Taq); ส่วน *culture* heparin ได้/citrate-oxalate ฆ่าเชื้อ = คนละเหตุ · ผู้ป่วยหนัก ใช้ PCR/Giemsa buffy coat เร็วกว่ารอ serology
 
 ### FORK 9 — Gram triage power + ID-fork refinements + virulence→test
 - **Gram = triage อันดับ 1** กำหนด media/atmosphere/เดาเชื้อ/รายงาน direct ก่อน culture เสร็จ + บอกคุณภาพ specimen (squamous เยอะ=ปนน้ำลาย) + ชนิด WBC (PMN=bacterial · lympho=viral/TB)
@@ -102,7 +102,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 9. Over-ID / over-AST เชื้อ commensal → เปลือง + ชวนใช้ยาเกิน.
 10. ลืม intrinsic resistance — รายงาน amp/ceph สำหรับ P.aeruginosa (ดื้อโดยธรรมชาติ).
 10b. **AmpC inducible (Enterobacter/Citrobacter/Serratia/indole+ Proteus/Morganella/Providencia):** lab อาจรายงานไวต่อ 3rd-gen ceph ตอนแรก แต่เชื้อ **induce AmpC ขึ้นมา hydrolyze ceftriaxone ระหว่างรักษา** → flag เตือน "อย่าใช้ 3rd-gen ceph แม้ผล S" (ยาเชื่อถือได้ = cefepime/carbapenem) — ตรวจ phenotype ตรงไม่ได้ ต้องรู้จาก species.
-11. heparin ใน specimen ที่จะส่ง PCR/Leptospira — heparin ยับยั้ง Taq (PCR fail), citrate ฆ่า Lepto → molecular ใช้ EDTA; รู้ assay ปลายทางก่อนเลือก tube.
+11. heparin ใน specimen PCR/Leptospira — heparin ยับยั้ง Taq (PCR fail) → PCR ใช้ **EDTA**; ส่วน citrate/oxalate ฆ่า Lepto เป็นเรื่อง *culture* (คนละ assay) → รู้ assay ปลายทางก่อนเลือก tube.
 12. เพาะ/รายงานหลังให้ ATB = no-growth ลวง — เก็บ culture ก่อนยาเสมอ · และอย่าตัด Cryptococcus เพราะ CSF cell count ปกติ → สั่ง CrAg/India ink เมื่อสงสัย.
 13. cycloheximide media จานเดียวกับที่สงสัย opportunistic mold — กด Aspergillus/Mucor/Cryptococcus/Nocardia → "no fungus" ลวงในผู้ป่วย immunocompromised.
 14. anaerobe ด้วย swab + transport ธรรมดา/แช่เย็น = เชื้อตายก่อนถึงแล็บ → **aspirate (ไม่ใช่ swab) + anaerobic transport + ไม่แช่เย็น**; ฝี/แผลลึกต้องตั้ง anaerobe เสมอ.

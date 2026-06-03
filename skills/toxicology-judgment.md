@@ -60,7 +60,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 - Carbamate → คล้าย OP แต่ reversible (carbamylation, ฟื้นเอง ~24-48 ชม.) → **Atropine เป็นหลัก** · 2-PAM มักไม่จำเป็น (หลักฐาน "อาจแย่ลง" มาจาก carbaryl เก่า ยังถกเถียง) · ⚠️ **ถ้าแยก OP กับ carbamate ไม่ได้ (unknown cholinergic crisis) → ให้ 2-PAM ไปก่อนจน rule out OP** — พลาด OP อันตรายกว่า (2-PAM ต้องทันก่อน aging) · **ให้คู่ atropine เสมอ — 2-PAM เดี่ยวอาจแย่ลง**
 - Paraquat → ไม่มี antidote จำเพาะ; redox cycling → lung fibrosis · Fuller's earth 30% + hemoperfusion <10 ชม. · ห้ามให้ O₂ มาก (เร่ง radical)
 - Opioid (miosis + resp depression + coma) → Naloxone IV
-- Methanol → NaHCO₃ (แก้ acidosis) + ethanol แย่ง ADH (กัน formic acid → ตาบอด); fomepizole ก็ได้
+- Methanol → **fomepizole (ADH inhibitor ตัวเลือกแรก)** หรือ **ethanol** ถ้าไม่มี fomepizole + NaHCO₃ (แก้ acidosis) ± hemodialysis (กัน formic acid → ตาบอด)
 - Cyanide → จับ cytochrome → ชุด antidote (nitrite/thiosulfate/hydroxocobalamin)
 - Warfarin/coumarin rodenticide → Vitamin K
 - โลหะหนัก → chelator ตามโลหะ (Fork 4)
@@ -71,7 +71,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 | Pb (lead) | Ca-EDTA (หรือ BAL/penicillamine) | ห้ามใช้เกลือ Na-EDTA → hypocalcemic tetany |
 | As / Hg | BAL (dimercaprol) / DMPS | — |
 | Cd (cadmium) | (ประคับประคอง) | BAL ห้ามใช้กับ Cd → เพิ่มพิษไต |
-| Cu / Wilson's | Penicillamine | ห้ามในคนแพ้ penicillin |
+| Cu / Wilson's | Penicillamine | ⚠️ ระวังในคนแพ้ penicillin (cross-react ได้ ไม่ใช่ contraindication เด็ดขาด) |
 | Fe เกิน / transfusion | Desferrioxamine | — |
 | Nickel carbonyl (acute) | Dithiocarb (DDC) | DOC |
 

@@ -37,7 +37,7 @@ disclaimer: "ช่วยคิดงานจุลชีววิทยาป�
 | Boiling | =100°C | vegetative; spore บางส่วน | **Tyndallization** = ต้มซ้ำ 3 วันจัดการ spore ที่ germinate |
 | Sterilization | >100°C | vegetative + spore | UHT 135-150°C/1-4s; commercial-sterile = canned ไม่ต้องแช่เย็น |
 - ⚠️ pasteurize/canning ≠ ปลอดเชื้อ — canned อาศัย **acidity**; low-acid (เนื้อ/ผัก) underprocess → *C. botulinum*
-- **Cold:** refrigerate ชะลอไม่หยุด → **psychrophile/psychrotroph (Listeria) โตในตู้เย็นได้** · **aw:** ลดเหลือ 0.65-0.75 ยับยั้ง (drying/salt/sugar) · **Radiation:** UV = ผิวเท่านั้น (ไม่ทะลุ); gamma ทะลุได้
+- **Cold:** refrigerate ชะลอไม่หยุด → **psychrophile/psychrotroph (Listeria) โตในตู้เย็นได้** · **aw (ขึ้นกับเชื้อ):** แบคทีเรียก่อโรคยับยั้ง <~0.86–0.91 · รา <~0.80 · ต้อง <~0.60–0.65 จึงหยุด xerophile/osmophile ได้หมด (drying/salt/sugar) · **Radiation:** UV = ผิวเท่านั้น (ไม่ทะลุ); gamma ทะลุได้
 
 ### Fork 2 — Food-borne pathogen detection: screen ≠ confirm
 3 ชั้น: **conventional culture** (gold แต่ช้า; plate count CFU/mL นับ 30-300; MPN จากตาราง; selective/differential media) → **rapid** (ID kit/automated/immunoassay เช่น ELISA) → **molecular** (PCR/16S/microarray)

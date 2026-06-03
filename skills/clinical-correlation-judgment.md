@@ -39,8 +39,8 @@ disclaimer: "เครื่องมือช่วยคิดเชิงว�
 ### Fork 1 — เบาะแส lab ตัวไหน → ชี้ทางไหน (pivotal value → DDx branch)
 - **MCV เป็นแยกแรกของ anemia:** <80 microcytic → iron study; >100 macrocytic → B12/folate; normo → retic/hemolysis
 - **iron study 4 ตัวรวมกัน ตัดสินทิศ:** ferritin↓ + TIBC↑ + %sat↓ = IDA แท้ → ต้องหา **แหล่งเสียเลือด** ต่อ (เช่น CT เจอ leiomyoma) · ถ้า ferritin ปกติ ในคน microcytic → **ห้ามหยุดที่ IDA** → reflex Hb typing/DNA
-- **AST/ALT vs ALP/GGT = แยก liver pattern:** transaminase >>300 = hepatocellular (เช่น DILI); ALP/GGT เด่น = cholestatic · albumin↓ แต่ AST/ALT ปกติ → ไม่ใช่ตับ = glomerulus รั่ว
-- **DB/TB ratio แบ่งดีซ่าน:** <0.2 pre-hepatic / 0.3–0.6 intra / ≥0.5 post
+- **AST/ALT vs ALP/GGT = แยก liver pattern:** transaminase >>300 = hepatocellular (เช่น DILI); ALP/GGT เด่น = cholestatic · ⚠️ **albumin↓ + AST/ALT ปกติ ≠ ตัดตับออก** — cirrhosis ชดเชย ~37-48% LFT ปกติ; albumin↓ = ตับ (synthetic fail) / ไตรั่ว / ทุพโภชนาการ-อักเสบ → แยกด้วย PT/INR + GGT/ALP + urinalysis (RBC cast = glomerular)
+- **conjugated fraction (DB/TB) แบ่งดีซ่าน:** <20% = pre-hepatic (unconjugated) / 20–50% = hepatocellular / >50% = post-hepatic (obstructive)
 - **TSH ต่ำ + FT3/FT4 สูง = thyrotoxic** → fork สำคัญคือ RAIU + thyroglobulin: ทั้งคู่ต่ำ + autoAb ลบ = hormone จากภายนอก (factitia) ไม่ใช่ Graves
 - **panreactive ทุก cell ที่ AHG** (auto+screen+unit 1+) + ประวัติยา → คิด drug interference (anti-CD38/daratumumab) **ก่อน** alloantibody
 - **cardiac:** อ่าน delta (0h→1h) ของ hs-troponin ไม่ใช่ค่าเดี่ยว — single value ปกติไม่ตัด MI
@@ -86,7 +86,7 @@ disclaimer: "เครื่องมือช่วยคิดเชิงว�
 | Microcytic anemia workup | MCV<80 → iron study → iron ปกติ? → Hb typing/DNA |
 | Rule-out cascade | ตัด viral/AI/metabolic/toxin จนเหลือ 1 |
 | Jaundice by DB/TB | pre / intra / post-hepatic |
-| Enzyme → liver pattern | AST/ALT=hepatocellular · ALP/GGT=cholestatic · alb↓+enzyme ปกติ=นอกตับ |
+| Enzyme → liver pattern | AST/ALT=hepatocellular · ALP/GGT=cholestatic · alb↓+enzyme ปกติ → อย่าตัดตับ (cirrhosis/synthetic) vs ไต/อักเสบ |
 | Serology timing | Ag/NS1=acute · IgM/IgG=primary/secondary · PCR=ยืนยัน+serotype |
 | Confirmatory cascade (micro) | culture→Gram→biochem→AST(MIC)→resistance gene |
 | Hormone source localization | RAIU+Tg+autoAb แยก endo vs exo |

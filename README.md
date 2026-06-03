@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (49 สกิล)
+## 📚 ส่วนที่ 1 — Skills (51 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
@@ -40,6 +40,7 @@
 | [sample-size-power](./skills/sample-size-power.md) | หาขนาดตัวอย่าง N (power analysis) |
 | [r2r-stats](./skills/r2r-stats.md) | รัน + แปลผลสถิติ R2R |
 | [manuscript-judgment](./skills/manuscript-judgment.md) | เขียน manuscript/proposal (IMRaD) ให้ผ่าน reviewer |
+| [critical-appraisal-judgment](./skills/critical-appraisal-judgment.md) | อ่าน/ประเมินงานวิจัย + lit review + หา gap + ประเมิน test (sens/spec/PPV) |
 
 ### 🤖 ใช้ AI อย่างคม / ปลอดภัย
 | skill | ช่วยอะไร |
@@ -69,6 +70,7 @@
 | [finance-judgment](./skills/finance-judgment.md) | การเงิน/ลงทุน/อ่านงบ/ธุรกิจ — ลำดับเงิน + กันกับดัก/scam + เลนส์ econ |
 | [financial-statement-judgment](./skills/financial-statement-judgment.md) | อ่านงบ 5 ฉบับ + ลำดับอ่าน + คุณภาพกำไร (CFO) + จับ window-dressing/OCI |
 | [mt-law-ethics-judgment](./skills/mt-law-ethics-judgment.md) | กฎหมาย/จรรยาบรรณ MT: ใบอนุญาต · ขอบเขตวิชาชีพ · ความลับ/PDPA · เครื่องมือแพทย์ |
+| [mt-exam-strategy-judgment](./skills/mt-exam-strategy-judgment.md) | กลยุทธ์สอบใบประกอบฯ MT: blueprint/บริหารเวลา · จับ distractor · study ROI |
 
 ### 💼 บริหารแล็บ / ขาย IVD
 | skill | ช่วยอะไร |
@@ -117,7 +119,7 @@
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 49 สกิล — copy ไฟล์ไปวางในแชต AI
+├── skills/        # ★ 51 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
 ├── templates/     # WI .docx templates (generic)

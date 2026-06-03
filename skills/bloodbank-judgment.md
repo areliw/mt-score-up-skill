@@ -80,7 +80,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 
 ### Fork 5 — component selection + เมื่อไหร่ irradiate/leukoreduce
 - **PRC:** anemia/thalassemia · **FFP:** ↑PT/aPTT, factor deficiency, warfarin reversal · **Platelet:** thrombocytopenia/bleeding (20-22°C agitation, ห้ามแช่เย็น) · **Cryo:** fibrinogen<100-150, FVIII, vWF, FXIII
-- **Irradiate (25 Gy) — กัน TA-GVHD:** immunocompromised, **intrauterine/exchange/neonate**, **HLA-matched / เลือดจากญาติ (directed)**, Hodgkin, BMT, congenital T-cell defect → ลืม = TA-GVHD เกือบ 100% ตาย
+- **Irradiate (≥25 Gy central midplane, ≥15 Gy ขั้นต่ำทุกส่วน) — กัน TA-GVHD:** immunocompromised, **intrauterine/exchange/neonate**, **HLA-matched / เลือดจากญาติ (directed)**, Hodgkin, BMT, congenital T-cell defect → ลืม = TA-GVHD เกือบ 100% ตาย
 - **Leukoreduce:** ประวัติ **febrile NHTR ซ้ำ**, ลด **HLA alloimmunization** (จะ transplant/platelet refractory), ลด **CMV** (ทารก/ตั้งครรภ์/immunocompromise CMV−)
 - **Washed:** IgA deficiency / anaphylaxis ต่อ plasma protein
 - ABO: RBC ใช้ O universal ได้ · plasma AB universal · platelet เลี่ยง ABO-incompat plasma ในเด็ก
@@ -108,7 +108,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 | smear | nucleated RBC | **spherocyte** |
 - ⚠️ ทารก hemolysis + DAT บวก แต่ไม่ใช่ ABO/Rh + **DAT แม่ลบ** → **Ab หมู่อื่น** (anti-c/E/Kell/Duffy/Kidd) → ID จาก maternal serum · Kell HDN กด erythropoiesis (bili อาจไม่สูงมาก)
 - ⚠️ **ABO HDN DAT ลบ ≠ ตัดทิ้ง** — ใช้ IAT + smear (spherocyte); ABO HDN + hydrops = ผิดปกติ หาเหตุอื่น (G6PD/HS)
-- **RhIG (anti-D):** แม่ Rh− (พ่อ Rh+) ให้ที่ **~28 wk + หลังคลอด 72 ชม.** (ถ้าลูก Rh+) + หลัง event เสี่ยง FMH (แท้ง/เจาะน้ำคร่ำ/ล้วงรก) · anti-D titer ≥ critical (~1:16) → ultrasound serial + ΔOD450
+- **RhIG (anti-D):** แม่ Rh− (พ่อ Rh+) ให้ที่ **~28 wk + หลังคลอด 72 ชม.** (ถ้าลูก Rh+) + หลัง event เสี่ยง FMH (แท้ง/เจาะน้ำคร่ำ/ล้วงรก) · anti-D titer ≥ critical (~1:16) → **MCA-PSV Doppler (>1.5 MoM)** เป็น first-line surveillance (ΔOD450/amniocentesis = legacy)
 - **เลือดให้ทารก/exchange:** PRC **O Rh−, low-titer, compatible serum แม่, <5-7 วัน, CMV-neg, leukodepleted, irradiated**; เกินเกณฑ์ bilirubin → exchange, เบากว่า → phototherapy
 
 ### Fork 9 — เมื่อไหร่ใช้ molecular (genotype) แทน serology

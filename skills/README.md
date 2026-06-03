@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**48 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**49 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -57,6 +57,7 @@
 - **self-development-coach** — โค้ชพัฒนาตัวเองแบบตรงไปตรงมา ไม่ปลอบใจลอยๆ
 - **digital-judgment** — privacy/PDPA/de-identify/security/ลิขสิทธิ์/ลงทุนออนไลน์ — ตัดสินใจปลอดภัย ไม่โดนหลอก
 - **finance-judgment** — การเงิน/ลงทุน/ธุรกิจ (บันไดเงิน · asset ตาม horizon · อ่านงบ/CFO · valuation · หนี้ดี-เลว · go/pivot · จับ scam · เลนส์ econ: opportunity cost/elasticity/real-vs-nominal)
+- **financial-statement-judgment** — อ่านงบ 5 ฉบับ + ลำดับอ่าน (audit→CFO→ฐานันดรกำไร→งบดุล→หมายเหตุ) + คุณภาพกำไร + จับ window-dressing (OCI recycling/ตีราคา/FIFO/cookie-jar/งบรวม)
 - **mt-law-ethics-judgment** — กฎหมาย/จรรยาบรรณวิชาชีพ MT: ใบอนุญาต+CMTE · ขอบเขตวิชาชีพ (ทำได้/ต้องมีแพทย์/ทำไม่ได้) · ความลับ+PDPA · กฎหมายเครื่องมือแพทย์ (ขาย IVD) · คิดก่อนโพสต์
 
 ### 💼 บริหารแล็บ / ขาย IVD
@@ -100,7 +101,7 @@
 `content-creator-judgment` (เลือกหัวข้อ) → `photography-judgment` (ถ่าย/ตัดต่อให้คม) → `explain-simply` (ทำให้ง่าย) → `anti-hallucination` (อย่ามั่ว) → `polite-but-clear` (ปรับโทน)
 
 **🧭 ตัดสินใจชีวิต / อาชีพ**
-`what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `finance-judgment` (เงิน/ธุรกิจ) + `digital-judgment` (PDPA/กัน scam) · สาย sales/แล็บ ดูคอมโบ 💼
+`what-skill-do-i-need` → `ikigai-finder` (ทิศทาง) → `self-development-coach` (ลงมือโต) → `finance-judgment` (เงิน/ธุรกิจ) + `financial-statement-judgment` (อ่านงบ) + `digital-judgment` (PDPA/กัน scam) · สาย sales/แล็บ ดูคอมโบ 💼
 
 **💼 บริหารแล็บ / ขาย IVD**
 `marketing-judgment` (กลยุทธ์/STP/buying center) → `sales-psychology-judgment` (อ่านคน/โน้มน้าว/เจรจา) → `lab-management-judgment` (เข้าใจ QMS/QC/งบ) → `ivd-sales-judgment` (ปิดดีล) → `crm-judgment` (คิดแบบลูกค้า) + `finance-judgment` (ROI/CPR) + `mt-law-ethics-judgment` (กฎหมายเครื่องมือแพทย์/เคลมไม่เกินจริง) · คู่กับ `clinchem-judgment` (QC bench ↔ strategy)

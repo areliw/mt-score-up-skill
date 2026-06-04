@@ -67,5 +67,24 @@ on harder scenarios** — for a weak model / non-expert. Frontier models still d
 The biggest deliverable here isn't the 19; it's the **fixed scenario set + the 1.4 noise floor**,
 which make every future before/after measurement trustworthy instead of a coin-flip.
 
-*Artifacts: `scenarios.json` (the fixed 44-scenario set), `results.json` (per-skill scores,
-both runs, spread).*
+## Update — all 53 recovered
+
+The 9 dropped skills were re-run single-pass (3 agents each instead of 6 → fewer failure
+points) and **all 9 came back**. So it was transient agent failure, not skill size. Combined
+(44 two-run-averaged + 9 single-run):
+
+**lift 26 · neutral 24 · backfire 3** — kinds: rescued 8 · better 18 · tie 24 · style 3 ·
+**regression 0 · no-rescue 0** across all 53.
+
+The headline win: **the two round-1 no-rescues both became lifts** — `know-yourself` +3 and
+`offload-to-automation` +2. These were the skills whose value is *procedural* (dig for the
+metrics before drafting; offload the calc to a tool), and the round-2 edits that added an
+unmissable top trigger **demonstrably fixed exactly those two.** On genuinely hard clinical
+scenarios the skills also rescue a weak model decisively — e.g. `clinchem` **+4**: without the
+skill the weak model released an ICU K⁺ = 6.8 from a QC-failed run (a dangerous error); with
+it, it held the whole batch.
+
+(The 9 are single-run, so noisier than the averaged 44 — treat their deltas as provisional.)
+
+*Artifacts: `scenarios.json` (the fixed 53-scenario set), `results.json` (per-skill scores;
+the 44 carry both-run data + spread, the 9 are single-run).*

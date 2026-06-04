@@ -4,7 +4,7 @@ title: โค้ชออกแบบวิจัย — เลือก design 
 type: ADVISE               # ช่วยตัดสินใจออกแบบวิจัย ไม่ใช่ตำราระเบียบวิธี
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดออกแบบวิจัยเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/จริยธรรมทางการ — design/ethics ต้องผ่านอาจารย์ที่ปรึกษา + IRB/EC จริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,8 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 
 วาง R2R/thesis แล้วต้องตัดสิน "ใช้ design ไหน · ข้อมูลชนิดอะไร · bias/confounder ตรงไหน · ผ่าน IRB ยัง" → โค้ชนี้ช่วยเลือก + เลี่ยงกับดักที่ reviewer ตีกลับ
 
-> reviewer reject งานวิจัยส่วนใหญ่ไม่ใช่เพราะ "คำนวณผิด" แต่เพราะ **design ผิด/ตอบคำถามไม่ได้, bias/confounder ไม่คุม, ตีความ association เป็น causation, ไม่มี ethics**. skill นี้เก็บการตัดสินใจ "ก่อนเก็บข้อมูล" เหล่านั้น
+> **กฎ #1: เลือก design จากคำถาม ไม่ใช่จากความสะดวก** — outcome หายาก→case-control · exposure หายาก→cohort · "สัมพันธ์มั้ย ณ จุดเดียว" + เวลาจำกัด→cross-sectional · จะพิสูจน์ causation→ต้อง RCT. **กับดัก #1: ตีความ association เป็น causation** — cross-sectional/observational บอกได้แค่ "associated with" ห้ามเขียน "ทำให้/causes" และต้องคุม confounder (stratify/regression) ก่อนเชื่อความสัมพันธ์ใดๆ. และ **ห้ามเก็บข้อมูลคนก่อนผ่าน IRB** — ไม่มีเลข approval = ตีพิมพ์ไม่ได้ + ผิดกฎหมาย.
+> reviewer reject ส่วนใหญ่ไม่ใช่ "คำนวณผิด" แต่เพราะ **design ผิด/ตอบคำถามไม่ได้, bias/confounder ไม่คุม, ตีความ association เป็น causation, ไม่มี ethics** → skill นี้เก็บการตัดสินใจ "ก่อนเก็บข้อมูล" เหล่านั้น
 > ตั้งโจทย์ → `r2r-research-proposal` · หา N → `sample-size-power` · เลือก test → `choose-stat-test` · รัน/แปลผล → `r2r-stats` · เขียนเล่ม → `manuscript-judgment`
 
 ## ใช้เมื่อ
@@ -32,7 +33,7 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 ### Fork 1 — Descriptive vs Analytic (จุดแยกแรก)
 - **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — ไม่ทดสอบสมมติฐาน
 - **Analytic** = ทดสอบความสัมพันธ์ exposure ↔ outcome (มี hypothesis test) — งานที่ตีพิมพ์ดีมักเป็น analytic
-> H0 (ไม่ต่าง/ไม่สัมพันธ์) vs H1 (ต่าง/สัมพันธ์) · test ได้แค่ **reject / fail to reject H0** ไม่เคย "ยอมรับว่า H1 จริง" (กับดักภาษาที่ reviewer จับ) · **default two-tailed** (one-tailed เพื่อให้ p ผ่านง่าย = p-hacking)
+> H0 (ไม่ต่าง/ไม่สัมพันธ์) vs H1 (ต่าง/สัมพันธ์) · test ได้แค่ **reject / fail to reject H0** ไม่เคย "ยอมรับว่า H1 จริง" (กับดักภาษาที่ reviewer จับ) · **default two-tailed** (one-tailed เพื่อให้ p ผ่านง่าย = p-hacking) · ⚠️ "fail to reject" ≠ "พิสูจน์ว่าไม่ต่าง" — อาจแค่ **power ต่ำ/N น้อย**; รายงาน CI ของ effect ไม่ใช่สรุปว่า "ไม่มีผล"
 
 ### Fork 2 — เลือก study design ตามคำถาม
 | คำถามแบบ | design | หมายเหตุ |
@@ -56,6 +57,7 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 
 ### Fork 5 — Confounder → คุมยังไง (กับดักยอดฮิตที่ reject genomics paper)
 - confounder = ตัวแปรที่สัมพันธ์กับทั้ง exposure และ outcome แต่ไม่ใช่ตัวกลางในเส้นทาง → ทำให้ association เป็น "ของปลอม"
+- ⚠️ อย่าคุม **mediator** (ตัวกลางบนเส้นทาง exposure→outcome) แบบเดียวกับ confounder — adjust ตัวกลาง = **over-adjustment** บัง effect จริงที่ควรเห็น (คุม confounder เท่านั้น ไม่ใช่ทุกตัวที่สัมพันธ์)
 - ตัวอย่าง: ในงานหา genotype↔phenotype ของ thalassemia/HbF → **α-thalassemia co-inheritance, อายุ, เพศ** เป็น confounder ต่อ HbF
 - คุมด้วย: **restriction / matching (ตอน design)** หรือ **stratify / multivariable regression (ตอนวิเคราะห์)** — ระบุวิธีคุมตั้งแต่ proposal
 

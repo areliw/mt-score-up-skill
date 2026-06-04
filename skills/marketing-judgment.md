@@ -4,7 +4,7 @@ title: โค้ชการตลาด B2B — STP/buying center/pricing/posit
 type: ADVISE               # ช่วยคิดกลยุทธ์การตลาด ไม่ใช่ตำรา 4P
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดกลยุทธ์การตลาด/ขายเพื่อการศึกษา ไม่ใช่คำแนะนำธุรกิจ/กฎหมายทางการ — ห้ามใช้กล่าวอ้างเกินจริง/ผิดจริยธรรมวิชาชีพ · ผู้นำไปใช้รับผิดชอบการกระทำที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,8 +13,9 @@ disclaimer: "ช่วยคิดกลยุทธ์การตลาด/ข
 
 วางกลยุทธ์การตลาด/ขายของแพง-ซับซ้อน (เช่น IVD/diagnostics) — "วางลำดับอะไรก่อน + พลาดตรงไหนเสียดีล" ไม่ใช่ท่องนิยาม 4P (= commodity ดูตำรา)
 
-> นี่คือชั้น **กลยุทธ์** (positioning/pricing/ใครตัดสินใจ) — ชั้น **ปิดดีล IVD** (budget-pocket/CPR/spec-in/after-sales) ดู `ivd-sales-judgment` · คิดแบบลูกค้า/retention ดู `crm-judgment` · ROI/BEP ดู `finance-judgment`
-> แก่น 3 ข้อ: (1) การตลาด = ส่งมอบ "คุณค่า" ไม่ใช่ดันขาย (2) **STP ก่อน → ค่อย 4P** เสมอ (3) B2B = ขายให้ "กลุ่มคนตัดสินใจ" ไม่ใช่คนเดียว
+> ✅ **กฎ #1: STP ก่อน 4P เสมอ** — Segment → Target → Position ให้เสร็จ *ก่อน* แตะ ราคา/โปรโมชัน/ช่องทาง (ตั้งราคา-ทำโฆษณาก่อนรู้ว่าขายใคร = ผิดลำดับ)
+> 🚫 **กับดัก #1: ขาย feature/สเปค แทน "คุณค่า/pain ของลูกค้า"** (Marketing Myopia) — เปิดด้วยลูกค้าเจ็บอะไร ไม่ใช่ list สเปค; และ B2B ต้องแมป "กลุ่มคนตัดสินใจ" ครบ ไม่ปิดที่คนเดียว
+> ชั้นนี้ = **กลยุทธ์** (positioning/pricing/ใครตัดสินใจ) — ปิดดีล IVD (budget-pocket/CPR/spec-in/after-sales) ดู `ivd-sales-judgment` · retention ดู `crm-judgment` · ROI/BEP ดู `finance-judgment`
 
 ## ใช้เมื่อ
 - วาง account plan / เลือก segment-target / วาง positioning ของสินค้า

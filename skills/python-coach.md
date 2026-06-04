@@ -4,7 +4,7 @@ title: โค้ช Python — เลือกถูก + ไม่ตกหล�
 type: ADVISE               # ช่วยตัดสินใจ/ดีบัก ไม่ใช่ตำรา syntax
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-05-31
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิด+จับกับดัก Python ระดับเริ่ม→กลาง เพื่อการศึกษา — ไม่ใช่ตำรา syntax หรือคำสั่งทางการ ควรทดสอบโค้ดจริงและตรวจผลก่อนนำไปใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,10 @@ disclaimer: "ช่วยคิด+จับกับดัก Python ระด�
 
 เขียน/ดีบัก Python แล้วงงว่า "ใช้อะไรดี" หรือ "ทำไมพัง" → โค้ชนี้ช่วย **เลือกเครื่องมือให้ถูก + โทษบั๊กให้ถูกจุด**
 
-> Google/AI มี syntax ให้หมดแล้ว — ส่วนที่ทำให้พลาดจริงคือ (1) เลือก data structure/วิธีผิด (2) ตกกับดักที่ "ดูถูกแต่พัง" (`.sort()` คืน None, loop variable ค้าง, mutable default). skill นี้เก็บสองอันนั้น ไม่ใช่ตำรา
+> **กฎข้อ 1 (จำให้ขึ้นใจ): method ที่แก้ของ in-place คืน `None` ไม่ใช่ค่าที่แก้แล้ว.** `.sort()`/`.reverse()`/`.append()`/`.update()`/`.extend()` → คืน `None` ทั้งหมด. ดังนั้น **ห้ามเอาผลของมันไป assign หรือ chain ต่อ** — `x = lst.sort()` ทำให้ `x` เป็น None เงียบๆ, `lst.append(y).append(z)` พังทันที. อยากได้ค่าที่แก้แล้ว: เรียก method (มันแก้ตัวแปรเดิมให้) **แล้วใช้ตัวแปรเดิม** หรือใช้ฟังก์ชันที่ "คืนค่าใหม่" เช่น `sorted(lst)`, `reversed(lst)`, `lst + [y]`.
+> **ตัวแยกง่ายๆ:** ชื่อเป็นกริยาแก้ของ (sort/append/update/reverse) → in-place คืน None · ชื่อบอกผลลัพธ์ (sorted/reversed) → คืนค่าใหม่ เอาไป assign ได้.
+>
+> Google/AI มี syntax ให้หมดแล้ว — ส่วนที่ทำให้พลาดจริงคือ (1) เลือก data structure/วิธีผิด (2) ตกกับดักที่ "ดูถูกแต่พัง" (in-place คืน None, loop variable ค้าง, mutable default). skill นี้เก็บสองอันนั้น ไม่ใช่ตำรา
 
 ## ใช้เมื่อ
 - เขียน/ดีบัก Python (เรียน, coursework, งาน data)
@@ -34,7 +37,7 @@ disclaimer: "ช่วยคิด+จับกับดัก Python ระด�
 - **เทียบค่า:** `==` (ค่าเท่า) · `is` (วัตถุตัวเดียวกัน) → ใช้ `is` เฉพาะกับ `None`
 
 ## กับดัก (Anti-patterns) — เช็คก่อนโทษที่อื่น
-- **`lst.sort()` คืน `None`** (เรียง in-place) → `print(lst.sort())` = None · อยากได้ค่าใช้ `sorted(lst)` *(บั๊กยอดฮิตของมือใหม่)*
+- **method แก้ของ in-place คืน `None`** — ทั้งตระกูล `.sort()` `.reverse()` `.append()` `.extend()` `.update()` `.add()` → `x = lst.sort()` ได้ None เงียบๆ, chain `lst.append(a).sort()` พัง (`'NoneType' has no attribute`). อยากได้ค่า: ใช้ตัวแปรเดิมหลังเรียก หรือใช้ `sorted()`/`reversed()`/`lst+[a]` ที่คืนค่าใหม่ *(กับดักอันดับ 1 ของมือใหม่)*
 - **loop variable ค้างหลัง loop:** จบ `for line in fh:` แล้ว `line` = บรรทัดสุดท้าย → `print(line)` พิมพ์ตัวสุดท้ายไม่ใช่ผลรวม *(บั๊กคลาสสิกตอนวนอ่านไฟล์แล้วนับคำ)*
 - **mutable default arg:** `def f(x=[])` → list แชร์ข้าม call ทุกครั้ง → ใช้ `x=None` แล้ว `if x is None: x=[]`
 - **copy vs reference:** `b = a` (list/dict) = ชี้ก้อนเดียวกัน แก้ b กระทบ a → `b = a.copy()` / `list(a)`

@@ -13,7 +13,8 @@ disclaimer: "ช่วยคิดเส้นทางอาชีพ MT เพ
 
 MT ไม่ได้มีแค่ "อยู่หน้า bench" — มีทางออกหลายสาย แต่ส่วนใหญ่ไม่รู้ว่าเข้าได้ยังไง/ขาดอะไร สกิลนี้ช่วย **เลือกสาย + เห็นบันได + รู้ว่าช่องว่างจริงคืออะไร** ไม่ใช่ปลอบใจลอยๆ
 
-> แก่น: **งาน routine จะถูก automate → คุณค่ามนุษย์ย้ายไป QA + ตีความผลซับซ้อน + judgment + ชั้น commercial/relationship** → กลยุทธ์อาชีพ = **ขยับขึ้น-value** ไม่ใช่ยึด routine
+> **กฎ #1:** งาน routine จะถูก automate → กลยุทธ์อาชีพ = **ขยับขึ้น-value** (QA + ตีความผลซับซ้อน + judgment + ชั้น commercial/relationship) ไม่ใช่ยึด routine เดิม
+> **กับดัก #1:** เทียบ offer commercial ด้วย **base salary** — ผิด, ต้องเทียบ total (base + commission + transport + allowance + bonus); และ **KOL/networking + English = core skill + ด่านขึ้นผู้บริหาร ไม่ใช่ optional**
 > ขายของจริง → `ivd-sales-judgment` · เขียน CV → `cv-judgment` · ขุดวัตถุดิบจากตัวเอง → `know-yourself` · หาทิศ → `ikigai-finder` · ขอบเขต/ใบอนุญาต → `mt-law-ethics-judgment`
 
 ## ใช้เมื่อ

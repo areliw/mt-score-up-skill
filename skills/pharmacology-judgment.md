@@ -4,7 +4,7 @@ title: โค้ชยาเบื้องต้น — ADME/แพ้ยา/�
 type: ADVISE               # ช่วยเข้าใจ/เฝ้าระวังเรื่องยา ไม่ใช่สั่งจ่ายยา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิด/เฝ้าระวังเรื่องยาเพื่อการศึกษา ไม่ใช่คำสั่งใช้ยา/สั่งจ่ายยา — MT ไม่สั่งจ่ายยา การใช้/ปรับ/หยุดยาต้องปรึกษาแพทย์/เภสัชกรเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,6 +13,8 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 
 เข้าใจยาในมุมที่ MT ใช้จริง — "ค่าแล็บ/อาการนี้เกี่ยวกับยายังไง + เฝ้าระวังตรงไหน" ไม่ใช่ท่องชื่อยา/ขนาด (= commodity ดูตำรา/leaflet)
 
+> **กฎเหล็ก: correlate ยาก่อนสรุปค่าแล็บผิดปกติเสมอ** (warfarin→INR · heparin→aPTT · digoxin อ่านคู่ K⁺ · DOAC ทำ PT/aPTT เพี้ยน) — ก่อนตีว่า "ค่าผิด" ถามก่อนว่าได้ยาอะไร
+> **กับดักอันดับ 1: สับ "แพ้ยา" กับ "ผลข้างเคียง"** — ผื่น+ไข้+เจ็บคอ หลังยาใหม่ = สัญญาณ SJS/TEN → **หยุดยาทันที + เลี่ยงตลอดชีวิต** (อย่าแค่ปรับวิธีกินเหมือนผลข้างเคียง)
 > MT ไม่สั่งจ่ายยา — แต่ต้องรู้ทันว่า **ยาบิดค่าแล็บ/ทำให้แพ้/ตีกัน** ยังไง + จุดที่ genomics เชื่อมกับยา · pharmacogenomics ดู `molecular-judgment` · พิษยา/overdose ดู `toxicology-judgment` · ร้อยกับเคส ดู `clinical-correlation-judgment`
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
@@ -67,7 +69,8 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 
 ### Fork 7 — TDM (therapeutic drug monitoring): จุดที่ยา↔แล็บมาเจอ
 - **TDM เมื่อ:** **TI (therapeutic index) แคบ** + มี therapeutic range ชัด + conc↔response ตรง + เดา dose ยาก/เสี่ยงพิษ · ยา TI แคบ: **digoxin, phenytoin, warfarin, theophylline, aminoglycoside, vancomycin, lithium, carbamazepine**
-- **จังหวะเจาะ:** ที่ **steady state (~4-5 t½)** หลัง absorption/distribution เสร็จ · **efficacy → เจาะ trough** (ก่อน dose ถัดไป) · **toxicity → เจาะ peak** · ⚠️ **aminoglycoside เจาะทั้ง peak (ฆ่าเชื้อ) + trough (กัน nephro/ototoxic)**
+- **จังหวะเจาะ:** ที่ **steady state (~4-5 t½)** หลัง absorption/distribution เสร็จ · **efficacy → เจาะ trough** (ก่อน dose ถัดไป) · **toxicity → เจาะ peak** · ⚠️ **aminoglycoside เจาะทั้ง peak (ฆ่าเชื้อ) + trough (กัน nephro/ototoxic)** — นี่คือกฎของ **conc-dependent** (aminoglycoside)
+- ⚠️ **vancomycin ไม่เข้ากฎ peak/trough นี้:** conc-**independent** → guideline ตั้งแต่ปี 2020 เปลี่ยนเป็น **AUC/MIC 400–600** (เลิก trough-only) → อย่าเอา logic peak=efficacy/trough=toxicity ของ aminoglycoside มาใช้กับ vanco
 - ⚠️ **digoxin + hypokalemia → พิษแรงขึ้น** → อ่าน K⁺ คู่กับ digoxin level เสมอ · **zero-order kinetics** (phenytoin/ethanol/aspirin สูง): เพิ่ม dose นิด → conc พุ่ง toxic (ไม่เป็นเส้นตรง)
 
 ### Fork 8 — ยา anticoagulant ↔ coag test (อย่าสลับ)

@@ -4,16 +4,17 @@ title: รันโปรเจกต์ data/ML ให้ไม่ล้ม (Da
 type: ADVISE               # ช่วยวางแผน/ตัดสินใจ/ประเมิน ไม่ได้รันโมเดลให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-05-31
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิด/วางแผนโปรเจกต์ data เพื่อการศึกษา ไม่ใช่ data scientist แทน — ผลและความปลอดภัย (โดยเฉพาะงานคลินิก) ต้องตรวจสอบยืนยันก่อนใช้จริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
 # รันโปรเจกต์ data/ML ให้ไม่ล้ม
 
-จะทำโปรเจกต์วิเคราะห์ข้อมูล/ML (หรือประเมินของคนอื่น) → ผ่าน **ด่านที่โปรเจกต์มักตาย** + รู้ว่าตอนนี้อยู่ช่วงไหนต้องตัดสินใจอะไร
+พาโปรเจกต์ data/ML (หรือประเมินของคนอื่น) ผ่าน **ด่านที่มักตาย** — รู้ว่าอยู่ช่วงไหน ต้องตัดสินอะไร เลี่ยงกับดักไหน
 
-> หลักเดียว: **Everything starts with the PROBLEM, not the data** — ตอบไม่ได้ว่า "เอาไปทำอะไร วัดสำเร็จยังไง" = ยังไม่ต้องแตะ data. และโปรเจกต์ส่วนใหญ่ล้มที่ **ขั้นตอน** (แก้โจทย์ผิด · data แย่ ~40% ตาม Gartner · วัดผลหลอกตัวเอง) ไม่ใช่ที่ algorithm
+> **กฎ #1 — Everything starts with the PROBLEM, not the data:** ตอบไม่ได้ว่า "เอาไปทำอะไร วัดสำเร็จเป็นเลขอะไร" = ยังไม่ต้องแตะ data. โปรเจกต์ส่วนใหญ่ล้มที่ **ขั้นตอน** (แก้โจทย์ผิด · data แย่) ไม่ใช่ที่ algorithm
+> **กับดัก #1 — Data leakage:** fit scaler/SMOTE/feature-select **ก่อน split**, หรือใช้ feature ที่รู้อนาคต → metric สวยหลอก พังจริง. กฎเหล็กข้ามทุกขั้น: **แตะ test set แค่ตอนวัดผลครั้งเดียว** ทุกอย่างที่ "เรียนจาก data" ทำบน train fold หลัง split เท่านั้น
 > เลือก "โมเดล/metric ตัวไหน" ลึกๆ → ดู `ml-judgment` · "ใช้ test สถิติอะไร / N เท่าไร" → `choose-stat-test` + `sample-size-power`
 
 ## ใช้เมื่อ
@@ -84,7 +85,7 @@ balanced → ไม่ต้องทำ · imbalanced+เล็ก → SMOTE/ov
 - **Bias ใน training data** → ขยายอคติเดิม (เพศ/พื้นที่/รายได้) เช็ค representativeness; เกี่ยว PDPA/HIPAA
 - **Vanity metric / accuracy บน imbalanced** → ดู precision/recall/F1 ต่อ class
 - **Over-engineering** → จูน deep net ทั้งที่ logistic regression พอ; เริ่ม baseline ง่ายก่อน
-- **ดัน pipeline ต่อทั้งที่ฐานผิด** → เจอ data quality แย่/สมมติฐานผิดแล้วไม่วนกลับ
+- **ดัน pipeline ต่อทั้งที่ฐานผิด** → เจอ data quality แย่/สมมติฐานผิดแล้วไม่วนกลับ (data จริงมักแย่ ~40% ตาม Gartner — เผื่อเวลา clean ไว้)
 
 ---
 

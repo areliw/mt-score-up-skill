@@ -4,7 +4,7 @@ title: โค้ชอ่านผลแล็บข้ามแขนง — co
 type: ADVISE
 needs: any
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "เครื่องมือช่วยคิดเชิงวินิจฉัยจากผลแล็บข้ามแขนงเพื่อการศึกษา — ช่วยคิด ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน การตีความผลแล็บกระทบการวินิจฉัยและรักษาผู้ป่วยโดยตรง ต้องยืนยันกับ MT/แพทย์ผู้ดูแล + ทำตาม SOP และตำรา/แหล่งอ้างอิงมาตรฐานเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,8 +13,9 @@ disclaimer: "เครื่องมือช่วยคิดเชิงว�
 
 ตัวช่วยอ่านผลแล็บข้ามแขนง (hema + chem + micro + immuno + blood-bank) แล้วร้อยเรื่องเป็นภาพเดียว → **ตั้ง DDx + ชี้ทาง + flag ให้แพทย์** — เน้น **วิธีคิดเชื่อมโยงผล + กับดักที่ทำให้พลาด** ไม่ใช่ท่องค่า
 
-> ⚠️ **ขอบเขตวิชาชีพ: MT ไม่วินิจฉัย** — MT ตีความ/correlate/flag ผล + ชี้ทาง reflex test + ส่งต่อ; **การวินิจฉัยเป็นหน้าที่แพทย์**. skill นี้ช่วยคิดเชิง diagnostic reasoning เพื่อ quality/flag/สื่อสารกับแพทย์ ไม่ใช่ให้ MT วินิจฉัยเอง
-> ผลแล็บข้ามแขนงคือจุดที่ "ตัวเลขลอยไม่มีคนไข้ = อ่านผิด" — นำด้วยการ **เช็ค clinical context + pre-analytical ก่อนเชื่อค่า** แล้วร้อยค่าผิดทุกตัวให้อธิบายได้ด้วยกลไกเดียว
+> 🎯 **กฎ #1: ก่อนเชื่อค่าใดๆ เช็ค clinical context + pre-analytical ก่อน** (อายุ/อาการ/ยา + hemolysis/clot/tube ผิด) — "ตัวเลขลอยไม่มีคนไข้ = อ่านผิด" แล้วร้อยค่าผิด *ทุกตัว* ให้อธิบายได้ด้วย **กลไกเดียว**
+> 🚩 **กับดัก #1: anchoring** — อย่า lock ธงแรก. บังคับตั้ง DDx ≥3 + สั่ง test ที่ *หักล้าง* DDx อื่น (ไม่ใช่แค่ยืนยันของตัวเอง). ค่าเดี่ยว positive ≠ diagnosis → confirm เสมอ
+> ⚠️ **ขอบเขต: MT ไม่วินิจฉัย** — MT correlate/flag + ชี้ทาง reflex test + ส่งต่อ; **วินิจฉัยเป็นหน้าที่แพทย์**
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
@@ -40,7 +41,7 @@ disclaimer: "เครื่องมือช่วยคิดเชิงว�
 - **MCV เป็นแยกแรกของ anemia:** <80 microcytic → iron study; >100 macrocytic → B12/folate; normo → retic/hemolysis
 - **iron study 4 ตัวรวมกัน ตัดสินทิศ:** ferritin↓ + TIBC↑ + %sat↓ = IDA แท้ → ต้องหา **แหล่งเสียเลือด** ต่อ (เช่น CT เจอ leiomyoma) · ถ้า ferritin ปกติ ในคน microcytic → **ห้ามหยุดที่ IDA** → reflex Hb typing/DNA
 - **AST/ALT vs ALP/GGT = แยก liver pattern:** transaminase >>300 = hepatocellular (เช่น DILI); ALP/GGT เด่น = cholestatic · ⚠️ **albumin↓ + AST/ALT ปกติ ≠ ตัดตับออก** — cirrhosis ชดเชย ~37-48% LFT ปกติ; albumin↓ = ตับ (synthetic fail) / ไตรั่ว / ทุพโภชนาการ-อักเสบ → แยกด้วย PT/INR + GGT/ALP + urinalysis (RBC cast = glomerular)
-- **conjugated fraction (DB/TB) แบ่งดีซ่าน:** <20% = pre-hepatic (unconjugated) / 20–50% = hepatocellular / >50% = post-hepatic (obstructive)
+- **conjugated fraction (DB/TB) แบ่งดีซ่าน (heuristic สอน ไม่ใช่ cutoff ตายตัว — ขอบเบลอ/ทับซ้อน, ตำราใช้ 15–30% ก็มี):** ~<20% = pre-hepatic (unconjugated) / ~20–50% = hepatocellular / ~>50% = post-hepatic (obstructive) · ต้องดู pattern + clinical ประกอบเสมอ
 - **TSH ต่ำ + FT3/FT4 สูง = thyrotoxic** → fork สำคัญคือ RAIU + thyroglobulin: ทั้งคู่ต่ำ + autoAb ลบ = hormone จากภายนอก (factitia) ไม่ใช่ Graves
 - **panreactive ทุก cell ที่ AHG** (auto+screen+unit 1+) + ประวัติยา → คิด drug interference (anti-CD38/daratumumab) **ก่อน** alloantibody
 - **cardiac:** อ่าน delta (0h→1h) ของ hs-troponin ไม่ใช่ค่าเดี่ยว — single value ปกติไม่ตัด MI
@@ -85,7 +86,7 @@ disclaimer: "เครื่องมือช่วยคิดเชิงว�
 |---|---|
 | Microcytic anemia workup | MCV<80 → iron study → iron ปกติ? → Hb typing/DNA |
 | Rule-out cascade | ตัด viral/AI/metabolic/toxin จนเหลือ 1 |
-| Jaundice by DB/TB | pre / intra / post-hepatic |
+| Jaundice by DB/TB | pre / intra / post-hepatic (heuristic, ขอบเบลอ — ดู clinical ประกอบ) |
 | Enzyme → liver pattern | AST/ALT=hepatocellular · ALP/GGT=cholestatic · alb↓+enzyme ปกติ → อย่าตัดตับ (cirrhosis/synthetic) vs ไต/อักเสบ |
 | Serology timing | Ag/NS1=acute · IgM/IgG=primary/secondary · PCR=ยืนยัน+serotype |
 | Confirmatory cascade (micro) | culture→Gram→biochem→AST(MIC)→resistance gene |

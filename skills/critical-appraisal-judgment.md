@@ -4,7 +4,7 @@ title: โค้ชอ่าน/ประเมินงานวิจัย + 
 type: ADVISE               # ช่วยอ่าน/ประเมินเปเปอร์คนอื่น ไม่ใช่ตำราระเบียบวิธี
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดอ่าน/ประเมินงานวิจัย + ทบทวนวรรณกรรมเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัยทางการ — ต้องยืนยันกับเปเปอร์ต้นฉบับ + อาจารย์ที่ปรึกษา · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,8 +13,9 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 
 อ่านงานวิจัยคนอื่นให้เป็น (lit review / journal club / หาหัวข้อ thesis) — เปเปอร์นี้ดี/เชื่อได้แค่ไหน · gap อยู่ตรงไหน · ใช้ method ไหนเป็นแม่แบบ ไม่ใช่สรุปย่อทุกบรรทัด
 
+> **กฎข้อ 1:** อ่านเพื่อ **(1) เชื่อได้ไหม (2) ขโมย method มาใช้ได้ไหม (3) gap = contribution เราอยู่ตรงไหน** — ไม่ใช่จำ finding
+> **กับดักอันดับ 1:** เห็น sens/spec สูงแล้วเชื่อเลย — **PPV ขึ้นกับ prevalence: ถ้าโรคหายาก ผลบวกส่วนใหญ่เป็น false+ ต้อง confirm** (sens/spec ไม่ขึ้นกับ prevalence, NPV เป็นกระจกสะท้อน = สูงตอน prevalence ต่ำ). ก่อนเชื่อตัวเลขทุกครั้ง: ดู gold standard เหมาะไหม · blinded ไหม · spectrum/sample bias.
 > นี่คือชั้น **"อ่าน/ประเมินงานคนอื่น + หา gap"** — ออกแบบงานตัวเอง → `research-design-judgment` · เขียนเล่ม/ตีพิมพ์ → `manuscript-judgment` · เลือก test สถิติ → `choose-stat-test` · กันอ้างมั่ว → `anti-hallucination`
-> แก่น: อ่านเพื่อ **(1) เชื่อได้ไหม (2) ขโมย method มาใช้ได้ไหม (3) gap = contribution ของเราอยู่ตรงไหน** — ไม่ใช่จำ finding
 
 ## ใช้เมื่อ
 - ทำ literature review / journal club / หา research gap ก่อนตั้งหัวข้อ
@@ -33,7 +34,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - จด **method skeleton ให้ทำซ้ำได้** (dataset, ขั้นตอน, พารามิเตอร์, metric) — ถ้าจะเอามาใช้ ต้อง lock ค่าจริงจากเปเปอร์เต็ม ไม่ใช่จากสไลด์/abstract
 
 ### Fork 2 — ประเมินงาน "test/method ใหม่ vs gold standard" (recurring สุดในงาน MT)
-- โครง: **sensitivity / specificity / PPV / NPV / accuracy / AUC** เทียบ gold standard (เช่น molecular/biopsy/culture)
+- โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **AUC ใช้กับ test แบบต่อเนื่อง/จัดอันดับ (มี cutoff ปรับได้) เท่านั้น, ไม่ใช่ test 2×2 บวก/ลบ ตายตัว**
 - ⚠️ **PPV ขึ้นกับ prevalence** — test ดีแค่ไหน ถ้า prevalence ต่ำ ผลบวกส่วนใหญ่ก็ false+ → ต้อง confirm (ดู `immunoassay-judgment`/`anti-hallucination`)
 - ดู **gold standard เลือกเหมาะไหม** + sample size/spectrum bias + blinded ไหม ก่อนเชื่อตัวเลข
 
@@ -46,7 +47,8 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - เปรียบเทียบ spine (เช่น classifier vs association-study vs forecasting) ตาม: ชนิดข้อมูล · คำถาม · เครื่องมือที่มี → อย่าเลือกเพราะ "ดูเท่"
 
 ### Fork 5 — จับ "limitation to beat" = novelty lever
-- จุดอ่อนที่เปเปอร์แม่แบบมัก: **single dataset / no external validation cohort / ไม่มี modern method / sample เล็ก** → แต่ละอันคือ **ช่องที่เราอัปเกรดเป็นความใหม่ได้** (เพิ่ม validation set, k-fold+held-out, model ที่ดีขึ้น)
+- จุดอ่อนที่เปเปอร์แม่แบบมัก: **single dataset / no external validation cohort / ไม่มี modern method / sample เล็ก** → แต่ละอันคือ **ช่องที่เราอัปเกรดเป็นความใหม่ได้**
+- ⚠️ **แยก 2 ชั้นให้ขาด:** k-fold/bootstrap = *internal* validation (แก้ overfit บนข้อมูลชุดเดิม) · validation บน **cohort อิสระชุดใหม่** = *external* validation (คนละชั้น แทนกันไม่ได้). เปเปอร์ที่มีแค่ k-fold ยัง **ขาด external** อยู่ → นั่นคือ lever ของเรา
 
 ### Fork 6 — Triage + read-order (อย่าอ่านทุกอันเท่ากัน)
 - เรียงเปเปอร์ตาม **relevance ต่อคำถามเรา** → **read-in-full = แม่แบบ method + domain anchor** · skim = method-pattern ซ้ำ · **skip-to-cite = ที่เหลือ** (off-domain/ref)

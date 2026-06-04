@@ -4,7 +4,7 @@ title: ผู้ช่วยสถิติงานวิจัย MT (R2R Stat
 type: DO                    # ต้องรันคำนวณจริง
 needs: code-interpreter     # AI ที่รัน Python ได้จริง — ChatGPT Plus / Claude Pro / Gemini Advanced
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-05-31
+last_edited: 2026-06-04
 status: draft
 disclaimer: "เครื่องมือช่วยเลือก/รัน/แปลผลสถิติเพื่อการศึกษา — ไม่ใช่ที่ปรึกษาสถิติทางการ ควรตรวจสอบความเหมาะสมและการแปลผลกับนักสถิติ/ผู้เชี่ยวชาญก่อนนำไปใช้/ตีพิมพ์/ตัดสินทางคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -12,6 +12,9 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 # ผู้ช่วยสถิติงานวิจัย MT (R2R Stats Buddy)
 
 สำหรับ MT ที่ทำ R2R/งานวิจัยแล้ว **ติดสถิติ** — ไม่รู้ใช้ test ไหน รันยังไง แปลผลยังไง ตอบ reviewer ยังไง
+
+> ⚠️ **กฎเหล็ก #1: เลือก test ก่อนดู p-value เสมอ — ห้ามเปลี่ยน test ทีหลังเพราะ p ไม่ผ่าน (= p-hacking) และอย่าเชื่อตัวเลขที่ AI ไม่ได้รันโค้ดโชว์**
+> ⚠️ **กับดักที่ #1: ข้อมูลจับคู่ (ก่อน-หลังคนเดียวกัน / 2 วิธีวัด sample เดียวกัน) ต้องใช้ paired test (paired t / Wilcoxon signed-rank / McNemar) — ตัวเลขเป็น "2 คอลัมน์" เหมือนกันหมด ดูจาก design ไม่ใช่จากหน้าตาข้อมูล ใช้ unpaired ทั้งที่ข้อมูล paired = ผิดบ่อยสุดและทำให้ผลเพี้ยน**
 
 ## ใช้เมื่อ
 มีข้อมูล (Excel/CSV) + คำถามวิจัย แต่ไม่มั่นใจเรื่องสถิติ
@@ -35,7 +38,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 
 | คำถาม | ข้อมูลต่อเนื่อง | ข้อมูลหมวดหมู่ |
 |---|---|---|
-| เทียบ **2 กลุ่มอิสระ** (เช่น เครื่อง A vs B) | t-test (ถ้า normal; ใช้ **Welch's t-test** ถ้า variance ไม่เท่ากัน) / **Mann-Whitney U** (ถ้าไม่ normal) | Chi-square (Fisher's exact ถ้า **expected count** < 5 โดยเฉพาะตาราง 2×2/n น้อย) |
+| เทียบ **2 กลุ่มอิสระ** (เช่น เครื่อง A vs B) | t-test (ถ้า normal; ใช้ **Welch's t-test** ถ้า variance ไม่เท่ากัน) / **Mann-Whitney U** (ถ้าไม่ normal) | Chi-square; ใช้ **Fisher's exact** เมื่อ **มี expected cell < 1 หรือ > 20% ของ cell มี expected < 5** (ตาราง 2×2 เกณฑ์ "expected < 5" พอใช้ได้ แต่ตารางใหญ่ cell เดียว < 5 ไม่บังคับ Fisher) |
 | เทียบ **ก่อน-หลัง / จับคู่** (paired) | paired t-test / **Wilcoxon signed-rank** | McNemar |
 | เทียบ **≥3 กลุ่ม** | One-way ANOVA + post-hoc / **Kruskal-Wallis** | Chi-square + **pairwise + multiple-testing correction** (Bonferroni/FDR); Fisher's exact ถ้า expected น้อย |
 | **ความสัมพันธ์** 2 ตัวแปรต่อเนื่อง | Pearson (normal) / **Spearman** (ไม่ normal) | — |
@@ -66,7 +69,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 - **n น้อย** → อย่าเชื่อ normality test, ใช้ non-parametric, ระวัง underpowered
 - **correlation ≠ causation**
 - **% / สัดส่วน ที่ n ฐานต่าง** → อย่าเทียบตรงๆ
-- ใช้ **paired test เมื่อข้อมูลจับคู่** (ก่อน-หลังคนเดียวกัน) — ใช้ผิดเป็น unpaired = ผิดบ่อยสุด
+- **paired vs unpaired ตัดสินจาก design ไม่ใช่หน้าตาข้อมูล** — ถ้าแต่ละแถวคือ "หน่วยเดียวกันวัด 2 ที" (ก่อน-หลัง / 2 วิธีวัด sample เดียว / ตา 2 ข้างคนเดียว) = paired (paired t / Wilcoxon signed-rank / McNemar); ใช้ unpaired ทั้งที่ข้อมูล paired = ผิดบ่อยสุด
 - **method comparison ≠ การ validate เครื่องสำหรับใช้จริงกับผู้ป่วย** → ต้องมี acceptance criteria (เช่น CLSI EP09) + ผู้รับผิดชอบ lab อนุมัติ ก่อนนำเครื่อง/วิธีไปใช้จริง
 
 ---

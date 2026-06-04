@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจในแลบโลหิ�
 type: ADVISE
 needs: any
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,8 @@ disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศ
 
 ตัวช่วยตัดสินใจในแลบโลหิตวิทยา — เน้น "ผล CBC/smear/coag นี้ ต้องทำอะไรต่อ + อย่าพลาดตรงไหน" ไม่ใช่ atlas รูปเซลล์หรือตารางค่าปกติ
 
-> flag จากเครื่อง = สัญญาณ ไม่ใช่คำตอบ · ทุก flag ที่กระทบการรักษา (blast, platelet ต่ำจริง) ต้อง review smear ด้วยตาก่อน report เสมอ
+> **กฎ #1:** ทุกผลที่กระทบการรักษา (blast, platelet ต่ำ) **ต้อง review smear ด้วยตาก่อน report เสมอ** — flag จากเครื่อง = สัญญาณ ไม่ใช่คำตอบ
+> **กับดัก #1 (ขั้น hard):** ตัวเลข/flag เครื่อง "ปกติ" ≠ smear ปกติ — เครื่องนับ blast เป็น lymph/mono ได้ ปล่อย acute leukemia ทั้งที่ WBC ปกติ. **เลขปกติแต่อาการ/บริบทค้าน = ยังต้อง smear** อย่าให้ "ไม่มี flag" เป็นใบผ่าน
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
@@ -39,7 +40,7 @@ disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศ
 Review smear เสมอเมื่อ:
 - blast flag / "abnormal/immature cell" / WBC สูงมากผิดปกติ → smear ทันที
 - platelet ต่ำ → ห้ามรายงานเลย ดู clump ก่อน
-- MCHC > 36–37 (สูงเกินจริง) → cold agglutinin / spherocytosis / lipemia — เครื่องเชื่อไม่ได้
+- MCHC > 36–37 → smear ตรวจ. ส่วนใหญ่ **artifact** (cold agglutinin / lipemia / hyperbili / paraprotein → เครื่องเชื่อไม่ได้ แก้แล้ว rerun) แต่ **hereditary spherocytosis = MCHC สูงจริง** (เสีย membrane จริง ไม่ใช่ปลอม) → ดู spherocyte + ยืนยัน อย่าปัดทิ้งเป็น error
 - WBC สูงแต่ค้านอาการ → NRBC/cryoglobulin นับเป็น WBC ปลอม → smear + แก้ค่า
 - RBC indices ไม่ลงรอย (MCV ต่ำมากแต่ RDW ปกติ) → smear ยืนยัน + คิด thal
 - delta check fail → smear + คิด sample mix-up/artifact
@@ -92,7 +93,7 @@ Review smear เสมอเมื่อ:
 - #3 เลือก anemia path ผิด: ไม่ดู MCV (+ RDW + retic) ก่อน.
 - #4 Thal/IDA สับสน: Mentzer + RDW + RBC count + ferritin; IDA กด HbA2 → confirm β-thal ต้องแก้ Fe ก่อน.
 - #5 Clotted / partial-clot sample: plt ต่ำปลอม + CBC เพี้ยน → ตรวจ clot/feather edge ก่อน.
-- #6 Cold agglutinin: MCHC สูงผิด (>36–37) + RBC ต่ำปลอม → อุ่น 37°C 30 นาที แล้ว rerun.
+- #6 Cold agglutinin: MCHC สูงปลอม (>36–37) + RBC ต่ำปลอม → อุ่น 37°C 30 นาที แล้ว rerun. แต่อย่าเหมา MCHC สูงทุกตัวเป็น artifact — spherocytosis คือสูงจริง.
 - #7 Lipemia → Hb สูงปลอม (saline replacement); NRBC/cryoglobulin → WBC สูงปลอม.
 - #8 MCV เกิน 100 = B12 ทุกราย (ผิด): retic สูง = macro เทียมจาก hemolysis — ดู retic ก่อน.
 - #9 รายงาน PT/aPTT "ปกติ" แล้วจบทั้งที่เลือดออก: คิด FXIII def / mild factor / vWD / fibrinolysis.

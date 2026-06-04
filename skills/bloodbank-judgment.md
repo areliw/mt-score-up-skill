@@ -4,7 +4,7 @@ title: โค้ชธนาคารเลือด — ตัดสินใ�
 type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ตำรา antigen frequency
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "เครื่องมือช่วยคิดหน้างานธนาคารเลือดเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินใจแทน งาน BB เกี่ยวชีวิตคนไข้โดยตรง ต้องทำตาม SOP, ยืนยันกับ MT/แพทย์, อ้างมาตรฐาน AABB/ศูนย์อ้างอิงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,9 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 
 ตัดสินใจหน้า bench ธนาคารเลือด — **"เลือกอะไรเมื่อไหร่ + พลาดตรงไหนถึงคนตาย"** ไม่ใช่ท่องตาราง antigen frequency (นั่นคือ commodity ดูตำรา)
 
-> งาน BB คือจุดที่ "ตัดสินใจผิด = คนไข้ตาย" ตรงไปตรงมาที่สุดในวิชาชีพ MT — **ABO mislabel = สาเหตุ #1 ของ fatal acute hemolytic reaction**. skill นี้จึงนำด้วยความปลอดภัย: clerical ก่อน serology เสมอ
+> **ตัดสินใจ #1:** ผลแปลก / เข้ากันไม่ได้ / reaction → **เช็ค clerical ก่อน serology เสมอ** (ชื่อ-HN-ป้ายหลอด-sample-group เดิม) แล้วค่อยคิดต่อ
+> **กับดัก #1:** **ABO mislabel = สาเหตุ #1 ของ fatal acute hemolysis** — แก้ที่ serology ก่อนตัด clerical = พลาดที่ฆ่าคนจริงสุดของทั้งวิชา
+> เลือดออกมากรอ XM ไม่ทัน → **จ่าย O ทันที** (หญิงวัยเจริญพันธุ์/เด็ก = O neg) + เก็บ sample ก่อนให้เลือด
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
@@ -29,13 +31,15 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 ---
 
 ## กฎเหล็กก่อนทุกอย่าง — CLERICAL ก่อนเสมอ
-ผลแปลก / เข้ากันไม่ได้ / reaction → **เช็ค clerical ก่อนคิด serology**: ชื่อ-HN ถูกคน? หลอดติดป้ายถูก? sample เก่า/clot/hemolyze? group เดิมในประวัติตรงไหม? — แก้ที่ serology ก่อนตัด clerical = พลาดที่อันตรายสุดของทั้งวิชา
+เช็ค 4 ข้อก่อนคิด serology: ชื่อ-HN ถูกคน? หลอดติดป้ายถูก? sample เก่า/clot/hemolyze? group เดิมในประวัติตรงไหม?
 
 ---
 
 ## วิธีตัดสินใจ (AI: ทำตามนี้) — decision forks
 
 ### Fork 1 — ABO discrepancy (cell ≠ serum) → resolve ยังไง
+> **verdict:** ทำซ้ำ+ล้าง RBC ตัด technical → แยก forward (RBC) vs reverse (serum) → ฉุกเฉินยังไม่ชัด = **จ่าย O**
+
 **ลำดับเสมอ:** (1) ทำซ้ำ + ล้าง RBC ตัด technical error (2) เก็บ sample ใหม่ + ถาม Dx/อายุ/transfusion-transplant/ยา (3) แยกปัญหาที่ **RBC (forward)** หรือ **serum (reverse)** → WEAK/MISSING/EXTRA
 
 | เคส | เบาะแส | resolve | จ่ายเลือด |
@@ -53,6 +57,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 | **Passive anti-A,B** (serum/DAT extra) | ผู้ป่วย A/B ได้ **group O platelet/plasma** → DAT+ / eluate = anti-A,B | ดู Hx component (ไม่ใช่ auto/allo) | **O RBC ชั่วคราว** จน passive หาย → กลับ type-specific |
 
 ### Fork 2 — antibody screen บวก → ID strategy
+> **verdict:** อ่าน autocontrol ก่อน (auto− = allo, panel ปกติ) → rule-out ด้วย homozygous cell → ต้องได้ 3-cell rule ก่อนสรุป
+
 - **อ่าน autocontrol ก่อน:** auto− = **allo**antibody (panel ID ปกติ) · auto+ → คิด AIHA/cold-auto/recent transfusion ก่อน
 - **rule-out บน panel:** ขีดฆ่า antibody เมื่อ reagent cell ที่ **Ag-positive ให้ reaction ลบ (Ag+/react−)** → เหลือตัวที่ fit ทุกแถว = candidate; **rule-out ด้วย homozygous cell** (เลี่ยง dosage บัง)
 - **95% (3-cell) rule:** สรุป Ab ได้เมื่อมี **≥3 cell (Ag+ → react+)** และ **≥3 cell (Ag− → react−)**; ไม่ครบ → หา selected cell เพิ่ม
@@ -62,12 +68,16 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **multiple/pan-react หรือ XM ไม่เข้ากับ unit ใดเลย:** ไม่ fit ตัวเดียว → selected cell + enzyme + เผื่อ **antibody ต่อ high-incidence Ag** (anti-H/Bombay · **anti-Rh29/Rhnull** → ต้องเลือดชนิดเดียวกันจาก rare registry) + HTLA/HFA → ส่ง ref lab (ศูนย์อ้างอิงระดับชาติ)
 
 ### Fork 3 — DAT vs IAT เมื่อไหร่
+> **verdict:** เคลือบมาแล้ว in vivo (AIHA/HDFN/HTR) = **DAT** · Ab ในซีรั่มจับ in vitro (screen/XM/phenotype) = **IAT** · AHG ลบทุกครั้งต้องยืนยันด้วย CCC
+
 - **DAT** = RBC ถูกเคลือบ in vivo → สงสัย **AIHA / HDFN (cord) / HTR / drug-induced**; sample = **EDTA whole blood**
 - **IAT** = Ab ในซีรั่มจับ antigen in vitro → **antibody screen/ID, crossmatch AHG, phenotyping, weak D**; sample = **serum/plasma สด**
 - "ทำไม transfusion reaction" → DAT บวกหลังให้เลือด = สงสัย HTR → DAT + clerical + ABO ซ้ำ pre/post
 - **QC พลาดบ่อย:** AHG ออก negative ต้องหยอด **CCC (Coombs Control Cell)** — CCC ไม่จับ = ล้างไม่พอ → test ใช้ไม่ได้
 
 ### Fork 4 — crossmatch ไหน (IS / AHG / electronic)
+> **verdict:** screen ลบ + ABO ยืนยัน 2 ครั้ง = **IS/electronic** พอ · screen บวก / เคยมีประวัติ Ab = **full AHG XM + antigen-neg unit** (แม้ screen ตอนนี้ลบ)
+
 | สถานการณ์ | crossmatch |
 |---|---|
 | screen ลบ + ไม่มีประวัติ Ab + ยืนยัน ABO 2 ครั้ง | **electronic / immediate-spin** พอ |
@@ -79,6 +89,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - ⚠️ **ก่อนจ่ายทุก unit ที่ XM ผ่าน → phenotype unit ว่า Ag-negative** ต่อ Ab ผู้ป่วย (เคส weak Ab/dosage: unit heterozygous อาจมี Ag จริงแต่ XM compatible ลวง)
 
 ### Fork 5 — component selection + เมื่อไหร่ irradiate/leukoreduce
+> **verdict:** จับคู่ component กับ deficit · กลุ่มเสี่ยง TA-GVHD (neonate/directed-relative/HLA-matched/immunocompromised) = **irradiate เสมอ** (leukoreduction ไม่กัน)
+
 - **PRC:** anemia/thalassemia · **FFP:** ↑PT/aPTT, factor deficiency, warfarin reversal · **Platelet:** thrombocytopenia/bleeding (20-22°C agitation, ห้ามแช่เย็น) · **Cryo:** fibrinogen<100-150, FVIII, vWF, FXIII
 - **Irradiate (≥25 Gy central midplane, ≥15 Gy ขั้นต่ำทุกส่วน) — กัน TA-GVHD:** immunocompromised, **intrauterine/exchange/neonate**, **HLA-matched / เลือดจากญาติ (directed)**, Hodgkin, BMT, congenital T-cell defect → ลืม = TA-GVHD เกือบ 100% ตาย
 - **Leukoreduce:** ประวัติ **febrile NHTR ซ้ำ**, ลด **HLA alloimmunization** (จะ transplant/platelet refractory), ลด **CMV** (ทารก/ตั้งครรภ์/immunocompromise CMV−)
@@ -86,6 +98,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - ABO: RBC ใช้ O universal ได้ · plasma AB universal · platelet เลี่ยง ABO-incompat plasma ในเด็ก
 
 ### Fork 6 — transfusion reaction → workup
+> **verdict:** หยุดเลือดทันที + KVO saline → clerical recheck + DAT post + ABO ซ้ำ pre/post → ดู hemolysis (pink plasma/urine = intravascular = สงสัย ABO mislabel)
+
 **ทันที:** หยุดเลือด, KVO saline, เช็ค vital + clerical (ถุง vs ผู้ป่วย), แจ้งแพทย์+BB
 **lab:** (1) clerical recheck (2) **DAT** post (3) **ABO ซ้ำ** pre+post (4) ดู plasma/urine hemolysis (pink = intravascular)
 - ไข้+หนาวสั่น → FNHTR vs เริ่ม acute HTR (แยกด้วย DAT/ABO/hemolysis) · ป้องกัน FNHTR ซ้ำ = leukoreduce
@@ -94,10 +108,14 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - หายใจลำบาก: **TACO** (overload, BP↑) vs **TRALI** (anti-HLA donor, BP↓, <6 ชม.) · anaphylaxis ทันที → คิด IgA deficiency → washed unit
 
 ### Fork 7 — emergency uncrossmatched (O) เมื่อไหร่
+> **verdict:** รอ XM ไม่ได้ = **จ่าย O ทันที** + เก็บ pretransfusion sample ก่อนเสมอ → สลับ type-specific เร็วสุดเมื่อยืนยันหมู่
+
 - เลือดออกมาก/shock รอ XM ไม่ได้ → **O RBC** ทันที (หญิงวัยเจริญพันธุ์/เด็ก = **O neg**; ชาย/หญิงสูงอายุ = O pos ได้เมื่อ O neg ขาด)
 - เก็บ pretransfusion sample **ก่อน** ให้เลือดเสมอ · แพทย์เซ็น emergency release · ยืนยันหมู่แล้วสลับ type-specific เร็วสุด → full XM ภายหลัง
 
 ### Fork 8 — HDN/HDFN: Rh vs ABO (แยกให้ขาด)
+> **verdict:** Rh = ครรภ์ที่ 2+, DAT บวกชัด, รุนแรง · ABO = ครรภ์แรกได้ (แม่ O), DAT มักลบ/อ่อน + spherocyte (DAT ลบ ≠ ตัดทิ้ง — ใช้ IAT+smear)
+
 กลไกร่วม: **IgG แม่** ผ่านรก → จับ Ag ทารก (รับจากพ่อ) → ทำลายที่ม้าม → ซีด + indirect hyperbilirubinemia → hydrops/kernicterus
 | | **Rh (anti-D)** | **ABO** |
 |---|---|---|
@@ -112,23 +130,31 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **เลือดให้ทารก/exchange:** PRC **O Rh−, low-titer, compatible serum แม่, <5-7 วัน, CMV-neg, leukodepleted, irradiated**; เกินเกณฑ์ bilirubin → exchange, เบากว่า → phototherapy
 
 ### Fork 9 — เมื่อไหร่ใช้ molecular (genotype) แทน serology
+> **verdict:** serology เชื่อไม่ได้ (เพิ่ง transfuse/DAT บวกแรง/ไม่มี antisera) หรือ fetal RHD จาก maternal plasma → ใช้ genotype
+
 - **เพิ่ง transfuse (mixed-field) / DAT บวกแรง (auto-Ab เคลือบจน type ไม่ได้)** → genotype · **antigen ไม่มี antisera/หายาก** · **fetal RHD typing** จาก maternal plasma/amniotic (กัน HDFN โดยไม่เจาะเด็ก — ถ้าทารก Rh− ก็ไม่ต้องให้ RhIG เกินจำเป็น) · mass screen หา rare phenotype
 - เลือก method/แปล qPCR/กัน false +/− → ดู `molecular-judgment` (RFLP จำกัดที่ SNP ต้องตรง restriction site · ASP บอก homo/het · SSO/SSP throughput · SYBR false-pos จาก primer-dimer)
 - discrepancy **genotype vs phenotype** (weak D/partial D/Rh variant) = ต้องรู้ทั้งคู่ก่อนตัดสินจ่าย
 
 ### Fork 10 — Enhancement: enzyme / LISS / adsorption / elution (+ controls)
+> **verdict:** เลือก technique ตามเป้า (enzyme=แยก Rh-Kidd vs MNS-Duffy · adsorption=auto vs allo · elution=Ab บนเซลล์เคลือบ) — **ทุกอันต้อง run control** (last-wash/autocontrol)
+
 - **Enzyme (papain/ficin):** enhance **Rh/Kidd/P/Lewis/I** · destroy **MNS/Duffy** → "differential destruction" แยก Ab ปนกัน · ⚠️ ใช้ enzyme cell ตรวจ anti-Fya/M = false negative
 - **LISS:** ลด incubate (60-90→10-20 นาที) · ⚠️ **สัดส่วน serum:cell:LISS ตาม leaflet เป๊ะ** — มากไป false+, น้อยไป false−
 - **Adsorption** (ดูด Ab ออกจาก serum, แยก auto vs allo): ยืนยัน RBC มี Ag จริง; post-adsorbed serum ต้อง **IAT ลบ** = สำเร็จ
 - **Elution** (ดึง Ab จาก RBC เคลือบ DAT บวก → อยากรู้ Ab อะไร: HDN/AIHA/delayed HTR): ⚠️ **last-wash NSS = negative control** — last-wash บวก = ล้างไม่พอ eluate ใช้ไม่ได้
 
 ### Fork 11 — Transplant/HSCT support (BB เกี่ยวตรงไหน)
+> **verdict:** rejection = ผู้รับตี graft (กันด้วย crossmatch ก่อนปลูก) · GvHD = donor ตีผู้รับ (กันด้วย irradiate + T-cell depletion)
+
 - **GvHD vs rejection (ใครโจมตีใคร):** rejection = ผู้รับโจมตี graft · **GvHD = donor lymphocyte โจมตีผู้รับ** → กันด้วย **irradiate component (Fork 5) + T-cell depletion**
 - **Hyperacute rejection = preexisting Ab** (เคยรับเลือด/ตั้งครรภ์/ปลูกถ่าย) → กันด้วย **crossmatch ก่อนปลูกถ่าย**
 - **HLA matching HSCT:** A/B/C/DRB1 = **8/8**, +DQB1 (10/10) ยิ่งดี; ลำดับ sib-identical → unrelated → haplo/cord
 - **ABO-incompatible graft:** RBC-deplete (major) / plasma-reduce; post-transplant **monitor ABO Ab titer**; CD34+ count (flow) = quantify progenitor
 
 ### Fork 12 — Delayed/late reactions (ที่ตาราง acute ไม่ครอบ)
+> **verdict:** Hb ตก 5-14 วัน + DAT+ = **DHTR (anamnestic, Kidd บ่อยสุด)** → ครั้งหน้าให้ Ag-neg · pancytopenia 1-3 wk = **TA-GVHD** (ตายเกือบแน่ ป้องกันทางเดียว=irradiate) · plt ตก ~1 wk = **PTP**
+
 - **DHTR/DSTR (anamnestic):** เคย sensitize → titer ตกจน **screen ลบตอนเตรียมเลือด** → ได้ Ag-positive unit → boost ใน 3 วัน-สัปดาห์ → hemolysis · ความถี่ **Kidd > Duffy > Kell > MNS** (Jka titer drop ง่ายสุด); DSTR (ไม่มี hemolysis marker) พบบ่อยกว่า DHTR · **ป้องกัน: ใช้ตัวอย่าง ≤3 วันก่อนจ่าย + บันทึก Ab เก่า → เลี่ยง Ag เดิมแม้ screen ลบ**
 - **TA-GVHD:** donor lymphocyte ตี recipient → **marrow aplasia/pancytopenia → ตาย 1-3 สัปดาห์, รักษาแทบไม่ได้ → ป้องกันทางเดียว** · ⚠️ **เลือดญาติ (directed) = เสี่ยงสูงสุด** (one-way HLA: donor homozygous ตรงกับ recipient heterozygous → **คนภูมิปกติก็เป็นได้**) → **irradiate 25 Gy เสมอ; leukoreduction อย่างเดียวไม่กัน**
 - **PTP (post-transfusion purpura):** เกล็ดตกฮวบ **~1 สัปดาห์** หลังเลือด, หญิงเคยตั้งครรภ์, Ab = **anti-HPA-1a** (ทำลายเกล็ดตัวเอง HPA-1a-neg ด้วย) · DDx ITP/HIT/DIC/drug — ธง = ก่อนเลือด plt ปกติ · รักษา **IVIG** (ดีสุด), หลีกเลี่ยง platelet transfusion เพิ่ม (ทำให้แย่ลง); ถ้าจำเป็นตอนเลือดออกรุนแรง ใช้ HPA-1a-negative platelet
@@ -136,6 +162,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **Hemovigilance:** reaction ส่วนใหญ่พลาดเพราะ "ไม่สังเกต" + "ไม่รายงาน" → ต้องมีระบบรายงาน; เคสตายแจ้งหน่วยกำกับ
 
 ### Fork 13 — Special techniques: เลือก potentiator + ลบ/แยก Ab (ทุกอันต้องมี autocontrol)
+> **verdict:** เลือกตามตัวกวน (IgM บัง→DTT · cold→prewarm 37°C · warm DAT+→adsorption) + ระวังตัว reagent ทำลาย Ag ที่อยากตรวจ (DTT→Kell · enzyme→MNS/Duffy) — **autocontrol คู่เสมอ**
+
 - **ปฏิกิริยาอ่อน → potentiator:** **LISS** (routine; ต้องมี glycine; **ห้ามใน titration**) · **PEG** (IgG ดีมาก · ⚠️ **ห้ามปั่นหลังเติม** + **ยับยั้ง IgM** ABO/Lewis) · **Polybrene** (เร็ว · ⚠️ **ใช้กับ Kell ไม่ได้**) · Albumin (เลิกใช้แล้ว — AHG พอ)
 - **Ab รบกวน → ลบ/แยก (ตามชนิดตัวกวน):** IgM บัง IgG → **DTT/2-ME** (⚠️ DTT ทำลาย **Kell** ด้วย) · cold autoAb → **prewarmed 37°C** · warm autoAb (DAT+) → **adsorption** · IgG เคลือบจน type Ag ไม่ได้ → **chloroquine** (⚠️ ไม่ลบ complement → อ่านด้วย anti-IgG monospecific; ห้ามเกิน 2 ชม.) · Ab จริงหรือ non-specific → **inhibition** (soluble Lewis/P1/Sd + saline control)
 - ⚠️ **ทุก enhancement/เทคนิคพิเศษ (prewarmed/cold/low-pH/enhance) ต้องรัน autocontrol คู่เสมอ** — ไม่งั้นแยก auto vs allo (เช่น anti-I บัง) ไม่ออก

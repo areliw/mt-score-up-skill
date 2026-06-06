@@ -54,3 +54,6 @@ desktop.ini
 # private personal plans (never publish)
 plan-90-days-masters-transition.md
 /plan-*.md
+
+# private recruiter/profile drafts (never publish)
+profile_recruiter*.txt

@@ -4,6 +4,28 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [0.3.0] — 2026-06-07
+
+### Added
+- `ab-test-judgment` (#55) — general judgment for evaluating prompt/skill changes without chasing
+  noise: credible design (own-worst-case + blind judge, no biased-judge), delta-of-deltas with a
+  control, noise floor, review-vs-A/B, and scaling (test by risk×uncertainty, not count).
+- `lab-clinic-business-judgment` (#54) — MT lab-clinic business: model choice (premium vs state-volume
+  vs hybrid), the real moat (profession+registration+LIS-HIS), gov revenue, reading the buyer.
+- `eval/IMPROVE-PLAYBOOK.md` — how to lift a skill + how to validate an edit via a controlled
+  before/after (without-skill = noise control). Worked example: a per-edit A/B can't resolve a <1pt
+  change against ±2–3 noise → judge edits by review, use the A/B only at library-aggregate level.
+- `eval/round3/` — fixed-scenario, 2-run-averaged, harder-trap re-eval + recovery of all 53. Honest
+  lift is *lower* than the noisy number (noise removed), with 0 dangerous regressions.
+
+### Changed
+- Critical "would-it-break-for-a-real-user" review over all 55 skills (**0 critical · 0 needs-work**)
+  → fixed 8: `financial-statement` AFS→FVOCI (IFRS 9 currency); `bloodbank` ×5 clinical polish
+  (platelet plasma-risk, Cryo-fallback, FFP→PCC, weak-D rule); `mt-career`, `ai-assistant-calibration`,
+  `what-skill-do-i-need`, `photography`, `ivd-sales`, `self-development-coach`.
+- Credits genericized — dropped specific institution names, kept the gratitude + non-endorsement note.
+- Skill count 53 → 55.
+
 ## [0.2.0] — 2026-06-04
 
 ### Added — a real evaluation (`eval/`)

@@ -10,7 +10,9 @@
 
 ## 📚 ส่วนที่ 1 — Skills (55 สกิล)
 
-**วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
+**🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
+
+**วิธีใช้ (รู้แล้วว่าจะใช้ตัวไหน):** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 
 **ยังไม่เห็นภาพ?** ดู [`examples/`](./examples) — skill ทำงานจริง before/after ใน 30 วินาที 👀 · อยากฝึก → [`exercises/`](./exercises)
 
@@ -128,8 +130,9 @@ mt-score-up-skill/
 ├── skills/        # ★ 55 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
-├── prompts/       # System prompt สำหรับ WI generator
-│   └── system.md
+├── prompts/       # วางในแชต AI
+│   ├── triage.md  # 🧭 ไม่รู้ใช้ skill ไหน → เริ่มที่นี่ (catalog auto-updated)
+│   └── system.md  # WI generator (ISO 15189)
 ├── scripts/       # md→docx + standards auto-recheck (ดู scripts/README.md)
 ├── templates/     # WI .docx templates (generic)
 ├── profiles/      # Layout profile ต่อโรงพยาบาล (generic)

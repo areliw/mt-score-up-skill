@@ -1,0 +1,37 @@
+name: build-triage-catalog
+
+# Keep the catalog inside prompts/triage.md in sync with skills/ automatically.
+# Deterministic regeneration (no judgment) → safe to auto-commit, unlike STANDARDS.md.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "scripts/build_triage.py"
+      - "prompts/triage.md"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate triage catalog
+        run: python scripts/build_triage.py
+      - name: Commit if the catalog changed
+        run: |
+          if ! git diff --quiet -- prompts/triage.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add prompts/triage.md
+            git commit -m "chore: auto-update triage catalog [skip ci]"
+            git push
+          else
+            echo "triage catalog already in sync — nothing to do"
+          fi

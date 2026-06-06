@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 วิธีร่วมสมทบ (CONTRIBUTING)
+    url: https://github.com/areliw/mt-score-up-skill/blob/main/CONTRIBUTING.md
+    about: "ก่อนส่ง skill — ดูหลักการ judgment-not-knowledge + การ de-identify"
+  - name: 👀 ดูตัวอย่าง skill ทำงานจริง (examples)
+    url: https://github.com/areliw/mt-score-up-skill/tree/main/examples
+    about: "อยากเห็นว่า skill ช่วยอะไร before/after ก่อนเสนอ"

@@ -32,7 +32,7 @@
 |---|---|---|---|---|
 | ISO/IEC 17025 | `:2017` | 2017 | General lab competence | ⏳ pending |
 | ISO 9001 | `:2015` | 2015 | QMS framework | ⏳ pending |
-| ISO 22367 | `:2020` | 2020 | Risk management (cited in 15189:2022) | ⏳ pending |
+| ISO 22367 | `:2026` | 2026-04 | Risk management (cited in 15189:2022) | verified 2026-06-07 (replaced :2020) |
 | ISO 35001 | `:2019` | 2019 | Biorisk management (cited in 15189:2022) | ⏳ pending |
 | CLSI guidelines | (varies per doc) | — | Method-specific | ⏳ pending |
 
@@ -43,6 +43,7 @@
 | ISO 22870 (POCT) | Withdrawn | Merged into ISO 15189:2022 |
 | ISO 15189:2012 | Superseded | ISO 15189:2022 |
 | ISO 15190:2003 | Superseded | ISO 15190:2020 |
+| ISO 22367:2020 | Superseded | ISO 22367:2026 (พ.ค. 2026) |
 | AABB Tech Manual 20th | Superseded | 21st edition (2023) |
 | AABB Standards 34th | Superseded | 35th edition (effective 1 Apr 2026) |
 

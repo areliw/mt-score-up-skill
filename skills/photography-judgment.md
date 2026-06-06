@@ -63,7 +63,7 @@ disclaimer: "ช่วยคิดการถ่ายภาพ/วิดีโ
 - **Shot sizes:** ELS→LS→MS→MCU→CU→ECU (ไกล→ใกล้) · **มุม:** high=ดูอ่อนแอ, low=ดูมีพลัง
 - **Movement:** Dolly (เลื่อนเข้า-ออก ให้มิติลึกกว่า zoom) · Pan/Tilt
 - **Montage:** ช็อต A + B = ความหมาย C (จัดลำดับคุมอารมณ์คนดู) · **Storyboard:** Intro→Suspense→Crisis→Climax→Conclusion
-- Tech: Full HD 1920×1080 · 16:9 · 24/25/30 fps
+- Tech: ขั้นต่ำ Full HD (1920×1080) · 16:9 · 24/25/30 fps — **4K/60fps ถ้าทำ content จริง** (มาตรฐานทั่วไปแล้ว)
 
 ---
 

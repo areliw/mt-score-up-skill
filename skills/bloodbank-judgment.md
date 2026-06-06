@@ -62,7 +62,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **อ่าน autocontrol ก่อน:** auto− = **allo**antibody (panel ID ปกติ) · auto+ → คิด AIHA/cold-auto/recent transfusion ก่อน
 - **rule-out บน panel:** ขีดฆ่า antibody เมื่อ reagent cell ที่ **Ag-positive ให้ reaction ลบ (Ag+/react−)** → เหลือตัวที่ fit ทุกแถว = candidate; **rule-out ด้วย homozygous cell** (เลี่ยง dosage บัง)
 - **95% (3-cell) rule:** สรุป Ab ได้เมื่อมี **≥3 cell (Ag+ → react+)** และ **≥3 cell (Ag− → react−)**; ไม่ครบ → หา selected cell เพิ่ม
-- **units to crossmatch ≈ requested ÷ Π(freq ของ Ag-negative)** — เช่น ขอ 3 unit + anti-E (E−0.7) + anti-Jka (Jka−0.25) → 3/(0.7×0.25) ≈ **17 units**
+- **units to crossmatch ≈ requested ÷ Π(freq ของ Ag-negative)** — เช่น ขอ 3 unit + anti-E (E−0.7) + anti-Jka (Jka−0.25) → 3/(0.7×0.25) ≈ **17 units** · ⚠️ **freq เป็นค่าตามประชากร** (เลขนี้แค่ตัวอย่าง ไม่ใช่ค่าตายตัว) → ของจริงถูกจำกัดด้วย stock; ถ้า Ag หายาก/ของไม่พอ = **ส่ง ref lab/rare registry**
 - **dosage:** anti-Jk/Rh/Duffy/Kell/MNS จับ homo แรงกว่า het → het cell อ่าน "ลบลวง" ได้
 - **enzyme (ficin/papain):** Rh/Kidd/P/Lewis **เด่นขึ้น** · MNS/Duffy **ถูกทำลาย** → ใช้แยก 2 ระบบทับกัน
 - **multiple/pan-react หรือ XM ไม่เข้ากับ unit ใดเลย:** ไม่ fit ตัวเดียว → selected cell + enzyme + เผื่อ **antibody ต่อ high-incidence Ag** (anti-H/Bombay · **anti-Rh29/Rhnull** → ต้องเลือดชนิดเดียวกันจาก rare registry) + HTLA/HFA → ส่ง ref lab (ศูนย์อ้างอิงระดับชาติ)
@@ -91,11 +91,11 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 ### Fork 5 — component selection + เมื่อไหร่ irradiate/leukoreduce
 > **verdict:** จับคู่ component กับ deficit · กลุ่มเสี่ยง TA-GVHD (neonate/directed-relative/HLA-matched/immunocompromised) = **irradiate เสมอ** (leukoreduction ไม่กัน)
 
-- **PRC:** anemia/thalassemia · **FFP:** ↑PT/aPTT, factor deficiency, warfarin reversal · **Platelet:** thrombocytopenia/bleeding (20-22°C agitation, ห้ามแช่เย็น) · **Cryo:** fibrinogen<100-150, FVIII, vWF, FXIII
+- **PRC:** anemia/thalassemia · **FFP:** ↑PT/aPTT, factor deficiency, warfarin reversal **(urgent → 4-factor PCC ก่อน; FFP เมื่อไม่มี PCC)** · **Platelet:** thrombocytopenia/bleeding (20-22°C agitation, ห้ามแช่เย็น) · **Cryo:** fibrinogen<100-150, FXIII; **FVIII/vWF = fallback เมื่อไม่มี factor concentrate เท่านั้น**
 - **Irradiate (≥25 Gy central midplane, ≥15 Gy ขั้นต่ำทุกส่วน) — กัน TA-GVHD:** immunocompromised, **intrauterine/exchange/neonate**, **HLA-matched / เลือดจากญาติ (directed)**, Hodgkin, BMT, congenital T-cell defect → ลืม = TA-GVHD เกือบ 100% ตาย
 - **Leukoreduce:** ประวัติ **febrile NHTR ซ้ำ**, ลด **HLA alloimmunization** (จะ transplant/platelet refractory), ลด **CMV** (ทารก/ตั้งครรภ์/immunocompromise CMV−)
 - **Washed:** IgA deficiency / anaphylaxis ต่อ plasma protein
-- ABO: RBC ใช้ O universal ได้ · plasma AB universal · platelet เลี่ยง ABO-incompat plasma ในเด็ก
+- ABO: RBC ใช้ O universal ได้ · plasma AB universal · **platelet = ความเสี่ยงอยู่ที่ PLASMA (anti-A,B) ไม่ใช่ RBC** → เลี่ยง high-titer O-platelet plasma เข้าคน A/B (ผู้ใหญ่ด้วย ไม่ใช่แค่เด็ก) · ideal = ABO-identical; ทิศ plasma compat: **AB > A/B > O**
 
 ### Fork 6 — transfusion reaction → workup
 > **verdict:** หยุดเลือดทันที + KVO saline → clerical recheck + DAT post + ABO ซ้ำ pre/post → ดู hemolysis (pink plasma/urine = intravascular = สงสัย ABO mislabel)
@@ -135,6 +135,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **เพิ่ง transfuse (mixed-field) / DAT บวกแรง (auto-Ab เคลือบจน type ไม่ได้)** → genotype · **antigen ไม่มี antisera/หายาก** · **fetal RHD typing** จาก maternal plasma/amniotic (กัน HDFN โดยไม่เจาะเด็ก — ถ้าทารก Rh− ก็ไม่ต้องให้ RhIG เกินจำเป็น) · mass screen หา rare phenotype
 - เลือก method/แปล qPCR/กัน false +/− → ดู `molecular-judgment` (RFLP จำกัดที่ SNP ต้องตรง restriction site · ASP บอก homo/het · SSO/SSP throughput · SYBR false-pos จาก primer-dimer)
 - discrepancy **genotype vs phenotype** (weak D/partial D/Rh variant) = ต้องรู้ทั้งคู่ก่อนตัดสินจ่าย
+- ⚠️ **กฎ bench weak-D / Rh discrepancy:** **donor** weak-D → ติดป้าย **Rh-POSITIVE** (กันให้ผู้รับ Rh−) · **patient** weak-D/partial-D → ปฏิบัติเป็น **Rh-NEGATIVE** (สงสัยเมื่อไหร่ จ่าย D-neg ไว้ก่อน โดยเฉพาะหญิงวัยเจริญพันธุ์ — partial-D สร้าง anti-D ได้)
 
 ### Fork 10 — Enhancement: enzyme / LISS / adsorption / elution (+ controls)
 > **verdict:** เลือก technique ตามเป้า (enzyme=แยก Rh-Kidd vs MNS-Duffy · adsorption=auto vs allo · elution=Ab บนเซลล์เคลือบ) — **ทุกอันต้อง run control** (last-wash/autocontrol)

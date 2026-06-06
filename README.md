@@ -11,6 +11,10 @@
 ## 📚 ส่วนที่ 1 — Skills (55 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
+
+**ยังไม่เห็นภาพ?** ดู [`examples/`](./examples) — skill ทำงานจริง before/after ใน 30 วินาที 👀 · อยากฝึก → [`exercises/`](./exercises)
+
+<sub>🇬🇧 **EN:** Free, portable *judgment skills* for Thai Medical Technologists — paste one markdown file into your AI chat (Claude / ChatGPT / Gemini). No install, no extra cost. Thai-first. See [`examples/`](./examples).</sub>
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
 
 ### 🩸 งานแล็บ (Lab bench)
@@ -122,6 +126,8 @@
 ```
 mt-score-up-skill/
 ├── skills/        # ★ 55 สกิล — copy ไฟล์ไปวางในแชต AI
+├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
+├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
 ├── scripts/       # md→docx + standards auto-recheck (ดู scripts/README.md)
@@ -130,8 +136,10 @@ mt-score-up-skill/
 ├── inbox/         # Drop WI ตัวอย่าง — AI scan ใช้เป็น template
 ├── eval/          # วัดผลสกิลจริง: weak-model A/B 3 รอบ + literature + Titanic (ดู eval/ab-scorecard.md)
 ├── docs/          # Vision, setup guides
+├── wiki/          # คู่มือเข้าใจโปรเจกต์ลึกขึ้น (รวมลิงก์)
+├── contributions/ # พื้นที่ชุมชน — ส่ง skill/เคสจริงมาสมทบ
 ├── STANDARDS.md   # Source-of-truth edition + auto-recheck รายเดือน
-└── CHANGELOG.md   # Version history (v0.1.0)
+└── CHANGELOG.md   # Version history (v0.3.0)
 ```
 
 ## Privacy & ความปลอดภัย

@@ -42,6 +42,7 @@
 - **ai-assistant-calibration** — ปรับ "นิสัยการตอบ" ของ AI ให้คม ตรงสไตล์คุณ `CALIBRATION`
 - **ai-agent-team** — ตั้ง AI เป็นทีมผู้เชี่ยวชาญหลายตำแหน่ง + หัวหน้าคอย route/รวบ `CALIBRATION`
 - **self-improving-agent** — ให้ agent จดบทเรียนจากความผิดพลาด เก่งขึ้นข้ามวัน `needs: persistent-memory`
+- **ab-test-judgment** — วัด prompt/skill ดีขึ้นจริงไหม ไม่ไล่จับ noise: control + delta-of-deltas · noise floor · weak vs frontier answerer · เมื่อไหร่ตัดสินด้วย review แทนเลข
 - **what-skill-do-i-need** — วินิจฉัยว่าคุณต้องการอะไรจริงๆ (skill? tool? ลงมือ? คนจริง?)
 - **offload-to-automation** — งานที่ต้องเป๊ะ (เลข/จัดเวร) โยนให้ code AI เป็นคนคุม+ตรวจ `CALIBRATION`
 - **anti-hallucination** — กัน + จับ AI มั่วข้อเท็จจริง/ตัวเลข/citation (สำคัญสายแพทย์) `CALIBRATION`

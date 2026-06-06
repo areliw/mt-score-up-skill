@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 """
-Auto-build the skill CATALOG inside prompts/triage.md from the real skill files.
+Auto-build the generated indexes from the real skill files:
+  1) the CATALOG block inside prompts/triage.md  (routing)
+  2) skills/INDEX.md                              (live raw-URL manifest = auto-sync)
 
-The triage prompt routes a user's problem to the right skill — so its catalog must
-stay in sync with skills/ automatically. This regenerates the block between the
-<!-- CATALOG:START --> / <!-- CATALOG:END --> markers from each skill's frontmatter
-`skill:` name + its one-line intro (the first description line under the # heading).
-
-Deterministic (no judgment) → safe to run in CI and auto-commit, unlike STANDARDS.md
-(which stays human-reviewed because edition bumps need judgment).
+Both must stay in sync with skills/ so the triage router and the "load live" links
+never go stale. Deterministic (no judgment) → safe to run in CI and auto-commit,
+unlike STANDARDS.md (edition bumps need human judgment).
 
 Usage:  python scripts/build_triage.py
-Exit 0 if it ran; the file is rewritten in place only if the catalog changed.
 """
 from __future__ import annotations
 
@@ -28,6 +25,8 @@ if sys.platform == "win32":
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 TRIAGE = ROOT / "prompts" / "triage.md"
+INDEX = SKILLS / "INDEX.md"
+RAW = "https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/"
 START, END = "<!-- CATALOG:START -->", "<!-- CATALOG:END -->"
 MAXLEN = 150
 
@@ -58,41 +57,66 @@ def intro_line(text: str) -> str:
             continue
         if not line or line.startswith(("#", ">", "<", "|", "-", "*")):
             continue
-        # strip markdown emphasis for a clean one-liner
         clean = re.sub(r"\*\*(.+?)\*\*", r"\1", line)
         return clean[:MAXLEN] + ("…" if len(clean) > MAXLEN else "")
     return ""
 
 
-def build_catalog() -> tuple[str, int]:
+def load_skills() -> list[tuple[str, str, str]]:
+    """Return sorted (name, intro, last_edited) for every skill file."""
     rows = []
     for f in sorted(SKILLS.glob("*.md")):
-        if f.name == "README.md":
+        if f.name in ("README.md", "INDEX.md"):
             continue
         t = f.read_text(encoding="utf-8")
         name = frontmatter_value(t, "skill") or f.stem
-        rows.append((name, intro_line(t)))
+        rows.append((name, intro_line(t), frontmatter_value(t, "last_edited") or "—"))
     rows.sort(key=lambda r: r[0])
-    lines = [f"- `{name}` — {desc}" if desc else f"- `{name}`" for name, desc in rows]
-    return "\n".join(lines), len(rows)
+    return rows
+
+
+def write_triage_catalog(rows) -> bool:
+    if not TRIAGE.exists():
+        print(f"WARN: {TRIAGE} not found — skip triage")
+        return False
+    catalog = "\n".join(f"- `{n}` — {d}" if d else f"- `{n}`" for n, d, _ in rows)
+    doc = TRIAGE.read_text(encoding="utf-8")
+    if START not in doc or END not in doc:
+        print("WARN: markers not found in triage.md — skip")
+        return False
+    new = re.sub(re.escape(START) + r".*?" + re.escape(END), f"{START}\n{catalog}\n{END}", doc, flags=re.S)
+    if new != doc:
+        TRIAGE.write_text(new, encoding="utf-8")
+        return True
+    return False
+
+
+def write_index(rows) -> bool:
+    lines = [
+        "# Skill Index — live links (auto-generated · อย่าแก้มือ)",
+        "",
+        "**โหลดสด (auto-sync):** บอก AI ที่ต่อเน็ตได้ว่า *“ดึง skill จาก URL นี้มาใช้”* → ได้เวอร์ชัน",
+        "ล่าสุดบน `main` ทุกครั้ง (ไม่ต้องก๊อปใหม่). **ก๊อปเนื้อไฟล์** = snapshot แช่แข็ง (เสถียร/cite ได้).",
+        "เลือกตามงาน — งานคลินิกที่ต้อง cite audit → freeze; อยากตามอัปเดตเสมอ → live link.",
+        "",
+        "| skill | live URL (raw) | updated |",
+        "|---|---|---|",
+    ]
+    for n, _d, edited in rows:
+        lines.append(f"| `{n}` | {RAW}{n}.md | {edited} |")
+    lines.append("")
+    content = "\n".join(lines)
+    if not INDEX.exists() or INDEX.read_text(encoding="utf-8") != content:
+        INDEX.write_text(content, encoding="utf-8")
+        return True
+    return False
 
 
 def main() -> int:
-    if not TRIAGE.exists():
-        print(f"ERROR: {TRIAGE} not found")
-        return 1
-    catalog, n = build_catalog()
-    doc = TRIAGE.read_text(encoding="utf-8")
-    if START not in doc or END not in doc:
-        print(f"ERROR: markers {START}/{END} not found in triage.md")
-        return 1
-    new_block = f"{START}\n{catalog}\n{END}"
-    updated = re.sub(re.escape(START) + r".*?" + re.escape(END), lambda _: new_block, doc, flags=re.S)
-    if updated != doc:
-        TRIAGE.write_text(updated, encoding="utf-8")
-        print(f"triage catalog updated — {n} skills")
-    else:
-        print(f"triage catalog already in sync — {n} skills")
+    rows = load_skills()
+    t = write_triage_catalog(rows)
+    i = write_index(rows)
+    print(f"{len(rows)} skills · triage {'updated' if t else 'in-sync'} · INDEX {'updated' if i else 'in-sync'}")
     return 0
 
 

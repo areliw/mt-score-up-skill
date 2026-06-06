@@ -67,6 +67,14 @@ real effect = edge_after − edge_before      ← นี่คือผลขอ
 วินิจฉัยก่อนว่าต่ำเพราะอะไร แล้วเลือก fix: **lead-with-verdict** (กฎ+กับดักบนสุด one-shot อ่านแล้วทำตามได้) · **procedural trigger** (`⛔ ถ้าเจอ X → ทำ Y ก่อนตอบ` สำหรับ skill ที่ value = การกระทำ) · **negative constraint** (`ห้ามตอบแบบ X` — weak model ตามคำสั่งห้ามเก่ง) · **tighten** (ตัด filler แก้ style-cost) · **correctness fold** (อัปเดตตาม literature)
 - **เพดานธรรมชาติ:** tie เพราะโจทย์ง่ายไป → **อัปเกรดโจทย์ให้โหดขึ้น** เผยค่า skill ไม่ใช่ไปแต่ง skill
 
+### Fork 7 — scaling: ยิ่ง skill เยอะ ไม่ได้แปลว่า test เยอะ
+ถ้า re-run ทั้งคลังทุกครั้งที่เพิ่ม skill = **O(n²) ไม่ scale**. ปริมาณ test ต้องผูกกับ **risk × uncertainty ไม่ใช่จำนวน**:
+- **review = gate หลักทุกตัว** (ถูก + เชื่อได้กว่า A/B รายตัวที่ noisy) → A/B ใช้เฉพาะตอน review **ไม่ชัด**ว่าช่วยจริง · clinical/safety → audit + literature (correctness สำคัญกว่า lift)
+- **intake O(1):** skill ใหม่ test แค่ตัวเอง + เพิ่ม 1 scenario เข้าชุดตรึง; **ของเก่าไม่เปลี่ยน = ผลเดิมยังใช้ได้ ไม่ต้อง re-run**
+- **canary set:** เก็บชุดเล็ก (ตัวผลนิ่ง + ตัว safety) บนโจทย์ตรึง รัน **เฉพาะตอน systemic change** (เปลี่ยน base model / แก้ convention ร่วม / migrate format) เพื่อจับ regression ข้ามคลัง — ไม่ใช่ทุกครั้งที่เพิ่ม skill
+- **amortize:** ตัวแพงคือ derive โจทย์โหด → ทำครั้งเดียว เซฟ reuse
+- หลักคิด: เป้าของ test = **สร้างความเชื่อมั่นใน *วิธี* + จับอันตราย** ไม่ใช่เจิมทุกตัว. พอ method พิสูจน์แล้ว (edge บวกนิ่ง + 0 regression) skill ใหม่ที่ตามแพทเทิร์นเดิม **สืบทอดความเชื่อมั่นมา → spot-check ไม่ใช่ re-prove**
+
 ---
 
 ## กับดัก (Anti-patterns)
@@ -79,6 +87,8 @@ real effect = edge_after − edge_before      ← นี่คือผลขอ
 - **schema เข้มบน judge** — งานที่ต้องให้เหตุผล + บังคับ tool-call → completed-without-output เงียบ; ใช้ text+tag
 - **อ่าน easy-scenario tie ว่า "skill ไร้ค่า"** — จริงๆ โจทย์ง่ายไป โมเดลเปล่าก็ตอบได้ → ต้องโจทย์โหดขึ้น
 - **เทสต์กับ frontier model แล้วสรุปว่า skill ไม่ช่วย** — มันเก่งเองอยู่แล้ว = no signal คนละเรื่องกับ no value
+- **เอา A/B เป็น gate แทน review** — ทำให้ test ระเบิดตาม count (O(n²)); กลับด้านซะ → review เป็น gate, A/B เฉพาะตอนสงสัย
+- **re-run ทั้งคลังทุกครั้งที่เพิ่ม skill** — ของเก่าไม่เปลี่ยน ไม่ต้องวัดซ้ำ; ใช้ canary set เฉพาะตอน systemic change
 
 ---
 

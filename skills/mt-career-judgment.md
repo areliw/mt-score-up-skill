@@ -43,6 +43,7 @@ MT ไม่ได้มีแค่ "อยู่หน้า bench" — มี
 - **บันได (สาย diagnostics/IVD):** Sales Rep → Supervisor/Product Specialist → Sales/Product Manager → Marketing → Business Development → Business Unit/Country Manager → Regional Director → VP — **เป็นบันไดจริงที่มีคนเดินถึงระดับภูมิภาคได้**
 - **role ที่เข้าได้:** Sales Rep (Diagnostics/Scientific Equipment) · Product Specialist/Manager (สาย technical-commercial) · **Medical Product Specialist** (หลายที่ *ไม่ต้องใช้ใบอนุญาต* = exit friction ต่ำ) · Medical Advisor/Innovation (biotech, จ่ายสูง)
 - edge ของ MT: เข้าใจ science + งานแล็บ + pain ของลูกค้า (คนขายทั่วไปไม่มี) → ขายแบบ consultative ได้
+- ⚠️ บันได/ชื่อ role + ข้อ *"ไม่ต้องใช้ใบอนุญาต"* นี้อิงบริบท **ไทย/SEA** — ต่างกันตามประเทศ/บริษัท ต้องเช็คของจริงในตลาดนั้นเอง (อย่าฟันธงว่าเป็นจริงทุกที่)
 
 ### Fork 3 — รายได้ฝั่ง commercial ≠ base salary (อย่าเทียบผิด)
 - องค์ประกอบ: **salary + allowance + commission/incentive + transportation + bonus + incentive trip**
@@ -65,6 +66,7 @@ MT ไม่ได้มีแค่ "อยู่หน้า bench" — มี
 ### Fork 6 — megatrend ที่ MT เป็นผู้เล่นหลัก + ความจริงเรื่อง automation
 - **Precision Medicine & Genomics** (pharmacogenomics, cancer/ยีน) · **Medical AI & SaMD** (software เป็นเครื่องมือแพทย์) · **Wellness & Longevity** (biomarker)
 - ⚠️ **routine ส่วนใหญ่จะถูก automate** → คุณค่าที่เหลือ = **QA + ตีความผลซับซ้อน + human judgment + ชั้นความสัมพันธ์/commercial** → จัด career ไปทางนั้น
+- ⏱️ **จังหวะขยับ:** assay volume สูง/rule-based ถูก automate ก่อน · งาน interpretive/molecular/QA ถูกแทนทีหลังสุด → ดูว่า sub-specialty ตัวเอง exposed แค่ไหนแล้วค่อย time การย้าย
 - (นี่คือเวอร์ชันบุคคลของ "secure วิชาชีพด้วยการขึ้น-value")
 
 ### Fork 7 — กับดักการเปลี่ยนสาย (decision judgment)

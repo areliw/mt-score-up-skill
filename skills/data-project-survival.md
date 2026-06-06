@@ -17,6 +17,13 @@ disclaimer: "ช่วยคิด/วางแผนโปรเจกต์ da
 > **กับดัก #1 — Data leakage:** fit scaler/SMOTE/feature-select **ก่อน split**, หรือใช้ feature ที่รู้อนาคต → metric สวยหลอก พังจริง. กฎเหล็กข้ามทุกขั้น: **แตะ test set แค่ตอนวัดผลครั้งเดียว** ทุกอย่างที่ "เรียนจาก data" ทำบน train fold หลัง split เท่านั้น
 > เลือก "โมเดล/metric ตัวไหน" ลึกๆ → ดู `ml-judgment` · "ใช้ test สถิติอะไร / N เท่าไร" → `choose-stat-test` + `sample-size-power`
 
+> ⛔ **ก่อนเซ็นรับ/เชื่อ metric ที่สวย — ไล่ leak 4 จุดนี้ให้ครบ (พลาดจุดเดียว = เลขโกหก):**
+> 1. **preprocessing ก่อน split?** impute/scale/feature-select fit บน "ทั้งชุด" → ต้องอยู่ใน pipeline ที่ fit เฉพาะ train fold
+> 2. **resample ก่อน split?** SMOTE/over/under ก่อน CV → ต้องทำ "ใน train fold หลัง split" เท่านั้น
+> 3. **feature รู้อนาคต / target-leak?** ค่าที่จะมีก็ต่อเมื่อรู้คำตอบแล้ว (เช่น เวลา/สถานะที่เกิดหลังตัดสิน) → **ตัดทิ้ง แม้ feature importance สูง** (สูงเพราะมันรั่ว)
+> 4. **validate ข้ามประชากร/เวลา/เครื่องไหม?** ชุด/ไซต์/เครื่องเดียว → ไม่รู้ generalize, ต้องทดสอบนอกกลุ่ม
+> **คาดเลขจริง:** ถ้ามี leak ตัวเลขที่ซื่อสัตย์มัก**ใกล้ baseline ง่ายๆ** (เช่น logistic เบสไลน์) มากกว่า metric ที่สวยเกิน — **gap ใหญ่ระหว่าง 'pipeline เทพ' กับ baseline = ธงแดงของ leak ไม่ใช่ความเก่ง**. variance ต่ำใน CV ก็ไม่ช่วย ถ้า leak อยู่ในทุก fold เท่ากัน
+
 ## ใช้เมื่อ
 - จะเริ่ม/วางโครงโปรเจกต์วิเคราะห์ข้อมูล/ML (R2R ที่ใช้ ML, dashboard, ทำนายจากข้อมูล lab)
 - ติดว่าจะทำ data-prep ท่าไหน (missing/scale/imbalance)

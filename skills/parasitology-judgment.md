@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจในแล็บปรส�
 type: ADVISE
 needs: any
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' การตัดสินใจในแล็บปรสิตวิทยา เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รายงาน — ผลลบจาก stool/film ตัวอย่างเดียว 'ไม่ตัดโรคออก' การเลือก technique/stain/การตีความทุกครั้งต้องทำตาม SOP ของหน่วยงาน และยืนยันกับ MT ผู้รับผิดชอบ/แพทย์เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,8 @@ disclaimer: "skill นี้ช่วย 'คิด' การตัดสิน
 
 ตัวช่วยตัดสินใจในแล็บปรสิตวิทยาสำหรับ MT — เน้น "เลือก technique/stain/ตีความยังไง" + "พลาดตรงไหน" ไม่ใช่ลอก atlas รูปไข่/life cycle
 
-> ความปลอดภัยหลัก: ผลลบจาก stool หรือ film ตัวอย่างเดียว "ไม่ตัดโรคออก" — parasitemia/การขับเชื้อเป็นวงจร ต้องตรวจซ้ำตามจำนวนที่กำหนด และเลือก technique/stain ให้ตรงกับปรสิตเป้าหมายเสมอ
+> **กฎ #1:** ผลลบจาก stool หรือ film ตัวอย่างเดียว "ไม่ตัดโรคออก" — ต้องตรวจซ้ำตามจำนวนที่กำหนด (malaria ซ้ำทุก 12-24 ชม. × ≥3 ครั้ง · stool rule-out 3 ตัวอย่างวันเว้นวัน · E. histolytica 6 ครั้ง) ก่อนรายงาน "ไม่พบ"
+> **กับดัก #1:** เลือก stain/technique ไม่ตรงเป้า แล้วมองข้ามเชื้อ — oocyst (Crypto/Cyclospora/Cystoisospora) ต้อง modified acid-fast · microsporidia spore ต้อง modified trichrome · ภูมิต่ำ/HIV ท้องเสีย = สั่ง 2 อย่างนี้ทันที (ย้อมธรรมดามองไม่เห็น)
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
@@ -59,7 +60,7 @@ Decision: คุณภาพ morphology (tropho สด) → direct · ควา�
 Decision: oocyst ทน → acid-fast · spore → mod.trichrome · เลือด/เนื้อเยื่อ → Giemsa · ลำไส้ protozoa permanent → trichrome
 
 ### FORK 3 — Malaria: thick vs thin film + เมื่อไหร่ซ้ำ
-- Thick film = gold standard ความไว (lyse RBC, threshold ~20/µl) → screen + ประเมิน density/parasite count
+- Thick film = gold standard ความไว (lyse RBC) → screen + ประเมิน density/parasite count · threshold ~20/µl เป็นตัวเลข *สภาวะอุดมคติ/ผู้เชี่ยวชาญ* ภาคสนามจริงแย่กว่ามาก (~100-500/µl) → WHO นับเป็น "negative" ได้ต่อเมื่ออ่านครบ ≥100 thick field
 - Thin film = species ID (RBC ยังอยู่ → Schüffner's dots / banana gametocyte / band form / RBC โต)
 - Parasite count (thick): ปรสิต/200 WBC × 8,000 = /µl (>40,000/µl นับ WBC/500 parasites)
 - ผลลบ 1 ชุดไม่ตัด malaria ออก → ตรวจซ้ำทุก 12-24 ชม. × อย่างน้อย 3 ครั้ง (parasitemia เป็นวงจร)
@@ -77,7 +78,7 @@ Decision: negative ครั้งแรก ≠ negative — repeat ก่อน
 Ag detection (Crypto/Giardia/Histolytica feces; Plasmodium/Wuchereria เลือด) ปรากฏเร็วกว่า Ab + สัมพันธ์ปริมาณเชื้อ
 
 ### FORK 5 — Specimen timing
-- Microfilaria (W.bancrofti/B.malayi) → เจาะเลือดกลางคืน (nocturnal periodicity) หรือ provocation: DEC 2mg/kg → เจาะ ~30-60 นาทีหลัง DEC (peak, ตาม SOP) · เจาะกลางวัน = false-neg
+- Microfilaria (W.bancrofti/B.malayi) → เจาะเลือดกลางคืน (nocturnal periodicity, peak ~22:00-02:00) หรือ provocation: DEC 2mg/kg → เจาะ ~30-60 นาทีหลัง DEC (peak, ตาม SOP) · เจาะกลางวัน = false-neg · ข้อยกเว้น: สายพันธุ์ South-Pacific W.bancrofti เป็น subperiodic/diurnal → timing ไม่วิกฤต · circulating filarial antigen (ICT) เจาะเวลาไหนก็ได้
 - Enterobius (pinworm) → Scotch tape ก้น ตอนเช้าก่อนอาบน้ำ/ถ่าย · หาในอุจจาระ = พลาด
 - Trophozoite → ตรวจภายใน 30 นาที หลังถ่าย
 - Trichinella → muscle biopsy ~3–4 สัปดาห์หลังกิน (รอ encyst)

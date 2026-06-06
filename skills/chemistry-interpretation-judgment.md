@@ -4,7 +4,7 @@ title: โค้ชแปลผลเคมีคลินิก — เลื�
 type: ADVISE               # ช่วยแปลผล/เลือก marker ไม่ใช่ตำราค่า analyte
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดแปลผลเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — MT ตีความ/flag/ส่งต่อ การวินิจฉัยเป็นหน้าที่แพทย์ · ทุกผลต้อง correlate clinical + ทำตาม SOP/reference range ของห้องแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,6 +13,8 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 
 ค่าเคมีออกมาแล้ว "แปลว่าอะไร + เลือก marker/สูตรไหนเมื่อไหร่" แบบ organ-system ไม่ใช่ท่องค่า analyte (= commodity ดูตำรา)
 
+> **กฎ #1 — อ่าน pattern + correlate clinical ก่อนเชื่อเลขเดี่ยว:** ค่าแปลกสวนอาการ = สงสัย interference/method (HIL/paraprotein/drug) ก่อน อย่าเพิ่งรายงาน · อ่าน LFT/bilirubin/cardiac/ABG เป็นชุด ไม่ใช่ทีละตัว
+> **กับดัก #1 — เชื่อเลขปลอมแล้วรายงาน:** รายงาน **K⁺ critical จากตัวอย่าง hemolyzed** (สูงปลอม) · เชื่อ **troponin↑ = MI** (ไตวาย/sepsis ก็ขึ้น — ต้องดู delta + EKG) · **Cr ปกติ = ไตปกติ** ในคนแก่/cirrhosis
 > นี่คือชั้น "ค่าออกมาแล้วแปลผล" — ส่วน QC/accept-reject run/Westgard ดู `clinchem-judgment` · ร้อยผลข้ามแขนง → ตั้ง DDx → ส่งต่อแพทย์ ดู `clinical-correlation-judgment`
 > ⚠️ MT ตีความ/flag/ชี้ทาง — **การวินิจฉัยเป็นหน้าที่แพทย์**
 
@@ -78,7 +80,7 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 - **SPEP region (จาก anode):** prealbumin (malnutrition ไว) · albumin (↓ inflammation/liver/nephrotic/malnutrition) · **α1** (α1-antitrypsin — ขาด→emphysema; AFP) · **α2** (**haptoglobin ↓ = hemolysis**; α2-macroglobulin↑ nephrotic; ceruloplasmin↓ Wilson) · **β** (**transferrin** — แยก anemia DDx; C3/C4) · **γ** (immunoglobulin)
 - **pattern ที่ต้องอ่าน:** **polyclonal gammopathy** (γ กว้าง = infection/chronic inflammation) vs **monoclonal (M-spike/paraprotein = แหลมเดียว)** → **สงสัย multiple myeloma** → confirm **immunofixation (IFE)** + free light chain (ดู `immunoassay-judgment`) · TP↑ dehydration/myeloma · TP↓ liver/nephrotic
 - 🩸 **haptoglobin ↓ = hemolysis marker** (โยง transfusion reaction/hemolytic anemia); transferrin/iron = anemia DDx
-- **Friedewald LDL = TC − HDL − TG/5** ⚠️ **ใช้ไม่ได้เมื่อ TG > 400** → ต้อง direct LDL
+- **Friedewald LDL = TC − HDL − TG/5** ⚠️ **TG > 400 = ห้ามใช้เด็ดขาด** → direct LDL · แต่ >400 เป็น **เพดานล่าง ไม่ใช่ใบรับรองว่าต่ำกว่านี้แม่น** — underestimate เริ่มตั้งแต่ TG ~150 (+ ใช้ไม่ได้กับ non-fasting/type III) → LDL ต่ำๆ ที่ TG ปานกลางก็พลาดได้
 
 ---
 
@@ -92,7 +94,7 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 - **เชื่อ calculated SO2** เมื่อมี CO/MetHb — ต้อง co-oximeter
 - **อ่าน LFT/bilirubin ทีละตัว** แทน pattern (DB/TB + AST:ALT + GGT)
 - **มองข้าม M-spike (monoclonal)** บน SPEP — แหลมเดียว = สงสัย myeloma → IFE confirm; haptoglobin↓ = hemolysis อย่ามองข้าม
-- **ใช้ Friedewald LDL เมื่อ TG > 400** — ผิด ต้อง direct LDL
+- **ใช้ Friedewald LDL เมื่อ TG > 400** — ผิด ต้อง direct LDL (และอย่าวางใจค่าต่ำกว่า 400 เต็มร้อย — underestimate ตั้งแต่ ~150)
 
 ---
 

@@ -4,7 +4,7 @@ title: โค้ช Optimization/OR — เลือกวิธีให้ถ�
 type: ADVISE               # ช่วยตัดสินใจ formulate/เลือกวิธี ไม่ใช่ตำรา Simplex
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-05-31
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดเลือกวิธี optimize + เลี่ยงกับดัก เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — ผลต้องตรวจกับเงื่อนไขจริงและทดสอบก่อนใช้ตัดสินใจจริง (เช่นจัดเวร/จัดสรรทรัพยากร) · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,8 +13,9 @@ disclaimer: "ช่วยคิดเลือกวิธี optimize + เล�
 
 มีปัญหาแบบ "หาค่าที่ดีที่สุดภายใต้เงื่อนไข" (จัดเวร, จัดสรรเครื่อง/คน/น้ำยา, เส้นทาง) → โค้ชนี้ช่วย **เลือกวิธี + เลี่ยงกับดักที่ทำให้คำตอบใช้จริงไม่ได้**
 
-> ขั้นตอน Simplex/สูตร PSO ตำรามีหมด — ส่วนที่ทำให้คำตอบ "สวยแต่ใช้ไม่ได้" คือ **เลือกวิธีผิด** และ **ลืม constraint**. งานเป๊ะแบบนี้อย่าให้ AI กะในหัว → ใช้ solver (ดู `offload-to-automation`)
-> ก่อนเลือกวิธี ต้อง formulate ครบ 3 ชิ้น: objective (min/max อะไร) · decision variables · constraints
+> **กฎ #1 (เลือกวิธี):** เชิงเส้น + แน่นอน (deterministic) + เล็ก-กลาง → ใช้ **LP/MIP** เสมอ (รับประกัน optimal) — อย่าเพิ่งหยิบ GA/PSO. ไป metaheuristic เฉพาะตอน nonlinear/combinatorial/ใหญ่มาก, ไป simulation เฉพาะตอนมี randomness/คิว. **หยิบ GA ทั้งที่ LP แก้ได้ = over-engineer ผิด.**
+> **กับดัก #1 (คำตอบพัง):** **ลืม constraint** → optimal สวยแต่ละเมิดเงื่อนไขจริง = ใช้ไม่ได้. ก่อน solve ต้อง formulate ครบ 3 ชิ้น (objective · decision vars · constraints) แล้ว **ไล่ constraint จากโจทย์คำต่อคำ** (รวม ≥0, integer, capacity).
+> งานเลข Simplex/PSO อย่าให้ AI กะในหัว → ใช้ solver (ดู `offload-to-automation`)
 
 ## ใช้เมื่อ
 - ตั้งโจทย์ optimization / เลือก solver-method / ทำ sensitivity analysis

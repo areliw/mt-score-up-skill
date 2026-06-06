@@ -58,6 +58,7 @@
 - **self-development-coach** — โค้ชพัฒนาตัวเองแบบตรงไปตรงมา ไม่ปลอบใจลอยๆ
 - **know-yourself** — สัมภาษณ์ตัวเองให้ลึก → master profile ก้อนเดียวที่ slice ไปใช้ได้ (resume/LinkedIn/เตรียมสัมภาษณ์/เปลี่ยนสาย/ป้อน AI ให้รู้จักเรา)
 - **mt-career-judgment** — เส้นทางอาชีพ MT (bench→industry/commercial/AI): แผนที่สาย · ladder ฝั่งขาย+โครงรายได้ · skill gap (KOL/English/commercial-craft) · T-shaped Data&AI 3 ระดับ · เป็นเจ้าของแล็บ
+- **lab-clinic-business-judgment** — เปิด/บริหารคลินิกแล็บ MT เอง: เลือกโมเดล (premium-longevity vs volume-รัฐ vs hybrid) · moat จริง (วิชาชีพ+จดทะเบียน+LIS-HIS ไม่ใช่เครื่อง) · ปิด business-gap ที่ MT ขาด · เข้าระบบรายได้รัฐเมื่อไหร่ · อ่านใจ buyer (สาย sales) · หา unit economics ก่อนลงเงิน
 - **digital-judgment** — privacy/PDPA/de-identify/security/ลิขสิทธิ์/ลงทุนออนไลน์ — ตัดสินใจปลอดภัย ไม่โดนหลอก
 - **finance-judgment** — การเงิน/ลงทุน/ธุรกิจ (บันไดเงิน · asset ตาม horizon · อ่านงบ/CFO · valuation · หนี้ดี-เลว · go/pivot · จับ scam · เลนส์ econ: opportunity cost/elasticity/real-vs-nominal)
 - **financial-statement-judgment** — อ่านงบ 5 ฉบับ + ลำดับอ่าน (audit→CFO→ฐานันดรกำไร→งบดุล→หมายเหตุ) + คุณภาพกำไร + จับ window-dressing (OCI recycling/ตีราคา/FIFO/cookie-jar/งบรวม)

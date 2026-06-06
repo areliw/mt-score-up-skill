@@ -4,7 +4,7 @@ title: โค้ชพยาธิวิทยา — อ่าน pattern + ใ
 type: ADVISE               # ช่วยอ่าน pattern/กลไก ไม่ใช่ตำราลิสต์โรค
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคทางพยาธิ เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย — การวินิจฉัยพยาธิจริงต้องโดยพยาธิแพทย์ + ยืนยันด้วย test/IHC/molecular ตาม SOP · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,9 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 
 อ่านกลไกโรค + ตัดสิน pattern ทางพยาธิ — "นี่ benign/malignant? injury กลับได้ไหม? อักเสบบอกอะไร? ต้อง confirm ด้วยอะไร" ไม่ใช่ท่องลิสต์โรค/Robbins (= commodity ดูตำรา)
 
-> หลัก: พยาธิ = **"อ่าน pattern + ให้เกณฑ์"** — อย่าฟันธงด้วยความรู้สึก ใช้ **เกณฑ์ที่ชัด** (เกณฑ์ malignancy, basement membrane, lines of Zahn) แล้ว **confirm ด้วย test ที่ถูก**
+> **กฎ #1 (benign vs malignant):** **invasion ทะลุ basement membrane / metastasis = ตัวชี้ขาด** — **atypia/pleomorphism/mitosis อย่างเดียวไม่เคยพอ** ฟันธงมะเร็ง (reactive atypia จากอักเสบ/ซ่อมหลอกตาได้)
+> **กับดัก #1:** ตี atypia เดี่ยว = มะเร็ง → ผิด. ดูว่า "ทะลุ BM ยัง / มี metastasis ไหม" ก่อนเสมอ
+> ⚠️ **ขอบที่ลื่น:** metastasis เป็น **เกณฑ์เดี่ยวที่แข็งสุด** แต่ **ไม่ใช่ 100%** — มีข้อยกเว้นหายาก (Spitz nevus, benign metastasizing leiomyoma); ไม่มีเกณฑ์ใดเกณฑ์เดียวฟันธงเด็ดขาด → อ่านครบทุกแกน + confirm ด้วย test ที่ถูก
 > เชื่อมเคส lab → ตั้ง DDx/ชี้ทาง (ส่งต่อแพทย์) → ดู `clinical-correlation-judgment`
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
@@ -39,7 +41,8 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 | **Invasion** | มี capsule ไม่ลุก | **ทะลุ basement membrane / ลุกลามรอบ** |
 | **Metastasis** | ไม่มี | **มี = พิสูจน์ malignant แน่นอนสุด** |
 | Border | ขอบเรียบ | ขอบรุก |
-- ⚠️ **metastasis = เกณฑ์เดียวที่ฟันธง malignant ได้แน่** (benign ไม่ metastasis); ตัวอื่นช่วยชี้แต่ไม่ขาด
+- ⚠️ **metastasis = เกณฑ์เดี่ยวที่แข็งสุด** (เกือบทั้งหมด benign ไม่ metastasis) — แต่ **ไม่ใช่ 100%** (Spitz nevus, benign metastasizing leiomyoma เป็นข้อยกเว้นหายาก); ตัวอื่นช่วยชี้แต่ไม่ขาด
+- ⚠️ **atypia/mitosis เดี่ยว ≠ มะเร็ง** — reactive atypia (อักเสบ/ซ่อม) ดูดุได้; เส้นตัดสินจริงที่อ่านได้คือ **ทะลุ BM / invasion** (Fork 7)
 - nomenclature: -oma = benign · carcinoma (epithelial)/sarcoma (mesenchymal) = malignant · ⚠️ ข้อยกเว้นหลอก: **lymphoma/melanoma/seminoma = malignant** แม้ลงท้าย -oma
 
 ### Fork 2 — Reversible vs Irreversible cell injury (point of no return)
@@ -70,7 +73,7 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 - judgment: รายงานบอก "ทะลุ BM ยัง" = จุดตัดสินสำคัญสุด (in-situ vs invasive เปลี่ยนการรักษาทั้งหมด)
 
 ### Fork 8 — Effusion · Thrombus vs clot · Granuloma DDx · Hypersensitivity
-- **Exudate (โปรตีนสูง, SG>1.020 — อักเสบ/มะเร็ง/ติดเชื้อ) vs Transudate (โปรตีนต่ำ — CHF/cirrhosis/nephrotic)** → exudate ต้องหา cause (มะเร็ง/ติดเชื้อ) + ส่ง cytology; ใช้ **Light's criteria**
+- **Exudate (อักเสบ/มะเร็ง/ติดเชื้อ) vs Transudate (CHF/cirrhosis/nephrotic)** → ตัดสินด้วย **Light's criteria เป็นหลัก** (pleural/serum protein >0.5 · LDH ratio >0.6 · LDH >⅔ ULN — เข้าข้อใดข้อหนึ่ง = exudate); **SG/โปรตีนเป็นแค่ตัวประมาณคร่าว** (SG cutoff จริง ~1.022 ไม่ใช่ 1.020) · Light's เองก็ misclassify transudate ~15-20% เป็น exudate → exudate ต้องหา cause (มะเร็ง/ติดเชื้อ) + ส่ง cytology
 - **Thrombus (ก่อนตาย) vs postmortem clot:** thrombus = **lines of Zahn** + เกาะผนัง vessel · postmortem = "chicken fat/currant jelly" ไม่เกาะ
 - **Granuloma → DDx:** **caseating = TB** (confirm AFB/culture/GeneXpert ก่อนเสมอ) · non-caseating = sarcoid/Crohn/foreign body/leprosy/fungal → อย่าฟันธง TB จากภาพอย่างเดียว
 - **Hypersensitivity I–IV:** I = IgE/anaphylaxis · **II = Ab ต่อ Ag บนเซลล์** (transfusion reaction, HDFN, AIHA) · **III = immune complex ลอย** (SLE, serum sickness, GN) · IV = T-cell delayed (TB skin test, contact derm) → สับบ่อยที่ **II (Ag ติดเซลล์) vs III (complex ลอยแล้วตก)**
@@ -78,12 +81,12 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 ---
 
 ## กับดัก (Anti-patterns)
-- 🚫 **ฟันธง malignant โดยไม่ครบเกณฑ์** — atypia/mitosis อย่างเดียวไม่พอ; **invasion/metastasis** คือตัวชี้ขาด · reactive atypia (อักเสบ/ซ่อม) อาจดูน่ากลัวแต่ไม่ใช่มะเร็ง
+- 🚫 **ฟันธง malignant จาก atypia/mitosis เดี่ยว** — ไม่เคยพอ; **invasion ทะลุ BM / metastasis** คือตัวชี้ขาด · reactive atypia (อักเสบ/ซ่อม) ดูน่ากลัวแต่ไม่ใช่มะเร็ง · กลับกัน อย่าอ่าน metastasis ว่า 100% (ข้อยกเว้นหายากมี)
 - 🚫 **tumor marker / IHC เดี่ยว = วินิจฉัย** — marker (PSA/CEA/CA125/AFP) ใช้ติดตาม/ชี้ทาง ไม่ใช่ฟันธง; IHC ต้องเป็น panel + บริบท morphology
 - 🚫 **miss invasion ผ่าน basement membrane** — in-situ vs invasive ต่างกันที่ BM = เปลี่ยนการรักษา/พยากรณ์ทั้งหมด
 - 🚫 **granuloma = TB เลย** ไม่ confirm — caseating ชวน TB แต่ต้อง AFB/culture/molecular ยืนยัน
 - 🚫 **ตี postmortem clot เป็น thrombus** — ไม่มี lines of Zahn + ไม่เกาะผนัง = clot หลังตาย
-- 🚫 **มองข้าม malignant effusion** — exudate ต้องส่ง cytology หาเซลล์มะเร็ง; ตี exudate เป็น transudate = พลาด cause
+- 🚫 **มองข้าม malignant effusion** — exudate (ตาม Light's, ไม่ใช่ SG เดี่ยว) ต้องส่ง cytology หาเซลล์มะเร็ง; ตี exudate เป็น transudate = พลาด cause
 - 🚫 **ลืม chronic inflammation = precancer** — chronic ที่ไม่หาย (HBV/HCV, H.pylori, fluke, colitis) → เฝ้าระวัง dysplasia/มะเร็ง
 - 🚫 **สับ necrosis กับ apoptosis** — apoptosis ไม่มีอักเสบ; เห็นอักเสบรอบ = necrosis
 - 🚫 **สับ hypersensitivity II vs III** — transfusion/AIHA = II (Ag บนเซลล์); SLE/serum sickness = III (complex ลอย)

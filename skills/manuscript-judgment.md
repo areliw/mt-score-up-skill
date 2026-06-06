@@ -4,7 +4,7 @@ title: โค้ชเขียน manuscript/proposal — ให้ผ่าน
 type: ADVISE               # ช่วยตัดสินใจการเขียน/ตอบ reviewer ไม่ใช่เขียนแทน
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดเรื่องโครงสร้าง/การเขียน manuscript เพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/บรรณาธิการทางการ — เนื้อหา/ความถูกต้องทางวิชาการ ต้องผ่านอาจารย์ที่ปรึกษา + peer review จริง · ผู้นำไปใช้รับผิดชอบงานที่เผยแพร่เอง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,9 @@ disclaimer: "ช่วยคิดเรื่องโครงสร้าง/
 
 เขียน proposal/เล่ม/เปเปอร์ แล้วงงว่า "แต่ละส่วนต้องมีอะไร · ทำไมโดน reject · originality อยู่ตรงไหน" → โค้ชนี้ช่วยตามเกณฑ์ reviewer จริง
 
-> paper โดน reject เพราะ **"นำเสนอแย่/ไม่ชัด" บ่อยกว่าเพราะ "ไม่ใหม่"** — และเพราะ objective↔results↔conclusion ไม่ตรงกัน. skill นี้เก็บ judgment "เขียนให้ผ่าน" ไม่ใช่ template เปล่า
+> **กฎ #1: objective = results = conclusion ต้องตรงกัน 3 ชั้น** — objective ถามอะไร, results ตอบอันนั้น, conclusion สรุปแค่อันนั้น. ไม่ตรง = reviewer จับทันที = reject.
+> **กับดัก #1 (เวอร์ชันยาก ที่คนมักหลุด): conclusion พูดเกินข้อมูล** — ถึงทั้ง 3 จะดู "ตรงหัวข้อ" กัน แต่ถ้า conclusion อ้าง **กว้างกว่า/แรงกว่า** ที่ design+results รองรับ ก็ reject. กฎทั่วไป: **claim ทุกประโยคต้องมี data หนุนตรงๆ** — design correlation ห้ามสรุป causal · pilot/n เล็ก/กลุ่มเดียว ห้าม generalize หรือแนะนำใช้คลินิก · in-vitro ห้ามฟันธง in-vivo. ตัด/ลดน้ำหนักคำให้พอดีข้อมูล.
+> รองลงมา: paper โดน reject เพราะ **"นำเสนอแย่/ไม่ชัด" บ่อยกว่าเพราะ "ไม่ใหม่"** — clarity สำคัญกว่าที่คิด.
 > ก่อนเขียน: ตั้งโจทย์ → `r2r-research-proposal` · design → `research-design-judgment` · สถิติ → `choose-stat-test` + `r2r-stats`
 
 ## ใช้เมื่อ
@@ -43,8 +45,9 @@ Title → Abstract → Introduction → Methods → Results → Discussion → C
 - **ผ่าน:** Originality + Scientific quality (hypothesis ดี, design sound, stat เหมาะ) + **Clarity** + importance ต่อสาขา
 - **reject ทันที:** ไม่น่าสนใจต่อ readership · ไม่มีข้อมูลใหม่ · ผล trivial/ซ้ำคนอื่น · design+method แย่ · สรุปผิด · **สงสัย misconduct (fabrication/plagiarism)**
 
-### กฎทอง: objective = results = conclusion
+### กฎทอง: objective = results = conclusion (เช็คก่อนทุกอย่าง)
 ทั้ง 3 ต้อง**ตรงกัน** — objective ถามอะไร, results ตอบอันนั้น, conclusion สรุปอันนั้น. ขาดความตรงกัน = reviewer จับทันที
+- **ชั้นยาก — conclusion ห้ามล้ำเส้น data:** แม้ดู "ตรงหัวข้อ" แล้ว ยังต้องเช็คว่า conclusion **ไม่อ้างเกิน** ที่ design+results ให้. เส้นที่มักหลุด: correlation→อย่าพูด causal · association→อย่าพูด "ทำให้/รักษา" · n เล็ก/pilot/sample กลุ่มเดียว→อย่า generalize ทั้งประชากร · in-vitro/animal→อย่าฟันธงคน · "trend/ไม่ sig"→อย่าสรุปเหมือน sig. แก้ = ลดน้ำหนักคำ ("may/suggests" ไม่ใช่ "proves") ให้พอดี data จริง.
 
 ### Poster / oral presentation
 - format: Title/Intro/Objective/Methods/Results/Conclusion/Ack
@@ -55,6 +58,7 @@ Title → Abstract → Introduction → Methods → Results → Discussion → C
 
 ## กับดัก (Anti-patterns)
 - **objective ≠ results ≠ conclusion** — ถามอย่าง ตอบอีกอย่าง สรุปอีกอย่าง = reject
+- **conclusion ล้ำเส้น data (over-claim)** — กว้าง/แรงเกินที่ design+results หนุน: causal จาก correlation, generalize จาก n เล็ก, ฟันธงคนจาก in-vitro = reject (เนียนกว่าข้อบน เพราะดูตรงหัวข้อ)
 - **abstract มีข้อมูลใหม่** ที่ไม่อยู่ในเล่ม / **conclusion ซ้ำ abstract** เฉยๆ
 - **Discussion แค่ทวนผล** ไม่เทียบงานเดิม + ไม่ชี้ originality
 - **Methods ทำซ้ำไม่ได้** — ไม่ระบุ stat / เครื่อง / เกณฑ์ → reviewer ขอแก้

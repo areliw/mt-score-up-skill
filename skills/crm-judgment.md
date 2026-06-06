@@ -4,7 +4,7 @@ title: โค้ช CRM ขับเคลื่อนด้วยข้อม�
 type: ADVISE               # ช่วยตัดสินใจเรื่องลูกค้า ไม่ใช่ตำรา framework
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดเรื่องลูกค้า/CRM เพื่อการศึกษา ไม่ใช่คำแนะนำทางกฎหมาย — การใช้ข้อมูลส่วนบุคคลต้องผ่าน consent (PDPA) เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,9 @@ disclaimer: "ช่วยคิดเรื่องลูกค้า/CRM เ�
 
 MT ที่ไปสาย **diagnostics sales, เปิดคลินิก, หรือทำแอป/บริการ** แล้วต้องคิดแบบ "ลูกค้า" → โค้ชนี้ช่วย **ตัดสินใจเรื่องลูกค้า + เลี่ยงกับดัก** ไม่ใช่ท่องนิยาม framework
 
-> นิยาม framework เป็น commodity — ที่นี่เก็บแต่ **"เลือกอะไรเมื่อไหร่" + กับดักที่คนพลาด** (โดยเฉพาะเรื่อง consent/PDPA ที่ผิดแล้วโดนฟ้อง)
+> **กฎ #1 — consent มาก่อนเสมอ:** ห้ามแตะ/ส่งต่อ personal/behavioral data ก่อนได้ **explicit consent**. ถาม "ขอ consent หรือยัง?" ก่อนทุก segmentation/recommendation
+> **กับดัก #1 (ตัวที่เผลอแม้มี consent) — purpose limitation:** consent ผูกกับ **วัตถุประสงค์ที่ขอไว้เท่านั้น**. ขอเพื่อ A แล้วเอาไปทำ B (เช่น ขอเพื่อให้บริการ → เอาไป market/ขายต่อ/train model) = **ต้องขอ consent ใหม่** ถึงจะมีฐานเดิมอยู่ก็ใช้ข้ามไม่ได้
+> นิยาม framework เป็น commodity — ที่นี่เก็บแต่ **"เลือกอะไรเมื่อไหร่" + กับดักที่คนพลาด**
 
 ## ใช้เมื่อ
 - ออกแบบ segment ลูกค้า / logic แนะนำสินค้า / แผน retention-loyalty
@@ -58,6 +60,7 @@ MT ที่ไปสาย **diagnostics sales, เปิดคลินิก,
 
 ## กับดัก (Anti-patterns)
 - **ใช้ data ก่อนได้ consent (PDPA/GDPR)** — ☠️ ใหญ่สุด ต้อง **explicit consent ก่อน** เอา personal/behavioral data ไปใช้/ส่งต่อ; privacy by design ตั้งแต่ออกแบบ ไม่ใช่แปะทีหลัง
+- **ใช้ data ข้ามวัตถุประสงค์ (ทั้งที่มี consent แล้ว)** — กับดักที่เนียนกว่า: consent คุมแค่ purpose ที่ขอ. repurpose ไป marketing/ขายต่อ/train model โดยไม่ขอใหม่ = ผิดเท่าไม่มี consent (เช็กทุกครั้งว่า use ใหม่ตรง purpose เดิมไหม)
 - **Cold-start ใน CF** — ยัด CF ให้ลูกค้าใหม่ที่ไม่มี history → แนะนำมั่ว → CBF อุ้มก่อน
 - **ลงทุนผิดกลุ่ม (เท Butterflies)** — ทุ่ม retain คนที่ยังไงก็ไป = เผางบ; งบไปลง True Friends
 - **Vanity metric** — วัด like/engagement ที่ไม่เชื่อมกับ revenue/retention; ถามทุกครั้ง: metric นี้แปลงเป็นเงิน/การอยู่ต่อยังไง

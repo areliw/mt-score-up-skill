@@ -4,7 +4,7 @@ title: โค้ช SQL + ออกแบบ DB — ตัดสินใจถ�
 type: ADVISE               # ช่วยตัดสินใจออกแบบ/เขียน query ไม่ใช่ตำรา syntax
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-05-31
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพื่อการศึกษา ไม่ใช่คำสั่งให้รันจริง — งานจริงควรทดสอบบน staging + backup ก่อน DELETE/UPDATE และตรวจ query plan ก่อนใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,8 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 
 เขียน query / ออกแบบ schema แล้วไม่แน่ใจ "ใช้ join ไหน", "ควร index มั้ย", "normalize แค่ไหน" → โค้ชนี้ช่วย **เลือกให้ถูก + ไม่ทำงานระเบิด**
 
-> SQL syntax หาได้ทั่วไป — ส่วนที่ทำให้พังจริงคือ (1) ตัดสินใจออกแบบผิด (normalize เกิน/ขาด, index ผิดที่) (2) กับดักที่ลบข้อมูลจริง/นับเกิน (`DELETE` ไม่มี `WHERE`, `NOT IN`+NULL, cartesian). skill นี้เก็บสองอันนั้น
+> **กฎเหล็ก #1: ก่อนรัน `UPDATE`/`DELETE` ทุกครั้ง → `SELECT` ดูแถวที่จะโดน ด้วย `WHERE` ตัวเดียวกันก่อน + ครอบ transaction.** ไม่มี `WHERE` = ล้างทั้งตาราง.
+> **กับดักขั้นโหด (ที่ `WHERE` มีแล้วแต่ยังพัง): `WHERE` ที่อ้าง subquery/`NOT IN` แล้ว subquery คืน `NULL` แม้แถวเดียว → ทั้งเงื่อนไขกลายเป็นกรองผิด/ไม่ match → DELETE โดนเกินหรือ 0 แถวเงียบๆ.** กฎทั่วไป: subquery ที่อาจมี `NULL` ให้ใช้ `NOT EXISTS` เสมอ และอย่าเชื่อ `WHERE` จน SELECT-preview ยืนยันจำนวนแถวตรง. (อย่างอื่น: ออกแบบ normalize เกิน/ขาด, index ผิดที่, cartesian — อยู่ด้านล่าง)
 
 ## ใช้เมื่อ
 - เขียน SQL / ออกแบบ schema / จูน query ที่ช้า
@@ -41,9 +42,9 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 - **query plan:** **full table scan = ธงแดง** บน table ใหญ่ (ควรเป็น index seek)
 
 ## กับดัก (Anti-patterns) — ระเบิดงานจริง
-- **`UPDATE`/`DELETE` ไม่มี `WHERE`** = ล้างทั้งตาราง → `SELECT` ดูก่อนเสมอ / ครอบ transaction
+- **`UPDATE`/`DELETE` ไม่มี `WHERE`** = ล้างทั้งตาราง → `SELECT * WHERE <เงื่อนไขเดียวกัน>` ดูแถว+นับก่อนเสมอ / ครอบ transaction
+- **`WHERE` มีแล้วแต่ยังพัง:** เงื่อนไขที่อ้าง `NOT IN (subquery)` แล้ว subquery มี `NULL` แม้ตัวเดียว → ทั้ง predicate กลายเป็น unknown → DELETE/UPDATE โดนเกินหรือ 0 แถวเงียบๆ → ใช้ **`NOT EXISTS`** + ยืนยันด้วย SELECT-preview
 - **`SELECT *`** → ดึงเกิน + พังเมื่อ schema เปลี่ยน → ระบุคอลัมน์
-- **`NOT IN (subquery ที่มี NULL)`** → คืนค่าว่างเงียบๆ → ใช้ **`NOT EXISTS`**
 - **JOIN ลืมเงื่อนไข** → **cartesian product** (row ระเบิด m×n)
 - **GROUP BY:** ทุกคอลัมน์ใน SELECT ที่ไม่ใช่ aggregate ต้องอยู่ใน GROUP BY
 - **COUNT หลัง JOIN** → row ซ้ำทำให้นับเกิน → `COUNT(DISTINCT ...)` หรือนับก่อน join

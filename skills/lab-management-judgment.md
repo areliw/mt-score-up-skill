@@ -4,7 +4,7 @@ title: โค้ชบริหารแล็บ — QMS/accreditation/QC strat
 type: ADVISE               # ช่วยตัดสินใจบริหารแล็บ ไม่ใช่ตำรา ISO
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดบริหารแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษา accreditation/จัดซื้อ/กฎหมายทางการ — ข้อกำหนด ISO/มาตรฐานจริงต้องอ้างฉบับล่าสุด + ผู้ตรวจประเมิน/ผู้มีอำนาจของหน่วยงาน · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,8 +13,10 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 
 ตัดสินใจระดับ "บริหารแล็บ" — เลือก accreditation ไหน · วางแผน QC ให้ประหยัด · สั่งน้ำยายังไง · ของบเครื่องลงช่องไหน · verify เครื่องใหม่ ไม่ใช่ท่องข้อกำหนด ISO (= commodity ดูมาตรฐานตัวจริง)
 
+> **กฎ #1: ตั้ง QC limit จาก mean/SD ที่แล็บคำนวณเอง — ห้ามใช้ค่าจากกล่องน้ำยา/insert (นั่นคือ peer range ไม่ใช่ performance เครื่องคุณ → limit หลวม จับ error ไม่ได้).**
+> **กับดักขั้นกว่า (จุดที่พลาดจริง): "ใช้ค่าแล็บเอง" ยังไม่พอ — ต้องเก็บ ≥20 จุด คนละวัน ≥20 วัน. เก็บ 20 จุดรวดเดียววันเดียว = ได้แค่ within-run SD (แคบเกิน) → false reject ท่วม. และพอ "เปลี่ยน lot control/น้ำยา" ต้องตั้ง mean/SD ใหม่ ห้าม carry ค่าเก่าข้าม lot.**
 > นี่คือชั้น "วางระบบ/วางแผน" เหนือหน้า bench — QC accept/reject รายวันดู `clinchem-judgment`; skill นี้คือ **ออกแบบ QC ทั้งระบบ + ผ่าน audit + คุมต้นทุน**
-> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~60-70% error อยู่ที่ pre-analytical)
+> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~46-68% error อยู่ที่ pre-analytical, commonly ~62%)
 
 ## ใช้เมื่อ
 - เตรียม/ต่ออายุ accreditation (ISO 15189 / LA / HA) — เลือกระดับ + เตรียมเอกสาร
@@ -35,13 +37,13 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 - 15189 = Management requirements (QMS/document control/CAPA/internal audit/management review) + Technical (บุคลากร/เครื่อง-น้ำยา/pre-exam-post/รายงานผล/LIS) · ความปลอดภัยใช้ **ISO 15190** คู่
 
 ### Fork 2 — IQC vs EQA: คุมคนละอย่าง อย่าสับ
-- **IQC** (control ทุกวันก่อนตรวจคนไข้) คุม **precision** → ดู %CV, Levey-Jennings · ⚠️ **ใช้ mean/SD ที่แล็บคำนวณเอง ≥20 รัน — ห้ามใช้ค่าจากกล่องน้ำยา**
+- **IQC** (control ทุกวันก่อนตรวจคนไข้) คุม **precision** → ดู %CV, Levey-Jennings · ⚠️ **ใช้ mean/SD ที่แล็บคำนวณเอง ≥20 จุด เก็บคนละวัน ≥20 วัน (CLSI C24) — ห้ามใช้ค่าจากกล่องน้ำยา · ตั้งใหม่ทุกครั้งที่เปลี่ยน lot**
 - **EQA/PT** (ส่งเทียบ peer) คุม **accuracy** → ได้ **bias** = (mean lab − mean peer)/mean peer ×100
 - กับดัก: **IQC ผ่านสวยแต่ inaccurate ได้** (bias คงที่ L-J จับไม่ได้ — ต้องพึ่ง EQA)
 
 ### Fork 3 — Sigma-based QC planning (จุดประหยัดจริง)
 ```
-Sigma = [TEa(%) − Bias(%)] / CV(%)
+Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้องหน่วยเดียวกัน (% หรือ conc.)
 ```
 ยิ่ง sigma สูง = method ดี = **คุม QC น้อยลงได้ = ประหยัด control/แรง/เวลา**
 | Sigma | QC ที่พอ |
@@ -79,7 +81,8 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)
 ---
 
 ## กับดัก (Anti-patterns)
-- ใช้ **mean/SD จากกล่องน้ำยา** ทำ QC (ต้องของแล็บเอง ≥20 รัน)
+- ใช้ **mean/SD จากกล่องน้ำยา** ทำ QC (ต้องของแล็บเอง ≥20 จุด คนละวัน ≥20 วัน)
+- เก็บ **20 จุดรวดเดียววันเดียว** → SD แคบเกินจริง (ขาด between-day) → false reject ท่วม · หรือ **carry mean/SD เก่าข้าม lot ใหม่** → limit ผิดทั้งชุด
 - **2SD กับทุก test** → false reject ท่วม รันซ้ำเปลืองเงิน (สับ warning 1₂s กับ reject)
 - **QC out → รันซ้ำจนผ่าน** โดยไม่หา root cause → ปล่อย systematic error หลุด
 - **EQA fail = โทษเครื่องทันที** → อาจ pre-analytical / ลงค่าผิด / lot

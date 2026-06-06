@@ -4,7 +4,7 @@ title: โค้ช Computer Vision — เลือกเทคนิคภา�
 type: ADVISE               # ช่วยตัดสินใจเลือกเทคนิค ไม่ใช่ตำราสูตร
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดเลือกเทคนิค image analysis เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ — งานวินิจฉัยจากภาพ (เช่นเซลล์/สเมียร์) ต้องมี MT/แพทย์ยืนยันเสมอ ไม่ใช้ผลโมเดลตัดสินคนไข้ลำพัง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,8 @@ disclaimer: "ช่วยคิดเลือกเทคนิค image analys
 
 งานวิเคราะห์ภาพ (classify/segment/นับเซลล์) แล้วงงว่า "preprocess อะไร · feature ตัวไหน · classical หรือ deep" → โค้ชนี้ตอบ **"เลือกเทคนิคไหนเมื่อไหร่ + พลาดตรงไหน"**
 
-> สูตร convolution/filter ตำรามีหมด — ส่วนที่ทำให้พังคือ **เลือกผิดจากนิสัยเดิม** (เช่น threshold สีใน RGB, ใช้ deep ทั้งที่ data น้อย). มีเลนพิเศษสำหรับ **blood smear / cell morphology** (สาย blood-group / thalassemia)
+> **กฎ #1: data น้อย/feature ชัด → classical (HOG/GLCM → SVM) ก่อนเสมอ; อย่าไป deep CNN.** Deep บน data น้อย = overfit จำไม่ generalize. **กับดัก #1: threshold "สี" ใน RGB** — เพี้ยนทันทีที่แสงเปลี่ยน → ใช้ **HSV** เมื่อสีคือ criterion.
+> **กับดัก edge (ที่พลาดบ่อยกว่า): "ภาพเยอะ" ไม่ได้แปลว่า data เยอะ** — ถ้าหลาย patch/ภาพมาจาก**เคส/คนไข้/สไลด์เดียวกัน** มันคือ data จุดเดียว. ต้อง split train/test ที่ระดับ **คนไข้/สไลด์ ไม่ใช่ patch** ไม่งั้น leakage → accuracy หลอกตา. มีเลนพิเศษ **blood smear / cell morphology** (blood-group / thalassemia)
 > เลือก classifier ตัวสุดท้ายลึกๆ → ดู `ml-judgment`
 
 ## ใช้เมื่อ
@@ -79,7 +80,8 @@ disclaimer: "ช่วยคิดเลือกเทคนิค image analys
 ## กับดัก (Anti-patterns)
 - **ผิด color space** — threshold สีใน RGB แล้วเพี้ยนเมื่อแสงเปลี่ยน → ใช้ **HSV** เมื่อสีคือ criterion (#1)
 - **ไม่ normalize illumination** — แสงไม่สม่ำเสมอทำ feature เพี้ยนทั้ง dataset (กล้อง/มือถือคนละตัว = bias)
-- **overfit ภาพชุดเล็ก** — deep บนภาพ <~500/class → จำไม่ generalize; แยก train/test ระดับ **ภาพ/คนไข้** ไม่ใช่ patch (leakage)
+- **overfit ภาพชุดเล็ก** — deep บนภาพ <~500/class → จำไม่ generalize → classical ก่อน
+- **leakage จาก "ภาพเยอะแต่ source เดียว"** — หลาย patch/ภาพจากคนไข้/สไลด์เดียว = data จุดเดียว → split train/test ที่ระดับ **คนไข้/สไลด์ ไม่ใช่ patch/ภาพ** ไม่งั้น test ปนกับ train → metric หลอก
 - **ignore class imbalance** — เซลล์ปกติ >> ผิดปกติ → accuracy 95% แต่จับผิดปกติไม่ได้ → ดู **recall ของคลาสผิดปกติ, F1, PR-curve**
 - **ใช้ deep ทั้งที่ data น้อย** — เผา compute + overfit; classical ชนะเมื่อ data จำกัด
 - **median ↔ mean สลับ** — salt&pepper ต้อง median

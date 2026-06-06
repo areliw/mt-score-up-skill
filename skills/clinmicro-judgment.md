@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจแล็บจุลชี�
 type: ADVISE
 needs: any
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บจุลชีววิทยาคลินิกเพื่อการศึกษา ไม่ตัดสินแทน และไม่ใช่คำสั่งวินิจฉัย/รักษา ทุกผลต้อง correlate กับ Gram stain + clinical + colony morphology และทำตาม SOP/QC ของห้องแล็บเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง ความผิดพลาดในการรายงานเชื้อก่อโรค/ความไวต่อยา อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,7 +13,8 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 
 ตัวช่วย "ตัดสินใจ" ในแล็บจุล ไม่ใช่ตำราชนิดเชื้อ/สูตร media — ทุกคำตอบตอบ 2 อย่าง: "ตรงนี้เลือกอะไร" + "พลาดตรงไหน".
 
-> กฎเหล็ก: correlate กับ Gram/clinical เดิมเสมอ ก่อน report. ผลที่ขัดกับ Gram smear, site, หรือ colony morphology = หยุด ทวนก่อน.
+> **กฎเหล็ก #1:** correlate กับ Gram/clinical/site เดิม **ก่อน** report เสมอ. ผลขัด Gram smear / site / colony = หยุด ทวนก่อน. กับดักอันดับ 1 = **รายงาน normal flora เป็น pathogen** (CoNS 1 ขวด, urine ≥3 ชนิด, sputum oral flora) — ถาม "site + count + จำนวนชนิด + clinical" ครบก่อนเรียกว่าเชื้อจริง.
+> **กฎเหล็ก #2 (ขอบยาก — "S แต่ใช้ไม่ได้"):** ผล S/I/R ไม่ใช่คำตอบสุดท้ายเสมอ — เชื้อบางกลุ่ม **ผล S ตอนแรกแต่ดื้อจริง/ดื้อขึ้นระหว่างรักษา** (AmpC-derepression, inducible clindamycin, intrinsic resistance, ESBL ที่ disk เดี่ยวจับไม่ได้). เห็น "S" ในเชื้อกลุ่มเสี่ยง → ต้องรู้จาก **species/phenotype-confirm** ไม่ใช่เชื่อ zone ตรงๆ.
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
@@ -52,6 +53,7 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 | Sputum ขึ้น normal oral flora ล้วน | Q-score ผ่านไหม? | คุณภาพแย่ → ปฏิเสธ/ขอใหม่ |
 
 Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated pathogen (ID+AST); 10⁴–10⁵ = suspected; 10³–10⁴ = แปลตาม site/อาการ/single-vs-mixed (borderline); <10³ = "no significant growth".
+- ⚠️ **10⁵ = เกณฑ์ asymptomatic/screening** — ในคน **มีอาการ** (acute cystitis) single uropathogen ที่ ≥10²–10³ CFU/ml ก็ significant; ยึด 10⁵ ตายตัวพลาด symptomatic UTI ได้ถึง ~50% → **ผูก cutoff กับ symptom status เสมอ**.
 - หลัก: site + count + จำนวนชนิด + clinical ประกอบกัน.
 
 ### FORK 4 — AST: เลือก method + อ่าน S/I/R + escalate MDR
@@ -101,7 +103,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 8. QC strain หลุดแต่ยังรายงานผล — ATCC (S.aureus 25923, E.coli 25922, P.aeruginosa 27853, E.faecalis 29212) นอก range → หยุด ห้าม report.
 9. Over-ID / over-AST เชื้อ commensal → เปลือง + ชวนใช้ยาเกิน.
 10. ลืม intrinsic resistance — รายงาน amp/ceph สำหรับ P.aeruginosa (ดื้อโดยธรรมชาติ).
-10b. **AmpC inducible (Enterobacter/Citrobacter/Serratia/indole+ Proteus/Morganella/Providencia):** lab อาจรายงานไวต่อ 3rd-gen ceph ตอนแรก แต่เชื้อ **induce AmpC ขึ้นมา hydrolyze ceftriaxone ระหว่างรักษา** → flag เตือน "อย่าใช้ 3rd-gen ceph แม้ผล S" (ยาเชื่อถือได้ = cefepime/carbapenem) — ตรวจ phenotype ตรงไม่ได้ ต้องรู้จาก species.
+10b. **AmpC inducible high-risk (IDSA 2023: Enterobacter cloacae / Klebsiella aerogenes / Citrobacter freundii / Hafnia alvei):** lab อาจรายงานไวต่อ 3rd-gen ceph ตอนแรก แต่เชื้อ **induce AmpC ขึ้นมา hydrolyze ceftriaxone ระหว่างรักษา** → flag เตือน "อย่าใช้ 3rd-gen ceph แม้ผล S" (ยาเชื่อถือได้ = cefepime/carbapenem) — ตรวจ phenotype ตรงไม่ได้ ต้องรู้จาก species. ⚠️ Serratia / Morganella / Providencia / indole+ Proteus เคยถูกจัดกลุ่มนี้ แต่ IDSA = **low-risk derepression (<5%) → รักษาตามผล AST จริง** (ceftriaxone ใช้ได้ถ้า S) อย่า over-flag.
 11. heparin ใน specimen PCR/Leptospira — heparin ยับยั้ง Taq (PCR fail) → PCR ใช้ **EDTA**; ส่วน citrate/oxalate ฆ่า Lepto เป็นเรื่อง *culture* (คนละ assay) → รู้ assay ปลายทางก่อนเลือก tube.
 12. เพาะ/รายงานหลังให้ ATB = no-growth ลวง — เก็บ culture ก่อนยาเสมอ · และอย่าตัด Cryptococcus เพราะ CSF cell count ปกติ → สั่ง CrAg/India ink เมื่อสงสัย.
 13. cycloheximide media จานเดียวกับที่สงสัย opportunistic mold — กด Aspergillus/Mucor/Cryptococcus/Nocardia → "no fungus" ลวงในผู้ป่วย immunocompromised.

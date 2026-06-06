@@ -4,7 +4,7 @@ title: โค้ช Molecular Dx — เลือก method/แปลผล/ก�
 type: ADVISE               # ช่วยตัดสินใจหน้างาน molecular ไม่ใช่ตำรา PCR
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดเลือก method/แปลผล molecular เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — งานวินิจฉัยระดับโมเลกุลกระทบการรักษาผู้ป่วยโดยตรง ต้องตาม SOP + validation ของแล็บ และยืนยันกับ MT/แพทย์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,10 +13,11 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 
 ตัดสินใจในงาน molecular — "variant/เชื้อ/marker นี้ตรวจด้วยอะไรดี + อย่าพลาดตรงไหน" ไม่ใช่ท่อง central dogma / ขั้น PCR / ตาราง codon (= commodity ดูตำรา)
 
-> ความผิดพลาด molecular ที่เจ็บสุดคือ **false-negative จาก inhibitor/ลืม control** (บอกคนไข้ไม่มีเชื้อ/ไม่มี mutation ผิด) และ **false-positive จาก contamination** (carryover) — skill นี้นำด้วย 3 ด่านความปลอดภัยก่อนทุกการแปลผล
+> **กฎ #1 (เลือก method):** รู้ตำแหน่ง variant แน่ → targeted + ถูก (RFLP/ASO/HRM/qPCR); ไม่รู้/discovery → sequencing (Sanger เดี่ยว, NGS หลาย loci). อย่ายิง NGS สิ่งที่ ASO-PCR ตอบได้ใน 3 ชม.
+> **กับดัก #1 (กัน false):** ก่อนแปลผลทุกครั้งต้องครบ **control + tube ถูก (heparin = ห้าม) + NTC สะอาด** — ไม่มี internal control = ห้ามอ่าน "negative" (อาจ reaction fail = false-neg); NTC ขึ้น = ทั้ง run โมฆะ (contamination = false-pos)
 > เลือกโมเดล ML ต่อจาก genotype → ดู `ml-judgment` · วาง stat/sens-spec → `choose-stat-test`
 
-> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ (คู่กับ `anti-hallucination`)
 
 ## ใช้เมื่อ
 - ต้อง detect mutation/SNP/fusion/เชื้อ → **เลือก method ไหน** (cost/turnaround/known-vs-unknown variant)
@@ -84,7 +85,7 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 - HLA = ยีน polymorphic ที่สุด, exon 2 (+3 สำหรับ Class I) = region ที่ต้อง type
 
 ### Fork 9 — Pharmacogenomics: test "ก่อน" ให้ยา (สำคัญในคนไทย)
-- **HLA-B*15:02 ก่อน carbamazepine** → กัน SJS/TEN (**prevalence สูงในคนไทย/จีน** = high-yield จริง)
+- **HLA-B*15:02 ก่อน carbamazepine** → กัน SJS/TEN (**prevalence สูงในคนไทย/จีน** = high-yield จริง) · ⚠️ ผลใช้ **rule-OUT ไม่ใช่ rule-IN**: NPV ~100% (negative → ให้ยาได้ค่อนข้างมั่นใจ) แต่ PPV เพียง ~1.8% (carrier ส่วนใหญ่กินได้ไม่เป็นไร — positive = หลีกเลี่ยง/เปลี่ยนยา ไม่ใช่ทำนายว่าจะเป็นโรค)
 - **HLA-B*57:01 ก่อน abacavir** · **HLA-B*58:01 ก่อน allopurinol** · **CYP2C19 + clopidogrel** (poor metabolizer → ยาไม่ทำงาน)
 - **G6PD ก่อน primaquine / dapsone / rasburicase / ยา oxidant** → กัน acute hemolysis (G6PD def พบบ่อยในไทย/มาเลย์ + เกี่ยวกับ malaria → ตรวจก่อนให้ primaquine เสมอ) · **TPMT/NUDT15 ก่อน thiopurine** (azathioprine/6-MP → myelosuppression รุนแรงถ้า deficient; NUDT15 สำคัญในเอเชีย) · **DPYD ก่อน 5-FU/capecitabine**
 > ตรวจ **ก่อน** prescribe ไม่ใช่หลังเกิด ADR — เฉพาะยา/เชื้อชาติที่ risk สูง (ไม่ใช่ทุกยา) · ⚠️ คู่ที่ขาดบ่อยในไทย: **G6PD↔primaquine** (malaria) + **HLA-B*15:02↔carbamazepine** (SJS)

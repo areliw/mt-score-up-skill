@@ -4,7 +4,7 @@ title: โค้ชจุลชีววิทยาประยุกต์ —
 type: ADVISE               # ช่วยตัดสินใจ applied micro ไม่ใช่ตำราเชื้อ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดงานจุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม/สิ่งแวดล้อม) เพื่อการศึกษา ไม่ใช่คำสั่งความปลอดภัยอาหาร/สิ่งแวดล้อมทางการ — ต้องอ้างมาตรฐาน (เช่น food safety/ISO) + ผู้เชี่ยวชาญจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -12,6 +12,9 @@ disclaimer: "ช่วยคิดงานจุลชีววิทยาป�
 # โค้ชจุลชีววิทยาประยุกต์ — อาหาร/อุตสาหกรรม/สิ่งแวดล้อม
 
 จุลชีพ "เอาไปใช้/ควบคุม/ตรวจจับ" ในงานอาหาร อุตสาหกรรม สิ่งแวดล้อม — เลือกวิธีถนอม/ตรวจ/คัดกรองยังไง ไม่ใช่ท่องชนิดเชื้อ (= commodity ดูตำรา)
+
+> 🎯 **กฎ #1:** ไม่มีกระบวนการ/การตรวจไหน "พิสูจน์ว่าปลอดภัย" ได้ — **pasteurize/canning/refrigerate ≠ ปลอดเชื้อ** (spore รอด, Listeria โตในตู้เย็น) · **screen บวก = presumptive ต้อง confirm เสมอ** (biochem+serology) ก่อนรายงาน
+> ⚠️ **กับดักที่ลึกกว่า (เวอร์ชันยาก):** **ผลลบ/"ไม่ขึ้น"/"ผ่านกระบวนการแล้ว" ≠ ปลอดภัย** — negative ไม่ใช่ proof of absence. spore/เชื้อ sublethal-injured หรือ VBNC อาจรอดแบบเพาะไม่ขึ้นชั่วคราว, screen ที่ข้าม enrichment/เจอ matrix interference ให้ false-negative ได้ → "ไม่เจอ" แปลว่า "ตรวจไม่พบ" ไม่ใช่ "ไม่มี"
 
 > คนละเลนกับ clinical micro (เจอเชื้อในคนไข้ → ID+AST ดู `clinmicro-judgment`) · เลือก molecular method/แปล qPCR → `molecular-judgment` · บริหาร/ขายเครื่องตรวจ → `lab-management-judgment`
 
@@ -63,7 +66,7 @@ disclaimer: "ช่วยคิดงานจุลชีววิทยาป�
 ### Fork 5 — Beneficial microbes: probiotic/prebiotic/synbiotic + FMT
 - **Probiotic** = จุลินทรีย์ **มีชีวิต** + ปริมาณพอ + สายพันธุ์ถูก + ไม่พา resistance gene (Lactobacillus/Bifidobacterium) · **Prebiotic** = อาหารของมัน (FOS/inulin/fiber, non-digestible) · **Synbiotic** = pro+pre
 - ⚠️ "มีแบคทีเรีย = probiotic" ผิด — ต้องครบ 4 เงื่อนไข; prebiotic (อาหาร) ≠ probiotic (ตัวเชื้อ)
-- **FMT** (fecal microbiota transplant) = ปลูกถ่ายอุจจาระคนสุขภาพดี → รักษา ***C. difficile* infection** ที่เกิดจาก antibiotic ทำลาย flora = bacteriotherapy ได้ผลสูง
+- **FMT** (fecal microbiota transplant) = ปลูกถ่ายอุจจาระคนสุขภาพดี → รักษา ***recurrent C. difficile* infection** (guideline = เมื่อ recur ≥2 ครั้ง ไม่ใช่ first episode) ที่เกิดจาก antibiotic ทำลาย flora = bacteriotherapy ได้ผลสูง (>80%)
 
 ---
 

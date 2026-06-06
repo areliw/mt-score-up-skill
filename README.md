@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (53 สกิล)
+## 📚 ส่วนที่ 1 — Skills (54 สกิล)
 
 **วิธีใช้:** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
@@ -121,14 +121,14 @@
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 53 สกิล — copy ไฟล์ไปวางในแชต AI
+├── skills/        # ★ 54 สกิล — copy ไฟล์ไปวางในแชต AI
 ├── prompts/       # System prompt สำหรับ WI generator
 │   └── system.md
 ├── scripts/       # md→docx + standards auto-recheck (ดู scripts/README.md)
 ├── templates/     # WI .docx templates (generic)
 ├── profiles/      # Layout profile ต่อโรงพยาบาล (generic)
 ├── inbox/         # Drop WI ตัวอย่าง — AI scan ใช้เป็น template
-├── eval/          # Paired-prompt eval (preliminary — ดู eval/README.md)
+├── eval/          # วัดผลสกิลจริง: weak-model A/B 3 รอบ + literature + Titanic (ดู eval/ab-scorecard.md)
 ├── docs/          # Vision, setup guides
 ├── STANDARDS.md   # Source-of-truth edition + auto-recheck รายเดือน
 └── CHANGELOG.md   # Version history (v0.1.0)
@@ -147,6 +147,16 @@ mt-score-up-skill/
 - **โหลดสกิลคลินิก → "ระวัง" ชนะ "สั้น":** ถ้าใช้ [`ai-assistant-calibration`](./skills/ai-assistant-calibration.md) (เน้นตอบสั้น) คู่กับสกิลงานแล็บ (🩸) — **ให้ความรอบคอบ/verify ของสกิลคลินิก override ความสั้นเสมอ** (ความปลอดภัยผู้ป่วย > ความกระชับ)
 - **สกิลคลินิกมี guard ในตัว** (`verify-first: decision-support ไม่ใช่คำตอบสุดท้าย`) — และแนะนำวางคู่ [`anti-hallucination`](./skills/anti-hallucination.md) เสมอเมื่อให้ AI ช่วยคิดเรื่องที่กระทบคนไข้ · ทุกขั้นที่กระทบคนไข้ต้องให้ MT/แพทย์ผู้รับผิดชอบยืนยันก่อนลงมือ
 - **disclaimer แบ่งระดับตามความเสี่ยง (by design ไม่ใช่ copy-paste):** ผิดแล้วกระทบคนไข้ (bloodbank / toxicology / molecular / clinical-correlation / งานแล็บ) = disclaimer หนัก + guard ในตัว · จัดไฟล์/สื่อสาร/วางแผน = disclaimer สั้นตามบริบท
+
+## วัดผลสกิล (eval) — อยากรู้ตัวไหนพิสูจน์แล้ว?
+
+ทดสอบจริง: ให้ **model อ่อน (Haiku)** ตอบโจทย์กับดัก *มี* vs *ไม่มี* สกิล → กรรมการตาบอดให้คะแนน (3 รอบ + เทียบ literature + ตัวอย่างโค้ด Titanic). ผลต่อสกิล → [`eval/ab-scorecard.md`](./eval/ab-scorecard.md) · [`eval/round3/`](./eval/round3/) · วิธี/ข้อจำกัด → [`eval/METHOD.md`](./eval/METHOD.md) · [`eval/RESULTS.md`](./eval/RESULTS.md)
+
+อ่านเป็น **grade-book ไม่ใช่ leaderboard** — และนี่คือเหตุผลที่เรา **ไม่ตีเกรด A-F ต่อสกิล**:
+
+- **ตัวเลขมี noise** (วัดซ้ำต่างกันเฉลี่ย ~1.4 จุดบนโจทย์เดียวกัน) → delta ต้องเกิน ~1.4 ถึงเชื่อ. มี **8 ตัว "bulletproof"** ที่ยกคะแนนนิ่งหลายรอบ = เชื่อได้สุด
+- **"เสมอ (tie)" ≠ แย่** — แปลว่า AI ตอบถูกเองในโจทย์นั้นอยู่แล้ว; ค่าจริงของสกิลอยู่ที่ **ความสม่ำเสมอ + เคสยาก (edge case) + ช่วยคนที่ยังไม่เชี่ยว/model อ่อน** (frontier model ไม่ต้องใช้ก็ได้)
+- **0 regression อันตราย** ใน 53 ตัว — ไม่มีสกิลไหนทำให้ตอบ "พังลง"
 
 ## ที่มา & การอ้างอิง (Sources)
 

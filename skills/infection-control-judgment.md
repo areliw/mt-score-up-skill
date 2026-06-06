@@ -4,7 +4,7 @@ title: โค้ชป้องกันการติดเชื้อ/biosaf
 type: ADVISE               # ช่วยตัดสินใจ IPC/ความปลอดภัย ไม่ใช่ตำรา CDC
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "MT Score UP!"
-last_edited: 2026-06-01
+last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดการป้องกันการติดเชื้อ/ความปลอดภัยทางชีวภาพเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ — ต้องทำตามนโยบาย IPC + มาตรฐานความปลอดภัย (CDC/HICPAC/ISO 15190/WHO) + คณะกรรมการ IC ของหน่วยงานจริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -13,8 +13,9 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 
 ตัดสินใจ "เคสนี้ใช้ PPE/precaution/ห้องแบบไหน" — ป้องกันตัวเอง+คนไข้+ห้องแล็บไม่ให้แพร่เชื้อ ไม่ใช่ท่อง guideline (= commodity ดู CDC/WHO)
 
+> **VERDICT: เลือกการป้องกันตาม "ทางแพร่เชื้อ" — contact→ถุงมือ+กาวน์ · droplet→surgical mask · airborne(TB/หัด/สุกใส)→N95+ห้องความดันลบ.**
+> **กับดักอันดับ 1: airborne ใช้ surgical mask แทน N95 หรือเอาไปห้องความดันบวก = เป่าเชื้อแพร่ทั่ว** (สลับชนิดห้อง = หายนะ).
 > สำหรับ MT/lab ที่จับ specimen ติดเชื้อทุกวัน + งาน IPC · เชื้อก่อโรค/AST ดู `clinmicro-judgment` · ความปลอดภัยระดับระบบ (ISO 15190) ดู `lab-management-judgment`
-> หลัก: **เลือกระดับการป้องกันตาม "ทางแพร่เชื้อ" (contact/droplet/airborne)** + รู้ข้อยกเว้นที่ default พลาด (spore, airborne)
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
@@ -31,33 +32,41 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 ## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
 
 ### Fork 1 — Hand hygiene: alcohol vs สบู่+น้ำ
+> **VERDICT: alcohol hand-rub ทุกครั้ง — ยกเว้นมือเปื้อนชัด หรือ *C. difficile*/spore → สบู่+น้ำ.**
 - **default = alcohol hand-rub** (ฆ่า bacteria/virus/fungi ดี + เร็ว)
 - ⚠️ **ใช้สบู่+น้ำเมื่อ: (1) มือเปื้อนเห็นชัด (2) สงสัย/ดูแล *C. difficile*** — **spore แอลกอฮอล์ฆ่าไม่ได้** ต้องล้างออกด้วยน้ำ (anthrax = spore เช่นกัน · *norovirus = ไวรัสไม่มีเปลือก* แอลกอฮอล์ได้ผลแย่ → สบู่+น้ำ)
 - WHO **5 Moments:** ก่อนสัมผัสผู้ป่วย · ก่อนหัตถการ sterile · หลังสัมผัสสารคัดหลั่ง · หลังสัมผัสผู้ป่วย · หลังสัมผัสสิ่งแวดล้อมรอบเตียง · **ล้างมือทุกครั้งหลังถอดถุงมือ**
 
 ### Fork 2 — เลือก mask/PPE ตามทางแพร่
+> **VERDICT: droplet→surgical mask · airborne หรือหัตถการสร้าง aerosol→N95.**
 - **Surgical mask = กัน droplet** (เม็ดใหญ่ ตกใน ~1-2 เมตร)
 - **N95/respirator = กัน airborne** (กรอง ≥95% ที่ขนาดเจาะผ่านยากสุด ~0.3 µm — เล็ก/ใหญ่กว่ากรองได้ดีกว่า) → ใช้กับ **TB/หัด/สุกใส + หัตถการที่สร้าง aerosol** (ใส่ท่อ/ดูดเสมหะ/พ่นยา) แม้โรค droplet
 - **ลำดับใส่ PPE:** กาวน์ → mask → ถุงมือ (ถุงมือสุดท้าย) · **ถอด:** ถุงมือก่อน → ... → ล้างมือ
 
 ### Fork 3 — Transmission-based precaution (3 ชนิด)
+> **VERDICT: จับคู่เชื้อ→precaution: contact=ถุงมือ+กาวน์ · droplet=mask · airborne=N95+ห้องลบ. + standard precaution กับทุกคนเสมอ.**
+
 | ชนิด | เชื้อตัวอย่าง | ป้องกัน |
 |---|---|---|
 | **Contact** | MRSA/VRE/MDR-GNB/C.diff | ถุงมือ + กาวน์ |
-| **Droplet** | ไข้หวัดใหญ่/pertussis/meningococcus | mask + นั่งห่าง **>3 ฟุต** |
+| **Droplet** | ไข้หวัดใหญ่/pertussis/meningococcus | mask + ระยะห่าง **≥3 ฟุต (ขั้นต่ำ ไม่ใช่เส้นปลอดภัย)** |
 | **Airborne** | **TB/หัด/สุกใส** | **N95 + ห้องความดันลบ (AIIR)** |
+- ⚠️ **≥3 ฟุต เป็น "พื้น" ไม่ใช่ระยะปลอดภัย** — เชื้อรุนแรง (smallpox/SARS) droplet ไปได้ ≥6 ฟุต → ใส่ mask ตั้งแต่ 6-10 ฟุต หรือทันทีที่เข้าห้อง
 - standard precaution = ใช้กับทุกคน (ถือว่าเลือด/สารคัดหลั่งทุกคนติดเชื้อได้)
 
 ### Fork 4 — ห้องแยก: ความดันลบ vs บวก (อย่าสลับ = อันตราย)
+> **VERDICT: ความดันลบ = กันเชื้อ "ออก" (airborne) · ความดันบวก = กันเชื้อ "เข้า" (ภูมิคุ้มกันต่ำ). สลับ = หายนะ.**
 - **Negative pressure (AIIR):** airborne/หนองไหล/คุมอุจจาระไม่ได้ → ดูดอากาศออก **กันเชื้อแพร่ออก**
 - **Positive pressure:** ผู้ป่วย **ภูมิคุ้มกันต่ำ** (BMT/neutropenia) → ดันอากาศออก **กันเชื้อเข้าหาผู้ป่วย**
 - ⚠️ **สลับ = หายนะ:** เอา TB ไปห้องความดันบวก = เป่าเชื้อออกไปทั่ว · ไม่พอ → **cohorting** (รวมผู้ป่วยเชื้อเดียวกัน)
 
 ### Fork 5 — Post-exposure (เข็มตำ/สัมผัสสารคัดหลั่ง)
+> **VERDICT: ล้างทันที → report → รับ PEP ตามโปรโตคอล (HIV ยิ่งเร็วยิ่งดี). ห้ามปิดเงียบ.**
 - หยุด+ล้าง → ประเมินแหล่ง (HIV/HBV/HCV status) → **report + รับ PEP ตามโปรโตคอล** (HIV PEP ยิ่งเร็วยิ่งดี; HBV ดู immune status/HBIG)
 - **บุคลากรควรมีภูมิล่วงหน้า:** HBV, varicella, MMR, influenza · ⚠️ single-dose (เช่น influenza) ภูมิขึ้น ~2-3 สัปดาห์หลังฉีด แต่ **HBV/varicella/MMR เป็น multi-dose series — ต้องฉีดครบชุดก่อนถึงจะถือว่ามีภูมิ** (HBV ยืนยันด้วย anti-HBs ≥10 mIU/mL หลังครบ 3 เข็ม)
 
 ### Fork 6 — Biosafety ในแล็บ
+> **VERDICT: เชื้ออันตราย (TB culture, B. pseudomallei AST) ต้อง BSL-3 — lab BSL-2 ทำไม่ได้.**
 - จัดการ specimen ตามระดับความเสี่ยงเชื้อ (BSL) · เชื้ออันตราย (**M. tuberculosis culture, Burkholderia pseudomallei AST**) = **ต้อง BSL-3** (lab ทั่วไป BSL-2 ทำไม่ได้)
 - closed-system/automation = ลด aerosol/exposure · spill → containment ตาม SOP
 
@@ -66,6 +75,7 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 ## กับดัก (Anti-patterns)
 - **ใช้ alcohol-rub กับ C. difficile** — spore ไม่ตาย ต้องสบู่+น้ำ
 - **ใช้ surgical mask กับ TB/airborne** — ต้อง N95 + ห้องความดันลบ
+- **ถือ 3 ฟุตเป็นระยะปลอดภัยของ droplet** — เป็นพื้นต่ำสุด เชื้อรุนแรงไปได้ ≥6 ฟุต → ใส่ mask เร็วขึ้น
 - **เอาผู้ป่วยติดเชื้อ airborne ไว้ห้องความดันบวก** — เป่าเชื้อออกทั่ว (สลับชนิดห้อง)
 - **ลืมล้างมือหลังถอดถุงมือ** — ถุงมือ ≠ แทนการล้างมือ
 - **ใส่/ถอด PPE ผิดลำดับ** → ปนเปื้อนตัวเอง

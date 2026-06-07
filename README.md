@@ -58,6 +58,7 @@
 | [offload-to-automation](./skills/offload-to-automation.md) | งานเป๊ะให้ code ทำ AI เป็นคนคุม+ตรวจ |
 | [anti-hallucination](./skills/anti-hallucination.md) | กัน + จับ AI มั่วข้อเท็จจริง/อ้างอิง |
 | [progress-tracker](./skills/progress-tracker.md) | วางคู่สกิลไหนก็ได้ → AI โชว์ checklist/flowchart ว่าทำถึงไหน |
+| [ab-test-judgment](./skills/ab-test-judgment.md) | วัด prompt/skill ดีขึ้นจริงไหม ไม่ไล่จับ noise: control + delta-of-deltas · noise floor · review vs A/B · scaling |
 
 ### 💬 สื่อสาร
 | skill | ช่วยอะไร |
@@ -88,6 +89,7 @@
 | [crm-judgment](./skills/crm-judgment.md) | คิดแบบลูกค้า สำหรับ MT สาย sales/คลินิก/แอป |
 | [marketing-judgment](./skills/marketing-judgment.md) | กลยุทธ์การตลาด B2B: STP · buying center · pricing · positioning · push/pull |
 | [sales-psychology-judgment](./skills/sales-psychology-judgment.md) | จิตวิทยาขาย/อ่านคน: แรงจูงใจ · active listening · trust · โน้มน้าว(+จริยธรรม) · เจรจา |
+| [lab-clinic-business-judgment](./skills/lab-clinic-business-judgment.md) | เปิด/บริหารคลินิกแล็บ MT เอง: เลือกโมเดล · moat (วิชาชีพ+จดทะเบียน+LIS-HIS) · รายได้รัฐ · อ่านใจ buyer · unit economics |
 
 ### 💻 โค้ด / เทคนิค / data
 | skill | ช่วยอะไร |
@@ -143,7 +145,7 @@ mt-score-up-skill/
 │   ├── triage.md  # 🧭 ไม่รู้ใช้ skill ไหน → เริ่มที่นี่ (catalog auto-updated)
 │   └── system.md  # WI generator (ISO 15189)
 ├── scripts/       # md→docx + standards auto-recheck (ดู scripts/README.md)
-├── templates/     # WI .docx templates (generic)
+├── templates/     # (optional) วาง .docx แม่แบบ WI ของแล็บคุณเอง — generator ทำงานได้โดยไม่ต้องมี
 ├── profiles/      # Layout profile ต่อโรงพยาบาล (generic)
 ├── inbox/         # Drop WI ตัวอย่าง — AI scan ใช้เป็น template
 ├── eval/          # วัดผลสกิลจริง: weak-model A/B 3 รอบ + literature + Titanic (ดู eval/ab-scorecard.md)
@@ -176,7 +178,7 @@ mt-score-up-skill/
 
 - **ตัวเลขมี noise** (วัดซ้ำต่างกันเฉลี่ย ~1.4 จุดบนโจทย์เดียวกัน) → delta ต้องเกิน ~1.4 ถึงเชื่อ. มี **8 ตัว "bulletproof"** ที่ยกคะแนนนิ่งหลายรอบ = เชื่อได้สุด
 - **"เสมอ (tie)" ≠ แย่** — แปลว่า AI ตอบถูกเองในโจทย์นั้นอยู่แล้ว; ค่าจริงของสกิลอยู่ที่ **ความสม่ำเสมอ + เคสยาก (edge case) + ช่วยคนที่ยังไม่เชี่ยว/model อ่อน** (frontier model ไม่ต้องใช้ก็ได้)
-- **0 regression อันตราย** ใน 53 ตัว — ไม่มีสกิลไหนทำให้ตอบ "พังลง"
+- **0 regression อันตราย** ใน 53 ตัว — ไม่มีสกิลไหนทำให้ตอบ "พังลง" <sub>(eval รันบน 53 สกิล ณ ตอนนั้น; 2 ตัวล่าสุด `lab-clinic-business` + `ab-test-judgment` ผ่าน critical review แล้วแต่ยังไม่ A/B)</sub>
 
 ## ที่มา & การอ้างอิง (Sources)
 

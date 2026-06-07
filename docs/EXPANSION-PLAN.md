@@ -31,6 +31,7 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 | `pubmed-search` | `scientific-db-pubmed-database` | ค้น PubMed/MeSH เป็นระบบ | ⏳ |
 | `source-credibility` | `scientific-thinking-scholar-evaluation` | ประเมิน journal/predatory/ผู้เขียน (เสริม critical-appraisal) | ⏳ |
 | `deep-research` | `deep-research` | multi-source + cited report (งานวิจัย/สแกน IVD) | ⏳ |
+| `gget-genomics` | `scientific-pkg-gget` | ดึงข้อมูล gene/variant/sequence ผ่าน gget CLI (Ensembl/BLAST/UniProt) สาย molecular/bioinformatics (niche) | ⏳ |
 | — | `scientific-thinking-literature-review` | ⚪ ทับ `critical-appraisal-judgment` | ⚪ |
 
 ## Track 3 — MT++ : build / data / automate (แกน T-shaped)
@@ -41,8 +42,9 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 | `clean-messy-data` | `data-project-survival` `regex-vs-llm-structured-text` | ล้างข้อมูล lab/วิจัย (date ปน/หน่วยปน/missing) ก่อนวิเคราะห์ | ⏳ |
 | `mt-databases` | `db-judgment` `postgres-patterns` `database-migrations` | เก็บข้อมูลใน Sheets vs Access vs SQL เมื่อไหร่ + กันพัง | ⏳ |
 | `ship-a-small-app` | `deployment-patterns` `fastapi-patterns` `docker-patterns` | ทำเครื่องมือเล็กให้ทีมใช้ — no-code/low-code vs code, hosting, ความปลอดภัย | ⏳ |
-| `vibe-coding-safely` | `python-coach` `error-handling` `safety-guard` `e2e-testing` | ให้ AI เขียนโค้ดให้ แต่ไม่พัง/ไม่รั่วข้อมูล — กับดักของ non-coder | ⏳ |
+| `vibe-coding-safely` | `python-coach` `python-testing` `error-handling` `safety-guard` `e2e-testing` | ให้ AI เขียนโค้ดให้ แต่ไม่พัง/ไม่รั่วข้อมูล — กับดักของ non-coder (รวม "เทสต์โค้ดที่ AI เขียน") | ⏳ |
 | `spreadsheet-judgment` | `python-patterns` (reframe) | Excel/Sheets: formula/pivot/กัน error (MT ใช้หนักสุด) | ⏳ |
+| `deploy-ml-safely` | `mle-workflow` `ml-judgment` | MT เทรนโมเดลแล้ว (เช่น smear classifier) จะเอาไปใช้จริงยังไงไม่ให้เงียบๆ พัง (data drift/monitor) | ⏳ |
 
 ## Track 4 — Design / visual
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
@@ -108,3 +110,11 @@ clinical: bloodbank · hematology · clinchem · clinmicro · immunoassay · mol
 - **Wave 5:** Track 9 (contributor/maintainer process docs)
 
 หลัง merge แต่ละ wave: รัน `python scripts/build_triage.py` (regenerate INDEX/dist/triage) + อัปเดต count ใน README + เพิ่ม eval ของตัวใหม่.
+
+---
+
+## Completeness ledger — ขุดหมดแล้ว (97/97)
+แหล่ง source skill ทั้งหมดของ Claude (session mt-shift-optimizer) = **80 user-level + 17 project = 97**.
+ทุกตัวถูกจัดลงตารางด้านบน 1 ใน 5 สถานะ (✅/🟢/⏳/⚪/⛔) — verify ได้ด้วยการ grep ชื่อ slug ในไฟล์นี้.
+
+- **ไม่นับ** (อยู่นอก "skill ที่ผู้สร้างเขียนเอง"): plugin skills ของบุคคลที่สาม (cockroachdb / astronomer / aws / atlassian / canva / notion ฯลฯ) + built-in slash commands ของ Claude Code (`/code-review` `/commit` `/run` `/verify` `/teach` `/dxco` `/loop` `/schedule` `/claude-api` ฯลฯ) — เป็นเครื่องมือ/ปลั๊กอิน ไม่ใช่เนื้อหา judgment ของ MT จึงไม่พอร์ต.

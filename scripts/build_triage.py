@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Auto-build the generated indexes from the real skill files:
-  1) the CATALOG block inside prompts/triage.md  (routing)
-  2) skills/INDEX.md                              (live raw-URL manifest = auto-sync)
+Auto-build the generated artifacts from the real skill files:
+  1) the CATALOG block inside prompts/triage.md   (routing)
+  2) skills/INDEX.md                               (live raw-URL manifest = auto-sync)
+  3) dist/all-skills.md                            (ALL skills bundle, AI self-routes)
 
-Both must stay in sync with skills/ so the triage router and the "load live" links
+All must stay in sync with skills/ so the router, the live links, and the bundle
 never go stale. Deterministic (no judgment) → safe to run in CI and auto-commit,
 unlike STANDARDS.md (edition bumps need human judgment).
 
@@ -26,9 +27,15 @@ ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 TRIAGE = ROOT / "prompts" / "triage.md"
 INDEX = SKILLS / "INDEX.md"
+BUNDLE = ROOT / "dist" / "all-skills.md"
 RAW = "https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/"
 START, END = "<!-- CATALOG:START -->", "<!-- CATALOG:END -->"
 MAXLEN = 150
+SKIP = {"README.md", "INDEX.md"}
+
+
+def skill_files() -> list[Path]:
+    return [f for f in sorted(SKILLS.glob("*.md")) if f.name not in SKIP]
 
 
 def frontmatter_value(text: str, key: str) -> str | None:
@@ -45,7 +52,6 @@ def frontmatter_value(text: str, key: str) -> str | None:
 
 
 def intro_line(text: str) -> str:
-    """First descriptive line after the `# Heading` (skips blanks/blockquotes/headings)."""
     body_start = text.find("\n---", 3)
     body = text[body_start + 4 :] if body_start != -1 else text
     seen_h1 = False
@@ -62,33 +68,32 @@ def intro_line(text: str) -> str:
     return ""
 
 
-def load_skills() -> list[tuple[str, str, str]]:
-    """Return sorted (name, intro, last_edited) for every skill file."""
+def load_rows():
     rows = []
-    for f in sorted(SKILLS.glob("*.md")):
-        if f.name in ("README.md", "INDEX.md"):
-            continue
+    for f in skill_files():
         t = f.read_text(encoding="utf-8")
-        name = frontmatter_value(t, "skill") or f.stem
-        rows.append((name, intro_line(t), frontmatter_value(t, "last_edited") or "—"))
+        rows.append((frontmatter_value(t, "skill") or f.stem, intro_line(t), frontmatter_value(t, "last_edited") or "—"))
     rows.sort(key=lambda r: r[0])
     return rows
 
 
+def _write_if_changed(path: Path, content: str) -> bool:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists() or path.read_text(encoding="utf-8") != content:
+        path.write_text(content, encoding="utf-8")
+        return True
+    return False
+
+
 def write_triage_catalog(rows) -> bool:
     if not TRIAGE.exists():
-        print(f"WARN: {TRIAGE} not found — skip triage")
         return False
     catalog = "\n".join(f"- `{n}` — {d}" if d else f"- `{n}`" for n, d, _ in rows)
     doc = TRIAGE.read_text(encoding="utf-8")
     if START not in doc or END not in doc:
-        print("WARN: markers not found in triage.md — skip")
         return False
     new = re.sub(re.escape(START) + r".*?" + re.escape(END), f"{START}\n{catalog}\n{END}", doc, flags=re.S)
-    if new != doc:
-        TRIAGE.write_text(new, encoding="utf-8")
-        return True
-    return False
+    return _write_if_changed(TRIAGE, new) if new != doc else False
 
 
 def write_index(rows) -> bool:
@@ -96,27 +101,41 @@ def write_index(rows) -> bool:
         "# Skill Index — live links (auto-generated · อย่าแก้มือ)",
         "",
         "**โหลดสด (auto-sync):** บอก AI ที่ต่อเน็ตได้ว่า *“ดึง skill จาก URL นี้มาใช้”* → ได้เวอร์ชัน",
-        "ล่าสุดบน `main` ทุกครั้ง (ไม่ต้องก๊อปใหม่). **ก๊อปเนื้อไฟล์** = snapshot แช่แข็ง (เสถียร/cite ได้).",
-        "เลือกตามงาน — งานคลินิกที่ต้อง cite audit → freeze; อยากตามอัปเดตเสมอ → live link.",
+        "ล่าสุดบน `main` ทุกครั้ง. **ก๊อปเนื้อไฟล์** = snapshot แช่แข็ง (เสถียร/cite ได้).",
+        "อยากได้ทุก skill ในไฟล์เดียว → [`dist/all-skills.md`](../dist/all-skills.md) (สำหรับ AI context ใหญ่).",
         "",
         "| skill | live URL (raw) | updated |",
         "|---|---|---|",
     ]
-    for n, _d, edited in rows:
-        lines.append(f"| `{n}` | {RAW}{n}.md | {edited} |")
-    lines.append("")
-    content = "\n".join(lines)
-    if not INDEX.exists() or INDEX.read_text(encoding="utf-8") != content:
-        INDEX.write_text(content, encoding="utf-8")
-        return True
-    return False
+    lines += [f"| `{n}` | {RAW}{n}.md | {edited} |" for n, _d, edited in rows]
+    return _write_if_changed(INDEX, "\n".join(lines) + "\n")
+
+
+def write_bundle() -> bool:
+    header = (
+        "# MT Score UP — ALL skills bundle (auto-generated)\n\n"
+        "> ⚠️ ไฟล์ใหญ่ (รวมทุก skill ~90K tokens) — เหมาะกับ AI ที่ context ใหญ่ "
+        "(Claude · Gemini · Custom GPT / Claude Project) **ไม่เหมาะแชต GPT เปล่า**. "
+        "อยากเบา/โหลดเฉพาะที่ต้องการ → ใช้ [`prompts/triage.md`](../prompts/triage.md)\n\n"
+        "**ถึง AI:** ด้านล่างคือชุด *วิจารณญาณ MT* ทั้งหมด. ทุกคำถามของผู้ใช้ → **เลือกใช้เฉพาะ skill "
+        "ที่เกี่ยวข้อง 1-2 ตัวเงียบๆ** (ไม่ต้องท่องทั้งหมด) · ทำตามกฎ verify-first / ความปลอดภัยของ skill นั้น · "
+        "เนื้อหาเป็น **decision-support ไม่ใช่คำสั่งวินิจฉัย/รักษา** — MT/แพทย์ผู้ใช้ตรวจสอบก่อนใช้จริงเสมอ · "
+        "เตือนผู้ใช้ให้ลบข้อมูลคนไข้/สถาบันออกเมื่อแชร์\n\n"
+        "เวอร์ชัน/ที่มา: ดู `CHANGELOG.md` + แต่ละ skill มี `last_edited` ใน frontmatter\n"
+    )
+    parts = [header]
+    for f in skill_files():
+        parts.append(f"\n\n<!-- ═════════ skill: {f.stem} ═════════ -->\n\n" + f.read_text(encoding="utf-8").strip())
+    return _write_if_changed(BUNDLE, "\n".join(parts) + "\n")
 
 
 def main() -> int:
-    rows = load_skills()
-    t = write_triage_catalog(rows)
-    i = write_index(rows)
-    print(f"{len(rows)} skills · triage {'updated' if t else 'in-sync'} · INDEX {'updated' if i else 'in-sync'}")
+    rows = load_rows()
+    t, i, b = write_triage_catalog(rows), write_index(rows), write_bundle()
+    print(
+        f"{len(rows)} skills · triage {'updated' if t else 'in-sync'} · "
+        f"INDEX {'updated' if i else 'in-sync'} · bundle {'updated' if b else 'in-sync'}"
+    )
     return 0
 
 

@@ -128,6 +128,7 @@
 skill เป็นไฟล์ — มี 2 วิธีโหลด เลือกตามงาน:
 - **ก๊อปเนื้อไฟล์** → snapshot **แช่แข็ง**: เสถียร, cite เวอร์ชันใน audit trail ได้, ไม่เปลี่ยนกลางคัน (เหมาะงานคลินิก)
 - **โหลดสด (live link)** → บอก AI ที่ต่อเน็ตได้ว่า *"ดึง skill จาก `<raw URL>` มาใช้"* → ได้ `main` ล่าสุด**ทุกครั้ง = auto-sync** ไม่ต้องก๊อปใหม่ · รายการ URL ทั้งหมด → [`skills/INDEX.md`](./skills/INDEX.md) (CI อัปเดตอัตโนมัติ)
+- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 55 ตัวในไฟล์เดียว (~90K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
 - ⚠️ live link ใช้ได้เฉพาะ AI ที่ดึง URL ได้ (Claude web · ChatGPT browse · Gemini) — แชตเปล่า offline ใช้ก๊อป
 
 ## โครงสร้าง
@@ -137,6 +138,7 @@ mt-score-up-skill/
 ├── skills/        # ★ 55 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
+├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)
 ├── prompts/       # วางในแชต AI
 │   ├── triage.md  # 🧭 ไม่รู้ใช้ skill ไหน → เริ่มที่นี่ (catalog auto-updated)
 │   └── system.md  # WI generator (ISO 15189)

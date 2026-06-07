@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**58 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**64 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -78,6 +78,12 @@
 ### 💻 โค้ด / data / สร้างของเอง (MT++ : T-shaped MT)
 > ยุค AI — MT ไม่ต้องเป็นโปรแกรมเมอร์ก็ทำ dashboard/automate/data เองได้. กลุ่มนี้ reframe ให้ "MT ที่ไม่ใช่ dev" — กับดัก #1 ผูกกับ PDPA/ข้อมูลคนไข้เสมอ (แผนเต็ม: [`../docs/EXPANSION-PLAN.md`](../docs/EXPANSION-PLAN.md))
 - **build-a-dashboard** — MT ทำ dashboard เอง (TAT/QC/workload/stock): เริ่มที่คำถามไม่ใช่กราฟ · เลือกเครื่องมือ (Sheets/Looker/Power BI/Streamlit) · กราฟไม่หลอกตา (median TAT, ไม่ pie เยอะ) · ไม่เอา HN/ผลรายคนขึ้น cloud
+- **automate-lab-tasks** — งานซ้ำควร automate ไหม (ROI: บ่อย×กฎนิ่ง) · code-vs-AI-vs-มือ · กัน "ผิดเงียบ" (validate/alert/idempotent) · ไม่ส่ง PHI ออก
+- **clean-messy-data** — ล้างข้อมูล lab/วิจัย: ดูดิบก่อน+เก็บ raw · ลำดับ structural→ค่า→missing→dup · date นรก · regex-vs-AI · blank≠0
+- **vibe-coding-safely** — ให้ AI เขียนโค้ดให้แบบ non-coder: "รันได้≠ถูก" verify known-answer · ไม่ paste PHI/key · ไม่รันคำสั่งที่ไม่เข้าใจ · กันพังเงียบ
+- **ship-a-small-app** — เครื่องมือเล็กให้ทีมใช้: เล็กสุดที่ใช้ได้ก่อน · no-code/low-code (Forms/AppSheet/Streamlit) · auth+PDPA ตั้งแต่แรก · verify สูตรคลินิก
+- **spreadsheet-judgment** — Excel/Sheets: กัน autoconvert (รหัส/วันที่/ยีน) · tidy data · VLOOKUP exact/STDEV.S-vs-P · data validation · median TAT · เมื่อไหร่ย้าย DB
+- **mt-databases** — เลือกที่เก็บ (Sheets/Access/SQL/REDCap) ตามขนาด×คน×relationship · ออกแบบ non-DBA (1 entity/ตาราง, unique id) · backup+ห้ามแก้ raw · DELETE มีเงื่อนไข
 - **python-coach** — เลือก data structure/วิธี + กับดัก Python (.sort() คืน None, mutable default ฯลฯ)
 - **db-judgment** — ตัดสินใจ JOIN/index/normalize + กับดัก SQL (DELETE ไม่มี WHERE, NOT IN+NULL ฯลฯ)
 - **ml-judgment** — เลือก paradigm/classifier/metric/validation (6 decision forks) + กับดัก ML (leakage, tune บน test)

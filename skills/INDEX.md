@@ -11,10 +11,12 @@
 | `ai-assistant-calibration` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-assistant-calibration.md | 2026-06-04 |
 | `anti-hallucination` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/anti-hallucination.md | 2026-06-04 |
 | `applied-microbiology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/applied-microbiology-judgment.md | 2026-06-04 |
+| `automate-lab-tasks` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/automate-lab-tasks.md | 2026-06-08 |
 | `bloodbank-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/bloodbank-judgment.md | 2026-06-04 |
 | `build-a-dashboard` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/build-a-dashboard.md | 2026-06-08 |
 | `chemistry-interpretation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/chemistry-interpretation-judgment.md | 2026-06-04 |
 | `choose-stat-test` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/choose-stat-test.md | 2026-06-04 |
+| `clean-messy-data` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clean-messy-data.md | 2026-06-08 |
 | `clinchem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinchem-judgment.md | 2026-06-04 |
 | `clinical-correlation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinical-correlation-judgment.md | 2026-06-04 |
 | `clinmicro-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinmicro-judgment.md | 2026-06-04 |
@@ -41,6 +43,7 @@
 | `ml-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-judgment.md | 2026-06-04 |
 | `molecular-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/molecular-judgment.md | 2026-06-04 |
 | `mt-career-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-career-judgment.md | 2026-06-04 |
+| `mt-databases` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-databases.md | 2026-06-08 |
 | `mt-exam-strategy-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-exam-strategy-judgment.md | 2026-06-04 |
 | `mt-law-ethics-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-law-ethics-judgment.md | 2026-06-04 |
 | `never-lose-a-file` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/never-lose-a-file.md | 2026-06-04 |
@@ -61,6 +64,9 @@
 | `sample-size-power` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/sample-size-power.md | 2026-06-04 |
 | `self-development-coach` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/self-development-coach.md | 2026-06-04 |
 | `self-improving-agent` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/self-improving-agent.md | 2026-06-04 |
+| `ship-a-small-app` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ship-a-small-app.md | 2026-06-08 |
+| `spreadsheet-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/spreadsheet-judgment.md | 2026-06-08 |
 | `toxicology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/toxicology-judgment.md | 2026-06-04 |
 | `urinalysis-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/urinalysis-judgment.md | 2026-06-08 |
+| `vibe-coding-safely` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/vibe-coding-safely.md | 2026-06-08 |
 | `what-skill-do-i-need` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/what-skill-do-i-need.md | 2026-06-04 |

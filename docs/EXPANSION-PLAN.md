@@ -38,12 +38,12 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
 |---|---|---|---|
 | `build-a-dashboard` | `dashboard-builder` `db-judgment` | MT ทำ dashboard (TAT/QC/workload) เอง — เลือกเครื่องมือ + กับดักข้อมูล lab + PDPA | 🟢 wave1 |
-| `automate-lab-tasks` | `offload-to-automation` `python-coach` | งานซ้ำ (รายงาน/คำนวณ/จัดเวร) → ให้ code/AI ทำ เมื่อไหร่คุ้ม | ⏳ |
-| `clean-messy-data` | `data-project-survival` `regex-vs-llm-structured-text` | ล้างข้อมูล lab/วิจัย (date ปน/หน่วยปน/missing) ก่อนวิเคราะห์ | ⏳ |
-| `mt-databases` | `db-judgment` `postgres-patterns` `database-migrations` | เก็บข้อมูลใน Sheets vs Access vs SQL เมื่อไหร่ + กันพัง | ⏳ |
-| `ship-a-small-app` | `deployment-patterns` `fastapi-patterns` `docker-patterns` | ทำเครื่องมือเล็กให้ทีมใช้ — no-code/low-code vs code, hosting, ความปลอดภัย | ⏳ |
-| `vibe-coding-safely` | `python-coach` `python-testing` `error-handling` `safety-guard` `e2e-testing` | ให้ AI เขียนโค้ดให้ แต่ไม่พัง/ไม่รั่วข้อมูล — กับดักของ non-coder (รวม "เทสต์โค้ดที่ AI เขียน") | ⏳ |
-| `spreadsheet-judgment` | `python-patterns` (reframe) | Excel/Sheets: formula/pivot/กัน error (MT ใช้หนักสุด) | ⏳ |
+| `automate-lab-tasks` | `offload-to-automation` `python-coach` | งานซ้ำ (รายงาน/คำนวณ/จัดเวร) → ให้ code/AI ทำ เมื่อไหร่คุ้ม + กันผิดเงียบ | 🟢 wave2 |
+| `clean-messy-data` | `data-project-survival` `regex-vs-llm-structured-text` | ล้างข้อมูล lab/วิจัย (date ปน/หน่วยปน/missing) ก่อนวิเคราะห์ | 🟢 wave2 |
+| `mt-databases` | `db-judgment` `postgres-patterns` `database-migrations` | เก็บข้อมูลใน Sheets vs Access vs SQL vs REDCap เมื่อไหร่ + กันพัง/หาย | 🟢 wave2 |
+| `ship-a-small-app` | `deployment-patterns` `fastapi-patterns` `docker-patterns` | ทำเครื่องมือเล็กให้ทีมใช้ — no-code/low-code vs code, hosting, auth/PDPA | 🟢 wave2 |
+| `vibe-coding-safely` | `python-coach` `python-testing` `error-handling` `safety-guard` `e2e-testing` | ให้ AI เขียนโค้ดให้ แต่ไม่พัง/ไม่รั่วข้อมูล — "รันได้≠ถูก" | 🟢 wave2 |
+| `spreadsheet-judgment` | `python-patterns` (reframe) | Excel/Sheets: tidy/VLOOKUP/STDEV · กัน autoconvert · median TAT | 🟢 wave2 |
 | `deploy-ml-safely` | `mle-workflow` `ml-judgment` | MT เทรนโมเดลแล้ว (เช่น smear classifier) จะเอาไปใช้จริงยังไงไม่ให้เงียบๆ พัง (data drift/monitor) | ⏳ |
 
 ## Track 4 — Design / visual
@@ -103,8 +103,8 @@ clinical: bloodbank · hematology · clinchem · clinmicro · immunoassay · mol
 ---
 
 ### Build waves
-- **Wave 1 (now):** urinalysis · preanalytical · build-a-dashboard + manifest นี้
-- **Wave 2:** Track 3 ที่เหลือ (automate / clean-data / vibe-coding / ship-app / spreadsheet / mt-databases) — แกน T-shaped
+- ✅ **Wave 1:** urinalysis · preanalytical · build-a-dashboard + manifest นี้
+- ✅ **Wave 2:** automate-lab-tasks · clean-messy-data · vibe-coding-safely · ship-a-small-app · spreadsheet-judgment · mt-databases — แกน T-shaped (เหลือ `deploy-ml-safely`)
 - **Wave 3:** Track 2 (stats/research) + Track 1 ที่เหลือ
 - **Wave 4:** Track 4–8 (design/media/career/productivity/AI)
 - **Wave 5:** Track 9 (contributor/maintainer process docs)

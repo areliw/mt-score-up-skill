@@ -4,7 +4,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
-## [Unreleased] — T-shaped MT expansion (wave 1)
+## [Unreleased] — T-shaped MT expansion (waves 1–2)
 
 ### Added
 - **`urinalysis-judgment`** (#56) — UA + body-fluid (CSF/serous/synovial) microscopy: strip↔micro↔clinical
@@ -19,9 +19,28 @@ content เรียบเรียงจากองค์ความรู้
 - **`docs/EXPANSION-PLAN.md`** — full no-omission manifest mapping every tier of source skills (dev/design/
   data/business/productivity/AI/process) → MT-reframed repo skills, organised into 9 tracks + build waves.
 
+### Added — wave 2 (MT++ T-shaped core, 58 → 64)
+- **`automate-lab-tasks`** (#59) — when repetitive lab work is worth automating (ROI) + how not to fail
+  silently (validate/alert/idempotent/human-in-loop). Reframes `offload-to-automation` + `python-coach`.
+- **`clean-messy-data`** (#60) — clean lab/research data before analysis: look-at-raw-first, keep raw + log,
+  ordering (structural→values→missing→dup), date hell, regex-vs-AI, blank≠0. From `data-project-survival` + `regex-vs-llm-structured-text`.
+- **`vibe-coding-safely`** (#61) — let AI write code without it breaking/leaking, for non-coders:
+  "runs ≠ correct", known-answer verify, never paste PHI/keys, don't run commands you don't understand.
+  From `python-coach` + `python-testing` + `error-handling` + `safety-guard` + `e2e-testing`.
+- **`ship-a-small-app`** (#62) — build a small team tool (calculator/form/mini-dashboard): smallest-thing-first,
+  no-code/low-code first, auth+PDPA from the start, verify clinical formulas. From `deployment-patterns` + `fastapi-patterns` + `docker-patterns`.
+- **`spreadsheet-judgment`** (#63) — use Excel/Sheets right + prevent silent error: stop autoconvert wrecking
+  IDs/dates/genes, tidy data, VLOOKUP-exact/STDEV.S-vs-P, data validation, median TAT, when to move to a DB.
+- **`mt-databases`** (#64) — where to store data (Sheets/Access/SQL/REDCap) by size×users×relationships +
+  non-DBA design (1 entity/table, unique id, backup, conditional DELETE). From `db-judgment` + `postgres-patterns` + `database-migrations`.
+- Manifest closed to **97/97** source skills (added `mle-workflow`, `python-testing`, `scientific-pkg-gget`)
+  with a completeness ledger in `docs/EXPANSION-PLAN.md`.
+
 ### Notes
 - `skills/INDEX.md`, `dist/all-skills.md`, `prompts/triage.md` regenerated via `scripts/build_triage.py`
-  (58 skills, no drift). README + skills/README counts bumped 55 → 58.
+  (64 skills, no drift). README + skills/README counts bumped 55 → 64.
+- Every MT++ skill ties its #1 trap to **patient-data safety (PDPA)** + verify-against-source — the line
+  generic dev guidance omits but MTs cannot.
 
 ## [0.3.0] — 2026-06-07
 

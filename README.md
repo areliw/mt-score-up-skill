@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (58 สกิล)
+## 📚 ส่วนที่ 1 — Skills (64 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -99,6 +99,12 @@
 | skill | ช่วยอะไร |
 |---|---|
 | [build-a-dashboard](./skills/build-a-dashboard.md) | MT ทำ dashboard เอง (TAT/QC/workload) — เลือกเครื่องมือ + กราฟไม่หลอกตา + ไม่รั่วข้อมูลคนไข้ |
+| [automate-lab-tasks](./skills/automate-lab-tasks.md) | งานซ้ำ (รายงาน/คำนวณ/จัดเวร) ควร automate ไหม + ไม่พังเงียบ (verify + alert) |
+| [clean-messy-data](./skills/clean-messy-data.md) | ล้างข้อมูล lab/วิจัยรกๆ ก่อนวิเคราะห์ — date/หน่วย/missing/duplicate · เก็บ raw เสมอ |
+| [vibe-coding-safely](./skills/vibe-coding-safely.md) | ให้ AI เขียนโค้ดให้แบบไม่พัง/ไม่รั่ว — "รันได้ ≠ ถูก" · ไม่ paste PHI/key |
+| [ship-a-small-app](./skills/ship-a-small-app.md) | ทำเครื่องมือเล็กให้ทีมใช้ (calculator/ฟอร์ม) — no-code ก่อน + auth/PDPA |
+| [spreadsheet-judgment](./skills/spreadsheet-judgment.md) | Excel/Sheets ให้ถูก — กัน autoconvert ทำลายข้อมูล · VLOOKUP/STDEV · median TAT |
+| [mt-databases](./skills/mt-databases.md) | เก็บข้อมูล Sheets vs Access vs SQL vs REDCap เมื่อไหร่ + ออกแบบไม่ให้พัง/หาย |
 | [python-coach](./skills/python-coach.md) | เลือกเครื่องมือ + ไม่ตกหลุม Python |
 | [db-judgment](./skills/db-judgment.md) | ตัดสินใจ SQL / ออกแบบ DB ไม่ให้ระเบิด |
 | [ml-judgment](./skills/ml-judgment.md) | เลือกโมเดล/metric/validation ML + เลี่ยงกับดัก |
@@ -142,7 +148,7 @@ skill เป็นไฟล์ — มี 2 วิธีโหลด เลื�
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 58 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 64 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

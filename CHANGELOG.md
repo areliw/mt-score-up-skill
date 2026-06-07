@@ -4,6 +4,48 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [0.5.0] — 2026-06-08
+
+### Added
+- **+14 skills (65 → 79)** — port จากคลัง global `~/.claude/skills` ที่ใช้คู่ Life OS → reframe เป็นภาษาไทย/audience MT/วางในแชตได้ (ตัด Claude-Code/IDE-only + knowledge-only ออก):
+  - 🔬 `source-credibility-judgment` · `pubmed-search-judgment`
+  - 💻 `tdd-judgment` (merge tdd+python-testing) · `debugging-judgment` (merge debug-mantra+diagnose) · `ai-coding-guardrails` (karpathy)
+  - 🤖 `token-budget-judgment`
+  - 💬 `writing-judgment` · `report-up-judgment` (reframe management-talk → lab/รพ.)
+  - 💼 `market-research-judgment` · `lead-intelligence-judgment` · `incident-postmortem-judgment` (reframe post-mortem → lab NC/CAPA)
+  - 🧭 `pomodoro-focus` · `time-blocking` · `interactive-course`
+
+### Changed
+- README counts 65→79 (3 จุด) + `dist/all-skills.md` (~105K→~125K tokens) · build_triage regenerated INDEX/triage/bundle (79, in-sync) · eval honesty note: 26 ตัวยังไม่ A/B
+
+### Notes
+- ทั้ง 14 = non-clinical · `status: draft` · ยังไม่ผ่าน weak-model A/B
+- ตัด ~30 ตัวจาก global ที่ off-mission (frontend/video/Claude-Code-meta เช่น overnight/handoff/ultracode, knowledge-only เช่น python-patterns) — ไม่เข้า audience MT
+- merge ตัวซ้ำ: tdd+python-testing → `tdd-judgment` · debug-mantra+diagnose → `debugging-judgment`
+
+## [0.4.0] — 2026-06-08
+
+### Added
+- **+10 skills (55 → 65)** — ชุด AI-usage / research / data / decision / sales ที่คลังยังขาด:
+  - `prompt-optimizer` (#65) — วินิจฉัย+ซ่อม prompt: แก้สาเหตุที่ใช่ก่อน · few-shot · สเปก output · ไม่ยัดยาวเฟ้อ
+  - `verification-panel` (#64) — ตั้งคณะตรวจ 3 มุม (Factual/Logic/Context) แบบ adversarial ก่อนเชื่อคำตอบ high-stakes
+  - `write-a-skill` (#63) — แพ็กวิจารณญาณเป็น skill (judgment-not-knowledge test, type fork, PII, ส่งเข้า repo) — เป็นคู่มือ contributor ในตัว
+  - `humanize-ai-writing` (#62) — เกลางานที่ AI ร่างให้เป็นคนเขียน ตัดสัญญาณ AI โดยคงความถูกต้อง/ศัพท์
+  - `literature-review-judgment` (#61) — กระบวนการรีวิววรรณกรรม (search→screen→synthesize) เสริม `critical-appraisal-judgment` (อันนั้น = ประเมินเปเปอร์เดียว)
+  - `deep-research` (#60) — ค้นเรื่องใดก็ได้ลึก หลายแหล่ง + cross-check ≥2 แหล่ง + cite ตรวจได้
+  - `data-science-workflow` (#59) — CRISP-DM phase navigator (กัน leakage / vanity metric / skip Business)
+  - `ml-engineering-workflow` (#58) — นำโมเดลขึ้นใช้จริง: reproducible train · shadow/A-B · monitor drift · rollback
+  - `grill-my-plan` (#57) — ให้ AI ซักไซ้แผนแบบ adversarial ก่อน decision แก้ยาก
+  - `dx-company-brief` (#56) — brief บริษัท diagnostics ก่อนสัมภาษณ์/ขาย (6-section + verify ตัวเลขตลาด)
+
+### Changed
+- README category tables + counts (55→65, 3 จุด) + `dist/all-skills.md` token estimate (~90K→~105K)
+- `scripts/build_triage.py` regenerated INDEX / triage catalog / bundle (65 skills, in-sync)
+- eval honesty note: ตัวที่เพิ่มหลัง eval-53 รวมเป็น 12 ตัวที่ยังไม่ A/B (ผ่าน design review)
+
+### Notes
+- ทั้ง 10 ตัว = non-clinical (AI/วิจัย/data/อาชีพ) → disclaimer ระดับเบาตามความเสี่ยง · `status: draft` · ยังไม่ผ่าน weak-model A/B (รอ round ถัดไป)
+
 ## [0.3.0] — 2026-06-07
 
 ### Added

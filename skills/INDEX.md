@@ -1,8 +1,8 @@
 # Skill Index — live links (auto-generated · อย่าแก้มือ)
 
 **โหลดสด (auto-sync):** บอก AI ที่ต่อเน็ตได้ว่า *“ดึง skill จาก URL นี้มาใช้”* → ได้เวอร์ชัน
-ล่าสุดบน `main` ทุกครั้ง (ไม่ต้องก๊อปใหม่). **ก๊อปเนื้อไฟล์** = snapshot แช่แข็ง (เสถียร/cite ได้).
-เลือกตามงาน — งานคลินิกที่ต้อง cite audit → freeze; อยากตามอัปเดตเสมอ → live link.
+ล่าสุดบน `main` ทุกครั้ง. **ก๊อปเนื้อไฟล์** = snapshot แช่แข็ง (เสถียร/cite ได้).
+อยากได้ทุก skill ในไฟล์เดียว → [`dist/all-skills.md`](../dist/all-skills.md) (สำหรับ AI context ใหญ่).
 
 | skill | live URL (raw) | updated |
 |---|---|---|

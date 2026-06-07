@@ -24,14 +24,14 @@ jobs:
           python-version: "3.12"
       - name: Regenerate triage catalog
         run: python scripts/build_triage.py
-      - name: Commit if generated indexes changed
+      - name: Commit if generated files changed
         run: |
-          if ! git diff --quiet -- prompts/triage.md skills/INDEX.md; then
+          if ! git diff --quiet -- prompts/triage.md skills/INDEX.md dist/all-skills.md; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add prompts/triage.md skills/INDEX.md
-            git commit -m "chore: auto-update triage catalog + skill index [skip ci]"
+            git add prompts/triage.md skills/INDEX.md dist/all-skills.md
+            git commit -m "chore: auto-update triage catalog + skill index + bundle [skip ci]"
             git push
           else
-            echo "generated indexes already in sync — nothing to do"
+            echo "generated files already in sync — nothing to do"
           fi

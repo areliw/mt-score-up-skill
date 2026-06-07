@@ -68,11 +68,28 @@ def intro_line(text: str) -> str:
     return ""
 
 
+def use_when(text: str) -> str:
+    """Condensed '## ใช้เมื่อ' triggers — the routing signal — joined to one line."""
+    m = re.search(r"(?m)^##\s*ใช้เมื่อ\s*$(.+?)(?=^##\s)", text, flags=re.S)
+    if not m:
+        return ""
+    bullets = []
+    for line in m.group(1).splitlines():
+        s = line.strip()
+        if s.startswith(("-", "*")):
+            b = re.sub(r"`([^`]+)`", r"\1", re.sub(r"\*\*(.+?)\*\*", r"\1", s[1:].strip()))
+            if b:
+                bullets.append(b)
+    joined = " · ".join(bullets)
+    return joined[:170] + ("…" if len(joined) > 170 else "")
+
+
 def load_rows():
     rows = []
     for f in skill_files():
         t = f.read_text(encoding="utf-8")
-        rows.append((frontmatter_value(t, "skill") or f.stem, intro_line(t), frontmatter_value(t, "last_edited") or "—"))
+        rows.append((frontmatter_value(t, "skill") or f.stem, intro_line(t),
+                     frontmatter_value(t, "last_edited") or "—", use_when(t)))
     rows.sort(key=lambda r: r[0])
     return rows
 
@@ -88,7 +105,10 @@ def _write_if_changed(path: Path, content: str) -> bool:
 def write_triage_catalog(rows) -> bool:
     if not TRIAGE.exists():
         return False
-    catalog = "\n".join(f"- `{n}` — {d}" if d else f"- `{n}`" for n, d, _ in rows)
+    def entry(n, d, u):
+        line = f"- `{n}` — {d}" if d else f"- `{n}`"
+        return line + (f"\n  ↳ ใช้เมื่อ: {u}" if u else "")
+    catalog = "\n".join(entry(n, d, u) for n, d, _e, u in rows)
     doc = TRIAGE.read_text(encoding="utf-8")
     if START not in doc or END not in doc:
         return False
@@ -107,7 +127,7 @@ def write_index(rows) -> bool:
         "| skill | live URL (raw) | updated |",
         "|---|---|---|",
     ]
-    lines += [f"| `{n}` | {RAW}{n}.md | {edited} |" for n, _d, edited in rows]
+    lines += [f"| `{n}` | {RAW}{n}.md | {edited} |" for n, _d, edited, _u in rows]
     return _write_if_changed(INDEX, "\n".join(lines) + "\n")
 
 

@@ -670,6 +670,94 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 *เครื่องมือช่วยคิดหน้างานธนาคารเลือดเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินใจแทน งาน BB เกี่ยวชีวิตคนไข้โดยตรง ต้องทำตาม SOP, ยืนยันกับ MT/แพทย์, อ้างมาตรฐาน AABB/ศูนย์อ้างอิงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: build-a-dashboard ═════════ -->
+
+---
+skill: build-a-dashboard
+title: MT ทำ dashboard เอง — เลือกเครื่องมือ + ไม่หลอกตา + ไม่รั่วข้อมูลคนไข้ (Build-a-Dashboard for MT)
+type: ADVISE               # ช่วยตัดสินใจวาง dashboard ไม่ใช่ตำรา BI tool
+needs: any                 # ใช้ได้กับ AI ทุกตัว (บางเครื่องมือต้องมี account/ลงโปรแกรม)
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิด/วางแผนทำ dashboard เพื่อการศึกษา ไม่ใช่คำแนะนำด้านกฎหมายข้อมูลหรือความปลอดภัยทางการ · ข้อมูลผู้ป่วยอยู่ใต้ PDPA — ก่อนนำขึ้นเครื่องมือใดต้องตรวจนโยบาย รพ./de-identify เสมอ (เชื่อม digital-judgment) · ตัวเลขบน dashboard ต้อง verify กับ source ก่อนใช้ตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# MT ทำ dashboard เอง
+
+ตัวช่วยตัดสินใจตอน MT อยากทำ dashboard เอง (TAT, workload, QC trend, สต็อกน้ำยา, จำนวนเคส, KPI) — เน้น "เลือกเครื่องมืออะไร + กราฟไหน + กับดักข้อมูล lab" ไม่ใช่สอนคลิกทีละปุ่มใน Power BI
+
+> **กฎ #1:** dashboard เริ่มที่ **"คำถาม/การตัดสินใจ"** ไม่ใช่ที่กราฟ. ตอบให้ได้ก่อน: *ใครดู · เพื่อตัดสินใจอะไร · ดูบ่อยแค่ไหน*. ตอบไม่ได้ = ยังไม่ต้องทำกราฟ
+> **กับดัก #1 (ขั้น hard):** **ข้อมูลคนไข้บน cloud dashboard = เสี่ยง PDPA**. ห้ามเอา HN/ชื่อ/ผลรายคน ขึ้น Looker/Power BI ที่แชร์ลิงก์สาธารณะ หรือ Google Sheets แชร์ "ใครมีลิงก์ก็ดูได้". ใช้ **aggregate/de-identified เท่านั้น** + ตรวจนโยบาย รพ. ก่อน (เชื่อม `digital-judgment`)
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ตัวเลขสำคัญ verify กับ source ก่อนนำไปตัดสินใจ
+
+## ใช้เมื่อ
+- อยากทำ dashboard TAT/QC/workload/stock แต่ไม่รู้เริ่มยังไง/ใช้เครื่องมืออะไร
+- มีข้อมูล (LIS export/Excel log) แล้ว แต่ไม่รู้จะโชว์เป็นกราฟอะไร
+- dashboard ทำแล้วแต่ไม่มีใครใช้ / เลขดูแปลก / กลัวข้อมูลรั่ว
+- จะให้ AI ช่วยเขียนสูตร/โค้ด/เลือกกราฟ แต่กลัวมั่ว
+
+## วิธีใช้
+วาง skill นี้ + บอก "อยากตอบคำถามอะไร · ใครดู · ข้อมูลมาจากไหน · มีเครื่องมือ/งบแค่ไหน" → AI เดินตาม fork ช่วยเลือกเครื่องมือ + กราฟ + เตือนกับดักข้อมูล lab/PDPA แล้วชี้ให้คุณ verify เลขเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 0 — ก่อนทำ ถามให้ครบ
+*ใครดู (ตัวเอง/หัวหน้า/ทั้งทีม/ผู้บริหาร)? · ตัดสินใจอะไรจากมัน? · ดูทุกวัน/สัปดาห์/เดือน? · ข้อมูลมาจากไหน + อัปเดตเองหรือ auto? · มีข้อมูลคนไข้ปนไหม?* — ตอบไม่ครบ = ยังไม่พร้อมทำ
+
+### Fork 1 — เลือกเครื่องมือตามบริบท (ไม่ใช่ตามกระแส)
+- **Excel / Google Sheets** — เริ่มเร็วสุด, ข้อมูล < ~10k แถว, คนเดียว/ทีมเล็ก, ไม่ต้อง real-time
+- **Looker Studio (ฟรี)** — เชื่อม Sheets/DB, แชร์ทีม, กราฟสวยกว่า Sheets; เหมาะ dashboard ทีมที่ refresh เป็นรอบ
+- **Power BI** — มาตรฐานองค์กร, scheduled refresh, model ซับซ้อนได้; **ต้องมี license + คนดูแล**
+- **Streamlit / Python** — ต้องเขียนโค้ด (ให้ AI ช่วยได้), interactive, ต่อ ML/สถิติได้ (เชื่อม `vibe-coding-safely`)
+- **Grafana** — real-time/feed จากเครื่องมือ/instrument; เกินจำเป็นสำหรับ KPI รายเดือน
+- เลือกจาก: *ใครดู · ข้อมูลมาจากไหน · ต้อง real-time ไหม · งบ/license · มีคนดูแลต่อหลังคุณไหม* (อย่าเลือก Power BI ถ้าไม่มี license ต่ออายุ — dashboard ตายเมื่อ trial หมด)
+
+### Fork 2 — ข้อมูลมาจากไหน + กับดัก "garbage in"
+- แหล่ง: **LIS export** (ขอ IT/vendor — มักได้ CSV) · **manual log** (เสี่ยง error → ต้อง validate) · **API** (ต้อง code)
+- ต้อง **clean ก่อนเสมอ** (เชื่อม `clean-messy-data`): date format ปนกัน (พ.ศ./ค.ศ., d/m/y vs m/d/y), หน่วยปน, ชื่อ test ไม่ standard (สะกดต่าง/มีเว้นวรรค), ค่า missing/blank, duplicate
+- de-identify **ตั้งแต่ตอน export** ถ้าไม่ต้องใช้รายคน — อย่าดึง HN/ชื่อมาก่อนแล้วค่อยซ่อน
+
+### Fork 3 — เลือกกราฟให้ตรงคำถาม
+- เทรนด์ตามเวลา → **line** · เทียบหมวด → **bar (ไม่ใช่ pie)** · ความสัมพันธ์ → **scatter** · สัดส่วน → stacked/100%-bar · การกระจาย (TAT) → **histogram/box** · **QC → Levey-Jennings** (line + เส้น ±1/2/3 SD)
+- อย่า: pie เกิน 3 ชิ้น, 3D, dual-axis คนละสเกล (ลวงตา), สีรุ้งไล่เฉดที่ตาบอดสีอ่านไม่ได้ (เชื่อม `design-a-clear-figure`)
+
+### Fork 4 — Metric ออกแบบให้ไม่หลอก
+- **นับอะไรกันแน่**: เคส vs test vs report (ต่างกันมาก) · denominator ชัด · แยก rejected/repeat ออกจากยอด
+- **TAT ใช้ median ไม่ใช่ mean** (distribution เบ้ — outlier ดึง mean) + ดู P90/P95
+- เทียบกับ **target/baseline** เสมอ (เลขลอยไม่บอกอะไร) · ระวัง **Simpson's paradox** (รวมทุกแผนกอาจบังทิศตรงข้ามของแผนกย่อย)
+
+### Fork 5 — ให้ AI ช่วยทำอย่างปลอดภัย
+- ขอ AI: เขียนสูตร Sheets/DAX, เลือกชนิดกราฟ, เขียนโค้ด Python/SQL, ออกแบบ layout — ได้
+- **ห้าม paste ข้อมูลจริงผู้ป่วยลง AI สาธารณะ** → ใช้ตัวอย่างปลอม/โครงสร้างคอลัมน์แทน
+- **verify เลขที่ AI สรุปกับ source เองทุกครั้ง** (เชื่อม `anti-hallucination`) — สูตรผิด/นับซ้ำเกิดได้ง่าย
+
+## กับดัก (Anti-patterns)
+- #1 ทำกราฟก่อนรู้ว่าจะตอบคำถามอะไร/ใครใช้ → dashboard สวยที่ไม่มีใครเปิด
+- #2 เอาข้อมูลคนไข้ (HN/ชื่อ/ผลรายคน) ขึ้น cloud/แชร์ลิงก์ → เสี่ยง PDPA
+- #3 ไม่ clean data ก่อน → date/หน่วย/ชื่อ test เพี้ยน → กราฟผิดเงียบๆ
+- #4 ใช้ mean กับ TAT ที่เบ้ → ควร median + P90/P95
+- #5 denominator มั่ว / ไม่แยก repeat-reject → KPI หลอก
+- #6 pie เยอะชิ้น / dual-axis คนละสเกล / 3D → อ่านผิด
+- #7 เลือก Power BI ที่ไม่มี license ต่อ / ไม่มีคนดูแล → dashboard ตายในไม่กี่เดือน
+- #8 refresh manual แล้วลืมอัปเดต → คนตัดสินใจจากเลขเก่า
+- #9 เชื่อเลขที่ AI/สูตรสรุปโดยไม่ verify กับ source
+- #10 สีไม่ colorblind-safe / ไม่มี label หน่วย/ช่วงเวลา → ตีความผิด
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - รพ./แลบคุณมีนโยบายข้อมูล (PDPA/IT security) เรื่องการ export + นำข้อมูลขึ้น cloud อย่างไร?
+> - LIS/เครื่องที่ใช้ export ได้รูปแบบไหน (CSV/API/manual) + คอลัมน์ที่ต้อง clean ประจำ?
+> - KPI/target ที่หน่วยงานคุณใช้จริง (TAT target, QC rule, workload baseline)
+
+NOTE: how-to ละเอียดของแต่ละเครื่องมือ (สูตร DAX, การต่อ data source, deploy Streamlit) → ดูคู่มือเครื่องมือนั้น/ถาม AI แยก ไม่ใช่หน้าที่ของ skill นี้ (skill นี้ช่วย "เลือก + กันกับดัก")
+
+---
+*skill นี้ช่วย "คิด/วางแผน" เพื่อการศึกษา · ข้อมูลผู้ป่วยอยู่ใต้ PDPA — de-identify + ตรวจนโยบาย รพ. ก่อนนำขึ้นเครื่องมือใดเสมอ · ตัวเลขสำคัญ verify กับ source ก่อนใช้ตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: chemistry-interpretation-judgment ═════════ -->
 
 ---
@@ -4360,6 +4448,94 @@ disclaimer: "ช่วยปรับถ้อยคำให้สุภาพ�
 *ช่วยปรับถ้อยคำให้สุภาพขึ้น เพื่อการศึกษา ไม่ใช่คำแนะนำทางการ — ควรอ่านทวนก่อนส่งทุกครั้ง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: preanalytical-judgment ═════════ -->
+
+---
+skill: preanalytical-judgment
+title: โค้ช pre-analytical — เจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ (Pre-Analytical & Phlebotomy Judgment)
+type: ADVISE               # ช่วยตัดสินใจคุณภาพตัวอย่าง ไม่ใช่ตำราเทคนิคเจาะ
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดเรื่องคุณภาพตัวอย่างก่อนวิเคราะห์เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = หมอรักษาผิด → ทุก reject/accept/แก้ค่า ต้องทำตาม SOP แลบ + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วย/wrong-blood-in-tube เกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ช pre-analytical (เจาะเลือด/จัดการตัวอย่าง)
+
+ตัวช่วยตัดสินใจคุณภาพตัวอย่าง **ก่อน**เข้าเครื่อง — เน้น "ค่านี้น่าสงสัยเพราะตัวอย่างหรือเปล่า + เจาะ/จัดการยังไงไม่ให้พลาด" ไม่ใช่ตำราขั้นตอนเจาะเลือด
+
+> **กฎ #1:** pre-analytical = **~60–70% ของ lab error ทั้งหมด**. ค่าประหลาด → สงสัย "ตัวอย่าง" (เจาะ/หลอด/order/เวลา/ขนส่ง/ระบุตัว) **ก่อน**โทษเครื่องหรือรีรัน
+> **กับดัก #1 (ขั้น hard):** "ค่าเพี้ยน แต่ analyzer + QC ปกติ" → ส่วนใหญ่คือ pre-analytical ไม่ใช่ analytic. **รีรันหลอดเดิมได้ค่าเดิม ≠ ค่าถูก** — ถ้า hemolyzed/clotted/wrong-tube/IV-contaminated รีรันก็ผิดซ้ำ. ต้อง **ดูตัวอย่าง + เจาะใหม่** ไม่ใช่กดรีรัน
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## ใช้เมื่อ
+- ค่าผิดปกติ/delta check fail → analytic หรือ pre-analytical? รีรันหรือเจาะใหม่?
+- สงสัย hemolysis/icteric/lipemic (HIL) → analyte ไหนพัง? reject หรือ report-with-comment?
+- เลือกหลอด/ลำดับเจาะ/อัตราส่วน, จัด timing (fasting/trough/tourniquet), ขนส่ง/เก็บ
+- เจอ identity/label ไม่ตรง / historical mismatch → จัดการยังไง
+
+## วิธีใช้
+วาง skill นี้ + ค่าที่น่าสงสัย + สภาพตัวอย่าง/ชนิดหลอด/บริบทการเจาะ → AI เดินตาม fork บอก "นี่น่าจะ pre-analytical ตรงไหน + ทำอะไรต่อ" แล้วชี้กลับให้คนตรวจตัวอย่าง/เจาะใหม่ + ทำตาม SOP เอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — Order of draw (กัน additive carryover)
+ลำดับ: **blood culture → coag (citrate ฟ้า) → serum/SST (แดง/เหลือง) → heparin (เขียว) → EDTA (ม่วง) → fluoride (เทา)**
+- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↑ ปลอม + ALP เพี้ยน**; heparin ปน → coag เพี้ยน
+- เจาะหลอดเดียว/winged set → ทิ้ง discard tube ก่อน coag (กัน air/underfill)
+
+### Fork 2 — เลือกหลอด/additive + อัตราส่วน
+- **coag = citrate 1:9 เป๊ะ**: underfill → citrate เกิน → **aPTT/PT ยาวปลอม**; **Hct > 55% → ต้องปรับปริมาณ citrate** (plasma น้อย)
+- CBC = EDTA; **glucose/lactate = fluoride (NaF)** ยับยั้ง glycolysis — ถ้าใช้ผิดหลอด/ทิ้งนานไม่ปั่น glucose ตก ~5–7%/ชม.
+- trace metal/บางฮอร์โมน = หลอดเฉพาะ; ตรวจสอบก่อนเจาะ
+
+### Fork 3 — HIL: hemolysis / icteric / lipemic → analyte ไหนพัง
+- **Hemolysis → K↑↑, LDH↑, AST↑, Mg↑, phosphate↑, troponin/บาง immunoassay interfere** (สาร intracellular รั่ว). K จาก hemolyzed = ปลอม **ห้ามรายงานเป็น hyperkalemia** → เจาะใหม่
+- สาเหตุ hemolysis: เข็มเล็กเกิน/ดูดแรง, เขย่าหลอด, เจาะจาก line/cannula, ทิ้งนาน/ร้อน-เย็นจัด, แอลกอฮอล์ยังไม่แห้ง
+- **Lipemic → Hb/บาง analyte สูงปลอม** (turbidity); **icteric → bilirubin interfere บาง method**
+- ตัดสิน reject vs report-with-comment ตาม HIL index + SOP (เชื่อม `clinchem-judgment`)
+
+### Fork 4 — Timing / สรีรวิทยา
+- **fasting** (glucose/lipid/iron 8–12 ชม.); **TDM trough/peak** (เจาะผิดเวลา = ตีความยาผิด); **diurnal** (cortisol เช้า, iron เช้า); **posture + tourniquet** ดัน protein/Ca/cholesterol
+- **tourniquet < 1 นาที**: รัดนาน → hemoconcentration + **K/lactate leak** + เพี้ยน
+- **IV-line contamination**: เจาะเหนือสายน้ำเกลือ → เจือจาง + **glucose/K/Na spike ตามน้ำเกลือ** → เจาะแขนตรงข้าม/ใต้ line + ทิ้ง discard
+
+### Fork 5 — Identification = ข้อที่ "ถึงตาย"
+- **wrong-blood-in-tube** = สาเหตุ #1 ของ fatal transfusion error → ใช้ **2 identifiers**, label **ข้างเตียงทันที** (ไม่ใช่ที่เคาน์เตอร์), ห้าม pre-label
+- **historical/delta mismatch** (เช่น blood group ไม่ตรงของเดิม) → สงสัย mislabel/sample swap **ก่อน**ตีความ serology (เชื่อม `bloodbank-judgment`)
+
+### Fork 6 — Transport / storage / stability
+- **ปั่นแยก serum/plasma ช้า/ไม่แยก** → **K↑ glucose↓** (เซลล์ยัง metabolize); แช่ whole blood เย็น → K รั่วจาก RBC
+- **บนน้ำแข็งทันที**: ammonia, lactate, blood gas (บาง analyte); **กันแสง**: bilirubin
+- เกินเวลา stability ของแต่ละ analyte → reject/หมายเหตุ; อุณหภูมิขนส่งผิด = ผลเพี้ยนเงียบๆ
+
+## กับดัก (Anti-patterns)
+- #1 รีรันหลอดเดิมแทนเจาะใหม่ เมื่อค่าเพี้ยน (กับดัก #1) — clotted/hemolyzed รีรันก็ผิดซ้ำ
+- #2 รายงาน K จากตัวอย่าง hemolyzed เป็น hyperkalemia → หมออาจรักษาผิด/ฉุกเฉินปลอม
+- #3 ไม่สน order of draw → EDTA carryover ดัน K↑ Ca↓ ปลอม
+- #4 coag underfill / ไม่ปรับ citrate ตอน Hct สูง → PT/aPTT ยาวปลอม
+- #5 glucose ไม่ใช้ fluoride / ทิ้งนานไม่ปั่น → glucose ต่ำปลอม
+- #6 เจาะเหนือ IV line → ค่าเจือจาง + spike ตามน้ำเกลือ
+- #7 tourniquet รัดนาน/กำมือย้ำ → K/lactate/hemoconcentration เพี้ยน
+- #8 label ที่เคาน์เตอร์/pre-label → wrong-blood-in-tube (ถึงตาย)
+- #9 ไม่ปั่นแยก serum/แช่ whole blood เย็น → K↑ glucose↓ เงียบๆ
+- #10 ตีความ delta/historical mismatch เป็นเรื่องชีวภาพทันที โดยไม่สงสัย mislabel ก่อน
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - SOP แลบคุณตั้ง HIL-index cutoff / reject criteria / repeat-vs-recollect ไว้อย่างไรต่อ analyte?
+> - stability table (เวลา/อุณหภูมิ) ของ analyte ที่แลบคุณเจอปัญหาบ่อย
+> - ระบบ 2-identifier + จุดที่เคยเกิด wrong-blood-in-tube ในหน่วยงานคุณ + มาตรการกัน
+
+NOTE: knowledge (รายการ analyte stability เต็ม, สูตรปรับ citrate ตาม Hct, HIL index ของแต่ละเครื่อง) → ดู "ตำรา/แหล่งอ้างอิงมาตรฐาน / CLSI" ไม่ใช่หน้าที่ของ skill นี้
+
+---
+*skill นี้เป็นตัวช่วย "คิด" เพื่อการศึกษา ไม่ใช่ตัวตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = รักษาผิด → ทุก reject/accept/แก้ค่า ทำตาม SOP + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วยผิดเกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: progress-tracker ═════════ -->
 
 ---
@@ -5290,6 +5466,98 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 
 ---
 *skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: urinalysis-judgment ═════════ -->
+
+---
+skill: urinalysis-judgment
+title: โค้ชยูริน + body fluid microscopy — strip↔micro↔clinical ให้ตรง (Urinalysis & Body-Fluid Judgment)
+type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ atlas ตะกอน/ผลึก
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น้ำในร่างกายเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ทุกผลที่กระทบการรักษา (RBC cast, crystal พิษ, CSF cell) ต้องดูด้วยกล้อง + correlate clinical + ทำตาม SOP/reference ของแล็บ + ยืนยันกับ MT/แพทย์ก่อนรายงานเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ชยูริน + body fluid microscopy
+
+ตัวช่วยตัดสินใจงานตรวจปัสสาวะ + น้ำในร่างกาย (CSF/serous/synovial) — เน้น "ผล strip/sediment นี้ ต้องทำอะไรต่อ + อย่าพลาดตรงไหน" ไม่ใช่ atlas รูปตะกอน/ตารางผลึก
+
+> **กฎ #1:** strip กับกล้อง **ต้อง correlate กัน** — strip บวก/ลบ ไม่ตรง sediment = ต้อง resolve ก่อน report. flag จากเครื่อง automated (UF/iQ) = สัญญาณ ไม่ใช่คำตอบ
+> **กับดัก #1 (ขั้น hard):** **nitrite negative ไม่ตัด UTI** — เชื้อที่ไม่สร้าง nitrate reductase (Enterococcus, Staph, Pseudomonas, Acinetobacter) หรือปัสสาวะค้างใน bladder ไม่นานพอ → nitrite ลบทั้งที่ติดเชื้อ. และ leukocyte esterase ลบได้ใน early/neutropenia. **strip ลบ ≠ ปกติ** → ดู micro + บริบทเสมอ
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## ใช้เมื่อ
+- strip ↔ sediment ไม่ตรง → ตัวไหนเชื่อ? ต้อง resolve ยังไง
+- เห็น RBC/WBC/cast/crystal/cell → significant หรือ artifact/contamination? ต้อง flag ไหม
+- automated UA flag → ต้อง confirm ด้วยกล้องเมื่อไหร่
+- ขยับไป body fluid: CSF cell count, serous transudate/exudate, synovial crystal (gout/pseudogout)
+
+## วิธีใช้
+วาง skill นี้ + ผล strip + sediment (หรือ flag เครื่อง / ชนิด fluid) ที่กำลังตัดสินใจ → AI เดินตาม fork บอก "ทำอะไรต่อ + กับดักตรงไหน" แล้วชี้กลับให้คนดูกล้อง + correlate clinical + ยืนยันเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### ก่อนแปลผลเสมอ — ดู 3 อย่าง
+1. ตัวอย่าง OK มั้ย — midstream clean-catch? ตรวจภายใน **2 ชม.** (หรือแช่ 2–8°C)? ตั้งทิ้งนาน = cast สลาย, bacteria โต, pH↑ (urea→ammonia), cell/glucose สลาย, crystal ตกใหม่
+2. ชนิด specimen ตรงงาน — random (screen) · first-morning (concentration/protein/HCG) · 24h (quantitative) · catheter/supra (ตีความ contamination ต่างกัน)
+3. correlate strip ↔ sediment ↔ บริบทคน (อายุ/เพศ/ประจำเดือน/ยา/ไข้)
+
+### Fork 1 — strip บวก/ลบ "ไม่ตรง" sediment → resolve ก่อน report
+- **blood บวก แต่ไม่เห็น RBC** → hemoglobinuria (hemolysis) หรือ myoglobinuria (rhabdo) — ไม่ใช่เลือดออก. แยกด้วยบริบท + plasma สี/CK
+- **protein บวก** → strip จับ **albumin เด่น** (ไม่จับ Bence-Jones/globulin) → สงสัย myeloma/light chain ต้อง **SSA หรือ electrophoresis** ไม่ใช่ strip
+- **nitrite ลบ / LE ลบ แต่สงสัย UTI** → ดู micro (WBC/bacteria) + ส่ง culture; อย่าตัดด้วย strip (กับดัก #1)
+- **glucose บวกแต่เลือดปกติ** → renal glycosuria/ตั้งครรภ์; **ketone** → DKA/อดอาหาร/low-carb
+- **SG**: strip ผิดที่ pH สูง/protein; **refractometer แม่นกว่า** แต่ glucose/radiocontrast/mannitol ดัน SG refractometer สูงปลอม
+- **pH > 8** → มักเก็บนานเกิน/Proteus (urease); pH กับ crystal สัมพันธ์กัน (ใช้ช่วยแยกผลึก)
+
+### Fork 2 — Sediment cells → significant vs contamination
+- **RBC**: dysmorphic/acanthocyte → glomerular; isomorphic → lower tract/stone/tumor. ผู้หญิงมีประจำเดือน = contamination → re-collect
+- **WBC (pyuria)**: ติดเชื้อ; **sterile pyuria** (WBC+ culture−) → คิด TB, chlamydia/GC, ติดเชื้อที่รักษาแล้ว, นิ่ว, interstitial nephritis
+- **Epithelial**: **squamous เยอะ = contamination** (re-collect midstream); **renal tubular epithelial (RTE) = significant** (ATN/active injury) — อย่าสับสน 2 อย่างนี้
+- **Bacteria/yeast**: correlate กับ WBC + ความสด; ตั้งนาน bacteria โตเอง = ปลอม
+
+### Fork 3 — Casts = "ปักหมุดว่ามาจากไต" → อันไหนต้อง flag
+- hyaline — benign (ขาดน้ำ/ออกกำลัง/ไข้) · **RBC cast = glomerulonephritis → flag** · **WBC cast = pyelonephritis/interstitial nephritis** · granular/**muddy brown = ATN** · waxy/broad = renal failure เรื้อรัง · fatty (+oval fat body, Maltese cross) = nephrotic
+- หลัก: เห็น cast = localize ไปไต; RBC/WBC/muddy-brown cast = กระทบการดูแล → flag + correlate
+
+### Fork 4 — Crystals → normal vs pathologic (ผูกกับ pH)
+- กรด: uric acid · calcium oxalate (มีได้ทุก pH; **envelope/needle + AKI → สงสัย ethylene glycol poisoning** = ฉุกเฉิน เชื่อม `toxicology-judgment`)
+- ด่าง: triple phosphate/struvite (coffin-lid, Proteus), amorphous phosphate
+- **always pathologic**: cystine (hexagonal → cystinuria), tyrosine/leucine (liver), cholesterol, **drug crystals** (sulfa/acyclovir/indinavir → ประวัติยา)
+- artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค
+
+### Fork 5 — Body fluids (ขยายจากปัสสาวะ)
+- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · xanthochromia (SAH vs traumatic tap — 3-tube + แยก RBC ลดลง) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
+- **Serous (pleural/peritoneal)**: transudate vs exudate ตัดสินด้วย **Light's criteria** (เป็น chem ไม่ใช่ cell) → ชี้ทางก่อนแปล cell
+- **Synovial ใต้ polarized light**: **MSU = เข็ม, negatively birefringent = gout** · **CPPD = rhomboid, positively birefringent = pseudogout** · correlate cell count + Gram (septic = ฉุกเฉิน)
+
+## กับดัก (Anti-patterns)
+- #1 ตั้ง UA ทิ้งนานก่อนตรวจ → cast สลาย/bacteria โต/crystal ตกใหม่ → ตรวจภายใน 2 ชม. หรือแช่เย็น
+- #2 เหมา nitrite/LE ลบ = ไม่มี UTI → พลาด Enterococcus/Staph/early infection
+- #3 รายงาน squamous (contamination) ปนเป็น significant → ควร re-collect; แยก RTE ออก
+- #4 พลาด RBC cast / muddy-brown cast → พลาด GN/ATN ที่ต้อง flag
+- #5 calcium oxalate + AKI ไม่คิดถึง ethylene glycol → พลาดพิษที่ต้อง antidote ด่วน
+- #6 blood strip บวก = เลือดออกเสมอ → จริงๆ อาจ hemoglobin/myoglobin (ไม่เห็น RBC)
+- #7 protein strip ลบ = ไม่มี protein → strip ไม่จับ Bence-Jones; สงสัย myeloma ใช้ SSA/electrophoresis
+- #8 เชื่อ automated flag โดยไม่ confirm กล้องในเคสที่กระทบการดูแล
+- #9 CSF/synovial ปล่อยตั้งนานก่อนนับ → cell สลาย/นับเพี้ยน
+- #10 อ่าน crystal โดยไม่ดู pH + ไม่แยก artifact → รายงานผลึกผิด
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - SOP แลบคุณกำหนด strip↔micro reflex / criteria การ confirm กล้อง / re-collect ไว้อย่างไร?
+> - เครื่อง automated UA รุ่นที่ใช้ (UF-/iQ/cobas u) flag ตัวไหนที่ทีมตีความต่างจาก default?
+> - reference/critical สำหรับ body fluid (CSF cell, synovial) ในแลบคุณ + ขั้นตอนส่งต่อด่วน
+
+NOTE: knowledge (ค่าปกติ strip, รูปร่างตะกอน/ผลึกละเอียด, birefringence physics, Light's criteria สูตร) → ดู "ตำรา/แหล่งอ้างอิงมาตรฐาน" ไม่ใช่หน้าที่ของ skill นี้
+
+---
+*skill นี้เป็นตัวช่วย "คิด" เพื่อการศึกษา ไม่ใช่ตัวตัดสินใจหรือวินิจฉัยแทน · RBC cast / crystal พิษ / CSF-synovial ผิดปกติ = กระทบการดูแล ต้องดูกล้อง + correlate clinical + ยืนยันกับ MT/แพทย์ก่อนรายงาน · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: what-skill-do-i-need ═════════ -->

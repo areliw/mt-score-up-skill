@@ -4,6 +4,25 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [Unreleased] — T-shaped MT expansion (wave 1)
+
+### Added
+- **`urinalysis-judgment`** (#56) — UA + body-fluid (CSF/serous/synovial) microscopy: strip↔micro↔clinical
+  correlate, `nitrite-neg ≠ no UTI`, cast/crystal significant-vs-artifact, gout vs pseudogout under polarized
+  light. Closes a core lab-bench coverage gap (clinical microscopy had no standalone skill).
+- **`preanalytical-judgment`** (#57) — pre-analytical/phlebotomy = error #1 of the lab (~60–70%): order of
+  draw, tube/ratio, HIL → which analyte breaks, timing/tourniquet/IV-line, `rerun ≠ recollect`,
+  wrong-blood-in-tube. Consolidates guidance that was scattered across 11 files.
+- **`build-a-dashboard`** (#58) — first **T-shaped MT** skill: MT builds their own dashboard (TAT/QC/workload)
+  — question-before-chart, tool choice (Sheets/Looker/Power BI/Streamlit), non-deceptive charts (median TAT),
+  and a PDPA-first trap (no patient HN/row-level data on cloud). Reframes dev judgment for non-coder MTs.
+- **`docs/EXPANSION-PLAN.md`** — full no-omission manifest mapping every tier of source skills (dev/design/
+  data/business/productivity/AI/process) → MT-reframed repo skills, organised into 9 tracks + build waves.
+
+### Notes
+- `skills/INDEX.md`, `dist/all-skills.md`, `prompts/triage.md` regenerated via `scripts/build_triage.py`
+  (58 skills, no drift). README + skills/README counts bumped 55 → 58.
+
 ## [0.3.0] — 2026-06-07
 
 ### Added

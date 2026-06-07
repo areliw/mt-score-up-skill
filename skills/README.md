@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**55 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**58 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -28,6 +28,8 @@
 - **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็นภาพเดียว ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal value → DDx → rule-out → cause-effect chain) · *MT ไม่วินิจฉัย*
 - **pharmacology-judgment** — ยาเบื้องต้นมุม MT: ADME (ตับ/ไตเสื่อม→พิษ) · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน (ยา-ยา/อาหาร/โรค) · ใช้ยาถูก (ห้ามบด EC/SR) · TDM (peak/trough) · anticoag↔coag · pharmacogenomics — *MT ไม่สั่งจ่ายยา*
 - **infection-control-judgment** — ป้องกันการติดเชื้อ/biosafety: hand hygiene (alcohol vs สบู่ C.diff spore) · N95 vs surgical · transmission precaution (contact/droplet/airborne) · ห้องความดันลบ/บวก · post-exposure · BSL
+- **urinalysis-judgment** — ตรวจปัสสาวะ + body fluid microscopy: strip↔micro↔clinical ต้องตรง · nitrite-neg ไม่ตัด UTI · RBC/WBC/cast/crystal significant vs artifact · CSF/serous/synovial (gout vs pseudogout)
+- **preanalytical-judgment** — คุณภาพตัวอย่างก่อนวิเคราะห์ (error #1 ของแล็บ ~60–70%): order of draw · หลอด/ratio · HIL กระทบ analyte ไหน · timing/tourniquet/IV-line · รีรัน≠เจาะใหม่ · wrong-blood-in-tube
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
@@ -73,7 +75,9 @@
 - **marketing-judgment** — กลยุทธ์การตลาด B2B: STP ก่อน 4P · buying center 5 บทบาท · pricing (อย่าตัดราคา/elasticity) · positioning · push vs pull · razor-blade install base
 - **sales-psychology-judgment** — จิตวิทยาการขาย/อ่านคน: อ่านแรงจูงใจ (Maslow/McClelland) · คนซื้อด้วย Ideal/Public self · active listening · trust/social proof · เทคนิคโน้มน้าว + เส้นจริยธรรม · เจรจา win-win
 
-### 💻 โค้ด / เทคนิค / data
+### 💻 โค้ด / data / สร้างของเอง (MT++ : T-shaped MT)
+> ยุค AI — MT ไม่ต้องเป็นโปรแกรมเมอร์ก็ทำ dashboard/automate/data เองได้. กลุ่มนี้ reframe ให้ "MT ที่ไม่ใช่ dev" — กับดัก #1 ผูกกับ PDPA/ข้อมูลคนไข้เสมอ (แผนเต็ม: [`../docs/EXPANSION-PLAN.md`](../docs/EXPANSION-PLAN.md))
+- **build-a-dashboard** — MT ทำ dashboard เอง (TAT/QC/workload/stock): เริ่มที่คำถามไม่ใช่กราฟ · เลือกเครื่องมือ (Sheets/Looker/Power BI/Streamlit) · กราฟไม่หลอกตา (median TAT, ไม่ pie เยอะ) · ไม่เอา HN/ผลรายคนขึ้น cloud
 - **python-coach** — เลือก data structure/วิธี + กับดัก Python (.sort() คืน None, mutable default ฯลฯ)
 - **db-judgment** — ตัดสินใจ JOIN/index/normalize + กับดัก SQL (DELETE ไม่มี WHERE, NOT IN+NULL ฯลฯ)
 - **ml-judgment** — เลือก paradigm/classifier/metric/validation (6 decision forks) + กับดัก ML (leakage, tune บน test)

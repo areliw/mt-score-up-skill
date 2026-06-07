@@ -12,6 +12,7 @@
 | `anti-hallucination` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/anti-hallucination.md | 2026-06-04 |
 | `applied-microbiology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/applied-microbiology-judgment.md | 2026-06-04 |
 | `bloodbank-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/bloodbank-judgment.md | 2026-06-04 |
+| `build-a-dashboard` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/build-a-dashboard.md | 2026-06-08 |
 | `chemistry-interpretation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/chemistry-interpretation-judgment.md | 2026-06-04 |
 | `choose-stat-test` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/choose-stat-test.md | 2026-06-04 |
 | `clinchem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinchem-judgment.md | 2026-06-04 |
@@ -50,6 +51,7 @@
 | `pharmacology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pharmacology-judgment.md | 2026-06-04 |
 | `photography-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/photography-judgment.md | 2026-06-04 |
 | `polite-but-clear` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/polite-but-clear.md | 2026-06-04 |
+| `preanalytical-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/preanalytical-judgment.md | 2026-06-08 |
 | `progress-tracker` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/progress-tracker.md | 2026-06-04 |
 | `python-coach` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/python-coach.md | 2026-06-04 |
 | `r2r-research-proposal` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/r2r-research-proposal.md | 2026-06-04 |
@@ -60,4 +62,5 @@
 | `self-development-coach` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/self-development-coach.md | 2026-06-04 |
 | `self-improving-agent` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/self-improving-agent.md | 2026-06-04 |
 | `toxicology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/toxicology-judgment.md | 2026-06-04 |
+| `urinalysis-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/urinalysis-judgment.md | 2026-06-08 |
 | `what-skill-do-i-need` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/what-skill-do-i-need.md | 2026-06-04 |

@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (55 สกิล)
+## 📚 ส่วนที่ 1 — Skills (58 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -36,6 +36,8 @@
 | [pharmacology-judgment](./skills/pharmacology-judgment.md) | ยาเบื้องต้น: ADME · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน · pharmacogenomics |
 | [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal → DDx → rule-out) |
 | [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety: hand hygiene (C.diff spore) · N95 vs surgical · precaution · ความดันลบ/บวก · เข็มตำ |
+| [urinalysis-judgment](./skills/urinalysis-judgment.md) | UA + body fluid (CSF/serous/synovial) — strip↔micro↔clinical · nitrite-neg ≠ no UTI · cast/crystal · gout vs pseudogout |
+| [preanalytical-judgment](./skills/preanalytical-judgment.md) | เจาะ/หลอด/ระบุตัว/ขนส่ง = error #1 ของแล็บ · order of draw · HIL · รีรัน≠เจาะใหม่ · wrong-blood-in-tube |
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 | skill | ช่วยอะไร |
@@ -91,9 +93,12 @@
 | [sales-psychology-judgment](./skills/sales-psychology-judgment.md) | จิตวิทยาขาย/อ่านคน: แรงจูงใจ · active listening · trust · โน้มน้าว(+จริยธรรม) · เจรจา |
 | [lab-clinic-business-judgment](./skills/lab-clinic-business-judgment.md) | เปิด/บริหารคลินิกแล็บ MT เอง: เลือกโมเดล · moat (วิชาชีพ+จดทะเบียน+LIS-HIS) · รายได้รัฐ · อ่านใจ buyer · unit economics |
 
-### 💻 โค้ด / เทคนิค / data
+### 💻 โค้ด / data / สร้างของเอง (MT++ : T-shaped MT)
+> ยุค AI — MT ไม่ต้องเป็นโปรแกรมเมอร์ก็ทำ dashboard / automate / data เองได้. สกิลกลุ่มนี้ reframe ให้ "MT ที่ไม่ใช่ dev" — กับดัก #1 ผูกกับ **ความปลอดภัยข้อมูลคนไข้ (PDPA)** เสมอ (ดูแผนเต็ม [`docs/EXPANSION-PLAN.md`](./docs/EXPANSION-PLAN.md))
+
 | skill | ช่วยอะไร |
 |---|---|
+| [build-a-dashboard](./skills/build-a-dashboard.md) | MT ทำ dashboard เอง (TAT/QC/workload) — เลือกเครื่องมือ + กราฟไม่หลอกตา + ไม่รั่วข้อมูลคนไข้ |
 | [python-coach](./skills/python-coach.md) | เลือกเครื่องมือ + ไม่ตกหลุม Python |
 | [db-judgment](./skills/db-judgment.md) | ตัดสินใจ SQL / ออกแบบ DB ไม่ให้ระเบิด |
 | [ml-judgment](./skills/ml-judgment.md) | เลือกโมเดล/metric/validation ML + เลี่ยงกับดัก |
@@ -130,14 +135,14 @@
 skill เป็นไฟล์ — มี 2 วิธีโหลด เลือกตามงาน:
 - **ก๊อปเนื้อไฟล์** → snapshot **แช่แข็ง**: เสถียร, cite เวอร์ชันใน audit trail ได้, ไม่เปลี่ยนกลางคัน (เหมาะงานคลินิก)
 - **โหลดสด (live link)** → บอก AI ที่ต่อเน็ตได้ว่า *"ดึง skill จาก `<raw URL>` มาใช้"* → ได้ `main` ล่าสุด**ทุกครั้ง = auto-sync** ไม่ต้องก๊อปใหม่ · รายการ URL ทั้งหมด → [`skills/INDEX.md`](./skills/INDEX.md) (CI อัปเดตอัตโนมัติ)
-- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 55 ตัวในไฟล์เดียว (~90K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
+- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวมทุกตัวในไฟล์เดียว (~90K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
 - ⚠️ live link ใช้ได้เฉพาะ AI ที่ดึง URL ได้ (Claude web · ChatGPT browse · Gemini) — แชตเปล่า offline ใช้ก๊อป
 
 ## โครงสร้าง
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 55 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 58 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

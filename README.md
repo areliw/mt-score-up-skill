@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (64 สกิล)
+## 📚 ส่วนที่ 1 — Skills (72 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -38,6 +38,8 @@
 | [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety: hand hygiene (C.diff spore) · N95 vs surgical · precaution · ความดันลบ/บวก · เข็มตำ |
 | [urinalysis-judgment](./skills/urinalysis-judgment.md) | UA + body fluid (CSF/serous/synovial) — strip↔micro↔clinical · nitrite-neg ≠ no UTI · cast/crystal · gout vs pseudogout |
 | [preanalytical-judgment](./skills/preanalytical-judgment.md) | เจาะ/หลอด/ระบุตัว/ขนส่ง = error #1 ของแล็บ · order of draw · HIL · รีรัน≠เจาะใหม่ · wrong-blood-in-tube |
+| [poct-judgment](./skills/poct-judgment.md) | POCT = แล็บนอกแล็บ ต้องมี QC+competency+connectivity · interference (Hct) · confirm ค่าวิกฤต |
+| [flow-cytometry-judgment](./skills/flow-cytometry-judgment.md) | gate ถูก (singlet/viable/CD45-SSC) · อ่าน pattern ไม่ใช่ marker เดี่ยว · PNH/CD4/leukemia · correlate |
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 | skill | ช่วยอะไร |
@@ -49,6 +51,11 @@
 | [r2r-stats](./skills/r2r-stats.md) | รัน + แปลผลสถิติ R2R |
 | [manuscript-judgment](./skills/manuscript-judgment.md) | เขียน manuscript/proposal (IMRaD) ให้ผ่าน reviewer |
 | [critical-appraisal-judgment](./skills/critical-appraisal-judgment.md) | อ่าน/ประเมินงานวิจัย + lit review + หา gap + ประเมิน test (sens/spec/PPV) |
+| [method-validation-stats](./skills/method-validation-stats.md) | สถิติเฉพาะ MT: method comparison (Bland-Altman/PB ไม่ใช่ r) · reference interval (EP28) · diagnostic accuracy · CV/sigma |
+| [pubmed-search](./skills/pubmed-search.md) | ค้น PubMed: PICO→MeSH+synonym · ขยาย/แคบ · "ไม่เจอ"≠"ไม่มี" · verify PMID |
+| [source-credibility](./skills/source-credibility.md) | ประเมินแหล่งเชื่อได้แค่ไหน: คัด predatory · ลำดับชั้นหลักฐาน · COI/retract · IF สูง≠ถูก |
+| [deep-research](./skills/deep-research.md) | research หลายแหล่ง + cross-check + สังเคราะห์ + อ้างอิง · ไม่เชื่อ AI รอบเดียว |
+| [gget-genomics](./skills/gget-genomics.md) | ดึง gene/variant/structure ด้วย gget · ระวัง genome build (hg19/hg38) · classify ตาม ACMG |
 
 ### 🤖 ใช้ AI อย่างคม / ปลอดภัย
 | skill | ช่วยอะไร |
@@ -105,6 +112,7 @@
 | [ship-a-small-app](./skills/ship-a-small-app.md) | ทำเครื่องมือเล็กให้ทีมใช้ (calculator/ฟอร์ม) — no-code ก่อน + auth/PDPA |
 | [spreadsheet-judgment](./skills/spreadsheet-judgment.md) | Excel/Sheets ให้ถูก — กัน autoconvert ทำลายข้อมูล · VLOOKUP/STDEV · median TAT |
 | [mt-databases](./skills/mt-databases.md) | เก็บข้อมูล Sheets vs Access vs SQL vs REDCap เมื่อไหร่ + ออกแบบไม่ให้พัง/หาย |
+| [deploy-ml-safely](./skills/deploy-ml-safely.md) | MT เอาโมเดลไปใช้จริง — "แม่นตอนเทรน≠ใช้ได้จริง" · drift/monitor · human-in-loop คลินิก |
 | [python-coach](./skills/python-coach.md) | เลือกเครื่องมือ + ไม่ตกหลุม Python |
 | [db-judgment](./skills/db-judgment.md) | ตัดสินใจ SQL / ออกแบบ DB ไม่ให้ระเบิด |
 | [ml-judgment](./skills/ml-judgment.md) | เลือกโมเดล/metric/validation ML + เลี่ยงกับดัก |
@@ -148,7 +156,7 @@ skill เป็นไฟล์ — มี 2 วิธีโหลด เลื�
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 64 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 72 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

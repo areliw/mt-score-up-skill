@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**64 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**72 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -30,6 +30,8 @@
 - **infection-control-judgment** — ป้องกันการติดเชื้อ/biosafety: hand hygiene (alcohol vs สบู่ C.diff spore) · N95 vs surgical · transmission precaution (contact/droplet/airborne) · ห้องความดันลบ/บวก · post-exposure · BSL
 - **urinalysis-judgment** — ตรวจปัสสาวะ + body fluid microscopy: strip↔micro↔clinical ต้องตรง · nitrite-neg ไม่ตัด UTI · RBC/WBC/cast/crystal significant vs artifact · CSF/serous/synovial (gout vs pseudogout)
 - **preanalytical-judgment** — คุณภาพตัวอย่างก่อนวิเคราะห์ (error #1 ของแล็บ ~60–70%): order of draw · หลอด/ratio · HIL กระทบ analyte ไหน · timing/tourniquet/IV-line · รีรัน≠เจาะใหม่ · wrong-blood-in-tube
+- **poct-judgment** — POCT = แล็บนอกแล็บ (ISO 15189:2022): เมื่อไหร่ใช้ vs ส่งแล็บกลาง · QC+operator competency+connectivity · interference (Hct/oxygen) · linear range · confirm/แจ้งค่าวิกฤต
+- **flow-cytometry-judgment** — gating ถูก (scatter→singlet→viable→CD45/SSC) · compensation+FMO control · อ่าน pattern/intensity ไม่ใช่ marker เดี่ยว · leukemia/lymphoma/PNH/CD4/MRD · correlate morphology
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
@@ -39,6 +41,11 @@
 - **choose-stat-test** — decision tree เลือก statistical test จาก 3 คำถาม (เป้าหมาย × ชนิด outcome × กี่กลุ่ม)
 - **sample-size-power** — หาขนาดตัวอย่าง N ด้วย power analysis + สูตร + ตัวอย่างมีเลข
 - **r2r-stats** — ผู้ช่วยรัน/แปลผลสถิติ R2R + กับดัก lab (method comparison ≠ validation ฯลฯ) `needs: code-interpreter`
+- **method-validation-stats** — สถิติเฉพาะ MT: method comparison (Bland-Altman + Passing-Bablok/Deming ไม่ใช่ r/paired-t) · reference interval (CLSI EP28, n≥120) · diagnostic accuracy (sens/spec/PPV-ตาม prevalence/ROC) · precision/CV/sigma · kappa
+- **pubmed-search** — ค้น PubMed: PICO→MeSH+synonym+Boolean · filter ฉลาด · ขยาย/แคบ · "ค้นไม่เจอ"≠"ไม่มีงาน" · verify PMID (AI แต่ง citation ได้)
+- **source-credibility** — ประเมินแหล่งเชื่อได้แค่ไหน: คัด predatory (indexing/publisher) · ลำดับชั้นหลักฐาน · COI/funding/retract · IF สูง/"peer-reviewed"≠ถูก · ตามไป primary
+- **deep-research** — research หลายแหล่งอิสระ + cross-check + สังเคราะห์ (ระบุระดับความมั่นใจ) + อ้างอิง · ไม่เชื่อ AI รอบเดียว · กัน confirmation bias
+- **gget-genomics** — ดึง gene/variant/seq/structure ด้วย gget (Ensembl/NCBI/UniProt/AlphaFold) · ระวัง genome build (hg19↔hg38) · presence≠pathogenic (classify ACMG) · PHI
 
 ### 🤖 ใช้ AI อย่างคม / ปลอดภัย
 - **ai-assistant-calibration** — ปรับ "นิสัยการตอบ" ของ AI ให้คม ตรงสไตล์คุณ `CALIBRATION`
@@ -84,6 +91,7 @@
 - **ship-a-small-app** — เครื่องมือเล็กให้ทีมใช้: เล็กสุดที่ใช้ได้ก่อน · no-code/low-code (Forms/AppSheet/Streamlit) · auth+PDPA ตั้งแต่แรก · verify สูตรคลินิก
 - **spreadsheet-judgment** — Excel/Sheets: กัน autoconvert (รหัส/วันที่/ยีน) · tidy data · VLOOKUP exact/STDEV.S-vs-P · data validation · median TAT · เมื่อไหร่ย้าย DB
 - **mt-databases** — เลือกที่เก็บ (Sheets/Access/SQL/REDCap) ตามขนาด×คน×relationship · ออกแบบ non-DBA (1 entity/ตาราง, unique id) · backup+ห้ามแก้ raw · DELETE มีเงื่อนไข
+- **deploy-ml-safely** — MT เอาโมเดลไปใช้จริง: "แม่นตอนเทรน≠ใช้ได้จริง" · validate external (ไม่ใช่ test split) · data drift+monitor · fallback/reject option · human-in-loop คลินิก · version/IRB
 - **python-coach** — เลือก data structure/วิธี + กับดัก Python (.sort() คืน None, mutable default ฯลฯ)
 - **db-judgment** — ตัดสินใจ JOIN/index/normalize + กับดัก SQL (DELETE ไม่มี WHERE, NOT IN+NULL ฯลฯ)
 - **ml-judgment** — เลือก paradigm/classifier/metric/validation (6 decision forks) + กับดัก ML (leakage, tune บน test)

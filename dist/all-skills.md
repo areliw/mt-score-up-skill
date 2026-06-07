@@ -2027,6 +2027,159 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 *ช่วยคิดออกแบบ/เขียน SQL เพื่อการศึกษา ไม่ใช่คำสั่งให้รันจริง — งานจริงควรทดสอบบน staging + backup ก่อน DELETE/UPDATE และตรวจ query plan ก่อนใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: deep-research ═════════ -->
+
+---
+skill: deep-research
+title: research หลายแหล่ง + สังเคราะห์ + อ้างอิงได้ (Deep Research)
+type: ADVISE               # ช่วยวางกระบวนการวิจัยข้อมูล ไม่ใช่ค้นให้
+needs: any                 # ใช้ได้กับ AI ทุกตัว (ได้ผลดีกับ AI ที่ค้นเน็ตได้)
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดกระบวนการ research/สังเคราะห์เพื่อการศึกษา ไม่ใช่การรับรองความถูกต้องของข้อสรุป · ทุก claim สำคัญต้อง verify กับแหล่งจริง; เรื่องการแพทย์/การเงิน/กฎหมายต้องยืนยันกับผู้เชี่ยวชาญ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# research หลายแหล่ง + สังเคราะห์
+
+ตัวช่วยตอนต้องหาข้อมูลเชิงลึกเพื่อตัดสินใจใหญ่ (งานวิจัย, สแกนตลาด/คู่แข่ง IVD, เลือกเครื่อง/เทคโนโลยี, ตัดสินใจอาชีพ) — เน้น "หาหลายแหล่ง + cross-check + สังเคราะห์ + อ้างอิง" ไม่ใช่ถาม AI ครั้งเดียว
+
+> **กฎ #1:** research ดี = **หลายแหล่งอิสระ + cross-check + อ้างอิงได้** ไม่ใช่ถาม AI/คนเดียวแล้วเชื่อ
+> **กับดัก #1 (ขั้น hard):** เอาคำตอบ AI รอบเดียวเป็น "ผลวิจัย" — AI มั่ว/อ้างแหล่งปลอม/**ลำเอียงตามที่ถาม (confirmation)**. ต้อง **triangulate ≥2–3 แหล่งอิสระ** + verify ทุก claim สำคัญ
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## ใช้เมื่อ
+- ต้องสรุปเรื่องที่ไม่รู้มาก่อนเพื่อตัดสินใจ (เทคโนโลยี/ตลาด/อาชีพ/วิจัย)
+- มีข้อมูลกระจัดกระจายหลายที่ ต้องร้อยเป็นภาพเดียว
+- กลัวสรุปผิดเพราะพึ่งแหล่งเดียว/AI อย่างเดียว
+
+## วิธีใช้
+วาง skill นี้ + คำถาม/เรื่องที่จะ research → AI ช่วยแตกคำถาม + วางแผนหาแหล่ง + cross-check + สังเคราะห์พร้อมระดับความมั่นใจ แล้วชี้ให้คุณ verify แหล่งจริงเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — ตั้งคำถาม + ขอบเขต
+- คำถามคมก่อน (กว้างไป = research เปะปะ) → แตกเป็น **sub-question** ที่ตอบได้ทีละข้อ
+
+### Fork 2 — หาหลายมุม/หลายแหล่ง
+- **primary** (paper/ข้อมูลดิบ/spec ผู้ผลิต) + **secondary** (review/ข่าว) + **คนจริง** (ผู้ใช้งาน/ผู้เชี่ยวชาญ)
+- อย่าพึ่งแหล่งเดียว/AI อย่างเดียว (เชื่อม `pubmed-search`, `source-credibility`)
+
+### Fork 3 — cross-check + จับขัดแย้ง
+- แหล่งไหนค้านกัน + ทำไม (วิธีต่าง? ผลประโยชน์ต่าง? ปีต่าง?)
+- แยก **fact vs opinion vs ที่ AI เดา** ให้ชัด
+
+### Fork 4 — สังเคราะห์
+- สรุปเป็นภาพเดียว + **ระบุระดับความมั่นใจ** (มั่นใจ/ไม่แน่/ยังไม่รู้) + **ช่องที่ยังไม่รู้**
+- ⚠️ **อย่าเติมช่องว่างด้วยการเดา** — "ยังไม่มีข้อมูล" เป็นคำตอบที่ซื่อสัตย์
+
+### Fork 5 — อ้างอิง
+- ทุก claim สำคัญมีแหล่ง + **verify แหล่งมีจริง** (เชื่อม `source-credibility`, `anti-hallucination`) + บันทึกที่มา
+
+### Fork 6 — AI = ผู้ช่วย ไม่ใช่ผู้ตัดสิน
+- AI ช่วยรวบ/ร่าง/หาแง่มุมที่ลืม — แต่ **คนตรวจ + ตัดสินใจ**; งานกระทบคนไข้/เงิน/กฎหมาย ต้องมีผู้เชี่ยวชาญ
+
+## กับดัก (Anti-patterns)
+- #1 ถาม AI รอบเดียวแล้วเชื่อเป็นผลวิจัย (กับดัก #1)
+- #2 พึ่งแหล่งเดียว / ไม่ triangulate
+- #3 ไม่แยก fact / opinion / ที่ AI เดา
+- #4 เติมช่องว่างที่ไม่รู้ด้วยการเดา (แทนที่จะบอกว่าไม่รู้)
+- #5 ไม่ verify citation/แหล่งว่ามีจริง
+- #6 ไม่บันทึกที่มา → reproduce/ตรวจย้อนไม่ได้
+- #7 **confirmation bias** — หาแต่ที่ยืนยันสิ่งที่อยากเชื่อ, ไม่หาหลักฐานค้าน
+- #8 ไม่ระบุระดับความมั่นใจ → คนอ่านเข้าใจว่าทุกอย่างชัวร์เท่ากัน
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - คำถาม/การตัดสินใจที่กำลัง research + เดิมพันแค่ไหน (ยิ่งสูง ยิ่งต้อง triangulate)
+> - แหล่งที่เชื่อถือได้ในสาขาคุณ (ที่ AI อาจไม่รู้จัก)
+> - มุมที่คุณ "อยากให้จริง" — เพื่อระวัง confirmation bias ของตัวเอง
+
+NOTE: ค้นวรรณกรรมวิชาการ → `pubmed-search`; ประเมินคุณภาพแหล่ง → `source-credibility`; อ่าน/ประเมิน paper → `critical-appraisal-judgment`
+
+---
+*skill นี้ช่วย "คิดกระบวนการ research" เพื่อการศึกษา ไม่รับรองข้อสรุป · triangulate + verify ทุก claim สำคัญ; เรื่องสำคัญยืนยันกับผู้เชี่ยวชาญ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: deploy-ml-safely ═════════ -->
+
+---
+skill: deploy-ml-safely
+title: MT เอาโมเดล ML ไปใช้จริง — ไม่ให้เงียบๆ พัง (Deploy ML Safely)
+type: ADVISE               # ช่วยตัดสินใจการนำโมเดลไปใช้ ไม่ใช่สอนเทรน
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดการนำโมเดล ML ไปใช้จริงเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ · โมเดลในงานแล็บ/คลินิก = decision-support ต้องมี MT/แพทย์ยืนยัน + validate ก่อนใช้จริง; ข้อมูล training ต้อง de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# MT เอาโมเดล ML ไปใช้จริง
+
+ตัวช่วยตอน MT เทรนโมเดลได้แล้ว (เช่น smear/cell classifier, ทำนาย thal, จัด priority) จะเอาไป **ใช้จริง** ยังไงไม่ให้พังเงียบ — เน้น "ก่อน deploy ต้องเช็คอะไร + monitor + human-in-loop" ไม่ใช่สอนเทรนโมเดล
+
+> **กฎ #1:** โมเดลที่ **"แม่นตอนเทรน" ≠ "ใช้ได้จริง"** — performance ตก/drift เมื่อเจอข้อมูลจริง/เครื่องใหม่/เวลาผ่าน → ต้อง validate external + monitor + มีคนตรวจ
+> **กับดัก #1 (ขั้น hard):** **model ที่ผิดเงียบในงานคลินิก อันตรายกว่าไม่มีโมเดล** — ไม่มี monitoring + ไม่มี human-in-the-loop จุดที่กระทบคนไข้ = ปล่อยผิดสะสม. โมเดลแล็บ/คลินิก = **decision-support** ต้องมี MT/แพทย์ยืนยัน
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## ใช้เมื่อ
+- เทรนโมเดลได้แล้ว (thesis/งานวิจัย/เครื่องมือทีม) จะเอาไปใช้จริง
+- กลัวโมเดลแม่นตอนเทสต์แต่พังกับข้อมูลจริง
+- ไม่แน่ใจต้องมี monitoring/คนตรวจแค่ไหน (โดยเฉพาะงานคลินิก)
+
+## วิธีใช้
+วาง skill นี้ + บอกโมเดล (ทำอะไร/เทรนกับข้อมูลอะไร/จะใช้ที่ไหน) → AI ช่วยไล่ checklist ก่อน deploy + วาง monitoring/fallback + ชี้จุดที่ต้องมี human-in-loop
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — ก่อน deploy (validation จริง)
+- validate บน **external/prospective data** ไม่ใช่แค่ test split ของชุดเดิม
+- เช็ค **data leakage** (เชื่อม `ml-judgment`) · ดู **calibration** ไม่ใช่แค่ accuracy/AUC
+- งาน imbalanced → **sens/spec/PR curve** ไม่ใช่ accuracy ลอยๆ
+
+### Fork 2 — data drift / distribution shift
+- เครื่องใหม่/น้ำยา lot ใหม่/ย้อมต่าง/ประชากรต่าง → performance ตกเงียบ
+- monitor **input distribution + output distribution** ต่อเนื่อง → alert เมื่อเพี้ยน
+
+### Fork 3 — monitoring + fallback
+- track performance หลัง deploy (ไม่ใช่ deploy แล้วลืม)
+- **fallback ไปคน** เมื่อ confidence ต่ำ / input นอก distribution (**reject option**)
+
+### Fork 4 — human-in-the-loop
+- งานคลินิก = **โมเดลเสนอ คนตัดสิน**; ทุกผลที่กระทบคนไข้ผ่าน MT/แพทย์ (เชื่อม `clinical-correlation-judgment`, `cv-judgment` สำหรับ image)
+
+### Fork 5 — reproducibility + versioning
+- เก็บ version (model + data + เกณฑ์), เงื่อนไข retrain, audit ว่าโมเดลไหนตัดสินอะไรเมื่อไหร่
+
+### Fork 6 — กฎ/จริยธรรม
+- training data: **consent/de-identify/IRB** · ระวัง **bias ในข้อมูล** (ประชากร/เครื่องเดียว) · อธิบายได้แค่ไหน (explainability) · ระบุ **ขอบเขตที่ validate** แล้วใช้ในขอบเขตนั้น
+
+## กับดัก (Anti-patterns)
+- #1 deploy คลินิกโดยไม่มี human-in-the-loop / monitoring → ผิดเงียบสะสม (กับดัก #1)
+- #2 validate แค่ test split (ไม่ external/prospective)
+- #3 ดู accuracy บนข้อมูล imbalanced (ควร sens/spec/PR)
+- #4 ไม่ monitor drift → ตกเงียบเมื่อเครื่อง/ประชากรเปลี่ยน
+- #5 ไม่มี fallback/reject option เมื่อโมเดลไม่มั่นใจ
+- #6 ไม่ version โมเดล/ข้อมูล → audit/reproduce ไม่ได้
+- #7 training data มี bias/leakage/ไม่ de-identify/ไม่ผ่าน IRB
+- #8 ใช้โมเดลนอกขอบเขตที่ validate (เทรนผู้ใหญ่ → ใช้เด็ก; เครื่อง A → เครื่อง B)
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - โมเดลที่คุณทำ + เทรนกับข้อมูลอะไร (เครื่อง/ประชากร/จำนวน) + จะใช้ที่ไหน
+> - ใครจะเป็นคน review ผลโมเดลในงานจริง + เกณฑ์ fallback
+> - นโยบาย รพ./IRB เรื่อง AI/ML ในงานคลินิก + ข้อมูลผู้ป่วย
+
+NOTE: เลือกโมเดล/metric/validation เชิงลึก → `ml-judgment`; งานภาพ (cell/smear) → `cv-judgment`; รันโปรเจกต์ data → `data-project-survival`; skill นี้ช่วย "เอาโมเดลไปใช้จริงอย่างปลอดภัย"
+
+---
+*skill นี้ช่วย "คิด" เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ · โมเดลคลินิก = decision-support ต้องมี MT/แพทย์ยืนยัน + validate; training data de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: digital-judgment ═════════ -->
 
 ---
@@ -2393,6 +2546,157 @@ disclaimer: "ช่วยคิดอ่านงบการเงินเพ�
 
 ---
 *ช่วยคิดอ่านงบการเงินเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน/บัญชีจากผู้มีใบอนุญาต — ตัวเลข/นโยบายบัญชีต้องตรวจกับงบจริง + ผู้สอบบัญชี/ผู้เชี่ยวชาญก่อนตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: flow-cytometry-judgment ═════════ -->
+
+---
+skill: flow-cytometry-judgment
+title: โค้ช flow cytometry — gate ถูก + อ่าน pattern + correlate (Flow Cytometry Judgment)
+type: ADVISE               # ช่วยตัดสินใจ gating/panel/ตีความ ไม่ใช่ atlas marker
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดงาน flow cytometry เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC ของแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ช flow cytometry
+
+ตัวช่วยตัดสินใจงาน flow (immunophenotyping leukemia/lymphoma, CD4, PNH, lymphocyte subset, MRD) — เน้น "gate ถูก + อ่าน pattern + correlate" ไม่ใช่ atlas CD marker
+
+> **กฎ #1:** flow ตีความจาก **population + pattern (intensity/relationship)** ไม่ใช่ marker เดี่ยว — ต้อง **gate ให้ถูก population ก่อน** + correlate morphology/clinical เสมอ
+> **กับดัก #1 (ขั้น hard):** **gating ผิด** (รวม debris/doublet/เซลล์ตาย หรือ gate ผิด population) → ผล % เพี้ยน + แปล population ผิด. ต้อง gate **viability + singlet + scatter (CD45/SSC)** ก่อนอ่าน marker
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = ผู้เชี่ยวชาญ/แพทย์ยืนยัน
+
+## ใช้เมื่อ
+- วาง gating strategy / panel หรือ debug ผล flow ที่ดูแปลก
+- อ่าน immunophenotype → blast lineage / lymphoma / PNH / CD4
+- ผล flow ขัด smear/clinical → เชื่อ/ทำอะไรต่อ
+
+## วิธีใช้
+วาง skill นี้ + บอกงาน (panel/ผล/scatter plot ที่อธิบายได้) + บริบทคน → AI ช่วยไล่ gating + ชี้ pattern + เตือน control/compensation แล้วชี้ให้ correlate morphology + ยืนยันเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### ก่อนวิเคราะห์ — เช็คคุณภาพ
+- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO/isotype)** ไหม
+
+### Fork 1 — gating strategy (ลำดับ)
+scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte) → marker เฉพาะใน gate ที่สนใจ
+
+### Fork 2 — panel design
+- lineage marker + maturation marker; เลือก CD ให้ครอบ DDx (AML vs ALL vs lymphoma)
+- **aberrant phenotype** (marker ผิดที่/ผิดเวลา) = clue สำคัญของ malignancy/MRD
+
+### Fork 3 — อ่าน pattern ไม่ใช่ marker เดี่ยว
+- ดู **% + intensity (dim/bright) + ความสัมพันธ์ระหว่าง marker** (co-expression)
+- เทียบกับ normal maturation pattern → ผิดปกติตรงไหน
+
+### Fork 4 — แอปจริง
+- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (CD55/CD59 loss, FLAER) · **MRD** · lymphocyte subset
+
+### Fork 5 — correlate (flow ไม่ใช่คำตอบเดี่ยว)
+- correlate **smear/morphology + clinical + cytogenetics/molecular** (เชื่อม `hematology-judgment`, `pathology-judgment`, `molecular-judgment`) — diagnosis เป็นหน้าที่แพทย์/ผู้เชี่ยวชาญ
+
+### Fork 6 — QC instrument
+- setup/CST beads, PMT voltage, daily QC, compensation matrix เป็นปัจจุบัน
+
+## กับดัก (Anti-patterns)
+- #1 gate ไม่ตัด dead/doublet/debris → % เพี้ยน, population ผิด (กับดัก #1)
+- #2 compensation/spillover ผิด → marker ดู positive ปลอม
+- #3 ไม่มี FMO/isotype control → ขีดเส้น positive/negative มั่ว
+- #4 อ่าน marker เดี่ยวไม่ดู pattern/co-expression
+- #5 ไม่สน intensity (dim vs bright) → พลาด aberrant phenotype
+- #6 ไม่ correlate morphology/clinical → ตีความลอย
+- #7 สรุป diagnosis จาก flow อย่างเดียว (ข้าม smear/genetics/แพทย์)
+- #8 sample เก่า/viability ต่ำ แล้วเชื่อผลเต็มร้อย
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - panel + gating template ที่แลบคุณใช้ (marker/fluorochrome/เครื่อง)
+> - เกณฑ์ positive/aberrant + cutoff ของแลบคุณ (โดยเฉพาะ MRD/PNH)
+> - เคสที่ flow ขัด morphology → ทีมตัดสินยังไง
+
+NOTE: knowledge (CD marker เต็ม, fluorochrome spectra, ตาราง phenotype ต่อโรค) → ตำรา/แหล่งอ้างอิง; smear/morphology → `hematology-judgment`; skill นี้ช่วย "gate/อ่าน pattern/correlate"
+
+---
+*skill นี้ช่วย "คิด" เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: gget-genomics ═════════ -->
+
+---
+skill: gget-genomics
+title: ดึงข้อมูล gene/variant ด้วย gget — สาย molecular/bioinformatics (gget Genomics)
+type: ADVISE               # ช่วยเลือก module + ตีความ ไม่ใช่รัน CLI ให้
+needs: any                 # ใช้ได้กับ AI ทุกตัว (ลงมือจริงต้องลง gget/รัน Python)
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดการใช้ gget ดึงข้อมูลจีโนมเพื่อการศึกษา ไม่ใช่การแปลผลทางคลินิก · variant pathogenicity ต้อง classify ตาม ACMG + ยืนยันโดยผู้เชี่ยวชาญ; sequence/variant ของผู้ป่วยจริง = PHI อย่าอัปขึ้น service สาธารณะ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# ดึงข้อมูล gene/variant ด้วย gget
+
+ตัวช่วยสำหรับ MT สาย molecular/bioinformatics ที่ใช้ [gget](https://github.com/pachterlab/gget) ดึงข้อมูลจากฐานข้อมูลจีโนม (Ensembl/NCBI/UniProt/PDB/AlphaFold) — เน้น "เลือก module + กับดัก build/ตีความ" ไม่ใช่ตำรา bioinformatics
+
+> **กฎ #1:** gget ดึงจากฐานมาตรฐานได้เร็ว แต่ **ต้องระบุ reference genome + release ให้ตรง** — coordinate ผิด build = ผิดทั้งสาย
+> **กับดัก #1 (ขั้น hard):** **variant coordinate ขึ้นกับ genome build** (GRCh37/hg19 vs GRCh38/hg38) — ใช้ผิด build → ตำแหน่ง/ยีน/ผลแปลผิด. ตรวจ build ของทุกแหล่งก่อนเทียบ/รวม (ต้อง liftover เมื่อข้าม build)
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## ใช้เมื่อ
+- ต้องดึง gene info / sequence / ortholog / structure / variant สำหรับงานวิจัย/thesis
+- ทำ enrichment / BLAST / alignment เร็วๆ จาก CLI/notebook
+- ไม่แน่ใจ module ไหนตอบโจทย์ + กลัว build/version เพี้ยน
+
+## วิธีใช้
+วาง skill นี้ + บอกว่าต้องการข้อมูลอะไร (gene/variant/structure/enrichment) → AI ช่วยเลือก gget module + เตือน build/version + ชี้การตีความที่ต้อง verify แล้วให้คุณรันจริง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — เลือก module ตามงาน
+- `gget search`/`info` — หา/ดูข้อมูลยีน (Ensembl ID, ชื่อ, ตำแหน่ง)
+- `gget seq` — ลำดับ nucleotide/amino · `gget blast`/`muscle` — BLAST/alignment
+- `gget ref` — ดึง reference genome/annotation (FASTA/GTF) ของ species+release
+- `gget enrichr`/`archs4` — GO/pathway enrichment, expression
+- `gget pdb`/`alphafold` — โครงสร้างโปรตีน · `gget cosmic`/`mutate`/`cellxgene` — variant/single-cell
+
+### Fork 2 — build / version (หัวใจ)
+- ระบุ **species + Ensembl release** ชัด · ข้ามแหล่งต่าง build → **liftover (hg19↔hg38)** ก่อนเทียบ
+- บันทึก gget version + database release (reproducibility)
+
+### Fork 3 — ตีความ + verify (อย่าข้ามไปคลินิก)
+- ผลจากฐานข้อมูล ≠ ผลคลินิก — **variant ต้อง classify ตาม ACMG** + ดู population frequency (gnomAD) (เชื่อม `molecular-judgment`)
+- อย่าสรุป "pathogenic" จากแค่ presence/ชื่ออยู่ใน DB
+- AI อาจให้พารามิเตอร์/ผลผิด → ตรวจกับ output จริง (เชื่อม `anti-hallucination`)
+
+### Fork 4 — ข้อมูลผู้ป่วย
+- sequence/variant ของคนไข้จริง = **PHI** → รันบนเครื่อง/สภาพแวดล้อมที่ปลอดภัย, อย่าอัปขึ้น public tool โดยไม่ระวัง (เชื่อม `digital-judgment`)
+
+## กับดัก (Anti-patterns)
+- #1 ลืมระบุ build/release → coordinate เพี้ยน (กับดัก #1)
+- #2 สับ hg19 ↔ hg38 ตอนรวมแหล่ง (ไม่ liftover)
+- #3 สรุป pathogenic จาก presence โดยไม่ดู ACMG/frequency
+- #4 ไม่บันทึก version (gget/DB) → reproduce ไม่ได้
+- #5 เชื่อพารามิเตอร์/ผลที่ AI แนะนำโดยไม่ตรวจ output จริง
+- #6 อัป sequence/variant ผู้ป่วยขึ้น public service
+- #7 ใช้ default species (human) กับข้อมูลที่เป็น species อื่น
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - งาน molecular/thesis ที่คุณใช้ gget + species/build ที่ใช้จริง
+> - pipeline ที่ทีมคุณใช้ (gget เชื่อมกับ tool อื่นยังไง) + version ที่ pin ไว้
+> - เกณฑ์ classify variant (ACMG/in-house) ในงานคุณ
+
+NOTE: การแปลผล variant/molecular เชิงคลินิก → `molecular-judgment`; bioinformatics ทฤษฎี/syntax gget ละเอียด → docs ของ gget; skill นี้ช่วย "เลือก module + กัน build/ตีความพลาด"
+
+---
+*skill นี้ช่วย "คิด/เลือกใช้ gget" เพื่อการศึกษา ไม่ใช่การแปลผลทางคลินิก · variant classify ตาม ACMG + ผู้เชี่ยวชาญ; ข้อมูลผู้ป่วย = PHI · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: hematology-judgment ═════════ -->
@@ -3355,6 +3659,86 @@ disclaimer: "ช่วยคิดกลยุทธ์การตลาด/ข
 
 ---
 *ช่วยคิดกลยุทธ์การตลาด/ขายเพื่อการศึกษา ไม่ใช่คำแนะนำธุรกิจ/กฎหมายทางการ — ห้ามใช้กล่าวอ้างเกินจริง/ผิดจริยธรรมวิชาชีพ · ผู้นำไปใช้รับผิดชอบการกระทำที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: method-validation-stats ═════════ -->
+
+---
+skill: method-validation-stats
+title: สถิติเฉพาะ MT — method comparison / reference interval / diagnostic accuracy (Method & Validation Stats)
+type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# สถิติเฉพาะ MT (method/validation)
+
+ตัวช่วยตัดสินใจสถิติที่ MT เจอจริงแต่ตำราสถิติทั่วไปไม่ครอบ — method comparison, reference interval, diagnostic accuracy, precision/QC. เน้น "ใช้ตัวไหน + กับดัก" ไม่ใช่สอนรันโปรแกรม
+
+> **กฎ #1:** เลือกสถิติตาม **"คำถามแบบงานแล็บ"** ไม่ใช่ default ทั่วไป — เทียบ 2 วิธีตรวจ ≠ correlation; ตั้ง reference interval ≠ mean±2SD เสมอ
+> **กับดัก #1 (ขั้น hard):** ใช้ **correlation (r) หรือ paired t-test ตัดสิน "2 method แทนกันได้ไหม" = ผิด**. r สูงไม่ได้แปลว่า agree (มี constant/proportional bias ได้ทั้งที่ r≈1); paired-t บอกแค่ "ต่างกันเชิงสถิติ" ไม่บอกขนาด bias ที่ยอมรับทางคลินิก → ใช้ **Bland-Altman + Passing-Bablok/Deming**
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## ใช้เมื่อ
+- เทียบวิธี/เครื่องตรวจใหม่ vs เก่า (method comparison / verification)
+- ตั้งหรือ verify reference interval
+- ประเมิน test diagnostic (sens/spec/PPV/ROC)
+- ดู precision/QC (CV, repeatability/reproducibility, sigma)
+
+## วิธีใช้
+วาง skill นี้ + บอกคำถาม (เทียบ method? ตั้งช่วงอ้างอิง? ประเมิน test?) + ข้อมูลที่มี → AI ชี้สถิติที่ถูก + กับดัก + เกณฑ์ที่ควรอิง (CLSI) แล้วชี้ให้คุณรัน/ปรึกษานักสถิติเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — Method comparison (วิธีใหม่ vs reference)
+- **Bland-Altman**: plot ผลต่าง vs ค่าเฉลี่ย → bias (mean diff) + limits of agreement (±1.96SD); ดูว่า bias อยู่ในเกณฑ์ยอมรับทางคลินิกไหม
+- **Passing-Bablok / Deming regression** (ไม่ใช่ OLS — เพราะ x ก็มี error) → จับ **constant bias (intercept) + proportional bias (slope)**
+- อ้าง **CLSI EP09**; **ห้ามใช้ r/paired-t** ตัดสิน agreement
+
+### Fork 2 — Reference interval
+- **CLSI EP28**: nonparametric **2.5/97.5 percentile**, ต้อง **n ≥ 120** (per partition)
+- **partition** ตามเพศ/อายุเมื่อต่างจริง · **transference/verification** (n≈20) เมื่อยืมช่วงจากที่อื่น/ผู้ผลิต
+- **อย่าใช้ mean±2SD** ถ้าข้อมูลไม่ Gaussian (ค่าแล็บส่วนใหญ่เบ้)
+
+### Fork 3 — Diagnostic accuracy
+- 2×2 ให้ถูก → **sens/spec/PPV/NPV/LR+,LR−**, **ROC-AUC** เทียบ cutoff
+- **PPV/NPV ขึ้นกับ prevalence** — รายงานต้องระบุ population (เชื่อม `immunoassay-judgment`, `critical-appraisal-judgment`)
+
+### Fork 4 — Precision / QC stats
+- **repeatability (within-run) vs reproducibility (between-run/day)** — คนละค่า; **CLSI EP05**
+- **CV%** เทียบกับ allowable; **sigma metric** = (TEa − bias)/CV → กลยุทธ์ QC (เชื่อม `clinchem-judgment`, `lab-management-judgment`)
+
+### Fork 5 — Sample size (ต่างจาก t-test ทั่วไป)
+- method comparison ~**40–100+** (ตาม range + EP09) · reference interval **≥120** · sens/spec ตาม **width ของ CI ที่ยอมรับ** (เชื่อม `sample-size-power`)
+
+### Fork 6 — Agreement แบบ categorical
+- ใช้ **Cohen's kappa / weighted kappa** ไม่ใช่ **%agreement** (ซึ่งพอง chance agreement)
+
+## กับดัก (Anti-patterns)
+- #1 r / paired-t ตัดสิน method agreement (กับดัก #1) → ควร Bland-Altman + PB/Deming
+- #2 OLS regression แทน Deming/Passing-Bablok (ลืมว่า x มี error)
+- #3 mean±2SD ตั้ง reference interval ทั้งที่ไม่ Gaussian / n<120
+- #4 รายงาน PPV โดยไม่ระบุ prevalence/population
+- #5 สับ repeatability กับ reproducibility
+- #6 %agreement แทน kappa (categorical)
+- #7 ตัดสิน method ด้วย p-value (significance) แทน clinical acceptability (bias ที่ยอมรับได้)
+- #8 ใช้ accuracy บน prevalence ต่ำ/ข้อมูล imbalanced → หลอก (ควร sens/spec/LR)
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - TEa/allowable bias ของ analyte ที่คุณ validate (อิง CLIA/biological variation/SOP)
+> - เกณฑ์ยอมรับ method comparison ของแลบคุณ + จำนวนตัวอย่างที่ใช้จริง
+> - reference interval ที่ใช้มาจากไหน (ตั้งเอง/ยืม/ผู้ผลิต) + verify หรือยัง
+
+NOTE: การรันสถิติจริง (โปรแกรม/สูตร) → ใช้ `r2r-stats` (`needs: code-interpreter`) หรือซอฟต์แวร์สถิติ; เลือก test ทั่วไป → `choose-stat-test`; ทฤษฎีลึก → ตำราสถิติ/CLSI
+
+---
+*skill นี้ช่วย "คิด/เลือกสถิติ" เพื่อการศึกษา · เกณฑ์ยอมรับทางคลินิกอิง CLSI/SOP; งานตีพิมพ์ปรึกษานักสถิติ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: ml-judgment ═════════ -->
@@ -4612,6 +4996,79 @@ disclaimer: "ช่วยคิดการถ่ายภาพ/วิดีโ
 *ช่วยคิดการถ่ายภาพ/วิดีโอ + ถ่ายงานแล็บ เพื่อการศึกษา · การถ่ายภาพคนไข้/สิ่งส่งตรวจต้องเคารพความลับ/consent ตามกฎหมาย (ดู mt-law-ethics-judgment) · ผู้นำไปใช้รับผิดชอบการนำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: poct-judgment ═════════ -->
+
+---
+skill: poct-judgment
+title: โค้ช POCT — แล็บนอกแล็บต้องเชื่อได้เท่าแล็บกลาง (Point-of-Care Testing Judgment)
+type: ADVISE               # ช่วยตัดสินใจการใช้/คุม POCT ไม่ใช่คู่มือเครื่อง
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ผล POCT ที่กระทบการรักษาต้องผ่าน QC + operator competency + ทำตาม SOP/ISO 15189; ค่าวิกฤตแจ้ง/ยืนยันตาม policy · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ช POCT (Point-of-Care Testing)
+
+ตัวช่วยตัดสินใจตอน MT ดูแล/ใช้ POCT (glucose meter, blood gas, i-STAT, rapid test, HbA1c POC) นอกแล็บกลาง — เน้น "เมื่อไหร่ใช้ + คุมยังไงให้เชื่อได้ + limitation" ไม่ใช่คู่มือเครื่อง
+
+> **กฎ #1:** POCT = **แล็บที่ทำนอกแล็บ** → ต้องมี **QC + operator competency + connectivity** เหมือนแล็บกลาง (ISO 15189:2022 รวม POCT เข้ามาแล้ว) ไม่ใช่ "เครื่องง่ายๆ ใครก็กดได้"
+> **กับดัก #1 (ขั้น hard):** ผล POCT ที่ **ไม่ผ่าน QC / operator ไม่ผ่าน competency = ค่าที่เชื่อไม่ได้** แต่ถูกเอาไปรักษาทันที (ER/ICU). ค่าวิกฤตจาก POCT ต้องแจ้ง/พิจารณา confirm เหมือนแล็บกลาง
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยัน
+
+## ใช้เมื่อ
+- ตัดสินใจว่างานนี้ควรใช้ POCT หรือส่งแล็บกลาง
+- วางระบบ QC/competency/connectivity สำหรับ POCT ในหน่วยงาน
+- เจอผล POCT ที่ขัดอาการ/ขัดแล็บกลาง → เชื่อตัวไหน
+
+## วิธีใช้
+วาง skill นี้ + บริบท (เทสต์อะไร/ที่ไหน/ใครทำ/เร่งแค่ไหน) → AI ช่วยชั่ง POCT vs แล็บกลาง + เตือน QC/competency/limitation แล้วชี้ให้ทำตาม SOP + ยืนยันเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — ควรใช้ POCT ไหม
+- **ใช่**: TAT เป็นเรื่องเป็นเรื่องชีวิต (ER/ICU/OR/ห่างแล็บ), ปริมาณน้อย-ต้องเร็ว
+- **ส่งแล็บกลางดีกว่า**: ต้องการความแม่นสูง, ปริมาณมาก (ถูกกว่าต่อเทสต์), มี QC/validation เต็ม
+- ไม่ใช่ทุกอย่างควร POCT เพราะ "เร็ว"
+
+### Fork 2 — QC + operator competency
+- QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
+
+### Fork 3 — limitation ของ POCT (รู้ก่อนเชื่อ)
+- **interference**: Hct + oxygen + สารรบกวน ใน glucose meter; linear range แคบ; แม่นน้อยกว่าแล็บกลาง
+- correlate POCT กับแล็บกลางเป็นระยะ; ค่าขัดอาการ/ขัดแล็บกลาง → ตรวจซ้ำ/ส่งแล็บกลาง
+
+### Fork 4 — connectivity + บันทึก
+- ผลต้องเข้า **LIS/บันทึกได้ + traceable** (ไม่ใช่จดมือแล้วหาย) → audit + ความต่อเนื่องการดูแล
+
+### Fork 5 — critical value + confirm
+- ค่าวิกฤตจาก POCT → **แจ้งตาม policy** + พิจารณา confirm แล็บกลาง (เชื่อม `clinical-correlation-judgment`)
+
+## กับดัก (Anti-patterns)
+- #1 ถือว่า POCT ไม่ต้อง QC / operator ไม่ต้อง competency (กับดัก #1)
+- #2 ลืม interference (Hct/oxygen ใน glucose meter) → ค่าเพี้ยนในคนไข้ป่วยหนัก
+- #3 ใช้นอก linear range → ค่าผิด
+- #4 ผล POCT ไม่เข้าระบบ/จดมือหาย → ไม่ traceable
+- #5 ไม่ confirm/ไม่แจ้งค่าวิกฤตจาก POCT
+- #6 ใช้ POCT แทนแล็บกลางทุกอย่างเพราะเร็ว (ละเลยความแม่น/ต้นทุน)
+- #7 ไม่ correlate POCT กับแล็บกลางเป็นระยะ → drift ไม่รู้ตัว
+- #8 lot ใหม่ไม่ verify
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - รายการ POCT ที่หน่วยงานคุณใช้ + ใครเป็น operator + ระบบ QC/competency ปัจจุบัน
+> - policy ค่าวิกฤต + การ confirm แล็บกลางของ รพ.คุณ
+> - interference/limitation ของเครื่อง POCT รุ่นที่ใช้ที่ทีมต้องระวัง
+
+NOTE: QC/Westgard เชิงลึก → `clinchem-judgment`; ระบบ QMS/competency → `lab-management-judgment`; คู่มือเครื่องเฉพาะรุ่น → manufacturer
+
+---
+*skill นี้ช่วย "คิด" เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ · ผล POCT ที่กระทบการรักษาต้องผ่าน QC + competency + SOP; ค่าวิกฤตแจ้ง/ยืนยันตาม policy · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: polite-but-clear ═════════ -->
 
 ---
@@ -4855,6 +5312,86 @@ disclaimer: "ช่วยให้ AI แสดงความคืบหน้
 
 ---
 *ช่วยให้ AI แสดงความคืบหน้าเป็นภาพ เพื่อการศึกษา/ติดตามงาน — visual บอก "ทำอะไรไป" แต่ไม่รับประกันว่าเนื้อหาถูก ตรวจผลจริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: pubmed-search ═════════ -->
+
+---
+skill: pubmed-search
+title: ค้น PubMed ให้เจอ + ไม่พลาด (PubMed / Literature Search)
+type: ADVISE               # ช่วยสร้าง query + กลยุทธ์ค้น ไม่ใช่ค้นให้
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดกลยุทธ์ค้นวรรณกรรมเพื่อการศึกษา ไม่ใช่การรับรองความครบถ้วนของผลค้น · ทุก citation ต้อง verify ว่ามีจริง (PMID/DOI) ก่อนอ้าง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# ค้น PubMed ให้เจอ + ไม่พลาด
+
+ตัวช่วยตอน MT ต้องค้นงานวิจัย/หาหลักฐาน (lit review, R2R, ตอบคำถามคลินิก) — เน้น "สร้าง query + ขยาย/แคบ + ประเมินเร็ว" ไม่ใช่สอนคลิก PubMed
+
+> **กฎ #1:** เริ่มจากคำถามแบบ **PICO → แปลงเป็น MeSH + คำพ้อง** ไม่ใช่พิมพ์ประโยคยาวลง search box (PubMed ตีความประโยคยาวไม่ตรง)
+> **กับดัก #1 (ขั้น hard):** ค้นคำเดียว/ภาษาเดียวแล้วสรุป **"ไม่มีงานวิจัย"** — มักพลาดเพราะไม่ใช้ MeSH + synonym + ไม่ดู related/citing. **absence of evidence ≠ evidence of absence**
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ทุก paper เช็คว่ามีจริงด้วย PMID
+
+## ใช้เมื่อ
+- ต้องหางานวิจัยสำหรับ lit review / R2R / ตอบคำถามคลินิก
+- ค้นแล้วเจอน้อย/เยอะเกิน ไม่รู้ปรับ query ยังไง
+- อยากให้ AI ช่วยร่าง search string
+
+## วิธีใช้
+วาง skill นี้ + คำถาม/หัวข้อที่จะค้น → AI ช่วยแปลงเป็น PICO + ร่าง query (MeSH + synonym + Boolean) + แนะ filter แล้วชี้ให้คุณรันใน PubMed จริง + verify ผลเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — สร้าง query
+- คำถาม → **PICO** → concept blocks → `(MeSH OR free-text synonym)` ของแต่ละ concept ต่อด้วย **AND** ระหว่าง concept
+- เทคนิค: `[Mesh]`, `[tiab]` (title/abstract), truncation `*`, phrase `"..."`, MeSH subheadings
+- ตัวอย่างโครง: `(conceptA[Mesh] OR "synonymA"[tiab]) AND (conceptB ...)`
+
+### Fork 2 — filter อย่างฉลาด (อย่า over-filter)
+- ชนิด study (RCT / systematic review / meta-analysis), ปี, humans, ภาษา
+- ⚠️ filter แรงเกินตัดของดีทิ้ง — ใช้เมื่อผลเยอะจริง; เริ่มกว้างก่อนค่อยแคบ
+
+### Fork 3 — ขยาย / แคบ
+- **เจอน้อยไป**: ลด AND, เพิ่ม synonym/MeSH, ดู "Similar articles" + citing
+- **เจอเยอะไป**: เพิ่ม concept/filter, หา **systematic review ก่อน** (สรุปให้แล้ว)
+
+### Fork 4 — ประเมินเร็วก่อนอ่านเต็ม
+- abstract + study type + journal + ปี → คัดเข้า/ออก (เชื่อม `critical-appraisal-judgment`, `source-credibility`)
+- อย่าอ้างจาก abstract อย่างเดียว — อ่าน full-text ก่อนอ้างผลสำคัญ
+
+### Fork 5 — จัดการผล + reproduce
+- เก็บใน reference manager (Zotero ฟรี); **บันทึก query string + วันที่ค้น** ไว้ reproduce (สำคัญสำหรับ systematic review)
+- PubMed ฟรี; ถ้ามีสิทธิ์ Scopus/Embase/Google Scholar ใช้เสริม (recall ต่างกัน)
+
+### Fork 6 — ใช้ AI ช่วย
+- ให้ AI ร่าง MeSH/synonym/แปลคำถาม — เร็ว
+- ⚠️ **AI แต่ง citation ปลอมได้เนียน** → verify ทุก paper ด้วย PMID/DOI ว่ามีจริง (เชื่อม `anti-hallucination`)
+
+## กับดัก (Anti-patterns)
+- #1 สรุป "ไม่มีงานวิจัย" จากค้นครั้งเดียว/คำเดียว (กับดัก #1)
+- #2 พิมพ์ประโยคยาวแทน keyword/MeSH
+- #3 ไม่ใช้ synonym/คำพ้อง → recall ต่ำ
+- #4 over-filter จนตัดของดีทิ้ง
+- #5 เชื่อ citation จาก AI โดยไม่เช็ค PMID ว่ามีจริง
+- #6 อ้างจาก abstract อย่างเดียว ไม่อ่าน full-text
+- #7 ไม่บันทึก query → reproduce/อัปเดตไม่ได้
+- #8 พึ่งฐานเดียว (เฉพาะ Google Scholar) → คุณภาพ/recall ปนเปื้อน
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - คำถามวิจัย/หัวข้อที่คุณกำลังค้น (จะได้ช่วยร่าง MeSH ให้ตรง)
+> - ฐานข้อมูลที่สถาบันคุณเข้าถึงได้ (Scopus/Embase/CINAHL?)
+> - เกณฑ์คัดเข้า/ออก (inclusion/exclusion) ของ review คุณ
+
+NOTE: การประเมินคุณภาพงานวิจัยเชิงลึก → `critical-appraisal-judgment`; ประเมินความน่าเชื่อแหล่ง/journal → `source-credibility`; ไวยากรณ์ MeSH ละเอียด → PubMed help
+
+---
+*skill นี้ช่วย "คิดกลยุทธ์ค้น" เพื่อการศึกษา ไม่รับรองความครบถ้วน · verify citation (PMID/DOI) ทุกครั้งก่อนอ้าง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: python-coach ═════════ -->
@@ -5661,6 +6198,78 @@ NOTE: ขั้นตอน deploy/เซ็ตเซิร์ฟเวอร์
 
 ---
 *skill นี้ช่วย "คิด/วางแผน" เพื่อการศึกษา · เครื่องมือคำนวณทางคลินิกต้องมีผู้รู้ตรวจสูตร; ข้อมูลคนไข้ต้องมี auth + อยู่ใต้ PDPA · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: source-credibility ═════════ -->
+
+---
+skill: source-credibility
+title: ประเมินแหล่งเชื่อได้แค่ไหน — กัน predatory/มั่ว/เก่า (Source Credibility)
+type: ADVISE               # ช่วยประเมินความน่าเชื่อแหล่ง ไม่ใช่ฐานข้อมูล journal
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดประเมินความน่าเชื่อของแหล่งเพื่อการศึกษา ไม่ใช่การรับรอง/ตัดสินทางวิชาการขั้นสุดท้าย · เรื่องการแพทย์ต้องยืนยันกับ guideline/แหล่ง authoritative + ผู้เชี่ยวชาญ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# ประเมินแหล่งเชื่อได้แค่ไหน
+
+ตัวช่วยตัดสินว่า "แหล่ง/งานวิจัย/journal/เว็บนี้ เชื่อได้แค่ไหน" ก่อนเอาไปอ้าง/ตัดสินใจ — เน้น "คัด + จัดลำดับความน่าเชื่อ + กับดัก" ไม่ใช่ลิสต์ journal ดี
+
+> **กฎ #1:** เชื่อตาม **หลักฐาน + วิธี** ไม่ใช่ "ใครพูด/journal ดัง" — แต่ต้อง **คัด predatory/แหล่งกำมะลอออกก่อน**เสียเวลาอ่าน
+> **กับดัก #1 (ขั้น hard):** **impact factor สูง / "peer-reviewed" ไม่การันตีว่าถูก** และ predatory journal เลียนแบบเนียนมาก → เช็ค **indexing (PubMed/Scopus/DOAJ), publisher, peer-review จริง** ก่อนอ้าง
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ตามไป primary source เสมอ
+
+## ใช้เมื่อ
+- จะอ้างงานวิจัย/แหล่งแต่ไม่แน่ใจเชื่อได้ไหม (predatory? เก่า? ถูก retract?)
+- เจอข้อมูล/ข่าว/โพสต์ทางการแพทย์ จะแชร์/เชื่อดีไหม
+- AI ให้ข้อมูล+อ้างอิงมา จะ trust แค่ไหน
+
+## วิธีใช้
+วาง skill นี้ + แหล่ง/paper/ลิงก์ที่จะประเมิน → AI ช่วยไล่เช็ค (indexing/หลักฐาน/COI/ปี/retract) + จัดระดับความน่าเชื่อ แล้วชี้ให้คุณตามไป primary + ยืนยันเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — คัด predatory ก่อน
+- อยู่ใน **PubMed/Scopus/DOAJ/Web of Science** ไหม · publisher น่าเชื่อไหม · **ค่าตีพิมพ์เร่ง/ถูกผิดปกติ + รับเร็วเกิน** · สเปม invite · editorial board มั่ว/ปลอม · ISSN ตรวจได้ไหม (เชื่อม `manuscript-judgment` ฝั่งเลือกที่ตีพิมพ์)
+
+### Fork 2 — ลำดับชั้นหลักฐาน
+- systematic review/meta > RCT > cohort > case-control > case series > opinion/expert
+- ปรับตามคำถาม — ไม่ใช่ทุกคำถามต้อง RCT (เช่น harm/prognosis ใช้ cohort เหมาะกว่า)
+
+### Fork 3 — ประเมินตัวงาน
+- **COI/funding** (ใครจ่าย) · method/sample size สมเหตุผลไหม · **ปีที่ตีพิมพ์** (เก่าเกินจน guideline เปลี่ยนแล้ว?) · reproducible ไหม · **ถูก retract ไหม** (Retraction Watch / PubMed notice)
+
+### Fork 4 — แหล่งที่ไม่ใช่ paper
+- เว็บ/ข่าว/social → **ใครเขียน, อ้างอะไร, มี primary source ไหม, วันที่**
+- guideline จากองค์กรไหน (WHO/CDC/ราชวิทยาลัย/CLSI vs บล็อก/เพจ) — แยกระดับ authority
+
+### Fork 5 — ใช้ AI
+- AI สรุป/อ้างผิดได้ + **แต่ง citation เนียน** → ตามไป **primary source + verify ว่ามีจริง** เสมอ (เชื่อม `anti-hallucination`)
+
+## กับดัก (Anti-patterns)
+- #1 เชื่อเพราะ IF สูง/journal ดัง/"peer-reviewed" (กับดัก #1)
+- #2 อ้าง predatory journal โดยไม่รู้ (ไม่เช็ค indexing)
+- #3 ไม่ดู COI/funding ที่อาจ bias ผล
+- #4 อ้างงานเก่าที่ guideline เปลี่ยนแล้ว / งานที่ถูก retract
+- #5 เชื่อ secondary (ข่าว/รีวิว/AI สรุป) โดยไม่ตามไป primary
+- #6 เชื่อ citation จาก AI โดยไม่ verify
+- #7 เหมาว่า "ออนไลน์/มีคนแชร์เยอะ = จริง"
+- #8 ใช้ระดับหลักฐานเดียวกับทุกคำถาม (บังคับ RCT ทุกเรื่อง)
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - แหล่ง/journal ที่สายงานคุณใช้อ้างประจำ + ตัวที่เคยพบว่า predatory
+> - guideline/องค์กร authoritative ในสาขาคุณ (ที่ถือเป็นมาตรฐาน)
+> - กรณีที่เคยเกือบเชื่อแหล่งผิด → เป็นบทเรียน
+
+NOTE: ประเมิน method งานวิจัยเชิงลึก (bias/validity) → `critical-appraisal-judgment`; กลยุทธ์ค้นหาแหล่ง → `pubmed-search`
+
+---
+*skill นี้ช่วย "คิดประเมินแหล่ง" เพื่อการศึกษา · เรื่องการแพทย์ยืนยันกับ guideline/แหล่ง authoritative + ผู้เชี่ยวชาญ; ตามไป primary เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: spreadsheet-judgment ═════════ -->

@@ -4,7 +4,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
-## [Unreleased] — T-shaped MT expansion (waves 1–2)
+## [Unreleased] — T-shaped MT expansion (waves 1–3)
 
 ### Added
 - **`urinalysis-judgment`** (#56) — UA + body-fluid (CSF/serous/synovial) microscopy: strip↔micro↔clinical
@@ -36,11 +36,32 @@ content เรียบเรียงจากองค์ความรู้
 - Manifest closed to **97/97** source skills (added `mle-workflow`, `python-testing`, `scientific-pkg-gget`)
   with a completeness ledger in `docs/EXPANSION-PLAN.md`.
 
+### Added — wave 3 (stats/research + remaining lab gaps, 64 → 72)
+- **`method-validation-stats`** (#65) — MT-specific stats the general stat skills don't cover: method comparison
+  (Bland-Altman + Passing-Bablok/Deming, *not* r/paired-t), reference interval (CLSI EP28, n≥120),
+  diagnostic accuracy (PPV depends on prevalence), precision/CV/sigma, kappa. From `mt-stats-helper`.
+- **`pubmed-search`** (#66) — literature search: PICO→MeSH+synonym+Boolean, smart filters, "not found ≠ doesn't
+  exist", verify PMIDs (AI fabricates citations). From `scientific-db-pubmed-database`.
+- **`source-credibility`** (#67) — how much to trust a source: screen predatory journals, evidence hierarchy,
+  COI/retraction, "high IF / peer-reviewed ≠ correct". From `scientific-thinking-scholar-evaluation`.
+- **`deep-research`** (#68) — multi-source research: triangulate ≥2–3 independent sources, cross-check,
+  synthesise with confidence levels, cite + verify, guard confirmation bias. From `deep-research`.
+- **`gget-genomics`** (#69) — pull gene/variant/structure via gget (Ensembl/NCBI/UniProt/AlphaFold);
+  genome-build trap (hg19↔hg38), presence ≠ pathogenic (classify by ACMG), PHI. From `scientific-pkg-gget`.
+- **`poct-judgment`** (#70) — point-of-care testing = lab outside the lab (ISO 15189:2022): when POCT vs central,
+  QC + operator competency + connectivity, interference (Hct), confirm/report critical values. Net-new.
+- **`flow-cytometry-judgment`** (#71) — gate correctly (singlet/viable/CD45-SSC), read pattern not single
+  marker, leukemia/lymphoma/PNH/CD4/MRD, correlate morphology. Net-new (closes the last bench gap).
+- **`deploy-ml-safely`** (#72) — take a trained model to real use ("accurate in training ≠ usable"):
+  external validation, data drift + monitoring, fallback/reject option, human-in-the-loop for clinical use,
+  versioning + IRB. From `mle-workflow` + `ml-judgment`. Ties to the user's smear-classifier thesis.
+
 ### Notes
 - `skills/INDEX.md`, `dist/all-skills.md`, `prompts/triage.md` regenerated via `scripts/build_triage.py`
-  (64 skills, no drift). README + skills/README counts bumped 55 → 64.
+  (72 skills, no drift). README + skills/README counts bumped 55 → 72.
 - Every MT++ skill ties its #1 trap to **patient-data safety (PDPA)** + verify-against-source — the line
-  generic dev guidance omits but MTs cannot.
+  generic dev guidance omits but MTs cannot. Lab-bench coverage now complete (UA/body-fluid · pre-analytical
+  · POCT · flow added to the original 14 clinical skills).
 
 ## [0.3.0] — 2026-06-07
 

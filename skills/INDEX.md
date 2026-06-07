@@ -26,10 +26,14 @@
 | `cv-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/cv-judgment.md | 2026-06-04 |
 | `data-project-survival` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/data-project-survival.md | 2026-06-04 |
 | `db-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/db-judgment.md | 2026-06-04 |
+| `deep-research` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/deep-research.md | 2026-06-08 |
+| `deploy-ml-safely` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/deploy-ml-safely.md | 2026-06-08 |
 | `digital-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/digital-judgment.md | 2026-06-04 |
 | `explain-simply` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/explain-simply.md | 2026-06-04 |
 | `finance-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/finance-judgment.md | 2026-06-04 |
 | `financial-statement-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/financial-statement-judgment.md | 2026-06-04 |
+| `flow-cytometry-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/flow-cytometry-judgment.md | 2026-06-08 |
+| `gget-genomics` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/gget-genomics.md | 2026-06-08 |
 | `hematology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/hematology-judgment.md | 2026-06-04 |
 | `ikigai-finder` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ikigai-finder.md | 2026-06-04 |
 | `immunoassay-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/immunoassay-judgment.md | 2026-06-04 |
@@ -40,6 +44,7 @@
 | `lab-management-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-management-judgment.md | 2026-06-04 |
 | `manuscript-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/manuscript-judgment.md | 2026-06-04 |
 | `marketing-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/marketing-judgment.md | 2026-06-04 |
+| `method-validation-stats` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/method-validation-stats.md | 2026-06-08 |
 | `ml-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-judgment.md | 2026-06-04 |
 | `molecular-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/molecular-judgment.md | 2026-06-04 |
 | `mt-career-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-career-judgment.md | 2026-06-04 |
@@ -53,9 +58,11 @@
 | `pathology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pathology-judgment.md | 2026-06-04 |
 | `pharmacology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pharmacology-judgment.md | 2026-06-04 |
 | `photography-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/photography-judgment.md | 2026-06-04 |
+| `poct-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/poct-judgment.md | 2026-06-08 |
 | `polite-but-clear` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/polite-but-clear.md | 2026-06-04 |
 | `preanalytical-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/preanalytical-judgment.md | 2026-06-08 |
 | `progress-tracker` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/progress-tracker.md | 2026-06-04 |
+| `pubmed-search` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pubmed-search.md | 2026-06-08 |
 | `python-coach` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/python-coach.md | 2026-06-04 |
 | `r2r-research-proposal` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/r2r-research-proposal.md | 2026-06-04 |
 | `r2r-stats` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/r2r-stats.md | 2026-06-04 |
@@ -65,6 +72,7 @@
 | `self-development-coach` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/self-development-coach.md | 2026-06-04 |
 | `self-improving-agent` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/self-improving-agent.md | 2026-06-04 |
 | `ship-a-small-app` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ship-a-small-app.md | 2026-06-08 |
+| `source-credibility` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/source-credibility.md | 2026-06-08 |
 | `spreadsheet-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/spreadsheet-judgment.md | 2026-06-08 |
 | `toxicology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/toxicology-judgment.md | 2026-06-04 |
 | `urinalysis-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/urinalysis-judgment.md | 2026-06-08 |

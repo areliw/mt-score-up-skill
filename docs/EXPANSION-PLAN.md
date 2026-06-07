@@ -21,17 +21,17 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 |---|---|---|---|
 | `urinalysis-judgment` | net-new | UA + body fluid (CSF/serous/synovial) microscopy — แขนง MT bench ที่หายทั้งดุ้น | 🟢 wave1 |
 | `preanalytical-judgment` | net-new | pre-analytical/phlebotomy = error #1 ของแล็บ (เดิมกระจาย 11 ไฟล์) | 🟢 wave1 |
-| `poct-judgment` | net-new | Point-of-care testing (รวมเข้า ISO 15189:2022) — connectivity/QC/operator | ⏳ |
-| `flow-cytometry-judgment` | net-new | gating/panel/immunophenotyping (niche, เสริม hema) | ⏳ |
+| `poct-judgment` | net-new | Point-of-care testing (รวมเข้า ISO 15189:2022) — connectivity/QC/operator | 🟢 wave3 |
+| `flow-cytometry-judgment` | net-new | gating/panel/immunophenotyping (niche, เสริม hema) | 🟢 wave3 |
 
 ## Track 2 — R2R / สถิติ
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
 |---|---|---|---|
-| `method-validation-stats` | `mt-stats-helper` | method comparison (Bland-Altman/Passing-Bablok), reference interval (CLSI EP28), diagnostic accuracy เชิงลึก — stats เฉพาะ MT ที่ choose-stat-test ยังตื้น | ⏳ |
-| `pubmed-search` | `scientific-db-pubmed-database` | ค้น PubMed/MeSH เป็นระบบ | ⏳ |
-| `source-credibility` | `scientific-thinking-scholar-evaluation` | ประเมิน journal/predatory/ผู้เขียน (เสริม critical-appraisal) | ⏳ |
-| `deep-research` | `deep-research` | multi-source + cited report (งานวิจัย/สแกน IVD) | ⏳ |
-| `gget-genomics` | `scientific-pkg-gget` | ดึงข้อมูล gene/variant/sequence ผ่าน gget CLI (Ensembl/BLAST/UniProt) สาย molecular/bioinformatics (niche) | ⏳ |
+| `method-validation-stats` | `mt-stats-helper` | method comparison (Bland-Altman/Passing-Bablok), reference interval (CLSI EP28), diagnostic accuracy เชิงลึก — stats เฉพาะ MT ที่ choose-stat-test ยังตื้น | 🟢 wave3 |
+| `pubmed-search` | `scientific-db-pubmed-database` | ค้น PubMed/MeSH เป็นระบบ | 🟢 wave3 |
+| `source-credibility` | `scientific-thinking-scholar-evaluation` | ประเมิน journal/predatory/ผู้เขียน (เสริม critical-appraisal) | 🟢 wave3 |
+| `deep-research` | `deep-research` | multi-source + cited report (งานวิจัย/สแกน IVD) | 🟢 wave3 |
+| `gget-genomics` | `scientific-pkg-gget` | ดึงข้อมูล gene/variant/sequence ผ่าน gget CLI (Ensembl/BLAST/UniProt) สาย molecular/bioinformatics (niche) | 🟢 wave3 |
 | — | `scientific-thinking-literature-review` | ⚪ ทับ `critical-appraisal-judgment` | ⚪ |
 
 ## Track 3 — MT++ : build / data / automate (แกน T-shaped)
@@ -44,7 +44,7 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 | `ship-a-small-app` | `deployment-patterns` `fastapi-patterns` `docker-patterns` | ทำเครื่องมือเล็กให้ทีมใช้ — no-code/low-code vs code, hosting, auth/PDPA | 🟢 wave2 |
 | `vibe-coding-safely` | `python-coach` `python-testing` `error-handling` `safety-guard` `e2e-testing` | ให้ AI เขียนโค้ดให้ แต่ไม่พัง/ไม่รั่วข้อมูล — "รันได้≠ถูก" | 🟢 wave2 |
 | `spreadsheet-judgment` | `python-patterns` (reframe) | Excel/Sheets: tidy/VLOOKUP/STDEV · กัน autoconvert · median TAT | 🟢 wave2 |
-| `deploy-ml-safely` | `mle-workflow` `ml-judgment` | MT เทรนโมเดลแล้ว (เช่น smear classifier) จะเอาไปใช้จริงยังไงไม่ให้เงียบๆ พัง (data drift/monitor) | ⏳ |
+| `deploy-ml-safely` | `mle-workflow` `ml-judgment` | MT เทรนโมเดลแล้ว (เช่น smear classifier) จะเอาไปใช้จริงยังไงไม่ให้เงียบๆ พัง (data drift/monitor) | 🟢 wave3 |
 
 ## Track 4 — Design / visual
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
@@ -104,7 +104,8 @@ clinical: bloodbank · hematology · clinchem · clinmicro · immunoassay · mol
 
 ### Build waves
 - ✅ **Wave 1:** urinalysis · preanalytical · build-a-dashboard + manifest นี้
-- ✅ **Wave 2:** automate-lab-tasks · clean-messy-data · vibe-coding-safely · ship-a-small-app · spreadsheet-judgment · mt-databases — แกน T-shaped (เหลือ `deploy-ml-safely`)
+- ✅ **Wave 2:** automate-lab-tasks · clean-messy-data · vibe-coding-safely · ship-a-small-app · spreadsheet-judgment · mt-databases — แกน T-shaped 
+- ✅ **Wave 3:** method-validation-stats · pubmed-search · source-credibility · deep-research · gget-genomics · poct-judgment · flow-cytometry-judgment · deploy-ml-safely
 - **Wave 3:** Track 2 (stats/research) + Track 1 ที่เหลือ
 - **Wave 4:** Track 4–8 (design/media/career/productivity/AI)
 - **Wave 5:** Track 9 (contributor/maintainer process docs)

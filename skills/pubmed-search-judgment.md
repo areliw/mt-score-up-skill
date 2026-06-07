@@ -61,7 +61,7 @@ disclaimer: "ช่วยวางกลยุทธ์ค้น PubMed/วร�
 
 ### Fork 4 — อ่าน abstract เพื่อ "คัด" ไม่ใช่ "เชื่อ"
 - คัดเร็วจากหน้า results: ดู **ชนิดงาน + ปี + ตรง concept เราไหม** ก่อนเปิดเต็ม
-- ในงาน MT recurring สุด = "test ใหม่ vs gold standard": มอง **sensitivity/specificity เทียบ gold standard อะไร** — ⚠️ **PPV ขึ้นกับ prevalence: test ดีแค่ไหน ถ้าโรคหายาก ผลบวกส่วนใหญ่ก็ false+** (ดู `literature-review-judgment` Fork ประเมิน test)
+- ในงาน MT recurring สุด = "test ใหม่ vs gold standard": มอง **sensitivity/specificity เทียบ gold standard อะไร** — ⚠️ **PPV ขึ้นกับ prevalence: test ดีแค่ไหน ถ้าโรคหายาก ผลบวกส่วนใหญ่ก็ false+** (ดู `critical-appraisal-judgment` Fork ประเมิน test)
 - abstract ใช้ **คัดเข้า/คัดออก** เท่านั้น — **ตัวเลข/ข้อสรุปจริงต้องเปิด full text** ก่อนเอาไปอ้าง (abstract ตัดบริบทบ่อย)
 
 ### Fork 5 — บันทึกให้ค้นซ้ำได้ (reproducible)

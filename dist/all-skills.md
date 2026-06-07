@@ -1815,7 +1815,7 @@ disclaimer: "ช่วยวางลำดับงานและตัดส�
 - เริ่มโปรเจกต์ data science / วาง pipeline แล้วไม่รู้ลำดับงาน
 - ติดอยู่กลางโปรเจกต์ ไม่แน่ใจว่าตอนนี้ควรทำอะไรต่อ หรือควรถอยกลับ
 - จะแปลง "โจทย์ธุรกิจ/คลินิก" → "โจทย์ที่วัดได้สำหรับโมเดล"
-- ต้องตัดสินใจช่วง data prep (เติม missing แบบไหน, scale ยังไง, encode ยังไง)
+- กำลังจะข้าม phase ทั้งที่ยังไม่ผ่านเกณฑ์ / อยากรู้ว่าแต่ละ phase ต้องเคลียร์อะไรก่อน
 - โมเดลเสร็จแล้วแต่ไม่แน่ใจว่า "ดีพอใช้จริง" หรือยัง / deploy แล้วต้องเฝ้าอะไร
 
 ## วิธีใช้
@@ -1842,23 +1842,10 @@ disclaimer: "ช่วยวางลำดับงานและตัดส�
 - 🩺 ตัวอย่าง: "ช่วยคัดกรอง thalassemia carrier จาก CBC" → data-mining goal = classification (carrier/ไม่) ที่ **recall สูง** (พลาด carrier แพงกว่า false alarm) + บอก threshold ที่ยอมรับได้
 - เขียน success ออกมาเป็นตัวเลข/เงื่อนไขก่อน อย่าเพิ่งแตะ data
 
-## phase 2-3 — Data: เลือก prep ให้ตรงชนิดปัญหา (Decision forks)
-
-### Fork A — ระบุ task type ก่อนเลือกวิธี (ทำก่อนทุกอย่าง)
-- target ต่อเนื่อง (ระดับ Hb, ค่า lab) → **Regression** · target เป็นกลุ่ม (โรค/ไม่, blood group) → **Classification** · ไม่มี label หา group → **Clustering**
-- ⚠️ ระบุ task ผิดตั้งแต่ต้น = เลือก metric/โมเดล/prep ผิดทั้งสาย → ดู `ml-judgment` Fork 1
-
-### Fork B — missing แบบไหน → เติมยังไง (ดูกลไกก่อนเติม)
-- **MCAR** (หายแบบสุ่มจริง) → ลบแถว/เติม mean-median ได้ ความ bias ต่ำ
-- **MAR** (หายขึ้นกับตัวแปรอื่นที่มี) → เติมแบบมีเงื่อนไข (group-wise / model-based / KNN-impute)
-- **MNAR** (หายเพราะค่าของมันเอง เช่นค่าสูงเกินจนไม่ถูกวัด) → ⚠️ เติมมั่วทำ bias หนัก → ต้องเข้าใจ domain / สร้าง flag "เคยหาย" / ปรึกษาคนรู้บริบท lab
-- 💡 อย่าเติม missing **ก่อน** split → ค่าที่ใช้เติมต้องคำนวณจาก train เท่านั้น (ไม่งั้น leakage)
-
-### Fork C — normalize vs standardize + encode
-- **Standardize** (z-score, mean 0 sd 1) → ดีฟอลต์ตอนข้อมูลใกล้ normal / ใช้ distance-based (KNN, SVM, k-means, PCA)
-- **Normalize** (min-max 0–1) → เมื่ออยากคุมช่วงค่าแน่ๆ / NN / ค่าไม่มี outlier หนัก (min-max ไวต่อ outlier)
-- encode: ลำดับมีความหมาย (ระดับความรุนแรง) → ordinal · ไม่มีลำดับ (ชนิดเชื้อ, แผนก) → one-hot · cardinality สูงมาก → ระวัง one-hot บาน
-- ⚠️ fit scaler/encoder บน **train fold เท่านั้น** แล้ว transform test (ใส่ใน Pipeline) — ดู `ml-judgment`
+## phase 2-3 — Data: phase นี้ "ต้องได้อะไร" + เกณฑ์ออก (navigator — ไม่ทำซ้ำสูตร prep)
+- **เป้าของ phase นี้:** เข้าใจ data (แหล่ง/ขนาด/คุณภาพ/missing/outlier) → ทำให้สะอาด **split แล้วไม่มี leakage** → พร้อมเข้า Modeling
+- **การตัดสินใจ prep ทุกตัว** (ระบุ task type · เติม missing ตามกลไก MCAR/MAR/MNAR · normalize vs standardize · encode · SMOTE · leak-check 4 จุด) **มีครบใน `data-project-survival` ข้อ 3-7 + `ml-judgment`** — โหลดคู่ตอนลงมือ prep จริง · skill นี้แค่บอกว่า "ตอนนี้อยู่ phase prep แล้วนะ + จะออกได้เมื่อไหร่" ไม่ลอกสูตรซ้ำ
+- 🚩 **เกณฑ์ออกจาก phase นี้:** dataset สะอาด · **split ก่อนเรียนรู้อะไรจาก data** · ผ่าน leak-check (impute/scale/resample ทำหลัง split เท่านั้น, ไม่มี feature รู้อนาคต) — ถ้ายังไม่ครบ ห้ามข้ามไป Modeling
 
 ## phase 5 — Evaluation: เทียบ "คุณค่า" ไม่ใช่แค่ metric
 - ผ่าน metric (F1/AUC) ≠ ผ่านโจทย์ธุรกิจ → ย้อนถาม phase 1: "ตัวเลขนี้แปลว่าเอาไปใช้ตัดสินใจได้จริงไหม"
@@ -1877,7 +1864,7 @@ disclaimer: "ช่วยวางลำดับงานและตัดส�
 ## กับดัก (Anti-patterns) — พลาดตรงนี้บ่อย
 - **ข้าม Business Understanding** → ได้โมเดลเท่ๆ ที่ไม่มีใครใช้ = "solution หาปัญหา" → ล็อก data-mining goal ที่วัดได้ก่อนแตะ data เสมอ
 - **เริ่ม Modeling ก่อนเข้าใจ + ทำความสะอาด data** → garbage in garbage out · 60–80% ของงานคือ data prep ไม่ใช่ tune โมเดล
-- **Data leakage** — เติม missing/scale/feature-select ทั้ง dataset ก่อน split, หรือใส่ feature ที่รู้ "หลัง" รู้ผลลัพธ์ → คะแนนหลอก พังจริง → split ก่อน, Pipeline fit เฉพาะ train, ตรวจ timeline ทุก feature
+- **Data leakage** — เติม missing/scale/feature-select ทั้ง dataset ก่อน split, หรือใส่ feature ที่รู้ "หลัง" รู้ผลลัพธ์ → คะแนนหลอก พังจริง → split ก่อน, Pipeline fit เฉพาะ train, ตรวจ timeline ทุก feature (เช็ค leak 4 จุดละเอียดใน `data-project-survival`)
 - **Vanity metric** — accuracy สูงบนข้อมูล imbalanced (โรคหายาก 2% → ทาย "ไม่โรค" หมดได้ acc 98% recall 0) → เลือก metric ตามต้นทุนคลินิก (ดู `ml-judgment`)
 - **Over-engineering ก่อนมี baseline** — กระโดด deep net/ensemble หรูก่อน ทั้งที่ยังไม่มี baseline ง่ายๆ ไว้เทียบ → ทำ baseline เร็วก่อนเสมอ
 - **เดินเส้นตรงไม่ยอม loop** — รู้ว่าฐานพัง (data ไม่พอ/leakage) แต่ดันต่อเพราะเสียดายแรง → ถอยกลับ phase ที่พังถูกกว่า
@@ -3812,6 +3799,7 @@ MT ที่ย้ายไปสายขาย IVD/diagnostics ต้องห
 
 > **กฎข้อ 1:** อย่าวิ่งทุกแล็บเท่ากัน. ให้คะแนน lead จาก **สัญญาณ 2 ชั้น** — (1) เขาเข้า ICP เราไหม (ขนาด/ประเภทแล็บ/ใช้ platform คู่แข่งที่เราแทนได้) (2) มี **buying signal** ตอนนี้ไหม (ต่อ accreditation, เครื่องเก่าจะหมดสัญญา, เพิ่ม test, ย้ายระบบ). lead คะแนนสูง = ICP ตรง **และ** มีจังหวะ → วิ่งก่อน.
 > **กับดักข้อ 1:** จัดลำดับด้านเดียว ("เราอยากได้ดีลใหญ่") โดยไม่ถามว่า **เขาเหมาะกับเราไหม** (mutual fit). แล็บที่ของเราแก้ pain เขาไม่ได้/งบคนละช่อง/ผูกสัญญาเจ้าเดิมยาว = เสียเวลา. คัดออกเร็วสำคัญพอๆ กับหาเข้า.
+> **⚖️ ก่อนเริ่มเก็บ/ใช้ข้อมูล lead:** ต้องมีฐานทางกฎหมาย (PDPA) + เคารพนโยบายองค์กรลูกค้า — **ห้ามใช้ข้อมูลส่วนบุคคลที่ได้มาโดยมิชอบ หรือข้อมูลภายในของนายจ้างเดิม**; ยึดข้อมูล professional/สาธารณะ. (ดู `digital-judgment`)
 
 ## ใช้เมื่อ
 - มีรายชื่อแล็บ/รพ. กองหนึ่ง ไม่รู้จะเริ่มวิ่งใครก่อน — อยากจัดลำดับ
@@ -5963,7 +5951,7 @@ disclaimer: "ช่วยวางกลยุทธ์ค้น PubMed/วร�
 
 ### Fork 4 — อ่าน abstract เพื่อ "คัด" ไม่ใช่ "เชื่อ"
 - คัดเร็วจากหน้า results: ดู **ชนิดงาน + ปี + ตรง concept เราไหม** ก่อนเปิดเต็ม
-- ในงาน MT recurring สุด = "test ใหม่ vs gold standard": มอง **sensitivity/specificity เทียบ gold standard อะไร** — ⚠️ **PPV ขึ้นกับ prevalence: test ดีแค่ไหน ถ้าโรคหายาก ผลบวกส่วนใหญ่ก็ false+** (ดู `literature-review-judgment` Fork ประเมิน test)
+- ในงาน MT recurring สุด = "test ใหม่ vs gold standard": มอง **sensitivity/specificity เทียบ gold standard อะไร** — ⚠️ **PPV ขึ้นกับ prevalence: test ดีแค่ไหน ถ้าโรคหายาก ผลบวกส่วนใหญ่ก็ false+** (ดู `critical-appraisal-judgment` Fork ประเมิน test)
 - abstract ใช้ **คัดเข้า/คัดออก** เท่านั้น — **ตัวเลข/ข้อสรุปจริงต้องเปิด full text** ก่อนเอาไปอ้าง (abstract ตัดบริบทบ่อย)
 
 ### Fork 5 — บันทึกให้ค้นซ้ำได้ (reproducible)

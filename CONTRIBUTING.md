@@ -69,21 +69,39 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 
 ถ้าไม่แน่ใจ → consult MT head / QC manager ของโรงพยาบาลคุณก่อน submit
 
-## 📝 วิธี submit
+## 📝 วิธี submit — เลือกทางที่สะดวก
 
-### Method 1: GitHub PR (preferred)
+> **ไม่ต้องมี GitHub ก็ส่งได้** และ **ไม่ต้องเขียนให้สวย** — แค่บอก "เลือกอะไรเมื่อไหร่ +
+> กับดักที่คนพลาด" มา เดี๋ยว maintainer + AI เรียบเรียงเป็น skill ให้ (พร้อม credit ชื่อคุณ)
 
-1. Fork repo นี้
-2. Clone → `git clone <your-fork>`
-3. Branch: `git checkout -b add-<topic>`
-4. แก้ไข + commit (ระบุ `Co-Authored-By` ถ้า AI ช่วย draft)
-5. Push + open Pull Request
-6. Maintainer review (~3-7 วัน)
+### 🟢 ไม่มี GitHub — สำหรับ MT หน้างาน ⭐
 
-### Method 2: GitHub Issue (ไม่ต้อง fork/PR)
+1. *(ไม่บังคับ แต่ช่วยมาก)* ร่างให้เนียนก่อนด้วย **AI** — แปะ [prompt ตัวช่วย](#-ตัวช่วยร่างด้วย-ai)
+   ลง ChatGPT / Claude / Gemini แล้วเล่าปัญหา → ได้ proposal พร้อมส่ง + มันเตือนให้ลบข้อมูลคนไข้ก่อน
+2. ส่งทาง **Google Form** (เร็วสุด · ไม่ต้อง login): 👉 **[ส่งความรู้เข้าคลัง](FORM_URL)**
+   <!-- maintainer: แทน FORM_URL (ตรงนี้ + ในส่วน "ติดต่อ") ด้วยลิงก์ Google Form จริง -->
+3. maintainer → triage → AI แปลงเป็น skill → ขึ้นคลัง
 
-เปิด **GitHub Issue** ของ repo นี้ → เล่าเคส/แปะเนื้อหามาในนั้นได้เลย (ไม่ต้อง fork/PR) → maintainer แปลงเป็น skill/expert-fill ให้
-Title: `[CONTRIB] <topic> - <ชื่อย่อ>`
+ส่งได้ทั้ง **ข้อความ / เสียง / รูปโน้ตมือ** — ขอแค่วิจารณญาณ ไม่ต้องจัดรูปแบบเอง
+
+### ⚙️ มี GitHub — สำหรับ dev
+
+- **PR (preferred):** fork → `git checkout -b add-<topic>` → commit (ใส่ `Co-Authored-By` ถ้า AI ช่วย) → Pull Request → review ~3-7 วัน
+- **Issue (ไม่ต้อง fork):** เปิด GitHub Issue → เล่าเคส/แปะเนื้อหา · Title `[CONTRIB] <topic> - <ชื่อย่อ>`
+
+## 🤖 ตัวช่วยร่างด้วย AI
+
+แปะข้อความนี้ลง AI ตัวไหนก็ได้ แล้วเติมในวงเล็บ — ได้ skill proposal พร้อมส่ง:
+
+```
+ผมเป็น MT อยากแชร์วิจารณญาณหน้างานเข้าคลัง "MT Score UP! skills" ช่วยเรียบเรียงเป็น skill proposal:
+- เรื่อง/หัวข้อ: [...]
+- สถานการณ์ที่ต้องตัดสินใจหน้างาน: [...]
+- ตัวเลือก & เลือกอันไหนเมื่อไหร่: [...]
+- กับดักที่คนพลาดบ่อย (สิ่งที่ผู้เชี่ยวชาญรู้ มือใหม่ไม่รู้): [...]
+จัดเป็นหัวข้อ: ใช้เมื่อ / วิธีตัดสินใจ (fork) / กับดัก — ภาษาไทย กระชับ verdict-first
+และเตือนผมถ้ามีข้อมูลคนไข้/HN/ชื่อสถาบันที่ต้องลบออกก่อนส่ง
+```
 
 ## ✅ Review criteria
 
@@ -102,8 +120,8 @@ Contributors จะถูก list ใน `CONTRIBUTORS.md` (สร้างเ�
 
 ## 📞 ติดต่อ
 
-- GitHub Issues: bug report / feature request
-- Discussions: คำถามทั่วไป
+- 📋 **ส่งความรู้ (ไม่ต้องมี GitHub):** [Google Form](FORM_URL)
+- 🐙 **GitHub** Issues / Discussions: bug · คำถาม · feature
 - (FB MT group link: TBD)
 
 ---

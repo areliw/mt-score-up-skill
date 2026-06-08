@@ -16,8 +16,11 @@ audit ทั้ง 87 skill (multi-agent, confidence-filtered: clinical correctn
 - `data-project-survival` ↔ `data-science-workflow` คม boundary (survival ชี้ phase-map ไป workflow, เน้น decision-gate/vendor) — dup เดียวที่พบในคลัง
 - README footnote v0.5.0→v0.7.0 + eval scope (53→87, +34 ยังไม่ A/B) · `eval/RESULTS.md`+`eval/ab-scorecard.md` เติม scope footnote (n=53 = คลัง ณ ตอน eval) · ลบ `docs/skill-gap-candidates.md` (scratchpad ที่ candidate ถูก add ครบแล้ว)
 
+### Added
+- `eval/round4-new-skills.md` — spot-A/B ของ 8 ตัว v0.6.0 (weak model Haiku, มี/ไม่มี skill): **8 tie · 0 rescue · 0 regression**. harness เบากว่า round-1 (trap self-derived, single-pass, ไม่ blind-judge) = **safety screen** ไม่ใช่ scorecard. ยืนยัน finding เดิม: weak model รู้ trap #1 (textbook) อยู่แล้ว → เสมอ; คุณค่า = ความสม่ำเสมอ + scaffold junior จริง (ต้องเทสกับคน). **0 regression = ไม่มี skill ใหม่ทำให้แย่ลง**
+
 ### Notes
-- cross-link ครบ **100%** ไม่มี broken · frontmatter 8-key + canonical format + disclaimer ทั้ง 87 ผ่าน · **ไม่พบ 🔴 ที่อันตรายถึงคนไข้** (ทั้งหมด = precision เชิงเทคนิค) · 8 ตัวใหม่ (v0.6.0) clinically clean
+- cross-link ครบ **100%** ไม่มี broken · frontmatter 8-key + canonical format + disclaimer ทั้ง 87 ผ่าน · **ไม่พบ 🔴 ที่อันตรายถึงคนไข้** (ทั้งหมด = precision เชิงเทคนิค) · 8 ตัวใหม่ (v0.6.0) clinically clean + spot-A/B 0 regression
 - งานสร้างเสร็จ; clinical 4 ตัวใหม่ยังควร peer-review + 34 ตัวยังรอ weak-model A/B
 
 ## [0.7.0] — 2026-06-08

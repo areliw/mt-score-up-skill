@@ -4,6 +4,23 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [0.6.0] — 2026-06-08
+
+### Added — reconcile parallel branch (T-shaped clinical expansion)
+- **+8 skills (79 → 87)** — cherry-pick จาก PR #11 (`feat/t-shaped-mt-expansion`, แชทขนาน) เฉพาะตัวที่เติม **gap จริง ไม่ซ้ำ**:
+  - 🩸 `urinalysis-judgment` · `preanalytical-judgment` · `poct-judgment` · `flow-cytometry-judgment` — clinical bench ที่ main ขาดสนิท
+  - 🔬 `method-validation-stats` — method comparison (Bland-Altman/Deming)/reference interval/diagnostic accuracy (≠ research stats)
+  - 🗂️ `phi-data-handling` — PDPA de-identify เฉพาะ PHI
+  - 💻 `spreadsheet-judgment` · `mt-databases` — เครื่องมือ data รายวัน MT
+
+### Changed
+- README ทั้ง 2 (root + skills/) + count 79→87 (4 จุด) · `dist/all-skills.md` (~125K→~133K) · build_triage regenerated INDEX/triage/bundle (87, in-sync)
+
+### Notes
+- **ทิ้ง 19/27 ของ PR #11** = ซ้ำ concept กับ main (8 คู่: `deploy-ml-safely`≈`ml-engineering-workflow` · `manage-up`≈`report-up-judgment` · `prompt-craft`≈`prompt-optimizer` · `pubmed-search`≈`pubmed-search-judgment` · `source-credibility`≈`source-credibility-judgment` · `vibe-coding-safely`≈`ai-coding-guardrails` · `focus-and-time`≈`pomodoro-focus`/`time-blocking` · `market-opportunity`≈`market-research-judgment`) + generic ที่ main domain รวยแล้ว (11) → กัน dup bloat + style ชนกัน ("do-X" vs "-judgment")
+- PR #11 แตกจาก 55-era → **CONFLICTING/DIRTY** กับ main (ตามหลัง 5 commit, แตะ catalog ชุดเดียวกัน) → reconcile ด้วยการ **cherry-pick ไฟล์** ไม่ใช่ `git merge`
+- 8 ตัว = `status: draft` · ยังไม่ผ่าน weak-model A/B · clinical 4 ตัว (urinalysis/preanalytical/poct/flow) ยังรอ clinical peer-review
+
 ## [0.5.0] — 2026-06-08
 
 ### Added

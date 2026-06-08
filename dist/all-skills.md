@@ -2600,6 +2600,84 @@ disclaimer: "ช่วยคิดอ่านงบการเงินเพ�
 *ช่วยคิดอ่านงบการเงินเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน/บัญชีจากผู้มีใบอนุญาต — ตัวเลข/นโยบายบัญชีต้องตรวจกับงบจริง + ผู้สอบบัญชี/ผู้เชี่ยวชาญก่อนตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: flow-cytometry-judgment ═════════ -->
+
+---
+skill: flow-cytometry-judgment
+title: โค้ช flow cytometry — gate ถูก + อ่าน pattern + correlate (Flow Cytometry Judgment)
+type: ADVISE               # ช่วยตัดสินใจ gating/panel/ตีความ ไม่ใช่ atlas marker
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดงาน flow cytometry เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC ของแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ช flow cytometry
+
+ตัวช่วยตัดสินใจงาน flow (immunophenotyping leukemia/lymphoma, CD4, PNH, lymphocyte subset, MRD) — เน้น "gate ถูก + อ่าน pattern + correlate" ไม่ใช่ atlas CD marker
+
+> **กฎ #1:** flow ตีความจาก **population + pattern (intensity/relationship)** ไม่ใช่ marker เดี่ยว — ต้อง **gate ให้ถูก population ก่อน** + correlate morphology/clinical เสมอ
+> **กับดัก #1 (ขั้น hard):** **gating ผิด** (รวม debris/doublet/เซลล์ตาย หรือ gate ผิด population) → ผล % เพี้ยน + แปล population ผิด. ต้อง gate **viability + singlet + scatter (CD45/SSC)** ก่อนอ่าน marker
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = ผู้เชี่ยวชาญ/แพทย์ยืนยัน
+
+## ใช้เมื่อ
+- วาง gating strategy / panel หรือ debug ผล flow ที่ดูแปลก
+- อ่าน immunophenotype → blast lineage / lymphoma / PNH / CD4
+- ผล flow ขัด smear/clinical → เชื่อ/ทำอะไรต่อ
+
+## วิธีใช้
+วาง skill นี้ + บอกงาน (panel/ผล/scatter plot ที่อธิบายได้) + บริบทคน → AI ช่วยไล่ gating + ชี้ pattern + เตือน control/compensation แล้วชี้ให้ correlate morphology + ยืนยันเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### ก่อนวิเคราะห์ — เช็คคุณภาพ
+- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO/isotype)** ไหม
+
+### Fork 1 — gating strategy (ลำดับ)
+scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte) → marker เฉพาะใน gate ที่สนใจ
+
+### Fork 2 — panel design
+- lineage marker + maturation marker; เลือก CD ให้ครอบ DDx (AML vs ALL vs lymphoma)
+- **aberrant phenotype** (marker ผิดที่/ผิดเวลา) = clue สำคัญของ malignancy/MRD
+
+### Fork 3 — อ่าน pattern ไม่ใช่ marker เดี่ยว
+- ดู **% + intensity (dim/bright) + ความสัมพันธ์ระหว่าง marker** (co-expression)
+- เทียบกับ normal maturation pattern → ผิดปกติตรงไหน
+
+### Fork 4 — แอปจริง
+- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (CD55/CD59 loss, FLAER) · **MRD** · lymphocyte subset
+
+### Fork 5 — correlate (flow ไม่ใช่คำตอบเดี่ยว)
+- correlate **smear/morphology + clinical + cytogenetics/molecular** (เชื่อม `hematology-judgment`, `pathology-judgment`, `molecular-judgment`) — diagnosis เป็นหน้าที่แพทย์/ผู้เชี่ยวชาญ
+
+### Fork 6 — QC instrument
+- setup/CST beads, PMT voltage, daily QC, compensation matrix เป็นปัจจุบัน
+
+## กับดัก (Anti-patterns)
+- #1 gate ไม่ตัด dead/doublet/debris → % เพี้ยน, population ผิด (กับดัก #1)
+- #2 compensation/spillover ผิด → marker ดู positive ปลอม
+- #3 ไม่มี FMO/isotype control → ขีดเส้น positive/negative มั่ว
+- #4 อ่าน marker เดี่ยวไม่ดู pattern/co-expression
+- #5 ไม่สน intensity (dim vs bright) → พลาด aberrant phenotype
+- #6 ไม่ correlate morphology/clinical → ตีความลอย
+- #7 สรุป diagnosis จาก flow อย่างเดียว (ข้าม smear/genetics/แพทย์)
+- #8 sample เก่า/viability ต่ำ แล้วเชื่อผลเต็มร้อย
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - panel + gating template ที่แลบคุณใช้ (marker/fluorochrome/เครื่อง)
+> - เกณฑ์ positive/aberrant + cutoff ของแลบคุณ (โดยเฉพาะ MRD/PNH)
+> - เคสที่ flow ขัด morphology → ทีมตัดสินยังไง
+
+NOTE: knowledge (CD marker เต็ม, fluorochrome spectra, ตาราง phenotype ต่อโรค) → ตำรา/แหล่งอ้างอิง; smear/morphology → `hematology-judgment`; skill นี้ช่วย "gate/อ่าน pattern/correlate"
+
+---
+*skill นี้ช่วย "คิด" เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: grill-my-plan ═════════ -->
 
 ---
@@ -4262,6 +4340,86 @@ disclaimer: "ช่วยคิดกลยุทธ์การตลาด/ข
 *ช่วยคิดกลยุทธ์การตลาด/ขายเพื่อการศึกษา ไม่ใช่คำแนะนำธุรกิจ/กฎหมายทางการ — ห้ามใช้กล่าวอ้างเกินจริง/ผิดจริยธรรมวิชาชีพ · ผู้นำไปใช้รับผิดชอบการกระทำที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: method-validation-stats ═════════ -->
+
+---
+skill: method-validation-stats
+title: สถิติเฉพาะ MT — method comparison / reference interval / diagnostic accuracy (Method & Validation Stats)
+type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# สถิติเฉพาะ MT (method/validation)
+
+ตัวช่วยตัดสินใจสถิติที่ MT เจอจริงแต่ตำราสถิติทั่วไปไม่ครอบ — method comparison, reference interval, diagnostic accuracy, precision/QC. เน้น "ใช้ตัวไหน + กับดัก" ไม่ใช่สอนรันโปรแกรม
+
+> **กฎ #1:** เลือกสถิติตาม **"คำถามแบบงานแล็บ"** ไม่ใช่ default ทั่วไป — เทียบ 2 วิธีตรวจ ≠ correlation; ตั้ง reference interval ≠ mean±2SD เสมอ
+> **กับดัก #1 (ขั้น hard):** ใช้ **correlation (r) หรือ paired t-test ตัดสิน "2 method แทนกันได้ไหม" = ผิด**. r สูงไม่ได้แปลว่า agree (มี constant/proportional bias ได้ทั้งที่ r≈1); paired-t บอกแค่ "ต่างกันเชิงสถิติ" ไม่บอกขนาด bias ที่ยอมรับทางคลินิก → ใช้ **Bland-Altman + Passing-Bablok/Deming**
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## ใช้เมื่อ
+- เทียบวิธี/เครื่องตรวจใหม่ vs เก่า (method comparison / verification)
+- ตั้งหรือ verify reference interval
+- ประเมิน test diagnostic (sens/spec/PPV/ROC)
+- ดู precision/QC (CV, repeatability/reproducibility, sigma)
+
+## วิธีใช้
+วาง skill นี้ + บอกคำถาม (เทียบ method? ตั้งช่วงอ้างอิง? ประเมิน test?) + ข้อมูลที่มี → AI ชี้สถิติที่ถูก + กับดัก + เกณฑ์ที่ควรอิง (CLSI) แล้วชี้ให้คุณรัน/ปรึกษานักสถิติเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — Method comparison (วิธีใหม่ vs reference)
+- **Bland-Altman**: plot ผลต่าง vs ค่าเฉลี่ย → bias (mean diff) + limits of agreement (±1.96SD); ดูว่า bias อยู่ในเกณฑ์ยอมรับทางคลินิกไหม
+- **Passing-Bablok / Deming regression** (ไม่ใช่ OLS — เพราะ x ก็มี error) → จับ **constant bias (intercept) + proportional bias (slope)**
+- อ้าง **CLSI EP09**; **ห้ามใช้ r/paired-t** ตัดสิน agreement
+
+### Fork 2 — Reference interval
+- **CLSI EP28**: nonparametric **2.5/97.5 percentile**, ต้อง **n ≥ 120** (per partition)
+- **partition** ตามเพศ/อายุเมื่อต่างจริง · **transference/verification** (n≈20) เมื่อยืมช่วงจากที่อื่น/ผู้ผลิต
+- **อย่าใช้ mean±2SD** ถ้าข้อมูลไม่ Gaussian (ค่าแล็บส่วนใหญ่เบ้)
+
+### Fork 3 — Diagnostic accuracy
+- 2×2 ให้ถูก → **sens/spec/PPV/NPV/LR+,LR−**, **ROC-AUC** เทียบ cutoff
+- **PPV/NPV ขึ้นกับ prevalence** — รายงานต้องระบุ population (เชื่อม `immunoassay-judgment`, `critical-appraisal-judgment`)
+
+### Fork 4 — Precision / QC stats
+- **repeatability (within-run) vs reproducibility (between-run/day)** — คนละค่า; **CLSI EP05**
+- **CV%** เทียบกับ allowable; **sigma metric** = (TEa − bias)/CV → กลยุทธ์ QC (เชื่อม `clinchem-judgment`, `lab-management-judgment`)
+
+### Fork 5 — Sample size (ต่างจาก t-test ทั่วไป)
+- method comparison ~**40–100+** (ตาม range + EP09) · reference interval **≥120** · sens/spec ตาม **width ของ CI ที่ยอมรับ** (เชื่อม `sample-size-power`)
+
+### Fork 6 — Agreement แบบ categorical
+- ใช้ **Cohen's kappa / weighted kappa** ไม่ใช่ **%agreement** (ซึ่งพอง chance agreement)
+
+## กับดัก (Anti-patterns)
+- #1 r / paired-t ตัดสิน method agreement (กับดัก #1) → ควร Bland-Altman + PB/Deming
+- #2 OLS regression แทน Deming/Passing-Bablok (ลืมว่า x มี error)
+- #3 mean±2SD ตั้ง reference interval ทั้งที่ไม่ Gaussian / n<120
+- #4 รายงาน PPV โดยไม่ระบุ prevalence/population
+- #5 สับ repeatability กับ reproducibility
+- #6 %agreement แทน kappa (categorical)
+- #7 ตัดสิน method ด้วย p-value (significance) แทน clinical acceptability (bias ที่ยอมรับได้)
+- #8 ใช้ accuracy บน prevalence ต่ำ/ข้อมูล imbalanced → หลอก (ควร sens/spec/LR)
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - TEa/allowable bias ของ analyte ที่คุณ validate (อิง CLIA/biological variation/SOP)
+> - เกณฑ์ยอมรับ method comparison ของแลบคุณ + จำนวนตัวอย่างที่ใช้จริง
+> - reference interval ที่ใช้มาจากไหน (ตั้งเอง/ยืม/ผู้ผลิต) + verify หรือยัง
+
+NOTE: การรันสถิติจริง (โปรแกรม/สูตร) → ใช้ `r2r-stats` (`needs: code-interpreter`) หรือซอฟต์แวร์สถิติ; เลือก test ทั่วไป → `choose-stat-test`; ทฤษฎีลึก → ตำราสถิติ/CLSI
+
+---
+*skill นี้ช่วย "คิด/เลือกสถิติ" เพื่อการศึกษา · เกณฑ์ยอมรับทางคลินิกอิง CLSI/SOP; งานตีพิมพ์ปรึกษานักสถิติ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: ml-engineering-workflow ═════════ -->
 
 ---
@@ -4690,6 +4848,88 @@ MT ไม่ได้มีแค่ "อยู่หน้า bench" — มี
 
 ---
 *ช่วยคิดเส้นทางอาชีพ MT เพื่อการศึกษา ไม่ใช่ที่ปรึกษาอาชีพ/จัดหางานทางการ — โครงสร้างตำแหน่ง/รายได้/ตลาดงานต่างกันตามบริษัท/ประเทศ/ช่วงเวลา ต้องเช็คของจริงเอง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: mt-databases ═════════ -->
+
+---
+skill: mt-databases
+title: MT เก็บข้อมูล — Sheets vs Access vs SQL เมื่อไหร่ + ไม่ให้พัง (Databases for MT)
+type: ADVISE               # ช่วยเลือกที่เก็บ + ออกแบบเบื้องต้น ไม่ใช่ตำรา DBA
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดการเลือก/ออกแบบที่เก็บข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำ DBA/ความปลอดภัยทางการ · ข้อมูลผู้ป่วยต้องเข้ารหัส + auth + อยู่ใต้ PDPA, research data ต้อง de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# MT เก็บข้อมูล (เลือกที่เก็บ + ออกแบบไม่ให้พัง)
+
+ตัวช่วยตัดสินใจตอนต้องเก็บข้อมูล (research, log งาน, inventory, ทะเบียนตัวอย่าง) — เน้น "เก็บใน Sheets vs Access vs SQL เมื่อไหร่ + ออกแบบเบื้องต้นไม่ให้ข้อมูลพัง/หาย" สำหรับคนที่ไม่ใช่ DBA
+
+> **กฎ #1:** เลือกที่เก็บตาม **ขนาด + กี่คนแก้พร้อมกัน + ต้องเชื่อมหลายตารางไหม** ไม่ใช่ตามของเท่. เริ่ม Sheets ได้ถ้ายังเล็ก/คนเดียว
+> **กับดัก #1 (ขั้น hard):** ข้อมูลที่ **ไม่มี backup + แก้ทับ raw ได้** = หายวันใดวันหนึ่งแน่ (โดยเฉพาะ research data ที่เก็บเป็นปีๆ). **backup อัตโนมัติ + ห้ามแก้ raw โดยตรง** (เชื่อม `never-lose-a-file`)
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## ใช้เมื่อ
+- จะเริ่มเก็บข้อมูลงาน/วิจัยแต่ไม่รู้ใช้อะไร (Excel ต่อ? Access? SQL?)
+- Excel เริ่มอืด/ชนกันหลายคน/ข้อมูลซ้ำหลายไฟล์
+- อยากออกแบบตารางให้ค้นง่าย ไม่ให้ขยะเข้า
+
+## วิธีใช้
+วาง skill นี้ + เล่าว่าเก็บอะไร (กี่แถวคาดว่าจะโต, กี่คนแก้, มีหลาย entity เชื่อมกันไหม, มีข้อมูลคนไข้ไหม) → AI ช่วยเลือกที่เก็บ + ร่างโครงตาราง + เตือนกับดัก แล้วชี้ให้คุณวาง backup/สิทธิ์เอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — เลือกที่เก็บ
+- **Sheets/Excel** — เล็ก (<~หมื่นแถว), คนเดียว/น้อย, ข้อมูลแบนๆ (เชื่อม `spreadsheet-judgment`)
+- **Access / SQLite** — โตขึ้น, มี relationship, ออฟไลน์, ไฟล์เดียว
+- **PostgreSQL / cloud DB** — หลายคนพร้อมกัน, ใหญ่, ต้อง concurrent + auth + backup จริง
+- **REDCap** — research data จริงจัง (มี audit trail, validation, สำหรับงานวิจัยคลินิก) — ทางเลือกที่ MT สายวิจัยควรรู้จัก
+
+### Fork 2 — ออกแบบตารางขั้นต่ำ (non-DBA)
+- **1 ตาราง = 1 entity** (ผู้ป่วย / ตัวอย่าง / ผลตรวจ คนละตาราง) · ทุกตารางมี **unique id**
+- **อย่าซ้ำข้อมูลข้ามตาราง** (normalize เบื้องต้น) — เก็บชื่อผู้ป่วยที่เดียว แล้วอ้างด้วย id
+- แยกตารางเมื่อเป็น **"1-ต่อ-หลาย"** (1 ผู้ป่วย → หลายผล)
+
+### Fork 3 — ชนิดข้อมูล + constraint (กันขยะตั้งแต่กรอก)
+- **date เป็น date จริง** (ไม่ใช่ text), เลขเป็นเลข, หมวดเป็น dropdown
+- บังคับ **required field** + **unique** (HN/รหัสตัวอย่างห้ามซ้ำ) → กันข้อมูลเสียตั้งแต่ input
+
+### Fork 4 — กับดักจัดการข้อมูล (เวอร์ชัน MT ของ `db-judgment`)
+- **ลบ/แก้ต้องมีเงื่อนไขเสมอ** — อย่า DELETE/UPDATE ทั้งตาราง (พลาด = ข้อมูลหายหมด)
+- **เปลี่ยนโครงตาราง = backup ก่อน** (เชื่อม `database-migrations` หลักการ)
+- **อย่าเก็บค่าที่คำนวณได้** (อายุ จาก วันเกิด; ratio) → เก็บ raw แล้วคำนวณตอนใช้ (ไม่งั้นแก้ที่เดียวลืมอีกที่)
+
+### Fork 5 — ข้อมูลคนไข้ + research
+- เข้ารหัส/auth · ใครเข้าถึงได้ (สิทธิ์) · audit ใครแก้อะไร · **research = de-identify + IRB** (เชื่อม `digital-judgment`)
+
+### Fork 6 — ส่งต่อ / ย้ายได้
+- **export เป็น CSV ได้** เสมอ · ไม่ผูกกับ tool เดียวจนออกไม่ได้ · มี **data dictionary** (คอลัมน์ไหนคืออะไร หน่วยอะไร)
+
+## กับดัก (Anti-patterns)
+- #1 ไม่ backup research data / แก้ raw ตรงๆ → หายถาวร (กับดัก #1)
+- #2 เก็บ date เป็น text → เรียง/กรอง/คำนวณช่วงไม่ได้
+- #3 ข้อมูลซ้ำหลายตาราง/หลายไฟล์ → แก้ที่เดียวลืมอีกที่ (inconsistent)
+- #4 DELETE/UPDATE ไม่มีเงื่อนไข → ลบทั้งตาราง
+- #5 ไม่มี unique id / ไม่บังคับ required → ข้อมูลซ้ำ/ขาด
+- #6 เก็บค่าที่ derive ได้ แทนเก็บ raw → ไม่ sync
+- #7 ดันใช้ Sheets กับข้อมูลที่ต้อง concurrent หลายคน → ชนกัน/ข้อมูลทับ
+- #8 เก็บ PHI ไม่เข้ารหัส/ไม่จำกัดสิทธิ์ · research ไม่ de-identify/ไม่ผ่าน IRB
+- #9 ผูก tool เดียว export ไม่ได้ / ไม่มี data dictionary → ส่งต่อ/ย้ายไม่ได้
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - ข้อมูลที่หน่วยงาน/งานวิจัยคุณเก็บ + คาดว่าจะโตแค่ไหน + กี่คนแก้
+> - นโยบาย รพ./IRB เรื่องที่เก็บข้อมูลคนไข้-วิจัย (เข้ารหัส/สิทธิ์/de-identify)
+> - entity หลักในข้อมูลคุณ (ผู้ป่วย/ตัวอย่าง/ผล/lot น้ำยา) + ความสัมพันธ์
+
+NOTE: SQL syntax / การ normalize ลึก / index tuning → ใช้ `db-judgment` หรือถาม AI แยก; skill นี้ช่วย "เลือกที่เก็บ + ออกแบบเบื้องต้น + กันข้อมูลพัง/หาย" สำหรับ non-DBA
+
+---
+*skill นี้ช่วย "คิด" เพื่อการศึกษา · backup + ห้ามแก้ raw ตรงๆ; ข้อมูลคนไข้ต้องเข้ารหัส+auth (PDPA), research ต้อง de-identify+IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: mt-exam-strategy-judgment ═════════ -->
@@ -5447,6 +5687,86 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 *ช่วยคิด/เฝ้าระวังเรื่องยาเพื่อการศึกษา ไม่ใช่คำสั่งใช้ยา/สั่งจ่ายยา — MT ไม่สั่งจ่ายยา การใช้/ปรับ/หยุดยาต้องปรึกษาแพทย์/เภสัชกรเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: phi-data-handling ═════════ -->
+
+---
+skill: phi-data-handling
+title: จัดการข้อมูลคนไข้/PHI ในงาน MT — PDPA + de-identify ให้จริง (PHI Data Handling)
+type: ADVISE               # ช่วยตัดสินใจจัดการข้อมูล ไม่ใช่คำแนะนำกฎหมาย
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดการจัดการข้อมูลผู้ป่วยเพื่อการศึกษา ไม่ใช่คำแนะนำทางกฎหมาย · ต้องอิงนโยบาย รพ./DPO + PDPA จริง + IRB สำหรับงานวิจัยเสมอ; การละเมิดข้อมูลกระทบสิทธิผู้ป่วยและมีโทษตามกฎหมาย · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# จัดการข้อมูลคนไข้/PHI ในงาน MT
+
+ตัวช่วยตัดสินใจเรื่องข้อมูลผู้ป่วยในงาน MT จริง — เก็บ/แชร์/de-identify/เอาไปใช้วิจัย-dashboard-AI ตรงไหนได้-ไม่ได้ — เน้น "ทำให้ปลอดภัย + ถูก PDPA" ไม่ใช่ตำรากฎหมายเต็มเล่ม
+
+> **กฎ #1:** ข้อมูลผู้ป่วยทุกชิ้น = **ของผู้ป่วย ไม่ใช่ของเรา** → เก็บ/ใช้/แชร์ **เท่าที่จำเป็น (minimum necessary)** + มีฐานทางกฎหมาย + de-identify เมื่อไม่ต้องใช้รายตัว
+> **กับดัก #1 (ขั้น hard):** "de-identify" แบบ **ลบแค่ชื่อไม่พอ** — HN/วันเกิด/วันที่+สถานที่/โรคหายาก/เลขที่ไม่ซ้ำ = **quasi-identifier** ที่ re-identify กลับได้. ต้องจัดการ quasi-identifier + ระวัง **small cell (n เล็กในตาราง/dashboard ชี้ตัวได้)** ด้วย
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · เรื่องกฎหมาย/นโยบาย ยืนยันกับ DPO/หัวหน้า
+
+## ใช้เมื่อ
+- จะเอาข้อมูลคนไข้ไปทำวิจัย / dashboard / รายงาน / สอน / ใส่ AI — ทำได้แค่ไหน
+- ต้องแชร์/ส่งต่อข้อมูล — ช่องทาง/ฐานกฎหมายอะไร
+- ไม่แน่ใจว่า de-identify พอหรือยัง / เก็บได้นานแค่ไหน
+
+## วิธีใช้
+วาง skill นี้ + บอกว่าจะทำอะไรกับข้อมูล (ใช้ที่ไหน/ใคร/เพื่ออะไร) → AI ช่วยจัดระดับข้อมูล + ชี้ว่า de-identify พอไหม/ช่องทางไหนปลอดภัย/ต้อง IRB ไหม แล้วชี้ให้ยืนยันกับนโยบาย รพ./DPO
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — จัดระดับข้อมูล (classification)
+- **Direct identifier**: ชื่อ/HN/MRN/บัตร ปชช./รูปหน้า/ลายนิ้วมือ
+- **Quasi-identifier**: วันเกิด/อายุเป๊ะ/zip/วันที่+สถานที่/อาชีพ/โรคหายาก → รวมกันชี้ตัวได้
+- **De-identified / aggregate**: ตัด direct + จัดการ quasi แล้ว → ป้องกันต่างระดับกัน
+
+### Fork 2 — de-identify ให้จริง
+- ลบ direct ID + **generalize quasi** (วันเกิด→ช่วงอายุ, ลบวันที่เป๊ะ, รวมพื้นที่) + **ระวัง small cell** (n<5 ในตาราง/กราฟ → mask/รวมกลุ่ม) · เลขโรคหายาก/ค่าสุดโต่ง = เบาะแสชี้ตัว
+
+### Fork 3 — ที่ไหนได้-ไม่ได้
+- **ได้ (ตาม role)**: LIS/ระบบ รพ. ที่มีสิทธิ์
+- **เสี่ยง/ห้ามตามนโยบาย**: Excel ส่วนตัว/USB/cloud ส่วนตัว/แชต/อีเมลเปล่า/**AI สาธารณะ** → อย่าใส่ identifiable
+- **งานวิจัย**: ต้อง **IRB + consent/waiver** ก่อนใช้ข้อมูล
+
+### Fork 4 — แชร์/ส่งต่อ
+- มี **ฐานทางกฎหมาย** (consent/สัญญา/หน้าที่ตามกฎหมาย/research waiver) · **minimum necessary** (ส่งเท่าที่ต้องใช้) · **ช่องทางเข้ารหัส** ไม่ใช่ไลน์/อีเมลเปล่า
+
+### Fork 5 — retention + ทำลาย
+- เก็บ **เท่าที่จำเป็น/ตามระเบียบ** แล้ว **ทำลายอย่างปลอดภัย** · อย่าเก็บ data ดิบส่วนตัวไว้หลังจบงาน/วิจัย
+
+### Fork 6 — สิทธิเจ้าของข้อมูล + เหตุละเมิด (PDPA)
+- เจ้าของข้อมูลมีสิทธิ เข้าถึง/แก้/ลบ/ถอนความยินยอม · เกิด **data breach → แจ้งตามระเบียบ/DPO** ทันที
+
+### Fork 7 — ใช้ AI/cloud กับข้อมูล
+- **ไม่ใส่ identifiable ลง AI สาธารณะ** → de-identify ก่อน หรือใช้ตัวอย่างสมมุติ/โครงสร้างคอลัมน์ · ดูข้อตกลงผู้ให้บริการ (เชื่อม `digital-judgment`, `prompt-craft`, `build-a-dashboard`)
+
+## กับดัก (Anti-patterns)
+- #1 de-identify แค่ลบชื่อ (quasi-identifier ยังชี้ตัว) (กับดัก #1)
+- #2 small cell (n เล็ก) ในตาราง/dashboard ชี้ตัวคนไข้ได้
+- #3 เอาข้อมูลคนไข้ใส่ AI สาธารณะ / cloud-USB ส่วนตัว
+- #4 แชร์เกิน minimum necessary
+- #5 ส่งผ่านช่องทางไม่ปลอดภัย (ไลน์/อีเมลเปล่า)
+- #6 เก็บ data ดิบส่วนตัวไว้หลังจบงาน
+- #7 ใช้ข้อมูลโดยไม่มีฐานกฎหมาย/consent · งานวิจัยไม่ผ่าน IRB
+- #8 ลืมสิทธิเจ้าของข้อมูล / ไม่รายงานเหตุละเมิด
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - นโยบายข้อมูล/PDPA + ขั้นตอนของ รพ.คุณ (ใครคือ DPO, ช่องทางแชร์ที่อนุญาต)
+> - ระเบียบ retention ของเอกสาร/ข้อมูลในหน่วยงานคุณ
+> - ขั้นตอน IRB/consent สำหรับงานวิจัยในสถาบันคุณ
+
+NOTE: privacy/security/ลิขสิทธิ์ภาพรวม → `digital-judgment`; ข้อมูลบน dashboard → `build-a-dashboard`; ใส่ AI อย่างปลอดภัย → `prompt-craft`; กฎหมาย/จรรยาบรรณวิชาชีพ → `mt-law-ethics-judgment`; ตัวบทกฎหมายเต็ม → DPO/ที่ปรึกษากฎหมาย
+
+---
+*skill นี้ช่วย "คิดจัดการข้อมูลคนไข้" เพื่อการศึกษา ไม่ใช่คำแนะนำทางกฎหมาย · อิงนโยบาย รพ./DPO + PDPA + IRB เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: photography-judgment ═════════ -->
 
 ---
@@ -5537,6 +5857,79 @@ disclaimer: "ช่วยคิดการถ่ายภาพ/วิดีโ
 
 ---
 *ช่วยคิดการถ่ายภาพ/วิดีโอ + ถ่ายงานแล็บ เพื่อการศึกษา · การถ่ายภาพคนไข้/สิ่งส่งตรวจต้องเคารพความลับ/consent ตามกฎหมาย (ดู mt-law-ethics-judgment) · ผู้นำไปใช้รับผิดชอบการนำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: poct-judgment ═════════ -->
+
+---
+skill: poct-judgment
+title: โค้ช POCT — แล็บนอกแล็บต้องเชื่อได้เท่าแล็บกลาง (Point-of-Care Testing Judgment)
+type: ADVISE               # ช่วยตัดสินใจการใช้/คุม POCT ไม่ใช่คู่มือเครื่อง
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ผล POCT ที่กระทบการรักษาต้องผ่าน QC + operator competency + ทำตาม SOP/ISO 15189; ค่าวิกฤตแจ้ง/ยืนยันตาม policy · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ช POCT (Point-of-Care Testing)
+
+ตัวช่วยตัดสินใจตอน MT ดูแล/ใช้ POCT (glucose meter, blood gas, i-STAT, rapid test, HbA1c POC) นอกแล็บกลาง — เน้น "เมื่อไหร่ใช้ + คุมยังไงให้เชื่อได้ + limitation" ไม่ใช่คู่มือเครื่อง
+
+> **กฎ #1:** POCT = **แล็บที่ทำนอกแล็บ** → ต้องมี **QC + operator competency + connectivity** เหมือนแล็บกลาง (ISO 15189:2022 รวม POCT เข้ามาแล้ว) ไม่ใช่ "เครื่องง่ายๆ ใครก็กดได้"
+> **กับดัก #1 (ขั้น hard):** ผล POCT ที่ **ไม่ผ่าน QC / operator ไม่ผ่าน competency = ค่าที่เชื่อไม่ได้** แต่ถูกเอาไปรักษาทันที (ER/ICU). ค่าวิกฤตจาก POCT ต้องแจ้ง/พิจารณา confirm เหมือนแล็บกลาง
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยัน
+
+## ใช้เมื่อ
+- ตัดสินใจว่างานนี้ควรใช้ POCT หรือส่งแล็บกลาง
+- วางระบบ QC/competency/connectivity สำหรับ POCT ในหน่วยงาน
+- เจอผล POCT ที่ขัดอาการ/ขัดแล็บกลาง → เชื่อตัวไหน
+
+## วิธีใช้
+วาง skill นี้ + บริบท (เทสต์อะไร/ที่ไหน/ใครทำ/เร่งแค่ไหน) → AI ช่วยชั่ง POCT vs แล็บกลาง + เตือน QC/competency/limitation แล้วชี้ให้ทำตาม SOP + ยืนยันเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — ควรใช้ POCT ไหม
+- **ใช่**: TAT เป็นเรื่องเป็นเรื่องชีวิต (ER/ICU/OR/ห่างแล็บ), ปริมาณน้อย-ต้องเร็ว
+- **ส่งแล็บกลางดีกว่า**: ต้องการความแม่นสูง, ปริมาณมาก (ถูกกว่าต่อเทสต์), มี QC/validation เต็ม
+- ไม่ใช่ทุกอย่างควร POCT เพราะ "เร็ว"
+
+### Fork 2 — QC + operator competency
+- QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
+
+### Fork 3 — limitation ของ POCT (รู้ก่อนเชื่อ)
+- **interference**: Hct + oxygen + สารรบกวน ใน glucose meter; linear range แคบ; แม่นน้อยกว่าแล็บกลาง
+- correlate POCT กับแล็บกลางเป็นระยะ; ค่าขัดอาการ/ขัดแล็บกลาง → ตรวจซ้ำ/ส่งแล็บกลาง
+
+### Fork 4 — connectivity + บันทึก
+- ผลต้องเข้า **LIS/บันทึกได้ + traceable** (ไม่ใช่จดมือแล้วหาย) → audit + ความต่อเนื่องการดูแล
+
+### Fork 5 — critical value + confirm
+- ค่าวิกฤตจาก POCT → **แจ้งตาม policy** + พิจารณา confirm แล็บกลาง (เชื่อม `clinical-correlation-judgment`)
+
+## กับดัก (Anti-patterns)
+- #1 ถือว่า POCT ไม่ต้อง QC / operator ไม่ต้อง competency (กับดัก #1)
+- #2 ลืม interference (Hct/oxygen ใน glucose meter) → ค่าเพี้ยนในคนไข้ป่วยหนัก
+- #3 ใช้นอก linear range → ค่าผิด
+- #4 ผล POCT ไม่เข้าระบบ/จดมือหาย → ไม่ traceable
+- #5 ไม่ confirm/ไม่แจ้งค่าวิกฤตจาก POCT
+- #6 ใช้ POCT แทนแล็บกลางทุกอย่างเพราะเร็ว (ละเลยความแม่น/ต้นทุน)
+- #7 ไม่ correlate POCT กับแล็บกลางเป็นระยะ → drift ไม่รู้ตัว
+- #8 lot ใหม่ไม่ verify
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - รายการ POCT ที่หน่วยงานคุณใช้ + ใครเป็น operator + ระบบ QC/competency ปัจจุบัน
+> - policy ค่าวิกฤต + การ confirm แล็บกลางของ รพ.คุณ
+> - interference/limitation ของเครื่อง POCT รุ่นที่ใช้ที่ทีมต้องระวัง
+
+NOTE: QC/Westgard เชิงลึก → `clinchem-judgment`; ระบบ QMS/competency → `lab-management-judgment`; คู่มือเครื่องเฉพาะรุ่น → manufacturer
+
+---
+*skill นี้ช่วย "คิด" เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ · ผล POCT ที่กระทบการรักษาต้องผ่าน QC + competency + SOP; ค่าวิกฤตแจ้ง/ยืนยันตาม policy · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: polite-but-clear ═════════ -->
@@ -5731,6 +6124,94 @@ disclaimer: "ช่วยจัดจังหวะโฟกัส/พักต
 
 ---
 *ช่วยจัดจังหวะโฟกัส/พักตามสไตล์ Pomodoro ไม่ใช่คำแนะนำทางการแพทย์/สุขภาพ — ฟังร่างกายและภาระงานจริงเสมอ ผู้นำไปใช้รับผิดชอบการจัดเวลาที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้ · เกี่ยวข้อง: `time-blocking` (กำหนดว่าชั่วโมงไหน Pomodoro ได้) · `self-development-coach` (ทำไมถึงผัด/หลบงาน)*
+
+
+<!-- ═════════ skill: preanalytical-judgment ═════════ -->
+
+---
+skill: preanalytical-judgment
+title: โค้ช pre-analytical — เจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ (Pre-Analytical & Phlebotomy Judgment)
+type: ADVISE               # ช่วยตัดสินใจคุณภาพตัวอย่าง ไม่ใช่ตำราเทคนิคเจาะ
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดเรื่องคุณภาพตัวอย่างก่อนวิเคราะห์เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = หมอรักษาผิด → ทุก reject/accept/แก้ค่า ต้องทำตาม SOP แลบ + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วย/wrong-blood-in-tube เกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ช pre-analytical (เจาะเลือด/จัดการตัวอย่าง)
+
+ตัวช่วยตัดสินใจคุณภาพตัวอย่าง **ก่อน**เข้าเครื่อง — เน้น "ค่านี้น่าสงสัยเพราะตัวอย่างหรือเปล่า + เจาะ/จัดการยังไงไม่ให้พลาด" ไม่ใช่ตำราขั้นตอนเจาะเลือด
+
+> **กฎ #1:** pre-analytical = **~60–70% ของ lab error ทั้งหมด**. ค่าประหลาด → สงสัย "ตัวอย่าง" (เจาะ/หลอด/order/เวลา/ขนส่ง/ระบุตัว) **ก่อน**โทษเครื่องหรือรีรัน
+> **กับดัก #1 (ขั้น hard):** "ค่าเพี้ยน แต่ analyzer + QC ปกติ" → ส่วนใหญ่คือ pre-analytical ไม่ใช่ analytic. **รีรันหลอดเดิมได้ค่าเดิม ≠ ค่าถูก** — ถ้า hemolyzed/clotted/wrong-tube/IV-contaminated รีรันก็ผิดซ้ำ. ต้อง **ดูตัวอย่าง + เจาะใหม่** ไม่ใช่กดรีรัน
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## ใช้เมื่อ
+- ค่าผิดปกติ/delta check fail → analytic หรือ pre-analytical? รีรันหรือเจาะใหม่?
+- สงสัย hemolysis/icteric/lipemic (HIL) → analyte ไหนพัง? reject หรือ report-with-comment?
+- เลือกหลอด/ลำดับเจาะ/อัตราส่วน, จัด timing (fasting/trough/tourniquet), ขนส่ง/เก็บ
+- เจอ identity/label ไม่ตรง / historical mismatch → จัดการยังไง
+
+## วิธีใช้
+วาง skill นี้ + ค่าที่น่าสงสัย + สภาพตัวอย่าง/ชนิดหลอด/บริบทการเจาะ → AI เดินตาม fork บอก "นี่น่าจะ pre-analytical ตรงไหน + ทำอะไรต่อ" แล้วชี้กลับให้คนตรวจตัวอย่าง/เจาะใหม่ + ทำตาม SOP เอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — Order of draw (กัน additive carryover)
+ลำดับ: **blood culture → coag (citrate ฟ้า) → serum/SST (แดง/เหลือง) → heparin (เขียว) → EDTA (ม่วง) → fluoride (เทา)**
+- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↑ ปลอม + ALP เพี้ยน**; heparin ปน → coag เพี้ยน
+- เจาะหลอดเดียว/winged set → ทิ้ง discard tube ก่อน coag (กัน air/underfill)
+
+### Fork 2 — เลือกหลอด/additive + อัตราส่วน
+- **coag = citrate 1:9 เป๊ะ**: underfill → citrate เกิน → **aPTT/PT ยาวปลอม**; **Hct > 55% → ต้องปรับปริมาณ citrate** (plasma น้อย)
+- CBC = EDTA; **glucose/lactate = fluoride (NaF)** ยับยั้ง glycolysis — ถ้าใช้ผิดหลอด/ทิ้งนานไม่ปั่น glucose ตก ~5–7%/ชม.
+- trace metal/บางฮอร์โมน = หลอดเฉพาะ; ตรวจสอบก่อนเจาะ
+
+### Fork 3 — HIL: hemolysis / icteric / lipemic → analyte ไหนพัง
+- **Hemolysis → K↑↑, LDH↑, AST↑, Mg↑, phosphate↑, troponin/บาง immunoassay interfere** (สาร intracellular รั่ว). K จาก hemolyzed = ปลอม **ห้ามรายงานเป็น hyperkalemia** → เจาะใหม่
+- สาเหตุ hemolysis: เข็มเล็กเกิน/ดูดแรง, เขย่าหลอด, เจาะจาก line/cannula, ทิ้งนาน/ร้อน-เย็นจัด, แอลกอฮอล์ยังไม่แห้ง
+- **Lipemic → Hb/บาง analyte สูงปลอม** (turbidity); **icteric → bilirubin interfere บาง method**
+- ตัดสิน reject vs report-with-comment ตาม HIL index + SOP (เชื่อม `clinchem-judgment`)
+
+### Fork 4 — Timing / สรีรวิทยา
+- **fasting** (glucose/lipid/iron 8–12 ชม.); **TDM trough/peak** (เจาะผิดเวลา = ตีความยาผิด); **diurnal** (cortisol เช้า, iron เช้า); **posture + tourniquet** ดัน protein/Ca/cholesterol
+- **tourniquet < 1 นาที**: รัดนาน → hemoconcentration + **K/lactate leak** + เพี้ยน
+- **IV-line contamination**: เจาะเหนือสายน้ำเกลือ → เจือจาง + **glucose/K/Na spike ตามน้ำเกลือ** → เจาะแขนตรงข้าม/ใต้ line + ทิ้ง discard
+
+### Fork 5 — Identification = ข้อที่ "ถึงตาย"
+- **wrong-blood-in-tube** = สาเหตุ #1 ของ fatal transfusion error → ใช้ **2 identifiers**, label **ข้างเตียงทันที** (ไม่ใช่ที่เคาน์เตอร์), ห้าม pre-label
+- **historical/delta mismatch** (เช่น blood group ไม่ตรงของเดิม) → สงสัย mislabel/sample swap **ก่อน**ตีความ serology (เชื่อม `bloodbank-judgment`)
+
+### Fork 6 — Transport / storage / stability
+- **ปั่นแยก serum/plasma ช้า/ไม่แยก** → **K↑ glucose↓** (เซลล์ยัง metabolize); แช่ whole blood เย็น → K รั่วจาก RBC
+- **บนน้ำแข็งทันที**: ammonia, lactate, blood gas (บาง analyte); **กันแสง**: bilirubin
+- เกินเวลา stability ของแต่ละ analyte → reject/หมายเหตุ; อุณหภูมิขนส่งผิด = ผลเพี้ยนเงียบๆ
+
+## กับดัก (Anti-patterns)
+- #1 รีรันหลอดเดิมแทนเจาะใหม่ เมื่อค่าเพี้ยน (กับดัก #1) — clotted/hemolyzed รีรันก็ผิดซ้ำ
+- #2 รายงาน K จากตัวอย่าง hemolyzed เป็น hyperkalemia → หมออาจรักษาผิด/ฉุกเฉินปลอม
+- #3 ไม่สน order of draw → EDTA carryover ดัน K↑ Ca↓ ปลอม
+- #4 coag underfill / ไม่ปรับ citrate ตอน Hct สูง → PT/aPTT ยาวปลอม
+- #5 glucose ไม่ใช้ fluoride / ทิ้งนานไม่ปั่น → glucose ต่ำปลอม
+- #6 เจาะเหนือ IV line → ค่าเจือจาง + spike ตามน้ำเกลือ
+- #7 tourniquet รัดนาน/กำมือย้ำ → K/lactate/hemoconcentration เพี้ยน
+- #8 label ที่เคาน์เตอร์/pre-label → wrong-blood-in-tube (ถึงตาย)
+- #9 ไม่ปั่นแยก serum/แช่ whole blood เย็น → K↑ glucose↓ เงียบๆ
+- #10 ตีความ delta/historical mismatch เป็นเรื่องชีวภาพทันที โดยไม่สงสัย mislabel ก่อน
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - SOP แลบคุณตั้ง HIL-index cutoff / reject criteria / repeat-vs-recollect ไว้อย่างไรต่อ analyte?
+> - stability table (เวลา/อุณหภูมิ) ของ analyte ที่แลบคุณเจอปัญหาบ่อย
+> - ระบบ 2-identifier + จุดที่เคยเกิด wrong-blood-in-tube ในหน่วยงานคุณ + มาตรการกัน
+
+NOTE: knowledge (รายการ analyte stability เต็ม, สูตรปรับ citrate ตาม Hct, HIL index ของแต่ละเครื่อง) → ดู "ตำรา/แหล่งอ้างอิงมาตรฐาน / CLSI" ไม่ใช่หน้าที่ของ skill นี้
+
+---
+*skill นี้เป็นตัวช่วย "คิด" เพื่อการศึกษา ไม่ใช่ตัวตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = รักษาผิด → ทุก reject/accept/แก้ค่า ทำตาม SOP + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วยผิดเกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: progress-tracker ═════════ -->
@@ -6924,6 +7405,88 @@ disclaimer: "ช่วยประเมินความน่าเชื่�
 *ช่วยประเมินความน่าเชื่อของแหล่ง/ผู้เขียน/งานวิจัย เพื่อช่วยคิด ไม่ใช่คำแนะนำทางการแพทย์ — ข้อมูลสำคัญ/การแพทย์ต้องยืนยันกับแหล่ง authoritative + มนุษย์เสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
+<!-- ═════════ skill: spreadsheet-judgment ═════════ -->
+
+---
+skill: spreadsheet-judgment
+title: ใช้ Excel/Sheets ให้ถูก + กัน error เงียบ (Spreadsheet Judgment for MT)
+type: ADVISE               # ช่วยตัดสินใจวิธีใช้/วางโครง ไม่ใช่ตำราสูตร Excel
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่อการศึกษา ไม่ใช่คำแนะนำทางการ · ค่าที่กระทบคนไข้/QC ต้อง sanity-check + ยืนยันเอง; ไฟล์ที่มีข้อมูลผู้ป่วยอยู่ใต้ PDPA — ใส่รหัส/ไม่แชร์ลิงก์เปิด · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# ใช้ Excel/Sheets ให้ถูก + กัน error เงียบ
+
+ตัวช่วยตัดสินใจตอนใช้ spreadsheet (log, คำนวณ QC, ตาราง, สรุป) — เน้น "วางโครง + สูตร + กับดักที่ทำข้อมูลเสียเงียบ" ไม่ใช่ตำรารวมสูตร Excel
+
+> **กฎ #1:** spreadsheet error **เงียบและแพร่** — สูตรผิด 1 ช่องลามทั้งไฟล์โดยไม่มี error สีแดง. ต้อง **sanity-check ผลรวม/ช่วงค่า** + ล็อก/ตรวจสูตรสำคัญเสมอ
+> **กับดัก #1 (ขั้น hard):** **Excel แปลงข้อมูลเองทำลายของถาวร** — รหัส/วันที่/ชื่อยีน (เช่น `SEPT9`), barcode, HN ที่มี 0 นำหน้า ถูก autoconvert เป็นวันที่/เลข → ข้อมูลเสียกู้ยาก. **ตั้ง format เป็น Text ก่อน paste/import** + ตรวจคอลัมน์เสี่ยง
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## ใช้เมื่อ
+- เก็บ log/ผล/สต็อก ใน Excel/Sheets แล้วอยากให้ใช้ต่อ/วิเคราะห์ได้
+- สูตร VLOOKUP/IF เพี้ยน, ค่าผิดไม่รู้ทำไม, ข้อมูลเปลี่ยนเองหลัง paste
+- ไม่แน่ใจว่าควรอยู่ Excel ต่อ หรือย้ายไป DB
+
+## วิธีใช้
+วาง skill นี้ + เล่าว่าจะเก็บ/คำนวณอะไร (+ ตัวอย่างคอลัมน์) → AI ช่วยวางโครง tidy + เลือกสูตร + เตือนกับดัก autoconvert/สูตร แล้วชี้ให้คุณ sanity-check เอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### Fork 1 — วางโครงให้ถูก (tidy data)
+- **1 แถว = 1 record, 1 คอลัมน์ = 1 ตัวแปร** · ไม่ merge cell · ไม่ใส่หน่วยปนค่า (แยกคอลัมน์หน่วย) · header ชื่อเดียวชัด
+- โครง tidy → pivot/กรอง/วิเคราะห์/ย้ายไป tool อื่นได้ทันที (โครงสวยตาแต่ merge cell = วิเคราะห์ต่อไม่ได้)
+
+### Fork 2 — สูตรที่ MT ใช้บ่อย + กับดัก
+- **VLOOKUP/XLOOKUP**: บังคับ **exact match** (VLOOKUP ตัวที่ 4 = FALSE; XLOOKUP ปลอดภัยกว่า/ไม่พังเมื่อแทรกคอลัมน์)
+- **IF ซ้อนหลายชั้น** → ใช้ IFS หรือ lookup table แทน (อ่าน/แก้ง่าย, พลาดยาก)
+- **absolute ref `$`** เวลา copy สูตร (กัน range เลื่อน) · **อย่า hardcode ค่ากลางสูตร** (cutoff/factor → ใส่ในเซลล์อ้างอิง)
+
+### Fork 3 — QC / สถิติใน Sheets
+- **STDEV.S (ตัวอย่าง) vs STDEV.P (ประชากร)** — เลือกผิด = SD เพี้ยน
+- Levey-Jennings = scatter + เส้น mean ±1/2/3 SD · นับด้วย COUNTIF/COUNTIFS
+- **TAT ใช้ MEDIAN ไม่ใช่ AVERAGE** (distribution เบ้) + ดู P90 (เชื่อม `build-a-dashboard`)
+
+### Fork 4 — กัน error เชิงระบบ
+- **Data validation** (dropdown/ช่วงค่า) กันกรอกมั่วตั้งแต่ต้นทาง
+- **Conditional formatting** ไฮไลต์ outlier/ค่านอกช่วง · **freeze header** · แยก sheet **raw / calc** (อย่าคำนวณทับ raw)
+- **version/backup** (Sheets มี version history; Excel เซฟสำเนา)
+
+### Fork 5 — เมื่อไหร่เลิก Excel ไป DB/code
+- ข้อมูลโตเกิน ~หมื่นแถว · หลายคนแก้พร้อมกัน (ชนกัน) · ต้อง relationship/ประวัติ/audit → ย้ายไป **`mt-databases`**
+
+### Fork 6 — ข้อมูลคนไข้
+- ไฟล์มี HN/ชื่อ → **ไม่แชร์ลิงก์ "ใครมีลิงก์ก็เปิดได้"**, จำกัดสิทธิ์, ใส่รหัส, de-identify ก่อนส่งออก (เชื่อม `digital-judgment`)
+
+## กับดัก (Anti-patterns)
+- #1 Excel autoconvert รหัส/วันที่/ยีน/HN-นำ-0 → ข้อมูลเสียถาวร (กับดัก #1)
+- #2 VLOOKUP approximate match (ลืม FALSE) → จับคู่ผิดเงียบ
+- #3 merge cell / หน่วยปนค่า / หลาย record ต่อแถว → วิเคราะห์ต่อไม่ได้
+- #4 STDEV.S vs STDEV.P ผิดตัว → QC/SD เพี้ยน
+- #5 AVERAGE กับ TAT ที่เบ้ → ควร median + P90
+- #6 hardcode cutoff/factor กลางสูตร → แก้ยาก/พังเงียบเมื่อค่าเปลี่ยน
+- #7 ไม่มี data validation → ขยะเข้าตั้งแต่กรอก
+- #8 คำนวณทับ sheet raw / ไม่ backup → กู้ไม่ได้
+- #9 แชร์ไฟล์ที่มี PHI แบบลิงก์เปิด
+- #10 ดันใช้ Excel กับข้อมูลที่ควรเป็น DB (โต/หลายคน/relationship)
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - ไฟล์ Excel ที่ทีมคุณใช้หนักสุด + จุดที่เคยพลาด (สูตรเพี้ยน/ข้อมูลเปลี่ยนเอง)
+> - คอลัมน์เสี่ยง autoconvert ในข้อมูลคุณ (รหัสตัวอย่าง/วันที่/ผล)
+> - QC rule/สูตรที่ใช้จริง + ค่าที่ห้ามคำนวณพลาด
+
+NOTE: ตำรารวมสูตร/ฟังก์ชัน Excel ละเอียด → ถาม AI แยก/ดูคู่มือ; skill นี้ช่วย "วางโครง + เลือกวิธี + กันกับดักที่ทำข้อมูลเสีย"
+
+---
+*skill นี้ช่วย "คิด" เพื่อการศึกษา · ค่ากระทบคนไข้/QC ต้อง sanity-check + ยืนยันเอง; ไฟล์มี PHI อยู่ใต้ PDPA · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
 <!-- ═════════ skill: tdd-judgment ═════════ -->
 
 ---
@@ -7314,6 +7877,98 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 
 ---
 *skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+
+
+<!-- ═════════ skill: urinalysis-judgment ═════════ -->
+
+---
+skill: urinalysis-judgment
+title: โค้ชยูริน + body fluid microscopy — strip↔micro↔clinical ให้ตรง (Urinalysis & Body-Fluid Judgment)
+type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ atlas ตะกอน/ผลึก
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "MT Score UP!"
+last_edited: 2026-06-08
+status: draft
+disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น้ำในร่างกายเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ทุกผลที่กระทบการรักษา (RBC cast, crystal พิษ, CSF cell) ต้องดูด้วยกล้อง + correlate clinical + ทำตาม SOP/reference ของแล็บ + ยืนยันกับ MT/แพทย์ก่อนรายงานเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ชยูริน + body fluid microscopy
+
+ตัวช่วยตัดสินใจงานตรวจปัสสาวะ + น้ำในร่างกาย (CSF/serous/synovial) — เน้น "ผล strip/sediment นี้ ต้องทำอะไรต่อ + อย่าพลาดตรงไหน" ไม่ใช่ atlas รูปตะกอน/ตารางผลึก
+
+> **กฎ #1:** strip กับกล้อง **ต้อง correlate กัน** — strip บวก/ลบ ไม่ตรง sediment = ต้อง resolve ก่อน report. flag จากเครื่อง automated (UF/iQ) = สัญญาณ ไม่ใช่คำตอบ
+> **กับดัก #1 (ขั้น hard):** **nitrite negative ไม่ตัด UTI** — เชื้อที่ไม่สร้าง nitrate reductase (Enterococcus, Staph, Pseudomonas, Acinetobacter) หรือปัสสาวะค้างใน bladder ไม่นานพอ → nitrite ลบทั้งที่ติดเชื้อ. และ leukocyte esterase ลบได้ใน early/neutropenia. **strip ลบ ≠ ปกติ** → ดู micro + บริบทเสมอ
+
+> **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## ใช้เมื่อ
+- strip ↔ sediment ไม่ตรง → ตัวไหนเชื่อ? ต้อง resolve ยังไง
+- เห็น RBC/WBC/cast/crystal/cell → significant หรือ artifact/contamination? ต้อง flag ไหม
+- automated UA flag → ต้อง confirm ด้วยกล้องเมื่อไหร่
+- ขยับไป body fluid: CSF cell count, serous transudate/exudate, synovial crystal (gout/pseudogout)
+
+## วิธีใช้
+วาง skill นี้ + ผล strip + sediment (หรือ flag เครื่อง / ชนิด fluid) ที่กำลังตัดสินใจ → AI เดินตาม fork บอก "ทำอะไรต่อ + กับดักตรงไหน" แล้วชี้กลับให้คนดูกล้อง + correlate clinical + ยืนยันเอง
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้)
+
+### ก่อนแปลผลเสมอ — ดู 3 อย่าง
+1. ตัวอย่าง OK มั้ย — midstream clean-catch? ตรวจภายใน **2 ชม.** (หรือแช่ 2–8°C)? ตั้งทิ้งนาน = cast สลาย, bacteria โต, pH↑ (urea→ammonia), cell/glucose สลาย, crystal ตกใหม่
+2. ชนิด specimen ตรงงาน — random (screen) · first-morning (concentration/protein/HCG) · 24h (quantitative) · catheter/supra (ตีความ contamination ต่างกัน)
+3. correlate strip ↔ sediment ↔ บริบทคน (อายุ/เพศ/ประจำเดือน/ยา/ไข้)
+
+### Fork 1 — strip บวก/ลบ "ไม่ตรง" sediment → resolve ก่อน report
+- **blood บวก แต่ไม่เห็น RBC** → hemoglobinuria (hemolysis) หรือ myoglobinuria (rhabdo) — ไม่ใช่เลือดออก. แยกด้วยบริบท + plasma สี/CK
+- **protein บวก** → strip จับ **albumin เด่น** (ไม่จับ Bence-Jones/globulin) → สงสัย myeloma/light chain ต้อง **SSA หรือ electrophoresis** ไม่ใช่ strip
+- **nitrite ลบ / LE ลบ แต่สงสัย UTI** → ดู micro (WBC/bacteria) + ส่ง culture; อย่าตัดด้วย strip (กับดัก #1)
+- **glucose บวกแต่เลือดปกติ** → renal glycosuria/ตั้งครรภ์; **ketone** → DKA/อดอาหาร/low-carb
+- **SG**: strip ผิดที่ pH สูง/protein; **refractometer แม่นกว่า** แต่ glucose/radiocontrast/mannitol ดัน SG refractometer สูงปลอม
+- **pH > 8** → มักเก็บนานเกิน/Proteus (urease); pH กับ crystal สัมพันธ์กัน (ใช้ช่วยแยกผลึก)
+
+### Fork 2 — Sediment cells → significant vs contamination
+- **RBC**: dysmorphic/acanthocyte → glomerular; isomorphic → lower tract/stone/tumor. ผู้หญิงมีประจำเดือน = contamination → re-collect
+- **WBC (pyuria)**: ติดเชื้อ; **sterile pyuria** (WBC+ culture−) → คิด TB, chlamydia/GC, ติดเชื้อที่รักษาแล้ว, นิ่ว, interstitial nephritis
+- **Epithelial**: **squamous เยอะ = contamination** (re-collect midstream); **renal tubular epithelial (RTE) = significant** (ATN/active injury) — อย่าสับสน 2 อย่างนี้
+- **Bacteria/yeast**: correlate กับ WBC + ความสด; ตั้งนาน bacteria โตเอง = ปลอม
+
+### Fork 3 — Casts = "ปักหมุดว่ามาจากไต" → อันไหนต้อง flag
+- hyaline — benign (ขาดน้ำ/ออกกำลัง/ไข้) · **RBC cast = glomerulonephritis → flag** · **WBC cast = pyelonephritis/interstitial nephritis** · granular/**muddy brown = ATN** · waxy/broad = renal failure เรื้อรัง · fatty (+oval fat body, Maltese cross) = nephrotic
+- หลัก: เห็น cast = localize ไปไต; RBC/WBC/muddy-brown cast = กระทบการดูแล → flag + correlate
+
+### Fork 4 — Crystals → normal vs pathologic (ผูกกับ pH)
+- กรด: uric acid · calcium oxalate (มีได้ทุก pH; **envelope/needle + AKI → สงสัย ethylene glycol poisoning** = ฉุกเฉิน เชื่อม `toxicology-judgment`)
+- ด่าง: triple phosphate/struvite (coffin-lid, Proteus), amorphous phosphate
+- **always pathologic**: cystine (hexagonal → cystinuria), tyrosine/leucine (liver), cholesterol, **drug crystals** (sulfa/acyclovir/indinavir → ประวัติยา)
+- artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค
+
+### Fork 5 — Body fluids (ขยายจากปัสสาวะ)
+- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · xanthochromia (SAH vs traumatic tap — 3-tube + แยก RBC ลดลง) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
+- **Serous (pleural/peritoneal)**: transudate vs exudate ตัดสินด้วย **Light's criteria** (เป็น chem ไม่ใช่ cell) → ชี้ทางก่อนแปล cell
+- **Synovial ใต้ polarized light**: **MSU = เข็ม, negatively birefringent = gout** · **CPPD = rhomboid, positively birefringent = pseudogout** · correlate cell count + Gram (septic = ฉุกเฉิน)
+
+## กับดัก (Anti-patterns)
+- #1 ตั้ง UA ทิ้งนานก่อนตรวจ → cast สลาย/bacteria โต/crystal ตกใหม่ → ตรวจภายใน 2 ชม. หรือแช่เย็น
+- #2 เหมา nitrite/LE ลบ = ไม่มี UTI → พลาด Enterococcus/Staph/early infection
+- #3 รายงาน squamous (contamination) ปนเป็น significant → ควร re-collect; แยก RTE ออก
+- #4 พลาด RBC cast / muddy-brown cast → พลาด GN/ATN ที่ต้อง flag
+- #5 calcium oxalate + AKI ไม่คิดถึง ethylene glycol → พลาดพิษที่ต้อง antidote ด่วน
+- #6 blood strip บวก = เลือดออกเสมอ → จริงๆ อาจ hemoglobin/myoglobin (ไม่เห็น RBC)
+- #7 protein strip ลบ = ไม่มี protein → strip ไม่จับ Bence-Jones; สงสัย myeloma ใช้ SSA/electrophoresis
+- #8 เชื่อ automated flag โดยไม่ confirm กล้องในเคสที่กระทบการดูแล
+- #9 CSF/synovial ปล่อยตั้งนานก่อนนับ → cell สลาย/นับเพี้ยน
+- #10 อ่าน crystal โดยไม่ดู pH + ไม่แยก artifact → รายงานผลึกผิด
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> - SOP แลบคุณกำหนด strip↔micro reflex / criteria การ confirm กล้อง / re-collect ไว้อย่างไร?
+> - เครื่อง automated UA รุ่นที่ใช้ (UF-/iQ/cobas u) flag ตัวไหนที่ทีมตีความต่างจาก default?
+> - reference/critical สำหรับ body fluid (CSF cell, synovial) ในแลบคุณ + ขั้นตอนส่งต่อด่วน
+
+NOTE: knowledge (ค่าปกติ strip, รูปร่างตะกอน/ผลึกละเอียด, birefringence physics, Light's criteria สูตร) → ดู "ตำรา/แหล่งอ้างอิงมาตรฐาน" ไม่ใช่หน้าที่ของ skill นี้
+
+---
+*skill นี้เป็นตัวช่วย "คิด" เพื่อการศึกษา ไม่ใช่ตัวตัดสินใจหรือวินิจฉัยแทน · RBC cast / crystal พิษ / CSF-synovial ผิดปกติ = กระทบการดูแล ต้องดูกล้อง + correlate clinical + ยืนยันกับ MT/แพทย์ก่อนรายงาน · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: verification-panel ═════════ -->

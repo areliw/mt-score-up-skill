@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (72 สกิล)
+## 📚 ส่วนที่ 1 — Skills (82 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -68,6 +68,8 @@
 | [anti-hallucination](./skills/anti-hallucination.md) | กัน + จับ AI มั่วข้อเท็จจริง/อ้างอิง |
 | [progress-tracker](./skills/progress-tracker.md) | วางคู่สกิลไหนก็ได้ → AI โชว์ checklist/flowchart ว่าทำถึงไหน |
 | [ab-test-judgment](./skills/ab-test-judgment.md) | วัด prompt/skill ดีขึ้นจริงไหม ไม่ไล่จับ noise: control + delta-of-deltas · noise floor · review vs A/B · scaling |
+| [prompt-craft](./skills/prompt-craft.md) | เขียน prompt ให้ได้ผล: role+context+task+format · กัน AI เดา/มั่ว · ไม่ใส่ข้อมูลคนไข้ |
+| [plan-with-ai](./skills/plan-with-ai.md) | ใช้ AI วางแผนงานใหญ่: แตกงาน+หา risk+ให้ AI ถามกลับ · ไม่เชื่อแผนดิ่ง · ตรวจ assumption |
 
 ### 💬 สื่อสาร
 | skill | ช่วยอะไร |
@@ -76,6 +78,13 @@
 | [explain-simply](./skills/explain-simply.md) | อธิบายเรื่องยากแบบเด็ก ป.3 (ไม่ผิด) |
 | [content-creator-judgment](./skills/content-creator-judgment.md) | เลือกหัวข้อคอนเทนต์ให้ความรู้ + ไม่ทำให้เพจตาย |
 | [photography-judgment](./skills/photography-judgment.md) | ถ่ายภาพ/วิดีโอ + photomicrography (สไลด์/colony/gel): exposure/DOF/composition/WB |
+| [design-a-clear-figure](./skills/design-a-clear-figure.md) | กราฟ/โปสเตอร์/รูปวิจัยให้อ่านรู้เรื่อง: เลือก chart · colorblind-safe · แกนไม่หลอกตา |
+
+### 🎬 สอน / สื่อ / เรียนรู้
+| skill | ช่วยอะไร |
+|---|---|
+| [learn-anything-fast](./skills/learn-anything-fast.md) | ใช้ AI เป็นติวเตอร์เรียนของใหม่ให้ "ทำได้จริง": active recall · Feynman · verify เนื้อหา med |
+| [make-a-teaching-video](./skills/make-a-teaching-video.md) | ทำคลิปสอน/explainer: objective+script · de-identify เคสคนไข้ · เนื้อหาถูก+disclaimer |
 
 ### 🧭 ชีวิต / อาชีพ
 | skill | ช่วยอะไร |
@@ -89,6 +98,9 @@
 | [financial-statement-judgment](./skills/financial-statement-judgment.md) | อ่านงบ 5 ฉบับ + ลำดับอ่าน + คุณภาพกำไร (CFO) + จับ window-dressing/OCI |
 | [mt-law-ethics-judgment](./skills/mt-law-ethics-judgment.md) | กฎหมาย/จรรยาบรรณ MT: ใบอนุญาต · ขอบเขตวิชาชีพ · ความลับ/PDPA · เครื่องมือแพทย์ |
 | [mt-exam-strategy-judgment](./skills/mt-exam-strategy-judgment.md) | กลยุทธ์สอบใบประกอบฯ MT: blueprint/บริหารเวลา · จับ distractor · study ROI |
+| [personal-brand](./skills/personal-brand.md) | สร้างตัวตนวิชาชีพออนไลน์ (LinkedIn/เพจ): จุดยืนจากตัวจริง · pillar · อยู่ในขอบเขตจรรยาบรรณ |
+| [focus-and-time](./skills/focus-and-time.md) | บริหารเวลา/โฟกัส สำหรับ MT เวรหมุน: สำคัญ>เร่ง · time-block รอบเวร · กัน burnout |
+| [manage-up](./skills/manage-up.md) | คุยกับหัวหน้าให้ได้ผล: ปัญหา+ทางออก+impact · พูดภาษาหัวหน้า (เงิน/เสี่ยง) · timing |
 
 ### 💼 บริหารแล็บ / ขาย IVD
 | skill | ช่วยอะไร |
@@ -99,6 +111,8 @@
 | [marketing-judgment](./skills/marketing-judgment.md) | กลยุทธ์การตลาด B2B: STP · buying center · pricing · positioning · push/pull |
 | [sales-psychology-judgment](./skills/sales-psychology-judgment.md) | จิตวิทยาขาย/อ่านคน: แรงจูงใจ · active listening · trust · โน้มน้าว(+จริยธรรม) · เจรจา |
 | [lab-clinic-business-judgment](./skills/lab-clinic-business-judgment.md) | เปิด/บริหารคลินิกแล็บ MT เอง: เลือกโมเดล · moat (วิชาชีพ+จดทะเบียน+LIS-HIS) · รายได้รัฐ · อ่านใจ buyer · unit economics |
+| [market-opportunity](./skills/market-opportunity.md) | ประเมินช่องว่างตลาดก่อนลงเงิน (ธุรกิจ/แอป/แล็บ): ปัญหาที่คนจ่าย · validate ก่อน build · unit economics |
+| [content-distribution](./skills/content-distribution.md) | กระจายคอนเทนต์ข้ามแพลตฟอร์ม + ให้คนเจอ: 1 ชิ้น→native หลายที่ · discoverability · วัดผลถูก |
 
 ### 💻 โค้ด / data / สร้างของเอง (MT++ : T-shaped MT)
 > ยุค AI — MT ไม่ต้องเป็นโปรแกรมเมอร์ก็ทำ dashboard / automate / data เองได้. สกิลกลุ่มนี้ reframe ให้ "MT ที่ไม่ใช่ dev" — กับดัก #1 ผูกกับ **ความปลอดภัยข้อมูลคนไข้ (PDPA)** เสมอ (ดูแผนเต็ม [`docs/EXPANSION-PLAN.md`](./docs/EXPANSION-PLAN.md))
@@ -156,7 +170,7 @@ skill เป็นไฟล์ — มี 2 วิธีโหลด เลื�
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 72 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 82 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

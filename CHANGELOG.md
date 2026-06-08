@@ -4,7 +4,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
-## [Unreleased] — T-shaped MT expansion (waves 1–3)
+## [Unreleased] — T-shaped MT expansion (waves 1–4)
 
 ### Added
 - **`urinalysis-judgment`** (#56) — UA + body-fluid (CSF/serous/synovial) microscopy: strip↔micro↔clinical
@@ -56,9 +56,33 @@ content เรียบเรียงจากองค์ความรู้
   external validation, data drift + monitoring, fallback/reject option, human-in-the-loop for clinical use,
   versioning + IRB. From `mle-workflow` + `ml-judgment`. Ties to the user's smear-classifier thesis.
 
+### Added — wave 4 (out-of-lab: design/media/career/productivity/AI, 72 → 82)
+- **`design-a-clear-figure`** (#73) — graphs/posters/figures that read clearly: one message, chart-by-message,
+  visual hierarchy, colorblind-safe (no red-green), honest axes. From design-system + make-interfaces-feel-better.
+- **`learn-anything-fast`** (#74) — AI as a tutor to actually *be able to do* something: active recall, Feynman,
+  verify med content (illusion of competence). From `interactive-course` + `karpathy-teach`.
+- **`make-a-teaching-video`** (#75) — teaching clips/explainers: objective+script, **de-identify patient cases
+  (PDPA)**, accurate + disclaimer + in-scope, licensing. From video/manim/remotion/notebooklm.
+- **`personal-brand`** (#76) — MT professional presence online from the *real* you, within the code of conduct
+  + PDPA + scope of practice. From `brand-voice` + `know-yourself`.
+- **`content-distribution`** (#77) — 1 pillar → native repurpose per platform, discoverability, measure
+  save/share not likes, med content correct everywhere. From content-engine/crosspost/seo.
+- **`market-opportunity`** (#78) — validate a paying problem before building (anti "solution looking for a
+  problem"): TAM/SAM/SOM bottom-up, pre-sell not survey, unit economics. From market-research + product-lens.
+- **`focus-and-time`** (#79) — time/focus for **rotating-shift** MTs: important>urgent, time-block per shift
+  type (not 9–5), burnout guard. From `pomodoro` + `time-blocking`.
+- **`manage-up`** (#80) — talk to your boss effectively: problem+solution+impact+data, speak their language
+  (money/risk), timing, follow-up. From `management-talk`.
+- **`plan-with-ai`** (#81) — use AI to plan big work: decompose + find risks + let AI grill you, check
+  assumptions, plan = hypothesis. From `plan-orchestrate` + `grill-with-docs`.
+- **`prompt-craft`** (#82) — write prompts that work: role+context+task+format, stop AI guessing, guard
+  hallucination, never paste PHI/secrets. From `prompt-optimizer`.
+
 ### Notes
 - `skills/INDEX.md`, `dist/all-skills.md`, `prompts/triage.md` regenerated via `scripts/build_triage.py`
-  (72 skills, no drift). README + skills/README counts bumped 55 → 72.
+  (82 skills, no drift). README + skills/README counts bumped 55 → 82.
+- New front-page section **🎬 สอน / สื่อ / เรียนรู้**. Wave-4 skills stay out-of-lab but keep the DNA:
+  every one ties its #1 trap to scope-of-practice / PDPA / verify-against-source where it touches med content.
 - Every MT++ skill ties its #1 trap to **patient-data safety (PDPA)** + verify-against-source — the line
   generic dev guidance omits but MTs cannot. Lab-bench coverage now complete (UA/body-fluid · pre-analytical
   · POCT · flow added to the original 14 clinical skills).

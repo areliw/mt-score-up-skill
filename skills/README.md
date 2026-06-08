@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**72 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**82 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -56,12 +56,19 @@
 - **offload-to-automation** — งานที่ต้องเป๊ะ (เลข/จัดเวร) โยนให้ code AI เป็นคนคุม+ตรวจ `CALIBRATION`
 - **anti-hallucination** — กัน + จับ AI มั่วข้อเท็จจริง/ตัวเลข/citation (สำคัญสายแพทย์) `CALIBRATION`
 - **progress-tracker** — วางคู่สกิลไหนก็ได้ → AI โชว์ความคืบหน้าเป็น checklist/flowchart (ทำถึงไหน·เลือกกิ่งไหน) `CALIBRATION`
+- **prompt-craft** — เขียน prompt ให้ได้ผล: role+context+task+format+example · ให้บริบทพอ · iterate ทีละจุด · กัน hallucination (ขอแหล่ง/บอกเมื่อไม่รู้) · ไม่ใส่ PHI/secret
+- **plan-with-ai** — ใช้ AI วางแผนงานใหญ่: แตก milestone/task+dependency · หา risk/unknown · ให้ AI grill เรา · ตรวจ assumption · แผน=hypothesis ปรับได้ · ไม่เชื่อแผนดิ่ง
 
 ### 💬 สื่อสาร
 - **polite-but-clear** — ปรับข้อความห้วน/แรง → สุภาพ แต่ยังได้ใจความ (ปฏิเสธ/ตักเตือน/แย้งหัวหน้า)
 - **explain-simply** — อธิบายเรื่องยากแบบเด็ก ป.3 — ง่ายแต่ห้ามผิด (โดยเฉพาะเรื่องแพทย์)
 - **content-creator-judgment** — เลือกหัวข้อคอนเทนต์ให้ความรู้ (มี hook ไหม/จับเทรนด์ตอนไหน) + ไม่ทำให้เพจตาย
 - **photography-judgment** — ถ่ายภาพ/วิดีโอ + photomicrography: exposure triangle · DOF เพื่อสื่อความหมาย · composition · WB/metering · ถ่ายสไลด์/colony/gel ให้คม-สีตรง · video grammar
+- **design-a-clear-figure** — กราฟ/โปสเตอร์/รูปวิจัย/สไลด์ให้อ่านรู้เรื่อง: 1 message · เลือก chart ตาม message · visual hierarchy · colorblind-safe (เลี่ยงแดง-เขียว) · แกนซื่อสัตย์ (เริ่มศูนย์) · label+หน่วย
+
+### 🎬 สอน / สื่อ / เรียนรู้
+- **learn-anything-fast** — ใช้ AI เป็นติวเตอร์เรียนของใหม่ให้ "ทำได้จริง": ตั้งเป้า · active recall+spaced repetition · Feynman (อธิบายกลับ) · ตรวจความเข้าใจจริง · verify เนื้อหา med (illusion of competence)
+- **make-a-teaching-video** — คลิปสอน/explainer: learning objective+script · เลือกรูปแบบ (screen/animation/talking head) · de-identify เคสคนไข้ (PDPA) · เนื้อหาถูก+disclaimer+ในขอบเขต · ลิขสิทธิ์
 
 ### 🧭 ชีวิต / อาชีพ
 - **ikigai-finder** — หา ikigai แบบไม่หลอกตัวเอง → จบที่ "1 การทดลอง" ไม่ใช่ลาออกตามฝัน
@@ -74,6 +81,9 @@
 - **financial-statement-judgment** — อ่านงบ 5 ฉบับ + ลำดับอ่าน (audit→CFO→ฐานันดรกำไร→งบดุล→หมายเหตุ) + คุณภาพกำไร + จับ window-dressing (OCI recycling/ตีราคา/FIFO/cookie-jar/งบรวม)
 - **mt-law-ethics-judgment** — กฎหมาย/จรรยาบรรณวิชาชีพ MT: ใบอนุญาต+CMTE · ขอบเขตวิชาชีพ (ทำได้/ต้องมีแพทย์/ทำไม่ได้) · ความลับ+PDPA · กฎหมายเครื่องมือแพทย์ (ขาย IVD) · คิดก่อนโพสต์
 - **mt-exam-strategy-judgment** — กลยุทธ์ทำข้อสอบใบประกอบฯ MT: blueprint+บริหารเวลา (ทุ่ม 3 สาขาใหญ่ + เก็บ recall/QC ก่อน) · จับ distractor (สลับคู่/ครบ-keyword/ยกเว้น) · study ROI · ชี้สกิลรายสาขา
+- **personal-brand** — สร้างตัวตนวิชาชีพออนไลน์ (LinkedIn/เพจ/พอร์ต): จุดยืนจากตัวจริง (know-yourself) · เลือกแพลตฟอร์ม · pillar topics · authentic · สม่ำเสมอ>viral · อยู่ในขอบเขตจรรยาบรรณ+PDPA
+- **focus-and-time** — บริหารเวลา/โฟกัส สำหรับ MT เวรหมุน: สำคัญ>เร่ง (busy≠productive) · time-block รอบเวร (ไม่ใช่ 9-5) · deep work/pomodoro · จัดงานยากตอนพลังงาน peak · กัน burnout
+- **manage-up** — คุยกับหัวหน้าให้ได้ผล: ปัญหา+ทางออก+impact+data · พูดภาษาหัวหน้า (เงิน/เสี่ยง/คุณภาพ/เวลา) · timing/ช่องทาง · แย้ง/บอกข่าวร้ายปลอดภัย · follow-up
 
 ### 💼 บริหารแล็บ / ขาย IVD
 - **lab-management-judgment** — บริหารแล็บ: accreditation (ISO 15189/LA/HA) · QC strategy (sigma metric/IQCP) · งบ (เครื่อง=ลงทุน vs น้ำยา=ดำเนินงาน) · verification vs validation · inventory/FEFO
@@ -81,6 +91,8 @@
 - **crm-judgment** — คิดแบบลูกค้า (segment/CLV 2×2/CF-CBF/วิกฤต PR) สำหรับ MT สาย sales/คลินิก/แอป
 - **marketing-judgment** — กลยุทธ์การตลาด B2B: STP ก่อน 4P · buying center 5 บทบาท · pricing (อย่าตัดราคา/elasticity) · positioning · push vs pull · razor-blade install base
 - **sales-psychology-judgment** — จิตวิทยาการขาย/อ่านคน: อ่านแรงจูงใจ (Maslow/McClelland) · คนซื้อด้วย Ideal/Public self · active listening · trust/social proof · เทคนิคโน้มน้าว + เส้นจริยธรรม · เจรจา win-win
+- **market-opportunity** — ประเมินช่องว่างตลาดก่อนลงเงิน (ธุรกิจ/แอป/แล็บ): ปัญหาจริงที่คนจ่าย · TAM/SAM/SOM bottom-up · คู่แข่งรวม "ไม่ทำอะไรเลย" · validate ด้วย pre-sell ไม่ใช่ survey · unit economics · กัน solution-looking-for-problem
+- **content-distribution** — กระจายคอนเทนต์ข้ามแพลตฟอร์ม: 1 pillar→repurpose native (Reels/LinkedIn/X/YT ต่างกัน) · discoverability (keyword/hashtag) · timing/ความถี่ · วัด save/share ไม่ใช่ like · เนื้อหา med ถูกทุกที่
 
 ### 💻 โค้ด / data / สร้างของเอง (MT++ : T-shaped MT)
 > ยุค AI — MT ไม่ต้องเป็นโปรแกรมเมอร์ก็ทำ dashboard/automate/data เองได้. กลุ่มนี้ reframe ให้ "MT ที่ไม่ใช่ dev" — กับดัก #1 ผูกกับ PDPA/ข้อมูลคนไข้เสมอ (แผนเต็ม: [`../docs/EXPANSION-PLAN.md`](../docs/EXPANSION-PLAN.md))

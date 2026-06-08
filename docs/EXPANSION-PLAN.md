@@ -49,35 +49,35 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 ## Track 4 — Design / visual
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
 |---|---|---|---|
-| `design-a-clear-figure` | `design-system` `frontend-design-direction` `make-interfaces-feel-better` | ทำกราฟ/โปสเตอร์/รูปวิจัยให้อ่านรู้เรื่อง (chart choice, colorblind-safe, layout) | ⏳ |
+| `design-a-clear-figure` | `design-system` `frontend-design-direction` `make-interfaces-feel-better` | ทำกราฟ/โปสเตอร์/รูปวิจัยให้อ่านรู้เรื่อง (chart choice, colorblind-safe, layout) | 🟢 wave4 |
 | — | `liquid-glass-design` `motion-foundations` `motion-ui` `motion-patterns` | ⛔ UI motion เฉพาะ web app — เกินขอบเขต MT (เก็บไว้ถ้าทำ landing page) | ⛔ |
 | — | `photography-judgment` | ⚪ มีแล้วใน repo | ⚪ |
 
 ## Track 5 — Media / สอน-เรียน
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
 |---|---|---|---|
-| `learn-anything-fast` | `interactive-course` `karpathy-teach` `teach` | ใช้ AI เป็นติวเตอร์เรียน topic ใหม่ (เตรียมสอบ/ขึ้นงานใหม่) | ⏳ |
-| `make-a-teaching-video` | `video-editing` `remotion-video-creation` `manim-video` `notebooklm` | ทำคลิป/explainer สอนทีม-นักเรียน MT | ⏳ |
+| `learn-anything-fast` | `interactive-course` `karpathy-teach` `teach` | ใช้ AI เป็นติวเตอร์เรียน topic ใหม่ (เตรียมสอบ/ขึ้นงานใหม่) | 🟢 wave4 |
+| `make-a-teaching-video` | `video-editing` `remotion-video-creation` `manim-video` `notebooklm` | ทำคลิป/explainer สอนทีม-นักเรียน MT | 🟢 wave4 |
 
 ## Track 6 — อาชีพ 2.0 / ธุรกิจ / แบรนด์
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
 |---|---|---|---|
-| `personal-brand` | `brand-voice` `know-yourself` | MT สร้างตัวตนวิชาชีพออนไลน์ (LinkedIn/เพจ) ในเสียงตัวเอง | ⏳ |
-| `content-distribution` | `content-engine` `crosspost` `seo` | กระจายคอนเทนต์ข้ามแพลตฟอร์ม + หาให้เจอ (เสริม content-creator) | ⏳ |
-| `market-opportunity` | `market-research` `lead-intelligence` `product-lens` `product-capability` | ประเมินช่องว่างตลาด/ลูกค้า ก่อน MT ทำธุรกิจ/แอป/แล็บ | ⏳ |
+| `personal-brand` | `brand-voice` `know-yourself` | MT สร้างตัวตนวิชาชีพออนไลน์ (LinkedIn/เพจ) ในเสียงตัวเอง | 🟢 wave4 |
+| `content-distribution` | `content-engine` `crosspost` `seo` | กระจายคอนเทนต์ข้ามแพลตฟอร์ม + หาให้เจอ (เสริม content-creator) | 🟢 wave4 |
+| `market-opportunity` | `market-research` `lead-intelligence` `product-lens` `product-capability` | ประเมินช่องว่างตลาด/ลูกค้า ก่อน MT ทำธุรกิจ/แอป/แล็บ | 🟢 wave4 |
 | — | `dx-company-brief` `dxco` | ⚪ ทับ `ivd-sales-judgment` | ⚪ |
 
 ## Track 7 — Productivity / self-management
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
 |---|---|---|---|
-| `focus-and-time` | `pomodoro` `time-blocking` | บริหารเวลา/โฟกัส สำหรับ MT เวรหมุน + เรียน/ทำโปรเจกต์ข้างงาน | ⏳ |
-| `manage-up` | `management-talk` | คุยกับหัวหน้า/ขอทรัพยากร/รายงานปัญหาให้ได้ผล | ⏳ |
+| `focus-and-time` | `pomodoro` `time-blocking` | บริหารเวลา/โฟกัส สำหรับ MT เวรหมุน + เรียน/ทำโปรเจกต์ข้างงาน | 🟢 wave4 |
+| `manage-up` | `management-talk` | คุยกับหัวหน้า/ขอทรัพยากร/รายงานปัญหาให้ได้ผล | 🟢 wave4 |
 
 ## Track 8 — ทำงานกับ AI ให้คม
 | skill ใหม่ | reframe จาก | ช่องที่เติม | สถานะ |
 |---|---|---|---|
-| `plan-with-ai` | `plan-orchestrate` `grill-me` `grill-with-docs` | ใช้ AI วางแผนโปรเจกต์/วิจัยทีละ step + ตกผลึกก่อนเริ่ม | ⏳ |
-| `prompt-craft` | `prompt-optimizer` | เขียน prompt ให้ได้ผล (generic, ทุกสาย) | ⏳ |
+| `plan-with-ai` | `plan-orchestrate` `grill-me` `grill-with-docs` | ใช้ AI วางแผนโปรเจกต์/วิจัยทีละ step + ตกผลึกก่อนเริ่ม | 🟢 wave4 |
+| `prompt-craft` | `prompt-optimizer` | เขียน prompt ให้ได้ผล (generic, ทุกสาย) | 🟢 wave4 |
 | — | `strategic-compact` `token-budget-advisor` `handoff` `overnight` `pre-flight` `ultracode` `ultrareview` `plan-orchestrate`(adv) `karpathy-guidelines` | ⛔ meta สำหรับ "ผู้สร้าง repo/agent" ไม่ใช่ผู้ใช้ MT | ⛔ |
 
 ## Track 9 — Contributor / maintainer (process ของ repo เอง, ไม่ใช่ skill ผู้ใช้)
@@ -106,6 +106,7 @@ clinical: bloodbank · hematology · clinchem · clinmicro · immunoassay · mol
 - ✅ **Wave 1:** urinalysis · preanalytical · build-a-dashboard + manifest นี้
 - ✅ **Wave 2:** automate-lab-tasks · clean-messy-data · vibe-coding-safely · ship-a-small-app · spreadsheet-judgment · mt-databases — แกน T-shaped 
 - ✅ **Wave 3:** method-validation-stats · pubmed-search · source-credibility · deep-research · gget-genomics · poct-judgment · flow-cytometry-judgment · deploy-ml-safely
+- ✅ **Wave 4:** design-a-clear-figure · learn-anything-fast · make-a-teaching-video · personal-brand · content-distribution · market-opportunity · focus-and-time · manage-up · plan-with-ai · prompt-craft
 - **Wave 3:** Track 2 (stats/research) + Track 1 ที่เหลือ
 - **Wave 4:** Track 4–8 (design/media/career/productivity/AI)
 - **Wave 5:** Track 9 (contributor/maintainer process docs)

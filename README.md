@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (55 สกิล)
+## 📚 ส่วนที่ 1 — Skills (79 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -47,6 +47,10 @@
 | [r2r-stats](./skills/r2r-stats.md) | รัน + แปลผลสถิติ R2R |
 | [manuscript-judgment](./skills/manuscript-judgment.md) | เขียน manuscript/proposal (IMRaD) ให้ผ่าน reviewer |
 | [critical-appraisal-judgment](./skills/critical-appraisal-judgment.md) | อ่าน/ประเมินงานวิจัย + lit review + หา gap + ประเมิน test (sens/spec/PPV) |
+| [literature-review-judgment](./skills/literature-review-judgment.md) | รีวิววรรณกรรมเป็นระบบ: ตั้งคำถาม→ค้นหลายแหล่ง→screen→สังเคราะห์ theme/gap |
+| [deep-research](./skills/deep-research.md) | ค้นเรื่องใดก็ได้ลึก หลายแหล่ง + cross-check ≥2 แหล่งอิสระ + cite ตรวจได้ |
+| [source-credibility-judgment](./skills/source-credibility-judgment.md) | ประเมินความน่าเชื่อแหล่ง/ผู้เขียน — peer-review tier · CoI · predatory journal · primary vs secondary |
+| [pubmed-search-judgment](./skills/pubmed-search-judgment.md) | ค้น PubMed ให้เจอของจริง — MeSH vs keyword · query/filter · กับดัก search + แต่ง PMID |
 
 ### 🤖 ใช้ AI อย่างคม / ปลอดภัย
 | skill | ช่วยอะไร |
@@ -59,6 +63,10 @@
 | [anti-hallucination](./skills/anti-hallucination.md) | กัน + จับ AI มั่วข้อเท็จจริง/อ้างอิง |
 | [progress-tracker](./skills/progress-tracker.md) | วางคู่สกิลไหนก็ได้ → AI โชว์ checklist/flowchart ว่าทำถึงไหน |
 | [ab-test-judgment](./skills/ab-test-judgment.md) | วัด prompt/skill ดีขึ้นจริงไหม ไม่ไล่จับ noise: control + delta-of-deltas · noise floor · review vs A/B · scaling |
+| [prompt-optimizer](./skills/prompt-optimizer.md) | เขียน/ซ่อม prompt ให้ AI ตอบตรง — แก้สาเหตุที่ใช่ก่อน · few-shot · สเปก output · ไม่ยัดยาวเฟ้อ |
+| [verification-panel](./skills/verification-panel.md) | ตั้งคณะตรวจ 3 มุม (Factual/Logic/Context) หักล้างก่อนเชื่อคำตอบ high-stakes |
+| [write-a-skill](./skills/write-a-skill.md) | แพ็กวิจารณญาณคุณเป็น skill — judgment ไม่ใช่ knowledge · เลือก type · ส่งเข้า repo |
+| [token-budget-judgment](./skills/token-budget-judgment.md) | คุมบริบท AI — เมื่อไหร่แตกงาน/สรุป/reset · สัญญาณบริบทล้น (AI ลืม/วน) |
 
 ### 💬 สื่อสาร
 | skill | ช่วยอะไร |
@@ -67,6 +75,9 @@
 | [explain-simply](./skills/explain-simply.md) | อธิบายเรื่องยากแบบเด็ก ป.3 (ไม่ผิด) |
 | [content-creator-judgment](./skills/content-creator-judgment.md) | เลือกหัวข้อคอนเทนต์ให้ความรู้ + ไม่ทำให้เพจตาย |
 | [photography-judgment](./skills/photography-judgment.md) | ถ่ายภาพ/วิดีโอ + photomicrography (สไลด์/colony/gel): exposure/DOF/composition/WB |
+| [humanize-ai-writing](./skills/humanize-ai-writing.md) | เกลางานที่ AI ร่างให้เป็นคนเขียน — ตัดสัญญาณ AI โดยคงความถูกต้อง/ศัพท์เทคนิค |
+| [writing-judgment](./skills/writing-judgment.md) | เขียนงานยาวมีโครง+น้ำเสียง — เลือกโครงตามผู้อ่าน · hook · ตัดน้ำ (≠ manuscript วิชาการ) |
+| [report-up-judgment](./skills/report-up-judgment.md) | สื่อสารขึ้นบน/ผู้บริหาร — bottom-line first · แปลเทคนิค→ผลกระทบ · ขอ decision ชัด · escalate NC |
 
 ### 🧭 ชีวิต / อาชีพ
 | skill | ช่วยอะไร |
@@ -80,6 +91,10 @@
 | [financial-statement-judgment](./skills/financial-statement-judgment.md) | อ่านงบ 5 ฉบับ + ลำดับอ่าน + คุณภาพกำไร (CFO) + จับ window-dressing/OCI |
 | [mt-law-ethics-judgment](./skills/mt-law-ethics-judgment.md) | กฎหมาย/จรรยาบรรณ MT: ใบอนุญาต · ขอบเขตวิชาชีพ · ความลับ/PDPA · เครื่องมือแพทย์ |
 | [mt-exam-strategy-judgment](./skills/mt-exam-strategy-judgment.md) | กลยุทธ์สอบใบประกอบฯ MT: blueprint/บริหารเวลา · จับ distractor · study ROI |
+| [grill-my-plan](./skills/grill-my-plan.md) | ให้ AI ซักไซ้แผนก่อนลงมือ — หาจุดอ่อน/worst-case/เกณฑ์ตัดสิน ก่อน decision แก้ยาก |
+| [pomodoro-focus](./skills/pomodoro-focus.md) | โฟกัสแบบ Pomodoro สำหรับคนเข้าเวร — เลือก cycle ตามงาน/พลังงาน · เมื่อไหร่ไม่ควรใช้ |
+| [time-blocking](./skills/time-blocking.md) | จัดเวลาแบบ time-blocking รอบเวร — จัดทุก ชม. · งานหนักตรงพลังงานสูง · เผื่อ buffer/เดินทาง |
+| [interactive-course](./skills/interactive-course.md) | ให้ AI ติว interactive ทีละขั้น — explain→ถาม→ปรับระดับ · recall > อ่านซ้ำ · cross-check |
 
 ### 💼 บริหารแล็บ / ขาย IVD
 | skill | ช่วยอะไร |
@@ -90,6 +105,10 @@
 | [marketing-judgment](./skills/marketing-judgment.md) | กลยุทธ์การตลาด B2B: STP · buying center · pricing · positioning · push/pull |
 | [sales-psychology-judgment](./skills/sales-psychology-judgment.md) | จิตวิทยาขาย/อ่านคน: แรงจูงใจ · active listening · trust · โน้มน้าว(+จริยธรรม) · เจรจา |
 | [lab-clinic-business-judgment](./skills/lab-clinic-business-judgment.md) | เปิด/บริหารคลินิกแล็บ MT เอง: เลือกโมเดล · moat (วิชาชีพ+จดทะเบียน+LIS-HIS) · รายได้รัฐ · อ่านใจ buyer · unit economics |
+| [dx-company-brief](./skills/dx-company-brief.md) | ทำ brief บริษัท diagnostics ก่อนสัมภาษณ์/ขาย — portfolio/ตลาด/ลูกค้า/มุมขาย + verify |
+| [market-research-judgment](./skills/market-research-judgment.md) | วิจัยตลาด/คู่แข่ง — TAM/SAM/SOM · top-down vs bottom-up · แหล่งเชื่อได้ vs marketing |
+| [lead-intelligence-judgment](./skills/lead-intelligence-judgment.md) | หา+คัดกรอง lead B2B — signal scoring · mutual fit · warm path · follow-up + PDPA |
+| [incident-postmortem-judgment](./skills/incident-postmortem-judgment.md) | ถอดบทเรียนหลังเหตุ + CAPA — blameless RCA (5-why) · root vs symptom · ป้องกันซ้ำที่ระบบ |
 
 ### 💻 โค้ด / เทคนิค / data
 | skill | ช่วยอะไร |
@@ -100,6 +119,11 @@
 | [cv-judgment](./skills/cv-judgment.md) | เลือกเทคนิควิเคราะห์ภาพ + เลน blood smear/เซลล์ |
 | [optimization-judgment](./skills/optimization-judgment.md) | เลือกวิธี optimize (LP/heuristic/sim) จัดเวร/ทรัพยากร |
 | [data-project-survival](./skills/data-project-survival.md) | โปรเจกต์ data/ML ไม่ให้ล้ม + ประเมิน vendor |
+| [data-science-workflow](./skills/data-science-workflow.md) | เดินโปรเจกต์ DS ตาม CRISP-DM — อยู่ phase ไหน/loop เมื่อไหร่ · กัน data leakage |
+| [ml-engineering-workflow](./skills/ml-engineering-workflow.md) | นำโมเดลขึ้นใช้จริง: reproducible train · shadow/A-B · monitor drift · rollback |
+| [tdd-judgment](./skills/tdd-judgment.md) | เขียนเทสต์ให้คุ้ม + TDD — เทสต์อะไรก่อน · mock/coverage เป็นเครื่องมือ · เทสต์ผ่านแต่ไม่จับบั๊ก |
+| [debugging-judgment](./skills/debugging-judgment.md) | ดีบักมีวินัย — reproduce→trace→falsify→cross-ref · หา root cause ไม่ใช่ปะ symptom |
+| [ai-coding-guardrails](./skills/ai-coding-guardrails.md) | กันกับดักให้ AI เขียนโค้ด — ขอบเขตแคบ · surgical edit · success ที่ตรวจได้ · กัน over-engineer |
 
 ### 🗂️ จัดการ
 | skill | ช่วยอะไร |
@@ -130,14 +154,14 @@
 skill เป็นไฟล์ — มี 2 วิธีโหลด เลือกตามงาน:
 - **ก๊อปเนื้อไฟล์** → snapshot **แช่แข็ง**: เสถียร, cite เวอร์ชันใน audit trail ได้, ไม่เปลี่ยนกลางคัน (เหมาะงานคลินิก)
 - **โหลดสด (live link)** → บอก AI ที่ต่อเน็ตได้ว่า *"ดึง skill จาก `<raw URL>` มาใช้"* → ได้ `main` ล่าสุด**ทุกครั้ง = auto-sync** ไม่ต้องก๊อปใหม่ · รายการ URL ทั้งหมด → [`skills/INDEX.md`](./skills/INDEX.md) (CI อัปเดตอัตโนมัติ)
-- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 55 ตัวในไฟล์เดียว (~90K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
+- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 79 ตัวในไฟล์เดียว (~125K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
 - ⚠️ live link ใช้ได้เฉพาะ AI ที่ดึง URL ได้ (Claude web · ChatGPT browse · Gemini) — แชตเปล่า offline ใช้ก๊อป
 
 ## โครงสร้าง
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 55 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 79 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)
@@ -153,7 +177,7 @@ mt-score-up-skill/
 ├── wiki/          # คู่มือเข้าใจโปรเจกต์ลึกขึ้น (รวมลิงก์)
 ├── contributions/ # พื้นที่ชุมชน — ส่ง skill/เคสจริงมาสมทบ
 ├── STANDARDS.md   # Source-of-truth edition + auto-recheck รายเดือน
-└── CHANGELOG.md   # Version history (v0.3.0)
+└── CHANGELOG.md   # Version history (v0.5.0)
 ```
 
 ## Privacy & ความปลอดภัย
@@ -178,7 +202,7 @@ mt-score-up-skill/
 
 - **ตัวเลขมี noise** (วัดซ้ำต่างกันเฉลี่ย ~1.4 จุดบนโจทย์เดียวกัน) → delta ต้องเกิน ~1.4 ถึงเชื่อ. มี **8 ตัว "bulletproof"** ที่ยกคะแนนนิ่งหลายรอบ = เชื่อได้สุด
 - **"เสมอ (tie)" ≠ แย่** — แปลว่า AI ตอบถูกเองในโจทย์นั้นอยู่แล้ว; ค่าจริงของสกิลอยู่ที่ **ความสม่ำเสมอ + เคสยาก (edge case) + ช่วยคนที่ยังไม่เชี่ยว/model อ่อน** (frontier model ไม่ต้องใช้ก็ได้)
-- **0 regression อันตราย** ใน 53 ตัว — ไม่มีสกิลไหนทำให้ตอบ "พังลง" <sub>(eval รันบน 53 สกิล ณ ตอนนั้น; 2 ตัวล่าสุด `lab-clinic-business` + `ab-test-judgment` ผ่าน critical review แล้วแต่ยังไม่ A/B)</sub>
+- **0 regression อันตราย** ใน 53 ตัว — ไม่มีสกิลไหนทำให้ตอบ "พังลง" <sub>(eval รันบน 53 สกิล ณ ตอนนั้น; อีก 26 ตัวที่เพิ่มภายหลัง (v0.4.0–v0.5.0 + `lab-clinic-business`/`ab-test-judgment`) ผ่าน design review แล้วแต่ยังไม่ A/B)</sub>
 
 ## ที่มา & การอ้างอิง (Sources)
 

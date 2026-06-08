@@ -226,6 +226,8 @@ MIT — ใช้ฟรี / แก้ได้ / share ได้
 
 อยากเพิ่ม skill ของตัวเอง / ปรับปรุงของเดิม? ดู [CONTRIBUTING.md](./CONTRIBUTING.md) — เล่าปัญหาหรือวิจารณญาณในสายงานคุณมาได้เลย
 
+> **ไม่มี GitHub ก็ส่งได้** และ **ไม่ต้องเขียนให้สวย** — ส่งทาง Google Form / เพจ Score UP → maintainer + AI เรียบเรียงเป็น skill ให้ (มี [prompt ตัวช่วยร่างด้วย AI](./CONTRIBUTING.md#-ตัวช่วยร่างด้วย-ai) แปะใช้ได้เลย)
+
 ## Credits
 
 โดย **Phanuphong Tameesak — MT Score UP!** เพื่อชุมชน MT ไทย

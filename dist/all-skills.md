@@ -2729,10 +2729,10 @@ disclaimer: "ช่วยคิดงาน flow cytometry เพื่อกา
 ## วิธีตัดสินใจ (AI: ทำตามนี้)
 
 ### ก่อนวิเคราะห์ — เช็คคุณภาพ
-- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO/isotype)** ไหม
+- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **FMO control** ไหม (FMO = control หลักขีดเส้น pos/neg · **isotype ไม่แนะนำสำหรับ gating** แล้ว)
 
 ### Fork 1 — gating strategy (ลำดับ)
-scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte) → marker เฉพาะใน gate ที่สนใจ
+scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte; **blast = CD45 dim, SSC ต่ำ**) → marker เฉพาะใน gate ที่สนใจ
 
 ### Fork 2 — panel design
 - lineage marker + maturation marker; เลือก CD ให้ครอบ DDx (AML vs ALL vs lymphoma)
@@ -2743,7 +2743,7 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 - เทียบกับ normal maturation pattern → ผิดปกติตรงไหน
 
 ### Fork 4 — แอปจริง
-- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (CD55/CD59 loss, FLAER) · **MRD** · lymphocyte subset
+- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (สูญเสีย GPI-anchor: CD55/CD59 · **FLAER สำหรับ WBC**, RBC ใช้ CD59) · **MRD** · lymphocyte subset
 
 ### Fork 5 — correlate (flow ไม่ใช่คำตอบเดี่ยว)
 - correlate **smear/morphology + clinical + cytogenetics/molecular** (เชื่อม `hematology-judgment`, `pathology-judgment`, `molecular-judgment`) — diagnosis เป็นหน้าที่แพทย์/ผู้เชี่ยวชาญ
@@ -2754,7 +2754,7 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 ## กับดัก (Anti-patterns)
 - #1 gate ไม่ตัด dead/doublet/debris → % เพี้ยน, population ผิด (กับดัก #1)
 - #2 compensation/spillover ผิด → marker ดู positive ปลอม
-- #3 ไม่มี FMO/isotype control → ขีดเส้น positive/negative มั่ว
+- #3 ไม่มี FMO control → ขีดเส้น positive/negative มั่ว (ใช้ FMO ไม่ใช่ isotype)
 - #4 อ่าน marker เดี่ยวไม่ดู pattern/co-expression
 - #5 ไม่สน intensity (dim vs bright) → พลาด aberrant phenotype
 - #6 ไม่ correlate morphology/clinical → ตีความลอย
@@ -5523,9 +5523,11 @@ disclaimer: "ช่วยคิดการจัดการข้อมูล�
 - **Direct identifier**: ชื่อ/HN/MRN/บัตร ปชช./รูปหน้า/ลายนิ้วมือ
 - **Quasi-identifier**: วันเกิด/อายุเป๊ะ/zip/วันที่+สถานที่/อาชีพ/โรคหายาก → รวมกันชี้ตัวได้
 - **De-identified / aggregate**: ตัด direct + จัดการ quasi แล้ว → ป้องกันต่างระดับกัน
+- **ข้อมูลอ่อนไหว (sensitive, PDPA §26)**: ผลแล็บ/สุขภาพ/พันธุกรรม/ชีวมิติ = ชั้นเข้มสุด — นี่คือ data หลักของ MT → ต้องใช้ฐานเข้มกว่าข้อมูลทั่วไป (ดู Fork 4)
 
 ### Fork 2 — de-identify ให้จริง
-- ลบ direct ID + **generalize quasi** (วันเกิด→ช่วงอายุ, ลบวันที่เป๊ะ, รวมพื้นที่) + **ระวัง small cell** (n<5 ในตาราง/กราฟ → mask/รวมกลุ่ม) · เลขโรคหายาก/ค่าสุดโต่ง = เบาะแสชี้ตัว
+- ลบ direct ID + **generalize quasi** (วันเกิด→ช่วงอายุ, ลบวันที่เป๊ะ, รวมพื้นที่) + **ระวัง small cell** (n เล็ก เช่น <5 → mask/รวมกลุ่ม + **suppress row/column total** ที่ย้อนคำนวณ cell ที่ปิดได้) · เลขโรคหายาก/ค่าสุดโต่ง = เบาะแสชี้ตัว
+- **pseudonymized ≠ anonymous**: แค่แทนรหัส (key-coded + ยังเก็บ key) = **ยังเป็นข้อมูลส่วนบุคคลตาม PDPA** ต้องคุ้มครองเท่าเดิม · เฉพาะ anonymous (ระบุกลับไม่ได้จริง) เท่านั้นที่หลุดขอบเขต — ซึ่งทำได้ยากกับข้อมูลสุขภาพ
 
 ### Fork 3 — ที่ไหนได้-ไม่ได้
 - **ได้ (ตาม role)**: LIS/ระบบ รพ. ที่มีสิทธิ์
@@ -5533,13 +5535,14 @@ disclaimer: "ช่วยคิดการจัดการข้อมูล�
 - **งานวิจัย**: ต้อง **IRB + consent/waiver** ก่อนใช้ข้อมูล
 
 ### Fork 4 — แชร์/ส่งต่อ
-- มี **ฐานทางกฎหมาย** (consent/สัญญา/หน้าที่ตามกฎหมาย/research waiver) · **minimum necessary** (ส่งเท่าที่ต้องใช้) · **ช่องทางเข้ารหัส** ไม่ใช่ไลน์/อีเมลเปล่า
+- **ฐานทางกฎหมาย**: ข้อมูลสุขภาพเป็น sensitive (§26) → ต้อง **ความยินยอมโดยชัดแจ้ง** หรือข้อยกเว้นทางการแพทย์/สาธารณสุข/วิจัย — ไม่ใช่แค่ฐาน "สัญญา/หน้าที่ตามกฎหมาย" ของข้อมูลทั่วไป (§24); การยกเว้น consent ในงานวิจัย = อำนาจ **IRB** · **minimum necessary** (ส่งเท่าที่ต้องใช้) · **ช่องทางเข้ารหัส** ไม่ใช่ไลน์/อีเมลเปล่า
 
 ### Fork 5 — retention + ทำลาย
 - เก็บ **เท่าที่จำเป็น/ตามระเบียบ** แล้ว **ทำลายอย่างปลอดภัย** · อย่าเก็บ data ดิบส่วนตัวไว้หลังจบงาน/วิจัย
 
 ### Fork 6 — สิทธิเจ้าของข้อมูล + เหตุละเมิด (PDPA)
-- เจ้าของข้อมูลมีสิทธิ เข้าถึง/แก้/ลบ/ถอนความยินยอม · เกิด **data breach → แจ้งตามระเบียบ/DPO** ทันที
+- เจ้าของข้อมูลมีสิทธิ เข้าถึง/แก้/ลบ/ถอนความยินยอม + **คัดค้าน/ระงับใช้/ขอโอนย้าย** (PDPA §30–34)
+- เกิด **data breach** → MT รายงานเข้าช่องทาง รพ./DPO **ทันที** · ผู้ควบคุมข้อมูล (รพ.) มีหน้าที่แจ้งสำนักงาน **PDPC ภายใน 72 ชม.** นับแต่ทราบ + แจ้งเจ้าของข้อมูลเมื่อเสี่ยงสูง — **อย่าคิดว่า "บอก DPO = จบ"**
 
 ### Fork 7 — ใช้ AI/cloud กับข้อมูล
 - **ไม่ใส่ identifiable ลง AI สาธารณะ** → de-identify ก่อน หรือใช้ตัวอย่างสมมุติ/โครงสร้างคอลัมน์ · ดูข้อตกลงผู้ให้บริการ (เชื่อม `digital-judgment`, `prompt-craft`, `build-a-dashboard`)
@@ -5747,7 +5750,7 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 
 ตัวช่วยตัดสินใจตอน MT ดูแล/ใช้ POCT (glucose meter, blood gas, i-STAT, rapid test, HbA1c POC) นอกแล็บกลาง — เน้น "เมื่อไหร่ใช้ + คุมยังไงให้เชื่อได้ + limitation" ไม่ใช่คู่มือเครื่อง
 
-> **กฎ #1:** POCT = **แล็บที่ทำนอกแล็บ** → ต้องมี **QC + operator competency + connectivity** เหมือนแล็บกลาง (ISO 15189:2022 รวม POCT เข้ามาแล้ว) ไม่ใช่ "เครื่องง่ายๆ ใครก็กดได้"
+> **กฎ #1:** POCT = **แล็บที่ทำนอกแล็บ** → ต้องมี **QC + operator competency + connectivity** เหมือนแล็บกลาง (ISO 15189:2022 ผนวกข้อกำหนด POCT เข้ามาในมาตรฐานหลัก · ISO 22870 ถูกถอนแล้ว) ไม่ใช่ "เครื่องง่ายๆ ใครก็กดได้"
 > **กับดัก #1 (ขั้น hard):** ผล POCT ที่ **ไม่ผ่าน QC / operator ไม่ผ่าน competency = ค่าที่เชื่อไม่ได้** แต่ถูกเอาไปรักษาทันที (ER/ICU). ค่าวิกฤตจาก POCT ต้องแจ้ง/พิจารณา confirm เหมือนแล็บกลาง
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยัน
@@ -5773,7 +5776,8 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 - QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
 
 ### Fork 3 — limitation ของ POCT (รู้ก่อนเชื่อ)
-- **interference**: Hct + oxygen + สารรบกวน ใน glucose meter; linear range แคบ; แม่นน้อยกว่าแล็บกลาง
+- **interference (ต้องรู้ทิศทาง + วิธี)**: **Hct สูง → glucose ต่ำเทียม / Hct ต่ำ (ซีด) → สูงเทียม** (อันตรายใน ICU/ไต/ทารก) · oxygen รบกวนเฉพาะวิธี **glucose-oxidase** (ไม่กระทบ GDH) · **วิธี GDH-PQQ ให้ glucose สูงเทียมเมื่อผู้ป่วยได้ maltose/icodextrin (น้ำยา PD)/galactose → เคยมี insulin overdose ถึงตาย (FDA เตือน)**
+- รู้ **AMR/reportable range** ของเครื่อง (ค่านอกช่วง → เจือจาง/ส่งแล็บกลาง) · แม่นน้อยกว่าแล็บกลาง
 - correlate POCT กับแล็บกลางเป็นระยะ; ค่าขัดอาการ/ขัดแล็บกลาง → ตรวจซ้ำ/ส่งแล็บกลาง
 
 ### Fork 4 — connectivity + บันทึก
@@ -5784,7 +5788,7 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 
 ## กับดัก (Anti-patterns)
 - #1 ถือว่า POCT ไม่ต้อง QC / operator ไม่ต้อง competency (กับดัก #1)
-- #2 ลืม interference (Hct/oxygen ใน glucose meter) → ค่าเพี้ยนในคนไข้ป่วยหนัก
+- #2 ลืมทิศทาง interference: Hct สูง→glucose ต่ำเทียม (ซีด→สูงเทียม) · GDH-PQQ + maltose/icodextrin→สูงเทียม → ค่าเพี้ยนในคนไข้ป่วยหนัก
 - #3 ใช้นอก linear range → ค่าผิด
 - #4 ผล POCT ไม่เข้าระบบ/จดมือหาย → ไม่ traceable
 - #5 ไม่ confirm/ไม่แจ้งค่าวิกฤตจาก POCT
@@ -5920,7 +5924,8 @@ disclaimer: "ช่วยคิดเรื่องคุณภาพตัว�
 
 ### Fork 1 — Order of draw (กัน additive carryover)
 ลำดับ: **blood culture → coag (citrate ฟ้า) → serum/SST (แดง/เหลือง) → heparin (เขียว) → EDTA (ม่วง) → fluoride (เทา)**
-- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↑ ปลอม + ALP เพี้ยน**; heparin ปน → coag เพี้ยน
+- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↓ ALP↓ ปลอม** (EDTA จับ divalent cation Ca/Mg + ยับยั้ง metalloenzyme); heparin ปน → coag เพี้ยน
+  - ⚠️ อย่าสับสน: **EDTA ทำ Mg ต่ำ** (chelate) แต่ **hemolysis ทำ Mg สูง** (รั่วจากในเซลล์) — คนละกลไก
 - เจาะหลอดเดียว/winged set → ทิ้ง discard tube ก่อน coag (กัน air/underfill)
 
 ### Fork 2 — เลือกหลอด/additive + อัตราส่วน
@@ -7346,7 +7351,7 @@ disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น
 - หลัก: เห็น cast = localize ไปไต; RBC/WBC/muddy-brown cast = กระทบการดูแล → flag + correlate
 
 ### Fork 4 — Crystals → normal vs pathologic (ผูกกับ pH)
-- กรด: uric acid · calcium oxalate (มีได้ทุก pH; **envelope/needle + AKI → สงสัย ethylene glycol poisoning** = ฉุกเฉิน เชื่อม `toxicology-judgment`)
+- กรด: uric acid · calcium oxalate (มีได้ทุก pH; **dihydrate = envelope · monohydrate = dumbbell/needle** — ตัว monohydrate + AKI → **สงสัย ethylene glycol poisoning** = ฉุกเฉิน เชื่อม `toxicology-judgment`)
 - ด่าง: triple phosphate/struvite (coffin-lid, Proteus), amorphous phosphate
 - **always pathologic**: cystine (hexagonal → cystinuria), tyrosine/leucine (liver), cholesterol, **drug crystals** (sulfa/acyclovir/indinavir → ประวัติยา)
 - artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค

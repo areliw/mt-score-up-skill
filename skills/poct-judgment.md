@@ -13,7 +13,7 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 
 ตัวช่วยตัดสินใจตอน MT ดูแล/ใช้ POCT (glucose meter, blood gas, i-STAT, rapid test, HbA1c POC) นอกแล็บกลาง — เน้น "เมื่อไหร่ใช้ + คุมยังไงให้เชื่อได้ + limitation" ไม่ใช่คู่มือเครื่อง
 
-> **กฎ #1:** POCT = **แล็บที่ทำนอกแล็บ** → ต้องมี **QC + operator competency + connectivity** เหมือนแล็บกลาง (ISO 15189:2022 รวม POCT เข้ามาแล้ว) ไม่ใช่ "เครื่องง่ายๆ ใครก็กดได้"
+> **กฎ #1:** POCT = **แล็บที่ทำนอกแล็บ** → ต้องมี **QC + operator competency + connectivity** เหมือนแล็บกลาง (ISO 15189:2022 ผนวกข้อกำหนด POCT เข้ามาในมาตรฐานหลัก · ISO 22870 ถูกถอนแล้ว) ไม่ใช่ "เครื่องง่ายๆ ใครก็กดได้"
 > **กับดัก #1 (ขั้น hard):** ผล POCT ที่ **ไม่ผ่าน QC / operator ไม่ผ่าน competency = ค่าที่เชื่อไม่ได้** แต่ถูกเอาไปรักษาทันที (ER/ICU). ค่าวิกฤตจาก POCT ต้องแจ้ง/พิจารณา confirm เหมือนแล็บกลาง
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยัน
@@ -39,7 +39,8 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 - QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
 
 ### Fork 3 — limitation ของ POCT (รู้ก่อนเชื่อ)
-- **interference**: Hct + oxygen + สารรบกวน ใน glucose meter; linear range แคบ; แม่นน้อยกว่าแล็บกลาง
+- **interference (ต้องรู้ทิศทาง + วิธี)**: **Hct สูง → glucose ต่ำเทียม / Hct ต่ำ (ซีด) → สูงเทียม** (อันตรายใน ICU/ไต/ทารก) · oxygen รบกวนเฉพาะวิธี **glucose-oxidase** (ไม่กระทบ GDH) · **วิธี GDH-PQQ ให้ glucose สูงเทียมเมื่อผู้ป่วยได้ maltose/icodextrin (น้ำยา PD)/galactose → เคยมี insulin overdose ถึงตาย (FDA เตือน)**
+- รู้ **AMR/reportable range** ของเครื่อง (ค่านอกช่วง → เจือจาง/ส่งแล็บกลาง) · แม่นน้อยกว่าแล็บกลาง
 - correlate POCT กับแล็บกลางเป็นระยะ; ค่าขัดอาการ/ขัดแล็บกลาง → ตรวจซ้ำ/ส่งแล็บกลาง
 
 ### Fork 4 — connectivity + บันทึก
@@ -50,7 +51,7 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 
 ## กับดัก (Anti-patterns)
 - #1 ถือว่า POCT ไม่ต้อง QC / operator ไม่ต้อง competency (กับดัก #1)
-- #2 ลืม interference (Hct/oxygen ใน glucose meter) → ค่าเพี้ยนในคนไข้ป่วยหนัก
+- #2 ลืมทิศทาง interference: Hct สูง→glucose ต่ำเทียม (ซีด→สูงเทียม) · GDH-PQQ + maltose/icodextrin→สูงเทียม → ค่าเพี้ยนในคนไข้ป่วยหนัก
 - #3 ใช้นอก linear range → ค่าผิด
 - #4 ผล POCT ไม่เข้าระบบ/จดมือหาย → ไม่ traceable
 - #5 ไม่ confirm/ไม่แจ้งค่าวิกฤตจาก POCT

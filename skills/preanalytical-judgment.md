@@ -33,7 +33,8 @@ disclaimer: "ช่วยคิดเรื่องคุณภาพตัว�
 
 ### Fork 1 — Order of draw (กัน additive carryover)
 ลำดับ: **blood culture → coag (citrate ฟ้า) → serum/SST (แดง/เหลือง) → heparin (เขียว) → EDTA (ม่วง) → fluoride (เทา)**
-- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↑ ปลอม + ALP เพี้ยน**; heparin ปน → coag เพี้ยน
+- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↓ ALP↓ ปลอม** (EDTA จับ divalent cation Ca/Mg + ยับยั้ง metalloenzyme); heparin ปน → coag เพี้ยน
+  - ⚠️ อย่าสับสน: **EDTA ทำ Mg ต่ำ** (chelate) แต่ **hemolysis ทำ Mg สูง** (รั่วจากในเซลล์) — คนละกลไก
 - เจาะหลอดเดียว/winged set → ทิ้ง discard tube ก่อน coag (กัน air/underfill)
 
 ### Fork 2 — เลือกหลอด/additive + อัตราส่วน

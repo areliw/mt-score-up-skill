@@ -55,7 +55,7 @@ disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น
 - หลัก: เห็น cast = localize ไปไต; RBC/WBC/muddy-brown cast = กระทบการดูแล → flag + correlate
 
 ### Fork 4 — Crystals → normal vs pathologic (ผูกกับ pH)
-- กรด: uric acid · calcium oxalate (มีได้ทุก pH; **envelope/needle + AKI → สงสัย ethylene glycol poisoning** = ฉุกเฉิน เชื่อม `toxicology-judgment`)
+- กรด: uric acid · calcium oxalate (มีได้ทุก pH; **dihydrate = envelope · monohydrate = dumbbell/needle** — ตัว monohydrate + AKI → **สงสัย ethylene glycol poisoning** = ฉุกเฉิน เชื่อม `toxicology-judgment`)
 - ด่าง: triple phosphate/struvite (coffin-lid, Proteus), amorphous phosphate
 - **always pathologic**: cystine (hexagonal → cystinuria), tyrosine/leucine (liver), cholesterol, **drug crystals** (sulfa/acyclovir/indinavir → ประวัติยา)
 - artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค

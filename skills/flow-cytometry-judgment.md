@@ -31,10 +31,10 @@ disclaimer: "ช่วยคิดงาน flow cytometry เพื่อกา
 ## วิธีตัดสินใจ (AI: ทำตามนี้)
 
 ### ก่อนวิเคราะห์ — เช็คคุณภาพ
-- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO/isotype)** ไหม
+- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **FMO control** ไหม (FMO = control หลักขีดเส้น pos/neg · **isotype ไม่แนะนำสำหรับ gating** แล้ว)
 
 ### Fork 1 — gating strategy (ลำดับ)
-scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte) → marker เฉพาะใน gate ที่สนใจ
+scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte; **blast = CD45 dim, SSC ต่ำ**) → marker เฉพาะใน gate ที่สนใจ
 
 ### Fork 2 — panel design
 - lineage marker + maturation marker; เลือก CD ให้ครอบ DDx (AML vs ALL vs lymphoma)
@@ -45,7 +45,7 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 - เทียบกับ normal maturation pattern → ผิดปกติตรงไหน
 
 ### Fork 4 — แอปจริง
-- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (CD55/CD59 loss, FLAER) · **MRD** · lymphocyte subset
+- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (สูญเสีย GPI-anchor: CD55/CD59 · **FLAER สำหรับ WBC**, RBC ใช้ CD59) · **MRD** · lymphocyte subset
 
 ### Fork 5 — correlate (flow ไม่ใช่คำตอบเดี่ยว)
 - correlate **smear/morphology + clinical + cytogenetics/molecular** (เชื่อม `hematology-judgment`, `pathology-judgment`, `molecular-judgment`) — diagnosis เป็นหน้าที่แพทย์/ผู้เชี่ยวชาญ
@@ -56,7 +56,7 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 ## กับดัก (Anti-patterns)
 - #1 gate ไม่ตัด dead/doublet/debris → % เพี้ยน, population ผิด (กับดัก #1)
 - #2 compensation/spillover ผิด → marker ดู positive ปลอม
-- #3 ไม่มี FMO/isotype control → ขีดเส้น positive/negative มั่ว
+- #3 ไม่มี FMO control → ขีดเส้น positive/negative มั่ว (ใช้ FMO ไม่ใช่ isotype)
 - #4 อ่าน marker เดี่ยวไม่ดู pattern/co-expression
 - #5 ไม่สน intensity (dim vs bright) → พลาด aberrant phenotype
 - #6 ไม่ correlate morphology/clinical → ตีความลอย

@@ -92,6 +92,18 @@ content เรียบเรียงจากองค์ความรู้
 - **`CONTRIBUTING.md`** overhauled with the full house skill-authoring standard (verdict-first structure,
   risk-tiered disclaimer, PDPA/scope anchoring, run build_triage.py) + links to the how-we docs.
 
+### Fixed — adversarial clinical self-audit (2026-06-08, `docs/audit-2026-06-08-selfaudit.md`)
+5 parallel independent reviewers audited the new clinical/compliance skills before human peer-review.
+- **`preanalytical-judgment`** — corrected a reversed direction: EDTA carryover is **Mg↓ / ALP↓** (chelation),
+  not Mg↑; added the EDTA-vs-hemolysis contrast. *(the one true error found)*
+- **`poct-judgment`** — added interference **direction + method**: Hct-high→glucose-low, glucose-oxidase O₂
+  effect, **GDH-PQQ + maltose/icodextrin → falsely high glucose (FDA fatal-overdose warning)**; tightened ISO claim.
+- **`flow-cytometry-judgment`** — **FMO** is the gating control (isotype no longer recommended); added
+  blast-gate direction (CD45-dim/low-SSC) and PNH FLAER(WBC)/CD59(RBC) nuance.
+- **`phi-data-handling`** — added PDPA load-bearing facts: health data = **sensitive §26**; **pseudonymized ≠
+  anonymous**; **breach → PDPC within 72 h** + data-subject notice; small-cell complementary suppression; §30–34 rights.
+- **`urinalysis-judgment`** — Ca-oxalate dihydrate(envelope) vs monohydrate(needle, the EG-linked form). Otherwise clean.
+
 ### Notes
 - `skills/INDEX.md`, `dist/all-skills.md`, `prompts/triage.md` regenerated via `scripts/build_triage.py`
   (83 skills, no drift). README + skills/README counts bumped 55 → 83.

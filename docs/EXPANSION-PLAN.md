@@ -88,8 +88,8 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 | `docs/how-we-eval.md` | `eval-harness` `ab-test-judgment`(มีแล้ว) | ทำ eval/ ให้เป็นระบบ + เก็บ 2 ตัวที่ยัง A/B ไม่ครบ | 🟢 wave5 |
 | `docs/how-we-maintain.md` | `skill-stocktake` `rules-distill` `post-mortem` `continuous-learning-v2` | ออดิตคลังเป็นรอบ + กลั่น cross-cutting rules | 🟢 wave5 |
 | (skill ผู้ใช้) `phi-data-handling` | `healthcare-phi-compliance` | จัดการข้อมูลคนไข้/PDPA ในงาน MT (ก้ำกึ่ง user skill — เข้าคู่ digital-judgment) | 🟢 wave5 |
-| `humanizer` | `humanizer` | ขัดภาษาไทยใน skill ให้อ่านเป็นมนุษย์ (process) | 🟢 wave5 |
-| `article-writing` | `article-writing` | เขียน README/docs/บทความโปรโมต (process) | 🟢 wave5 |
+| humanizer (house voice) | `humanizer` | ขัดภาษาไทยใน skill ให้อ่านเป็นมนุษย์ | 🟢 wave5 (fold → `how-we-maintain.md`, ไม่มีไฟล์แยก) |
+| article-writing (house voice) | `article-writing` | เขียน README/docs/บทความโปรโมต | 🟢 wave5 (fold → `how-we-maintain.md` + `CONTRIBUTING.md`, ไม่มีไฟล์แยก) |
 
 ## ⚪ ซ้ำของเดิม (พอร์ตไปแล้ว — ไม่ทำซ้ำ)
 clinical: bloodbank · hematology · clinchem · clinmicro · immunoassay · molecular · pathology · parasitology · toxicology · clinical-correlation

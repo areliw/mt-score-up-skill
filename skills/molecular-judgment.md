@@ -103,6 +103,7 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 - 🚫 **NGS variant → รายงาน actionable ทันที** โดยไม่ดู VAF/coverage/database + ไม่ confirm orthogonal ตัวสำคัญ
 - 🚫 **qPCR quantify โดยไม่มี standard curve / efficiency ไม่ดี** → copy number เชื่อไม่ได้
 - 🚫 **Pharmacogenomics ข้าม HLA-B*15:02 ก่อน carbamazepine ในคนไทย** → SJS/TEN ที่ป้องกันได้
+- 🚫 **เทียบ/รวม variant coordinate ข้าม genome build** (GRCh37/hg19 vs GRCh38/hg38) โดยไม่ liftover → ตำแหน่ง/ยีน/ผลแปลเพี้ยนทั้งสาย → ระบุ build ของทุกแหล่งให้ตรง + liftover ก่อนเทียบ (และ pin DB release ไว้ reproduce ได้)
 
 ---
 

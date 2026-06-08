@@ -53,6 +53,7 @@ Title → Abstract → Introduction → Methods → Results → Discussion → C
 - format: Title/Intro/Objective/Methods/Results/Conclusion/Ack
 - อ่านได้ที่ 1.5-2 ม. (Title ~80pt, body ~24pt) · ≤6 bullets/หน้า · ≤2 fonts · กราฟ ≤6 เส้น บอกแกน x,y
 - ⚠️ **graphical honesty** — อย่าบีบ/ตัดแกนกราฟให้ผลดูเว่อร์กว่าจริง
+- **สี colorblind-safe** — เลี่ยงคู่แดง-เขียว (ตาบอดสีอ่านไม่ได้ = หลอกตาโดยไม่ตั้งใจ); ใช้ palette เช่น Okabe-Ito/viridis, ≤5-6 สี, สีต้อง**สื่อความหมาย** ไม่ใช่ตกแต่ง
 
 ---
 
@@ -65,6 +66,7 @@ Title → Abstract → Introduction → Methods → Results → Discussion → C
 - **เชื่อว่า "ใหม่" พอแล้ว** — clarity/การนำเสนอแย่ = เหตุ reject อันดับต้นๆ
 - **graphical dishonesty** — บีบแกน, error bar ใช้ SEM แทน SD ให้ดูสวย
 - **plagiarism / fabrication** — คัดลอก/แต่งข้อมูล = misconduct (จบเห่)
+- **bar chart แกนไม่เริ่มศูนย์ → หลอกตา** (line/scatter ไม่จำเป็นต้องศูนย์ แต่ห้ามตัด context); ถ้าให้ AI gen รูป/เลือกสี ต้อง **verify ตัวเลขในรูปกับ source** ก่อนใช้
 
 ---
 

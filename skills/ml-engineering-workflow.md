@@ -78,6 +78,8 @@ disclaimer: "ช่วยวางระบบ ML production ไม่ใช่�
 - **Rollback** — มีเวอร์ชันเก่าพร้อมสลับกลับ + เกณฑ์ชัดว่า "เห็นอะไรถึงถอย" (metric ตกเกินกี่ %, error พุ่ง) ตัดสินใจไว้ล่วงหน้า ไม่ใช่ตอนไฟไหม้
 - **Retrain trigger** — นิยามไว้แต่แรกว่า train ใหม่เมื่อไหร่: drift เกิน threshold / quality ตก / ครบรอบเวลา / data ใหม่พอ
 - ⚠️ retrain ทุกครั้งต้องวน Fork 1-3 ใหม่ (contract→reproduce→eval ทีละขั้น) ห้ามเอาของใหม่ขึ้นตรง
+- **Reject option (fallback ราย prediction)** — คนละชั้นกับ rollback: เมื่อ confidence ต่ำ / input หลุด distribution ที่ train ไว้ → โมเดล "ไม่ตอบ" แล้วส่งให้คนตัดสินแทน ดีกว่าฝืนเดา · ตั้ง threshold + ปลายทางที่คนรับช่วงไว้ตั้งแต่แรก
+- ⚖️ **งานกระทบคนไข้ = โมเดลเสนอ คนตัดสิน** — ทุกผลที่ถึงตัวคนไข้ผ่าน MT/แพทย์ยืนยันก่อนเสมอ โมเดล = decision-support ไม่ใช่คำตอบสุดท้าย (งานภาพ cell/smear → cv-judgment, แปลผลรวม → clinical-correlation-judgment)
 
 ---
 
@@ -89,6 +91,7 @@ disclaimer: "ช่วยวางระบบ ML production ไม่ใช่�
 - **train/serve skew** — feature ตอน train คำนวณวิธีหนึ่ง ตอน serve อีกวิธี (lib คนละตัว/ลำดับ pre-process ต่าง) → offline สวย จริงเพี้ยน → ใช้ logic แปลง feature ตัวเดียวกันทั้งสองฝั่ง
 - **offline เก่งแต่จริงพัง** — เพราะ leakage (ดู `ml-judgment`) / drift (data โลกจริงเปลี่ยน) / ground truth ตอน train ไม่ตรงของจริง → ต้องวัด online ก่อนเชื่อ
 - **ไม่ตั้ง retrain trigger** — ปล่อยโมเดลเดิมยาว distribution ค่อยๆ เลื่อนจนเสื่อมแบบไม่มีสัญญาณเตือน
+- **ใช้นอกขอบเขตที่ validate** — เทรนกับผู้ใหญ่แล้วเอาไปใช้กับเด็ก / validate บนเครื่อง A แล้วย้ายไปเครื่อง B / ประชากร รพ.เดียวแล้วใช้ข้ามที่ → ไม่ใช่ drift แต่ใช้ผิดที่ตั้งแต่แรก · ระบุขอบเขตที่ validate ไว้ชัด แล้วใช้แค่ในนั้น
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > เติมเคสจริงในสายงานคุณ เช่น:

@@ -4,6 +4,19 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [0.7.0] — 2026-06-08
+
+### Changed — graft "เพชร" จาก 19 dropped skills เข้า skill เดิม (diamond mantra)
+ไม่ทิ้งคุณค่าของ 19 ตัวที่ drop ตอน reconcile PR #11 — สกัด **33 เพชร** (judgment/trap/เกณฑ์ที่ unique จริง ไม่ซ้ำ) graft เข้า **15 skill เดิม** (ตัวไฟล์ทิ้ง คุณค่าดูดเข้า skill ที่อยู่):
+- **safety/coding:** `ai-coding-guardrails` (ห้าม paste PHI/secret · ห้ามรันคำสั่งลบที่ไม่เข้าใจ · backup ก่อนรัน) · `ml-engineering-workflow` (reject option · งานกระทบคนไข้=คนตัดสิน · ใช้นอกขอบเขต validate) · `offload-to-automation` (ROI gate เมื่อไหร่คุ้ม · idempotent/rollback · hardcode พังเงียบ) · `prompt-optimizer` (กัน PHI/secret หลุด)
+- **data/research:** `data-science-workflow` (เปิดดู raw ก่อน clean · เก็บ raw+log transformation · median+P90 ไม่ใช่ mean · Simpson's paradox) · `molecular-judgment` (genome build hg19/hg38 + liftover) · `source-credibility-judgment` (retraction check · recency vs guideline) · `pubmed-search-judgment` (อย่าพึ่งฐานเดียว) · `manuscript-judgment` (สี colorblind-safe · bar แกนเริ่มศูนย์)
+- **comms/career/learning:** `content-creator-judgment` (repurpose native · discoverability · vanity metric · teaching-objective · PDPA เคสคนไข้) · `report-up-judgment` (timing/รอบงบ · skip-level) · `market-research-judgment` (demand ≠ ถาม "สนใจไหม") · `grill-my-plan` (analysis paralysis) · `interactive-course` (spaced repetition) · `time-blocking` (สำคัญ vs เร่ง)
+
+### Notes
+- วิธี: parallel agents สกัด (diff feat-version vs main-version → propose) → apply surgical → verify (emoji-heading=0 · disclaimer footer · frontmatter 8 keys · diffstat เล็ก)
+- 3/19 ไม่มีเพชร (`ship-a-small-app`·`personal-brand` ซ้ำ main; `pomodoro-focus`·`photography-judgment` ไม่รับเพิ่ม) — รายงานตรงๆ ไม่ยัด
+- ขนาดไม่บวม: +40 บรรทัดรวม 15 ไฟล์ (~2-3/ไฟล์) · จำนวน skill ยัง **87** (ไม่เพิ่มไฟล์) · bundle regen
+
 ## [0.6.0] — 2026-06-08
 
 ### Added — reconcile parallel branch (T-shaped clinical expansion)

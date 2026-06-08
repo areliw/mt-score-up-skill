@@ -66,6 +66,7 @@ disclaimer: "ช่วยวางกลยุทธ์ค้น PubMed/วร�
 
 ### Fork 5 — บันทึกให้ค้นซ้ำได้ (reproducible)
 จดทุกรอบที่ค้น เพื่อทำซ้ำ/เขียน method ได้: **query เป๊ะ · วันที่ค้น · filter · จำนวนผล · ที่คัดออกเอง**
+- ⚠️ **อย่าพึ่ง PubMed ฐานเดียวกับงานที่ต้องครบ** (systematic review/thesis) — Scopus/Embase/Google Scholar coverage+recall ต่างกัน, ค้นเสริมถ้ามีสิทธิ์; พึ่ง Google Scholar อย่างเดียว = คุณภาพปนเปื้อน
 
 | วันที่ค้น | Query | Filter | ผล |
 |---|---|---|---:|

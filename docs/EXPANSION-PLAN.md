@@ -12,7 +12,7 @@
 Source = คลังสกิลของ Claude (mt-shift-optimizer session): project-bundled 17 + user-level ~84.
 ตารางนี้ map **ทุก tier ไม่ตกหล่น** → สถานะการพอร์ตเข้า repo.
 
-สถานะ: ✅ done · 🟢 wave1 (กำลังทำ) · ⏳ planned · ⚪ ซ้ำของเดิม (ไม่ทำ) · ⛔ ไม่พอร์ต (เหตุผลระบุ)
+สถานะ: ✅ done · 🟢 wave1–5 (พอร์ตเข้า repo แล้ว — ครบทุก track) · ⚪ ซ้ำของเดิม (ไม่ทำ) · ⛔ ไม่พอร์ต (เหตุผลระบุ)
 
 ---
 
@@ -83,13 +83,13 @@ Source = คลังสกิลของ Claude (mt-shift-optimizer session): 
 ## Track 9 — Contributor / maintainer (process ของ repo เอง, ไม่ใช่ skill ผู้ใช้)
 | รับมาทำ | reframe จาก | ใช้กับ | สถานะ |
 |---|---|---|---|
-| ยกเครื่อง `CONTRIBUTING.md` | `write-a-skill` | มาตรฐานเขียน skill ใหม่ให้ contributor | ⏳ |
-| `docs/how-we-audit.md` | `scrutinize` `verification-panel` `production-audit` `agent-architecture-audit` | กระบวนการ QA clinical accuracy ก่อน merge | ⏳ |
-| `docs/how-we-eval.md` | `eval-harness` `ab-test-judgment`(มีแล้ว) | ทำ eval/ ให้เป็นระบบ + เก็บ 2 ตัวที่ยัง A/B ไม่ครบ | ⏳ |
-| `docs/how-we-maintain.md` | `skill-stocktake` `rules-distill` `post-mortem` `continuous-learning-v2` | ออดิตคลังเป็นรอบ + กลั่น cross-cutting rules | ⏳ |
-| (skill ผู้ใช้) `phi-data-handling` | `healthcare-phi-compliance` | จัดการข้อมูลคนไข้/PDPA ในงาน MT (ก้ำกึ่ง user skill — เข้าคู่ digital-judgment) | ⏳ |
-| `humanizer` | `humanizer` | ขัดภาษาไทยใน skill ให้อ่านเป็นมนุษย์ (process) | ⏳ |
-| `article-writing` | `article-writing` | เขียน README/docs/บทความโปรโมต (process) | ⏳ |
+| ยกเครื่อง `CONTRIBUTING.md` | `write-a-skill` | มาตรฐานเขียน skill ใหม่ให้ contributor | 🟢 wave5 |
+| `docs/how-we-audit.md` | `scrutinize` `verification-panel` `production-audit` `agent-architecture-audit` | กระบวนการ QA clinical accuracy ก่อน merge | 🟢 wave5 |
+| `docs/how-we-eval.md` | `eval-harness` `ab-test-judgment`(มีแล้ว) | ทำ eval/ ให้เป็นระบบ + เก็บ 2 ตัวที่ยัง A/B ไม่ครบ | 🟢 wave5 |
+| `docs/how-we-maintain.md` | `skill-stocktake` `rules-distill` `post-mortem` `continuous-learning-v2` | ออดิตคลังเป็นรอบ + กลั่น cross-cutting rules | 🟢 wave5 |
+| (skill ผู้ใช้) `phi-data-handling` | `healthcare-phi-compliance` | จัดการข้อมูลคนไข้/PDPA ในงาน MT (ก้ำกึ่ง user skill — เข้าคู่ digital-judgment) | 🟢 wave5 |
+| `humanizer` | `humanizer` | ขัดภาษาไทยใน skill ให้อ่านเป็นมนุษย์ (process) | 🟢 wave5 |
+| `article-writing` | `article-writing` | เขียน README/docs/บทความโปรโมต (process) | 🟢 wave5 |
 
 ## ⚪ ซ้ำของเดิม (พอร์ตไปแล้ว — ไม่ทำซ้ำ)
 clinical: bloodbank · hematology · clinchem · clinmicro · immunoassay · molecular · pathology · parasitology · toxicology · clinical-correlation
@@ -107,6 +107,7 @@ clinical: bloodbank · hematology · clinchem · clinmicro · immunoassay · mol
 - ✅ **Wave 2:** automate-lab-tasks · clean-messy-data · vibe-coding-safely · ship-a-small-app · spreadsheet-judgment · mt-databases — แกน T-shaped 
 - ✅ **Wave 3:** method-validation-stats · pubmed-search · source-credibility · deep-research · gget-genomics · poct-judgment · flow-cytometry-judgment · deploy-ml-safely
 - ✅ **Wave 4:** design-a-clear-figure · learn-anything-fast · make-a-teaching-video · personal-brand · content-distribution · market-opportunity · focus-and-time · manage-up · plan-with-ai · prompt-craft
+- ✅ **Wave 5:** phi-data-handling (skill) + CONTRIBUTING overhaul + docs/how-we-{audit,eval,maintain} (humanizer+article-writing folded in) — **manifest complete** 🏁
 - **Wave 3:** Track 2 (stats/research) + Track 1 ที่เหลือ
 - **Wave 4:** Track 4–8 (design/media/career/productivity/AI)
 - **Wave 5:** Track 9 (contributor/maintainer process docs)

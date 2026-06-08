@@ -65,6 +65,7 @@
 | `pathology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pathology-judgment.md | 2026-06-04 |
 | `personal-brand` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/personal-brand.md | 2026-06-08 |
 | `pharmacology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pharmacology-judgment.md | 2026-06-04 |
+| `phi-data-handling` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/phi-data-handling.md | 2026-06-08 |
 | `photography-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/photography-judgment.md | 2026-06-04 |
 | `plan-with-ai` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/plan-with-ai.md | 2026-06-08 |
 | `poct-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/poct-judgment.md | 2026-06-08 |

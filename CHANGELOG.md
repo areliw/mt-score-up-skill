@@ -4,7 +4,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
-## [Unreleased] — T-shaped MT expansion (waves 1–4)
+## [Unreleased] — T-shaped MT expansion (waves 1–5 · complete) 🏁
 
 ### Added
 - **`urinalysis-judgment`** (#56) — UA + body-fluid (CSF/serous/synovial) microscopy: strip↔micro↔clinical
@@ -78,9 +78,27 @@ content เรียบเรียงจากองค์ความรู้
 - **`prompt-craft`** (#82) — write prompts that work: role+context+task+format, stop AI guessing, guard
   hallucination, never paste PHI/secrets. From `prompt-optimizer`.
 
+### Added — wave 5 (contributor/process, the system that keeps the library from rotting; 82 → 83)
+- **`phi-data-handling`** (#83, skill) — handling patient data/PHI in MT work: data classification
+  (direct vs **quasi-identifier**), real de-identification (generalize + **small-cell** risk), where data
+  may/may not go (LIS vs personal cloud/USB/public AI), minimum-necessary sharing, retention, IRB/consent.
+  From `healthcare-phi-compliance`; pairs with `digital-judgment`.
+- **`docs/how-we-audit.md`** — QA-before-merge: adversarial find→verify→refute, multi-lens review, tier
+  findings, fix Tier-1 clinical first. From scrutinize / verification-panel / production-audit.
+- **`docs/how-we-eval.md`** — weak-model blind A/B, noise floor, "tie ≠ bad", 0-dangerous-regression,
+  review-vs-A/B. From eval-harness + `ab-test-judgment`.
+- **`docs/how-we-maintain.md`** — quick-scan vs full stocktake, distil cross-cutting rules, build_triage.py
+  as source of truth, house writing style (humanizer + article-writing folded in), post-mortem loop.
+- **`CONTRIBUTING.md`** overhauled with the full house skill-authoring standard (verdict-first structure,
+  risk-tiered disclaimer, PDPA/scope anchoring, run build_triage.py) + links to the how-we docs.
+
 ### Notes
 - `skills/INDEX.md`, `dist/all-skills.md`, `prompts/triage.md` regenerated via `scripts/build_triage.py`
-  (82 skills, no drift). README + skills/README counts bumped 55 → 82.
+  (83 skills, no drift). README + skills/README counts bumped 55 → 83.
+- **Expansion complete:** all 5 waves of `docs/EXPANSION-PLAN.md` landed (28 new skills + 3 process docs).
+  Every source skill (80 user-level + 17 project) is accounted for in the manifest (ported / planned-done /
+  duplicate / not-ported-with-reason). Lab-bench coverage complete; T-shaped tracks (build/data/design/media/
+  career/productivity/AI) seeded; maintainer process documented.
 - New front-page section **🎬 สอน / สื่อ / เรียนรู้**. Wave-4 skills stay out-of-lab but keep the DNA:
   every one ties its #1 trap to scope-of-practice / PDPA / verify-against-source where it touches med content.
 - Every MT++ skill ties its #1 trap to **patient-data safety (PDPA)** + verify-against-source — the line

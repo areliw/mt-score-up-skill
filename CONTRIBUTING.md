@@ -15,10 +15,22 @@
 
 หัวใจของ skill = **judgment ไม่ใช่ knowledge** → เก็บ "เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้" ตัดสิ่งที่ตำรา/AI รู้อยู่แล้วทิ้ง
 
-**รูปแบบไฟล์** (ดูตัวอย่างใน `skills/`): frontmatter (`skill`/`title`/`type`/`needs`/`author`/`disclaimer`) → ใช้เมื่อ → วิธีใช้ → วิธีทำ → กับดัก → ช่องผู้เชี่ยวชาญเติม → disclaimer
-- **type:** `ADVISE` (แนะนำ) · `DO` (รันจริง) · `CALIBRATION` (ปรับวิธีทำงาน AI)
-- **PII:** ห้ามมีชื่อคน/โรงพยาบาล/รหัสวิชา/แหล่งเฉพาะ — generalize ก่อนเสมอ
-- **voice:** ภาษากลาง (เป็นของสาธารณะที่คนอื่น copy ไปใช้)
+#### มาตรฐานการเขียน skill (house format)
+
+คัดลอกไฟล์ใกล้เคียงใน `skills/` เป็นแม่แบบ แล้วทำตามนี้:
+
+1. **Frontmatter:** `skill` (slug) · `title` (ไทย + English) · `type` · `needs` · `author` · `last_edited` · `status: draft` · `disclaimer`
+   - **type:** `ADVISE` (แนะนำ) · `DO` (รันจริง เช่นคำนวณ) · `CALIBRATION` (ปรับวิธีทำงาน AI)
+   - **needs:** `any` · `code-interpreter` · `persistent-memory`
+2. **Verdict-first (สำคัญสุด):** ขึ้นต้นด้วย **กฎ #1** + **กับดัก #1 (ขั้น hard)** + **verify-first** — เพื่อให้ AI ที่อ่านผ่านๆ ดึงไปใช้ได้ทันที
+3. **โครง:** `ใช้เมื่อ` → `วิธีใช้` → `วิธีตัดสินใจ (AI: ทำตามนี้)` แบบ **Fork** → `กับดัก (Anti-patterns)` → `ช่องสำหรับผู้เชี่ยวชาญเติม` → `NOTE` (knowledge ไปดูตำรา) → disclaimer ปิดท้าย
+4. **Disclaimer แบ่งระดับตามความเสี่ยง:** กระทบคนไข้ (งานแล็บ) = หนัก + guard ในตัว · จัดการ/สื่อสาร/วางแผน = สั้นตามบริบท
+5. **สาย MT++ (โค้ด/data/ธุรกิจ):** ผูกกับดัก #1 กับ **ความปลอดภัยข้อมูลคนไข้ (PDPA) + verify ค่ากับ source** เสมอ — เชื่อมกลับ `digital-judgment` / `anti-hallucination` / `phi-data-handling`
+6. **PII:** ห้ามมีชื่อคน/โรงพยาบาล/รหัสวิชา/แหล่งเฉพาะ — generalize ก่อนเสมอ
+7. **Voice:** Thai-first, ภาษากลางเป็นมนุษย์ (verdict นำ, กระชับ, ไม่มีกลิ่น AI) — ดู `docs/how-we-maintain.md`
+8. **หลัง add:** รัน `python scripts/build_triage.py` (regenerate INDEX/dist/triage) + bump count ใน `README.md` + `skills/README.md`
+
+> กระบวนการเบื้องหลัง: ตรวจคุณภาพ → `docs/how-we-audit.md` · วัดผล → `docs/how-we-eval.md` · ดูแลคลัง → `docs/how-we-maintain.md`
 
 ### 1. WI examples (ใน `inbox/`)
 

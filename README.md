@@ -8,7 +8,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (79 สกิล)
+## 📚 ส่วนที่ 1 — Skills (87 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -36,6 +36,10 @@
 | [pharmacology-judgment](./skills/pharmacology-judgment.md) | ยาเบื้องต้น: ADME · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน · pharmacogenomics |
 | [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal → DDx → rule-out) |
 | [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety: hand hygiene (C.diff spore) · N95 vs surgical · precaution · ความดันลบ/บวก · เข็มตำ |
+| [urinalysis-judgment](./skills/urinalysis-judgment.md) | ยูริน + body-fluid micro — strip↔micro↔clinical ให้ตรง · cast/crystal · กับดัก strip false +/− |
+| [preanalytical-judgment](./skills/preanalytical-judgment.md) | pre-analytical/phlebotomy — ลำดับเจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ก่อนถึงเครื่อง |
+| [poct-judgment](./skills/poct-judgment.md) | Point-of-care testing — ให้แล็บนอกแล็บเชื่อได้เท่าแล็บกลาง · QC/connectivity/ผู้ใช้นอกสายแล็บ |
+| [flow-cytometry-judgment](./skills/flow-cytometry-judgment.md) | flow cytometry — gate ถูก · อ่าน pattern · correlate clinical · กับดัก compensation/artifact |
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 | skill | ช่วยอะไร |
@@ -51,6 +55,7 @@
 | [deep-research](./skills/deep-research.md) | ค้นเรื่องใดก็ได้ลึก หลายแหล่ง + cross-check ≥2 แหล่งอิสระ + cite ตรวจได้ |
 | [source-credibility-judgment](./skills/source-credibility-judgment.md) | ประเมินความน่าเชื่อแหล่ง/ผู้เขียน — peer-review tier · CoI · predatory journal · primary vs secondary |
 | [pubmed-search-judgment](./skills/pubmed-search-judgment.md) | ค้น PubMed ให้เจอของจริง — MeSH vs keyword · query/filter · กับดัก search + แต่ง PMID |
+| [method-validation-stats](./skills/method-validation-stats.md) | สถิติ validate วิธี: method comparison (Bland-Altman/Deming) · reference interval · diagnostic accuracy (≠ research stats) |
 
 ### 🤖 ใช้ AI อย่างคม / ปลอดภัย
 | skill | ช่วยอะไร |
@@ -124,11 +129,14 @@
 | [tdd-judgment](./skills/tdd-judgment.md) | เขียนเทสต์ให้คุ้ม + TDD — เทสต์อะไรก่อน · mock/coverage เป็นเครื่องมือ · เทสต์ผ่านแต่ไม่จับบั๊ก |
 | [debugging-judgment](./skills/debugging-judgment.md) | ดีบักมีวินัย — reproduce→trace→falsify→cross-ref · หา root cause ไม่ใช่ปะ symptom |
 | [ai-coding-guardrails](./skills/ai-coding-guardrails.md) | กันกับดักให้ AI เขียนโค้ด — ขอบเขตแคบ · surgical edit · success ที่ตรวจได้ · กัน over-engineer |
+| [spreadsheet-judgment](./skills/spreadsheet-judgment.md) | ใช้ Excel/Sheets ให้ถูก + กัน silent error (date/auto-convert/copy เพี้ยน) ในข้อมูลแล็บ |
+| [mt-databases](./skills/mt-databases.md) | เก็บข้อมูล MT: Sheets vs Access vs SQL เลือกเมื่อไหร่ · structure กันพัง · backup/สิทธิ์ |
 
 ### 🗂️ จัดการ
 | skill | ช่วยอะไร |
 |---|---|
 | [never-lose-a-file](./skills/never-lose-a-file.md) | จัดไฟล์ให้เป็นระเบียบ แล้วไม่หายอีก |
+| [phi-data-handling](./skills/phi-data-handling.md) | จัดการข้อมูลคนไข้/PHI — จัดระดับข้อมูล · de-identify ให้จริง · PDPA/IRB · ช่องทางแชร์ปลอดภัย |
 
 > แต่ละไฟล์มี `type` (ADVISE = ให้คำแนะนำ · DO = รันจริง · CALIBRATION = ปรับวิธีทำงานของ AI) และ `needs` (AI แบบไหนใช้ได้) บอกไว้ในหัวไฟล์
 
@@ -154,14 +162,14 @@
 skill เป็นไฟล์ — มี 2 วิธีโหลด เลือกตามงาน:
 - **ก๊อปเนื้อไฟล์** → snapshot **แช่แข็ง**: เสถียร, cite เวอร์ชันใน audit trail ได้, ไม่เปลี่ยนกลางคัน (เหมาะงานคลินิก)
 - **โหลดสด (live link)** → บอก AI ที่ต่อเน็ตได้ว่า *"ดึง skill จาก `<raw URL>` มาใช้"* → ได้ `main` ล่าสุด**ทุกครั้ง = auto-sync** ไม่ต้องก๊อปใหม่ · รายการ URL ทั้งหมด → [`skills/INDEX.md`](./skills/INDEX.md) (CI อัปเดตอัตโนมัติ)
-- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 79 ตัวในไฟล์เดียว (~125K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
+- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 87 ตัวในไฟล์เดียว (~133K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
 - ⚠️ live link ใช้ได้เฉพาะ AI ที่ดึง URL ได้ (Claude web · ChatGPT browse · Gemini) — แชตเปล่า offline ใช้ก๊อป
 
 ## โครงสร้าง
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 79 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 87 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

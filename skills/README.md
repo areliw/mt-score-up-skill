@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**79 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**87 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -28,6 +28,10 @@
 - **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็นภาพเดียว ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal value → DDx → rule-out → cause-effect chain) · *MT ไม่วินิจฉัย*
 - **pharmacology-judgment** — ยาเบื้องต้นมุม MT: ADME (ตับ/ไตเสื่อม→พิษ) · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน (ยา-ยา/อาหาร/โรค) · ใช้ยาถูก (ห้ามบด EC/SR) · TDM (peak/trough) · anticoag↔coag · pharmacogenomics — *MT ไม่สั่งจ่ายยา*
 - **infection-control-judgment** — ป้องกันการติดเชื้อ/biosafety: hand hygiene (alcohol vs สบู่ C.diff spore) · N95 vs surgical · transmission precaution (contact/droplet/airborne) · ห้องความดันลบ/บวก · post-exposure · BSL
+- **urinalysis-judgment** — โค้ชยูริน + body-fluid microscopy: ให้ strip ↔ micro ↔ clinical ตรงกัน — เน้น ตัดสินว่า cast/crystal/cell อันไหนสำคัญ + กับดัก strip false +/− ไม่ใช่ท่องตารางสี
+- **preanalytical-judgment** — ด่าน pre-analytical/phlebotomy: ลำดับเจาะ · เลือกหลอด · ระบุตัวผู้ป่วย · ขนส่ง/เก็บรักษา ให้ตัวอย่างเชื่อได้ก่อนถึงเครื่อง — เน้น จุดที่พลาดแล้วผลเพี้ยนเงียบ
+- **poct-judgment** — โค้ช POCT: ทำให้ "แล็บนอกแล็บ" เชื่อได้เท่าแล็บกลาง — QC/connectivity/ผู้ใช้นอกสายแล็บ · เมื่อไหร่ต้อง confirm แล็บกลาง
+- **flow-cytometry-judgment** — โค้ช flow cytometry: gate ให้ถูก · อ่าน pattern · correlate clinical — เน้น กับดัก compensation/artifact + เมื่อไหร่ผลเชื่อไม่ได้
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
@@ -41,6 +45,7 @@
 - **deep-research** — ค้นเรื่องอะไรก็ได้ให้ลึกและเชื่อได้ (โรค วิธี เครื่องมือ ตัดสินใจซื้อ/อาชีพ) — เน้น แตกคำถาม → ค้นหลายมุม → cross-check → cite ไม่ใช่เชื่อผลแรกที่เจอ …
 - **pubmed-search-judgment** — วาง query ให้ "เจอครบแต่ไม่จม" บน pubmed.ncbi.nlm.nih.gov — เน้น ตัดสินใจว่าจะค้นยังไง + คัดผลยังไง ไม่ใช่ท่องคำสั่งหรือเชื่อสรุปจาก AI ดิบๆ
 - **source-credibility-judgment** — ตัดสินว่า "แหล่ง/คนที่พูดอันนี้" เชื่อได้แค่ไหน ก่อนจะเอาไปอ้าง/ตัดสินใจ — ดูที่ สัญญาณความน่าเชื่อ (ใครพูด · ผ่านการตรวจระดับไหน · มีผลประโยชน์ทับซ้อ…
+- **method-validation-stats** — สถิติเฉพาะงาน MT ที่ research-stats ทั่วไปไม่ครอบ: method comparison (Bland-Altman/Deming) · reference interval · diagnostic accuracy (sens/spec/LR) — เน้น เลือกสถิติให้ตรงคำถาม validate ไม่ใช่รัน p-value ลอยๆ
 
 ### 🤖 ใช้ AI อย่างคม / ปลอดภัย
 - **ai-assistant-calibration** — ปรับ "นิสัยการตอบ" ของ AI ให้คม ตรงสไตล์คุณ `CALIBRATION`
@@ -104,9 +109,12 @@
 - **debugging-judgment** — โค้ด/สคริปต์พังแล้วงงว่า "ผิดตรงไหน" → skill นี้ช่วย วางลำดับไล่บั๊กให้มีวินัย เพื่อเจอ *สาเหตุจริง* ไม่ใช่เดาแล้วแปะแก้มั่วจนพังเพิ่ม
 - **tdd-judgment** — เขียนสคริปต์คำนวณ/parse ผลแล็บแล้วไม่แน่ใจว่า "ต้องเทสต์อะไร เทสต์ตอนไหน" → skill นี้ช่วย เลือกว่าอันไหนคุ้มเทสต์ + จับเทสต์ที่ผ่านแต่ไม่จับบั๊ก ไม่ใช…
 - **ai-coding-guardrails** — คุณไม่ต้องเขียนโค้ดเป็นก็คุม AI ได้ — skill นี้ให้ "กฎสั่งงาน" ที่กันไม่ให้ AI เขียนเกินจำเป็น เดาเงียบๆ หรือรื้อของที่ใช้อยู่จนพัง
+- **spreadsheet-judgment** — ใช้ Excel/Sheets กับข้อมูลแล็บให้ถูก + กัน silent error (date auto-convert · เลขกลายเป็นข้อความ · copy เพี้ยน) — เน้น จุดที่ spreadsheet โกหกเงียบๆ
+- **mt-databases** — เก็บข้อมูล MT ควรใช้ Sheets vs Access vs SQL เมื่อไหร่ · ออกแบบ structure กันพัง · backup/สิทธิ์เข้าถึง — เน้น เลือกเครื่องมือตามขนาด/ความเสี่ยง ไม่ over-engineer
 
 ### 🗂️ จัดการ
 - **never-lose-a-file** — ระบบจัดไฟล์ให้เป็นระเบียบ แล้วไม่หายอีก
+- **phi-data-handling** — จัดการข้อมูลคนไข้/PHI ในงาน MT: จัดระดับข้อมูล · de-identify ให้จริง (ไม่ใช่แค่ลบชื่อ) · PDPA/IRB · ช่องทางแชร์ปลอดภัย — เน้น ตัดสินว่าข้อมูลชุดนี้ทำอะไรได้/ไม่ได้
 
 ---
 

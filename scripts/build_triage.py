@@ -149,15 +149,21 @@ def write_bundle() -> bool:
     return _write_if_changed(BUNDLE, "\n".join(parts) + "\n")
 
 
-def check_readme_coverage(rows) -> list[str]:
-    """README's category tables are hand-curated (rich descriptions) so we DON'T auto-gen
-    them — but warn loudly if a skill drifted out of them (the classic 'engine auto-syncs,
-    storefront forgotten' bug)."""
-    readme = ROOT / "README.md"
-    if not readme.exists():
-        return []
-    txt = readme.read_text(encoding="utf-8")
-    return [n for n, *_ in rows if f"{n}.md)" not in txt and f"`{n}`" not in txt]
+def check_readme_coverage(rows) -> dict:
+    """Both README.md (root category tables) AND skills/README.md (detailed catalog) are
+    hand-curated, so we DON'T auto-gen them — but warn loudly if a skill drifted out of
+    EITHER (the classic 'engine auto-syncs, storefront forgotten' bug — which bit
+    skills/README.md when 24 skills were added in a parallel session)."""
+    out = {}
+    for rel in ("README.md", "skills/README.md"):
+        p = ROOT / rel
+        if not p.exists():
+            continue
+        txt = p.read_text(encoding="utf-8")
+        miss = [n for n, *_ in rows if f"{n}.md" not in txt and f"`{n}`" not in txt and f"**{n}**" not in txt]
+        if miss:
+            out[rel] = miss
+    return out
 
 
 def main() -> int:
@@ -168,9 +174,11 @@ def main() -> int:
         f"INDEX {'updated' if i else 'in-sync'} · bundle {'updated' if b else 'in-sync'}"
     )
     missing = check_readme_coverage(rows)
-    if missing:
-        print(f"⚠️  README.md category tables are MISSING {len(missing)} skill(s): {', '.join(missing)}"
-              f"\n   (auto-gen INDEX/bundle/triage stay synced, but README is hand-curated — add the row(s) manually)")
+    for rel, miss in missing.items():
+        print(f"⚠️  {rel} is MISSING {len(miss)} skill(s): {', '.join(miss)}"
+              f"\n   (hand-curated — add manually; auto-gen INDEX/bundle/triage stay synced)")
+    if not missing:
+        print("README.md + skills/README.md cover all skills ✓")
     return 0
 
 

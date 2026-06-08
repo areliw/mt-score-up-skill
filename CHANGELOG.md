@@ -4,6 +4,14 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [0.8.1] — 2026-06-08
+
+### Added
+- `eval/round5-remaining.md` — spot-A/B ของ 26 ตัวที่เหลือ (v0.4–0.5 + `lab-clinic-business`/`ab-test`): **~24 tie · ~2 better · 0 regression**. รวมกับ round 4 → **ทั้งคลัง 87 ผ่าน A/B-screen แล้ว: 0 dangerous regression library-wide** (53 blind-judge + 34 screen)
+
+### Notes
+- screen เบากว่า round 1-3 (self-derived trap, single-pass, ไม่ blind-judge) · Haiku cold จับ trap textbook ได้เอง — รวมที่ไม่ obvious (knowledge≠judgment, moat≠เครื่องมือ, root-cause≠โทษคน) → skill เพิ่ม **specificity + forcing function** ไม่ใช่ rescue · limitation ค้าง: Haiku ≠ junior MT จริง → rescue value ต้องเทสกับคน (เอา triage ไปวางหน้า junior MT)
+
 ## [0.8.0] — 2026-06-08
 
 ### Fixed — full audit + improve pass (ทั้งคลัง 87 + repo)

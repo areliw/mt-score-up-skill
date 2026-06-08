@@ -38,7 +38,7 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 
 ### Fork 2 — Reference interval
 - **CLSI EP28**: nonparametric **2.5/97.5 percentile**, ต้อง **n ≥ 120** (per partition)
-- **partition** ตามเพศ/อายุเมื่อต่างจริง · **transference/verification** (n≈20) เมื่อยืมช่วงจากที่อื่น/ผู้ผลิต
+- **partition** ตามเพศ/อายุเมื่อต่างจริง · **transference = ยืมช่วงอ้างอิงจากที่อื่น/ผู้ผลิต แล้ว verify ด้วย n=20 ของ population เรา — ≤2/20 หลุดช่วง = ผ่าน (CLSI EP28)**
 - **อย่าใช้ mean±2SD** ถ้าข้อมูลไม่ Gaussian (ค่าแล็บส่วนใหญ่เบ้)
 
 ### Fork 3 — Diagnostic accuracy

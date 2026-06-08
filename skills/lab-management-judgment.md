@@ -16,7 +16,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 > **กฎ #1: ตั้ง QC limit จาก mean/SD ที่แล็บคำนวณเอง — ห้ามใช้ค่าจากกล่องน้ำยา/insert (นั่นคือ peer range ไม่ใช่ performance เครื่องคุณ → limit หลวม จับ error ไม่ได้).**
 > **กับดักขั้นกว่า (จุดที่พลาดจริง): "ใช้ค่าแล็บเอง" ยังไม่พอ — ต้องเก็บ ≥20 จุด คนละวัน ≥20 วัน. เก็บ 20 จุดรวดเดียววันเดียว = ได้แค่ within-run SD (แคบเกิน) → false reject ท่วม. และพอ "เปลี่ยน lot control/น้ำยา" ต้องตั้ง mean/SD ใหม่ ห้าม carry ค่าเก่าข้าม lot.**
 > นี่คือชั้น "วางระบบ/วางแผน" เหนือหน้า bench — QC accept/reject รายวันดู `clinchem-judgment`; skill นี้คือ **ออกแบบ QC ทั้งระบบ + ผ่าน audit + คุมต้นทุน**
-> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~46-68% error อยู่ที่ pre-analytical, commonly ~62%)
+> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~46–68% error อยู่ที่ pre-analytical, มัก quote ~60%; Plebani)
 
 ## ใช้เมื่อ
 - เตรียม/ต่ออายุ accreditation (ISO 15189 / LA / HA) — เลือกระดับ + เตรียมเอกสาร
@@ -55,7 +55,7 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้อง�
 - **IQCP** (Individualized QC Plan, CLSI EP23): วาง QC ตามความเสี่ยงจริงของ 5 จุด — **Specimen / Operator / Reagent / Environment / Measuring system** → ลด QC ได้อย่างมีหลักฐาน
 
 ### Fork 4 — error อยู่ phase ไหน → ลงทุนแก้ตรงนั้น
-- **Pre (~60-70%)** หลอดผิด/สัดส่วนเลือด-สารกันแข็ง/hemolysis/label ผิด → คุมด้วยระบบ/automation/barcode (คุ้มสุด)
+- **Pre (~46–68% มัก quote ~60%; Plebani)** หลอดผิด/สัดส่วนเลือด-สารกันแข็ง/hemolysis/label ผิด → คุมด้วยระบบ/automation/barcode (คุ้มสุด)
 - **Analytical** calibration drift/lot เสื่อม/อุณหภูมิ → MT + QC
 - **Post** พิมพ์ผิด/ไม่แจ้ง critical/TAT เกิน → LIS auto-verify
 > อย่าทุ่มแก้ analytical ทั้งที่ปัญหาจริงอยู่ pre-analytical

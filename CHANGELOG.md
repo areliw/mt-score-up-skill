@@ -4,6 +4,22 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [0.8.0] — 2026-06-08
+
+### Fixed — full audit + improve pass (ทั้งคลัง 87 + repo)
+audit ทั้ง 87 skill (multi-agent, confidence-filtered: clinical correctness · dup · cross-link · format · repo) → แก้เฉพาะ error จริง:
+- **🔴 correctness 3:** `clinmicro` MRSA cefoxitin breakpoint **แยก species** (S. aureus ≤21 vs **CoNS ≤24 mm** — กัน under-call MRSE) · `cv-judgment` Harris "ไม่ทน scale" (เดิมกำกวม) · `photography` shutter ผูกกับ focal length (เดิม 1/50 เป็นกฎสากล)
+- **🟠 clinical 8:** `bloodbank` RhIG standard dose ครอบ FMH จำกัด → KB/flow ถ้า FMH มาก · `immunoassay` HIV window เป็น range + "neg ≠ rule out" · `infection-control` droplet ≥6 ฟุต (CDC) · `clinchem` 4₁ₛ/10ₓ เงื่อนไข warning ชัด · `clinmicro` AmpC core-3 (Hafnia → หลักฐานจำกัด) · `chemistry-interpretation` urine-Cr ชาย 20–25 · `parasitology` zinc 1.18–1.20 · `urinalysis` CSF xanthochromia↔traumatic-tap แยก
+- **🟠 non-clinical 3:** `mt-exam-strategy` เลิก assert เลขกฎหมาย → สอน "ชนิดกับดัก + verify ตัวบทเอง" · `lab-management` sync % pre-analytical (เดิมขัดกันเองในไฟล์) · `ml-judgment` Lasso wording
+
+### Changed
+- `data-project-survival` ↔ `data-science-workflow` คม boundary (survival ชี้ phase-map ไป workflow, เน้น decision-gate/vendor) — dup เดียวที่พบในคลัง
+- README footnote v0.5.0→v0.7.0 + eval scope (53→87, +34 ยังไม่ A/B) · `eval/RESULTS.md`+`eval/ab-scorecard.md` เติม scope footnote (n=53 = คลัง ณ ตอน eval) · ลบ `docs/skill-gap-candidates.md` (scratchpad ที่ candidate ถูก add ครบแล้ว)
+
+### Notes
+- cross-link ครบ **100%** ไม่มี broken · frontmatter 8-key + canonical format + disclaimer ทั้ง 87 ผ่าน · **ไม่พบ 🔴 ที่อันตรายถึงคนไข้** (ทั้งหมด = precision เชิงเทคนิค) · 8 ตัวใหม่ (v0.6.0) clinically clean
+- งานสร้างเสร็จ; clinical 4 ตัวใหม่ยังควร peer-review + 34 ตัวยังรอ weak-model A/B
+
 ## [0.7.0] — 2026-06-08
 
 ### Changed — graft "เพชร" จาก 19 dropped skills เข้า skill เดิม (diamond mantra)

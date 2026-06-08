@@ -41,7 +41,7 @@ disclaimer: "skill นี้ช่วย 'คิด' การตัดสิน
 |---|---|---|
 | ดู motile trophozoite / cyst สด | Direct wet smear (NSS + Lugol's iodine) | iodine ย้อม nucleus+glycogen แต่ฆ่า tropho → ดู motility ดู NSS ก่อน |
 | routine helminth egg + protozoan cyst | Formalin-ether (ethyl acetate) sedimentation = ครอบคลุมสุด | gold ของ concentration; ข้อเสีย ether ไวไฟ + ทำลาย tropho |
-| protozoan cyst + nematode egg ลอย | Zinc sulfate flotation (sp.gr.1.18) | |
+| protozoan cyst + nematode egg ลอย | Zinc sulfate flotation (sp.gr.1.18–1.20) | |
 | roundworm/hookworm/whipworm egg | Brine/Willis flotation (1.20) | ลอย tapeworm/trematode/protozoa ไม่ได้ (egg หนัก/operculated จม) |
 | Cryptosporidium oocyst | Sheather's sugar (1.27) + modified acid-fast | |
 | นับความหนาแน่นไข่ (EPG) Ascaris/Trichuris/Opisthorchis | Kato / Kato-Katz thick smear (quantitative) | แยก species ไม่ได้ — แค่ count |

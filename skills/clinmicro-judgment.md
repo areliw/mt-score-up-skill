@@ -59,7 +59,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 ### FORK 4 — AST: เลือก method + อ่าน S/I/R + escalate MDR
 - Disk diffusion vs MIC: disk (Kirby-Bauer, MHA/0.5 McFarland/35±2°C/16-18h) = routine. MIC (broth microdilution/E-test/VITEK) เมื่อต้องการค่าตัวเลข — sterile site, ปรับ dose, หรือ disk ก้ำกึ่ง.
 - อ่าน zone — 3 ข้อยกเว้น: (1) sulfa/co-trimox → ignore growth จางใน zone <20%; (2) Proteus swarm → อ่านขอบ inhibition จริง; (3) β-lactamase+ Staph vs penicillin → ขอบ zone คม "cliff" = R เสมอ.
-- confirmatory + escalate: MRSA (cefoxitin → report เป็น oxacillin, zone ≤21=R) → report + infection control. Inducible clindamycin (Erythro=R + Clinda=S → D-test; D+ → report clindamycin R). ESBL (ดื้อ ceph 3rd → combo disk +clav ≥5mm). CRE/carbapenemase (mCIM/eCIM; eCIM+EDTA → metallo/NDM → รายงานด่วน + แยกผู้ป่วย). VRE (screen + รายงาน alert).
+- confirmatory + escalate: MRSA (cefoxitin 30µg → report เป็น oxacillin/mecA — **แยก species**: S. aureus/lugdunensis zone ≤21 mm = R (mecA+) · CoNS ใช้ ≤24 mm = R; ใช้ 21 กับ CoNS จะ under-call MRSE) → report + infection control. Inducible clindamycin (Erythro=R + Clinda=S → D-test; D+ → report clindamycin R). ESBL (ดื้อ ceph 3rd → combo disk +clav ≥5mm). CRE/carbapenemase (mCIM/eCIM; eCIM+EDTA → metallo/NDM → รายงานด่วน + แยกผู้ป่วย). VRE (screen + รายงาน alert).
 - (สาย sales/MolDx) GeneXpert Carba-R / mecA PCR = ตัดเวลา confirmatory phenotype.
 
 ### FORK 5 — Specimen quality: รับหรือปฏิเสธ
@@ -103,7 +103,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 8. QC strain หลุดแต่ยังรายงานผล — ATCC (S.aureus 25923, E.coli 25922, P.aeruginosa 27853, E.faecalis 29212) นอก range → หยุด ห้าม report.
 9. Over-ID / over-AST เชื้อ commensal → เปลือง + ชวนใช้ยาเกิน.
 10. ลืม intrinsic resistance — รายงาน amp/ceph สำหรับ P.aeruginosa (ดื้อโดยธรรมชาติ).
-10b. **AmpC inducible high-risk (IDSA 2023: Enterobacter cloacae / Klebsiella aerogenes / Citrobacter freundii / Hafnia alvei):** lab อาจรายงานไวต่อ 3rd-gen ceph ตอนแรก แต่เชื้อ **induce AmpC ขึ้นมา hydrolyze ceftriaxone ระหว่างรักษา** → flag เตือน "อย่าใช้ 3rd-gen ceph แม้ผล S" (ยาเชื่อถือได้ = cefepime/carbapenem) — ตรวจ phenotype ตรงไม่ได้ ต้องรู้จาก species. ⚠️ Serratia / Morganella / Providencia / indole+ Proteus เคยถูกจัดกลุ่มนี้ แต่ IDSA = **low-risk derepression (<5%) → รักษาตามผล AST จริง** (ceftriaxone ใช้ได้ถ้า S) อย่า over-flag.
+10b. **AmpC inducible high-risk (IDSA 2023 core 3 ตัว: Enterobacter cloacae / Klebsiella aerogenes / Citrobacter freundii):** lab อาจรายงานไวต่อ 3rd-gen ceph ตอนแรก แต่เชื้อ **induce AmpC ขึ้นมา hydrolyze ceftriaxone ระหว่างรักษา** → flag เตือน "อย่าใช้ 3rd-gen ceph แม้ผล S" (ยาเชื่อถือได้ = cefepime/carbapenem) — ตรวจ phenotype ตรงไม่ได้ ต้องรู้จาก species. ⚠️ Hafnia alvei / Serratia / Morganella / Providencia / indole+ Proteus = หลักฐานจำกัด/**low-risk derepression (<5%) → รักษาตามผล AST จริง** (ceftriaxone ใช้ได้ถ้า S) อย่า over-flag.
 11. heparin ใน specimen PCR/Leptospira — heparin ยับยั้ง Taq (PCR fail) → PCR ใช้ **EDTA**; ส่วน citrate/oxalate ฆ่า Lepto เป็นเรื่อง *culture* (คนละ assay) → รู้ assay ปลายทางก่อนเลือก tube.
 12. เพาะ/รายงานหลังให้ ATB = no-growth ลวง — เก็บ culture ก่อนยาเสมอ · และอย่าตัด Cryptococcus เพราะ CSF cell count ปกติ → สั่ง CrAg/India ink เมื่อสงสัย.
 13. cycloheximide media จานเดียวกับที่สงสัย opportunistic mold — กด Aspergillus/Mucor/Cryptococcus/Nocardia → "no fungus" ลวงในผู้ป่วย immunocompromised.

@@ -40,7 +40,7 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 
 ### Fork 2 — Renal: เลือก marker + สูตร
 - **BUN↑เดี่ยว** (Cr ปกติ) → prerenal/dehydration/**GI bleed**/high-protein/steroid · **BUN+Cr↑** → GFR ลดจริง · BUN:Cr >20 = prerenal/GI bleed
-- **CrCl (24h urine)** กับดัก: เก็บไม่ครบ (urine Cr ควร ~ชาย 18.5–25 · หญิง 15–20 mg/kg/day; ต่ำกว่า ~15 มาก = under-collect) · GFR ต่ำมาก → tubule หลั่ง Cr → **CrCl overestimate**
+- **CrCl (24h urine)** กับดัก: เก็บไม่ครบ (urine Cr ควร ~ชาย 20–25 · หญิง 15–20 mg/kg/day; ต่ำกว่า ~15 มาก = under-collect) · GFR ต่ำมาก → tubule หลั่ง Cr → **CrCl overestimate**
 - **eGFR (serum Cr):** **CKD-EPI 2021 (race-free) = default ทุกช่วง GFR** · MDRD = legacy · Cockcroft-Gault (ปรับยา) · gold จริง = inulin (ไม่ routine)
 - ⚠️ **Cr ปกติ ≠ ไตปกติ:** glomerulus เสีย <25% Cr ยังปกติ · **คนแก่** muscle↓ ชน GFR↓ หักล้าง · **cirrhosis** สร้าง creatine น้อย → Cr ต่ำปลอม eGFR สูงเกินจริง → ใช้ **cystatin C** (ไม่ขึ้น muscle)
 - **Jaffe vs enzymatic:** Jaffe ถูกแต่ interference เยอะ — positive chromogen (glucose/protein/vit C/ASA/ceph/ketone) **↑Cr ปลอม → UNDERestimate GFR** (เกินจริงว่าไตเสีย); bilirubin **↓Cr → overestimate GFR** → ใช้ **enzymatic creatinine** คำนวณ GFR

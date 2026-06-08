@@ -61,7 +61,7 @@ disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น
 - artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค
 
 ### Fork 5 — Body fluids (ขยายจากปัสสาวะ)
-- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · xanthochromia (SAH vs traumatic tap — 3-tube + แยก RBC ลดลง) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
+- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · **xanthochromia (เหลืองจาก bilirubin หลัง RBC แตก) → หนุน SAH** · **RBC ลดลงเรื่อยๆ ข้าม tube 1→3 → หนุน traumatic tap** (ไม่ใช่เกณฑ์เด็ดขาด) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
 - **Serous (pleural/peritoneal)**: transudate vs exudate ตัดสินด้วย **Light's criteria** (เป็น chem ไม่ใช่ cell) → ชี้ทางก่อนแปล cell
 - **Synovial ใต้ polarized light**: **MSU = เข็ม, negatively birefringent = gout** · **CPPD = rhomboid, positively birefringent = pseudogout** · correlate cell count + Gram (septic = ฉุกเฉิน)
 

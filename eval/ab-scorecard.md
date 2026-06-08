@@ -5,6 +5,8 @@
 > **Why a weak answerer?** A frontier model already embodies most of this judgment, so with/without looks identical (no signal). The skills exist to lift a *weaker* model or a *non-expert* — so we test on the audience that would actually load them.
 >
 > **Why this isn't rigged:** the scenario is the skill's *own* worst-case, the judge is blind, and the result is allowed to come back negative — and 9 did.
+>
+> **Scope.** n=53 = the library **at the time this eval ran** (v0.2 era). The library is now **87 skills** — the +34 added since (v0.4.0–v0.6.0) passed design review but have **not** had a weak-model A/B yet (see `CHANGELOG.md`). This scorecard is not a claim about those 34.
 
 ## Legend (read this before the numbers)
 

@@ -681,6 +681,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - ⚠️ ทารก hemolysis + DAT บวก แต่ไม่ใช่ ABO/Rh + **DAT แม่ลบ** → **Ab หมู่อื่น** (anti-c/E/Kell/Duffy/Kidd) → ID จาก maternal serum · Kell HDN กด erythropoiesis (bili อาจไม่สูงมาก)
 - ⚠️ **ABO HDN DAT ลบ ≠ ตัดทิ้ง** — ใช้ IAT + smear (spherocyte); ABO HDN + hydrops = ผิดปกติ หาเหตุอื่น (G6PD/HS)
 - **RhIG (anti-D):** แม่ Rh− (พ่อ Rh+) ให้ที่ **~28 wk + หลังคลอด 72 ชม.** (ถ้าลูก Rh+) + หลัง event เสี่ยง FMH (แท้ง/เจาะน้ำคร่ำ/ล้วงรก) · anti-D titer ≥ critical (~1:16) → **MCA-PSV Doppler (>1.5 MoM)** เป็น first-line surveillance (ΔOD450/amniocentesis = legacy)
+- ⚠️ **standard dose 300 µg ครอบ FMH ได้แค่ ~30 mL whole blood / 15 mL RBC** — ถ้า FMH มาก (abruption/trauma) ต้อง **Kleihauer-Betke / flow cytometry คำนวณ dose เพิ่ม** มิฉะนั้นแม่ sensitization สร้าง anti-D ทั้งที่ให้ RhIG แล้ว
 - **เลือดให้ทารก/exchange:** PRC **O Rh−, low-titer, compatible serum แม่, <5-7 วัน, CMV-neg, leukodepleted, irradiated**; เกินเกณฑ์ bilirubin → exchange, เบากว่า → phototherapy
 
 ### Fork 9 — เมื่อไหร่ใช้ molecular (genotype) แทน serology
@@ -803,7 +804,7 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 
 ### Fork 2 — Renal: เลือก marker + สูตร
 - **BUN↑เดี่ยว** (Cr ปกติ) → prerenal/dehydration/**GI bleed**/high-protein/steroid · **BUN+Cr↑** → GFR ลดจริง · BUN:Cr >20 = prerenal/GI bleed
-- **CrCl (24h urine)** กับดัก: เก็บไม่ครบ (urine Cr ควร ~ชาย 18.5–25 · หญิง 15–20 mg/kg/day; ต่ำกว่า ~15 มาก = under-collect) · GFR ต่ำมาก → tubule หลั่ง Cr → **CrCl overestimate**
+- **CrCl (24h urine)** กับดัก: เก็บไม่ครบ (urine Cr ควร ~ชาย 20–25 · หญิง 15–20 mg/kg/day; ต่ำกว่า ~15 มาก = under-collect) · GFR ต่ำมาก → tubule หลั่ง Cr → **CrCl overestimate**
 - **eGFR (serum Cr):** **CKD-EPI 2021 (race-free) = default ทุกช่วง GFR** · MDRD = legacy · Cockcroft-Gault (ปรับยา) · gold จริง = inulin (ไม่ routine)
 - ⚠️ **Cr ปกติ ≠ ไตปกติ:** glomerulus เสีย <25% Cr ยังปกติ · **คนแก่** muscle↓ ชน GFR↓ หักล้าง · **cirrhosis** สร้าง creatine น้อย → Cr ต่ำปลอม eGFR สูงเกินจริง → ใช้ **cystatin C** (ไม่ขึ้น muscle)
 - **Jaffe vs enzymatic:** Jaffe ถูกแต่ interference เยอะ — positive chromogen (glucose/protein/vit C/ASA/ceph/ketone) **↑Cr ปลอม → UNDERestimate GFR** (เกินจริงว่าไตเสีย); bilirubin **↓Cr → overestimate GFR** → ใช้ **enzymatic creatinine** คำนวณ GFR
@@ -1036,8 +1037,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 | 1 ค่าเกิน ±3SD | 1₃ₛ | random | REJECT |
 | 2 ค่าติดกันเกิน +2SD (หรือ −2SD) ด้านเดียว | 2₂ₛ | systematic | REJECT |
 | ค่าหนึ่ง >+2SD อีกค่า <−2SD ใน run เดียว (ห่าง >4SD) | R₄ₛ | random | REJECT |
-| 4 ค่าติดกันเกิน ±1SD ด้านเดียว | 4₁ₛ | systematic | REJECT (stable system อาจตั้งเป็น warning) |
-| 10 ค่าติดกันอยู่ด้านเดียวของ mean | 10ₓ | systematic | REJECT (stable system อาจเป็น warning) |
+| 4 ค่าติดกันเกิน ±1SD ด้านเดียว | 4₁ₛ | systematic | REJECT (ตัดเป็น warning ได้เฉพาะเมื่อ method sigma สูง + ออกแบบ QC plan ไว้ล่วงหน้า ไม่ใช่ดุลพินิจหน้างาน) |
+| 10 ค่าติดกันอยู่ด้านเดียวของ mean | 10ₓ | systematic | REJECT (ตัดเป็น warning ได้เฉพาะเมื่อ method sigma สูง + ออกแบบ QC plan ไว้ล่วงหน้า ไม่ใช่ดุลพินิจหน้างาน) |
 
 - กฎ random (1₃ₛ/R₄ₛ) → นึกถึง: ฟองอากาศ, mix ไม่ทั่ว, อุณหภูมิ/ไฟไม่นิ่ง, pipette/timing ผิด → มักแก้ด้วย repeat control
 - กฎ systematic (2₂ₛ/4₁ₛ/10ₓ) → นึกถึง: น้ำยาเสื่อม/หมดอายุ, calibration drift, light source/probe เสื่อม → repeat เฉยๆ ไม่หาย → ต้อง troubleshoot/recalibrate
@@ -1275,7 +1276,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 ### FORK 4 — AST: เลือก method + อ่าน S/I/R + escalate MDR
 - Disk diffusion vs MIC: disk (Kirby-Bauer, MHA/0.5 McFarland/35±2°C/16-18h) = routine. MIC (broth microdilution/E-test/VITEK) เมื่อต้องการค่าตัวเลข — sterile site, ปรับ dose, หรือ disk ก้ำกึ่ง.
 - อ่าน zone — 3 ข้อยกเว้น: (1) sulfa/co-trimox → ignore growth จางใน zone <20%; (2) Proteus swarm → อ่านขอบ inhibition จริง; (3) β-lactamase+ Staph vs penicillin → ขอบ zone คม "cliff" = R เสมอ.
-- confirmatory + escalate: MRSA (cefoxitin → report เป็น oxacillin, zone ≤21=R) → report + infection control. Inducible clindamycin (Erythro=R + Clinda=S → D-test; D+ → report clindamycin R). ESBL (ดื้อ ceph 3rd → combo disk +clav ≥5mm). CRE/carbapenemase (mCIM/eCIM; eCIM+EDTA → metallo/NDM → รายงานด่วน + แยกผู้ป่วย). VRE (screen + รายงาน alert).
+- confirmatory + escalate: MRSA (cefoxitin 30µg → report เป็น oxacillin/mecA — **แยก species**: S. aureus/lugdunensis zone ≤21 mm = R (mecA+) · CoNS ใช้ ≤24 mm = R; ใช้ 21 กับ CoNS จะ under-call MRSE) → report + infection control. Inducible clindamycin (Erythro=R + Clinda=S → D-test; D+ → report clindamycin R). ESBL (ดื้อ ceph 3rd → combo disk +clav ≥5mm). CRE/carbapenemase (mCIM/eCIM; eCIM+EDTA → metallo/NDM → รายงานด่วน + แยกผู้ป่วย). VRE (screen + รายงาน alert).
 - (สาย sales/MolDx) GeneXpert Carba-R / mecA PCR = ตัดเวลา confirmatory phenotype.
 
 ### FORK 5 — Specimen quality: รับหรือปฏิเสธ
@@ -1319,7 +1320,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 8. QC strain หลุดแต่ยังรายงานผล — ATCC (S.aureus 25923, E.coli 25922, P.aeruginosa 27853, E.faecalis 29212) นอก range → หยุด ห้าม report.
 9. Over-ID / over-AST เชื้อ commensal → เปลือง + ชวนใช้ยาเกิน.
 10. ลืม intrinsic resistance — รายงาน amp/ceph สำหรับ P.aeruginosa (ดื้อโดยธรรมชาติ).
-10b. **AmpC inducible high-risk (IDSA 2023: Enterobacter cloacae / Klebsiella aerogenes / Citrobacter freundii / Hafnia alvei):** lab อาจรายงานไวต่อ 3rd-gen ceph ตอนแรก แต่เชื้อ **induce AmpC ขึ้นมา hydrolyze ceftriaxone ระหว่างรักษา** → flag เตือน "อย่าใช้ 3rd-gen ceph แม้ผล S" (ยาเชื่อถือได้ = cefepime/carbapenem) — ตรวจ phenotype ตรงไม่ได้ ต้องรู้จาก species. ⚠️ Serratia / Morganella / Providencia / indole+ Proteus เคยถูกจัดกลุ่มนี้ แต่ IDSA = **low-risk derepression (<5%) → รักษาตามผล AST จริง** (ceftriaxone ใช้ได้ถ้า S) อย่า over-flag.
+10b. **AmpC inducible high-risk (IDSA 2023 core 3 ตัว: Enterobacter cloacae / Klebsiella aerogenes / Citrobacter freundii):** lab อาจรายงานไวต่อ 3rd-gen ceph ตอนแรก แต่เชื้อ **induce AmpC ขึ้นมา hydrolyze ceftriaxone ระหว่างรักษา** → flag เตือน "อย่าใช้ 3rd-gen ceph แม้ผล S" (ยาเชื่อถือได้ = cefepime/carbapenem) — ตรวจ phenotype ตรงไม่ได้ ต้องรู้จาก species. ⚠️ Hafnia alvei / Serratia / Morganella / Providencia / indole+ Proteus = หลักฐานจำกัด/**low-risk derepression (<5%) → รักษาตามผล AST จริง** (ceftriaxone ใช้ได้ถ้า S) อย่า over-flag.
 11. heparin ใน specimen PCR/Leptospira — heparin ยับยั้ง Taq (PCR fail) → PCR ใช้ **EDTA**; ส่วน citrate/oxalate ฆ่า Lepto เป็นเรื่อง *culture* (คนละ assay) → รู้ assay ปลายทางก่อนเลือก tube.
 12. เพาะ/รายงานหลังให้ ATB = no-growth ลวง — เก็บ culture ก่อนยาเสมอ · และอย่าตัด Cryptococcus เพราะ CSF cell count ปกติ → สั่ง CrAg/India ink เมื่อสงสัย.
 13. cycloheximide media จานเดียวกับที่สงสัย opportunistic mold — กด Aspergillus/Mucor/Cryptococcus/Nocardia → "no fungus" ลวงในผู้ป่วย immunocompromised.
@@ -1641,7 +1642,7 @@ disclaimer: "ช่วยคิดเลือกเทคนิค image analys
 | รูปร่าง/โครงร่าง | **HOG** | จับ gradient orientation ของขอบ, เร็ว |
 | เนื้อสัมผัส/ลายผิว | **GLCM** (contrast/homogeneity/energy/entropy) | จับความสัมพันธ์คู่พิกเซล = texture |
 | จุดเด่น/มุม เพื่อ match-track | **Harris → SIFT/SURF** | local keypoint invariant |
-- local: Harris=หา corner (scale คงที่) · **SIFT**=scale+rotation invariant แม่นสุด · **SURF**=SIFT แบบเร็ว
+- local: Harris = หา corner (rotation-invariant แต่ไม่ทน scale; ต้องการ scale+rotation → ใช้ SIFT) · **SIFT**=scale+rotation invariant แม่นสุด · **SURF**=SIFT แบบเร็ว
 - ⚠️ HOG/GLCM **ไม่ invariant scale/rotation** → วัตถุหมุน/ย่อ ต้อง resize+align ก่อน
 
 ### D. Classical CV vs Deep CNN — fork แพงสุดถ้าเลือกผิด
@@ -1729,6 +1730,8 @@ disclaimer: "ช่วยคิด/วางแผนโปรเจกต์ da
 ---
 
 ## ด่าน / จุดตัดสินใจ (AI: ทำตามนี้)
+
+> phase map ละเอียด (CRISP-DM แต่ละเฟส + loop) → ดู `data-science-workflow`; ที่นี่เน้น **จุดตัดสิน + กับดัก + ประเมิน vendor**
 
 ### 1. อยู่ช่วงไหน + วนกลับเมื่อไหร่ (CRISP-DM วน ไม่ใช่เส้นตรง)
 - ยัง **วัดความสำเร็จเป็นตัวเลขไม่ได้** → ยังอยู่ "เข้าใจปัญหา" อย่าเพิ่งโหลด data
@@ -3147,7 +3150,7 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 ## กับดัก (Anti-patterns)
 1. Prozone (false-negative ที่ titer สูง) #1 — Ab เกินมาก → ไม่เกิด lattice → ผลลบทั้งที่ป่วยหนัก (RPR ใน secondary syphilis). เจอ clinical สงสัยแต่ผลลบ → เจือจาง (dilute) ทดสอบใหม่. Postzone = Ag เกิน. optimal = equivalence.
 2. Hook effect (high-dose hook) — sandwich CLIA: analyte สูงมาก (tumor marker, β-hCG) → saturate Ab ทั้งสองข้าง → signal ต่ำหลอก. ผลต่ำสวนอาการ → dilute ซ้ำ.
-3. Window period — ตรวจเร็วเกินยังไม่มี marker. HIV: RNA ~7-14 วัน → p24 ~16 วัน → Ab ~25 วัน. HBV: core-window. ผลลบในคนเพิ่งเสี่ยง → ยังไม่ตัดโรค, นัดซ้ำ.
+3. Window period — ตรวจเร็วเกินยังไม่มี marker. HIV: RNA ~7–14 วัน → p24 ~2–3 สัปดาห์ → Ab ~3–4+ สัปดาห์; 4th-gen Ag/Ab combo ลด window เหลือ ~2–3 สัปดาห์. HBV: core-window. **ผลลบในคนเพิ่งเสี่ยง ≠ ตัดโรค → นัดซ้ำตาม CDC algorithm.**
 4. Cross-reactivity / false-positive → ไม่ confirm — biological false-pos RPR (SLE, ตั้งครรภ์, ติดเชื้ออื่น); RF รบกวน; heterophile Ab.
 5. อ่าน HBV panel ทีละตัว — HBsAg+ เดี่ยวไม่บอก acute vs chronic; anti-HBs+ เดี่ยวไม่บอก vaccinated vs recovered → ดู anti-HBc.
 6. สับ competitive กับ sandwich — ใช้ sandwich กับ hapten เล็ก = พัง; ใช้ competitive แล้วลืม signal ผกผัน = อ่านกลับด้าน.
@@ -3317,9 +3320,9 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 | ชนิด | เชื้อตัวอย่าง | ป้องกัน |
 |---|---|---|
 | **Contact** | MRSA/VRE/MDR-GNB/C.diff | ถุงมือ + กาวน์ |
-| **Droplet** | ไข้หวัดใหญ่/pertussis/meningococcus | mask + ระยะห่าง **≥3 ฟุต (ขั้นต่ำ ไม่ใช่เส้นปลอดภัย)** |
+| **Droplet** | ไข้หวัดใหญ่/pertussis/meningococcus | mask + ระยะห่าง **≥6 ฟุต (CDC); ขั้นต่ำ 1 ม. (WHO)** |
 | **Airborne** | **TB/หัด/สุกใส** | **N95 + ห้องความดันลบ (AIIR)** |
-- ⚠️ **≥3 ฟุต เป็น "พื้น" ไม่ใช่ระยะปลอดภัย** — เชื้อรุนแรง (smallpox/SARS) droplet ไปได้ ≥6 ฟุต → ใส่ mask ตั้งแต่ 6-10 ฟุต หรือทันทีที่เข้าห้อง
+- ⚠️ **CDC ปรับขึ้นเป็น ≥6 ฟุต** (เดิม 3 ฟุต เป็นแค่พื้นต่ำสุด) — เชื้อรุนแรง (smallpox/SARS) droplet ไปได้ไกลกว่านั้น → ใส่ mask ทันทีที่เข้าห้อง
 - standard precaution = ใช้กับทุกคน (ถือว่าเลือด/สารคัดหลั่งทุกคนติดเชื้อได้)
 
 ### Fork 4 — ห้องแยก: ความดันลบ vs บวก (อย่าสลับ = อันตราย)
@@ -3343,7 +3346,7 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 ## กับดัก (Anti-patterns)
 - **ใช้ alcohol-rub กับ C. difficile** — spore ไม่ตาย ต้องสบู่+น้ำ
 - **ใช้ surgical mask กับ TB/airborne** — ต้อง N95 + ห้องความดันลบ
-- **ถือ 3 ฟุตเป็นระยะปลอดภัยของ droplet** — เป็นพื้นต่ำสุด เชื้อรุนแรงไปได้ ≥6 ฟุต → ใส่ mask เร็วขึ้น
+- **ถือ 3 ฟุตเป็นระยะปลอดภัยของ droplet** — CDC ปรับขึ้น ≥6 ฟุต แล้ว เชื้อรุนแรงไปได้ไกลกว่า → ใส่ mask เร็วขึ้น
 - **เอาผู้ป่วยติดเชื้อ airborne ไว้ห้องความดันบวก** — เป่าเชื้อออกทั่ว (สลับชนิดห้อง)
 - **ลืมล้างมือหลังถอดถุงมือ** — ถุงมือ ≠ แทนการล้างมือ
 - **ใส่/ถอด PPE ผิดลำดับ** → ปนเปื้อนตัวเอง
@@ -3790,7 +3793,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 > **กฎ #1: ตั้ง QC limit จาก mean/SD ที่แล็บคำนวณเอง — ห้ามใช้ค่าจากกล่องน้ำยา/insert (นั่นคือ peer range ไม่ใช่ performance เครื่องคุณ → limit หลวม จับ error ไม่ได้).**
 > **กับดักขั้นกว่า (จุดที่พลาดจริง): "ใช้ค่าแล็บเอง" ยังไม่พอ — ต้องเก็บ ≥20 จุด คนละวัน ≥20 วัน. เก็บ 20 จุดรวดเดียววันเดียว = ได้แค่ within-run SD (แคบเกิน) → false reject ท่วม. และพอ "เปลี่ยน lot control/น้ำยา" ต้องตั้ง mean/SD ใหม่ ห้าม carry ค่าเก่าข้าม lot.**
 > นี่คือชั้น "วางระบบ/วางแผน" เหนือหน้า bench — QC accept/reject รายวันดู `clinchem-judgment`; skill นี้คือ **ออกแบบ QC ทั้งระบบ + ผ่าน audit + คุมต้นทุน**
-> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~46-68% error อยู่ที่ pre-analytical, commonly ~62%)
+> กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~46–68% error อยู่ที่ pre-analytical, มัก quote ~60%; Plebani)
 
 ## ใช้เมื่อ
 - เตรียม/ต่ออายุ accreditation (ISO 15189 / LA / HA) — เลือกระดับ + เตรียมเอกสาร
@@ -3829,7 +3832,7 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้อง�
 - **IQCP** (Individualized QC Plan, CLSI EP23): วาง QC ตามความเสี่ยงจริงของ 5 จุด — **Specimen / Operator / Reagent / Environment / Measuring system** → ลด QC ได้อย่างมีหลักฐาน
 
 ### Fork 4 — error อยู่ phase ไหน → ลงทุนแก้ตรงนั้น
-- **Pre (~60-70%)** หลอดผิด/สัดส่วนเลือด-สารกันแข็ง/hemolysis/label ผิด → คุมด้วยระบบ/automation/barcode (คุ้มสุด)
+- **Pre (~46–68% มัก quote ~60%; Plebani)** หลอดผิด/สัดส่วนเลือด-สารกันแข็ง/hemolysis/label ผิด → คุมด้วยระบบ/automation/barcode (คุ้มสุด)
 - **Analytical** calibration drift/lot เสื่อม/อุณหภูมิ → MT + QC
 - **Post** พิมพ์ผิด/ไม่แจ้ง critical/TAT เกิน → LIS auto-verify
 > อย่าทุ่มแก้ analytical ทั้งที่ปัญหาจริงอยู่ pre-analytical
@@ -4403,7 +4406,7 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 
 ### Fork 2 — Reference interval
 - **CLSI EP28**: nonparametric **2.5/97.5 percentile**, ต้อง **n ≥ 120** (per partition)
-- **partition** ตามเพศ/อายุเมื่อต่างจริง · **transference/verification** (n≈20) เมื่อยืมช่วงจากที่อื่น/ผู้ผลิต
+- **partition** ตามเพศ/อายุเมื่อต่างจริง · **transference = ยืมช่วงอ้างอิงจากที่อื่น/ผู้ผลิต แล้ว verify ด้วย n=20 ของ population เรา — ≤2/20 หลุดช่วง = ผ่าน (CLSI EP28)**
 - **อย่าใช้ mean±2SD** ถ้าข้อมูลไม่ Gaussian (ค่าแล็บส่วนใหญ่เบ้)
 
 ### Fork 3 — Diagnostic accuracy
@@ -4602,7 +4605,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 - train สูง · test ต่ำ · gap กว้าง → **Overfit** (variance สูง) → regularize (Ridge/Lasso, dropout, prune, ลด depth, เพิ่ม data, bagging)
 - train ต่ำ · test ต่ำ (ใกล้กัน) → **Underfit** (bias สูง) → โมเดลซับซ้อนขึ้น, เพิ่ม feature, ลด regularization, boosting
 - train ≈ test ทั้งคู่สูง → กำลังดี หยุดได้
-- 🎯 Ridge(L2) = หด w ไม่ถึง 0 (ดีกับ multicollinearity) · Lasso(L1) = ดัน w เป็น 0 = แถม feature selection — ⚠️ feature correlate กันสูง Lasso จะเก็บตัวเดียวสุ่มๆ ทิ้งที่เหลือ → ใช้ **Elastic Net** (L1+L2) ถ้าอยากเก็บกลุ่ม correlate ไว้ครบ
+- 🎯 Ridge(L2) = หด w ไม่ถึง 0 (ดีกับ multicollinearity) · Lasso(L1) = ดัน w เป็น 0 = แถม feature selection — ⚠️ feature correlate กันสูง Lasso จะเก็บตัวเดียวทิ้งที่เหลือ (เลือกตาม data/path ไม่ใช่สุ่มแท้) → ถ้าอยากเก็บกลุ่ม correlated ใช้ **Elastic Net** (L1+L2)/Ridge
 
 ### Fork 4 — metric ไหน? (จุดพลาดเยอะสุด)
 - Classification **balanced** → accuracy พอ
@@ -4998,7 +5001,8 @@ disclaimer: "ช่วยคิดกลยุทธ์เตรียมสอ�
 
 ### Fork 2 — จับ distractor ที่ผู้ออกชอบลวง (โกงแต้มได้)
 - **สลับคู่ (ออกบ่อยสุด):** Fab↔Fc · MHC I↔II · HbA1c↔fructosamine · spherocyte↔schistocyte · precision↔accuracy · trend↔shift · RBC-selection↔WBC-selection (O vs AB) · sensitivity↔specificity · "เร็วที่สุด (TAT)"↔"ไวที่สุด (sensitivity)"
-- **ตัวเลขลวง:** timeline กฎหมาย (⚠️ **เพิกถอนใบอนุญาต→ขอใหม่เมื่อพ้น 2 ปี** [ม.46] vs **ยื่นซ้ำหลังถูกปฏิเสธ 1 ปี** — ข้อสอบสลับ 2 เลขนี้; เก็บเอกสารผู้ป่วย 5 ปี; กล่าวหา 1 ปี) · อดอาหาร 12 ชม. · blast acute leukemia 20% · citrate 9:1 · NRBC >10% · TG>400 (Friedewald ใช้ไม่ได้)
+- **ตัวเลขลวง — กฎหมาย:** ผู้ออกข้อสอบชอบ**สลับคู่เลข timeline** (เพิกถอนใบอนุญาต-ขอใหม่ / ยื่นซ้ำหลังถูกปฏิเสธ / ระยะเก็บเอกสารผู้ป่วย) → ก่อนตอบเปิด **พ.ร.บ.วิชาชีพเทคนิคการแพทย์ พ.ศ.2547 + ระเบียบสภาฯ ฉบับล่าสุด** ยืนยันเลขเอง **ห้ามจำเลขจาก skill นี้** (รู้แค่ "ชนิดของกับดัก" พอ)
+- **ตัวเลขลวง — ห้องแล็บ:** อดอาหาร 12 ชม. · blast acute leukemia 20% · citrate 9:1 · NRBC >10% · TG>400 (Friedewald ใช้ไม่ได้)
 - **"ตัวเลือกครบ keyword ทุกตัว มักถูก"** — โดยเฉพาะนิยาม/มาตรฐาน/การคัดกรอง (อย่าเลือกตัวสั้นที่ "ดูพอได้")
 
 ### Fork 3 — Answer heuristic ตอนลังเล
@@ -5438,7 +5442,7 @@ disclaimer: "skill นี้ช่วย 'คิด' การตัดสิน
 |---|---|---|
 | ดู motile trophozoite / cyst สด | Direct wet smear (NSS + Lugol's iodine) | iodine ย้อม nucleus+glycogen แต่ฆ่า tropho → ดู motility ดู NSS ก่อน |
 | routine helminth egg + protozoan cyst | Formalin-ether (ethyl acetate) sedimentation = ครอบคลุมสุด | gold ของ concentration; ข้อเสีย ether ไวไฟ + ทำลาย tropho |
-| protozoan cyst + nematode egg ลอย | Zinc sulfate flotation (sp.gr.1.18) | |
+| protozoan cyst + nematode egg ลอย | Zinc sulfate flotation (sp.gr.1.18–1.20) | |
 | roundworm/hookworm/whipworm egg | Brine/Willis flotation (1.20) | ลอย tapeworm/trematode/protozoa ไม่ได้ (egg หนัก/operculated จม) |
 | Cryptosporidium oocyst | Sheather's sugar (1.27) + modified acid-fast | |
 | นับความหนาแน่นไข่ (EPG) Ascaris/Trichuris/Opisthorchis | Kato / Kato-Katz thick smear (quantitative) | แยก species ไม่ได้ — แค่ count |
@@ -5835,7 +5839,7 @@ disclaimer: "ช่วยคิดการถ่ายภาพ/วิดีโ
 | ตัว | คุม | trade-off |
 |---|---|---|
 | **Aperture (F)** | แสง + ระยะชัด | F น้อย=รูกว้าง=แสงเยอะ=**ชัดตื้น** · F มาก=**ชัดลึก** |
-| **Shutter** | เวลารับแสง + จับ/เบลอ | ช้า=แสงเยอะ/เบลอ · เร็ว=หยุดนิ่ง · ⚠️ <1/50 มือเปล่า=ไหว |
+| **Shutter** | เวลารับแสง + จับ/เบลอ | ช้า=แสงเยอะ/เบลอ · เร็ว=หยุดนิ่ง · ⚠️ shutter ช้ากว่า ~1/(ทางยาวโฟกัส) มือเปล่ามักไหว (50mm→1/50, 200mm→1/200; มี IS/กันสั่นช่วยได้) |
 | **ISO** | ความไวแสง | ต่ำ=เนียน · สูง=ถ่ายที่มืดได้ แต่ **noise** |
 - ⚠️ **ISO ต่ำสุดเท่าที่แสงให้** (กัน noise) · ที่มืด: ดัน ISO ยอม noise ดีกว่าภาพไหว (ถ้าไม่มีขาตั้ง)
 - โหมด: A/Av (คุม DOF) · S/Tv (คุมการเคลื่อนไหว) · M (manual)
@@ -7981,7 +7985,7 @@ disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น
 - artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค
 
 ### Fork 5 — Body fluids (ขยายจากปัสสาวะ)
-- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · xanthochromia (SAH vs traumatic tap — 3-tube + แยก RBC ลดลง) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
+- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · **xanthochromia (เหลืองจาก bilirubin หลัง RBC แตก) → หนุน SAH** · **RBC ลดลงเรื่อยๆ ข้าม tube 1→3 → หนุน traumatic tap** (ไม่ใช่เกณฑ์เด็ดขาด) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
 - **Serous (pleural/peritoneal)**: transudate vs exudate ตัดสินด้วย **Light's criteria** (เป็น chem ไม่ใช่ cell) → ชี้ทางก่อนแปล cell
 - **Synovial ใต้ polarized light**: **MSU = เข็ม, negatively birefringent = gout** · **CPPD = rhomboid, positively birefringent = pseudogout** · correlate cell count + Gram (septic = ฉุกเฉิน)
 

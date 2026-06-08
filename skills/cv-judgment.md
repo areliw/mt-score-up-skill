@@ -52,7 +52,7 @@ disclaimer: "ช่วยคิดเลือกเทคนิค image analys
 | รูปร่าง/โครงร่าง | **HOG** | จับ gradient orientation ของขอบ, เร็ว |
 | เนื้อสัมผัส/ลายผิว | **GLCM** (contrast/homogeneity/energy/entropy) | จับความสัมพันธ์คู่พิกเซล = texture |
 | จุดเด่น/มุม เพื่อ match-track | **Harris → SIFT/SURF** | local keypoint invariant |
-- local: Harris=หา corner (scale คงที่) · **SIFT**=scale+rotation invariant แม่นสุด · **SURF**=SIFT แบบเร็ว
+- local: Harris = หา corner (rotation-invariant แต่ไม่ทน scale; ต้องการ scale+rotation → ใช้ SIFT) · **SIFT**=scale+rotation invariant แม่นสุด · **SURF**=SIFT แบบเร็ว
 - ⚠️ HOG/GLCM **ไม่ invariant scale/rotation** → วัตถุหมุน/ย่อ ต้อง resize+align ก่อน
 
 ### D. Classical CV vs Deep CNN — fork แพงสุดถ้าเลือกผิด

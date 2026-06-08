@@ -41,8 +41,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 | 1 ค่าเกิน ±3SD | 1₃ₛ | random | REJECT |
 | 2 ค่าติดกันเกิน +2SD (หรือ −2SD) ด้านเดียว | 2₂ₛ | systematic | REJECT |
 | ค่าหนึ่ง >+2SD อีกค่า <−2SD ใน run เดียว (ห่าง >4SD) | R₄ₛ | random | REJECT |
-| 4 ค่าติดกันเกิน ±1SD ด้านเดียว | 4₁ₛ | systematic | REJECT (stable system อาจตั้งเป็น warning) |
-| 10 ค่าติดกันอยู่ด้านเดียวของ mean | 10ₓ | systematic | REJECT (stable system อาจเป็น warning) |
+| 4 ค่าติดกันเกิน ±1SD ด้านเดียว | 4₁ₛ | systematic | REJECT (ตัดเป็น warning ได้เฉพาะเมื่อ method sigma สูง + ออกแบบ QC plan ไว้ล่วงหน้า ไม่ใช่ดุลพินิจหน้างาน) |
+| 10 ค่าติดกันอยู่ด้านเดียวของ mean | 10ₓ | systematic | REJECT (ตัดเป็น warning ได้เฉพาะเมื่อ method sigma สูง + ออกแบบ QC plan ไว้ล่วงหน้า ไม่ใช่ดุลพินิจหน้างาน) |
 
 - กฎ random (1₃ₛ/R₄ₛ) → นึกถึง: ฟองอากาศ, mix ไม่ทั่ว, อุณหภูมิ/ไฟไม่นิ่ง, pipette/timing ผิด → มักแก้ด้วย repeat control
 - กฎ systematic (2₂ₛ/4₁ₛ/10ₓ) → นึกถึง: น้ำยาเสื่อม/หมดอายุ, calibration drift, light source/probe เสื่อม → repeat เฉยๆ ไม่หาย → ต้อง troubleshoot/recalibrate

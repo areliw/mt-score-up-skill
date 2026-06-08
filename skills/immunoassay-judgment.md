@@ -85,7 +85,7 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 ## กับดัก (Anti-patterns)
 1. Prozone (false-negative ที่ titer สูง) #1 — Ab เกินมาก → ไม่เกิด lattice → ผลลบทั้งที่ป่วยหนัก (RPR ใน secondary syphilis). เจอ clinical สงสัยแต่ผลลบ → เจือจาง (dilute) ทดสอบใหม่. Postzone = Ag เกิน. optimal = equivalence.
 2. Hook effect (high-dose hook) — sandwich CLIA: analyte สูงมาก (tumor marker, β-hCG) → saturate Ab ทั้งสองข้าง → signal ต่ำหลอก. ผลต่ำสวนอาการ → dilute ซ้ำ.
-3. Window period — ตรวจเร็วเกินยังไม่มี marker. HIV: RNA ~7-14 วัน → p24 ~16 วัน → Ab ~25 วัน. HBV: core-window. ผลลบในคนเพิ่งเสี่ยง → ยังไม่ตัดโรค, นัดซ้ำ.
+3. Window period — ตรวจเร็วเกินยังไม่มี marker. HIV: RNA ~7–14 วัน → p24 ~2–3 สัปดาห์ → Ab ~3–4+ สัปดาห์; 4th-gen Ag/Ab combo ลด window เหลือ ~2–3 สัปดาห์. HBV: core-window. **ผลลบในคนเพิ่งเสี่ยง ≠ ตัดโรค → นัดซ้ำตาม CDC algorithm.**
 4. Cross-reactivity / false-positive → ไม่ confirm — biological false-pos RPR (SLE, ตั้งครรภ์, ติดเชื้ออื่น); RF รบกวน; heterophile Ab.
 5. อ่าน HBV panel ทีละตัว — HBsAg+ เดี่ยวไม่บอก acute vs chronic; anti-HBs+ เดี่ยวไม่บอก vaccinated vs recovered → ดู anti-HBc.
 6. สับ competitive กับ sandwich — ใช้ sandwich กับ hapten เล็ก = พัง; ใช้ competitive แล้วลืม signal ผกผัน = อ่านกลับด้าน.

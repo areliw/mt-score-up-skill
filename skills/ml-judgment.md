@@ -50,7 +50,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 - train สูง · test ต่ำ · gap กว้าง → **Overfit** (variance สูง) → regularize (Ridge/Lasso, dropout, prune, ลด depth, เพิ่ม data, bagging)
 - train ต่ำ · test ต่ำ (ใกล้กัน) → **Underfit** (bias สูง) → โมเดลซับซ้อนขึ้น, เพิ่ม feature, ลด regularization, boosting
 - train ≈ test ทั้งคู่สูง → กำลังดี หยุดได้
-- 🎯 Ridge(L2) = หด w ไม่ถึง 0 (ดีกับ multicollinearity) · Lasso(L1) = ดัน w เป็น 0 = แถม feature selection — ⚠️ feature correlate กันสูง Lasso จะเก็บตัวเดียวสุ่มๆ ทิ้งที่เหลือ → ใช้ **Elastic Net** (L1+L2) ถ้าอยากเก็บกลุ่ม correlate ไว้ครบ
+- 🎯 Ridge(L2) = หด w ไม่ถึง 0 (ดีกับ multicollinearity) · Lasso(L1) = ดัน w เป็น 0 = แถม feature selection — ⚠️ feature correlate กันสูง Lasso จะเก็บตัวเดียวทิ้งที่เหลือ (เลือกตาม data/path ไม่ใช่สุ่มแท้) → ถ้าอยากเก็บกลุ่ม correlated ใช้ **Elastic Net** (L1+L2)/Ridge
 
 ### Fork 4 — metric ไหน? (จุดพลาดเยอะสุด)
 - Classification **balanced** → accuracy พอ

@@ -127,6 +127,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - ⚠️ ทารก hemolysis + DAT บวก แต่ไม่ใช่ ABO/Rh + **DAT แม่ลบ** → **Ab หมู่อื่น** (anti-c/E/Kell/Duffy/Kidd) → ID จาก maternal serum · Kell HDN กด erythropoiesis (bili อาจไม่สูงมาก)
 - ⚠️ **ABO HDN DAT ลบ ≠ ตัดทิ้ง** — ใช้ IAT + smear (spherocyte); ABO HDN + hydrops = ผิดปกติ หาเหตุอื่น (G6PD/HS)
 - **RhIG (anti-D):** แม่ Rh− (พ่อ Rh+) ให้ที่ **~28 wk + หลังคลอด 72 ชม.** (ถ้าลูก Rh+) + หลัง event เสี่ยง FMH (แท้ง/เจาะน้ำคร่ำ/ล้วงรก) · anti-D titer ≥ critical (~1:16) → **MCA-PSV Doppler (>1.5 MoM)** เป็น first-line surveillance (ΔOD450/amniocentesis = legacy)
+- ⚠️ **standard dose 300 µg ครอบ FMH ได้แค่ ~30 mL whole blood / 15 mL RBC** — ถ้า FMH มาก (abruption/trauma) ต้อง **Kleihauer-Betke / flow cytometry คำนวณ dose เพิ่ม** มิฉะนั้นแม่ sensitization สร้าง anti-D ทั้งที่ให้ RhIG แล้ว
 - **เลือดให้ทารก/exchange:** PRC **O Rh−, low-titer, compatible serum แม่, <5-7 วัน, CMV-neg, leukodepleted, irradiated**; เกินเกณฑ์ bilirubin → exchange, เบากว่า → phototherapy
 
 ### Fork 9 — เมื่อไหร่ใช้ molecular (genotype) แทน serology

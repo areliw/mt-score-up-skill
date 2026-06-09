@@ -461,7 +461,7 @@ skill: applied-microbiology-judgment
 title: โค้ชจุลชีววิทยาประยุกต์ — อาหาร/อุตสาหกรรม/สิ่งแวดล้อม (Applied Microbiology Judgment)
 type: ADVISE               # ช่วยตัดสินใจ applied micro ไม่ใช่ตำราเชื้อ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดงานจุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม/สิ่งแวดล้อม) เพื่อการศึกษา ไม่ใช่คำสั่งความปลอดภัยอาหาร/สิ่งแวดล้อมทางการ — ต้องอ้างมาตรฐาน (เช่น food safety/ISO) + ผู้เชี่ยวชาญจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -557,7 +557,7 @@ skill: bloodbank-judgment
 title: โค้ชธนาคารเลือด — ตัดสินใจหน้างาน ไม่ให้คนไข้ตาย (Blood Bank Judgment)
 type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ตำรา antigen frequency
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "เครื่องมือช่วยคิดหน้างานธนาคารเลือดเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินใจแทน งาน BB เกี่ยวชีวิตคนไข้โดยตรง ต้องทำตาม SOP, ยืนยันกับ MT/แพทย์, อ้างมาตรฐาน AABB/ศูนย์อ้างอิงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -767,7 +767,7 @@ skill: chemistry-interpretation-judgment
 title: โค้ชแปลผลเคมีคลินิก — เลือก marker + อ่าน pattern (Clinical Chemistry Interpretation Judgment)
 type: ADVISE               # ช่วยแปลผล/เลือก marker ไม่ใช่ตำราค่า analyte
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดแปลผลเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — MT ตีความ/flag/ส่งต่อ การวินิจฉัยเป็นหน้าที่แพทย์ · ทุกผลต้อง correlate clinical + ทำตาม SOP/reference range ของห้องแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -999,7 +999,7 @@ skill: clinchem-judgment
 title: ตัวช่วยตัดสินใจแล็บเคมีคลินิก (Clinical Chemistry Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินแทน. ปล่อยผลผิด 1 ค่า = หมอรักษาผิด 1 คน — นี่คือความปลอดภัยผู้ป่วยโดยตรง. AI ช่วยไล่ logic/Westgard/interference เท่านั้น ทุกการตัดสิน accept/reject/report ต้องเป็นไปตาม SOP + QC policy ของแล็บ และยืนยันกับ MT/ผู้มีอำนาจลงนามก่อนเสมอ. ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -1113,7 +1113,7 @@ skill: clinical-correlation-judgment
 title: โค้ชอ่านผลแล็บข้ามแขนง — correlate + ตั้ง DDx ชี้ทางให้แพทย์ (Clinical Correlation Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "เครื่องมือช่วยคิดเชิงวินิจฉัยจากผลแล็บข้ามแขนงเพื่อการศึกษา — ช่วยคิด ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน การตีความผลแล็บกระทบการวินิจฉัยและรักษาผู้ป่วยโดยตรง ต้องยืนยันกับ MT/แพทย์ผู้ดูแล + ทำตาม SOP และตำรา/แหล่งอ้างอิงมาตรฐานเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -1220,7 +1220,7 @@ skill: clinmicro-judgment
 title: ตัวช่วยตัดสินใจแล็บจุลชีววิทยาคลินิก (Clinical Micro Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บจุลชีววิทยาคลินิกเพื่อการศึกษา ไม่ตัดสินแทน และไม่ใช่คำสั่งวินิจฉัย/รักษา ทุกผลต้อง correlate กับ Gram stain + clinical + colony morphology และทำตาม SOP/QC ของห้องแล็บเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง ความผิดพลาดในการรายงานเชื้อก่อโรค/ความไวต่อยา อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -2407,7 +2407,7 @@ skill: finance-judgment
 title: โค้ชการเงิน/ลงทุน/ธุรกิจ — ตัดสินใจเงินไม่ให้พลาด (Finance & Investing Judgment)
 type: ADVISE               # ช่วยคิดกรอบตัดสินใจ ไม่ใช่คำแนะนำการลงทุน
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดกรอบเรื่องเงิน/ลงทุน/ธุรกิจ เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน/การเงินจากที่ปรึกษาที่มีใบอนุญาต — การลงทุน/ธุรกิจมีความเสี่ยง ผลตอบแทนไม่แน่นอน ต้องตรวจสอบเองและปรึกษาผู้เชี่ยวชาญก่อนตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -2526,7 +2526,7 @@ skill: financial-statement-judgment
 title: โค้ชอ่านงบการเงิน — อ่านงบ 5 ฉบับ + จับ window-dressing (Financial Statement Reading Judgment)
 type: ADVISE               # ช่วยอ่าน/จับสัญญาณงบ ไม่ใช่ตำราบัญชี
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดอ่านงบการเงินเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน/บัญชีจากผู้มีใบอนุญาต — ตัวเลข/นโยบายบัญชีต้องตรวจกับงบจริง + ผู้สอบบัญชี/ผู้เชี่ยวชาญก่อนตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -2625,7 +2625,7 @@ skill: flow-cytometry-judgment
 title: โค้ช flow cytometry — gate ถูก + อ่าน pattern + correlate (Flow Cytometry Judgment)
 type: ADVISE               # ช่วยตัดสินใจ gating/panel/ตีความ ไม่ใช่ atlas marker
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดงาน flow cytometry เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC ของแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -2794,7 +2794,7 @@ skill: hematology-judgment
 title: ตัวช่วยตัดสินใจในแลบโลหิตวิทยา (Hematology Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -3068,7 +3068,7 @@ skill: immunoassay-judgment
 title: ตัวช่วยตัดสินใจ Immunoassay และ Serology (Immunoassay & Serology Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพื่อการศึกษาเรื่อง immunoassay/serology ไม่ใช่คำสั่งวินิจฉัย/รักษา ผล reactive screen ไม่เท่ากับการวินิจฉัย ต้อง confirm ด้วย test ที่ specificity สูงก่อนรายงานเสมอ ทุกผลต้องยืนยันกับ MT/แพทย์ และทำตาม SOP/QC ของห้องแล็บ ความผิดพลาดในการตีความ serology อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -3274,7 +3274,7 @@ skill: infection-control-judgment
 title: โค้ชป้องกันการติดเชื้อ/biosafety — PPE/precaution/ห้องแยก (Infection Control & Biosafety Judgment)
 type: ADVISE               # ช่วยตัดสินใจ IPC/ความปลอดภัย ไม่ใช่ตำรา CDC
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดการป้องกันการติดเชื้อ/ความปลอดภัยทางชีวภาพเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ — ต้องทำตามนโยบาย IPC + มาตรฐานความปลอดภัย (CDC/HICPAC/ISO 15190/WHO) + คณะกรรมการ IC ของหน่วยงานจริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -4371,7 +4371,7 @@ skill: method-validation-stats
 title: สถิติเฉพาะ MT — method comparison / reference interval / diagnostic accuracy (Method & Validation Stats)
 type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -4661,7 +4661,7 @@ skill: molecular-judgment
 title: โค้ช Molecular Dx — เลือก method/แปลผล/กัน false (Molecular Diagnostics Judgment)
 type: ADVISE               # ช่วยตัดสินใจหน้างาน molecular ไม่ใช่ตำรา PCR
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดเลือก method/แปลผล molecular เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — งานวินิจฉัยระดับโมเลกุลกระทบการรักษาผู้ป่วยโดยตรง ต้องตาม SOP + validation ของแล็บ และยืนยันกับ MT/แพทย์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -4885,7 +4885,7 @@ skill: mt-databases
 title: MT เก็บข้อมูล — Sheets vs Access vs SQL เมื่อไหร่ + ไม่ให้พัง (Databases for MT)
 type: ADVISE               # ช่วยเลือกที่เก็บ + ออกแบบเบื้องต้น ไม่ใช่ตำรา DBA
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดการเลือก/ออกแบบที่เก็บข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำ DBA/ความปลอดภัยทางการ · ข้อมูลผู้ป่วยต้องเข้ารหัส + auth + อยู่ใต้ PDPA, research data ต้อง de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -5404,7 +5404,7 @@ skill: parasitology-judgment
 title: ตัวช่วยตัดสินใจในแล็บปรสิตวิทยา (Parasitology Lab Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' การตัดสินใจในแล็บปรสิตวิทยา เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รายงาน — ผลลบจาก stool/film ตัวอย่างเดียว 'ไม่ตัดโรคออก' การเลือก technique/stain/การตีความทุกครั้งต้องทำตาม SOP ของหน่วยงาน และยืนยันกับ MT ผู้รับผิดชอบ/แพทย์เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -5513,7 +5513,7 @@ skill: pathology-judgment
 title: โค้ชพยาธิวิทยา — อ่าน pattern + ให้เกณฑ์ + confirm (Pathology Pattern Judgment)
 type: ADVISE               # ช่วยอ่าน pattern/กลไก ไม่ใช่ตำราลิสต์โรค
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคทางพยาธิ เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย — การวินิจฉัยพยาธิจริงต้องโดยพยาธิแพทย์ + ยืนยันด้วย test/IHC/molecular ตาม SOP · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -5619,7 +5619,7 @@ skill: pharmacology-judgment
 title: โค้ชยาเบื้องต้น — ADME/แพ้ยา/ยาตีกัน/pharmacogenomics (Pharmacology Judgment)
 type: ADVISE               # ช่วยเข้าใจ/เฝ้าระวังเรื่องยา ไม่ใช่สั่งจ่ายยา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิด/เฝ้าระวังเรื่องยาเพื่อการศึกษา ไม่ใช่คำสั่งใช้ยา/สั่งจ่ายยา — MT ไม่สั่งจ่ายยา การใช้/ปรับ/หยุดยาต้องปรึกษาแพทย์/เภสัชกรเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -5727,7 +5727,7 @@ skill: phi-data-handling
 title: จัดการข้อมูลคนไข้/PHI ในงาน MT — PDPA + de-identify ให้จริง (PHI Data Handling)
 type: ADVISE               # ช่วยตัดสินใจจัดการข้อมูล ไม่ใช่คำแนะนำกฎหมาย
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดการจัดการข้อมูลผู้ป่วยเพื่อการศึกษา ไม่ใช่คำแนะนำทางกฎหมาย · ต้องอิงนโยบาย รพ./DPO + PDPA จริง + IRB สำหรับงานวิจัยเสมอ; การละเมิดข้อมูลกระทบสิทธิผู้ป่วยและมีโทษตามกฎหมาย · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -5899,7 +5899,7 @@ skill: poct-judgment
 title: โค้ช POCT — แล็บนอกแล็บต้องเชื่อได้เท่าแล็บกลาง (Point-of-Care Testing Judgment)
 type: ADVISE               # ช่วยตัดสินใจการใช้/คุม POCT ไม่ใช่คู่มือเครื่อง
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ผล POCT ที่กระทบการรักษาต้องผ่าน QC + operator competency + ทำตาม SOP/ISO 15189; ค่าวิกฤตแจ้ง/ยืนยันตาม policy · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -5927,7 +5927,7 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 ## วิธีตัดสินใจ (AI: ทำตามนี้)
 
 ### Fork 1 — ควรใช้ POCT ไหม
-- **ใช่**: TAT เป็นเรื่องเป็นเรื่องชีวิต (ER/ICU/OR/ห่างแล็บ), ปริมาณน้อย-ต้องเร็ว
+- **ใช่**: TAT เป็นเรื่องชีวิต (ER/ICU/OR/ห่างแล็บ), ปริมาณน้อย-ต้องเร็ว
 - **ส่งแล็บกลางดีกว่า**: ต้องการความแม่นสูง, ปริมาณมาก (ถูกกว่าต่อเทสต์), มี QC/validation เต็ม
 - ไม่ใช่ทุกอย่างควร POCT เพราะ "เร็ว"
 
@@ -6166,7 +6166,7 @@ skill: preanalytical-judgment
 title: โค้ช pre-analytical — เจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ (Pre-Analytical & Phlebotomy Judgment)
 type: ADVISE               # ช่วยตัดสินใจคุณภาพตัวอย่าง ไม่ใช่ตำราเทคนิคเจาะ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดเรื่องคุณภาพตัวอย่างก่อนวิเคราะห์เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = หมอรักษาผิด → ทุก reject/accept/แก้ค่า ต้องทำตาม SOP แลบ + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วย/wrong-blood-in-tube เกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -7452,7 +7452,7 @@ skill: spreadsheet-judgment
 title: ใช้ Excel/Sheets ให้ถูก + กัน error เงียบ (Spreadsheet Judgment for MT)
 type: ADVISE               # ช่วยตัดสินใจวิธีใช้/วางโครง ไม่ใช่ตำราสูตร Excel
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่อการศึกษา ไม่ใช่คำแนะนำทางการ · ค่าที่กระทบคนไข้/QC ต้อง sanity-check + ยืนยันเอง; ไฟล์ที่มีข้อมูลผู้ป่วยอยู่ใต้ PDPA — ใส่รหัส/ไม่แชร์ลิงก์เปิด · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -7801,7 +7801,7 @@ skill: toxicology-judgment
 title: ตัวช่วยตัดสินใจงานพิษวิทยา/นิติพิษวิทยา (Toxicology Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -7927,7 +7927,7 @@ skill: urinalysis-judgment
 title: โค้ชยูริน + body fluid microscopy — strip↔micro↔clinical ให้ตรง (Urinalysis & Body-Fluid Judgment)
 type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ atlas ตะกอน/ผลึก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น้ำในร่างกายเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ทุกผลที่กระทบการรักษา (RBC cast, crystal พิษ, CSF cell) ต้องดูด้วยกล้อง + correlate clinical + ทำตาม SOP/reference ของแล็บ + ยืนยันกับ MT/แพทย์ก่อนรายงานเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

@@ -3,7 +3,7 @@ skill: immunoassay-judgment
 title: ตัวช่วยตัดสินใจ Immunoassay และ Serology (Immunoassay & Serology Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพื่อการศึกษาเรื่อง immunoassay/serology ไม่ใช่คำสั่งวินิจฉัย/รักษา ผล reactive screen ไม่เท่ากับการวินิจฉัย ต้อง confirm ด้วย test ที่ specificity สูงก่อนรายงานเสมอ ทุกผลต้องยืนยันกับ MT/แพทย์ และทำตาม SOP/QC ของห้องแล็บ ความผิดพลาดในการตีความ serology อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

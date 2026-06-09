@@ -27,6 +27,10 @@ no-resc  2   both failed; skill didn't transfer (procedural skills)
 regress  0   skill made a right answer wrong                         ← the dangerous case: none
 ```
 
+> **Round 3 re-measured this honestly** — fixed scenario set + 2-run averaging (a single run is
+> noisy). Noise-corrected: **lift ~19 (not 25), rescued 8, 0 regression** — ~6 round-1 "lifts"
+> were noise. The base (0 dangerous regressions, the bulletproof lifts) holds. → [`round3/`](round3/)
+
 Literature: **43 supported / 23 nuanced / 0 contradicted** (nuances are precision upgrades).
 Titanic: **+0.031 AUC** of leak-fabricated performance, removed by doing selection inside CV.
 

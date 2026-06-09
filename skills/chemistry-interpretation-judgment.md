@@ -3,7 +3,7 @@ skill: chemistry-interpretation-judgment
 title: โค้ชแปลผลเคมีคลินิก — เลือก marker + อ่าน pattern (Clinical Chemistry Interpretation Judgment)
 type: ADVISE               # ช่วยแปลผล/เลือก marker ไม่ใช่ตำราค่า analyte
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดแปลผลเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — MT ตีความ/flag/ส่งต่อ การวินิจฉัยเป็นหน้าที่แพทย์ · ทุกผลต้อง correlate clinical + ทำตาม SOP/reference range ของห้องแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

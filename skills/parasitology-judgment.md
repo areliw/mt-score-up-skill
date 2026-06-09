@@ -3,7 +3,7 @@ skill: parasitology-judgment
 title: ตัวช่วยตัดสินใจในแล็บปรสิตวิทยา (Parasitology Lab Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' การตัดสินใจในแล็บปรสิตวิทยา เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รายงาน — ผลลบจาก stool/film ตัวอย่างเดียว 'ไม่ตัดโรคออก' การเลือก technique/stain/การตีความทุกครั้งต้องทำตาม SOP ของหน่วยงาน และยืนยันกับ MT ผู้รับผิดชอบ/แพทย์เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

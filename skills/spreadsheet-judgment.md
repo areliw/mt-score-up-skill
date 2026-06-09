@@ -3,7 +3,7 @@ skill: spreadsheet-judgment
 title: ใช้ Excel/Sheets ให้ถูก + กัน error เงียบ (Spreadsheet Judgment for MT)
 type: ADVISE               # ช่วยตัดสินใจวิธีใช้/วางโครง ไม่ใช่ตำราสูตร Excel
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่อการศึกษา ไม่ใช่คำแนะนำทางการ · ค่าที่กระทบคนไข้/QC ต้อง sanity-check + ยืนยันเอง; ไฟล์ที่มีข้อมูลผู้ป่วยอยู่ใต้ PDPA — ใส่รหัส/ไม่แชร์ลิงก์เปิด · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

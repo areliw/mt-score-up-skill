@@ -3,7 +3,7 @@ skill: phi-data-handling
 title: จัดการข้อมูลคนไข้/PHI ในงาน MT — PDPA + de-identify ให้จริง (PHI Data Handling)
 type: ADVISE               # ช่วยตัดสินใจจัดการข้อมูล ไม่ใช่คำแนะนำกฎหมาย
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดการจัดการข้อมูลผู้ป่วยเพื่อการศึกษา ไม่ใช่คำแนะนำทางกฎหมาย · ต้องอิงนโยบาย รพ./DPO + PDPA จริง + IRB สำหรับงานวิจัยเสมอ; การละเมิดข้อมูลกระทบสิทธิผู้ป่วยและมีโทษตามกฎหมาย · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

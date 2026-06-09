@@ -75,11 +75,27 @@ def check_source(source: dict) -> dict:
     # key=int → numeric comparison (robust if a stray non-4-digit token is ever matched).
     detected_year = max(matches, key=int)
 
+    # Close the silent false-OK gap: a pinned standard URL keeps serving its OWN edition
+    # forever, so "detected==current" alone can't tell "still current" from "superseded but
+    # page not yet updated". iso.org flags a successor two ways — (a) a newer `ISO <n>:<year>`
+    # reference (caught by max() above), or (b) a withdrawal / "has been revised by" banner.
+    # Detect (b) too, so a superseded page is sent to human review (exit 2) instead of stamped OK.
+    low = html.lower()
+    superseded = any(
+        marker in low
+        for marker in (
+            "this standard has been revised",
+            "is being revised by",
+            "has been withdrawn",
+        )
+    )
+
     return {
         "name": source["name"],
         "current_year": source["current_year"],
         "detected_year": detected_year,
-        "changed": detected_year != source["current_year"],
+        "superseded": superseded,
+        "changed": detected_year != source["current_year"] or superseded,
     }
 
 

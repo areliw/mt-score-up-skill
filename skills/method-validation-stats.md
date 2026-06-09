@@ -3,7 +3,7 @@ skill: method-validation-stats
 title: สถิติเฉพาะ MT — method comparison / reference interval / diagnostic accuracy (Method & Validation Stats)
 type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

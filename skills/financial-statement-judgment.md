@@ -3,7 +3,7 @@ skill: financial-statement-judgment
 title: โค้ชอ่านงบการเงิน — อ่านงบ 5 ฉบับ + จับ window-dressing (Financial Statement Reading Judgment)
 type: ADVISE               # ช่วยอ่าน/จับสัญญาณงบ ไม่ใช่ตำราบัญชี
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดอ่านงบการเงินเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน/บัญชีจากผู้มีใบอนุญาต — ตัวเลข/นโยบายบัญชีต้องตรวจกับงบจริง + ผู้สอบบัญชี/ผู้เชี่ยวชาญก่อนตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

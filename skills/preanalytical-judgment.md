@@ -3,7 +3,7 @@ skill: preanalytical-judgment
 title: โค้ช pre-analytical — เจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ (Pre-Analytical & Phlebotomy Judgment)
 type: ADVISE               # ช่วยตัดสินใจคุณภาพตัวอย่าง ไม่ใช่ตำราเทคนิคเจาะ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดเรื่องคุณภาพตัวอย่างก่อนวิเคราะห์เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = หมอรักษาผิด → ทุก reject/accept/แก้ค่า ต้องทำตาม SOP แลบ + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วย/wrong-blood-in-tube เกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

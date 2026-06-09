@@ -5,6 +5,13 @@
 > threats to validity. The numbers below are reported as they came back — including the parts
 > that don't flatter the skills.
 
+> ⚠️ **Superseded headline number — read [`round3/`](round3/) for the corrected one.** The
+> single-run figures below (lift 25 = 9 rescued + 16 better) were re-measured in round 3 with a
+> *fixed scenario set + 2-run averaging*. Averaging pulled ~6 "lifts" back to noise, giving the
+> honest figure: **lift ~19, rescued 8, 0 regression, 0 no-rescue** on harder scenarios. The
+> analysis below still holds *directionally*; for the headline trust round 3 + the **~1.4 noise
+> floor** (a per-skill delta must clear ~1.4 to be real signal).
+
 ## TL;DR
 
 - On each skill's **own worst-case trap**, given to a **weak** model (Haiku), blind-judged:

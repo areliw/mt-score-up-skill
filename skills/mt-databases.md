@@ -3,7 +3,7 @@ skill: mt-databases
 title: MT เก็บข้อมูล — Sheets vs Access vs SQL เมื่อไหร่ + ไม่ให้พัง (Databases for MT)
 type: ADVISE               # ช่วยเลือกที่เก็บ + ออกแบบเบื้องต้น ไม่ใช่ตำรา DBA
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดการเลือก/ออกแบบที่เก็บข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำ DBA/ความปลอดภัยทางการ · ข้อมูลผู้ป่วยต้องเข้ารหัส + auth + อยู่ใต้ PDPA, research data ต้อง de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

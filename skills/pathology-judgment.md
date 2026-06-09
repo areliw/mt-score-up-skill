@@ -3,7 +3,7 @@ skill: pathology-judgment
 title: โค้ชพยาธิวิทยา — อ่าน pattern + ให้เกณฑ์ + confirm (Pathology Pattern Judgment)
 type: ADVISE               # ช่วยอ่าน pattern/กลไก ไม่ใช่ตำราลิสต์โรค
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคทางพยาธิ เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย — การวินิจฉัยพยาธิจริงต้องโดยพยาธิแพทย์ + ยืนยันด้วย test/IHC/molecular ตาม SOP · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

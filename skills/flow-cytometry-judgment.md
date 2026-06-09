@@ -3,7 +3,7 @@ skill: flow-cytometry-judgment
 title: โค้ช flow cytometry — gate ถูก + อ่าน pattern + correlate (Flow Cytometry Judgment)
 type: ADVISE               # ช่วยตัดสินใจ gating/panel/ตีความ ไม่ใช่ atlas marker
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดงาน flow cytometry เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC ของแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

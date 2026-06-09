@@ -3,7 +3,7 @@ skill: applied-microbiology-judgment
 title: โค้ชจุลชีววิทยาประยุกต์ — อาหาร/อุตสาหกรรม/สิ่งแวดล้อม (Applied Microbiology Judgment)
 type: ADVISE               # ช่วยตัดสินใจ applied micro ไม่ใช่ตำราเชื้อ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิดงานจุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม/สิ่งแวดล้อม) เพื่อการศึกษา ไม่ใช่คำสั่งความปลอดภัยอาหาร/สิ่งแวดล้อมทางการ — ต้องอ้างมาตรฐาน (เช่น food safety/ISO) + ผู้เชี่ยวชาญจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

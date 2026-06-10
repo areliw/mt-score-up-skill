@@ -53,7 +53,7 @@ disclaimer: "ช่วยคิดการจัดการข้อมูล�
 - เจ้าของข้อมูลมีสิทธิ เข้าถึง/แก้/ลบ/ถอนความยินยอม · เกิด **data breach → แจ้งตามระเบียบ/DPO** ทันที
 
 ### Fork 7 — ใช้ AI/cloud กับข้อมูล
-- **ไม่ใส่ identifiable ลง AI สาธารณะ** → de-identify ก่อน หรือใช้ตัวอย่างสมมุติ/โครงสร้างคอลัมน์ · ดูข้อตกลงผู้ให้บริการ (เชื่อม `digital-judgment`, `prompt-craft`, `build-a-dashboard`)
+- **ไม่ใส่ identifiable ลง AI สาธารณะ** → de-identify ก่อน หรือใช้ตัวอย่างสมมุติ/โครงสร้างคอลัมน์ · ดูข้อตกลงผู้ให้บริการ (เชื่อม `digital-judgment`, `prompt-optimizer`, `dashboard-builder`)
 
 ## กับดัก (Anti-patterns)
 - #1 de-identify แค่ลบชื่อ (quasi-identifier ยังชี้ตัว) (กับดัก #1)
@@ -70,7 +70,7 @@ disclaimer: "ช่วยคิดการจัดการข้อมูล�
 > - ระเบียบ retention ของเอกสาร/ข้อมูลในหน่วยงานคุณ
 > - ขั้นตอน IRB/consent สำหรับงานวิจัยในสถาบันคุณ
 
-NOTE: privacy/security/ลิขสิทธิ์ภาพรวม → `digital-judgment`; ข้อมูลบน dashboard → `build-a-dashboard`; ใส่ AI อย่างปลอดภัย → `prompt-craft`; กฎหมาย/จรรยาบรรณวิชาชีพ → `mt-law-ethics-judgment`; ตัวบทกฎหมายเต็ม → DPO/ที่ปรึกษากฎหมาย
+NOTE: privacy/security/ลิขสิทธิ์ภาพรวม → `digital-judgment`; ข้อมูลบน dashboard → `dashboard-builder`; ใส่ AI อย่างปลอดภัย → `prompt-optimizer`; กฎหมาย/จรรยาบรรณวิชาชีพ → `mt-law-ethics-judgment`; ตัวบทกฎหมายเต็ม → DPO/ที่ปรึกษากฎหมาย
 
 ---
 *skill นี้ช่วย "คิดจัดการข้อมูลคนไข้" เพื่อการศึกษา ไม่ใช่คำแนะนำทางกฎหมาย · อิงนโยบาย รพ./DPO + PDPA + IRB เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*

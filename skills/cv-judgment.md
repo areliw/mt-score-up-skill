@@ -14,8 +14,8 @@ disclaimer: "ช่วยคิดเลือกเทคนิค image analys
 งานวิเคราะห์ภาพ (classify/segment/นับเซลล์) แล้วงงว่า "preprocess อะไร · feature ตัวไหน · classical หรือ deep" → โค้ชนี้ตอบ **"เลือกเทคนิคไหนเมื่อไหร่ + พลาดตรงไหน"**
 
 > **กฎ #1: data น้อย/feature ชัด → classical (HOG/GLCM → SVM) ก่อนเสมอ; อย่าไป deep CNN.** Deep บน data น้อย = overfit จำไม่ generalize. **กับดัก #1: threshold "สี" ใน RGB** — เพี้ยนทันทีที่แสงเปลี่ยน → ใช้ **HSV** เมื่อสีคือ criterion.
-> **กับดัก edge (ที่พลาดบ่อยกว่า): "ภาพเยอะ" ไม่ได้แปลว่า data เยอะ** — ถ้าหลาย patch/ภาพมาจาก**เคส/คนไข้/สไลด์เดียวกัน** มันคือ data จุดเดียว. ต้อง split train/test ที่ระดับ **คนไข้/สไลด์ ไม่ใช่ patch** ไม่งั้น leakage → accuracy หลอกตา. มีเลนพิเศษ **blood smear / cell morphology** (blood-group / thalassemia)
-> เลือก classifier ตัวสุดท้ายลึกๆ → ดู `ml-judgment`
+> **กับดัก edge: "ภาพเยอะ" ≠ data เยอะ** — หลาย patch/ภาพจากคนไข้/สไลด์เดียว = data จุดเดียว → split train/test ที่ระดับ **คนไข้/สไลด์ ไม่ใช่ patch** ไม่งั้น leakage → accuracy หลอกตา.
+> มีเลนพิเศษ **blood smear / cell morphology** ด้านล่าง · เลือก classifier ลึกๆ → ดู `ml-judgment`
 
 ## ใช้เมื่อ
 - "ภาพ contrast ต่ำ/noisy ควร preprocess อะไร" · "ใช้ edge/feature/descriptor ตัวไหน" · "classical หรือ deep"

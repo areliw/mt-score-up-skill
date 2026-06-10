@@ -37,7 +37,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 - 15189 = Management requirements (QMS/document control/CAPA/internal audit/management review) + Technical (บุคลากร/เครื่อง-น้ำยา/pre-exam-post/รายงานผล/LIS) · ความปลอดภัยใช้ **ISO 15190** คู่
 
 ### Fork 2 — IQC vs EQA: คุมคนละอย่าง อย่าสับ
-- **IQC** (control ทุกวันก่อนตรวจคนไข้) คุม **precision** → ดู %CV, Levey-Jennings · ⚠️ **ใช้ mean/SD ที่แล็บคำนวณเอง ≥20 จุด เก็บคนละวัน ≥20 วัน (CLSI C24) — ห้ามใช้ค่าจากกล่องน้ำยา · ตั้งใหม่ทุกครั้งที่เปลี่ยน lot**
+- **IQC** (control ทุกวันก่อนตรวจคนไข้) คุม **precision** → ดู %CV, Levey-Jennings · ⚠️ ตั้ง limit ตามกฎ #1 (mean/SD แล็บเอง, CLSI C24)
 - **EQA/PT** (ส่งเทียบ peer) คุม **accuracy** → ได้ **bias** = (mean lab − mean peer)/mean peer ×100
 - กับดัก: **IQC ผ่านสวยแต่ inaccurate ได้** (bias คงที่ L-J จับไม่ได้ — ต้องพึ่ง EQA)
 
@@ -81,8 +81,7 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้อง�
 ---
 
 ## กับดัก (Anti-patterns)
-- ใช้ **mean/SD จากกล่องน้ำยา** ทำ QC (ต้องของแล็บเอง ≥20 จุด คนละวัน ≥20 วัน)
-- เก็บ **20 จุดรวดเดียววันเดียว** → SD แคบเกินจริง (ขาด between-day) → false reject ท่วม · หรือ **carry mean/SD เก่าข้าม lot ใหม่** → limit ผิดทั้งชุด
+- ละเมิดกฎ #1: ใช้ค่าจากกล่องน้ำยา · เก็บ 20 จุดวันเดียว (SD แคบ → false reject) · carry mean/SD ข้าม lot
 - **2SD กับทุก test** → false reject ท่วม รันซ้ำเปลืองเงิน (สับ warning 1₂s กับ reject)
 - **QC out → รันซ้ำจนผ่าน** โดยไม่หา root cause → ปล่อย systematic error หลุด
 - **EQA fail = โทษเครื่องทันที** → อาจ pre-analytical / ลงค่าผิด / lot

@@ -11,7 +11,7 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 
 # สถิติเฉพาะ MT (method/validation)
 
-ตัวช่วยตัดสินใจสถิติที่ MT เจอจริงแต่ตำราสถิติทั่วไปไม่ครอบ — method comparison, reference interval, diagnostic accuracy, precision/QC. เน้น "ใช้ตัวไหน + กับดัก" ไม่ใช่สอนรันโปรแกรม
+ตัวช่วยตัดสินใจสถิติที่ MT เจอจริงแต่ตำราสถิติทั่วไปไม่ครอบ — method comparison, reference interval, diagnostic accuracy, precision/QC. เน้น "ใช้ตัวไหน + กับดัก"
 
 > **กฎ #1:** เลือกสถิติตาม **"คำถามแบบงานแล็บ"** ไม่ใช่ default ทั่วไป — เทียบ 2 วิธีตรวจ ≠ correlation; ตั้ง reference interval ≠ mean±2SD เสมอ
 > **กับดัก #1 (ขั้น hard):** ใช้ **correlation (r) หรือ paired t-test ตัดสิน "2 method แทนกันได้ไหม" = ผิด**. r สูงไม่ได้แปลว่า agree (มี constant/proportional bias ได้ทั้งที่ r≈1); paired-t บอกแค่ "ต่างกันเชิงสถิติ" ไม่บอกขนาด bias ที่ยอมรับทางคลินิก → ใช้ **Bland-Altman + Passing-Bablok/Deming**

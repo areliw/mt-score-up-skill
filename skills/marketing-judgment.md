@@ -39,7 +39,10 @@ disclaimer: "ช่วยคิดกลยุทธ์การตลาด/ข
 - **Positioning statement:** "สำหรับ [กลุ่มเป้า] [แบรนด์] คือ [แนวคิด] ที่ [ความต่าง]" · เลือกความต่างที่ เหนือคู่แข่ง + ลอกยาก + ลูกค้าต้องการ + น่าเชื่อ
 - ⚠️ positioning ที่ดี = สิ่งที่**ลูกค้ารับรู้** ไม่ใช่สิ่งที่เราพูด
 
-### Fork 3 — B2B buying center: แมปให้ครบ (อย่าขายคนเดียวจบ)
+### Fork 3 — คู่แข่งตัวจริงคือใคร (อย่ามองแค่ยี่ห้อตรงๆ)
+- คู่แข่งที่ฆ่าดีลบ่อยสุดไม่ใช่แบรนด์คู่แข่ง แต่คือ **status quo** ("อยู่กับเจ้าเดิม"/ไม่เปลี่ยน) และ **ทางเลือกแทน** (send-out/outsource/ทำมือ) → ต้องสู้กับ "ไม่ทำอะไรเลย" ก่อนสู้กับยี่ห้ออื่น
+
+### Fork 4 — B2B buying center: แมปให้ครบ (อย่าขายคนเดียวจบ)
 | บทบาท | มักเป็นใคร |
 |---|---|
 | **User** | คนหน้างานที่ใช้จริง |
@@ -50,20 +53,24 @@ disclaimer: "ช่วยคิดกลยุทธ์การตลาด/ข
 - User ชอบแต่ Decider ปัด = แพ้ · Decider โอเคแต่ Gatekeeper บล็อก = ไม่ได้เจอ → วางแผนสื่อสารต่างกันต่อคน
 - **buy class:** Straight Rebuy (เจ้าเดิม=ป้อม / คู่แข่ง=เจาะยากสุด) · **Modified Rebuy (เจ้าเดิมขึ้นราคา/มีปัญหา service) = หน้าต่างเดียวที่เจาะ account คู่แข่งได้** · New Task = support ข้อมูลหนัก
 
-### Fork 4 — Pricing: อย่าเปิดด้วยตัดราคา
+### Fork 5 — Pricing: อย่าเปิดด้วยตัดราคา
 - ⚠️ **ตัดราคา = สงครามราคา + anchor ต่ำถอนยาก** → ถ้าเริ่มแข่งราคา = ล้มเหลวในการสื่อ value → **ขายเป็น cost-per-result/Augmented แทน ราคา list**
 - กรอบ: ต้นทุน = floor · การรับรู้คุณค่า = ceiling · **elasticity:** สินค้า inelastic (lock-in/ไม่มีของแทน) = ตั้ง/ขึ้นราคาได้ · elastic = อย่าแข่งราคา
 - skimming (ใหม่/พรีเมียม ตั้งสูงก่อน) vs penetration (ตั้งต่ำเจาะ/ป้องคู่แข่ง) · **BEP = ต้นทุนคงที่ ÷ (ราคา − ต้นทุนผันแปร/หน่วย)**
 
-### Fork 5 — Product layer + PLC
+### Fork 6 — Product layer + PLC
 - **Core → Actual → Augmented:** ในตลาดสเปคพอกัน **เกมชนะที่ Augmented** (service/uptime/training/response time) — อย่าขายแค่ Actual (สเปคดิบ)
 - **razor-blade:** ขายเครื่อง (capital กำไรบาง) เพื่อล็อก consumable (ซื้อซ้ำ = กำไรจริง) → **install base = สินทรัพย์**
 - **PLC playbook ต่างตามช่วง:** Introduction = ให้ลอง/eval · Maturity = แข่ง service+ราคา → อย่าใช้ playbook เดียวทุกตัว
 
-### Fork 6 — Promotion: Push vs Pull
+### Fork 7 — Promotion: Push vs Pull
 - **B2B/เทคนิคสูง = Push + Personal Selling-led** (โฆษณา mass แทบไม่ใช้) → ใช้ trade show/seminar/KOL/case study/demo
 - เลือกเครื่องมือตาม **Buyer Readiness** (Awareness→Knowledge→...→Purchase): ต้น = seminar/PR ให้ความรู้ · ท้าย = personal selling + demo ปิด
 - ⚠️ **sales promotion (ลดแลกแจกแถม) ในวงการแพทย์ระวัง** — ชนกับ ethics (สินบน/ผลประโยชน์) → ดู `mt-law-ethics-judgment`
+
+### Fork 8 — Post-purchase: ดีลปิดแล้วยังไม่จบ
+- ลูกค้าของแพง-ซับซ้อนมี **cognitive dissonance** หลังซื้อ ("ตัดสินใจถูกมั้ย") → onboarding/training/uptime ช่วงแรกคือสิ่งที่กันการเสียใจ ไม่ใช่แค่ courtesy
+- **ความพอใจหลังใช้ = ตัวตัดสิน renew + word-of-mouth** ในวง รพ. ที่แคบ → ปล่อย post-purchase = เสีย account ตอนต่อสัญญา (ส่งต่อ retention เชิงลึก → `crm-judgment`)
 
 ---
 

@@ -54,6 +54,9 @@ Decision Variables + Objective (ในรูป vars) + Constraints (สมก�
 - **Binding** (slack=0) → SP>0 → เพิ่มทรัพยากรช่วยได้ (ลงทุนถ้าราคา < SP) · **Non-binding** (มี slack) → SP=0 → เพิ่มไม่ช่วย อย่าซื้อ
 - Δobjective = SP × ΔRHS **เฉพาะใน allowable range**
 
+### 7. MIP solve ช้า/ไม่จบ — ทำไงก่อนทิ้ง exact
+อย่าเด้งไป GA ทันทีเมื่อ MIP ช้า — ลองตามลำดับ: (1) **ใส่ time-limit + รับ MIP gap** (เช่น 1-2% มักดีพอใช้งานจริง) — solver คืนคำตอบที่ดีที่สุดที่เจอ + การันตีว่าห่าง optimal ไม่เกิน gap (2) **LP relaxation** เป็น bound + reality-check ว่าโจทย์สมเหตุผล (3) **warm-start** ด้วยคำตอบ heuristic (4) กระชับ formulation (tighten bound, ตัด symmetry). ทิ้ง exact ไป metaheuristic **เฉพาะตอน gap ยังกว้างหลังทำครบ** — ตอนนั้นยอมเสีย "การันตี optimal" แลกความเร็ว
+
 ---
 
 ## กับดัก (Anti-patterns)

@@ -15,7 +15,6 @@ MT ที่ไปสาย **diagnostics sales, เปิดคลินิก,
 
 > **กฎ #1 — consent มาก่อนเสมอ:** ห้ามแตะ/ส่งต่อ personal/behavioral data ก่อนได้ **explicit consent**. ถาม "ขอ consent หรือยัง?" ก่อนทุก segmentation/recommendation
 > **กับดัก #1 (ตัวที่เผลอแม้มี consent) — purpose limitation:** consent ผูกกับ **วัตถุประสงค์ที่ขอไว้เท่านั้น**. ขอเพื่อ A แล้วเอาไปทำ B (เช่น ขอเพื่อให้บริการ → เอาไป market/ขายต่อ/train model) = **ต้องขอ consent ใหม่** ถึงจะมีฐานเดิมอยู่ก็ใช้ข้ามไม่ได้
-> นิยาม framework เป็น commodity — ที่นี่เก็บแต่ **"เลือกอะไรเมื่อไหร่" + กับดักที่คนพลาด**
 
 ## ใช้เมื่อ
 - ออกแบบ segment ลูกค้า / logic แนะนำสินค้า / แผน retention-loyalty
@@ -27,7 +26,7 @@ MT ที่ไปสาย **diagnostics sales, เปิดคลินิก,
 
 ---
 
-## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
+## วิธีตัดสินใจ (AI: ทำตามนี้) — forks (AI: ทำตามนี้) — forks
 
 ### 1. เลือก segmentation แบบไหน (เริ่มจาก "มีข้อมูลอะไร + จะเอาไปทำอะไร")
 | ถ้า… | เลือก |

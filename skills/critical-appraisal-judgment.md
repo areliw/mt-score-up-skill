@@ -11,7 +11,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 
 # โค้ชอ่าน/ประเมินงานวิจัย + lit review — หา gap + ประเมิน test
 
-อ่านงานวิจัยคนอื่นให้เป็น (lit review / journal club / หาหัวข้อ thesis) — เปเปอร์นี้ดี/เชื่อได้แค่ไหน · gap อยู่ตรงไหน · ใช้ method ไหนเป็นแม่แบบ ไม่ใช่สรุปย่อทุกบรรทัด
+อ่านงานวิจัยคนอื่นให้เป็น (lit review / journal club / หาหัวข้อ thesis) — เปเปอร์นี้เชื่อได้แค่ไหน · gap อยู่ตรงไหน · ใช้ method ไหนเป็นแม่แบบ ไม่ใช่สรุปย่อทุกบรรทัด
 
 > **กฎข้อ 1:** อ่านเพื่อ **(1) เชื่อได้ไหม (2) ขโมย method มาใช้ได้ไหม (3) gap = contribution เราอยู่ตรงไหน** — ไม่ใช่จำ finding
 > **กับดักอันดับ 1:** เห็น sens/spec สูงแล้วเชื่อเลย — **PPV ขึ้นกับ prevalence: ถ้าโรคหายาก ผลบวกส่วนใหญ่เป็น false+ ต้อง confirm** (sens/spec ไม่ขึ้นกับ prevalence, NPV เป็นกระจกสะท้อน = สูงตอน prevalence ต่ำ). ก่อนเชื่อตัวเลขทุกครั้ง: ดู gold standard เหมาะไหม · blinded ไหม · spectrum/sample bias.
@@ -35,8 +35,8 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 
 ### Fork 2 — ประเมินงาน "test/method ใหม่ vs gold standard" (recurring สุดในงาน MT)
 - โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **AUC ใช้กับ test แบบต่อเนื่อง/จัดอันดับ (มี cutoff ปรับได้) เท่านั้น, ไม่ใช่ test 2×2 บวก/ลบ ตายตัว**
-- ⚠️ **PPV ขึ้นกับ prevalence** — test ดีแค่ไหน ถ้า prevalence ต่ำ ผลบวกส่วนใหญ่ก็ false+ → ต้อง confirm (ดู `immunoassay-judgment`/`anti-hallucination`)
-- ดู **gold standard เลือกเหมาะไหม** + sample size/spectrum bias + blinded ไหม ก่อนเชื่อตัวเลข
+- ⚠️ **PPV ขึ้นกับ prevalence** (กฎข้อ 1) → ที่ low prevalence ต้อง confirm ผลบวก (ดู `immunoassay-judgment`)
+- ก่อนเชื่อตัวเลข ดู 3 อย่าง: **gold standard เหมาะไหม · spectrum/sample-size bias · blinded ไหม**
 
 ### Fork 3 — หา research gap = contribution (white space)
 - เทียบกองเปเปอร์: **อะไรที่ยังไม่มีใครทำ** (เช่น domain A × method B ที่ไม่มีใครจับคู่) = ช่องว่างที่เราเคลม

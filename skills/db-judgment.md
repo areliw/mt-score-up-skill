@@ -39,6 +39,8 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 - **subquery vs JOIN:** correlated subquery มักช้า (รันต่อ row) → rewrite เป็น join · **`EXISTS` > `IN`** เมื่อ subquery ใหญ่ + ปลอดภัยกับ NULL
 - **เมื่อไหร่ควร INDEX:** คอลัมน์ใน WHERE/JOIN/ORDER BY + **cardinality สูง** · **อย่า index** คอลัมน์ค่าน้อย (เพศ M/F), ตารางเล็ก, คอลัมน์เขียนบ่อย (index ทำ write ช้า) · composite index = **leftmost prefix** สำคัญ (เรียงคอลัมน์ให้ถูก)
 - **WHERE vs HAVING:** WHERE กรองก่อน aggregate · HAVING กรองหลัง GROUP BY
+- **UNION vs UNION ALL:** default **`UNION ALL`** (ต่อตรงๆ เร็ว) · ใช้ `UNION` (sort+dedup, แพง) เฉพาะเมื่อ "ต้องการตัดซ้ำจริง" — ส่วนมากไม่ต้อง
+- **transaction isolation:** เขียนเงิน/สต็อก/ผล lab ที่ห้ามเพี้ยน → ดัน isolation สูง (Serializable/Repeatable Read) · รายงานอ่านอย่างเดียว → Read Committed พอ · transaction **ยิ่งสั้นยิ่งดี** (ถือ lock นาน = deadlock/คอขวด)
 - **query plan:** **full table scan = ธงแดง** บน table ใหญ่ (ควรเป็น index seek)
 
 ## กับดัก (Anti-patterns) — ระเบิดงานจริง
@@ -52,7 +54,9 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 - **over-index** → write ช้าลงทุก index · index คอลัมน์ค่าน้อย cardinality = ไร้ประโยชน์
 - **SQL injection** จากต่อ string → ใช้ parameterized query เสมอ
 - **NULL ใน aggregate:** `AVG`/`SUM`/`COUNT(col)` ข้าม NULL เงียบๆ → รู้ว่ามี NULL ไหม
-- **หลาย statement ที่ต้อง consistent** → ครอบ **transaction** (atomic)
+- **`UNION` แทน `UNION ALL` โดยไม่ตั้งใจ** → เสีย cost sort+dedup ทุก query ทั้งที่ไม่มีซ้ำ → ใช้ `ALL` เป็น default
+- **`OFFSET` ลึกๆ ช้า** → `LIMIT 20 OFFSET 100000` ยังต้องสแกน+ทิ้ง 100k แถว → ใช้ **keyset/seek pagination** (`WHERE id > last_id`) บนตารางใหญ่
+- **หลาย statement ที่ต้อง consistent** → ครอบ **transaction** (atomic) · transaction สั้น, ห้ามถือ lock คร่อม I/O ภายนอก (เผลอ block ทั้งระบบ)
 
 ## ตัวอย่างสาย health/lab
 - "นับผู้ป่วยต่อแผนก" → GROUP BY แผนก + COUNT · ระวัง join ผล lab ซ้ำ → `COUNT(DISTINCT patient)`

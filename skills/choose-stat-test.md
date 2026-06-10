@@ -98,7 +98,7 @@ flowchart TD
 - **เอา correlation ไปสรุป agreement** — method comparison ต้อง ICC/Bland-Altman; r สูงไม่ได้แปลว่าตรงกัน
 - **2 สัดส่วนจาก sample เดียวกัน** (เช่น %เห็นด้วย A vs B ในคนกลุ่มเดียว) = correlated → ใช้ **McNemar** ไม่ใช่ two-sample proportion
 - **proportion test ใช้ p̂ ใน SE** — ที่ถูกคือใช้ **p₀** (ค่าจาก null hypothesis)
-- **ปัด expected count** → 2×2 ทุก cell ต้อง ≥5 ไม่งั้นใช้ Fisher's exact; แต่ **R×C ใหญ่ห้ามเหมา** ว่าต้อง ≥5 ทุก cell — ผ่านได้ถ้า ≤20% ของ cell <5 และไม่มี cell <1
+- **เหมา expected count ≥5 ทุก cell** → จริงแค่ 2×2 (ไม่งั้น Fisher); R×C ใหญ่ใช้กฎ Cochran (ดูข้อ C)
 - **ทำ t-test ทุกคู่เมื่อมีหลายกลุ่ม** → Type I error สะสม ใช้ ANOVA + post-hoc แทน
 - **ลืมเช็ค normality / ยัด t-test กับ ordinal** → n เล็ก/skew/Likert ใช้ non-parametric
 - **พูดว่า "accept H₀"** → ที่ถูกคือ "fail to reject H₀"

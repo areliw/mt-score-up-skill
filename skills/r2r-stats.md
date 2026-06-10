@@ -14,7 +14,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 สำหรับ MT ที่ทำ R2R/งานวิจัยแล้ว **ติดสถิติ** — ไม่รู้ใช้ test ไหน รันยังไง แปลผลยังไง ตอบ reviewer ยังไง
 
 > ⚠️ **กฎเหล็ก #1: เลือก test ก่อนดู p-value เสมอ — ห้ามเปลี่ยน test ทีหลังเพราะ p ไม่ผ่าน (= p-hacking) และอย่าเชื่อตัวเลขที่ AI ไม่ได้รันโค้ดโชว์**
-> ⚠️ **กับดักที่ #1: ข้อมูลจับคู่ (ก่อน-หลังคนเดียวกัน / 2 วิธีวัด sample เดียวกัน) ต้องใช้ paired test (paired t / Wilcoxon signed-rank / McNemar) — ตัวเลขเป็น "2 คอลัมน์" เหมือนกันหมด ดูจาก design ไม่ใช่จากหน้าตาข้อมูล ใช้ unpaired ทั้งที่ข้อมูล paired = ผิดบ่อยสุดและทำให้ผลเพี้ยน**
+> ⚠️ **กับดักที่ #1: ข้อมูลจับคู่ (ก่อน-หลังคนเดียวกัน / 2 วิธีวัด sample เดียวกัน / ตา 2 ข้างคนเดียว) ต้องใช้ paired test (paired t / Wilcoxon signed-rank / McNemar) — ตัดสินจาก design ไม่ใช่หน้าตาข้อมูล (paired/unpaired เป็น "2 คอลัมน์" เหมือนกัน) ใช้ unpaired ทั้งที่ข้อมูล paired = ผิดบ่อยสุด ผลเพี้ยน**
 
 ## ใช้เมื่อ
 มีข้อมูล (Excel/CSV) + คำถามวิจัย แต่ไม่มั่นใจเรื่องสถิติ
@@ -69,13 +69,13 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 - **n น้อย** → อย่าเชื่อ normality test, ใช้ non-parametric, ระวัง underpowered
 - **correlation ≠ causation**
 - **% / สัดส่วน ที่ n ฐานต่าง** → อย่าเทียบตรงๆ
-- **paired vs unpaired ตัดสินจาก design ไม่ใช่หน้าตาข้อมูล** — ถ้าแต่ละแถวคือ "หน่วยเดียวกันวัด 2 ที" (ก่อน-หลัง / 2 วิธีวัด sample เดียว / ตา 2 ข้างคนเดียว) = paired (paired t / Wilcoxon signed-rank / McNemar); ใช้ unpaired ทั้งที่ข้อมูล paired = ผิดบ่อยสุด
+- **paired vs unpaired ตัดสินจาก design ไม่ใช่หน้าตาข้อมูล** — ถ้าแต่ละแถวคือ "หน่วยเดียวกันวัด 2 ที" (ก่อน-หลัง / 2 วิธีวัด sample เดียว / ตา 2 ข้างคนเดียว) = paired (paired t / Wilcoxon signed-rank / McNemar)
 - **method comparison ≠ การ validate เครื่องสำหรับใช้จริงกับผู้ป่วย** → ต้องมี acceptance criteria (เช่น CLSI EP09) + ผู้รับผิดชอบ lab อนุมัติ ก่อนนำเครื่อง/วิธีไปใช้จริง
 
 ---
 
 ## เกินขอบเขต → ปรึกษาคนจริง
-ถ้าเจอ: repeated measures หลายเวลา, survival/time-to-event, multilevel/clustered data, sample size calculation ก่อนเก็บ, design ที่ซับซ้อน → **ปรึกษานักสถิติ/[ชื่อผู้เชี่ยวชาญ]** อย่าเดา
+ถ้าเจอ: repeated measures หลายเวลา, survival/time-to-event, multilevel/clustered data, sample size calculation ก่อนเก็บ, design ที่ซับซ้อน → **ปรึกษานักสถิติ** อย่าเดา
 
 ---
 

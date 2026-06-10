@@ -24,6 +24,8 @@ jobs:
           python-version: "3.12"
       - name: Regenerate triage catalog
         run: python scripts/build_triage.py
+      - name: Overlap report (informational — does not fail build)
+        run: python scripts/check_duplicates.py --top 20
       - name: Commit if generated files changed
         run: |
           if ! git diff --quiet -- prompts/triage.md skills/INDEX.md dist/all-skills.md; then

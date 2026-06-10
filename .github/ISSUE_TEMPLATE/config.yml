@@ -6,3 +6,9 @@ contact_links:
   - name: 👀 ดูตัวอย่าง skill ทำงานจริง (examples)
     url: https://github.com/areliw/mt-score-up-skill/tree/main/examples
     about: "อยากเห็นว่า skill ช่วยอะไร before/after ก่อนเสนอ"
+  - name: 💬 ศูนย์รวม feedback (ช่วย / ไม่ช่วย / เจอจุดผิด)
+    url: https://github.com/areliw/mt-score-up-skill/blob/main/docs/FEEDBACK.md
+    about: "ไม่รู้จะแจ้งแบบไหน — ดูช่องทาง feedback ทั้งหมด"
+  - name: 🎙️ Skill Maker — ให้ AI สัมภาษณ์ถอดวิจารณญาณ (ไม่ถนัดเขียน)
+    url: https://github.com/areliw/mt-score-up-skill/blob/main/prompts/skill-interview.md
+    about: "ผู้เชี่ยวชาญ/ใกล้เกษียณ ถนัดเล่ามากกว่าเขียน — วางในแชต AI แล้วมันสัมภาษณ์ให้"

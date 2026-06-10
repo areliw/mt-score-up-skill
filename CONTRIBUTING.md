@@ -103,6 +103,8 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 และเตือนผมถ้ามีข้อมูลคนไข้/HN/ชื่อสถาบันที่ต้องลบออกก่อนส่ง
 ```
 
+> 🎙️ **ไม่อยากกรอกช่องว่างเอง?** ถ้าถนัดเล่ามากกว่าเขียน (โดยเฉพาะผู้เชี่ยวชาญ/ใกล้เกษียณ) — วาง [`prompts/skill-interview.md`](./prompts/skill-interview.md) (Skill Maker) แทน แล้ว AI จะ **สัมภาษณ์ถอด** วิจารณญาณให้เป็นร่าง skill เอง ไม่ต้องเรียบเรียงเอง
+
 ## ✅ Review criteria
 
 PR จะถูก review ตาม:
@@ -114,7 +116,7 @@ PR จะถูก review ตาม:
 
 ## 🙏 Credit
 
-Contributors จะถูก list ใน `CONTRIBUTORS.md` (สร้างเมื่อมี contributor คนแรก)
+Contributors ทุกคนได้ลงชื่อใน [`CONTRIBUTORS.md`](./CONTRIBUTORS.md)
 
 ใส่ในรูปแบบ: `[ชื่อ-นามสกุล] - [โรงพยาบาล/สังกัด] - [contribution]`
 
@@ -122,6 +124,8 @@ Contributors จะถูก list ใน `CONTRIBUTORS.md` (สร้างเ�
 
 - 📋 **ส่งความรู้ (ไม่ต้องมี GitHub):** Google Form ⏳ *กำลังเปิด* — ระหว่างนี้ทักเพจ Score UP
 - 🐙 **GitHub** Issues / Discussions: bug · คำถาม · feature
+- 💬 **แค่อยากให้ feedback** (ไม่ได้จะ contribute เต็มรูป) → [`docs/FEEDBACK.md`](./docs/FEEDBACK.md)
+- 🛠️ **maintainer** — วิธีรับ submission → triage → แปลงเป็น skill → [`contributions/INTAKE.md`](./contributions/INTAKE.md)
 - (FB MT group link: TBD)
 
 ---

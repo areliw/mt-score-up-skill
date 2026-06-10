@@ -2628,10 +2628,10 @@ disclaimer: "ช่วยคิดงาน flow cytometry เพื่อกา
 ## วิธีตัดสินใจ (AI: ทำตามนี้)
 
 ### ก่อนวิเคราะห์ — เช็คคุณภาพ
-- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO/isotype)** ไหม
+- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO เป็นหลักในการขีด gate; isotype = legacy เชื่อไม่ได้)** ไหม
 
 ### Fork 1 — gating strategy (ลำดับ)
-scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte) → marker เฉพาะใน gate ที่สนใจ
+**time/flow-stability** (ตัดช่วง clog/ไหลไม่นิ่ง) → scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable + dump channel** (กัน dead + lineage ที่ไม่เอา) → **CD45 vs SSC** (แยก blast/lymph/mono/gran — ⚠️ blast อยู่ CD45-dim/SSC-low; plasma cell/บาง lineage หลุด gate นี้ได้) → marker เฉพาะใน gate ที่สนใจ
 
 ### Fork 2 — panel design
 - lineage marker + maturation marker; เลือก CD ให้ครอบ DDx (AML vs ALL vs lymphoma)
@@ -2642,7 +2642,7 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 - เทียบกับ normal maturation pattern → ผิดปกติตรงไหน
 
 ### Fork 4 — แอปจริง
-- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (CD55/CD59 loss, FLAER) · **MRD** · lymphocyte subset
+- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (FLAER + ≥2 GPI marker ต่อ lineage บน **WBC** mono/gran — FLAER ใช้กับ RBC ไม่ได้ + RBC โดน transfusion/hemolysis บิดผล) · **MRD** (ต้อง acquire events เยอะ ไม่งั้น false-neg clone เล็ก) · lymphocyte subset
 
 ### Fork 5 — correlate (flow ไม่ใช่คำตอบเดี่ยว)
 - correlate **smear/morphology + clinical + cytogenetics/molecular** (เชื่อม `hematology-judgment`, `pathology-judgment`, `molecular-judgment`) — diagnosis เป็นหน้าที่แพทย์/ผู้เชี่ยวชาญ
@@ -2652,8 +2652,8 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 
 ## กับดัก (Anti-patterns)
 - #1 gate ไม่ตัด dead/doublet/debris → % เพี้ยน, population ผิด (กับดัก #1)
-- #2 compensation/spillover ผิด → marker ดู positive ปลอม
-- #3 ไม่มี FMO/isotype control → ขีดเส้น positive/negative มั่ว
+- #2 compensation ผิด → under-comp = positive ปลอม · **over-comp = ดันต่ำกว่าศูนย์ = negative ปลอม/ตี dim เป็น neg** (กระทบ MRD/aberrant) — ดู comp บนข้อมูลจริง ไม่ใช่แค่ beads
+- #3 ใช้ **isotype ขีดเส้น positive/negative** (เชื่อไม่ได้ — match fluorochrome:protein ไม่ได้จริง) → ใช้ **FMO** เป็น control หลัก; isotype = legacy/ใช้จำกัด
 - #4 อ่าน marker เดี่ยวไม่ดู pattern/co-expression
 - #5 ไม่สน intensity (dim vs bright) → พลาด aberrant phenotype
 - #6 ไม่ correlate morphology/clinical → ตีความลอย
@@ -5919,10 +5919,11 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 - ไม่ใช่ทุกอย่างควร POCT เพราะ "เร็ว"
 
 ### Fork 2 — QC + operator competency
-- QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
+- QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot · **เข้าร่วม EQA/PT** (หรือ alternative assessment ถ้าไม่มี scheme — ISO 15189:2022 Annex A) (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
 
 ### Fork 3 — limitation ของ POCT (รู้ก่อนเชื่อ)
-- **interference**: Hct + oxygen + สารรบกวน ใน glucose meter; linear range แคบ; แม่นน้อยกว่าแล็บกลาง
+- **interference (glucose meter — landmine จริง):** **Hct สูง → glucose ต่ำปลอม / Hct ต่ำ (เด็ก/anemia/dialysis) → สูงปลอม** · **O₂ สูงรบกวนเฉพาะ glucose-oxidase** (ได้ O₂/arterial sample → ต่ำปลอม; GDH ไม่ไว O₂) · ⚠️ **GDH-PQQ meter โดน maltose/icodextrin (น้ำยา PD)/galactose → สูงปลอมรุนแรง** (FDA boxed warning — เคยให้ insulin เกินจนตาย) · acetaminophen/vit C/uric acid รบกวน amperometric · linear range แคบ
+- ⚠️ **capillary glucose เชื่อไม่ได้ใน shock/ความดันตก/บวม/vasopressor** (perfusion แย่) → ใช้ venous/blood-gas analyzer
 - correlate POCT กับแล็บกลางเป็นระยะ; ค่าขัดอาการ/ขัดแล็บกลาง → ตรวจซ้ำ/ส่งแล็บกลาง
 
 ### Fork 4 — connectivity + บันทึก
@@ -5933,7 +5934,7 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 
 ## กับดัก (Anti-patterns)
 - #1 ถือว่า POCT ไม่ต้อง QC / operator ไม่ต้อง competency (กับดัก #1)
-- #2 ลืม interference (Hct/oxygen ใน glucose meter) → ค่าเพี้ยนในคนไข้ป่วยหนัก
+- #2 ลืม interference glucose meter (ทิศ Hct · GDH-PQQ+maltose/PD-fluid · capillary ใน shock) → ค่าเพี้ยนในคนไข้ ICU/ป่วยหนัก → insulin ผิด
 - #3 ใช้นอก linear range → ค่าผิด
 - #4 ผล POCT ไม่เข้าระบบ/จดมือหาย → ไม่ traceable
 - #5 ไม่ confirm/ไม่แจ้งค่าวิกฤตจาก POCT
@@ -6183,12 +6184,12 @@ disclaimer: "ช่วยคิดเรื่องคุณภาพตัว�
 
 ### Fork 1 — Order of draw (กัน additive carryover)
 ลำดับ: **blood culture → coag (citrate ฟ้า) → serum/SST (แดง/เหลือง) → heparin (เขียว) → EDTA (ม่วง) → fluoride (เทา)**
-- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↑ ปลอม + ALP เพี้ยน**; heparin ปน → coag เพี้ยน
+- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↓ ปลอม + ALP↓** (EDTA จับ Ca/Mg + ดึง Zn/Mg cofactor ของ ALP — *ทิศกลับกับ hemolysis ที่ Mg↑ จากเซลล์รั่ว*); heparin ปน → coag เพี้ยน
 - เจาะหลอดเดียว/winged set → ทิ้ง discard tube ก่อน coag (กัน air/underfill)
 
 ### Fork 2 — เลือกหลอด/additive + อัตราส่วน
 - **coag = citrate 1:9 เป๊ะ**: underfill → citrate เกิน → **aPTT/PT ยาวปลอม**; **Hct > 55% → ต้องปรับปริมาณ citrate** (plasma น้อย)
-- CBC = EDTA; **glucose/lactate = fluoride (NaF)** ยับยั้ง glycolysis — ถ้าใช้ผิดหลอด/ทิ้งนานไม่ปั่น glucose ตก ~5–7%/ชม.
+- CBC = EDTA; **glucose/lactate = fluoride (NaF)** ยับยั้ง glycolysis — ถ้าใช้ผิดหลอด/ทิ้งนานไม่ปั่น glucose ตก ~5–7%/ชม. · ⚠️ **NaF ออกฤทธิ์ช้า (~1–4 ชม.แรกยังกันไม่อยู่)** → glucose ยังตกในชั่วโมงแรกแม้อยู่หลอด NaF; งานเป๊ะ (เบาหวาน/GDM) ปั่นแยกเร็ว ≤30–60 นาที หรือใช้ citrate-buffered tube
 - trace metal/บางฮอร์โมน = หลอดเฉพาะ; ตรวจสอบก่อนเจาะ
 
 ### Fork 3 — HIL: hemolysis / icteric / lipemic → analyte ไหนพัง
@@ -7957,7 +7958,7 @@ disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น
 - artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค
 
 ### Fork 5 — Body fluids (ขยายจากปัสสาวะ)
-- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · **xanthochromia (เหลืองจาก bilirubin หลัง RBC แตก) → หนุน SAH** · **RBC ลดลงเรื่อยๆ ข้าม tube 1→3 → หนุน traumatic tap** (ไม่ใช่เกณฑ์เด็ดขาด) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
+- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · **xanthochromia → หนุน SAH** — แต่ดูจาก **supernatant ที่ปั่นทันที** (ตั้ง whole specimen ค้าง → RBC แตก in vitro = xanthochromia ปลอม) · **RBC ลดข้าม tube 1→3 → หนุน traumatic tap** (ไม่ใช่เกณฑ์เด็ดขาด — **clearing ไม่ตัด SAH**, SAH จริงอาจมี traumatic tap ซ้อนได้) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
 - **Serous (pleural/peritoneal)**: transudate vs exudate ตัดสินด้วย **Light's criteria** (เป็น chem ไม่ใช่ cell) → ชี้ทางก่อนแปล cell
 - **Synovial ใต้ polarized light**: **MSU = เข็ม, negatively birefringent = gout** · **CPPD = rhomboid, positively birefringent = pseudogout** · correlate cell count + Gram (septic = ฉุกเฉิน)
 

@@ -189,7 +189,7 @@ mt-score-up-skill/
 ├── contributions/ # พื้นที่ชุมชน — ส่ง skill/เคสจริง (+ INTAKE.md = playbook maintainer)
 ├── CONTRIBUTORS.md # ผู้ลงขันกองกลาง (credit)
 ├── STANDARDS.md   # Source-of-truth edition + auto-recheck รายเดือน
-└── CHANGELOG.md   # Version history (v0.7.0)
+└── CHANGELOG.md   # Version history (v0.8.2)
 ```
 
 ## Privacy & ความปลอดภัย

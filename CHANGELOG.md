@@ -4,6 +4,26 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
 content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
+## [0.8.2] — 2026-06-10
+
+### Added — launch infrastructure
+- `docs/USING.md` (ใช้ skill ครบ 7 platform incl. Claude Code/CLI) · `docs/LAUNCH.md` (แผนปล่อย แคบ→กว้าง + human-only checklist) · `docs/FEEDBACK.md` + issue template `skill-feedback.md`
+- `prompts/skill-interview.md` — **Skill Maker** (AI สัมภาษณ์ถอดวิจารณญาณผู้เชี่ยวชาญ/คนเกษียณเป็นร่าง skill)
+- `docs/skill-registry-spec.md` (frontmatter schema + dedup/merge play) · `scripts/check_duplicates.py` (char-3gram overlap detector, wired เข้า build-triage CI) · `CONTRIBUTORS.md` · `contributions/INTAKE.md` (maintainer playbook)
+- wire ทั้งหมดเข้า README/CONTRIBUTING/triage/config/setup-custom-gpt/vision (175 links, 0 broken)
+
+### Changed — tighten pass (55 non-clinical skills)
+- 55 สกิล non-clinical: tighten density (net −30 บรรทัด, ตัดน้ำ/คม verdict-first) · ตัวบางเติม judgment ที่ขาด (เช่น `db-judgment`: UNION ALL default, keyset pagination, transaction isolation)
+- **18 สกิลคลินิกไม่แตะเนื้อ** โดยตั้งใจ (flag-only — เนื้อคลินิกผิด = ฉีด error) · 0 regression · ทุก edit verify แล้ว
+
+### Fixed — clinical peer-review (4 สกิลใหม่, AI pre-screen)
+ดู [`eval/peer-review-clinical-2026-06-10.md`](eval/peer-review-clinical-2026-06-10.md):
+- **🔴 `preanalytical`:** EDTA carryover **Mg↑→Mg↓** (chelation; ขัดกับ Fork 3 ในไฟล์เอง) + ALP↓ · NaF ออกฤทธิ์ช้า 1-4 ชม.แรก
+- **🟠 `poct`:** glucose interference เติม landmine — ทิศ Hct · O₂ เฉพาะ glucose-oxidase · **GDH-PQQ+maltose/PD-fluid (FDA boxed warning)** · capillary ใน shock เชื่อไม่ได้ · EQA/PT
+- **🟠 `flow-cytometry`:** FMO≠isotype (isotype=legacy) · gating order +time/dump · over-comp→false-neg · PNH lineage-specific/RBC caveat
+- **`urinalysis`:** clean — เติม CSF xanthochromia (supernatant ปั่นทันที) + clearing ไม่ตัด SAH
+- ⚠️ AI pre-screen ≠ MT เซ็นรับรอง — 4 ตัวยังคง `draft`, รอ MT คนที่สองตรวจก่อนชู public
+
 ## [0.8.1] — 2026-06-08
 
 ### Added

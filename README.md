@@ -234,7 +234,7 @@ mt-score-up-skill/
 
 ## License
 
-MIT — ใช้ฟรี / แก้ได้ / share ได้
+MIT ([LICENSE](./LICENSE)) — ใช้ฟรี / แก้ได้ / share ได้ · เงื่อนไขการใช้เชิงคลินิก/healthcare → [NOTICE](./NOTICE)
 
 ## Contributing
 

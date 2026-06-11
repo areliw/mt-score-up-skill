@@ -50,7 +50,7 @@
 | `manuscript-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/manuscript-judgment.md | 2026-06-04 |
 | `market-research-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/market-research-judgment.md | 2026-06-08 |
 | `marketing-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/marketing-judgment.md | 2026-06-04 |
-| `method-validation-stats` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/method-validation-stats.md | 2026-06-08 |
+| `method-validation-stats` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/method-validation-stats.md | 2026-06-11 |
 | `ml-engineering-workflow` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-engineering-workflow.md | 2026-06-08 |
 | `ml-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-judgment.md | 2026-06-04 |
 | `molecular-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/molecular-judgment.md | 2026-06-04 |
@@ -87,7 +87,7 @@
 | `tdd-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/tdd-judgment.md | 2026-06-08 |
 | `time-blocking` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/time-blocking.md | 2026-06-08 |
 | `token-budget-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/token-budget-judgment.md | 2026-06-08 |
-| `toxicology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/toxicology-judgment.md | 2026-06-04 |
+| `toxicology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/toxicology-judgment.md | 2026-06-11 |
 | `urinalysis-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/urinalysis-judgment.md | 2026-06-08 |
 | `verification-panel` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/verification-panel.md | 2026-06-08 |
 | `what-skill-do-i-need` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/what-skill-do-i-need.md | 2026-06-04 |

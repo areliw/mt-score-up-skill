@@ -1298,7 +1298,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 1. รายงาน contaminant เป็น pathogen — CoNS 1 ขวด, urine 3+ ชนิด, sputum oral flora.
 2. ไม่ correlate กับ Gram เดิม — AST/ID ขัด Gram smear = หยุด ทวน.
 3. Misread AST — ESBL / inducible clinda / β-lactamase Staph → ปล่อยยาที่ใช้ไม่ได้จริง.
-4. Miss MDR ที่ต้องรายงานด่วน — MRSA/VRE/ESBL/CRE/MDR-TB ไม่ flag → ระบาดในวอร์ด.
+4. Miss MDR ที่ต้องรายงานด่วน — MRSA/VRE/ESBL/CRE/MDR-TB ไม่ flag → ระบาดในวอร์ด. 🇹🇭 **MDR-TB + เชื้อเฝ้าระวังบางตัวต้องรายงานตามระบบ กรมควบคุมโรค (DDC)** (โรคติดต่อที่ต้องแจ้ง) · ข้อมูล AST ป้อนเข้า **NARST** (national AMR surveillance) — เก็บ isolate + แจ้ง IC/ระบาดวิทยาตาม policy รพ. (CLSI breakpoint/IDSA = อ้างอิงเทคนิคสากล)
 5. เลือก media/atmosphere ผิด → false-negative เงียบ.
 6. Process sputum คุณภาพแย่ → เลี้ยง oral flora รายงานเป็นเชื้อปอด.
 7. Smear-negative = ไม่มี TB (ผิด) — ต้อง culture/GeneXpert.
@@ -3797,6 +3797,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 - **IQC** (control ทุกวันก่อนตรวจคนไข้) คุม **precision** → ดู %CV, Levey-Jennings · ⚠️ ตั้ง limit ตามกฎ #1 (mean/SD แล็บเอง, CLSI C24)
 - **EQA/PT** (ส่งเทียบ peer) คุม **accuracy** → ได้ **bias** = (mean lab − mean peer)/mean peer ×100
 - กับดัก: **IQC ผ่านสวยแต่ inaccurate ได้** (bias คงที่ L-J จับไม่ได้ — ต้องพึ่ง EQA)
+- 🇹🇭 **EQA/PT ในไทย:** scheme หลักคือของ **กรมวิทยาศาสตร์การแพทย์ (BLQS — สำนักมาตรฐานห้องปฏิบัติการ)** — ผล EQA ผูกกับการรับรอง **LA/สภาเทคนิคการแพทย์** (เสริม international scheme ได้); CLSI EP23/C24 + ISO 15189 = อ้างอิงสากล
 
 ### Fork 3 — Sigma-based QC planning (จุดประหยัดจริง)
 ```
@@ -4360,7 +4361,7 @@ title: สถิติเฉพาะ MT — method comparison / reference inter
 type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
+last_edited: 2026-06-11
 status: draft
 disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -4391,6 +4392,7 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 - **Bland-Altman**: plot ผลต่าง vs ค่าเฉลี่ย → bias (mean diff) + limits of agreement (±1.96SD); ดูว่า bias อยู่ในเกณฑ์ยอมรับทางคลินิกไหม
 - **Passing-Bablok / Deming regression** (ไม่ใช่ OLS — เพราะ x ก็มี error) → จับ **constant bias (intercept) + proportional bias (slope)**
 - อ้าง **CLSI EP09**; **ห้ามใช้ r/paired-t** ตัดสิน agreement
+- 🇹🇭 CLSI EP เป็นวิธีสากล (ไม่มี Thai equivalent) — แต่ verification ที่ทำเพื่อขอ/ต่อ **accreditation ไทย** ต้องผ่านเกณฑ์แลบ + **อนุมัติโดย MT ผู้รับผิดชอบ ตามมาตรฐานงานเทคนิคการแพทย์ (LA)/สภาเทคนิคการแพทย์** ("CLSI pass" อย่างเดียวไม่พอ)
 
 ### Fork 2 — Reference interval
 - **CLSI EP28**: nonparametric **2.5/97.5 percentile**, ต้อง **n ≥ 120** (per partition)
@@ -7777,18 +7779,20 @@ title: ตัวช่วยตัดสินใจงานพิษวิท�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-11
 status: draft
-disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยา (รามาธิบดี สายด่วน 1367) ก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
 # ตัวช่วยตัดสินใจงานพิษวิทยา/นิติพิษวิทยา
 
 ตัวช่วยตัดสินใจในงานพิษวิทยา/นิติพิษวิทยา (clinical + forensic tox lab) — เน้น "ตัดสินใจอะไร + พลาดตรงไหนแล้วอันตราย" ไม่ใช่ท่องตาราง LD50/ชื่อยา
 
-> **VERDICT: อย่ารายงาน "positive" จาก screen เดี่ยว — confirm ด้วย GC-MS/LC-MS ก่อนเสมอ.** #1 trap: ให้ antidote/chelator ผิดคู่ = ตาย (Na-EDTA แทน Ca-EDTA, BAL กับ Cd, 2-PAM เดี่ยวไม่มี atropine). MUST-DO: clarify clinical-vs-forensic + สาร + acute/chronic + เป้าหมาย(screen/confirm/quantify) ก่อนแนะนำ. ช่วยคิดเท่านั้น — แพทย์/ศูนย์พิษวิทยายืนยันก่อนลงมือ.
+> **VERDICT: อย่ารายงาน "positive" จาก screen เดี่ยว — confirm ด้วย GC-MS/LC-MS ก่อนเสมอ.** #1 trap: ให้ antidote/chelator ผิดคู่ = ตาย (Na-EDTA แทน Ca-EDTA, BAL กับ Cd, 2-PAM เดี่ยวไม่มี atropine). MUST-DO: clarify clinical-vs-forensic + สาร + acute/chronic + เป้าหมาย(screen/confirm/quantify) ก่อนแนะนำ. ช่วยคิดเท่านั้น — แพทย์/ศูนย์พิษวิทยา (สายด่วน 1367) ยืนยันก่อนลงมือ.
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นกระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+> 🇹🇭 **ปรึกษาด่วน (ไทย):** **ศูนย์พิษวิทยา รามาธิบดี — สายด่วน 1367** (24 ชม.) สำหรับ antidote/management/identification ของสารพิษ · งาน forensic: chain-of-custody ยึดระเบียบ **นิติเวช/ตำรวจ** เพื่อให้ผลใช้ในศาลได้
 
 ## ใช้เมื่อ
 - "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"
@@ -7892,7 +7896,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 > เติม cross-react list ของ immunoassay kit ที่ใช้จริง + ยา/อาหารท้องถิ่นที่เคยทำให้ false positive
 
 ---
-*skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยาก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
+*skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยา (รามาธิบดี สายด่วน 1367) ก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
 
 
 <!-- ═════════ skill: urinalysis-judgment ═════════ -->

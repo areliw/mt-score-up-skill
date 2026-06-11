@@ -24,8 +24,9 @@ jobs:
         id: run
         run: |
           set +e
-          python scripts/recheck_standards.py
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          python scripts/recheck_standards.py | tee recheck_output.txt
+          # ${PIPESTATUS[0]} = python's exit, NOT tee's (which is always 0)
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
           exit 0
 
       - name: Commit date-stamp refresh (clean run only)
@@ -41,25 +42,36 @@ jobs:
             echo "No changes to commit."
           fi
 
-      - name: Open issue when a newer edition is detected
+      - name: Open issue when a change is detected
         if: steps.run.outputs.exit_code == '2'
         uses: actions/github-script@v7
         with:
           script: |
+            const fs = require('fs');
             const today = new Date().toISOString().split('T')[0];
+            let report = '';
+            try { report = fs.readFileSync('recheck_output.txt', 'utf8').trim(); } catch (e) {}
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `[standards-recheck] Newer edition detected — needs review — ${today}`,
+              title: `[standards-recheck] Edition or lifecycle-stage change — needs review — ${today}`,
               body: [
-                'The monthly recheck detected a **newer published edition** than recorded in `STANDARDS.md`.',
+                'The monthly recheck flagged an **edition or lifecycle-stage change** vs `STANDARDS.md`.',
+                'STANDARDS.md was **left unchanged** — no silent auto-edit. The exact cause and per-source',
+                'remedy are in the script report below (each `[NEW]` / `[ACTION]` line states which it is):',
+                '',
+                '```',
+                report,
+                '```',
                 '',
                 `**Workflow run:** ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
                 '',
-                'STANDARDS.md was **left unchanged** — no silent auto-edit. A human must:',
-                '1. Verify the new edition at iso.org.',
-                '2. Review what changed and update affected skills if needed.',
-                '3. Update `STANDARDS.md` (edition + dates) and `current_year` in `scripts/recheck_standards.py` via PR.',
+                'A human must, matching the report above:',
+                '- **New edition (different year):** verify it at iso.org, update `STANDARDS.md` (edition + dates),',
+                '  and bump `current_year` for that source in `scripts/recheck_standards.py` via PR.',
+                '- **Lifecycle-stage change (same edition year, e.g. `90.92 → 90.93`):** verify the stage at iso.org',
+                '  and update/clear `known_stage` for that source in `scripts/recheck_standards.py` (do NOT bump',
+                '  `current_year`).',
               ].join('\n'),
               labels: ['standards-recheck', 'needs-attention'],
             });

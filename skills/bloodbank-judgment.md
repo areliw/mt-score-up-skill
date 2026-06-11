@@ -20,6 +20,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 >
 > 🇹🇭 **มาตรฐานอ้างอิง (ไทย):** ยึด **มาตรฐานธนาคารเลือดและงานบริการโลหิต — ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย** เป็นหลัก (AABB/ISBT = อ้างอิงสากล) · ทุกที่ในสกิลที่เขียน **"ref lab ระดับชาติ / rare registry / ศูนย์อ้างอิง"** = **ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย** (national reference lab + rare-donor registry ของไทย — Rhnull/Bombay/anti-Rh29 ส่งที่นี่)
+>
+> ⚠️ **ขอบเขต:** ตัวเลข (Gy/titer/dose/วัน) = teaching illustration ยึด **SOP/มาตรฐานกาชาด** · logic เน้น **ผู้ใหญ่**; neonatal exchange / RhIG / เลือดทารก ยึด **protocol neonatal เฉพาะ + ปรึกษาแพทย์**
 
 ## ใช้เมื่อ
 - ABO ไม่ตรง (cell ≠ serum) · antibody screen บวก → จะ ID ยังไง · DAT/IAT อันไหน · crossmatch แบบไหน

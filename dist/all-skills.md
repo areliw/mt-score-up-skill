@@ -557,6 +557,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 >
 > 🇹🇭 **มาตรฐานอ้างอิง (ไทย):** ยึด **มาตรฐานธนาคารเลือดและงานบริการโลหิต — ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย** เป็นหลัก (AABB/ISBT = อ้างอิงสากล) · ทุกที่ในสกิลที่เขียน **"ref lab ระดับชาติ / rare registry / ศูนย์อ้างอิง"** = **ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย** (national reference lab + rare-donor registry ของไทย — Rhnull/Bombay/anti-Rh29 ส่งที่นี่)
+>
+> ⚠️ **ขอบเขต:** ตัวเลข (Gy/titer/dose/วัน) = teaching illustration ยึด **SOP/มาตรฐานกาชาด** · logic เน้น **ผู้ใหญ่**; neonatal exchange / RhIG / เลือดทารก ยึด **protocol neonatal เฉพาะ + ปรึกษาแพทย์**
 
 ## ใช้เมื่อ
 - ABO ไม่ตรง (cell ≠ serum) · antibody screen บวก → จะ ID ยังไง · DAT/IAT อันไหน · crossmatch แบบไหน
@@ -985,7 +987,7 @@ title: ตัวช่วยตัดสินใจแล็บเคมีค�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-11
 status: draft
 disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินแทน. ปล่อยผลผิด 1 ค่า = หมอรักษาผิด 1 คน — นี่คือความปลอดภัยผู้ป่วยโดยตรง. AI ช่วยไล่ logic/Westgard/interference เท่านั้น ทุกการตัดสิน accept/reject/report ต้องเป็นไปตาม SOP + QC policy ของแล็บ และยืนยันกับ MT/ผู้มีอำนาจลงนามก่อนเสมอ. ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -998,6 +1000,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 > **กับดักอันดับ 1:** report ผลจาก run ที่ Westgard FAIL หรือจาก sample hemolyzed — ปล่อยผิด 1 ค่า = หมอรักษาผิด 1 คน.
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+>
+> ⚠️ **ขอบเขต:** ทุก cutoff/ค่าในสกิล = teaching illustration — **ค่าตัดสินจริงยึด reference range + critical-value limit + SOP ของแลบคุณ** เท่านั้น ไม่ใช่ค่ากล่อง/ตำรา
 
 ## ใช้เมื่อ
 - ดู QC แล้วต้องตัดสิน accept หรือ reject run · Westgard ตัวไหน fire · L-J chart shift/trend แปลว่าอะไร
@@ -7793,6 +7797,8 @@ disclaimer: "skill นี้เป็นเครื่องช่วยคิ�
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นกระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
 > 🇹🇭 **ปรึกษาด่วน (ไทย):** **ศูนย์พิษวิทยา รามาธิบดี — สายด่วน 1367** (24 ชม.) สำหรับ antidote/management/identification ของสารพิษ · งาน forensic: chain-of-custody ยึดระเบียบ **นิติเวช/ตำรวจ** เพื่อให้ผลใช้ในศาลได้
+
+> ⚠️ **ขอบเขต:** ตัวเลขในสกิล = teaching illustration — ค่าตัดสินจริงยึด **ref/baseline แลบคุณ + SOP** เสมอ · logic เน้น **ผู้ใหญ่**; เด็ก/ทารก/ตั้งครรภ์ (dose/antidote/chelator) ยึด **protocol เฉพาะทาง + ปรึกษาแพทย์/ศูนย์พิษวิทยา 1367**
 
 ## ใช้เมื่อ
 - "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"

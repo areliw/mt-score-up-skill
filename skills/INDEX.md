@@ -15,7 +15,7 @@
 | `bloodbank-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/bloodbank-judgment.md | 2026-06-11 |
 | `chemistry-interpretation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/chemistry-interpretation-judgment.md | 2026-06-04 |
 | `choose-stat-test` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/choose-stat-test.md | 2026-06-04 |
-| `clinchem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinchem-judgment.md | 2026-06-04 |
+| `clinchem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinchem-judgment.md | 2026-06-11 |
 | `clinical-correlation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinical-correlation-judgment.md | 2026-06-04 |
 | `clinmicro-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinmicro-judgment.md | 2026-06-04 |
 | `content-creator-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/content-creator-judgment.md | 2026-06-04 |

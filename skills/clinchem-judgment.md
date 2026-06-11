@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจแล็บเคมีค�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-11
 status: draft
 disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินแทน. ปล่อยผลผิด 1 ค่า = หมอรักษาผิด 1 คน — นี่คือความปลอดภัยผู้ป่วยโดยตรง. AI ช่วยไล่ logic/Westgard/interference เท่านั้น ทุกการตัดสิน accept/reject/report ต้องเป็นไปตาม SOP + QC policy ของแล็บ และยืนยันกับ MT/ผู้มีอำนาจลงนามก่อนเสมอ. ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 > **กับดักอันดับ 1:** report ผลจาก run ที่ Westgard FAIL หรือจาก sample hemolyzed — ปล่อยผิด 1 ค่า = หมอรักษาผิด 1 คน.
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+>
+> ⚠️ **ขอบเขต:** ทุก cutoff/ค่าในสกิล = teaching illustration — **ค่าตัดสินจริงยึด reference range + critical-value limit + SOP ของแลบคุณ** เท่านั้น ไม่ใช่ค่ากล่อง/ตำรา
 
 ## ใช้เมื่อ
 - ดู QC แล้วต้องตัดสิน accept หรือ reject run · Westgard ตัวไหน fire · L-J chart shift/trend แปลว่าอะไร

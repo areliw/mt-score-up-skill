@@ -25,7 +25,7 @@ labels: ["skill-proposal"]
 
 ### 5. อยากมีส่วนร่วมแบบไหน?
 - [ ] แค่เล่า เดี๋ยวให้ช่วยแพ็กให้
-- [ ] อยากลองเขียนเอง (ดู format ใน [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) + ตัวอย่างใน `skills/`)
+- [ ] อยากลองเขียนเอง (ดู format ใน [CONTRIBUTING.md](https://github.com/areliw/mt-score-up-skill/blob/main/CONTRIBUTING.md) + ตัวอย่างใน `skills/`)
 
 ---
 > หลักการ: เก็บ **judgment ไม่ใช่ knowledge** (ตัดสิ่งที่ตำรา/AI รู้อยู่แล้วทิ้ง) · เนื้อหาคือ **ตัวช่วยคิด ไม่ใช่คำสั่งทางคลินิก**

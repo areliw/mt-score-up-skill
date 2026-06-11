@@ -3,7 +3,7 @@
 > Companion to [`round4-new-skills.md`](round4-new-skills.md). Round 4 screened the 8
 > v0.6.0 skills; this screens the **other 26** added after the eval-53 (the v0.4.0 +
 > v0.5.0 waves, plus `lab-clinic-business-judgment` and `ab-test-judgment` from v0.3.0).
-> **With this, every one of the 87 skills has now had at least a weak-model A/B screen.**
+> **With this, every one of the 87 skills that existed at the time has had at least a weak-model A/B screen.** (The library later grew to 88 — the newest skill `git-workflow-judgment` was added after this round and is **not yet** A/B-screened.)
 
 Same harness and same caveats as round 4: each skill's own #1 anti-pattern → a tempting
 scenario; a **weak model (Claude Haiku)** answers **without** then **with** the skill;

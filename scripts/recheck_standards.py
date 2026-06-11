@@ -87,6 +87,15 @@ def check_source(source: dict) -> dict:
             "this standard has been revised",
             "is being revised by",
             "has been withdrawn",
+            # iso.org also flags an in-progress successor WITHOUT a published year yet:
+            # the lifecycle banner reads "International Standard to be revised" /
+            # "will be replaced by ISO/AWI <n>" / "under revision". The pinned URL keeps
+            # serving the old edition, so max() above can't catch these — match them here
+            # so an actively-revised standard goes to human review (exit 2), not a clean stamp.
+            "to be revised",
+            "will be replaced",
+            "under revision",
+            "iso/awi",
         )
     )
 

@@ -46,14 +46,18 @@ Reproduce it:
 python leakage_demo.py path/to/train.csv      # or pass titanic.zip
 ```
 
-(Seeds are fixed in the script, so you'll get the same 0.850 / 0.819 / +0.031.)
+(Seeds are fixed in the script, so a given environment is deterministic. The exact
+numbers above are illustrative — `requirements.txt` pins only minimum versions, so a
+different scikit-learn build may shift the digits slightly. What's stable is the
+*direction and rough size*: PROPER comes out below LEAKY by a few hundredths of AUC.)
 
 ## Honest caveats
 
 - The 200 synthetic noise columns **amplify** the leak to make it legible in one run. On a
-  clean dataset with few features the inflation is smaller — but it is **never zero and
-  never in your favor**, and it grows with the number of features and preprocessing steps
-  that touch the labels. The mechanism, not the exact magnitude, is the lesson.
+  clean dataset with few features the inflation is smaller — but the leak **essentially
+  always inflates the metric**, working against honest evaluation, and it grows with the
+  number of features and preprocessing steps that touch the labels. The mechanism, not the
+  exact magnitude, is the lesson.
 - This demonstrates **one** of `ml-judgment`'s traps (selection leakage). It's the most
   measurable one; others (target leakage from future columns, train/serve skew) are real
   but harder to stage in 60 lines.

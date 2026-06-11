@@ -5,7 +5,7 @@
 > และให้ maintainer มีกฎตัดสินตอน merge ของซ้ำ — ไม่ใช่คำสั่งว่าทุก skill ต้องมีครบทุก field วันนี้.
 >
 > **เป้าไม่ใช่ "โต 1000 ตัว"** — เป้าคือ **"ทุกตัวคุ้มที่จะอยู่"**. commons ต้อง prune พอ ๆ กับ add.
-> ตัวเลขในหัวเรื่องนี้คือ stress-test ไม่ใช่ KPI: ถ้าโครงรองรับ 1000 ได้ มันก็รองรับ 87 ได้แบบไม่เน่า.
+> ตัวเลขในหัวเรื่องนี้คือ stress-test ไม่ใช่ KPI: ถ้าโครงรองรับ 1000 ได้ มันก็รองรับ 88 ได้แบบไม่เน่า.
 
 อ่านคู่กับ: [`CONTRIBUTING.md`](../CONTRIBUTING.md) (รูปแบบไฟล์ + lane) · [`skills/INDEX.md`](../skills/INDEX.md) (manifest auto-gen) · [`prompts/triage.md`](../prompts/triage.md) (router) · [`docs/skill-hub-vision.md`](./skill-hub-vision.md) (ทำไมมีคลังนี้) · [`CHANGELOG.md`](../CHANGELOG.md) (precedent v0.7.0)
 
@@ -13,7 +13,7 @@
 
 ## 1. ปัญหา — โตแล้วพังตรงไหน
 
-คลังตอนนี้ 87 ตัว ยังคุมด้วยตา + agent audit ไหว. ที่ 200–1000 ตัว สามอย่างพังพร้อมกัน:
+คลังตอนนี้ 88 ตัว ยังคุมด้วยตา + agent audit ไหว. ที่ 200–1000 ตัว สามอย่างพังพร้อมกัน:
 
 - **ใหญ่:** `dist/all-skills.md` ตอนนี้ ~133K tokens. ถ้าโตเชิงเส้น 1000 ตัว = เกิน context ทุกรุ่น → bundle หมดประโยชน์ ต้อง route แบบ select ก่อนโหลด ไม่ใช่ยัดทั้งคลัง.
 - **ซ้ำ:** หัวข้อซ้ำกันโดยธรรมชาติ — `bloodbank` กับ `clinical-correlation` แตะ DAT/HDN เหมือนกัน, `data-project-survival` เคยทับ `data-science-workflow` (ดู CHANGELOG v0.8.0). ที่ 1000 ตัว สองคนเขียนเรื่องเดียวกันคนละไฟล์ = แน่นอน ไม่ใช่ "ถ้า".

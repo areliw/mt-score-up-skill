@@ -22,7 +22,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (87 สกิล)
+## 📚 ส่วนที่ 1 — Skills (88 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -179,14 +179,14 @@
 skill เป็นไฟล์ — มี 2 วิธีโหลด เลือกตามงาน:
 - **ก๊อปเนื้อไฟล์** → snapshot **แช่แข็ง**: เสถียร, cite เวอร์ชันใน audit trail ได้, ไม่เปลี่ยนกลางคัน (เหมาะงานคลินิก)
 - **โหลดสด (live link)** → บอก AI ที่ต่อเน็ตได้ว่า *"ดึง skill จาก `<raw URL>` มาใช้"* → ได้ `main` ล่าสุด**ทุกครั้ง = auto-sync** ไม่ต้องก๊อปใหม่ · รายการ URL ทั้งหมด → [`skills/INDEX.md`](./skills/INDEX.md) (CI อัปเดตอัตโนมัติ)
-- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 87 ตัวในไฟล์เดียว (~133K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
+- **ทุก skill ทีเดียว (AI เลือกใช้เอง)** → [`dist/all-skills.md`](./dist/all-skills.md) — รวม 88 ตัวในไฟล์เดียว (~133K tokens) · ก๊อป/โหลดสดก็ได้ · AI self-route ตามคำถาม · **เฉพาะ AI context ใหญ่** (Claude/Gemini/Project, ไม่เหมาะ GPT chat เปล่า)
 - ⚠️ live link ใช้ได้เฉพาะ AI ที่ดึง URL ได้ (Claude web · ChatGPT browse · Gemini) — แชตเปล่า offline ใช้ก๊อป
 
 ## โครงสร้าง
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 87 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 88 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)
@@ -229,7 +229,7 @@ mt-score-up-skill/
 
 - **ตัวเลขมี noise** (วัดซ้ำต่างกันเฉลี่ย ~1.4 จุดบนโจทย์เดียวกัน) → delta ต้องเกิน ~1.4 ถึงเชื่อ. มี **8 ตัว "bulletproof"** ที่ยกคะแนนนิ่งหลายรอบ = เชื่อได้สุด
 - **"เสมอ (tie)" ≠ แย่** — แปลว่า AI ตอบถูกเองในโจทย์นั้นอยู่แล้ว; ค่าจริงของสกิลอยู่ที่ **ความสม่ำเสมอ + เคสยาก (edge case) + ช่วยคนที่ยังไม่เชี่ยว/model อ่อน** (frontier model ไม่ต้องใช้ก็ได้)
-- **0 regression อันตราย** ใน 53 ตัว — ไม่มีสกิลไหนทำให้ตอบ "พังลง" <sub>(eval เต็มรูป blind-judge รันบน 53 สกิล; อีก 34 ที่เพิ่มภายหลังผ่าน **spot-A/B screen** ครบแล้ว — [`round4`](./eval/round4-new-skills.md) (8) + [`round5`](./eval/round5-remaining.md) (26) · **ทั้งคลัง 87 = 0 dangerous regression** · screen เบากว่า round 1-3)</sub>
+- **0 regression อันตราย** ใน 53 ตัว — ไม่มีสกิลไหนทำให้ตอบ "พังลง" <sub>(eval เต็มรูป blind-judge รันบน 53 สกิล; อีก 34 ที่เพิ่มภายหลังผ่าน **spot-A/B screen** ครบแล้ว — [`round4`](./eval/round4-new-skills.md) (8) + [`round5`](./eval/round5-remaining.md) (26) · **ทั้งคลัง 87 ที่เทสต์ตอนนั้น = 0 dangerous regression** · screen เบากว่า round 1-3 · สกิลใหม่สุด `git-workflow-judgment` (#88, เพิ่มทีหลัง) ยังไม่ผ่าน A/B)</sub>
 
 ## ที่มา & การอ้างอิง (Sources)
 

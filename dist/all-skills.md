@@ -1298,7 +1298,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 1. รายงาน contaminant เป็น pathogen — CoNS 1 ขวด, urine 3+ ชนิด, sputum oral flora.
 2. ไม่ correlate กับ Gram เดิม — AST/ID ขัด Gram smear = หยุด ทวน.
 3. Misread AST — ESBL / inducible clinda / β-lactamase Staph → ปล่อยยาที่ใช้ไม่ได้จริง.
-4. Miss MDR ที่ต้องรายงานด่วน — MRSA/VRE/ESBL/CRE/MDR-TB ไม่ flag → ระบาดในวอร์ด.
+4. Miss MDR ที่ต้องรายงานด่วน — MRSA/VRE/ESBL/CRE/MDR-TB ไม่ flag → ระบาดในวอร์ด. 🇹🇭 **MDR-TB + เชื้อเฝ้าระวังบางตัวต้องรายงานตามระบบ กรมควบคุมโรค (DDC)** (โรคติดต่อที่ต้องแจ้ง) · ข้อมูล AST ป้อนเข้า **NARST** (national AMR surveillance) — เก็บ isolate + แจ้ง IC/ระบาดวิทยาตาม policy รพ. (CLSI breakpoint/IDSA = อ้างอิงเทคนิคสากล)
 5. เลือก media/atmosphere ผิด → false-negative เงียบ.
 6. Process sputum คุณภาพแย่ → เลี้ยง oral flora รายงานเป็นเชื้อปอด.
 7. Smear-negative = ไม่มี TB (ผิด) — ต้อง culture/GeneXpert.
@@ -3797,6 +3797,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 - **IQC** (control ทุกวันก่อนตรวจคนไข้) คุม **precision** → ดู %CV, Levey-Jennings · ⚠️ ตั้ง limit ตามกฎ #1 (mean/SD แล็บเอง, CLSI C24)
 - **EQA/PT** (ส่งเทียบ peer) คุม **accuracy** → ได้ **bias** = (mean lab − mean peer)/mean peer ×100
 - กับดัก: **IQC ผ่านสวยแต่ inaccurate ได้** (bias คงที่ L-J จับไม่ได้ — ต้องพึ่ง EQA)
+- 🇹🇭 **EQA/PT ในไทย:** scheme หลักคือของ **กรมวิทยาศาสตร์การแพทย์ (BLQS — สำนักมาตรฐานห้องปฏิบัติการ)** — ผล EQA ผูกกับการรับรอง **LA/สภาเทคนิคการแพทย์** (เสริม international scheme ได้); CLSI EP23/C24 + ISO 15189 = อ้างอิงสากล
 
 ### Fork 3 — Sigma-based QC planning (จุดประหยัดจริง)
 ```
@@ -4360,7 +4361,7 @@ title: สถิติเฉพาะ MT — method comparison / reference inter
 type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
+last_edited: 2026-06-11
 status: draft
 disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -4391,6 +4392,7 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 - **Bland-Altman**: plot ผลต่าง vs ค่าเฉลี่ย → bias (mean diff) + limits of agreement (±1.96SD); ดูว่า bias อยู่ในเกณฑ์ยอมรับทางคลินิกไหม
 - **Passing-Bablok / Deming regression** (ไม่ใช่ OLS — เพราะ x ก็มี error) → จับ **constant bias (intercept) + proportional bias (slope)**
 - อ้าง **CLSI EP09**; **ห้ามใช้ r/paired-t** ตัดสิน agreement
+- 🇹🇭 CLSI EP เป็นวิธีสากล (ไม่มี Thai equivalent) — แต่ verification ที่ทำเพื่อขอ/ต่อ **accreditation ไทย** ต้องผ่านเกณฑ์แลบ + **อนุมัติโดย MT ผู้รับผิดชอบ ตามมาตรฐานงานเทคนิคการแพทย์ (LA)/สภาเทคนิคการแพทย์** ("CLSI pass" อย่างเดียวไม่พอ)
 
 ### Fork 2 — Reference interval
 - **CLSI EP28**: nonparametric **2.5/97.5 percentile**, ต้อง **n ≥ 120** (per partition)

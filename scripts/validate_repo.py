@@ -22,6 +22,13 @@ import re
 import sys
 from pathlib import Path
 
+# Force UTF-8 stdout so the ✅/❌ summary prints on a default Windows (cp1252) console.
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 ROOT = Path(__file__).parent.parent
 SKILLS = ROOT / "skills"
 

@@ -1,0 +1,68 @@
+name: wi-smoke
+
+# Smoke-test the WI generator scripts (the only real software in the repo).
+# Runs on PRs/pushes touching scripts/**: syntax-checks every script, then
+# actually generates a Word doc from a tiny fixture and asserts it is non-empty.
+# (The bug that shipped fill_template.py producing an empty body would be caught
+# by an analogous assertion on the generator that ships the WI.)
+on:
+  pull_request:
+    paths:
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/wi-smoke.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/wi-smoke.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Syntax-check every script + generate a non-empty WI .docx
+        run: |
+          python - <<'PY'
+          import ast, os, pathlib, subprocess, sys
+
+          # 1) syntax-check every script (catches "won't even load" regressions)
+          scripts = sorted(pathlib.Path("scripts").glob("*.py"))
+          bad = []
+          for p in scripts:
+              try:
+                  ast.parse(p.read_text(encoding="utf-8"))
+              except SyntaxError as e:
+                  bad.append(f"{p}: {e}")
+          if bad:
+              print("SYNTAX ERRORS:")
+              for b in bad:
+                  print("  -", b)
+              sys.exit(1)
+          print(f"syntax OK: {len(scripts)} scripts")
+
+          # 2) WI generator smoke — md_to_docx must emit a non-empty Word doc
+          fixture = "/tmp/wi_fixture.md"
+          out = "/tmp/wi_out.docx"
+          pathlib.Path(fixture).write_text(
+              "# 1. วัตถุประสงค์\nSmoke fixture.\n\n## 2. ขอบเขต\n- a\n- b\n\n| k | v |\n|---|---|\n| x | 1 |\n",
+              encoding="utf-8",
+          )
+          subprocess.run([sys.executable, "scripts/md_to_docx.py", fixture, out], check=True)
+          size = os.path.getsize(out)
+          print("WI .docx bytes:", size)
+          if size < 1000:
+              sys.exit("WI output too small/empty — generator regression")
+          print("WI smoke OK")
+          PY

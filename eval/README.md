@@ -15,8 +15,11 @@ Read the threats to validity before trusting any single number.
 | [`ab-scorecard.md`](ab-scorecard.md) | all 53 skills graded: rescued / better / tie / style-cost / no-rescue / regression |
 | [`literature-check.md`](literature-check.md) | 66 clinical/method claims vs AABB/ACOG/guidelines |
 | [`titanic/`](titanic/) | a *measurable* exemplar: `ml-judgment` removes +0.031 AUC of fake performance |
+| [`round4-new-skills.md`](round4-new-skills.md) · [`round5-remaining.md`](round5-remaining.md) | the **+34 skills added after the n=53 eval** — lighter spot-A/B screen, **0 dangerous regression**, *not* full blind-judge |
 
 ## The headline (n=53 skills, each on its own worst-case trap, weak answerer, blind judge)
+
+**Canonical figure → round 3 (noise-corrected): lift ~19 · rescued 8 · 0 regression · 0 no-rescue.** The raw single-run breakdown below (lift 25 = 9 rescued + 16 better) is **superseded** — ~6 "lifts" were noise (see [`round3/`](round3/)).
 
 ```
 rescued  9   skill flipped a weak model's wrong answer to right   ← strongest evidence

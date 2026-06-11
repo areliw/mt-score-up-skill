@@ -19,6 +19,8 @@ disclaimer: "skill นี้เป็นเครื่องช่วยคิ�
 
 > 🇹🇭 **ปรึกษาด่วน (ไทย):** **ศูนย์พิษวิทยา รามาธิบดี — สายด่วน 1367** (24 ชม.) สำหรับ antidote/management/identification ของสารพิษ · งาน forensic: chain-of-custody ยึดระเบียบ **นิติเวช/ตำรวจ** เพื่อให้ผลใช้ในศาลได้
 
+> ⚠️ **ขอบเขต:** ตัวเลขในสกิล = teaching illustration — ค่าตัดสินจริงยึด **ref/baseline แลบคุณ + SOP** เสมอ · logic เน้น **ผู้ใหญ่**; เด็ก/ทารก/ตั้งครรภ์ (dose/antidote/chelator) ยึด **protocol เฉพาะทาง + ปรึกษาแพทย์/ศูนย์พิษวิทยา 1367**
+
 ## ใช้เมื่อ
 - "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"
 - "antidote ตัวนี้ให้อะไร?" · OP / carbamate / paraquat / โลหะหนัก poisoning

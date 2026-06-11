@@ -33,6 +33,7 @@
 | `finance-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/finance-judgment.md | 2026-06-04 |
 | `financial-statement-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/financial-statement-judgment.md | 2026-06-04 |
 | `flow-cytometry-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/flow-cytometry-judgment.md | 2026-06-08 |
+| `git-workflow-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/git-workflow-judgment.md | 2026-06-11 |
 | `grill-my-plan` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/grill-my-plan.md | 2026-06-08 |
 | `hematology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/hematology-judgment.md | 2026-06-04 |
 | `humanize-ai-writing` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/humanize-ai-writing.md | 2026-06-08 |

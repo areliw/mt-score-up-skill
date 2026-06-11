@@ -162,21 +162,33 @@ def check_source(source: dict) -> dict:
         }
     title_low = active_title.lower()
     superseded = ("to be revised" in title_low) or ("withdraw" in title_low)
-    # A standard can sit at a non-published stage (e.g. 90.92 "to be revised") for years
-    # before a new edition publishes. Once a human has reviewed that state they record it as
-    # `known_stage` on the source — the same human-in-the-loop pattern as `current_year` — so
-    # the monthly workflow stops re-opening an issue for an already-acknowledged stage. A move
-    # to a DIFFERENT stage, or a newer edition year, still trips review.
-    acknowledged = superseded and source.get("known_stage") == active_code
-    changed = (detected_year != source["current_year"]) or (superseded and not acknowledged)
+    # `known_stage` is a human-in-the-loop PIN (same pattern as current_year): once a reviewer
+    # has seen the active stage they record its CODE, so the monthly workflow stops re-opening an
+    # issue for that exact acknowledged stage. The pin acknowledges ONE specific code, so ANY
+    # drift away from it must trip re-review — not only moves to "to be revised"/"withdrawn", but
+    # also a move back to published/confirmed/under-review (which would otherwise stamp a fresh
+    # "verified" date and silently bury the fact that the pin is now stale).
+    known = source.get("known_stage")
+    if known is not None:
+        acknowledged = active_code == known   # pinned and still matching -> stay quiet
+        pin_drift = not acknowledged          # pinned but the stage moved -> stale, re-review
+        stage_alarm = pin_drift
+    else:
+        acknowledged = False
+        pin_drift = False
+        stage_alarm = superseded              # un-pinned: only revised/withdrawn is an alarm
+    changed = (detected_year != source["current_year"]) or stage_alarm
 
     return {
         "name": source["name"],
         "current_year": source["current_year"],
         "detected_year": detected_year,
         "active_stage": f"{active_title} [{active_code}]" if active_code else active_title,
+        "active_code": active_code,
+        "known_stage": known,
         "superseded": superseded,
         "acknowledged": acknowledged,
+        "pin_drift": pin_drift,
         "changed": changed,
     }
 
@@ -241,8 +253,15 @@ def main() -> int:
                 reasons.append(
                     f"new edition :{r['detected_year']} (file :{r['current_year']})"
                 )
-            if r.get("superseded"):
+            if r.get("pin_drift"):
+                reasons.append(
+                    f"stage drifted from acknowledged [{r.get('known_stage')}] "
+                    f"-> {r.get('active_stage')}"
+                )
+            elif r.get("superseded"):
                 reasons.append(f"stage -> {r.get('active_stage', 'revision/withdrawal')}")
+            if not reasons:  # never emit an empty reason
+                reasons.append(f"stage {r.get('active_stage')}")
             print(f"  [NEW] {r['name']}: " + " · ".join(reasons))
             has_change = True
         elif r.get("acknowledged"):

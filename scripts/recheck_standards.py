@@ -282,22 +282,28 @@ def main() -> int:
     # known_stage reviewed/updated. Telling a human to bump current_year for a 90.92 -> 90.93
     # move (same edition) would be wrong, so the two cases are reported separately.
     if has_change:
-        changed = [r for r in results if r.get("changed")]
-        new_edition = [r for r in changed if r["detected_year"] != r["current_year"]]
-        stage_drift = [r for r in changed if r["detected_year"] == r["current_year"]]
         print("\n[ACTION] Change detected — STANDARDS.md left unchanged. Verify via PR:")
-        for r in new_edition:
-            print(
-                f"         • {r['name']}: NEW EDITION :{r['detected_year']} "
-                f"(file :{r['current_year']}) — verify it, update STANDARDS.md, and bump "
-                f"current_year in this script."
-            )
-        for r in stage_drift:
-            print(
-                f"         • {r['name']}: lifecycle STAGE changed (same edition year) -> "
-                f"{r.get('active_stage')} — verify the stage and update/clear known_stage in "
-                f"this script (do NOT bump current_year)."
-            )
+        for r in (x for x in results if x.get("changed")):
+            # List EVERY applicable remedy. A new edition and a stage move can fire together
+            # (e.g. a revision publishes: year bumps AND the pinned 90.92 -> 60.60); the
+            # maintainer must then do BOTH — bump current_year AND clear the now-stale pin.
+            steps = []
+            if r["detected_year"] != r["current_year"]:
+                steps.append(
+                    f"NEW EDITION :{r['detected_year']} (file :{r['current_year']}) — verify it, "
+                    f"update STANDARDS.md, and bump current_year"
+                )
+            if r.get("pin_drift"):
+                steps.append(
+                    f"STAGE moved from acknowledged [{r.get('known_stage')}] -> "
+                    f"{r.get('active_stage')} — update/clear known_stage"
+                )
+            elif r.get("stage_alarm"):
+                steps.append(
+                    f"unexpected STAGE -> {r.get('active_stage')} — review it (pin via "
+                    f"known_stage if it is a stable non-published stage)"
+                )
+            print(f"         • {r['name']}: " + "; and ".join(steps) + ".")
         return 2
 
     # On a fetch/parse error, do NOT refresh date stamps — stamping "verified" when a

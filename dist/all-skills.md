@@ -1005,6 +1005,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 >
 > ⚠️ **ขอบเขต:** ทุก cutoff/ค่าในสกิล = teaching illustration — **ค่าตัดสินจริงยึด reference range + critical-value limit + SOP ของแลบคุณ** เท่านั้น ไม่ใช่ค่ากล่อง/ตำรา
 
+> 🛑 **RED FLAGS — เจอข้อใด = HOLD ห้ามปล่อยผล ยืนยัน QC + sample + ผู้ลงนามก่อน:** run ที่ Westgard FAIL · critical value (K⁺/glucose/Ca/troponin) · HIL กระทบ analyte (hemolysis → K⁺, lipemia, icterus) · ผลขัด delta-check/clinical ชัด · สงสัย calibration drift. — ปล่อยผิด 1 ค่า = รักษาผิด 1 คน
+
 ## ใช้เมื่อ
 - ดู QC แล้วต้องตัดสิน accept หรือ reject run · Westgard ตัวไหน fire · L-J chart shift/trend แปลว่าอะไร
 - เจอ sample hemolyzed/lipemic/icteric/clotted → ปล่อยผลได้มั้ย ตัวไหนเชื่อไม่ได้
@@ -1225,6 +1227,8 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 > **กฎเหล็ก #2 (ขอบยาก — "S แต่ใช้ไม่ได้"):** ผล S/I/R ไม่ใช่คำตอบสุดท้ายเสมอ — เชื้อบางกลุ่ม **ผล S ตอนแรกแต่ดื้อจริง/ดื้อขึ้นระหว่างรักษา** (AmpC-derepression, inducible clindamycin, intrinsic resistance, ESBL ที่ disk เดี่ยวจับไม่ได้). เห็น "S" ในเชื้อกลุ่มเสี่ยง → ต้องรู้จาก **species/phenotype-confirm** ไม่ใช่เชื่อ zone ตรงๆ.
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+> 🛑 **RED FLAGS — เจอข้อใด = หยุด correlate Gram/clinical + escalate ก่อนรายงาน:** MDR alert (MRSA/VRE/ESBL/CRE/MDR-TB → report + IC + กรมควบคุมโรค/NARST) · AST ขัด Gram/ID (S แต่ดื้อจริง — AmpC / inducible-clinda / ESBL) · sterile site (blood/CSF) ขึ้นเชื้อ · contaminant-vs-pathogen ใน specimen สำคัญ · QC strain นอก range แต่จะรายงาน. — รายงานผิด = ยาผิด/ระบาด
 
 ## ใช้เมื่อ
 - ต้อง decide ในงาน Micro — เชื้อจริงหรือปน, ID พอยัง, อ่าน AST, รายงาน MDR
@@ -3066,6 +3070,8 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพ
 > **กฎเหล็ก #2 (ขอบที่ weak model พลาด):** ผลที่ "ขัดกับ clinical ชัดๆ" **ไม่ใช่ผลที่เชื่อได้** — **ลบสวนอาการหนัก** หรือ **ต่ำสวนอาการ** = สงสัย false-negative ทางเทคนิคก่อน (prozone/hook = Ab/Ag เกิน, หรือ window period) → **เจือจาง (dilute) แล้วซ้ำ / นัดเจาะใหม่** อย่ารายงาน "negative/ปกติ" ทันที. **negative ไม่ได้แปลว่า rule-out เสมอ.**
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+> 🛑 **RED FLAGS — เจอข้อใด = หยุด confirm ก่อนรายงาน อย่าเชื่อ screen เดี่ยว:** reactive screen HIV/syphilis/HCV กำลังจะรายงาน positive · ผลขัด clinical (ลบทั้งที่ป่วยชัด → prozone/window · สูงผิด → hook) · HBV panel แยก acute/chronic · HIV algorithm / window period · สงสัย biotin/HAMA interference. — reactive screen ≠ diagnosis
 
 ## ใช้เมื่อ
 - ต้องเลือก immunoassay format ให้เหมาะกับ analyte (sandwich vs competitive vs CLIA/ECLIA vs lateral flow)
@@ -7801,6 +7807,8 @@ disclaimer: "skill นี้เป็นเครื่องช่วยคิ�
 > 🇹🇭 **ปรึกษาด่วน (ไทย):** **ศูนย์พิษวิทยา รามาธิบดี — สายด่วน 1367** (24 ชม.) สำหรับ antidote/management/identification ของสารพิษ · งาน forensic: chain-of-custody ยึดระเบียบ **นิติเวช/ตำรวจ** เพื่อให้ผลใช้ในศาลได้
 
 > ⚠️ **ขอบเขต:** ตัวเลขในสกิล = teaching illustration — ค่าตัดสินจริงยึด **ref/baseline แลบคุณ + SOP** เสมอ · logic เน้น **ผู้ใหญ่**; เด็ก/ทารก/ตั้งครรภ์ (dose/antidote/chelator) ยึด **protocol เฉพาะทาง + ปรึกษาแพทย์/ศูนย์พิษวิทยา 1367**
+
+> 🛑 **RED FLAGS — เจอข้อใด = หยุด ยืนยันกับแพทย์/ศูนย์พิษวิทยา 1367 ก่อน อย่าเชื่อ AI เดี่ยว:** จะให้ antidote/chelator (OP/โลหะ/methanol) · cholinergic crisis แยก OP-vs-carbamate ไม่ได้ · เด็ก/ตั้งครรภ์ · forensic/ตัวอย่างใช้ในศาล · screen-positive กำลังจะรายงานโดยไม่ confirm · critical level (paracetamol/methanol/lithium). — ผิด = ถึงชีวิต
 
 ## ใช้เมื่อ
 - "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"

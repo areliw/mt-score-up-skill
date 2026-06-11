@@ -12,7 +12,7 @@
 | `ai-coding-guardrails` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-coding-guardrails.md | 2026-06-08 |
 | `anti-hallucination` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/anti-hallucination.md | 2026-06-04 |
 | `applied-microbiology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/applied-microbiology-judgment.md | 2026-06-04 |
-| `bloodbank-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/bloodbank-judgment.md | 2026-06-04 |
+| `bloodbank-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/bloodbank-judgment.md | 2026-06-11 |
 | `chemistry-interpretation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/chemistry-interpretation-judgment.md | 2026-06-04 |
 | `choose-stat-test` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/choose-stat-test.md | 2026-06-04 |
 | `clinchem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinchem-judgment.md | 2026-06-04 |
@@ -37,9 +37,9 @@
 | `hematology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/hematology-judgment.md | 2026-06-04 |
 | `humanize-ai-writing` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/humanize-ai-writing.md | 2026-06-08 |
 | `ikigai-finder` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ikigai-finder.md | 2026-06-04 |
-| `immunoassay-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/immunoassay-judgment.md | 2026-06-04 |
+| `immunoassay-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/immunoassay-judgment.md | 2026-06-11 |
 | `incident-postmortem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/incident-postmortem-judgment.md | 2026-06-08 |
-| `infection-control-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/infection-control-judgment.md | 2026-06-04 |
+| `infection-control-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/infection-control-judgment.md | 2026-06-11 |
 | `interactive-course` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interactive-course.md | 2026-06-08 |
 | `ivd-sales-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ivd-sales-judgment.md | 2026-06-04 |
 | `know-yourself` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/know-yourself.md | 2026-06-04 |

@@ -147,6 +147,7 @@
 | [ai-coding-guardrails](./skills/ai-coding-guardrails.md) | กันกับดักให้ AI เขียนโค้ด — ขอบเขตแคบ · surgical edit · success ที่ตรวจได้ · กัน over-engineer |
 | [spreadsheet-judgment](./skills/spreadsheet-judgment.md) | ใช้ Excel/Sheets ให้ถูก + กัน silent error (date/auto-convert/copy เพี้ยน) ในข้อมูลแล็บ |
 | [mt-databases](./skills/mt-databases.md) | เก็บข้อมูล MT: Sheets vs Access vs SQL เลือกเมื่อไหร่ · structure กันพัง · backup/สิทธิ์ |
+| [git-workflow-judgment](./skills/git-workflow-judgment.md) | Git: branch/commit/merge/conflict ไม่ให้งานหาย · main protect/PR flow · กู้ commit หาย (orphan/reflog) · CRLF/CI drift |
 
 ### 🗂️ จัดการ
 | skill | ช่วยอะไร |

@@ -111,6 +111,7 @@
 - **ai-coding-guardrails** — คุณไม่ต้องเขียนโค้ดเป็นก็คุม AI ได้ — skill นี้ให้ "กฎสั่งงาน" ที่กันไม่ให้ AI เขียนเกินจำเป็น เดาเงียบๆ หรือรื้อของที่ใช้อยู่จนพัง
 - **spreadsheet-judgment** — ใช้ Excel/Sheets กับข้อมูลแล็บให้ถูก + กัน silent error (date auto-convert · เลขกลายเป็นข้อความ · copy เพี้ยน) — เน้น จุดที่ spreadsheet โกหกเงียบๆ
 - **mt-databases** — เก็บข้อมูล MT ควรใช้ Sheets vs Access vs SQL เมื่อไหร่ · ออกแบบ structure กันพัง · backup/สิทธิ์เข้าถึง — เน้น เลือกเครื่องมือตามขนาด/ความเสี่ยง ไม่ over-engineer
+- **git-workflow-judgment** — git หน้างาน: branch/commit/merge/resolve conflict · main protect + PR flow · กู้งานที่ "หาย" (orphan commit/reflog) · CRLF/CI drift ข้าม platform — ยึด `git diff` เป็นความจริง ไม่เชื่อ "done"
 
 ### 🗂️ จัดการ
 - **never-lose-a-file** — ระบบจัดไฟล์ให้เป็นระเบียบ แล้วไม่หายอีก

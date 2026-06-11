@@ -40,6 +40,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 - **IQC** (control ทุกวันก่อนตรวจคนไข้) คุม **precision** → ดู %CV, Levey-Jennings · ⚠️ ตั้ง limit ตามกฎ #1 (mean/SD แล็บเอง, CLSI C24)
 - **EQA/PT** (ส่งเทียบ peer) คุม **accuracy** → ได้ **bias** = (mean lab − mean peer)/mean peer ×100
 - กับดัก: **IQC ผ่านสวยแต่ inaccurate ได้** (bias คงที่ L-J จับไม่ได้ — ต้องพึ่ง EQA)
+- 🇹🇭 **EQA/PT ในไทย:** scheme หลักคือของ **กรมวิทยาศาสตร์การแพทย์ (BLQS — สำนักมาตรฐานห้องปฏิบัติการ)** — ผล EQA ผูกกับการรับรอง **LA/สภาเทคนิคการแพทย์** (เสริม international scheme ได้); CLSI EP23/C24 + ISO 15189 = อ้างอิงสากล
 
 ### Fork 3 — Sigma-based QC planning (จุดประหยัดจริง)
 ```

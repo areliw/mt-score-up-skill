@@ -4,7 +4,7 @@ title: สถิติเฉพาะ MT — method comparison / reference inter
 type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
+last_edited: 2026-06-11
 status: draft
 disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -35,6 +35,7 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 - **Bland-Altman**: plot ผลต่าง vs ค่าเฉลี่ย → bias (mean diff) + limits of agreement (±1.96SD); ดูว่า bias อยู่ในเกณฑ์ยอมรับทางคลินิกไหม
 - **Passing-Bablok / Deming regression** (ไม่ใช่ OLS — เพราะ x ก็มี error) → จับ **constant bias (intercept) + proportional bias (slope)**
 - อ้าง **CLSI EP09**; **ห้ามใช้ r/paired-t** ตัดสิน agreement
+- 🇹🇭 CLSI EP เป็นวิธีสากล (ไม่มี Thai equivalent) — แต่ verification ที่ทำเพื่อขอ/ต่อ **accreditation ไทย** ต้องผ่านเกณฑ์แลบ + **อนุมัติโดย MT ผู้รับผิดชอบ ตามมาตรฐานงานเทคนิคการแพทย์ (LA)/สภาเทคนิคการแพทย์** ("CLSI pass" อย่างเดียวไม่พอ)
 
 ### Fork 2 — Reference interval
 - **CLSI EP28**: nonparametric **2.5/97.5 percentile**, ต้อง **n ≥ 120** (per partition)

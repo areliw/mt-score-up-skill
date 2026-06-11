@@ -30,6 +30,7 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 - ✅ Hospital-specific เลขที่เอกสาร → ใช้ `[TBD]`
 - ✅ Lot number specific → ลบหรือใช้ placeholder
 - ✅ Date specific (ที่ correlate กับ patient) → ลบ
+- ✅ **ส่งเป็นรูป / ถ่ายโน้ตมือ** → เช็ค **ขอบภาพ + ฉากหลัง** (จอ LIS/worklist, sticker หลอด, ไวท์บอร์ด ที่มี HN/ชื่อ) และ **ลบ metadata/EXIF** (พิกัด GPS/เวลา) ก่อนส่ง — guard ข้อความจับ PHI ในรูปไม่ได้
 
 **ชื่อไฟล์อิสระ** — ไทย / อังกฤษ / ผสม (เช่น `PRC ตัวอย่าง B.md`, `abo-grouping.md`). AI scan content + classify ให้เอง ไม่ต้องคิด structure
 

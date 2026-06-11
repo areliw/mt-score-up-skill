@@ -96,7 +96,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 1. รายงาน contaminant เป็น pathogen — CoNS 1 ขวด, urine 3+ ชนิด, sputum oral flora.
 2. ไม่ correlate กับ Gram เดิม — AST/ID ขัด Gram smear = หยุด ทวน.
 3. Misread AST — ESBL / inducible clinda / β-lactamase Staph → ปล่อยยาที่ใช้ไม่ได้จริง.
-4. Miss MDR ที่ต้องรายงานด่วน — MRSA/VRE/ESBL/CRE/MDR-TB ไม่ flag → ระบาดในวอร์ด.
+4. Miss MDR ที่ต้องรายงานด่วน — MRSA/VRE/ESBL/CRE/MDR-TB ไม่ flag → ระบาดในวอร์ด. 🇹🇭 **MDR-TB + เชื้อเฝ้าระวังบางตัวต้องรายงานตามระบบ กรมควบคุมโรค (DDC)** (โรคติดต่อที่ต้องแจ้ง) · ข้อมูล AST ป้อนเข้า **NARST** (national AMR surveillance) — เก็บ isolate + แจ้ง IC/ระบาดวิทยาตาม policy รพ. (CLSI breakpoint/IDSA = อ้างอิงเทคนิคสากล)
 5. เลือก media/atmosphere ผิด → false-negative เงียบ.
 6. Process sputum คุณภาพแย่ → เลี้ยง oral flora รายงานเป็นเชื้อปอด.
 7. Smear-negative = ไม่มี TB (ผิด) — ต้อง culture/GeneXpert.

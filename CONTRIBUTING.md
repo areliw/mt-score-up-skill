@@ -15,7 +15,7 @@
 
 หัวใจของ skill = **judgment ไม่ใช่ knowledge** → เก็บ "เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้" ตัดสิ่งที่ตำรา/AI รู้อยู่แล้วทิ้ง
 
-**รูปแบบไฟล์** (ดูตัวอย่างใน `skills/`): frontmatter (`skill`/`title`/`type`/`needs`/`author`/`disclaimer`) → ใช้เมื่อ → วิธีใช้ → วิธีทำ → กับดัก → ช่องผู้เชี่ยวชาญเติม → disclaimer
+**รูปแบบไฟล์** (ดูตัวอย่างใน `skills/`): frontmatter (`skill`/`title`/`type`/`needs`/`author`/`contributors`?/`disclaimer`) → ใช้เมื่อ → วิธีใช้ → วิธีทำ → กับดัก → ช่องผู้เชี่ยวชาญเติม → disclaimer · (`contributors` = optional ดู [Credit](#-credit))
 - **type:** `ADVISE` (แนะนำ) · `DO` (รันจริง) · `CALIBRATION` (ปรับวิธีทำงาน AI)
 - **PII:** ห้ามมีชื่อคน/โรงพยาบาล/รหัสวิชา/แหล่งเฉพาะ — generalize ก่อนเสมอ
 - **voice:** ภาษากลาง (เป็นของสาธารณะที่คนอื่น copy ไปใช้)
@@ -117,9 +117,12 @@ PR จะถูก review ตาม:
 
 ## 🙏 Credit
 
-Contributors ทุกคนได้ลงชื่อใน [`CONTRIBUTORS.md`](./CONTRIBUTORS.md)
+เครดิตมี **3 ชั้น — แยกตาม "ใส่อะไร" ไม่ใช่ "พิมพ์เยอะแค่ไหน":**
+- **`author:` (frontmatter ของ skill)** = คนที่ใส่ **แก่น judgment** (เขียน/rewrite ทั้งตัว). หลายคน → เรียง **substance มากสุดขึ้นก่อน** — *วัดที่ judgment ที่เพิ่ม ไม่ใช่จำนวนบรรทัด* และ **อัปเดตเฉพาะตอนมีคนเติมแก่นจริง** ไม่สลับชื่อทุก typo
+- **`contributors:` (optional, frontmatter)** = คนที่ **graft fork/กับดัก/เคส** เข้า skill ที่มีอยู่ — **เพิ่มต่อท้าย ไม่ reshuffle** เช่น `contributors: ["ปอนด์ — graft กับดัก ABO discrepancy"]`
+- **[`CONTRIBUTORS.md`](./CONTRIBUTORS.md)** = ทะเบียนรวมทุกคน (skill ใหม่ · correction · test · โค้ด) รูปแบบ: `[ชื่อ/นามแฝง] · [สังกัด/—] · [contribution]`
 
-ใส่ในรูปแบบ: `[ชื่อ-นามสกุล] - [โรงพยาบาล/สังกัด] - [contribution]`
+> "ใครเปลี่ยนเยอะสุด" ดูจาก git เอง (`git shortlog -sn skills/<file>`) ไม่ต้อง maintain มือ — credit string เก็บไว้สำหรับ **substance** ที่ git วัดไม่ได้
 
 ## 📞 ติดต่อ
 

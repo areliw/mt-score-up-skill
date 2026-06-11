@@ -20,6 +20,7 @@ import re
 import sys
 import urllib.error
 import urllib.request
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -42,6 +43,11 @@ SOURCES = [
         "url": "https://www.iso.org/standard/72191.html",
         "pattern": re.compile(r"ISO\s+15190:(\d{4})"),
         "current_year": "2020",
+        # iso.org stage 90.92 "International Standard to be revised" (revision opened
+        # 2025-11-28); the 2020 edition is still the current published one. Acknowledged on
+        # human review 2026-06-11 so the monthly recheck doesn't re-flag this known state.
+        # Drop/update this line when a new edition publishes or the stage advances.
+        "known_stage": "90.92",
     },
 ]
 
@@ -61,6 +67,75 @@ def fetch(url: str, timeout: int = 30) -> str:
         return resp.read().decode("utf-8", errors="replace")
 
 
+_VOID_TAGS = frozenset({
+    "area", "base", "br", "col", "embed", "hr", "img", "input",
+    "link", "meta", "param", "source", "track", "wbr",
+})
+_STAGE_TITLE_RE = re.compile(
+    r"international standard (?:published|to be revised|withdrawn|confirmed|under review)"
+    r"|withdrawal of international standard"
+)
+# Stage codes at which an UN-pinned standard is still its current edition (no review needed):
+# 60.60 = International Standard published, 90.93 = confirmed after systematic review. Any other
+# active code — to-be-revised, under review, withdrawn, or an unknown/future code — is sent to
+# human review rather than silently re-stamped. A source may pin a different code via `known_stage`.
+CURRENT_STAGES = frozenset({"60.60", "90.93"})
+
+
+class _StageBlockParser(HTMLParser):
+    """Collect the text of ONLY the element whose ``id="stageId"`` (including its nested tags),
+    so stage parsing can never spill into the page-wide ``#lifecycle`` legend or other markup.
+    Depth tracking ignores void tags so an unclosed ``<img>``/``<br>`` can't unbalance it."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self._depth = 0
+        self.text_parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if self._depth:
+            if tag not in _VOID_TAGS:
+                self._depth += 1
+        elif dict(attrs).get("id") == "stageId":
+            self._depth = 1
+
+    def handle_endtag(self, tag):
+        if self._depth and tag not in _VOID_TAGS:
+            self._depth -= 1
+
+    def handle_data(self, data):
+        if self._depth:
+            self.text_parts.append(data)
+
+
+def _active_stage(html: str):
+    """Return ``(title, code)`` of the standard's ACTIVE lifecycle stage, read from the text of
+    iso.org's ``id="stageId"`` element — e.g. ``Stage : International Standard to be revised
+    [90.92]`` -> ``("International Standard to be revised", "90.92")``. Returns ``(None, None)``
+    if the element is absent, carries no bracketed ``[code]``, names more than one stage, or is
+    implausibly long (an unclosed block that would otherwise swallow the rest of the page).
+
+    The element is ISOLATED with an HTML parser before parsing — never a free-text scan of the
+    whole page — so it cannot drift into the page-wide ``#lifecycle`` legend (which lists every
+    stage for every standard) or a link to another standard. A global phrase match used to flag
+    even a Published standard (false positive); a proximity window missed the active banner ~1.9k
+    chars away (false negative) and could still reach an adjacent legend entry. Reading only the
+    stageId element's own text removes both failure modes: anything unexpected yields
+    ``(None, None)`` -> the caller emits an exit-1 "fix parser" signal, never a silent OK."""
+    parser = _StageBlockParser()
+    parser.feed(html)
+    text = re.sub(r"\s+", " ", "".join(parser.text_parts)).strip()
+    if not text or len(text) > 300:                 # absent, or an unclosed block that ran away
+        return None, None
+    if len(set(_STAGE_TITLE_RE.findall(text.lower()))) > 1:   # ambiguous: more than one stage
+        return None, None
+    code_m = re.search(r"\[\s*(\d{2}\.\d{2})", text)
+    if not code_m:                                  # the active stage must carry its own [code]
+        return None, None
+    title = re.sub(r"^\s*Stage\s*:?\s*", "", text.split("[", 1)[0], flags=re.IGNORECASE).strip()
+    return (title or None), code_m.group(1)
+
+
 def check_source(source: dict) -> dict:
     try:
         html = fetch(source["url"])
@@ -77,25 +152,44 @@ def check_source(source: dict) -> dict:
 
     # Close the silent false-OK gap: a pinned standard URL keeps serving its OWN edition
     # forever, so "detected==current" alone can't tell "still current" from "superseded but
-    # page not yet updated". iso.org flags a successor two ways — (a) a newer `ISO <n>:<year>`
-    # reference (caught by max() above), or (b) a withdrawal / "has been revised by" banner.
-    # Detect (b) too, so a superseded page is sent to human review (exit 2) instead of stamped OK.
-    low = html.lower()
-    superseded = any(
-        marker in low
-        for marker in (
-            "this standard has been revised",
-            "is being revised by",
-            "has been withdrawn",
-        )
-    )
+    # not yet republished". iso.org signals a successor two ways — (a) a newer `ISO <n>:<year>`
+    # reference (caught by max() above), or (b) the standard's lifecycle STAGE flipping from
+    # "published" to "to be revised"/"withdrawn". Read (b) from the page's single ACTIVE stage
+    # (the `id="stageId"` block) via _active_stage(), NOT from free-text phrases: every page
+    # embeds a `#lifecycle` legend naming all stages, so a global match false-positived a
+    # Published standard and a proximity window false-negatived an actively-revised one.
+    active_title, active_code = _active_stage(html)
+    if active_title is None:
+        # Can't read the active stage — never stamp OK on a page we don't understand.
+        return {
+            "name": source["name"],
+            "error": "active-stage block not found (iso.org layout changed — fix parser)",
+        }
+    # Decide on the active stage CODE, never the title keywords. `known_stage` is a human-in-the-
+    # loop PIN (same pattern as current_year): a reviewer records the code they have accepted and
+    # the workflow stays quiet only while the page still shows that exact code. Comparing the code
+    # directly means EVERY transition is caught — for a pinned source, any code != the pin; for an
+    # un-pinned source, any code outside the "still current" set (published / confirmed). An
+    # unknown or future stage code therefore reaches review too, instead of being silently
+    # re-stamped (the title-keyword test used to miss "under review", "confirmed" and unknowns).
+    known = source.get("known_stage")
+    expected = {known} if known is not None else CURRENT_STAGES
+    acknowledged = known is not None and active_code == known
+    pin_drift = known is not None and active_code != known
+    stage_alarm = active_code not in expected
+    changed = (detected_year != source["current_year"]) or stage_alarm
 
     return {
         "name": source["name"],
         "current_year": source["current_year"],
         "detected_year": detected_year,
-        "superseded": superseded,
-        "changed": detected_year != source["current_year"] or superseded,
+        "active_stage": f"{active_title} [{active_code}]" if active_code else active_title,
+        "active_code": active_code,
+        "known_stage": known,
+        "acknowledged": acknowledged,
+        "pin_drift": pin_drift,
+        "stage_alarm": stage_alarm,
+        "changed": changed,
     }
 
 
@@ -154,23 +248,62 @@ def main() -> int:
             print(f"  [ERR] {r['name']}: {r['error']}")
             has_error = True
         elif r["changed"]:
-            print(
-                f"  [NEW] {r['name']}: file=:{r['current_year']} "
-                f"page=:{r['detected_year']}"
-            )
+            reasons = []
+            if r["detected_year"] != r["current_year"]:
+                reasons.append(
+                    f"new edition :{r['detected_year']} (file :{r['current_year']})"
+                )
+            if r.get("pin_drift"):
+                reasons.append(
+                    f"stage drifted from acknowledged [{r.get('known_stage')}] "
+                    f"-> {r.get('active_stage')}"
+                )
+            elif r.get("stage_alarm"):
+                reasons.append(f"unexpected stage -> {r.get('active_stage')}")
+            if not reasons:  # never emit an empty reason
+                reasons.append(f"stage {r.get('active_stage')}")
+            print(f"  [NEW] {r['name']}: " + " · ".join(reasons))
             has_change = True
+        elif r.get("acknowledged"):
+            print(
+                f"  [ACK] {r['name']}: edition :{r['detected_year']} still current; "
+                f"known stage {r.get('active_stage')} (acknowledged, not re-flagged)"
+            )
         else:
-            print(f"  [OK]  {r['name']}: confirmed :{r['detected_year']}")
+            print(
+                f"  [OK]  {r['name']}: confirmed :{r['detected_year']} "
+                f"({r.get('active_stage', '')})"
+            )
 
-    # A detected edition change must NOT silently rewrite STANDARDS.md or refresh the
-    # "last verified" stamp — that would mask staleness. Leave the file untouched and
-    # signal for human review (the workflow opens an issue/PR on exit 2).
+    # A detected change must NOT silently rewrite STANDARDS.md or refresh the "last verified"
+    # stamp — that would mask staleness. Leave the file untouched and signal for human review
+    # (the workflow opens an issue/PR on exit 2). The REMEDY differs by cause, so spell it out:
+    # a new edition year needs current_year bumped; a same-year lifecycle-stage drift needs
+    # known_stage reviewed/updated. Telling a human to bump current_year for a 90.92 -> 90.93
+    # move (same edition) would be wrong, so the two cases are reported separately.
     if has_change:
-        print(
-            "\n[ACTION] Newer edition detected — STANDARDS.md left unchanged.\n"
-            "         A human must verify the edition, update STANDARDS.md, and bump\n"
-            "         current_year in this script via PR."
-        )
+        print("\n[ACTION] Change detected — STANDARDS.md left unchanged. Verify via PR:")
+        for r in (x for x in results if x.get("changed")):
+            # List EVERY applicable remedy. A new edition and a stage move can fire together
+            # (e.g. a revision publishes: year bumps AND the pinned 90.92 -> 60.60); the
+            # maintainer must then do BOTH — bump current_year AND clear the now-stale pin.
+            steps = []
+            if r["detected_year"] != r["current_year"]:
+                steps.append(
+                    f"NEW EDITION :{r['detected_year']} (file :{r['current_year']}) — verify it, "
+                    f"update STANDARDS.md, and bump current_year"
+                )
+            if r.get("pin_drift"):
+                steps.append(
+                    f"STAGE moved from acknowledged [{r.get('known_stage')}] -> "
+                    f"{r.get('active_stage')} — update/clear known_stage"
+                )
+            elif r.get("stage_alarm"):
+                steps.append(
+                    f"unexpected STAGE -> {r.get('active_stage')} — review it (pin via "
+                    f"known_stage if it is a stable non-published stage)"
+                )
+            print(f"         • {r['name']}: " + "; and ".join(steps) + ".")
         return 2
 
     # On a fetch/parse error, do NOT refresh date stamps — stamping "verified" when a

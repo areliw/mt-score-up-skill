@@ -96,7 +96,12 @@ def main() -> int:
     for pair in args[1:]:
         if "=" in pair:
             old, _, new = pair.partition("=")
-            replacements[old.strip()] = new.strip()
+            old = old.strip()
+            if not old:
+                # Empty search key matches between every char (e.g. 'AB'->'XAXBX'); reject.
+                print(f"WARNING: skipping '{pair}' — empty old/search name before '='")
+                continue
+            replacements[old] = new.strip()
     if not doc_path.exists():
         print(f"ERROR: {doc_path} not found")
         return 1
@@ -111,6 +116,10 @@ def main() -> int:
 
     if dry_run:
         print(f"DRY RUN — {n} occurrence(s) would change in {doc_path.name} (not saved)")
+        return 0
+
+    if n == 0:
+        print(f"No occurrences found in {doc_path.name} — nothing changed (not saved)")
         return 0
 
     # This script overwrites its input in place → back up the original first.

@@ -104,14 +104,16 @@ def _write_if_changed(path: Path, content: str) -> bool:
 
 def write_triage_catalog(rows) -> bool:
     if not TRIAGE.exists():
-        return False
+        sys.exit(f"ERROR: router file missing: {TRIAGE} — cannot sync catalog. "
+                 "Restore prompts/triage.md (with CATALOG markers) before building.")
     def entry(n, d, u):
         line = f"- `{n}` — {d}" if d else f"- `{n}`"
         return line + (f"\n  ↳ ใช้เมื่อ: {u}" if u else "")
     catalog = "\n".join(entry(n, d, u) for n, d, _e, u in rows)
     doc = TRIAGE.read_text(encoding="utf-8")
     if START not in doc or END not in doc:
-        return False
+        sys.exit(f"ERROR: router file {TRIAGE} is missing CATALOG markers "
+                 f"({START} / {END}) — cannot sync catalog. Restore the markers before building.")
     new = re.sub(re.escape(START) + r".*?" + re.escape(END), f"{START}\n{catalog}\n{END}", doc, flags=re.S)
     return _write_if_changed(TRIAGE, new) if new != doc else False
 

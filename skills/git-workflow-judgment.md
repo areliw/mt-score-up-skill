@@ -34,7 +34,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 ### Fork 1 — ทำบน branch ไหน
 - **main ถูก protect (require-PR):** ทุกการเปลี่ยน = **branch สดจาก `origin/main` → push → PR → ให้คน merge** (แม้ admin bypass ได้ ก็ควรผ่าน PR เพื่อ review + CI)
 - **branch ใหม่ทุกงาน — อย่าทำต่อบน branch ที่ merge แล้ว** (stale → commit ใหม่บนนั้น = orphan ไม่เข้า main)
-- **`git fetch origin main` ก่อนเสมอ** แล้ว `git checkout -B <new> origin/main` → กัน divergence/conflict ทีหลัง
+- **`git fetch origin main` ก่อนเสมอ** แล้ว `git switch -c <new> origin/main` (หรือ `git checkout -b` — *fail* ถ้าชื่อ branch มีอยู่แล้ว = กันเขียนทับ) → กัน divergence/conflict ทีหลัง · ⚠️ **อย่าใช้ `-B`/`git reset` กับ branch ใหม่** — `-B` *force-reset* branch ชื่อเดิมที่มีอยู่ทิ้งเงียบๆ (งานหาย) → สงวนไว้เฉพาะตอนตั้งใจ reset จริงๆ
 
 ### Fork 2 — Commit: atomic + message ที่ตามได้
 - **1 commit = 1 เรื่องที่ revert อิสระได้** — อย่าผสม content + tooling + rename ในก้อนเดียว (revert/review ยาก)
@@ -49,7 +49,8 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 ### Fork 4 — Resolve conflict (โดยเฉพาะ generated file)
 - **generated file (bundle/lock/catalog) ชน → อย่าแก้มือ → regenerate** บน base ที่ merge แล้ว (deterministic + ถูกกว่าแก้เอง)
 - 2 ฝั่งแก้ **คนละบรรทัด = git auto-merge** (ไม่ conflict) → conflict จริงเกิดตอนแก้ทับบรรทัดเดียวกัน
-- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (เอา base) → **re-apply การแก้ของเราทับ** → แล้ว **verify `git diff <base>..HEAD -- <file>` ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ** ไม่มีของหาย
+- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (ฝั่งไหนต้องเช็คก่อน — ❌ ไม่ใช่ merge-base) → **re-apply การแก้ของเราทับ** → แล้ว **verify `git diff <base>..HEAD -- <file>` ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ** ไม่มีของหาย
+  - ⚠️ **`--ours`/`--theirs` หมายความสลับกันตาม operation:** ใน **merge** → `--ours`=branch ปัจจุบันของเรา, `--theirs`=branch ที่ merge เข้ามา (เช่น `origin/main`) · ใน **rebase** → *สลับกัน* (`--ours`=branch ที่ rebase ไปอยู่บน, `--theirs`=commit ของเราที่กำลัง replay) → **ยืนยันว่าจะเอาฝั่งไหนจาก context เสมอ + verify ด้วย `git diff` หลังทำ** (พลาดทิ้งผิดฝั่งง่ายมาก)
 
 ### Fork 5 — main ถูก protect: ใครแก้ได้ + flow
 - require-PR + **ยกเว้น admin (`enforce_admins=false`):** owner push ตรงได้, คนอื่น/บอท ต้องผ่าน PR · personal repo ตั้ง "เฉพาะคนนี้ push" ไม่ได้ (เป็น org feature) — "เฉพาะ owner" มาจาก **sole-collaborator + rule นี้รวมกัน**

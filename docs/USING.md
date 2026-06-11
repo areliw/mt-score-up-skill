@@ -96,7 +96,7 @@ skill ทุกตัวเป็น **ไฟล์ markdown** — ไม่ต�
 
 ## (g) ทั้งคลังในไฟล์เดียว — `dist/all-skills.md`
 
-[`dist/all-skills.md`](../dist/all-skills.md) รวม **87 skill ในไฟล์เดียว** (~133K tokens) → AI เลือกใช้เองตามคำถาม (self-route) ไม่ต้องเลือกตัวเอง
+[`dist/all-skills.md`](../dist/all-skills.md) รวม **88 skill ในไฟล์เดียว** (~133K tokens) → AI เลือกใช้เองตามคำถาม (self-route) ไม่ต้องเลือกตัวเอง
 
 - **เหมาะ:** Claude / Gemini / Project ที่ context ใหญ่ + อยากให้ AI หยิบ skill เองทั้งบทสนทนา
 - **ไม่เหมาะ:** ChatGPT chat เปล่า/ฟรี — หนักเกิน context · งานที่อยากคุม version เป๊ะ (133K tokens กินที่ ทำให้แชตเต็มเร็ว)

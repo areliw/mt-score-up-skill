@@ -18,7 +18,11 @@ Body rendering applies:
   - Pagination protections: keep_with_next, cantSplit (rows), widow_control
 
 Usage:
-    python scripts/fill_with_docxtpl.py <template_marked.docx> <content.md> <output.docx>
+    python scripts/fill_with_docxtpl.py <template_marked.docx> <content.md> <output.docx> [--append]
+
+By default the body anchor ("1. วัตถุประสงค์") MUST be found in the template; if it is
+missing the script FAILS HARD (nonzero exit) instead of silently appending new content
+after the old template body. Pass --append to opt into the legacy append-at-end behavior.
 """
 from __future__ import annotations
 
@@ -65,9 +69,12 @@ ANCHOR_PATTERNS = ["1. วัตถุประสงค์", "วัตถุ�
 # the same Navigation-Pane outline level.
 _HEADING_STYLE_BY_LEVEL = {1: "Heading 1", 2: "Heading 1", 3: "Heading 2", 4: "Heading 3"}
 
-# Native multilevel numbering — uses numId definitions already in the marked template.
+# Native multilevel numbering — prefers numId definitions in the marked hospital template.
 # numId=19 (abstractNum=1) starts at 4 → for procedure clause "4. ขั้นตอนการทำงาน"
 # numId=17 (abstractNum=1, override start=1) → fallback for clauses 5+
+# These are the IDS the curated hospital templates ship with; in a plain .docx that only
+# defines numId 1-9 they do NOT exist, so _resolve_num_id() falls back to an existing numId
+# (or None → skip native numbering) instead of emitting a dangling reference.
 NUM_ID_BY_CLAUSE = {4: 19}
 NUM_ID_DEFAULT = 17
 _NUMBERED_PATTERN = re.compile(r"^(\d+)((?:\.\d+)+)\s+(.*)$")
@@ -248,9 +255,57 @@ def _apply_widow_control(paragraph) -> None:
 # Native multilevel numbering (proposal 01)
 # ----------------------------------------------------------------------------
 
-def _apply_native_numbering(paragraph, clause: int, ilvl: int) -> None:
-    """Attach Word multilevel numbering to this paragraph (auto-renumbers on edit)."""
-    num_id = NUM_ID_BY_CLAUSE.get(clause, NUM_ID_DEFAULT)
+def _existing_num_ids(doc) -> set[int]:
+    """Return the set of w:numId values actually defined in the document's numbering part.
+
+    A plain .docx may only define numId 1-9; the curated hospital templates define 17/19.
+    Referencing a numId that isn't here yields broken/blank numbering in Word, so callers
+    resolve the desired numId against this set first.
+    """
+    try:
+        numbering_el = doc.part.numbering_part.element
+    except (NotImplementedError, KeyError, AttributeError):
+        return set()
+    ids: set[int] = set()
+    for num in numbering_el.findall(qn("w:num")):
+        val = num.get(qn("w:numId"))
+        if val is not None:
+            try:
+                ids.add(int(val))
+            except ValueError:
+                pass
+    return ids
+
+
+def _resolve_num_id(doc, clause: int) -> int | None:
+    """Pick a numId that EXISTS in `doc` for this clause, or None to skip native numbering.
+
+    Preference order:
+      1. The clause's INTENDED numId — NUM_ID_BY_CLAUSE[clause] (e.g. 19 for clause 4), or
+         NUM_ID_DEFAULT only for a clause with no specific mapping — and only if the template
+         actually defines it.
+      2. None → caller keeps the literal "4.1" text via manual numbering.
+
+    We never substitute a DIFFERENT numId than the clause's intended one. NUM_ID_DEFAULT (17)
+    is not clause-4-specific: it (and any other existing list definition) may be single-level,
+    lack ilvl=1, or start at 1, so reusing 17 for clause 4 renders "4.1" as a blank or "1.x"
+    heading. When the clause's intended numId is absent, manual (literal) numbering is the safe
+    path — it preserves the source text exactly.
+    """
+    available = _existing_num_ids(doc)
+    if not available:
+        return None
+    preferred = NUM_ID_BY_CLAUSE.get(clause, NUM_ID_DEFAULT)
+    if preferred in available:
+        return preferred
+    return None  # clause's intended numId not defined → manual numbering (never substitute another)
+
+
+def _apply_native_numbering(paragraph, num_id: int, ilvl: int) -> None:
+    """Attach Word multilevel numbering to this paragraph (auto-renumbers on edit).
+
+    `num_id` MUST be a numId that exists in the document (see _resolve_num_id).
+    """
     pPr = paragraph._p.get_or_add_pPr()
     for old in pPr.findall(qn("w:numPr")):
         pPr.remove(old)
@@ -280,10 +335,13 @@ def _maybe_render_numbered(doc, line: str):
     clause = int(m.group(1))
     if clause not in NUM_ID_BY_CLAUSE:
         return None  # No start-aware numId for this clause; use manual indent instead
+    num_id = _resolve_num_id(doc, clause)
+    if num_id is None:
+        return None  # Target doc defines no usable numId; fall back to manual indent
     depth = m.group(2).count(".")  # "4.1" → 1, "4.1.1" → 2, "4.1.1.1" → 3
     body_text = m.group(3).strip()
     p = doc.add_paragraph(body_text)
-    _apply_native_numbering(p, clause=clause, ilvl=depth)
+    _apply_native_numbering(p, num_id=num_id, ilvl=depth)
     _apply_widow_control(p)
     return p
 
@@ -566,13 +624,18 @@ def render_markdown(doc, md_text: str) -> None:
 
 
 def main() -> int:
-    if len(sys.argv) != 4:
+    args = sys.argv[1:]
+    allow_append = False
+    if "--append" in args:
+        allow_append = True
+        args = [a for a in args if a != "--append"]
+    if len(args) != 3:
         print(__doc__)
         return 2
 
-    template_path = Path(sys.argv[1])
-    content_path = Path(sys.argv[2])
-    output_path = Path(sys.argv[3])
+    template_path = Path(args[0])
+    content_path = Path(args[1])
+    output_path = Path(args[2])
 
     if not template_path.exists():
         print(f"ERROR: template not found: {template_path}")
@@ -600,7 +663,15 @@ def main() -> int:
         doc = Document(tmp_path)
         anchor = find_anchor(doc)
         if anchor is None:
-            print("WARNING: anchor 'วัตถุประสงค์' not found in template — appending body at end")
+            if not allow_append:
+                print(
+                    "ERROR: body anchor 'วัตถุประสงค์' not found in template "
+                    f"({template_path}). The generated WI would otherwise keep the old "
+                    "template body AND append the new content. Mark the anchor in the "
+                    "template, or pass --append to force append-at-end behavior."
+                )
+                return 1
+            print("WARNING: anchor 'วัตถุประสงค์' not found — --append set, appending body at end")
         else:
             removed = delete_from_anchor_to_sectpr(doc, anchor)
             print(f"Pass 2: deleted {removed} body elements, will append markdown content")

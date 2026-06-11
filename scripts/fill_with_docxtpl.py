@@ -283,8 +283,12 @@ def _resolve_num_id(doc, clause: int) -> int | None:
     Preference order:
       1. The clause's configured numId (e.g. 19) if the template actually defines it.
       2. The default numId (17) if defined.
-      3. Any existing multilevel numId in the document.
-      4. None → caller falls back to manual indent (no dangling numId reference).
+      3. None → caller keeps the literal "4.1" text via manual numbering.
+
+    Only the template's configured numIds (NUM_ID_BY_CLAUSE / NUM_ID_DEFAULT) are trusted to
+    start at the right clause level. We do NOT borrow an arbitrary existing list definition:
+    it may be single-level, lack ilvl=1, or start at 1 → blank or "1.x" headings instead of
+    "4.x". When neither configured numId is defined, fall back to manual (literal) numbering.
     """
     available = _existing_num_ids(doc)
     if not available:
@@ -294,7 +298,7 @@ def _resolve_num_id(doc, clause: int) -> int | None:
         return preferred
     if NUM_ID_DEFAULT in available:
         return NUM_ID_DEFAULT
-    return min(available)
+    return None  # no known-compatible numId → manual numbering preserves the source text
 
 
 def _apply_native_numbering(paragraph, num_id: int, ilvl: int) -> None:

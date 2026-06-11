@@ -16,9 +16,9 @@
 
 - On each skill's **own worst-case trap**, given to a **weak** model (Haiku), blind-judged:
   **9 rescued · 16 better · 19 tie · 7 style-cost · 2 no-rescue · 0 regression** (n=53).
-  <sub>(n=53 = the library **at eval time** (v0.2 era). The library is now **88** — the +34 added
-  by v0.6.0 (v0.4.0–v0.6.0) plus the newest skill `git-workflow-judgment` (#88, added after) passed design
-  review but have **not** had a weak-model A/B yet (35 total). See `CHANGELOG.md`.)</sub>
+  <sub>(n=53 = the library **at eval time** (v0.2 era). The library is now **88**. The +34 added by
+  v0.6.0 had a lighter **spot-A/B screen** (round4/5) but not this full blind-judge eval; only the newest
+  skill `git-workflow-judgment` (#88) has had **no** A/B screen at all yet. See `CHANGELOG.md`.)</sub>
 - **0 skills made a weak model more dangerous.** No skill turned a correct answer into a
   trap-fall. The 9 raw "backfires" are 7 *both-answers-correct* style-point losses + 2
   *both-failed* no-rescues.

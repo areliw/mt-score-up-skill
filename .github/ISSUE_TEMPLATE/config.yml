@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: "📋 ส่งความรู้/วิจารณญาณ (Google Form — ไม่ต้องมี GitHub)"
+    url: https://forms.gle/N7RsgZqrHkikgfKK6
+    about: "MT หน้างานไม่มี GitHub — เล่าเคส + กับดักผ่านฟอร์ม (ลบข้อมูลคนไข้ก่อน) maintainer เรียบเรียงเป็น skill ให้"
   - name: 📖 วิธีร่วมสมทบ (CONTRIBUTING)
     url: https://github.com/areliw/mt-score-up-skill/blob/main/CONTRIBUTING.md
     about: "ก่อนส่ง skill — ดูหลักการ judgment-not-knowledge + การ de-identify"

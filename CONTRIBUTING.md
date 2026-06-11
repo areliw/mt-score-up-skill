@@ -79,8 +79,7 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 
 1. *(ไม่บังคับ แต่ช่วยมาก)* ร่างให้เนียนก่อนด้วย **AI** — แปะ [prompt ตัวช่วย](#-ตัวช่วยร่างด้วย-ai)
    ลง ChatGPT / Claude / Gemini แล้วเล่าปัญหา → ได้ proposal พร้อมส่ง + มันเตือนให้ลบข้อมูลคนไข้ก่อน
-2. ส่งทาง **Google Form** (เร็วสุด · ไม่ต้อง login) — ⏳ *ฟอร์มกำลังเปิด เร็วๆ นี้*; ระหว่างนี้ทักเพจ Score UP หรือเปิด GitHub Issue (ข้อ ⚙️ ด้านล่าง)
-   <!-- maintainer: เมื่อมีลิงก์ Google Form จริง แทนบรรทัดนี้ (+ ในส่วน "ติดต่อ") ด้วย 👉 **[ส่งความรู้เข้าคลัง](URL)** -->
+2. ส่งทาง **[Google Form — ส่งความรู้เข้าคลัง](https://forms.gle/N7RsgZqrHkikgfKK6)** (เร็วสุด · ไม่ต้อง login) · หรือเปิด GitHub Issue (ข้อ ⚙️ ด้านล่าง)
 3. maintainer → triage → AI แปลงเป็น skill → ขึ้นคลัง
 
 ส่งได้ทั้ง **ข้อความ / เสียง / รูปโน้ตมือ** — ขอแค่วิจารณญาณ ไม่ต้องจัดรูปแบบเอง
@@ -123,11 +122,10 @@ Contributors ทุกคนได้ลงชื่อใน [`CONTRIBUTORS.md`
 
 ## 📞 ติดต่อ
 
-- 📋 **ส่งความรู้ (ไม่ต้องมี GitHub):** Google Form ⏳ *กำลังเปิด* — ระหว่างนี้ทักเพจ Score UP
+- 📋 **ส่งความรู้ (ไม่ต้องมี GitHub):** **[Google Form](https://forms.gle/N7RsgZqrHkikgfKK6)** — หรือทักเพจ Score UP
 - 🐙 **GitHub** Issues / Discussions: bug · คำถาม · feature
 - 💬 **แค่อยากให้ feedback** (ไม่ได้จะ contribute เต็มรูป) → [`docs/FEEDBACK.md`](./docs/FEEDBACK.md)
 - 🛠️ **maintainer** — วิธีรับ submission → triage → แปลงเป็น skill → [`contributions/INTAKE.md`](./contributions/INTAKE.md)
-- (FB MT group link: TBD)
 
 ---
 

@@ -31,7 +31,7 @@
 | ช่อง | มาจากไหน | maintainer ทำอะไร |
 |---|---|---|
 | **GitHub Issue** `skill-proposal` / `correction` | คนมี GitHub กดเอง | มีอยู่แล้ว — ไป triage ต่อได้เลย |
-| **Google Form** | MT หน้างาน ไม่มี GitHub *(ฟอร์มยังไม่ live — ดูหมายเหตุ)* | ก๊อปคำตอบ → เปิด Issue ใหม่แทนเขา ใส่ label `skill-proposal` |
+| **[Google Form](https://forms.gle/N7RsgZqrHkikgfKK6)** | MT หน้างาน ไม่มี GitHub | ก๊อปคำตอบ → เปิด Issue ใหม่แทนเขา ใส่ label `skill-proposal` |
 | **เพจ / แชต / โน้ตมือ / เสียง** | ทักมาตรงๆ | สรุปเป็นข้อความ → เปิด Issue แทนเขา · เก็บที่มาไว้ให้ credit |
 
 **ทำไมต้องรวมที่ Issue:** ทุกอย่างมี trail เดียว ค้นซ้ำได้ ไม่ตกหล่น และ PR ที่ตามมา
@@ -42,10 +42,7 @@ link `Closes #<issue>` ได้ → ปิด loop อัตโนมัติ.
 - ข้อความดิบที่เขาส่ง (เท่าที่ de-identify แล้ว — ดูขั้น 2)
 - ชื่อ/สังกัดที่เขาอยากให้ลง credit (ถ้าให้มา) **หรือ** ระบุว่าขอ anonymous
 
-> **หมายเหตุ — Google Form ยังไม่ live:** สคริปต์สร้างฟอร์มอยู่ที่
-> [`../scripts/create_contribution_form.gs`](../scripts/create_contribution_form.gs)
-> (พร้อมรัน แต่ยังไม่ deploy). จนกว่าจะ deploy + แปะลิงก์จริงใน `CONTRIBUTING.md`
-> ช่อง "ไม่มี GitHub" วิ่งผ่านเพจ/แชตไปก่อน. **deploy ฟอร์มเป็นงานค้างของ maintainer.**
+> **Google Form (live):** [forms.gle/N7RsgZqrHkikgfKK6](https://forms.gle/N7RsgZqrHkikgfKK6) — สร้างจาก [`../scripts/create_contribution_form.gs`](../scripts/create_contribution_form.gs). คำตอบเข้า Google Sheet → maintainer ก๊อป → เปิด Issue `skill-proposal` แทนผู้ส่ง (เก็บที่มา + credit).
 
 **Gate 1:** รู้ที่มา + มีข้อความพอจะเข้าใจว่าเขาจะสื่ออะไร → ผ่าน. ถ้ากำกวมจน
 triage ไม่ได้ → ถามกลับเขา **1-2 คำถาม** (อย่าถามพร่ำเพรื่อ) ก่อนไปขั้น 2.
@@ -290,8 +287,8 @@ author: "<ชื่อ-สังกัด ที่เขายอมให้�
 
 ## ของค้าง maintainer (ทำให้ funnel เปิดเต็ม)
 
-ตอนนี้ลานรับยังเปิดไม่สุด — งานค้างที่ปลดล็อกช่อง "ไม่มี GitHub":
-- [ ] **deploy Google Form** — รัน [`../scripts/create_contribution_form.gs`](../scripts/create_contribution_form.gs) → แปะลิงก์จริงแทน placeholder ใน `CONTRIBUTING.md` (2 จุด: ข้อ 🟢 + หัวข้อ "ติดต่อ")
+งานค้างที่ปลดล็อกช่อง "ไม่มี GitHub":
+- [x] **deploy Google Form** — ✅ live: [forms.gle/N7RsgZqrHkikgfKK6](https://forms.gle/N7RsgZqrHkikgfKK6) · เสียบลิงก์ทุกจุดแล้ว
 - [ ] **เติม contributor คนแรกใน `CONTRIBUTORS.md`** เมื่อผ่าน intake (ขั้น 6) — ไฟล์ + ตารางมีแล้ว รอแค่ชื่อแรก
 
 ---

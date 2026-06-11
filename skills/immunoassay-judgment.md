@@ -19,6 +19,8 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพ
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
+> 🛑 **RED FLAGS — เจอข้อใด = หยุด confirm ก่อนรายงาน อย่าเชื่อ screen เดี่ยว:** reactive screen HIV/syphilis/HCV กำลังจะรายงาน positive · ผลขัด clinical (ลบทั้งที่ป่วยชัด → prozone/window · สูงผิด → hook) · HBV panel แยก acute/chronic · HIV algorithm / window period · สงสัย biotin/HAMA interference. — reactive screen ≠ diagnosis
+
 ## ใช้เมื่อ
 - ต้องเลือก immunoassay format ให้เหมาะกับ analyte (sandwich vs competitive vs CLIA/ECLIA vs lateral flow)
 - ต้องตีความ serology panel — HBV, HIV algorithm, syphilis NTT/TT, ANA pattern

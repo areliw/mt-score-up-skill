@@ -21,6 +21,8 @@ disclaimer: "skill นี้เป็นเครื่องช่วยคิ�
 
 > ⚠️ **ขอบเขต:** ตัวเลขในสกิล = teaching illustration — ค่าตัดสินจริงยึด **ref/baseline แลบคุณ + SOP** เสมอ · logic เน้น **ผู้ใหญ่**; เด็ก/ทารก/ตั้งครรภ์ (dose/antidote/chelator) ยึด **protocol เฉพาะทาง + ปรึกษาแพทย์/ศูนย์พิษวิทยา 1367**
 
+> 🛑 **RED FLAGS — เจอข้อใด = หยุด ยืนยันกับแพทย์/ศูนย์พิษวิทยา 1367 ก่อน อย่าเชื่อ AI เดี่ยว:** จะให้ antidote/chelator (OP/โลหะ/methanol) · cholinergic crisis แยก OP-vs-carbamate ไม่ได้ · เด็ก/ตั้งครรภ์ · forensic/ตัวอย่างใช้ในศาล · screen-positive กำลังจะรายงานโดยไม่ confirm · critical level (paracetamol/methanol/lithium). — ผิด = ถึงชีวิต
+
 ## ใช้เมื่อ
 - "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"
 - "antidote ตัวนี้ให้อะไร?" · OP / carbamate / paraquat / โลหะหนัก poisoning

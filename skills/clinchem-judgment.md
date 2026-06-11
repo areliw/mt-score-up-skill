@@ -20,6 +20,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 >
 > ⚠️ **ขอบเขต:** ทุก cutoff/ค่าในสกิล = teaching illustration — **ค่าตัดสินจริงยึด reference range + critical-value limit + SOP ของแลบคุณ** เท่านั้น ไม่ใช่ค่ากล่อง/ตำรา
 
+> 🛑 **RED FLAGS — เจอข้อใด = HOLD ห้ามปล่อยผล ยืนยัน QC + sample + ผู้ลงนามก่อน:** run ที่ Westgard FAIL · critical value (K⁺/glucose/Ca/troponin) · HIL กระทบ analyte (hemolysis → K⁺, lipemia, icterus) · ผลขัด delta-check/clinical ชัด · สงสัย calibration drift. — ปล่อยผิด 1 ค่า = รักษาผิด 1 คน
+
 ## ใช้เมื่อ
 - ดู QC แล้วต้องตัดสิน accept หรือ reject run · Westgard ตัวไหน fire · L-J chart shift/trend แปลว่าอะไร
 - เจอ sample hemolyzed/lipemic/icteric/clotted → ปล่อยผลได้มั้ย ตัวไหนเชื่อไม่ได้

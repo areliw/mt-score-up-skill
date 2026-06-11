@@ -18,6 +18,8 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
+> 🛑 **RED FLAGS — เจอข้อใด = หยุด correlate Gram/clinical + escalate ก่อนรายงาน:** MDR alert (MRSA/VRE/ESBL/CRE/MDR-TB → report + IC + กรมควบคุมโรค/NARST) · AST ขัด Gram/ID (S แต่ดื้อจริง — AmpC / inducible-clinda / ESBL) · sterile site (blood/CSF) ขึ้นเชื้อ · contaminant-vs-pathogen ใน specimen สำคัญ · QC strain นอก range แต่จะรายงาน. — รายงานผิด = ยาผิด/ระบาด
+
 ## ใช้เมื่อ
 - ต้อง decide ในงาน Micro — เชื้อจริงหรือปน, ID พอยัง, อ่าน AST, รายงาน MDR
 - รับ/ปฏิเสธ specimen, เลือก culture vs molecular

@@ -244,7 +244,7 @@ MIT ([LICENSE](./LICENSE)) — ใช้ฟรี / แก้ได้ / share �
 
 อยากเพิ่ม skill ของตัวเอง / ปรับปรุงของเดิม? ดู [CONTRIBUTING.md](./CONTRIBUTING.md) — เล่าปัญหาหรือวิจารณญาณในสายงานคุณมาได้เลย
 
-> **ไม่มี GitHub ก็ส่งได้** และ **ไม่ต้องเขียนให้สวย** — ส่งทางเพจ Score UP (Google Form ⏳ กำลังเปิด) → maintainer + AI เรียบเรียงเป็น skill ให้ (มี [prompt ตัวช่วยร่างด้วย AI](./CONTRIBUTING.md#-ตัวช่วยร่างด้วย-ai) แปะใช้ได้เลย)
+> **ไม่มี GitHub ก็ส่งได้** และ **ไม่ต้องเขียนให้สวย** — ส่งทาง **[Google Form](https://forms.gle/N7RsgZqrHkikgfKK6)** (หรือทักเพจ Score UP) → maintainer + AI เรียบเรียงเป็น skill ให้ (มี [prompt ตัวช่วยร่างด้วย AI](./CONTRIBUTING.md#-ตัวช่วยร่างด้วย-ai) แปะใช้ได้เลย)
 
 > 🎙️ **เป็นผู้เชี่ยวชาญ/ใกล้เกษียณ ไม่ถนัดเขียน?** วาง [`prompts/skill-interview.md`](./prompts/skill-interview.md) (Skill Maker) ในแชต AI → มันสัมภาษณ์ถอดวิจารณญาณของคุณเป็นร่าง skill ให้เอง · ผู้ลงขันได้ credit ใน [`CONTRIBUTORS.md`](./CONTRIBUTORS.md)
 >

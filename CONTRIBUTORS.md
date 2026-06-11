@@ -44,7 +44,7 @@
 
 ## ส่งของเข้าคลังยังไง
 
-- **ไม่มี GitHub ก็ส่งได้** — ทักเพจ Score UP / Google Form *(⏳ กำลังเปิด)* แล้ว maintainer + AI เรียบเรียงให้ พร้อม credit ชื่อคุณ
+- **ไม่มี GitHub ก็ส่งได้** — [Google Form](https://forms.gle/N7RsgZqrHkikgfKK6) (หรือทักเพจ Score UP) แล้ว maintainer + AI เรียบเรียงให้ พร้อม credit ชื่อคุณ
 - มี GitHub — เปิด Issue หรือ PR
 - อยากให้ AI ช่วยร่างให้เนียนก่อนส่ง — มี [prompt ตัวช่วยร่างด้วย AI](./CONTRIBUTING.md#-ตัวช่วยร่างด้วย-ai) แปะลง AI ตัวไหนก็ได้
 

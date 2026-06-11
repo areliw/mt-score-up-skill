@@ -99,15 +99,9 @@
 
 สิ่งเหล่านี้ AI/CI ทำแทนไม่ได้ — ต้อง maintainer ลงมือเอง. ทำตามลำดับ:
 
-- [ ] **1 · เปิด Google Form (no-GitHub lane)**
-  - เปิด https://script.google.com → New project → วาง `scripts/create_contribution_form.gs` ทั้งไฟล์ → Save
-  - กด Run ▶ (`createContributionForm`) → Google ขอ authorize → Allow
-  - คัดลอก **FORM_URL (responder)** จาก Execution log
-  - **เสียบ FORM_URL 3 จุด:**
-    1. `CONTRIBUTING.md` ส่วน "ไม่มี GitHub" (บรรทัด comment `<!-- maintainer: ... -->`)
-    2. `CONTRIBUTING.md` ส่วน "📞 ติดต่อ"
-    3. `README.md` ส่วน Contributing (`Google Form ⏳ กำลังเปิด` → ลิงก์จริง)
-  - *เหตุผล:* ~80% ของกลุ่มเป้าหมาย (MT หน้างาน) ไม่มี GitHub — lane นี้ไม่ live = funnel ตันครึ่งหนึ่ง
+- [x] **1 · เปิด Google Form (no-GitHub lane)** — ✅ live: [forms.gle/N7RsgZqrHkikgfKK6](https://forms.gle/N7RsgZqrHkikgfKK6)
+  - เสียบลิงก์ครบทุกจุดแล้ว: CONTRIBUTING ×2 · README · FEEDBACK · CONTRIBUTORS · INTAKE · skill-interview · issue-template config
+  - *เหตุผล:* ~80% ของกลุ่มเป้าหมาย (MT หน้างาน) ไม่มี GitHub — lane นี้ live แล้ว funnel ไม่ตันครึ่ง
 
 - [ ] **2 · ตั้ง Custom GPT / Claude Project / Gemini Gem (ตัวอย่างพร้อมใช้)**
   - ทำตาม `docs/setup-custom-gpt.md` ต่อ platform — เอาไว้เป็น demo link ในโพสต์ ("กดใช้เลยไม่ต้อง setup")

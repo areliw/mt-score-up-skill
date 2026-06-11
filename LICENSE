@@ -24,8 +24,12 @@ SOFTWARE.
 
 ADDITIONAL NOTICE — HEALTHCARE USE:
 
-This Software generates documentation templates intended for use by qualified
-Medical Technologists and laboratory professionals. Generated content MUST be
-reviewed by appropriately qualified personnel before use in clinical practice.
-The authors disclaim any responsibility for clinical or operational decisions
-made based on AI-generated content.
+This Software provides documentation templates and decision-support "judgment
+skills" (prompts pasted into AI assistants) intended as educational aids for
+qualified Medical Technologists and laboratory professionals. It does NOT
+diagnose and is not a substitute for professional clinical judgment, hospital
+SOPs, or the standards of the relevant national authority (e.g., the National
+Blood Centre, Thai Red Cross Society for transfusion practice). Generated or
+AI-assisted content MUST be reviewed by appropriately qualified personnel before
+use in clinical practice. The authors disclaim any responsibility for clinical
+or operational decisions made based on this content.

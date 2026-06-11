@@ -69,6 +69,7 @@ disclaimer: "ช่วยออกแบบ/ร่าง skill เพื่อ�
 - อ่าน **CONTRIBUTING.md** ของ repo ก่อน (รูปแบบ frontmatter, การตั้งชื่อไฟล์ kebab-case, การ verify)
 - ทางส่ง: เปิด **GitHub issue** เสนอไอเดียก่อน (label `skill-proposal`) แล้วค่อยทำ PR; หรือ PR ตรงถ้าโครงพร้อม
 - ในคำเสนอ ระบุ: โดเมนตัดสินใจ 1 ประโยค + กับดัก #1 + ยืนยันว่าลบ PII แล้ว
+- **เครดิต:** เขียน skill ใหม่ทั้งตัว → ชื่อใน `author:` (substance-owner, มากสุดขึ้นก่อน) · graft fork/กับดักเข้า skill เดิม → `contributors:` (เพิ่มต่อท้าย ไม่แทน author) — ดู Credit ใน CONTRIBUTING (วัดที่ judgment ไม่ใช่ line)
 
 ---
 

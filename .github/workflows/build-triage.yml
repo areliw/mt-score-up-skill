@@ -1,8 +1,16 @@
-name: build-triage-catalog
+name: check-triage-catalog
 
-# Keep the catalog inside prompts/triage.md in sync with skills/ automatically.
-# Deterministic regeneration (no judgment) → safe to auto-commit, unlike STANDARDS.md.
+# Verify the generated catalog/index/bundle stay in sync with skills/.
+# main is a PROTECTED branch (admin-only direct push; the bot cannot push), so this
+# CHECKS instead of auto-committing: if the catalog has drifted, the job fails and
+# the author runs `python scripts/build_triage.py` and commits the result.
+# Runs on PRs (gates contributors) and on push to main (catches the author's own drift).
 on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "scripts/build_triage.py"
+      - "prompts/triage.md"
   push:
     branches: [main]
     paths:
@@ -12,28 +20,24 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Regenerate triage catalog
-        run: python scripts/build_triage.py
+      - name: Regenerate catalog and fail on drift
+        run: |
+          python scripts/build_triage.py
+          if ! git diff --quiet -- prompts/triage.md skills/INDEX.md dist/all-skills.md; then
+            echo "::error::Catalog out of sync — run 'python scripts/build_triage.py' and commit prompts/triage.md, skills/INDEX.md, dist/all-skills.md."
+            git --no-pager diff --stat -- prompts/triage.md skills/INDEX.md dist/all-skills.md
+            exit 1
+          fi
+          echo "catalog in sync ✓"
       - name: Overlap report (informational — does not fail build)
         run: python scripts/check_duplicates.py --top 20
-      - name: Commit if generated files changed
-        run: |
-          if ! git diff --quiet -- prompts/triage.md skills/INDEX.md dist/all-skills.md; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add prompts/triage.md skills/INDEX.md dist/all-skills.md
-            git commit -m "chore: auto-update triage catalog + skill index + bundle [skip ci]"
-            git push
-          else
-            echo "generated files already in sync — nothing to do"
-          fi

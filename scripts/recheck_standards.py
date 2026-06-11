@@ -42,6 +42,11 @@ SOURCES = [
         "url": "https://www.iso.org/standard/72191.html",
         "pattern": re.compile(r"ISO\s+15190:(\d{4})"),
         "current_year": "2020",
+        # iso.org stage 90.92 "International Standard to be revised" (revision opened
+        # 2025-11-28); the 2020 edition is still the current published one. Acknowledged on
+        # human review 2026-06-11 so the monthly recheck doesn't re-flag this known state.
+        # Drop/update this line when a new edition publishes or the stage advances.
+        "known_stage": "90.92",
     },
 ]
 
@@ -61,6 +66,31 @@ def fetch(url: str, timeout: int = 30) -> str:
         return resp.read().decode("utf-8", errors="replace")
 
 
+def _active_stage(html: str):
+    """Return ``(title, code)`` of the standard's ACTIVE lifecycle stage, parsed from the
+    iso.org ``id="stageId"`` block — e.g. ``Stage : International Standard to be revised
+    [90.92]`` -> ``("International Standard to be revised", "90.92")``. Returns
+    ``(None, None)`` if the block is absent.
+
+    Reads ONLY this standard's own active stage — never the page-wide ``#lifecycle`` legend
+    (which lists *every* possible stage for *every* standard) or links to other standards.
+    That distinction is the whole point: a global phrase match flagged even a Published
+    standard (false positive), and a proximity window missed the active banner sitting ~1.9k
+    chars away in the legend (false negative). The ``stageId`` block is the source of truth."""
+    m = re.search(
+        r'id="stageId".*?Stage\s*</div>(.*?)(?:\[|<)',
+        html, re.IGNORECASE | re.DOTALL,
+    )
+    if not m:
+        return None, None
+    title = re.sub(r"(&nbsp;|[\s:])+", " ", m.group(1)).strip()
+    code_m = re.search(
+        r'id="stageId".*?\[\s*<a[^>]*>\s*(\d{2}\.\d{2})',
+        html, re.IGNORECASE | re.DOTALL,
+    )
+    return (title or None), (code_m.group(1) if code_m else None)
+
+
 def check_source(source: dict) -> dict:
     try:
         html = fetch(source["url"])
@@ -77,47 +107,37 @@ def check_source(source: dict) -> dict:
 
     # Close the silent false-OK gap: a pinned standard URL keeps serving its OWN edition
     # forever, so "detected==current" alone can't tell "still current" from "superseded but
-    # page not yet updated". iso.org flags a successor two ways — (a) a newer `ISO <n>:<year>`
-    # reference (caught by max() above), or (b) a withdrawal / "has been revised by" banner.
-    # Detect (b) too, so a superseded page is sent to human review (exit 2) instead of stamped OK.
-    low = html.lower()
-    # (b1) Explicit banners that unambiguously describe THIS page's own standard — these name
-    # the standard the page is about, so a global match is safe.
-    explicit = any(
-        marker in low
-        for marker in (
-            "this standard has been revised",
-            "is being revised by",
-            "has been withdrawn",
-        )
-    )
-    # (b2) iso.org's stage label for an actively-revised standard ("International Standard to be
-    # revised" / "will be replaced by ISO ..." / "under revision"). These phrases ALSO appear in
-    # generic page chrome and in links to OTHER standards — e.g. a *Published* ISO 15189 page
-    # that links to the revised ISO 15190 — so a GLOBAL match false-positives every run. Scope
-    # them to a text window around THIS standard's own number, so only the standard's own stage
-    # banner trips review, not a neighbour's banner elsewhere on the page.
-    stdnum = re.search(r"\d{3,}", source["name"])
-    scoped = False
-    if stdnum:
-        own = re.escape(stdnum.group(0))
-        for m in re.finditer(own, low):
-            window = low[max(0, m.start() - 150): m.end() + 200]
-            if (
-                "international standard to be revised" in window
-                or "will be replaced by iso" in window
-                or "under revision" in window
-            ):
-                scoped = True
-                break
-    superseded = explicit or scoped
+    # not yet republished". iso.org signals a successor two ways — (a) a newer `ISO <n>:<year>`
+    # reference (caught by max() above), or (b) the standard's lifecycle STAGE flipping from
+    # "published" to "to be revised"/"withdrawn". Read (b) from the page's single ACTIVE stage
+    # (the `id="stageId"` block) via _active_stage(), NOT from free-text phrases: every page
+    # embeds a `#lifecycle` legend naming all stages, so a global match false-positived a
+    # Published standard and a proximity window false-negatived an actively-revised one.
+    active_title, active_code = _active_stage(html)
+    if active_title is None:
+        # Can't read the active stage — never stamp OK on a page we don't understand.
+        return {
+            "name": source["name"],
+            "error": "active-stage block not found (iso.org layout changed — fix parser)",
+        }
+    title_low = active_title.lower()
+    superseded = ("to be revised" in title_low) or ("withdraw" in title_low)
+    # A standard can sit at a non-published stage (e.g. 90.92 "to be revised") for years
+    # before a new edition publishes. Once a human has reviewed that state they record it as
+    # `known_stage` on the source — the same human-in-the-loop pattern as `current_year` — so
+    # the monthly workflow stops re-opening an issue for an already-acknowledged stage. A move
+    # to a DIFFERENT stage, or a newer edition year, still trips review.
+    acknowledged = superseded and source.get("known_stage") == active_code
+    changed = (detected_year != source["current_year"]) or (superseded and not acknowledged)
 
     return {
         "name": source["name"],
         "current_year": source["current_year"],
         "detected_year": detected_year,
+        "active_stage": f"{active_title} [{active_code}]" if active_code else active_title,
         "superseded": superseded,
-        "changed": detected_year != source["current_year"] or superseded,
+        "acknowledged": acknowledged,
+        "changed": changed,
     }
 
 
@@ -176,13 +196,25 @@ def main() -> int:
             print(f"  [ERR] {r['name']}: {r['error']}")
             has_error = True
         elif r["changed"]:
-            print(
-                f"  [NEW] {r['name']}: file=:{r['current_year']} "
-                f"page=:{r['detected_year']}"
-            )
+            reasons = []
+            if r["detected_year"] != r["current_year"]:
+                reasons.append(
+                    f"new edition :{r['detected_year']} (file :{r['current_year']})"
+                )
+            if r.get("superseded"):
+                reasons.append(f"stage -> {r.get('active_stage', 'revision/withdrawal')}")
+            print(f"  [NEW] {r['name']}: " + " · ".join(reasons))
             has_change = True
+        elif r.get("acknowledged"):
+            print(
+                f"  [ACK] {r['name']}: edition :{r['detected_year']} still current; "
+                f"known stage {r.get('active_stage')} (acknowledged, not re-flagged)"
+            )
         else:
-            print(f"  [OK]  {r['name']}: confirmed :{r['detected_year']}")
+            print(
+                f"  [OK]  {r['name']}: confirmed :{r['detected_year']} "
+                f"({r.get('active_stage', '')})"
+            )
 
     # A detected edition change must NOT silently rewrite STANDARDS.md or refresh the
     # "last verified" stamp — that would mask staleness. Leave the file untouched and

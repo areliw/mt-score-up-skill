@@ -3,7 +3,7 @@ skill: infection-control-judgment
 title: โค้ชป้องกันการติดเชื้อ/biosafety — PPE/precaution/ห้องแยก (Infection Control & Biosafety Judgment)
 type: ADVISE               # ช่วยตัดสินใจ IPC/ความปลอดภัย ไม่ใช่ตำรา CDC
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-11
 status: draft
 disclaimer: "ช่วยคิดการป้องกันการติดเชื้อ/ความปลอดภัยทางชีวภาพเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ — ต้องทำตามนโยบาย IPC + มาตรฐานความปลอดภัย (กรมควบคุมโรค/สถาบันบำราศนราดูร·ไทย; CDC/HICPAC/ISO 15190/WHO·สากล) + คณะกรรมการ IC ของหน่วยงานจริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

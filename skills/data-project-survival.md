@@ -89,7 +89,7 @@ balanced → ไม่ต้องทำ · imbalanced+เล็ก → SMOTE/ov
 ## กับดัก (Anti-patterns)
 - **ข้าม "เข้าใจปัญหา"** → แก้ผิดข้อ (อาการ: เริ่มจากโหลด dataset เลย / ตอบไม่ได้ว่าสำเร็จคือเลขอะไร) = บาปอันดับ 1
 - **Solution หา problem** — "อยากใช้ AI/deep learning" แล้วค่อยหางานให้มันทำ
-- **Data leakage** — fit scaler/SMOTE/feature-select ก่อน split, หรือ feature ที่รู้อนาคต → ผลปลอม พังจริง
+- **Data leakage** — ไล่ 4 จุดใน leak-block ด้านบนให้ครบทุกครั้งที่ metric สวย
 - **Model drift** ไม่ monitor → แม่นวันแรก เสื่อมเงียบ
 - **Bias ใน training data** → ขยายอคติเดิม (เพศ/พื้นที่/รายได้) เช็ค representativeness; เกี่ยว PDPA/HIPAA
 - **Vanity metric / accuracy บน imbalanced** → ดู precision/recall/F1 ต่อ class

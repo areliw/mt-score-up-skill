@@ -2,6 +2,8 @@
 
 วิธีตั้ง **MT WI Generator** บน 3 platform หลัก เพื่อใช้ครั้งเดียวต่อใน 1 คลิก
 
+> 📖 อยากใช้ **skills** (ไม่ใช่ WI Generator) บนทุก platform → ดู [`USING.md`](./USING.md) · ไฟล์นี้เน้น WI Generator + การตั้ง Custom GPT / Project / Gem
+
 ---
 
 ## 🤖 ChatGPT Plus → Custom GPT (5 นาที setup)

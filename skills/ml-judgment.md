@@ -58,7 +58,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
   - **Precision** = ทายว่าป่วยแล้วป่วยจริงแค่ไหน (เน้นเมื่อ false-positive แพง)
   - **Recall/Sensitivity** = ผู้ป่วยจริงจับได้แค่ไหน (เน้นเมื่อ false-negative แพง — screening)
   - **F1** = สมดุล precision/recall เมื่อไม่รู้จะหนักข้างไหน
-  - **PR-AUC (precision-recall)** = metric threshold-independent ที่ซื่อสัตย์สุดตอน imbalance หนัก — ⚠️ **ROC-AUC โป่งง่าย** (0.90–0.99 ได้แม้โมเดลกาก) เพราะ TN ก้อนใหญ่ทำให้สวย; ใช้ ROC-AUC เทียบโมเดลได้ตอน class ใกล้สมดุล แต่ severe imbalance ให้ดู PR-AUC
+  - **PR-AUC (precision-recall)** = threshold-independent ที่ซื่อสัตย์สุดตอน imbalance หนัก — ⚠️ **ROC-AUC โป่งง่าย** (0.90–0.99 ได้แม้โมเดลกาก เพราะ TN ก้อนใหญ่ทำให้สวย) → severe imbalance ดู PR-AUC, ROC-AUC ใช้เทียบโมเดลตอน class ใกล้สมดุลเท่านั้น
 - **Regression** → **RMSE** (หน่วยเดียวกับ target, ลงโทษ error ใหญ่) · **MAE** (ทน outlier) · **R²** (สื่อกับคนทั่วไป)
 - 🩺 health rule: screening → ดัน **recall** · confirmatory → ดัน **precision**
 

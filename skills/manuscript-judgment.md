@@ -45,9 +45,10 @@ Title → Abstract → Introduction → Methods → Results → Discussion → C
 - **ผ่าน:** Originality + Scientific quality (hypothesis ดี, design sound, stat เหมาะ) + **Clarity** + importance ต่อสาขา
 - **reject ทันที:** ไม่น่าสนใจต่อ readership · ไม่มีข้อมูลใหม่ · ผล trivial/ซ้ำคนอื่น · design+method แย่ · สรุปผิด · **สงสัย misconduct (fabrication/plagiarism)**
 
-### กฎทอง: objective = results = conclusion (เช็คก่อนทุกอย่าง)
-ทั้ง 3 ต้อง**ตรงกัน** — objective ถามอะไร, results ตอบอันนั้น, conclusion สรุปอันนั้น. ขาดความตรงกัน = reviewer จับทันที
-- **ชั้นยาก — conclusion ห้ามล้ำเส้น data:** แม้ดู "ตรงหัวข้อ" แล้ว ยังต้องเช็คว่า conclusion **ไม่อ้างเกิน** ที่ design+results ให้. เส้นที่มักหลุด: correlation→อย่าพูด causal · association→อย่าพูด "ทำให้/รักษา" · n เล็ก/pilot/sample กลุ่มเดียว→อย่า generalize ทั้งประชากร · in-vitro/animal→อย่าฟันธงคน · "trend/ไม่ sig"→อย่าสรุปเหมือน sig. แก้ = ลดน้ำหนักคำ ("may/suggests" ไม่ใช่ "proves") ให้พอดี data จริง.
+### กฎทอง: objective = results = conclusion (checklist 2 ชั้น — เช็คก่อนทุกอย่าง)
+รายละเอียด over-claim อยู่ blockquote บนสุดแล้ว — ลงมือเช็คตามนี้:
+1. **ตรงหัวข้อ:** objective ถามอะไร, results ตอบอันนั้น, conclusion สรุปแค่อันนั้น. ขาด = reviewer จับทันที.
+2. **ไม่ล้ำเส้น data:** ผ่านชั้น 1 แล้ว conclusion ยังต้อง**ไม่อ้างเกิน** design+results — correlation↛causal · n เล็ก/pilot↛generalize · in-vitro↛ฟันธงคน · "trend/ไม่ sig"↛เหมือน sig. แก้ = ลดน้ำหนักคำ ("may/suggests" ไม่ใช่ "proves").
 
 ### Poster / oral presentation
 - format: Title/Intro/Objective/Methods/Results/Conclusion/Ack

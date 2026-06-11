@@ -28,6 +28,8 @@
 
 **วิธีใช้ (รู้แล้วว่าจะใช้ตัวไหน):** เปิดไฟล์ในโฟลเดอร์ [`skills/`](./skills) → copy ทั้งไฟล์ → วางในแชต AI → พิมพ์ปัญหาของคุณ
 
+**ใช้บน platform อื่น** (Custom GPT / Claude Project / Gemini Gem / Claude Code / live-load) → [`docs/USING.md`](./docs/USING.md) — ครบทุกช่องทางใน 1 หน้า
+
 **ยังไม่เห็นภาพ?** ดู [`examples/`](./examples) — skill ทำงานจริง before/after ใน 30 วินาที 👀 · อยากฝึก → [`exercises/`](./exercises)
 
 <sub>🇬🇧 **EN:** Free, portable *judgment skills* for Thai Medical Technologists — paste one markdown file into your AI chat (Claude / ChatGPT / Gemini). No install, no extra cost. Thai-first. See [`examples/`](./examples).</sub>
@@ -189,17 +191,19 @@ mt-score-up-skill/
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)
 ├── prompts/       # วางในแชต AI
 │   ├── triage.md  # 🧭 ไม่รู้ใช้ skill ไหน → เริ่มที่นี่ (catalog auto-updated)
+│   ├── skill-interview.md # 🎙️ Skill Maker — AI สัมภาษณ์ถอดวิจารณญาณผู้เชี่ยวชาญ/คนเกษียณ
 │   └── system.md  # WI generator (ISO 15189)
-├── scripts/       # md→docx + standards auto-recheck (ดู scripts/README.md)
+├── scripts/       # md→docx · standards recheck · check_duplicates (ดู scripts/README.md)
 ├── templates/     # (optional) วาง .docx แม่แบบ WI ของแล็บคุณเอง — generator ทำงานได้โดยไม่ต้องมี
 ├── profiles/      # Layout profile ต่อโรงพยาบาล (generic)
 ├── inbox/         # Drop WI ตัวอย่าง — AI scan ใช้เป็น template
 ├── eval/          # วัดผลสกิลจริง: weak-model A/B 3 รอบ + literature + Titanic (ดู eval/ab-scorecard.md)
-├── docs/          # Vision, setup guides
+├── docs/          # USING (ใช้ทุก platform) · LAUNCH (แผนปล่อย) · FEEDBACK · skill-registry-spec · vision · setup-custom-gpt
 ├── wiki/          # คู่มือเข้าใจโปรเจกต์ลึกขึ้น (รวมลิงก์)
-├── contributions/ # พื้นที่ชุมชน — ส่ง skill/เคสจริงมาสมทบ
+├── contributions/ # พื้นที่ชุมชน — ส่ง skill/เคสจริง (+ INTAKE.md = playbook maintainer)
+├── CONTRIBUTORS.md # ผู้ลงขันกองกลาง (credit)
 ├── STANDARDS.md   # Source-of-truth edition + auto-recheck รายเดือน
-└── CHANGELOG.md   # Version history (v0.7.0)
+└── CHANGELOG.md   # Version history (v0.8.2)
 ```
 
 ## Privacy & ความปลอดภัย
@@ -240,7 +244,11 @@ MIT ([LICENSE](./LICENSE)) — ใช้ฟรี / แก้ได้ / share �
 
 อยากเพิ่ม skill ของตัวเอง / ปรับปรุงของเดิม? ดู [CONTRIBUTING.md](./CONTRIBUTING.md) — เล่าปัญหาหรือวิจารณญาณในสายงานคุณมาได้เลย
 
-> **ไม่มี GitHub ก็ส่งได้** และ **ไม่ต้องเขียนให้สวย** — ส่งทาง Google Form / เพจ Score UP → maintainer + AI เรียบเรียงเป็น skill ให้ (มี [prompt ตัวช่วยร่างด้วย AI](./CONTRIBUTING.md#-ตัวช่วยร่างด้วย-ai) แปะใช้ได้เลย)
+> **ไม่มี GitHub ก็ส่งได้** และ **ไม่ต้องเขียนให้สวย** — ส่งทางเพจ Score UP (Google Form ⏳ กำลังเปิด) → maintainer + AI เรียบเรียงเป็น skill ให้ (มี [prompt ตัวช่วยร่างด้วย AI](./CONTRIBUTING.md#-ตัวช่วยร่างด้วย-ai) แปะใช้ได้เลย)
+
+> 🎙️ **เป็นผู้เชี่ยวชาญ/ใกล้เกษียณ ไม่ถนัดเขียน?** วาง [`prompts/skill-interview.md`](./prompts/skill-interview.md) (Skill Maker) ในแชต AI → มันสัมภาษณ์ถอดวิจารณญาณของคุณเป็นร่าง skill ให้เอง · ผู้ลงขันได้ credit ใน [`CONTRIBUTORS.md`](./CONTRIBUTORS.md)
+>
+> 💬 เจอจุดผิด หรืออยากบอกว่า skill ช่วย/ไม่ช่วยของจริง → [`docs/FEEDBACK.md`](./docs/FEEDBACK.md)
 
 ## Credits
 

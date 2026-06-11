@@ -3,7 +3,7 @@ skill: preanalytical-judgment
 title: โค้ช pre-analytical — เจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ (Pre-Analytical & Phlebotomy Judgment)
 type: ADVISE               # ช่วยตัดสินใจคุณภาพตัวอย่าง ไม่ใช่ตำราเทคนิคเจาะ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดเรื่องคุณภาพตัวอย่างก่อนวิเคราะห์เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = หมอรักษาผิด → ทุก reject/accept/แก้ค่า ต้องทำตาม SOP แลบ + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วย/wrong-blood-in-tube เกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -33,12 +33,12 @@ disclaimer: "ช่วยคิดเรื่องคุณภาพตัว�
 
 ### Fork 1 — Order of draw (กัน additive carryover)
 ลำดับ: **blood culture → coag (citrate ฟ้า) → serum/SST (แดง/เหลือง) → heparin (เขียว) → EDTA (ม่วง) → fluoride (เทา)**
-- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↑ ปลอม + ALP เพี้ยน**; heparin ปน → coag เพี้ยน
+- ทำไมสำคัญ: **EDTA carryover → K↑ Ca↓ Mg↓ ปลอม + ALP↓** (EDTA จับ Ca/Mg + ดึง Zn/Mg cofactor ของ ALP — *ทิศกลับกับ hemolysis ที่ Mg↑ จากเซลล์รั่ว*); heparin ปน → coag เพี้ยน
 - เจาะหลอดเดียว/winged set → ทิ้ง discard tube ก่อน coag (กัน air/underfill)
 
 ### Fork 2 — เลือกหลอด/additive + อัตราส่วน
 - **coag = citrate 1:9 เป๊ะ**: underfill → citrate เกิน → **aPTT/PT ยาวปลอม**; **Hct > 55% → ต้องปรับปริมาณ citrate** (plasma น้อย)
-- CBC = EDTA; **glucose/lactate = fluoride (NaF)** ยับยั้ง glycolysis — ถ้าใช้ผิดหลอด/ทิ้งนานไม่ปั่น glucose ตก ~5–7%/ชม.
+- CBC = EDTA; **glucose/lactate = fluoride (NaF)** ยับยั้ง glycolysis — ถ้าใช้ผิดหลอด/ทิ้งนานไม่ปั่น glucose ตก ~5–7%/ชม. · ⚠️ **NaF ออกฤทธิ์ช้า (~1–4 ชม.แรกยังกันไม่อยู่)** → glucose ยังตกในชั่วโมงแรกแม้อยู่หลอด NaF; งานเป๊ะ (เบาหวาน/GDM) ปั่นแยกเร็ว ≤30–60 นาที หรือใช้ citrate-buffered tube
 - trace metal/บางฮอร์โมน = หลอดเฉพาะ; ตรวจสอบก่อนเจาะ
 
 ### Fork 3 — HIL: hemolysis / icteric / lipemic → analyte ไหนพัง

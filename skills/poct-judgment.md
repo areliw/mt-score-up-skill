@@ -3,7 +3,7 @@ skill: poct-judgment
 title: โค้ช POCT — แล็บนอกแล็บต้องเชื่อได้เท่าแล็บกลาง (Point-of-Care Testing Judgment)
 type: ADVISE               # ช่วยตัดสินใจการใช้/คุม POCT ไม่ใช่คู่มือเครื่อง
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ผล POCT ที่กระทบการรักษาต้องผ่าน QC + operator competency + ทำตาม SOP/ISO 15189; ค่าวิกฤตแจ้ง/ยืนยันตาม policy · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -31,15 +31,16 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 ## วิธีตัดสินใจ (AI: ทำตามนี้)
 
 ### Fork 1 — ควรใช้ POCT ไหม
-- **ใช่**: TAT เป็นเรื่องเป็นเรื่องชีวิต (ER/ICU/OR/ห่างแล็บ), ปริมาณน้อย-ต้องเร็ว
+- **ใช่**: TAT เป็นเรื่องชีวิต (ER/ICU/OR/ห่างแล็บ), ปริมาณน้อย-ต้องเร็ว
 - **ส่งแล็บกลางดีกว่า**: ต้องการความแม่นสูง, ปริมาณมาก (ถูกกว่าต่อเทสต์), มี QC/validation เต็ม
 - ไม่ใช่ทุกอย่างควร POCT เพราะ "เร็ว"
 
 ### Fork 2 — QC + operator competency
-- QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
+- QC ตามรอบ/ตาม manufacturer + ระบบบันทึก · **operator ต้อง train + competency assessment เป็นระยะ** · lot verification เมื่อเปลี่ยน lot · **เข้าร่วม EQA/PT** (หรือ alternative assessment ถ้าไม่มี scheme — ISO 15189:2022 Annex A) (เชื่อม `lab-management-judgment`, `clinchem-judgment`)
 
 ### Fork 3 — limitation ของ POCT (รู้ก่อนเชื่อ)
-- **interference**: Hct + oxygen + สารรบกวน ใน glucose meter; linear range แคบ; แม่นน้อยกว่าแล็บกลาง
+- **interference (glucose meter — landmine จริง):** **Hct สูง → glucose ต่ำปลอม / Hct ต่ำ (เด็ก/anemia/dialysis) → สูงปลอม** · **O₂ สูงรบกวนเฉพาะ glucose-oxidase** (ได้ O₂/arterial sample → ต่ำปลอม; GDH ไม่ไว O₂) · ⚠️ **GDH-PQQ meter โดน maltose/icodextrin (น้ำยา PD)/galactose → สูงปลอมรุนแรง** (FDA boxed warning — เคยให้ insulin เกินจนตาย) · acetaminophen/vit C/uric acid รบกวน amperometric · linear range แคบ
+- ⚠️ **capillary glucose เชื่อไม่ได้ใน shock/ความดันตก/บวม/vasopressor** (perfusion แย่) → ใช้ venous/blood-gas analyzer
 - correlate POCT กับแล็บกลางเป็นระยะ; ค่าขัดอาการ/ขัดแล็บกลาง → ตรวจซ้ำ/ส่งแล็บกลาง
 
 ### Fork 4 — connectivity + บันทึก
@@ -50,7 +51,7 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 
 ## กับดัก (Anti-patterns)
 - #1 ถือว่า POCT ไม่ต้อง QC / operator ไม่ต้อง competency (กับดัก #1)
-- #2 ลืม interference (Hct/oxygen ใน glucose meter) → ค่าเพี้ยนในคนไข้ป่วยหนัก
+- #2 ลืม interference glucose meter (ทิศ Hct · GDH-PQQ+maltose/PD-fluid · capillary ใน shock) → ค่าเพี้ยนในคนไข้ ICU/ป่วยหนัก → insulin ผิด
 - #3 ใช้นอก linear range → ค่าผิด
 - #4 ผล POCT ไม่เข้าระบบ/จดมือหาย → ไม่ traceable
 - #5 ไม่ confirm/ไม่แจ้งค่าวิกฤตจาก POCT

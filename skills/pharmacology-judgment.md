@@ -3,7 +3,7 @@ skill: pharmacology-judgment
 title: โค้ชยาเบื้องต้น — ADME/แพ้ยา/ยาตีกัน/pharmacogenomics (Pharmacology Judgment)
 type: ADVISE               # ช่วยเข้าใจ/เฝ้าระวังเรื่องยา ไม่ใช่สั่งจ่ายยา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "ช่วยคิด/เฝ้าระวังเรื่องยาเพื่อการศึกษา ไม่ใช่คำสั่งใช้ยา/สั่งจ่ายยา — MT ไม่สั่งจ่ายยา การใช้/ปรับ/หยุดยาต้องปรึกษาแพทย์/เภสัชกรเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

@@ -47,7 +47,7 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 - หลังแก้: ผลลัพธ์ดีขึ้นยังไง
 - Test case: prompt input ที่ใช้ test
 
-### 4. Glossary terms (ใน `glossary.md` — TBD)
+### 4. Glossary terms (ส่งผ่าน issue/PR — จะรวมเป็น `glossary.md` เมื่อมีพอ)
 
 ศัพท์ MT ไทย ↔ English term ที่ AI ยังแปลผิด
 
@@ -79,8 +79,8 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 
 1. *(ไม่บังคับ แต่ช่วยมาก)* ร่างให้เนียนก่อนด้วย **AI** — แปะ [prompt ตัวช่วย](#-ตัวช่วยร่างด้วย-ai)
    ลง ChatGPT / Claude / Gemini แล้วเล่าปัญหา → ได้ proposal พร้อมส่ง + มันเตือนให้ลบข้อมูลคนไข้ก่อน
-2. ส่งทาง **Google Form** (เร็วสุด · ไม่ต้อง login): 👉 **[ส่งความรู้เข้าคลัง](FORM_URL)**
-   <!-- maintainer: แทน FORM_URL (ตรงนี้ + ในส่วน "ติดต่อ") ด้วยลิงก์ Google Form จริง -->
+2. ส่งทาง **Google Form** (เร็วสุด · ไม่ต้อง login) — ⏳ *ฟอร์มกำลังเปิด เร็วๆ นี้*; ระหว่างนี้ทักเพจ Score UP หรือเปิด GitHub Issue (ข้อ ⚙️ ด้านล่าง)
+   <!-- maintainer: เมื่อมีลิงก์ Google Form จริง แทนบรรทัดนี้ (+ ในส่วน "ติดต่อ") ด้วย 👉 **[ส่งความรู้เข้าคลัง](URL)** -->
 3. maintainer → triage → AI แปลงเป็น skill → ขึ้นคลัง
 
 ส่งได้ทั้ง **ข้อความ / เสียง / รูปโน้ตมือ** — ขอแค่วิจารณญาณ ไม่ต้องจัดรูปแบบเอง
@@ -104,6 +104,8 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 และเตือนผมถ้ามีข้อมูลคนไข้/HN/ชื่อสถาบันที่ต้องลบออกก่อนส่ง
 ```
 
+> 🎙️ **ไม่อยากกรอกช่องว่างเอง?** ถ้าถนัดเล่ามากกว่าเขียน (โดยเฉพาะผู้เชี่ยวชาญ/ใกล้เกษียณ) — วาง [`prompts/skill-interview.md`](./prompts/skill-interview.md) (Skill Maker) แทน แล้ว AI จะ **สัมภาษณ์ถอด** วิจารณญาณให้เป็นร่าง skill เอง ไม่ต้องเรียบเรียงเอง
+
 ## ✅ Review criteria
 
 PR จะถูก review ตาม:
@@ -115,14 +117,16 @@ PR จะถูก review ตาม:
 
 ## 🙏 Credit
 
-Contributors จะถูก list ใน `CONTRIBUTORS.md` (สร้างเมื่อมี contributor คนแรก)
+Contributors ทุกคนได้ลงชื่อใน [`CONTRIBUTORS.md`](./CONTRIBUTORS.md)
 
 ใส่ในรูปแบบ: `[ชื่อ-นามสกุล] - [โรงพยาบาล/สังกัด] - [contribution]`
 
 ## 📞 ติดต่อ
 
-- 📋 **ส่งความรู้ (ไม่ต้องมี GitHub):** [Google Form](FORM_URL)
+- 📋 **ส่งความรู้ (ไม่ต้องมี GitHub):** Google Form ⏳ *กำลังเปิด* — ระหว่างนี้ทักเพจ Score UP
 - 🐙 **GitHub** Issues / Discussions: bug · คำถาม · feature
+- 💬 **แค่อยากให้ feedback** (ไม่ได้จะ contribute เต็มรูป) → [`docs/FEEDBACK.md`](./docs/FEEDBACK.md)
+- 🛠️ **maintainer** — วิธีรับ submission → triage → แปลงเป็น skill → [`contributions/INTAKE.md`](./contributions/INTAKE.md)
 - (FB MT group link: TBD)
 
 ---

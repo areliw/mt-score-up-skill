@@ -9,9 +9,9 @@
 
 ## Last full verification
 
-**Date:** 2026-06-03
+**Date:** 2026-06-10
 **Method:** WebSearch via Claude Code agent
-**Next scheduled recheck:** 2026-07-01 (30-day cadence — see "Automation (Layer 3 — active)" below + [scripts/README](scripts/README.md))
+**Next scheduled recheck:** 2026-07-10 (30-day cadence — see "Automation (Layer 3 — active)" below + [scripts/README](scripts/README.md))
 
 ---
 
@@ -21,8 +21,8 @@
 
 | Standard | Current edition | Published | Notes | Last verified |
 |---|---|---|---|---|
-| **ISO 15189** | `:2022` (4th ed) | 2022-12 | Replaces :2012. Risk-based thinking + ISO 22870 (POCT) merged in. | 2026-06-01 |
-| **ISO 15190** | `:2020` | 2020 | Replaces :2003. ⚠️ **ISO/AWI 15190 in draft** (Nov 2025) — monitor | 2026-06-01 |
+| **ISO 15189** | `:2022` (4th ed) | 2022-12 | Replaces :2012. Risk-based thinking + ISO 22870 (POCT) merged in. | 2026-06-10 |
+| **ISO 15190** | `:2020` | 2020 | Replaces :2003. ⚠️ **ISO/AWI 15190 in draft** (Nov 2025) — monitor | 2026-06-10 |
 | **AABB Technical Manual** | `21st edition` | 2023 | Blood Bank — *เนื้อหาเทคนิค/วิธี* (PRC/component prep WIs) | 2026-06-03 |
 | **AABB Standards (BB/TS)** | `35th edition` | 2026-04 (effective 1 Apr 2026) | Standards for Blood Banks & Transfusion Services — *ข้อกำหนด accreditation* (**คนละเล่มกับ Technical Manual**); รอบ 24 เดือน ถัดไป ~เม.ย. 2028 | 2026-06-03 |
 

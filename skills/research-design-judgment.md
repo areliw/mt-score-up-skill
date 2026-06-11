@@ -14,7 +14,7 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 วาง R2R/thesis แล้วต้องตัดสิน "ใช้ design ไหน · ข้อมูลชนิดอะไร · bias/confounder ตรงไหน · ผ่าน IRB ยัง" → โค้ชนี้ช่วยเลือก + เลี่ยงกับดักที่ reviewer ตีกลับ
 
 > **กฎ #1: เลือก design จากคำถาม ไม่ใช่จากความสะดวก** — outcome หายาก→case-control · exposure หายาก→cohort · "สัมพันธ์มั้ย ณ จุดเดียว" + เวลาจำกัด→cross-sectional · จะพิสูจน์ causation→ต้อง RCT. **กับดัก #1: ตีความ association เป็น causation** — cross-sectional/observational บอกได้แค่ "associated with" ห้ามเขียน "ทำให้/causes" และต้องคุม confounder (stratify/regression) ก่อนเชื่อความสัมพันธ์ใดๆ. และ **ห้ามเก็บข้อมูลคนก่อนผ่าน IRB** — ไม่มีเลข approval = ตีพิมพ์ไม่ได้ + ผิดกฎหมาย.
-> reviewer reject ส่วนใหญ่ไม่ใช่ "คำนวณผิด" แต่เพราะ **design ผิด/ตอบคำถามไม่ได้, bias/confounder ไม่คุม, ตีความ association เป็น causation, ไม่มี ethics** → skill นี้เก็บการตัดสินใจ "ก่อนเก็บข้อมูล" เหล่านั้น
+> reviewer reject ส่วนใหญ่ไม่ใช่ "คำนวณผิด" แต่เพราะ design/bias/causation/ethics ที่ตัดสินผิด **ก่อนเก็บข้อมูล** — skill นี้เก็บการตัดสินใจช่วงนั้น
 > ตั้งโจทย์ → `r2r-research-proposal` · หา N → `sample-size-power` · เลือก test → `choose-stat-test` · รัน/แปลผล → `r2r-stats` · เขียนเล่ม → `manuscript-judgment`
 
 ## ใช้เมื่อ

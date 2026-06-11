@@ -3,7 +3,7 @@ skill: urinalysis-judgment
 title: โค้ชยูริน + body fluid microscopy — strip↔micro↔clinical ให้ตรง (Urinalysis & Body-Fluid Judgment)
 type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ atlas ตะกอน/ผลึก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น้ำในร่างกายเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ทุกผลที่กระทบการรักษา (RBC cast, crystal พิษ, CSF cell) ต้องดูด้วยกล้อง + correlate clinical + ทำตาม SOP/reference ของแล็บ + ยืนยันกับ MT/แพทย์ก่อนรายงานเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -61,7 +61,7 @@ disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น
 - artifact: amorphous, talc, starch, fiber — อย่ารายงานเป็นผลึกโรค
 
 ### Fork 5 — Body fluids (ขยายจากปัสสาวะ)
-- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · **xanthochromia (เหลืองจาก bilirubin หลัง RBC แตก) → หนุน SAH** · **RBC ลดลงเรื่อยๆ ข้าม tube 1→3 → หนุน traumatic tap** (ไม่ใช่เกณฑ์เด็ดขาด) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
+- **CSF**: นับ cell **ทันที** (เซลล์สลายเร็ว) · **xanthochromia → หนุน SAH** — แต่ดูจาก **supernatant ที่ปั่นทันที** (ตั้ง whole specimen ค้าง → RBC แตก in vitro = xanthochromia ปลอม) · **RBC ลดข้าม tube 1→3 → หนุน traumatic tap** (ไม่ใช่เกณฑ์เด็ดขาด — **clearing ไม่ตัด SAH**, SAH จริงอาจมี traumatic tap ซ้อนได้) · ส่ง chem (glucose ratio CSF/serum, protein) + micro/Gram คู่
 - **Serous (pleural/peritoneal)**: transudate vs exudate ตัดสินด้วย **Light's criteria** (เป็น chem ไม่ใช่ cell) → ชี้ทางก่อนแปล cell
 - **Synovial ใต้ polarized light**: **MSU = เข็ม, negatively birefringent = gout** · **CPPD = rhomboid, positively birefringent = pseudogout** · correlate cell count + Gram (septic = ฉุกเฉิน)
 

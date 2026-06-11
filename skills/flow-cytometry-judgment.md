@@ -3,7 +3,7 @@ skill: flow-cytometry-judgment
 title: โค้ช flow cytometry — gate ถูก + อ่าน pattern + correlate (Flow Cytometry Judgment)
 type: ADVISE               # ช่วยตัดสินใจ gating/panel/ตีความ ไม่ใช่ atlas marker
 needs: any                 # ใช้ได้กับ AI ทุกตัว
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
 status: draft
 disclaimer: "ช่วยคิดงาน flow cytometry เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC ของแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
@@ -31,10 +31,10 @@ disclaimer: "ช่วยคิดงาน flow cytometry เพื่อกา
 ## วิธีตัดสินใจ (AI: ทำตามนี้)
 
 ### ก่อนวิเคราะห์ — เช็คคุณภาพ
-- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO/isotype)** ไหม
+- sample viability + อายุ sample + จำนวนเซลล์พอไหม · **compensation/spillover** ตั้งถูกไหม · มี **control (FMO เป็นหลักในการขีด gate; isotype = legacy เชื่อไม่ได้)** ไหม
 
 ### Fork 1 — gating strategy (ลำดับ)
-scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน dead) → **CD45 vs SSC** (แยก blast gate / lymphocyte / mono / granulocyte) → marker เฉพาะใน gate ที่สนใจ
+**time/flow-stability** (ตัดช่วง clog/ไหลไม่นิ่ง) → scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable + dump channel** (กัน dead + lineage ที่ไม่เอา) → **CD45 vs SSC** (แยก blast/lymph/mono/gran — ⚠️ blast อยู่ CD45-dim/SSC-low; plasma cell/บาง lineage หลุด gate นี้ได้) → marker เฉพาะใน gate ที่สนใจ
 
 ### Fork 2 — panel design
 - lineage marker + maturation marker; เลือก CD ให้ครอบ DDx (AML vs ALL vs lymphoma)
@@ -45,7 +45,7 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 - เทียบกับ normal maturation pattern → ผิดปกติตรงไหน
 
 ### Fork 4 — แอปจริง
-- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (CD55/CD59 loss, FLAER) · **MRD** · lymphocyte subset
+- leukemia/lymphoma immunophenotyping · **CD4** (HIV monitoring) · **PNH** (FLAER + ≥2 GPI marker ต่อ lineage บน **WBC** mono/gran — FLAER ใช้กับ RBC ไม่ได้ + RBC โดน transfusion/hemolysis บิดผล) · **MRD** (ต้อง acquire events เยอะ ไม่งั้น false-neg clone เล็ก) · lymphocyte subset
 
 ### Fork 5 — correlate (flow ไม่ใช่คำตอบเดี่ยว)
 - correlate **smear/morphology + clinical + cytogenetics/molecular** (เชื่อม `hematology-judgment`, `pathology-judgment`, `molecular-judgment`) — diagnosis เป็นหน้าที่แพทย์/ผู้เชี่ยวชาญ
@@ -55,8 +55,8 @@ scatter (FSC/SSC) → **singlet** (กัน doublet) → **viable** (กัน 
 
 ## กับดัก (Anti-patterns)
 - #1 gate ไม่ตัด dead/doublet/debris → % เพี้ยน, population ผิด (กับดัก #1)
-- #2 compensation/spillover ผิด → marker ดู positive ปลอม
-- #3 ไม่มี FMO/isotype control → ขีดเส้น positive/negative มั่ว
+- #2 compensation ผิด → under-comp = positive ปลอม · **over-comp = ดันต่ำกว่าศูนย์ = negative ปลอม/ตี dim เป็น neg** (กระทบ MRD/aberrant) — ดู comp บนข้อมูลจริง ไม่ใช่แค่ beads
+- #3 ใช้ **isotype ขีดเส้น positive/negative** (เชื่อไม่ได้ — match fluorochrome:protein ไม่ได้จริง) → ใช้ **FMO** เป็น control หลัก; isotype = legacy/ใช้จำกัด
 - #4 อ่าน marker เดี่ยวไม่ดู pattern/co-expression
 - #5 ไม่สน intensity (dim vs bright) → พลาด aberrant phenotype
 - #6 ไม่ correlate morphology/clinical → ตีความลอย

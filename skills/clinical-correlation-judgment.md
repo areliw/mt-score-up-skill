@@ -3,7 +3,7 @@ skill: clinical-correlation-judgment
 title: โค้ชอ่านผลแล็บข้ามแขนง — correlate + ตั้ง DDx ชี้ทางให้แพทย์ (Clinical Correlation Judgment)
 type: ADVISE
 needs: any
-author: "MT Score UP!"
+author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
 status: draft
 disclaimer: "เครื่องมือช่วยคิดเชิงวินิจฉัยจากผลแล็บข้ามแขนงเพื่อการศึกษา — ช่วยคิด ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน การตีความผลแล็บกระทบการวินิจฉัยและรักษาผู้ป่วยโดยตรง ต้องยืนยันกับ MT/แพทย์ผู้ดูแล + ทำตาม SOP และตำรา/แหล่งอ้างอิงมาตรฐานเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"

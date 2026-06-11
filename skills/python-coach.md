@@ -16,7 +16,7 @@ disclaimer: "ช่วยคิด+จับกับดัก Python ระด�
 > **กฎข้อ 1 (จำให้ขึ้นใจ): method ที่แก้ของ in-place คืน `None` ไม่ใช่ค่าที่แก้แล้ว.** `.sort()`/`.reverse()`/`.append()`/`.update()`/`.extend()` → คืน `None` ทั้งหมด. ดังนั้น **ห้ามเอาผลของมันไป assign หรือ chain ต่อ** — `x = lst.sort()` ทำให้ `x` เป็น None เงียบๆ, `lst.append(y).append(z)` พังทันที. อยากได้ค่าที่แก้แล้ว: เรียก method (มันแก้ตัวแปรเดิมให้) **แล้วใช้ตัวแปรเดิม** หรือใช้ฟังก์ชันที่ "คืนค่าใหม่" เช่น `sorted(lst)`, `reversed(lst)`, `lst + [y]`.
 > **ตัวแยกง่ายๆ:** ชื่อเป็นกริยาแก้ของ (sort/append/update/reverse) → in-place คืน None · ชื่อบอกผลลัพธ์ (sorted/reversed) → คืนค่าใหม่ เอาไป assign ได้.
 >
-> Google/AI มี syntax ให้หมดแล้ว — ส่วนที่ทำให้พลาดจริงคือ (1) เลือก data structure/วิธีผิด (2) ตกกับดักที่ "ดูถูกแต่พัง" (in-place คืน None, loop variable ค้าง, mutable default). skill นี้เก็บสองอันนั้น ไม่ใช่ตำรา
+> Google/AI มี syntax ให้หมดแล้ว — ที่พลาดจริงคือ (1) เลือก data structure/วิธีผิด (2) ตกกับดักที่ "ดูถูกแต่พัง". skill นี้เก็บสองอันนั้น ไม่ใช่ตำรา
 
 ## ใช้เมื่อ
 - เขียน/ดีบัก Python (เรียน, coursework, งาน data)

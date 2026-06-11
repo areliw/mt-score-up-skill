@@ -48,8 +48,8 @@ python leakage_demo.py path/to/train.csv      # or pass titanic.zip
 
 (Seeds are fixed in the script, so a given environment is deterministic. The exact
 numbers above are illustrative — `requirements.txt` pins only minimum versions, so a
-different scikit-learn build may shift the digits slightly. What's stable is the
-*direction and rough size*: PROPER comes out below LEAKY by a few hundredths of AUC.)
+different scikit-learn build may shift the digits slightly. What's *usually* stable is the
+*direction and rough size*: PROPER typically comes out below LEAKY by a few hundredths of AUC.)
 
 ## Honest caveats
 

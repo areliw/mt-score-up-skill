@@ -79,11 +79,12 @@ def _active_stage(html: str):
     chars away in the legend (false negative). The ``stageId`` block is the source of truth.
 
     Title and code are captured in ONE pass, so they can never drift to two different stages,
-    and inline tags inside the title are stripped. If the block's shape is unexpected this
-    returns ``(None, None)`` -> the caller emits an exit-1 "fix parser" signal, never a silent
-    OK on a superseded standard."""
+    and inline tags inside the title are stripped. The gaps are length-bounded ({0,200}/{0,120})
+    so a malformed/changed block can't let the lazy match flow hundreds of chars onward and
+    pick up a code from the `#lifecycle` legend — it returns ``(None, None)`` instead, and the
+    caller emits an exit-1 "fix parser" signal, never a silent OK on a superseded standard."""
     m = re.search(
-        r'id="stageId".*?Stage\s*</div>(.*?)\[\s*<a[^>]*>\s*(\d{2}\.\d{2})',
+        r'id="stageId".{0,200}?Stage\s*</div>(.{0,120}?)\[\s*<a[^>]*>\s*(\d{2}\.\d{2})',
         html, re.IGNORECASE | re.DOTALL,
     )
     if not m:

@@ -1,0 +1,29 @@
+name: validate-skills
+
+# Guard the library: every skill keeps its frontmatter, and no internal markdown
+# link rots as the repo grows. Zero-dependency (stdlib Python) → fast, nothing
+# external to trust. Read-only: never commits.
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "scripts/validate_repo.py"
+      - "README.md"
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "scripts/validate_repo.py"
+      - "README.md"
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate frontmatter + internal links
+        run: python scripts/validate_repo.py

@@ -30,14 +30,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Regenerate catalog and fail on drift
+      - name: Regenerate catalog — fail only on triage.md drift
         run: |
           python scripts/build_triage.py
-          if ! git diff --quiet -- prompts/triage.md skills/INDEX.md dist/all-skills.md; then
-            echo "::error::Catalog out of sync — run 'python scripts/build_triage.py' and commit prompts/triage.md, skills/INDEX.md, dist/all-skills.md."
-            git --no-pager diff --stat -- prompts/triage.md skills/INDEX.md dist/all-skills.md
+          # Gate ONLY prompts/triage.md — the routing-critical file, deterministic from
+          # frontmatter. skills/INDEX.md + dist/all-skills.md are regenerated convenience
+          # files whose byte output varies slightly by platform (Windows vs Linux runner);
+          # report their drift but do NOT fail the build. Regenerate them periodically.
+          if ! git diff --quiet -- prompts/triage.md; then
+            echo "::error::prompts/triage.md out of sync — run 'python scripts/build_triage.py' and commit prompts/triage.md."
+            git --no-pager diff -- prompts/triage.md
             exit 1
           fi
-          echo "catalog in sync ✓"
+          if ! git diff --quiet -- skills/INDEX.md dist/all-skills.md; then
+            echo "::warning::INDEX/bundle drifted (convenience files — not blocking)."
+            git --no-pager diff --stat -- skills/INDEX.md dist/all-skills.md
+          fi
+          echo "triage routing catalog in sync ✓"
       - name: Overlap report (informational — does not fail build)
         run: python scripts/check_duplicates.py --top 20

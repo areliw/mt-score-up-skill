@@ -20,6 +20,7 @@ import re
 import sys
 import urllib.error
 import urllib.request
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -66,32 +67,68 @@ def fetch(url: str, timeout: int = 30) -> str:
         return resp.read().decode("utf-8", errors="replace")
 
 
+_VOID_TAGS = frozenset({
+    "area", "base", "br", "col", "embed", "hr", "img", "input",
+    "link", "meta", "param", "source", "track", "wbr",
+})
+_STAGE_TITLE_RE = re.compile(
+    r"international standard (?:published|to be revised|withdrawn|confirmed|under review)"
+    r"|withdrawal of international standard"
+)
+
+
+class _StageBlockParser(HTMLParser):
+    """Collect the text of ONLY the element whose ``id="stageId"`` (including its nested tags),
+    so stage parsing can never spill into the page-wide ``#lifecycle`` legend or other markup.
+    Depth tracking ignores void tags so an unclosed ``<img>``/``<br>`` can't unbalance it."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self._depth = 0
+        self.text_parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if self._depth:
+            if tag not in _VOID_TAGS:
+                self._depth += 1
+        elif dict(attrs).get("id") == "stageId":
+            self._depth = 1
+
+    def handle_endtag(self, tag):
+        if self._depth and tag not in _VOID_TAGS:
+            self._depth -= 1
+
+    def handle_data(self, data):
+        if self._depth:
+            self.text_parts.append(data)
+
+
 def _active_stage(html: str):
-    """Return ``(title, code)`` of the standard's ACTIVE lifecycle stage, parsed from the
-    iso.org ``id="stageId"`` block — e.g. ``Stage : International Standard to be revised
-    [90.92]`` -> ``("International Standard to be revised", "90.92")``. Returns
-    ``(None, None)`` if the block (with its ``[<code>]`` link) can't be read.
+    """Return ``(title, code)`` of the standard's ACTIVE lifecycle stage, read from the text of
+    iso.org's ``id="stageId"`` element — e.g. ``Stage : International Standard to be revised
+    [90.92]`` -> ``("International Standard to be revised", "90.92")``. Returns ``(None, None)``
+    if the element is absent, carries no bracketed ``[code]``, names more than one stage, or is
+    implausibly long (an unclosed block that would otherwise swallow the rest of the page).
 
-    Reads ONLY this standard's own active stage — never the page-wide ``#lifecycle`` legend
-    (which lists *every* possible stage for *every* standard) or links to other standards.
-    That distinction is the whole point: a global phrase match flagged even a Published
-    standard (false positive), and a proximity window missed the active banner sitting ~1.9k
-    chars away in the legend (false negative). The ``stageId`` block is the source of truth.
-
-    Title and code are captured in ONE pass, so they can never drift to two different stages,
-    and inline tags inside the title are stripped. The gaps are length-bounded ({0,200}/{0,120})
-    so a malformed/changed block can't let the lazy match flow hundreds of chars onward and
-    pick up a code from the `#lifecycle` legend — it returns ``(None, None)`` instead, and the
-    caller emits an exit-1 "fix parser" signal, never a silent OK on a superseded standard."""
-    m = re.search(
-        r'id="stageId".{0,200}?Stage\s*</div>(.{0,120}?)\[\s*<a[^>]*>\s*(\d{2}\.\d{2})',
-        html, re.IGNORECASE | re.DOTALL,
-    )
-    if not m:
+    The element is ISOLATED with an HTML parser before parsing — never a free-text scan of the
+    whole page — so it cannot drift into the page-wide ``#lifecycle`` legend (which lists every
+    stage for every standard) or a link to another standard. A global phrase match used to flag
+    even a Published standard (false positive); a proximity window missed the active banner ~1.9k
+    chars away (false negative) and could still reach an adjacent legend entry. Reading only the
+    stageId element's own text removes both failure modes: anything unexpected yields
+    ``(None, None)`` -> the caller emits an exit-1 "fix parser" signal, never a silent OK."""
+    parser = _StageBlockParser()
+    parser.feed(html)
+    text = re.sub(r"\s+", " ", "".join(parser.text_parts)).strip()
+    if not text or len(text) > 300:                 # absent, or an unclosed block that ran away
         return None, None
-    title = re.sub(r"<[^>]+>", " ", m.group(1))             # drop any inline tags in the title
-    title = re.sub(r"(&nbsp;|[\s:])+", " ", title).strip()  # collapse ws / ':' / nbsp
-    return (title or None), m.group(2)
+    if len(set(_STAGE_TITLE_RE.findall(text.lower()))) > 1:   # ambiguous: more than one stage
+        return None, None
+    code_m = re.search(r"\[\s*(\d{2}\.\d{2})", text)
+    if not code_m:                                  # the active stage must carry its own [code]
+        return None, None
+    title = re.sub(r"^\s*Stage\s*:?\s*", "", text.split("[", 1)[0], flags=re.IGNORECASE).strip()
+    return (title or None), code_m.group(1)
 
 
 def check_source(source: dict) -> dict:

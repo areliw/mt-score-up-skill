@@ -560,6 +560,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 >
 > ⚠️ **ขอบเขต:** ตัวเลข (Gy/titer/dose/วัน) = teaching illustration ยึด **SOP/มาตรฐานกาชาด** · logic เน้น **ผู้ใหญ่**; neonatal exchange / RhIG / เลือดทารก ยึด **protocol neonatal เฉพาะ + ปรึกษาแพทย์**
 
+> 🛑 **RED FLAGS — เจอข้อใด = หยุด ยืนยันกับ MT อาวุโส/แพทย์/ref lab ก่อน อย่าเชื่อ AI เดี่ยว:** ABO discrepancy · DAT+ ร่วม hemolysis · massive transfusion / emergency O release · เลือดทารก-แรกเกิด / exchange · **Bombay / Rhnull / anti–high-incidence Ag** · multiple / pan-reactive antibody. — สกิลนี้ช่วย *คิด* แต่กลุ่มนี้กระทบชีวิตคนไข้โดยตรง ต้องมีคนยืนยันเสมอ
+
 ## ใช้เมื่อ
 - ABO ไม่ตรง (cell ≠ serum) · antibody screen บวก → จะ ID ยังไง · DAT/IAT อันไหน · crossmatch แบบไหน
 - เลือก component / เมื่อไหร่ irradiate / leukoreduce · transfusion reaction → workup · ฉุกเฉินจ่าย O เมื่อไหร่
@@ -639,10 +641,10 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - ABO: RBC ใช้ O universal ได้ · plasma AB universal · **platelet = ความเสี่ยงอยู่ที่ PLASMA (anti-A,B) ไม่ใช่ RBC** → เลี่ยง high-titer O-platelet plasma เข้าคน A/B (ผู้ใหญ่ด้วย ไม่ใช่แค่เด็ก) · ideal = ABO-identical; ทิศ plasma compat: **AB > A/B > O**
 
 ### Fork 6 — transfusion reaction → workup
-> **verdict:** หยุดเลือดทันที + KVO saline → clerical recheck + DAT post + ABO ซ้ำ pre/post → ดู hemolysis (pink plasma/urine = intravascular = สงสัย ABO mislabel)
+> **verdict:** หยุดเลือดทันที + KVO saline → clerical recheck + DAT post + ABO ซ้ำ pre/post → ดู hemolysis (pink plasma/urine **สนับสนุน** intravascular → สงสัย ABO mislabel · แต่แยก in-vitro/sample hemolysis ก่อน — แปลร่วม DAT + clinical)
 
 **ทันที:** หยุดเลือด, KVO saline, เช็ค vital + clerical (ถุง vs ผู้ป่วย), แจ้งแพทย์+BB
-**lab:** (1) clerical recheck (2) **DAT** post (3) **ABO ซ้ำ** pre+post (4) ดู plasma/urine hemolysis (pink = intravascular)
+**lab:** (1) clerical recheck (2) **DAT** post (3) **ABO ซ้ำ** pre+post (4) ดู plasma/urine hemolysis — **pink plasma _สนับสนุน_ intravascular ไม่ใช่ยืนยัน**: แยก **in-vitro/sample hemolysis** (เจาะยาก/หลอดแตก/แช่ผิด) ออกก่อน แปลร่วม **DAT + ABO + pre-vs-post + clinical**
 - ไข้+หนาวสั่น → FNHTR vs เริ่ม acute HTR (แยกด้วย DAT/ABO/hemolysis) · ป้องกัน FNHTR ซ้ำ = leukoreduce
 - **ABO-incompat (intravascular):** back/flank pain, hypotension, hemoglobinuria, DIC → เกือบทุกเคสจาก **clerical mislabel**
 - **delayed (5-14 วัน, Hb ตก, DAT+, anamnestic anti-Jk/Kidd):** ให้ antigen-neg ครั้งถัดไป

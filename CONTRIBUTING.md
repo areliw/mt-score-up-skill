@@ -66,6 +66,7 @@ WI ที่คุณเขียนเสร็จ + ผ่าน QC แล้�
 - ❌ Patient records ทุกรูปแบบ
 - ❌ Hospital trade secrets / proprietary intellectual property
 - ❌ Document ที่ห้ามแชร์ตาม hospital policy
+- ❌ เนื้อหา verbatim ที่ copy จากตำรา/มาตรฐานมีลิขสิทธิ์ (CLSI/ISO/AABB/บทความ/ข้อสอบ) — สรุปเป็น judgment ภาษาตัวเองได้ แต่ห้ามลอกข้อความ/ตาราง/ข้อสอบมาตรงๆ
 
 ถ้าไม่แน่ใจ → consult MT head / QC manager ของโรงพยาบาลคุณก่อน submit
 

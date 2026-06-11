@@ -1,0 +1,13 @@
+# Python deps for the repo's TOOLING only. The skills themselves (markdown)
+# need nothing — paste them into any AI chat. These are for the WI generator
+# scripts and the eval demo. Pin exact versions in your env if you need
+# byte-reproducibility; floors below are known-good minimums.
+
+# WI generator — scripts/*.py (md_to_docx, fill_with_docxtpl, fill_template, ...)
+python-docx>=1.1
+docxtpl>=0.16
+
+# Eval — Titanic data-leakage demo (eval/titanic/leakage_demo.py)
+numpy>=1.26
+pandas>=2.0
+scikit-learn>=1.3

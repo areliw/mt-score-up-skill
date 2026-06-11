@@ -263,6 +263,11 @@ def main() -> int:
         removed = delete_from_anchor_to_sectpr(doc, anchor)
         print(f"Deleted {removed} elements (body section), preserved header")
 
+    # Render the markdown body back into the doc (after the deleted section,
+    # before w:sectPr). Without this the output body is empty.
+    render_markdown(doc, md_text)
+    print(f"Rendered markdown body ({len(md_text.splitlines())} lines)")
+
     doc.save(output_path)
     print(f"Saved: {output_path}")
     return 0

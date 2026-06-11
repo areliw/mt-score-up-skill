@@ -75,6 +75,11 @@ _STAGE_TITLE_RE = re.compile(
     r"international standard (?:published|to be revised|withdrawn|confirmed|under review)"
     r"|withdrawal of international standard"
 )
+# Stage codes at which an UN-pinned standard is still its current edition (no review needed):
+# 60.60 = International Standard published, 90.93 = confirmed after systematic review. Any other
+# active code — to-be-revised, under review, withdrawn, or an unknown/future code — is sent to
+# human review rather than silently re-stamped. A source may pin a different code via `known_stage`.
+CURRENT_STAGES = frozenset({"60.60", "90.93"})
 
 
 class _StageBlockParser(HTMLParser):
@@ -160,23 +165,18 @@ def check_source(source: dict) -> dict:
             "name": source["name"],
             "error": "active-stage block not found (iso.org layout changed — fix parser)",
         }
-    title_low = active_title.lower()
-    superseded = ("to be revised" in title_low) or ("withdraw" in title_low)
-    # `known_stage` is a human-in-the-loop PIN (same pattern as current_year): once a reviewer
-    # has seen the active stage they record its CODE, so the monthly workflow stops re-opening an
-    # issue for that exact acknowledged stage. The pin acknowledges ONE specific code, so ANY
-    # drift away from it must trip re-review — not only moves to "to be revised"/"withdrawn", but
-    # also a move back to published/confirmed/under-review (which would otherwise stamp a fresh
-    # "verified" date and silently bury the fact that the pin is now stale).
+    # Decide on the active stage CODE, never the title keywords. `known_stage` is a human-in-the-
+    # loop PIN (same pattern as current_year): a reviewer records the code they have accepted and
+    # the workflow stays quiet only while the page still shows that exact code. Comparing the code
+    # directly means EVERY transition is caught — for a pinned source, any code != the pin; for an
+    # un-pinned source, any code outside the "still current" set (published / confirmed). An
+    # unknown or future stage code therefore reaches review too, instead of being silently
+    # re-stamped (the title-keyword test used to miss "under review", "confirmed" and unknowns).
     known = source.get("known_stage")
-    if known is not None:
-        acknowledged = active_code == known   # pinned and still matching -> stay quiet
-        pin_drift = not acknowledged          # pinned but the stage moved -> stale, re-review
-        stage_alarm = pin_drift
-    else:
-        acknowledged = False
-        pin_drift = False
-        stage_alarm = superseded              # un-pinned: only revised/withdrawn is an alarm
+    expected = {known} if known is not None else CURRENT_STAGES
+    acknowledged = known is not None and active_code == known
+    pin_drift = known is not None and active_code != known
+    stage_alarm = active_code not in expected
     changed = (detected_year != source["current_year"]) or stage_alarm
 
     return {
@@ -186,9 +186,9 @@ def check_source(source: dict) -> dict:
         "active_stage": f"{active_title} [{active_code}]" if active_code else active_title,
         "active_code": active_code,
         "known_stage": known,
-        "superseded": superseded,
         "acknowledged": acknowledged,
         "pin_drift": pin_drift,
+        "stage_alarm": stage_alarm,
         "changed": changed,
     }
 
@@ -258,8 +258,8 @@ def main() -> int:
                     f"stage drifted from acknowledged [{r.get('known_stage')}] "
                     f"-> {r.get('active_stage')}"
                 )
-            elif r.get("superseded"):
-                reasons.append(f"stage -> {r.get('active_stage', 'revision/withdrawal')}")
+            elif r.get("stage_alarm"):
+                reasons.append(f"unexpected stage -> {r.get('active_stage')}")
             if not reasons:  # never emit an empty reason
                 reasons.append(f"stage {r.get('active_stage')}")
             print(f"  [NEW] {r['name']}: " + " · ".join(reasons))

@@ -54,8 +54,8 @@ different scikit-learn build may shift the digits slightly. What's stable is the
 ## Honest caveats
 
 - The 200 synthetic noise columns **amplify** the leak to make it legible in one run. On a
-  clean dataset with few features the inflation is smaller — but the leak **essentially
-  always inflates the metric**, working against honest evaluation, and it grows with the
+  clean dataset with few features the inflation is smaller — but the leak **typically biases
+  the metric upward**, working against honest evaluation, and it grows with the
   number of features and preprocessing steps that touch the labels. The mechanism, not the
   exact magnitude, is the lesson.
 - This demonstrates **one** of `ml-judgment`'s traps (selection leakage). It's the most

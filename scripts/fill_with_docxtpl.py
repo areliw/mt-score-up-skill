@@ -281,14 +281,16 @@ def _resolve_num_id(doc, clause: int) -> int | None:
     """Pick a numId that EXISTS in `doc` for this clause, or None to skip native numbering.
 
     Preference order:
-      1. The clause's configured numId (e.g. 19) if the template actually defines it.
-      2. The default numId (17) if defined.
-      3. None → caller keeps the literal "4.1" text via manual numbering.
+      1. The clause's INTENDED numId — NUM_ID_BY_CLAUSE[clause] (e.g. 19 for clause 4), or
+         NUM_ID_DEFAULT only for a clause with no specific mapping — and only if the template
+         actually defines it.
+      2. None → caller keeps the literal "4.1" text via manual numbering.
 
-    Only the template's configured numIds (NUM_ID_BY_CLAUSE / NUM_ID_DEFAULT) are trusted to
-    start at the right clause level. We do NOT borrow an arbitrary existing list definition:
-    it may be single-level, lack ilvl=1, or start at 1 → blank or "1.x" headings instead of
-    "4.x". When neither configured numId is defined, fall back to manual (literal) numbering.
+    We never substitute a DIFFERENT numId than the clause's intended one. NUM_ID_DEFAULT (17)
+    is not clause-4-specific: it (and any other existing list definition) may be single-level,
+    lack ilvl=1, or start at 1, so reusing 17 for clause 4 renders "4.1" as a blank or "1.x"
+    heading. When the clause's intended numId is absent, manual (literal) numbering is the safe
+    path — it preserves the source text exactly.
     """
     available = _existing_num_ids(doc)
     if not available:
@@ -296,9 +298,7 @@ def _resolve_num_id(doc, clause: int) -> int | None:
     preferred = NUM_ID_BY_CLAUSE.get(clause, NUM_ID_DEFAULT)
     if preferred in available:
         return preferred
-    if NUM_ID_DEFAULT in available:
-        return NUM_ID_DEFAULT
-    return None  # no known-compatible numId → manual numbering preserves the source text
+    return None  # clause's intended numId not defined → manual numbering (never substitute another)
 
 
 def _apply_native_numbering(paragraph, num_id: int, ilvl: int) -> None:

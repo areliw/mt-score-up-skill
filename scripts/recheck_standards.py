@@ -81,23 +81,36 @@ def check_source(source: dict) -> dict:
     # reference (caught by max() above), or (b) a withdrawal / "has been revised by" banner.
     # Detect (b) too, so a superseded page is sent to human review (exit 2) instead of stamped OK.
     low = html.lower()
-    superseded = any(
+    # (b1) Explicit banners that unambiguously describe THIS page's own standard — these name
+    # the standard the page is about, so a global match is safe.
+    explicit = any(
         marker in low
         for marker in (
             "this standard has been revised",
             "is being revised by",
             "has been withdrawn",
-            # iso.org also flags an in-progress successor WITHOUT a published year yet:
-            # the lifecycle banner reads "International Standard to be revised" /
-            # "will be replaced by ISO/AWI <n>" / "under revision". The pinned URL keeps
-            # serving the old edition, so max() above can't catch these — match them here
-            # so an actively-revised standard goes to human review (exit 2), not a clean stamp.
-            "to be revised",
-            "will be replaced",
-            "under revision",
-            "iso/awi",
         )
     )
+    # (b2) iso.org's stage label for an actively-revised standard ("International Standard to be
+    # revised" / "will be replaced by ISO ..." / "under revision"). These phrases ALSO appear in
+    # generic page chrome and in links to OTHER standards — e.g. a *Published* ISO 15189 page
+    # that links to the revised ISO 15190 — so a GLOBAL match false-positives every run. Scope
+    # them to a text window around THIS standard's own number, so only the standard's own stage
+    # banner trips review, not a neighbour's banner elsewhere on the page.
+    stdnum = re.search(r"\d{3,}", source["name"])
+    scoped = False
+    if stdnum:
+        own = re.escape(stdnum.group(0))
+        for m in re.finditer(own, low):
+            window = low[max(0, m.start() - 150): m.end() + 200]
+            if (
+                "international standard to be revised" in window
+                or "will be replaced by iso" in window
+                or "under revision" in window
+            ):
+                scoped = True
+                break
+    superseded = explicit or scoped
 
     return {
         "name": source["name"],

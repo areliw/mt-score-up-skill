@@ -70,25 +70,27 @@ def _active_stage(html: str):
     """Return ``(title, code)`` of the standard's ACTIVE lifecycle stage, parsed from the
     iso.org ``id="stageId"`` block — e.g. ``Stage : International Standard to be revised
     [90.92]`` -> ``("International Standard to be revised", "90.92")``. Returns
-    ``(None, None)`` if the block is absent.
+    ``(None, None)`` if the block (with its ``[<code>]`` link) can't be read.
 
     Reads ONLY this standard's own active stage — never the page-wide ``#lifecycle`` legend
     (which lists *every* possible stage for *every* standard) or links to other standards.
     That distinction is the whole point: a global phrase match flagged even a Published
     standard (false positive), and a proximity window missed the active banner sitting ~1.9k
-    chars away in the legend (false negative). The ``stageId`` block is the source of truth."""
+    chars away in the legend (false negative). The ``stageId`` block is the source of truth.
+
+    Title and code are captured in ONE pass, so they can never drift to two different stages,
+    and inline tags inside the title are stripped. If the block's shape is unexpected this
+    returns ``(None, None)`` -> the caller emits an exit-1 "fix parser" signal, never a silent
+    OK on a superseded standard."""
     m = re.search(
-        r'id="stageId".*?Stage\s*</div>(.*?)(?:\[|<)',
+        r'id="stageId".*?Stage\s*</div>(.*?)\[\s*<a[^>]*>\s*(\d{2}\.\d{2})',
         html, re.IGNORECASE | re.DOTALL,
     )
     if not m:
         return None, None
-    title = re.sub(r"(&nbsp;|[\s:])+", " ", m.group(1)).strip()
-    code_m = re.search(
-        r'id="stageId".*?\[\s*<a[^>]*>\s*(\d{2}\.\d{2})',
-        html, re.IGNORECASE | re.DOTALL,
-    )
-    return (title or None), (code_m.group(1) if code_m else None)
+    title = re.sub(r"<[^>]+>", " ", m.group(1))             # drop any inline tags in the title
+    title = re.sub(r"(&nbsp;|[\s:])+", " ", title).strip()  # collapse ws / ':' / nbsp
+    return (title or None), m.group(2)
 
 
 def check_source(source: dict) -> dict:

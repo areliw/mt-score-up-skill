@@ -275,15 +275,29 @@ def main() -> int:
                 f"({r.get('active_stage', '')})"
             )
 
-    # A detected edition change must NOT silently rewrite STANDARDS.md or refresh the
-    # "last verified" stamp — that would mask staleness. Leave the file untouched and
-    # signal for human review (the workflow opens an issue/PR on exit 2).
+    # A detected change must NOT silently rewrite STANDARDS.md or refresh the "last verified"
+    # stamp — that would mask staleness. Leave the file untouched and signal for human review
+    # (the workflow opens an issue/PR on exit 2). The REMEDY differs by cause, so spell it out:
+    # a new edition year needs current_year bumped; a same-year lifecycle-stage drift needs
+    # known_stage reviewed/updated. Telling a human to bump current_year for a 90.92 -> 90.93
+    # move (same edition) would be wrong, so the two cases are reported separately.
     if has_change:
-        print(
-            "\n[ACTION] Newer edition detected — STANDARDS.md left unchanged.\n"
-            "         A human must verify the edition, update STANDARDS.md, and bump\n"
-            "         current_year in this script via PR."
-        )
+        changed = [r for r in results if r.get("changed")]
+        new_edition = [r for r in changed if r["detected_year"] != r["current_year"]]
+        stage_drift = [r for r in changed if r["detected_year"] == r["current_year"]]
+        print("\n[ACTION] Change detected — STANDARDS.md left unchanged. Verify via PR:")
+        for r in new_edition:
+            print(
+                f"         • {r['name']}: NEW EDITION :{r['detected_year']} "
+                f"(file :{r['current_year']}) — verify it, update STANDARDS.md, and bump "
+                f"current_year in this script."
+            )
+        for r in stage_drift:
+            print(
+                f"         • {r['name']}: lifecycle STAGE changed (same edition year) -> "
+                f"{r.get('active_stage')} — verify the stage and update/clear known_stage in "
+                f"this script (do NOT bump current_year)."
+            )
         return 2
 
     # On a fetch/parse error, do NOT refresh date stamps — stamping "verified" when a

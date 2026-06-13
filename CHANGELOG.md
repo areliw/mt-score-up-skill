@@ -1,8 +1,8 @@
 # Changelog
 
 Notable changes to the MT Score UP! skills hub. Format loosely follows
-[Keep a Changelog](https://keepachangelog.com/). สกิลคลินิกและส่วนใหญ่เป็น `status: draft`
-(เรียบเรียงจากองค์ความรู้มาตรฐาน ยังไม่ผ่าน formal clinical peer-review) — สกิลกลุ่ม data/code (non-clinical) = `status: stable`.
+[Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
+content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
 
 ## [0.8.2] — 2026-06-10
 

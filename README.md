@@ -35,27 +35,23 @@
 <sub>🇬🇧 **EN:** Free, portable *judgment skills* for Thai Medical Technologists — paste one markdown file into your AI chat (Claude / ChatGPT / Gemini). No install, no extra cost. Thai-first. See [`examples/`](./examples).</sub>
 รายการเต็ม + คำอธิบายอยู่ที่ [`skills/README.md`](./skills/README.md)
 
-### 🩸 งานแล็บ (Lab bench)
+### 💻 โค้ด / เทคนิค / data
 | skill | ช่วยอะไร |
 |---|---|
-| [bloodbank-judgment](./skills/bloodbank-judgment.md) | ตัดสินใจหน้างานธนาคารเลือด — ABO discrepancy / antibody ID / crossmatch / transfusion reaction |
-| [hematology-judgment](./skills/hematology-judgment.md) | อ่าน CBC/smear/coag — review smear เมื่อไหร่ · anemia path · blast · thal vs IDA · PT/aPTT |
-| [clinchem-judgment](./skills/clinchem-judgment.md) | QC accept/reject (Westgard) · interference HIL · critical value · recalibrate vs troubleshoot |
-| [chemistry-interpretation-judgment](./skills/chemistry-interpretation-judgment.md) | แปลผล organ-system: tumor/renal(eGFR)/LFT pattern/cardiac timing/ABG+anion gap |
-| [clinmicro-judgment](./skills/clinmicro-judgment.md) | เชื้อจริง vs contaminate · ID workflow · อ่าน AST/MDR · culture vs molecular |
-| [applied-microbiology-judgment](./skills/applied-microbiology-judgment.md) | จุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม): ถนอม · screen≠confirm · metagenomics · bioremediation · probiotic |
-| [immunoassay-judgment](./skills/immunoassay-judgment.md) | เลือก format · อ่าน HBV/HIV/syphilis/ANA panel · prozone/hook/window |
-| [molecular-judgment](./skills/molecular-judgment.md) | เลือก method (RFLP/ASO/HRM/Sanger/NGS) · แปล qPCR/Ct · กัน false +/− · pharmacogenomics |
-| [pathology-judgment](./skills/pathology-judgment.md) | อ่าน pattern: benign/malignant · necrosis · อักเสบ · grading/staging · dysplasia |
-| [parasitology-judgment](./skills/parasitology-judgment.md) | เลือก concentration/stain · malaria thick/thin + ตรวจซ้ำ · single-stool false-neg |
-| [toxicology-judgment](./skills/toxicology-judgment.md) | screen vs confirm · antidote (OP/carbamate/paraquat) · chelator · TDM timing |
-| [pharmacology-judgment](./skills/pharmacology-judgment.md) | ยาเบื้องต้น: ADME · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน · pharmacogenomics |
-| [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal → DDx → rule-out) |
-| [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety: hand hygiene (C.diff spore) · N95 vs surgical · precaution · ความดันลบ/บวก · เข็มตำ |
-| [urinalysis-judgment](./skills/urinalysis-judgment.md) | ยูริน + body-fluid micro — strip↔micro↔clinical ให้ตรง · cast/crystal · กับดัก strip false +/− |
-| [preanalytical-judgment](./skills/preanalytical-judgment.md) | pre-analytical/phlebotomy — ลำดับเจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ก่อนถึงเครื่อง |
-| [poct-judgment](./skills/poct-judgment.md) | Point-of-care testing — ให้แล็บนอกแล็บเชื่อได้เท่าแล็บกลาง · QC/connectivity/ผู้ใช้นอกสายแล็บ |
-| [flow-cytometry-judgment](./skills/flow-cytometry-judgment.md) | flow cytometry — gate ถูก · อ่าน pattern · correlate clinical · กับดัก compensation/artifact |
+| [python-coach](./skills/python-coach.md) | เลือกเครื่องมือ + ไม่ตกหลุม Python |
+| [db-judgment](./skills/db-judgment.md) | ตัดสินใจ SQL / ออกแบบ DB ไม่ให้ระเบิด |
+| [ml-judgment](./skills/ml-judgment.md) | เลือกโมเดล/metric/validation ML + เลี่ยงกับดัก |
+| [cv-judgment](./skills/cv-judgment.md) | เลือกเทคนิควิเคราะห์ภาพ + เลน blood smear/เซลล์ |
+| [optimization-judgment](./skills/optimization-judgment.md) | เลือกวิธี optimize (LP/heuristic/sim) จัดเวร/ทรัพยากร |
+| [data-project-survival](./skills/data-project-survival.md) | โปรเจกต์ data/ML ไม่ให้ล้ม + ประเมิน vendor |
+| [data-science-workflow](./skills/data-science-workflow.md) | เดินโปรเจกต์ DS ตาม CRISP-DM — อยู่ phase ไหน/loop เมื่อไหร่ · กัน data leakage |
+| [ml-engineering-workflow](./skills/ml-engineering-workflow.md) | นำโมเดลขึ้นใช้จริง: reproducible train · shadow/A-B · monitor drift · rollback |
+| [tdd-judgment](./skills/tdd-judgment.md) | เขียนเทสต์ให้คุ้ม + TDD — เทสต์อะไรก่อน · mock/coverage เป็นเครื่องมือ · เทสต์ผ่านแต่ไม่จับบั๊ก |
+| [debugging-judgment](./skills/debugging-judgment.md) | ดีบักมีวินัย — reproduce→trace→falsify→cross-ref · หา root cause ไม่ใช่ปะ symptom |
+| [ai-coding-guardrails](./skills/ai-coding-guardrails.md) | กันกับดักให้ AI เขียนโค้ด — ขอบเขตแคบ · surgical edit · success ที่ตรวจได้ · กัน over-engineer |
+| [spreadsheet-judgment](./skills/spreadsheet-judgment.md) | ใช้ Excel/Sheets ให้ถูก + กัน silent error (date/auto-convert/copy เพี้ยน) ในข้อมูลแล็บ |
+| [mt-databases](./skills/mt-databases.md) | เก็บข้อมูล MT: Sheets vs Access vs SQL เลือกเมื่อไหร่ · structure กันพัง · backup/สิทธิ์ |
+| [git-workflow-judgment](./skills/git-workflow-judgment.md) | Git: branch/commit/merge/conflict ไม่ให้งานหาย · main protect/PR flow · กู้ commit หาย (orphan/reflog) · CRLF/CI drift |
 
 ### 🔬 งานวิจัย / สถิติ (R2R)
 | skill | ช่วยอะไร |
@@ -132,29 +128,33 @@
 | [lead-intelligence-judgment](./skills/lead-intelligence-judgment.md) | หา+คัดกรอง lead B2B — signal scoring · mutual fit · warm path · follow-up + PDPA |
 | [incident-postmortem-judgment](./skills/incident-postmortem-judgment.md) | ถอดบทเรียนหลังเหตุ + CAPA — blameless RCA (5-why) · root vs symptom · ป้องกันซ้ำที่ระบบ |
 
-### 💻 โค้ด / เทคนิค / data
-| skill | ช่วยอะไร |
-|---|---|
-| [python-coach](./skills/python-coach.md) | เลือกเครื่องมือ + ไม่ตกหลุม Python |
-| [db-judgment](./skills/db-judgment.md) | ตัดสินใจ SQL / ออกแบบ DB ไม่ให้ระเบิด |
-| [ml-judgment](./skills/ml-judgment.md) | เลือกโมเดล/metric/validation ML + เลี่ยงกับดัก |
-| [cv-judgment](./skills/cv-judgment.md) | เลือกเทคนิควิเคราะห์ภาพ + เลน blood smear/เซลล์ |
-| [optimization-judgment](./skills/optimization-judgment.md) | เลือกวิธี optimize (LP/heuristic/sim) จัดเวร/ทรัพยากร |
-| [data-project-survival](./skills/data-project-survival.md) | โปรเจกต์ data/ML ไม่ให้ล้ม + ประเมิน vendor |
-| [data-science-workflow](./skills/data-science-workflow.md) | เดินโปรเจกต์ DS ตาม CRISP-DM — อยู่ phase ไหน/loop เมื่อไหร่ · กัน data leakage |
-| [ml-engineering-workflow](./skills/ml-engineering-workflow.md) | นำโมเดลขึ้นใช้จริง: reproducible train · shadow/A-B · monitor drift · rollback |
-| [tdd-judgment](./skills/tdd-judgment.md) | เขียนเทสต์ให้คุ้ม + TDD — เทสต์อะไรก่อน · mock/coverage เป็นเครื่องมือ · เทสต์ผ่านแต่ไม่จับบั๊ก |
-| [debugging-judgment](./skills/debugging-judgment.md) | ดีบักมีวินัย — reproduce→trace→falsify→cross-ref · หา root cause ไม่ใช่ปะ symptom |
-| [ai-coding-guardrails](./skills/ai-coding-guardrails.md) | กันกับดักให้ AI เขียนโค้ด — ขอบเขตแคบ · surgical edit · success ที่ตรวจได้ · กัน over-engineer |
-| [spreadsheet-judgment](./skills/spreadsheet-judgment.md) | ใช้ Excel/Sheets ให้ถูก + กัน silent error (date/auto-convert/copy เพี้ยน) ในข้อมูลแล็บ |
-| [mt-databases](./skills/mt-databases.md) | เก็บข้อมูล MT: Sheets vs Access vs SQL เลือกเมื่อไหร่ · structure กันพัง · backup/สิทธิ์ |
-| [git-workflow-judgment](./skills/git-workflow-judgment.md) | Git: branch/commit/merge/conflict ไม่ให้งานหาย · main protect/PR flow · กู้ commit หาย (orphan/reflog) · CRLF/CI drift |
-
 ### 🗂️ จัดการ
 | skill | ช่วยอะไร |
 |---|---|
 | [never-lose-a-file](./skills/never-lose-a-file.md) | จัดไฟล์ให้เป็นระเบียบ แล้วไม่หายอีก |
 | [phi-data-handling](./skills/phi-data-handling.md) | จัดการข้อมูลคนไข้/PHI — จัดระดับข้อมูล · de-identify ให้จริง · PDPA/IRB · ช่องทางแชร์ปลอดภัย |
+
+### 🩸 งานแล็บ (Lab bench)
+| skill | ช่วยอะไร |
+|---|---|
+| [bloodbank-judgment](./skills/bloodbank-judgment.md) | ตัดสินใจหน้างานธนาคารเลือด — ABO discrepancy / antibody ID / crossmatch / transfusion reaction |
+| [hematology-judgment](./skills/hematology-judgment.md) | อ่าน CBC/smear/coag — review smear เมื่อไหร่ · anemia path · blast · thal vs IDA · PT/aPTT |
+| [clinchem-judgment](./skills/clinchem-judgment.md) | QC accept/reject (Westgard) · interference HIL · critical value · recalibrate vs troubleshoot |
+| [chemistry-interpretation-judgment](./skills/chemistry-interpretation-judgment.md) | แปลผล organ-system: tumor/renal(eGFR)/LFT pattern/cardiac timing/ABG+anion gap |
+| [clinmicro-judgment](./skills/clinmicro-judgment.md) | เชื้อจริง vs contaminate · ID workflow · อ่าน AST/MDR · culture vs molecular |
+| [applied-microbiology-judgment](./skills/applied-microbiology-judgment.md) | จุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม): ถนอม · screen≠confirm · metagenomics · bioremediation · probiotic |
+| [immunoassay-judgment](./skills/immunoassay-judgment.md) | เลือก format · อ่าน HBV/HIV/syphilis/ANA panel · prozone/hook/window |
+| [molecular-judgment](./skills/molecular-judgment.md) | เลือก method (RFLP/ASO/HRM/Sanger/NGS) · แปล qPCR/Ct · กัน false +/− · pharmacogenomics |
+| [pathology-judgment](./skills/pathology-judgment.md) | อ่าน pattern: benign/malignant · necrosis · อักเสบ · grading/staging · dysplasia |
+| [parasitology-judgment](./skills/parasitology-judgment.md) | เลือก concentration/stain · malaria thick/thin + ตรวจซ้ำ · single-stool false-neg |
+| [toxicology-judgment](./skills/toxicology-judgment.md) | screen vs confirm · antidote (OP/carbamate/paraquat) · chelator · TDM timing |
+| [pharmacology-judgment](./skills/pharmacology-judgment.md) | ยาเบื้องต้น: ADME · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน · pharmacogenomics |
+| [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal → DDx → rule-out) |
+| [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety: hand hygiene (C.diff spore) · N95 vs surgical · precaution · ความดันลบ/บวก · เข็มตำ |
+| [urinalysis-judgment](./skills/urinalysis-judgment.md) | ยูริน + body-fluid micro — strip↔micro↔clinical ให้ตรง · cast/crystal · กับดัก strip false +/− |
+| [preanalytical-judgment](./skills/preanalytical-judgment.md) | pre-analytical/phlebotomy — ลำดับเจาะ/หลอด/ระบุตัว/ขนส่ง ให้ตัวอย่างเชื่อได้ก่อนถึงเครื่อง |
+| [poct-judgment](./skills/poct-judgment.md) | Point-of-care testing — ให้แล็บนอกแล็บเชื่อได้เท่าแล็บกลาง · QC/connectivity/ผู้ใช้นอกสายแล็บ |
+| [flow-cytometry-judgment](./skills/flow-cytometry-judgment.md) | flow cytometry — gate ถูก · อ่าน pattern · correlate clinical · กับดัก compensation/artifact |
 
 > แต่ละไฟล์มี `type` (ADVISE = ให้คำแนะนำ · DO = รันจริง · CALIBRATION = ปรับวิธีทำงานของ AI) และ `needs` (AI แบบไหนใช้ได้) บอกไว้ในหัวไฟล์
 

@@ -5,7 +5,7 @@ type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-11
-status: draft
+status: stable
 disclaimer: "ช่วยตัดสินใจ git workflow เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — คำสั่ง destructive (reset --hard / push --force / rebase ที่ push แล้ว) ลบงานได้ ต้องเข้าใจผล + สำรองก่อนรันเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

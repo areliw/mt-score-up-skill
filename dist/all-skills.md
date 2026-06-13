@@ -1886,6 +1886,7 @@ disclaimer: "ช่วยวางลำดับงานและตัดส�
 - **เดินเส้นตรงไม่ยอม loop** — รู้ว่าฐานพัง (data ไม่พอ/leakage) แต่ดันต่อเพราะเสียดายแรง → ถอยกลับ phase ที่พังถูกกว่า
 - **deploy แล้วทิ้ง** — ไม่เฝ้า drift, ไม่มีช่องรับ feedback → โมเดลค่อยๆ เพี้ยนเงียบๆ จนตัดสินใจผิด → วางแผน monitor ตั้งแต่ phase 6
 - **biased training data** — data ที่เก็บมาไม่แทนประชากรจริง (เก็บจาก รพ.เดียว/กลุ่มเดียว) → โมเดลพังกับกลุ่มที่ไม่เคยเห็น → ตรวจตัวแทนของ data ตั้งแต่ phase 2
+- **สับสน "ทำนาย" กับ "ทำให้เกิด" (correlation → causation):** observational data ทำนายได้ ≠ บอกว่า *แทรกแซง X แล้ว Y เปลี่ยน* (confounder ทำ association หลอก) → ถ้าเป้าคือ "ทำ X แล้วผลต่างไหม" ต้องใช้**วิธี causal** (RCT/quasi-experiment **หรือ** observational causal ภายใต้สมมติฐานชัด — ปรับ confounder/propensity/DAG) ไม่ใช่ predictive model เฉยๆ · ข้อมูล survey/observational ระวังเป็นพิเศษ
 - **clean ทับ raw / ไม่ log transformation** → กฎผิดแล้วกู้ไม่ได้ + reproduce ไม่ได้ + ไม่รู้ว่าเปลี่ยนอะไรไป → เก็บ raw แยก เขียน transformation เป็น pipeline/script ที่รันซ้ำได้เสมอ
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
@@ -4788,6 +4789,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 - ไม่มี label อยากหา group (สำรวจ subtype ผู้ป่วย) → **Clustering**
 - ไม่มี label อยากลดมิติ/visualize → **Dimensionality reduction** (Fork 5)
 - agent ลองผิดลองถูก + reward (ปรับ dose/policy) → **RL**
+- มี **time-to-event + censoring** (เวลาจนเกิดเหตุ; บางรายยังไม่เกิด/ติดตามไม่ครบ — survival, recurrence) → **Survival analysis** (Kaplan-Meier / Cox PH) — ⚠️ **ละเลย censoring** (ตัด/มองข้ามคนที่ยังไม่เกิดเหตุ) = bias · fixed-horizon classification ("เกิดใน 1 ปีไหม") ใช้ได้ถ้า follow-up ครบทุกราย
 - ⚖️ ลังเล classification↔regression: output ที่ "มีความหมาย" เป็น category หรือตัวเลข — อย่าปัด target ต่อเนื่องเป็น bin โดยไม่จำเป็น (เสียข้อมูล)
 
 ### Fork 2 — classifier ตัวไหน?
@@ -4813,12 +4815,14 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
   - **PR-AUC (precision-recall)** = ซื่อสัตย์สุดตอน imbalance หนัก เพราะไวต่อ performance บน **positive/minority class** — ⚠️ **ROC-AUC สูงไม่ได้แปลว่าใช้ได้จริงตอน imbalance**: AUC แทบไม่ขึ้นกับสัดส่วน class (ranking metric) แต่ค่า "สูง" อยู่ได้พร้อมกับ **precision/PPV ที่ร่วงเพราะ prevalence ต่ำ** → severe imbalance ดู **PR-AUC เป็นหลัก**, ROC-AUC อ่านประกอบได้ ไม่ใช่ตัวตัดสิน
 - **Regression** → **RMSE** (หน่วยเดียวกับ target, ลงโทษ error ใหญ่) · **MAE** (ทน outlier) · **R²** (สื่อกับคนทั่วไป)
 - 🩺 health rule: screening → ดัน **recall** · confirmatory → ดัน **precision**
+- ⚖️ **fairness (ถ้าโมเดลกระทบคน — hiring/triage/คัดกรอง):** วัด metric **แยก subgroup** (เพศ/อายุ/พื้นที่) ไม่ใช่ค่าเฉลี่ยรวม — แม่นรวมแต่พังกลุ่มน้อยได้ · ⚠️ "ไม่ใส่ตัวแปร sensitive" ≠ fair (proxy เช่น zip/ชื่อ/ชื่อ รพ. รั่ว sensitive กลับเข้ามา)
 
 ### Fork 5 — feature selection vs PCA/LDA?
 - อยากเก็บ feature เดิม ตีความได้ → **Feature selection** (filter / wrapper / Lasso-embedded)
 - ยอมได้แกนผสม, ลด noise/มิติ, unsupervised → **PCA** (linear, เร็ว)
 - มี label + อยากแกนที่แยก class ดีสุด → **LDA** (supervised)
 - แค่ visualize 2D → **t-SNE / UMAP** (อย่าเอา coordinate ไป feed โมเดลต่อ — เป็นแค่ภาพ)
+- ⚠️ **p≫n (feature ≫ ตัวอย่าง — genomic/methylation/omics):** feature selection **ต้องอยู่ใน CV fold** (เลือกบน data ทั้งก้อน = leakage → CV สูงลวงแม้บน noise ล้วน) + regularization (Lasso/Elastic Net) + ระวัง **batch effect** (เครื่อง/วันรัน confound กับ label) · ถ้า**ทดสอบสมมติฐานราย feature** (screen biomarker หลายตัว) → **multiple-testing correction** (FDR/Bonferroni)
 
 ### Fork 6 — bagging vs boosting?
 - base model variance สูง/unstable (deep tree) → **Bagging / Random Forest** (ลด variance, train ขนานได้, ทน overfit)

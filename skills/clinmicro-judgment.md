@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจแล็บจุลชี�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-13
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บจุลชีววิทยาคลินิกเพื่อการศึกษา ไม่ตัดสินแทน และไม่ใช่คำสั่งวินิจฉัย/รักษา ทุกผลต้อง correlate กับ Gram stain + clinical + colony morphology และทำตาม SOP/QC ของห้องแล็บเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง ความผิดพลาดในการรายงานเชื้อก่อโรค/ความไวต่อยา อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -57,6 +57,7 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated pathogen (ID+AST); 10⁴–10⁵ = suspected; 10³–10⁴ = แปลตาม site/อาการ/single-vs-mixed (borderline); <10³ = "no significant growth".
 - ⚠️ **10⁵ = เกณฑ์ asymptomatic/screening** — ในคน **มีอาการ** (acute cystitis) single uropathogen ที่ ≥10²–10³ CFU/ml ก็ significant; ยึด 10⁵ ตายตัวพลาด symptomatic UTI ได้ถึง ~50% → **ผูก cutoff กับ symptom status เสมอ**.
 - หลัก: site + count + จำนวนชนิด + clinical ประกอบกัน.
+- ⚠️ **CSU (เก็บปัสสาวะจาก "สายสวนที่คาอยู่"):** 🚫 **ห้ามเก็บ C/S จากถุงเก็บปัสสาวะ (drainage bag) เด็ดขาด — ไม่มีข้อยกเว้นแม้เพิ่งเปลี่ยน bag** — ฉี่ในถุงค้าง/แบคทีเรียงอก → **C/S บวกลวง + colony count เกินจริง**. ที่ถูก = clamp สายให้ฉี่ใหม่คั่ง → เช็ด sampling port แบบ aseptic → ดูดด้วย syringe (สายรุ่นใหม่มีพอร์ต ไม่ต้องเจาะสาย) ตาม SOP · *"ใครมีสิทธิ์เป็นคนเก็บ" = ขอบเขตวิชาชีพ ดู `mt-law-ethics-judgment`*
 
 ### FORK 4 — AST: เลือก method + อ่าน S/I/R + escalate MDR
 - Disk diffusion vs MIC: disk (Kirby-Bauer, MHA/0.5 McFarland/35±2°C/16-18h) = routine. MIC (broth microdilution/E-test/VITEK) เมื่อต้องการค่าตัวเลข — sterile site, ปรับ dose, หรือ disk ก้ำกึ่ง.
@@ -111,6 +112,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 13. cycloheximide media จานเดียวกับที่สงสัย opportunistic mold — กด Aspergillus/Mucor/Cryptococcus/Nocardia → "no fungus" ลวงในผู้ป่วย immunocompromised.
 14. anaerobe ด้วย swab + transport ธรรมดา/แช่เย็น = เชื้อตายก่อนถึงแล็บ → **aspirate (ไม่ใช่ swab) + anaerobic transport + ไม่แช่เย็น**; ฝี/แผลลึกต้องตั้ง anaerobe เสมอ.
 15. serology ไวรัส Flavivirus (dengue/JE/Zika) cross-react สูง → acute ใช้ **Ag/PCR (dengue NS1)**, IgG ต้อง paired; **enveloped virus ส่งเย็น/เปราะ** (RNA สลายง่าย).
+16. **CSU เก็บ C/S จากถุงเก็บปัสสาวะ (drainage bag)** — ฉี่ค้าง/โตเกินจริง → urine C/S บวกลวง; ที่ถูก = ดูดจาก sampling port หลัง clamp ให้ฉี่ใหม่คั่ง (ห้ามใช้ของจากถุงสำหรับ culture แม้เพิ่งเปลี่ยน).
 
 > NOTE: knowledge (taxonomy, media recipes, colony-count tables, MIC/MBC, AFB grading) → point to "ตำรา/แหล่งอ้างอิงมาตรฐาน", no path.
 

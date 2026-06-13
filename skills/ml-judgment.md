@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยตัดสินใจเลือก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดเลือกโมเดล/metric/validation + เลี่ยงกับดัก ML เพื่อการศึกษา ไม่ใช่คำแนะนำทางการจากที่ปรึกษา ML — ต้องตรวจผลและ assumption ก่อนเชื่อ โดยเฉพาะงานคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -14,7 +14,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 จะทำ ML แล้วงงว่า "ใช้โมเดลไหน · วัดด้วย metric อะไร · validate ยังไงไม่ให้หลอกตัวเอง" → โค้ชนี้ตอบ 2 คำถาม: **"เลือกอะไรเมื่อไหร่"** กับ **"พลาดตรงไหน"**
 
 > **กฎ #1:** อย่าเชื่อคะแนนที่ดูดีก่อนเช็ค **leakage** — `fit_transform` ทั้ง dataset ก่อน split หรือ tune บน test set = คะแนนสวยหลอก พังจริง · split ก่อนเสมอ, scaler/selector อยู่ใน Pipeline ที่ fit เฉพาะ train fold, test แตะครั้งเดียวตอนจบ
-> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC ก็โป่งเกินจริง)
+> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC สูงก็ยังหลอกได้ — PPV ร่วงตาม prevalence)
 > สูตร/algorithm ลึก (entropy, backprop, EM) ตำรา/AI มีหมดแล้ว — ที่ทำให้พังจริงคือ **เลือกผิด** กับ **กับดักที่ดูถูกแต่หลอก** · skill นี้เก็บสองอันนั้น
 > ภาพรวม "ควรทำโปรเจกต์ไหม + ล้มตรงไหน" ดู `data-project-survival` · "ใช้ test สถิติอะไร / N เท่าไร" ดู `choose-stat-test` + `sample-size-power`
 
@@ -36,6 +36,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 - ไม่มี label อยากหา group (สำรวจ subtype ผู้ป่วย) → **Clustering**
 - ไม่มี label อยากลดมิติ/visualize → **Dimensionality reduction** (Fork 5)
 - agent ลองผิดลองถูก + reward (ปรับ dose/policy) → **RL**
+- มี **time-to-event + censoring** (เวลาจนเกิดเหตุ; บางรายยังไม่เกิด/ติดตามไม่ครบ — survival, recurrence) → **Survival analysis** (Kaplan-Meier / Cox PH) — ⚠️ **ละเลย censoring** (ตัด/มองข้ามคนที่ยังไม่เกิดเหตุ) = bias · fixed-horizon classification ("เกิดใน 1 ปีไหม") ใช้ได้ถ้า follow-up ครบทุกราย
 - ⚖️ ลังเล classification↔regression: output ที่ "มีความหมาย" เป็น category หรือตัวเลข — อย่าปัด target ต่อเนื่องเป็น bin โดยไม่จำเป็น (เสียข้อมูล)
 
 ### Fork 2 — classifier ตัวไหน?
@@ -58,15 +59,17 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
   - **Precision** = ทายว่าป่วยแล้วป่วยจริงแค่ไหน (เน้นเมื่อ false-positive แพง)
   - **Recall/Sensitivity** = ผู้ป่วยจริงจับได้แค่ไหน (เน้นเมื่อ false-negative แพง — screening)
   - **F1** = สมดุล precision/recall เมื่อไม่รู้จะหนักข้างไหน
-  - **PR-AUC (precision-recall)** = threshold-independent ที่ซื่อสัตย์สุดตอน imbalance หนัก — ⚠️ **ROC-AUC โป่งง่าย** (0.90–0.99 ได้แม้โมเดลกาก เพราะ TN ก้อนใหญ่ทำให้สวย) → severe imbalance ดู PR-AUC, ROC-AUC ใช้เทียบโมเดลตอน class ใกล้สมดุลเท่านั้น
+  - **PR-AUC (precision-recall)** = ซื่อสัตย์สุดตอน imbalance หนัก เพราะไวต่อ performance บน **positive/minority class** — ⚠️ **ROC-AUC สูงไม่ได้แปลว่าใช้ได้จริงตอน imbalance**: AUC แทบไม่ขึ้นกับสัดส่วน class (ranking metric) แต่ค่า "สูง" อยู่ได้พร้อมกับ **precision/PPV ที่ร่วงเพราะ prevalence ต่ำ** → severe imbalance ดู **PR-AUC เป็นหลัก**, ROC-AUC อ่านประกอบได้ ไม่ใช่ตัวตัดสิน
 - **Regression** → **RMSE** (หน่วยเดียวกับ target, ลงโทษ error ใหญ่) · **MAE** (ทน outlier) · **R²** (สื่อกับคนทั่วไป)
 - 🩺 health rule: screening → ดัน **recall** · confirmatory → ดัน **precision**
+- ⚖️ **fairness (ถ้าโมเดลกระทบคน — hiring/triage/คัดกรอง):** วัด metric **แยก subgroup** (เพศ/อายุ/พื้นที่) ไม่ใช่ค่าเฉลี่ยรวม — แม่นรวมแต่พังกลุ่มน้อยได้ · ⚠️ "ไม่ใส่ตัวแปร sensitive" ≠ fair (proxy เช่น zip/ชื่อ/ชื่อ รพ. รั่ว sensitive กลับเข้ามา)
 
 ### Fork 5 — feature selection vs PCA/LDA?
 - อยากเก็บ feature เดิม ตีความได้ → **Feature selection** (filter / wrapper / Lasso-embedded)
 - ยอมได้แกนผสม, ลด noise/มิติ, unsupervised → **PCA** (linear, เร็ว)
 - มี label + อยากแกนที่แยก class ดีสุด → **LDA** (supervised)
 - แค่ visualize 2D → **t-SNE / UMAP** (อย่าเอา coordinate ไป feed โมเดลต่อ — เป็นแค่ภาพ)
+- ⚠️ **p≫n (feature ≫ ตัวอย่าง — genomic/methylation/omics):** feature selection **ต้องอยู่ใน CV fold** (เลือกบน data ทั้งก้อน = leakage → CV สูงลวงแม้บน noise ล้วน) + regularization (Lasso/Elastic Net) + ระวัง **batch effect** (เครื่อง/วันรัน confound กับ label) · ถ้า**ทดสอบสมมติฐานราย feature** (screen biomarker หลายตัว) → **multiple-testing correction** (FDR/Bonferroni)
 
 ### Fork 6 — bagging vs boosting?
 - base model variance สูง/unstable (deep tree) → **Bagging / Random Forest** (ลด variance, train ขนานได้, ทน overfit)

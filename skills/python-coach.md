@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยตัดสินใจ/ดีบั�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิด+จับกับดัก Python ระดับเริ่ม→กลาง เพื่อการศึกษา — ไม่ใช่ตำรา syntax หรือคำสั่งทางการ ควรทดสอบโค้ดจริงและตรวจผลก่อนนำไปใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -14,7 +14,7 @@ disclaimer: "ช่วยคิด+จับกับดัก Python ระด�
 เขียน/ดีบัก Python แล้วงงว่า "ใช้อะไรดี" หรือ "ทำไมพัง" → โค้ชนี้ช่วย **เลือกเครื่องมือให้ถูก + โทษบั๊กให้ถูกจุด**
 
 > **กฎข้อ 1 (จำให้ขึ้นใจ): method ที่แก้ของ in-place คืน `None` ไม่ใช่ค่าที่แก้แล้ว.** `.sort()`/`.reverse()`/`.append()`/`.update()`/`.extend()` → คืน `None` ทั้งหมด. ดังนั้น **ห้ามเอาผลของมันไป assign หรือ chain ต่อ** — `x = lst.sort()` ทำให้ `x` เป็น None เงียบๆ, `lst.append(y).append(z)` พังทันที. อยากได้ค่าที่แก้แล้ว: เรียก method (มันแก้ตัวแปรเดิมให้) **แล้วใช้ตัวแปรเดิม** หรือใช้ฟังก์ชันที่ "คืนค่าใหม่" เช่น `sorted(lst)`, `reversed(lst)`, `lst + [y]`.
-> **ตัวแยกง่ายๆ:** ชื่อเป็นกริยาแก้ของ (sort/append/update/reverse) → in-place คืน None · ชื่อบอกผลลัพธ์ (sorted/reversed) → คืนค่าใหม่ เอาไป assign ได้.
+> **ตัวแยกง่ายๆ:** ชื่อเป็นกริยาแก้ของ (sort/append/update/reverse) → in-place คืน None · ชื่อบอกผลลัพธ์ (sorted/reversed) → คืนค่าใหม่ เอาไป assign ได้ · ⚠️ **heuristic นี้มีข้อยกเว้น** — `.pop()` (list/dict/set) และ `dict.setdefault()` ทั้ง mutate และ**คืนค่า**; (`dict.pop(k, default)` ถ้าไม่มี key คืน default โดยไม่ mutate) → ไม่ชัวร์ตัวไหน **เช็ค docs อย่าเดาจากชื่อ**.
 >
 > Google/AI มี syntax ให้หมดแล้ว — ที่พลาดจริงคือ (1) เลือก data structure/วิธีผิด (2) ตกกับดักที่ "ดูถูกแต่พัง". skill นี้เก็บสองอันนั้น ไม่ใช่ตำรา
 

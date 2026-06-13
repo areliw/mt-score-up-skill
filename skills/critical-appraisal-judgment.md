@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยอ่าน/ประเมินเ�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดอ่าน/ประเมินงานวิจัย + ทบทวนวรรณกรรมเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัยทางการ — ต้องยืนยันกับเปเปอร์ต้นฉบับ + อาจารย์ที่ปรึกษา · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -34,7 +34,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - จด **method skeleton ให้ทำซ้ำได้** (dataset, ขั้นตอน, พารามิเตอร์, metric) — ถ้าจะเอามาใช้ ต้อง lock ค่าจริงจากเปเปอร์เต็ม ไม่ใช่จากสไลด์/abstract
 
 ### Fork 2 — ประเมินงาน "test/method ใหม่ vs gold standard" (recurring สุดในงาน MT)
-- โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **AUC ใช้กับ test แบบต่อเนื่อง/จัดอันดับ (มี cutoff ปรับได้) เท่านั้น, ไม่ใช่ test 2×2 บวก/ลบ ตายตัว**
+- โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **ROC curve/AUC เต็มรูปใช้กับ test ต่อเนื่อง/จัดอันดับ (cutoff ปรับได้)**; test 2×2 บวก/ลบตายตัว = ได้แค่ **1 จุดบน ROC** (คำนวณ "AUC" ของจุดเดียว = (sens+spec)/2 ได้ แต่ไม่ใช่ ROC curve)
 - ⚠️ **PPV ขึ้นกับ prevalence** (กฎข้อ 1) → ที่ low prevalence ต้อง confirm ผลบวก (ดู `immunoassay-judgment`)
 - ก่อนเชื่อตัวเลข ดู 3 อย่าง: **gold standard เหมาะไหม · spectrum/sample-size bias · blinded ไหม**
 
@@ -66,7 +66,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - **ลอก method ดิบ** ไม่ transform/ไม่เข้าใจ → ทำซ้ำไม่ได้
 - **ลืม external validation** — single dataset = จุดอ่อน (และเป็น lever ของเรา)
 - **อ่านทุกเปเปอร์เท่ากัน** — triage ตาม relevance ก่อน
-- **ตีความ PPV โดยไม่ดู prevalence** — test ดีที่ low prevalence ก็ false+ ท่วม
+- **ตีความ PPV โดยไม่ดู prevalence** — ที่ low prevalence **PPV ลด** (false+ สัดส่วนสูงขึ้น) แต่**มากน้อยขึ้นกับ sensitivity + specificity** (ไม่ใช่ prevalence อย่างเดียว): spec สูงช่วยพยุง PPV ที่ low prev มากสุด, spec ไม่พอ → false+ ท่วม → คิด PPV จาก **sens · spec · prev ครบทั้งสาม**
 - **cite ตัวเลข OCR/garbled** โดยไม่เช็คต้นฉบับ
 - **ทำ contribution ที่ซ้ำของเดิม** — ไม่หา gap ก่อน = ไม่มี novelty
 

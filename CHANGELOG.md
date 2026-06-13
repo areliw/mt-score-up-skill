@@ -1,8 +1,18 @@
 # Changelog
 
 Notable changes to the MT Score UP! skills hub. Format loosely follows
-[Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
-content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
+[Keep a Changelog](https://keepachangelog.com/). **มาตรฐานความพร้อม 3 ชั้น:**
+`draft` (ยังไม่ verify / มี blocker) → `semi-stable` (ผ่าน Codex review + empirical stress-test, ไม่มี error ที่รู้ — **แต่ยังไม่ผ่าน formal/clinical peer-review**) → `stable` (ผ่าน clinical/formal peer-review — *สงวนไว้ ยังไม่มีสกิลใดถึง*).
+ปัจจุบัน: 29 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
+
+## [Unreleased]
+
+### Added
+- `interprofessional-communication-judgment` — สื่อสารสหวิชาชีพแนวราบ (พูดภาษาของแต่ละวิชาชีพ) + golden-period: แจ้งเร็วสำคัญกว่าแจ้งครบ (สกิลที่ 89)
+
+### Changed
+- **Maturity ladder ใช้เต็มรูป (`draft` → `semi-stable` → `stable`):** promote 29 สกิล non-clinical (กลุ่มโค้ด/เทคนิค/data · ใช้ AI · วิจัย/สถิติ core) เป็น `semi-stable` หลังผ่าน Codex review + empirical eval. 4 สกิล R2R-stats (`choose-stat-test` / `r2r-stats` / `research-design-judgment` / `critical-appraisal-judgment`) rework แก้ความถูกต้องเชิงสถิติแล้ว promote.
+- **README เกลาให้อ่านง่าย:** แก้จำนวนเป็น 89 · รวมสองส่วน Privacy / clinical-stack ที่เนื้อหาทับกันเป็นส่วนเดียว · ย่อสรุป eval เหลือประเด็นหลัก · ย่อคำอธิบาย catalog 62 รายการให้สั้น-สม่ำเสมอ (รายละเอียดเต็มยังอยู่ที่ `skills/README.md`).
 
 ## [0.8.2] — 2026-06-10
 

@@ -125,7 +125,7 @@ type: CALIBRATION          # เปลี่ยนวิธีทำงานข
 needs: any                 # ใช้ได้ทุก AI · ได้ผลเต็มที่สุดกับ AI ที่ทำงานขนาน/มี agent ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "skill นี้ช่วยปรับวิธีทำงานของ AI ให้เป็นทีมเพื่อช่วยคิด ไม่ได้เพิ่มความรู้และไม่ใช่คำสั่ง ความถูกต้องยังขึ้นกับ AI + การตรวจสอบของผู้นำไปใช้ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -205,7 +205,7 @@ type: CALIBRATION          # เปลี่ยน "พฤติกรรม" �
 needs: any                 # ใช้ได้กับ AI ทุกตัว (ChatGPT/Claude/Gemini)
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "skill นี้ช่วยปรับ 'วิธีตอบ/นิสัย' ของ AI เพื่อช่วยคิด ไม่ได้เพิ่ม 'ความรู้' และไม่ใช่คำสั่ง ความถูกต้องของเนื้อหายังขึ้นกับ AI + การตรวจสอบของผู้นำไปใช้ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -253,7 +253,7 @@ disclaimer: "skill นี้ช่วยปรับ 'วิธีตอบ/น�
 ### เมื่อทำงานใหญ่ (power-user)
 > (เฉพาะ AI ที่มี tools/agents/memory — แชทธรรมดาข้ามได้)
 - **ทำขนานเยอะๆ** — ยิงหลายอย่างพร้อมกันในเทิร์นเดียว แทนทีละอัน
-- **กระจายงานเป็นทีม (multi-agent)** เป็นค่าเริ่มต้นสำหรับงานไม่ trivial; กัปตัน = คนสังเคราะห์
+- **กระจายงานเป็นทีม (multi-agent)** เป็นค่าเริ่มต้นสำหรับงานไม่ trivial **ที่แตกขนานได้จริง** — ⚠️ ชั่งกับ cost/latency/ความซับซ้อนในการรวมผล; งานเชิงเส้น/พึ่งกันเป็นทอดๆ ทำเดี่ยวดีกว่า · กัปตัน = คนสังเคราะห์
 - **ลองอันยากสุด 1 อันก่อน แล้วค่อยขยาย** — ถ้าได้ 0 ผลทั้งที่ควรมี = หยุดสืบ อย่าขยายต่อ
 - **อัปเดตสด** — บอกสถานะ 1-2 ประโยคก่อน/หลังลงมือ อย่าเงียบแล้วเทรายงานยักษ์
 
@@ -288,7 +288,7 @@ type: CALIBRATION          # ปรับวิธีที่ AI เขีย�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยกันกับดักเวลาให้ AI เขียนโค้ด ไม่ใช่คำแนะนำทางการแพทย์ — โค้ดที่กระทบผลแล็บ/คนไข้ต้องทบทวน+ทดสอบโดยผู้รับผิดชอบก่อนใช้จริง ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -362,8 +362,8 @@ title: กัน AI มั่ว (hallucination) แล้วจับให้�
 type: CALIBRATION          # ปรับวิธีถาม + วิธีตอบ + วิธีตรวจ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: draft
+last_edited: 2026-06-13
+status: semi-stable
 disclaimer: "ช่วยลด+จับการมั่วของ AI เพื่อช่วยคิด ไม่ใช่คำแนะนำทางการแพทย์ — ลดได้ ไม่ได้กันหมด 100% เรื่องการแพทย์/สำคัญต้องยืนยันกับแหล่ง authoritative และมนุษย์เสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -408,6 +408,12 @@ disclaimer: "ช่วยลด+จับการมั่วของ AI เ�
 ### 6. งานที่มี "คำตอบเป๊ะ" → ใช้ tool อย่าคำนวณในหัว
 - เลข/constraint/ตาราง → โยนให้ code/เครื่องมือ (ดู skill `offload-to-automation`)
 
+### 7. Claim หลัง knowledge cutoff + ขัด prior → verify ห้ามฟันธง (ทั้งขา "จริง" และ "ปลอม")
+- เหตุการณ์ใหม่กว่า cutoff ของโมเดล → **prior เก่า ใช้ยืนยัน/หักล้างไม่ได้**
+- ⚠️ **"มั่นใจ debunk" = มั่วอีกแบบ** — เดาว่า "ข่าวนี้ปลอม/แต่งขึ้น" จาก prior ที่ล้าสมัย ผิดได้พอๆ กับเดาว่า "จริง"; ความสงสัยที่ฟังดู *รอบคอบ* ก็ยังเป็นการเดา
+- claim ที่ตรวจได้ + สำคัญ + นอก/หลัง cutoff → **ตรวจ primary/authoritative source + cite อย่าตอบจากความจำ และอย่าถือผลค้นหาแรกเป็นคำยืนยัน** · ยืนยันไม่ได้ = บอก "ยังยืนยันไม่ได้" (abstain) ไม่ใช่เดา
+- *worked example: โพสต์ไวรัล "Karpathy เข้า Anthropic" — prior (cutoff ม.ค. 2026: เขาทำ Eureka Labs อิสระ) ชี้ "น่าจะแต่ง" แต่ตรวจ **primary (ทวีตเจ้าตัว "I've joined Anthropic")** + ทุติยภูมิยืนยัน (TechCrunch/CNBC) ตรงกัน → **จริง** (19 พ.ค. 2026 ทีม pre-training); ถ้าฟันธงปลอม = spread ข้อมูลผิดด้วยน้ำเสียงมั่นใจ · ⚠️ press ≠ primary — primary = เจ้าตัว/ต้นทาง*
+
 ---
 
 ## ฝั่งคน (เช็คลิสต์จับมั่ว — สำคัญสุด เพราะกันไม่ได้ 100%)
@@ -424,6 +430,7 @@ disclaimer: "ช่วยลด+จับการมั่วของ AI เ�
 - **ถามนำแล้วเอาคำยืนยันมาอ้าง** — confirmation bias ผ่าน AI
 - **คิดว่า "โมเดลใหม่/ฉลาดขึ้น = ไม่มั่วแล้ว"** — ลดลง แต่ไม่หมด
 - **บีบให้ "เอาคำตอบแน่ๆ"** → เท่ากับสั่งให้เดาแทนบอกไม่รู้
+- **"มั่นใจ debunk" ของจริง** — ฟันธงว่า claim ปลอม/แต่งขึ้น จาก prior ที่เก่ากว่าเหตุการณ์ → ผิดพอๆ กับเดาว่าจริง; หลัง cutoff + ขัด prior = search ก่อน อย่าหักล้างจากความจำ
 
 ---
 
@@ -870,7 +877,7 @@ type: ADVISE               # ช่วยตัดสินใจเลือก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยชี้ว่าควรใช้ test ไหนเพื่อช่วยคิด — เป็นการชี้ทางเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติ ควรตรวจเงื่อนไข/assumption จริงและปรึกษานักสถิติเมื่อเป็นงานตีพิมพ์ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -911,9 +918,10 @@ flowchart TD
   C -->|2 กลุ่ม จับคู่| C2["paired t-test"]
   C -->|2 กลุ่ม อิสระ| C3["two-sample Welch"]
   C -->|3 กลุ่มขึ้นไป| C4["ANOVA + post-hoc"]
-  C -->|skew หรือ n เล็ก หรือ ordinal| C5["non-parametric (Mann-Whitney/Wilcoxon/Kruskal)"]
+  C -->|ordinal / ไม่ normal และ transform ไม่ได้| C5["non-parametric (Mann-Whitney/Wilcoxon/Kruskal)"]
   B -->|สัดส่วน นับ| D{ลักษณะ}
-  D -->|1-2 สัดส่วน| D1["z-test proportion (SE ใช้ p0)"]
+  D -->|1 สัดส่วน vs ค่าอ้าง| D1["1-prop z (SE ใช้ p0)"]
+  D -->|2 สัดส่วนอิสระ| D1b["2-prop z (SE ใช้ pooled)"]
   D -->|ตาราง RxC| D2["Chi-square (expected 5+)"]
   D -->|2x2 cell เล็ก| D3["Fisher exact"]
   B -->|ความสัมพันธ์ ทำนาย| E{outcome}
@@ -931,12 +939,12 @@ flowchart TD
 - ≥3 กลุ่ม → **One-way ANOVA** + post-hoc (เช่น Tukey/LSD) ถ้า significant
 - 2 ปัจจัย → **Two-way ANOVA** — ⚠️ **ดู interaction ก่อน**: ถ้า A×B significant ตีความ main effect เดี่ยวๆ ไม่ได้
 
-**B. ถ้าไม่ normal / n เล็ก / ordinal → non-parametric** (digest ไม่เน้น แต่ข้อมูล lab เจอบ่อย)
+**B. เมื่อไหร่ non-parametric** (digest ไม่เน้น แต่ข้อมูล lab เจอบ่อย) — ใช้เมื่อ **ordinal** หรือ **ชัดว่าไม่ normal และ transform ไม่ช่วย** · ⚠️ **"n เล็ก → non-parametric" ไม่ใช่กฎอัตโนมัติ**: ที่ **n ใหญ่** CLT ช่วยให้ t-test ทน non-normality — แต่ **n เล็ก CLT ไม่ช่วย** + ทดสอบ normality ก็ไม่น่าเชื่อ · non-parametric **ไม่ได้ power ต่ำกว่าเสมอ** (บาง distribution สูงกว่า t-test ด้วยซ้ำ) → ตัดสินจาก **ชนิดตัวแปร + distribution + estimand (mean vs median)** ไม่ใช่แค่ n
 - paired → **Wilcoxon signed-rank** · 2 กลุ่มอิสระ → **Mann-Whitney U** · ≥3 กลุ่ม → **Kruskal-Wallis**
 - ความสัมพันธ์ที่ไม่เชิงเส้น/ordinal → **Spearman correlation** (แทน Pearson)
 
 **C. สัดส่วน / ข้อมูลนับ (outcome = หมวด)**
-- 1 หรือ 2 สัดส่วน **อิสระ** → **z-test for proportion** (⚠️ SE ใช้ **p₀** ของ null ไม่ใช่ p̂)
+- **1 สัดส่วน** เทียบค่าอ้าง p₀ → **one-proportion z-test** (SE ใช้ **p₀** ของ null) · **2 สัดส่วนอิสระ** → **two-proportion z-test** (⚠️ SE ใช้ **pooled p̂ = (x₁+x₂)/(n₁+n₂)** ภายใต้ H0: p₁=p₂ — *ไม่ใช่* p₀ และไม่ใช่ p̂ แยกกลุ่ม)
 - 2 สัดส่วน **จับคู่** (วิธี/test 2 ตัวบนคนเดียวกัน, ก่อน-หลัง แบบ yes/no) → **McNemar's test** (z-test 2 สัดส่วนใช้ไม่ได้ — correlated)
 - ตาราง R×C หาความสัมพันธ์ → **Chi-square independence** (⚠️ เกณฑ์ expected count: **2×2 ต้องทุก cell ≥5**; **R×C ใหญ่** ผ่อนได้ — ห้ามมี cell ใด <1 และ ≤20% ของ cell <5 ตามกฎ Cochran ไม่ใช่ "ทุก cell ≥5" แบบเหมารวม)
 - 2×2 + cell เล็ก (expected <5) → **Fisher's exact test**
@@ -951,7 +959,7 @@ flowchart TD
 - 2 ผู้อ่านตัดสินหมวด (เช่น อ่านสไลด์) → **Cohen's kappa** (ordinal → **weighted kappa**)
 
 ### ขั้น 3 — บอกเงื่อนไขที่ต้องเช็ค ไม่ใช่แค่ชื่อ test
-ทุกครั้งที่ชี้ test ให้แนบ assumption ที่ต้องตรวจ เช่น t-test → independence + normality (ของ residual/ค่าเฉลี่ย ไม่ใช่ data ดิบ); n เล็ก+skew → ย้าย non-parametric
+ทุกครั้งที่ชี้ test ให้แนบ assumption ที่ต้องตรวจ เช่น t-test → independence + normality (ของ residual/sampling distribution ไม่ใช่ data ดิบ — CLT ช่วยเมื่อ n พอ); ถ้า ordinal หรือไม่ normal ชัด & transform ไม่ช่วย → non-parametric (ไม่ใช่เพราะ n เล็กเฉยๆ)
 
 ### ขั้น 4 — เตือนกับดักที่เข้ากับเคสนั้น
 ดึงข้อที่เกี่ยวจาก "กับดัก" ด้านล่างมาเตือน (เช่น ถ้าเป็น 2 % จาก sample เดียวกัน → เตือนว่า correlated)
@@ -962,10 +970,10 @@ flowchart TD
 - **จับคู่แต่ใช้ two-sample** — ข้อมูลก่อน-หลังคนเดียวกันต้องทำผลต่าง (paired) ไม่งั้นเสีย power
 - **เอา correlation ไปสรุป agreement** — method comparison ต้อง ICC/Bland-Altman; r สูงไม่ได้แปลว่าตรงกัน
 - **2 สัดส่วนจาก sample เดียวกัน** (เช่น %เห็นด้วย A vs B ในคนกลุ่มเดียว) = correlated → ใช้ **McNemar** ไม่ใช่ two-sample proportion
-- **proportion test ใช้ p̂ ใน SE** — ที่ถูกคือใช้ **p₀** (ค่าจาก null hypothesis)
+- **ใช้ SE ผิดใน proportion z-test** — *1 สัดส่วน*: SE ใช้ **p₀** (null) · *2 สัดส่วนอิสระ*: SE ใช้ **pooled p̂** (ไม่ใช่ p₀, ไม่ใช่ p̂ แยกกลุ่ม)
 - **เหมา expected count ≥5 ทุก cell** → จริงแค่ 2×2 (ไม่งั้น Fisher); R×C ใหญ่ใช้กฎ Cochran (ดูข้อ C)
 - **ทำ t-test ทุกคู่เมื่อมีหลายกลุ่ม** → Type I error สะสม ใช้ ANOVA + post-hoc แทน
-- **ลืมเช็ค normality / ยัด t-test กับ ordinal** → n เล็ก/skew/Likert ใช้ non-parametric
+- **ยัด t-test กับ ordinal/Likert** → ใช้ non-parametric · ⚠️ แต่ **"n เล็ก = ต้อง non-parametric" ผิด** — ตัดสินที่ distribution + ชนิดตัวแปร ไม่ใช่ที่ n
 - **พูดว่า "accept H₀"** → ที่ถูกคือ "fail to reject H₀"
 - **two-way ANOVA แล้วตีความ main effect ทั้งที่ interaction significant**
 
@@ -1214,7 +1222,7 @@ title: ตัวช่วยตัดสินใจแล็บจุลชี�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-13
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บจุลชีววิทยาคลินิกเพื่อการศึกษา ไม่ตัดสินแทน และไม่ใช่คำสั่งวินิจฉัย/รักษา ทุกผลต้อง correlate กับ Gram stain + clinical + colony morphology และทำตาม SOP/QC ของห้องแล็บเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง ความผิดพลาดในการรายงานเชื้อก่อโรค/ความไวต่อยา อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -1267,6 +1275,7 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated pathogen (ID+AST); 10⁴–10⁵ = suspected; 10³–10⁴ = แปลตาม site/อาการ/single-vs-mixed (borderline); <10³ = "no significant growth".
 - ⚠️ **10⁵ = เกณฑ์ asymptomatic/screening** — ในคน **มีอาการ** (acute cystitis) single uropathogen ที่ ≥10²–10³ CFU/ml ก็ significant; ยึด 10⁵ ตายตัวพลาด symptomatic UTI ได้ถึง ~50% → **ผูก cutoff กับ symptom status เสมอ**.
 - หลัก: site + count + จำนวนชนิด + clinical ประกอบกัน.
+- ⚠️ **CSU (เก็บปัสสาวะจาก "สายสวนที่คาอยู่"):** 🚫 **ห้ามเก็บ C/S จากถุงเก็บปัสสาวะ (drainage bag) เด็ดขาด — ไม่มีข้อยกเว้นแม้เพิ่งเปลี่ยน bag** — ฉี่ในถุงค้าง/แบคทีเรียงอก → **C/S บวกลวง + colony count เกินจริง**. ที่ถูก = clamp สายให้ฉี่ใหม่คั่ง → เช็ด sampling port แบบ aseptic → ดูดด้วย syringe (สายรุ่นใหม่มีพอร์ต ไม่ต้องเจาะสาย) ตาม SOP · *"ใครมีสิทธิ์เป็นคนเก็บ" = ขอบเขตวิชาชีพ ดู `mt-law-ethics-judgment`*
 
 ### FORK 4 — AST: เลือก method + อ่าน S/I/R + escalate MDR
 - Disk diffusion vs MIC: disk (Kirby-Bauer, MHA/0.5 McFarland/35±2°C/16-18h) = routine. MIC (broth microdilution/E-test/VITEK) เมื่อต้องการค่าตัวเลข — sterile site, ปรับ dose, หรือ disk ก้ำกึ่ง.
@@ -1321,6 +1330,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 13. cycloheximide media จานเดียวกับที่สงสัย opportunistic mold — กด Aspergillus/Mucor/Cryptococcus/Nocardia → "no fungus" ลวงในผู้ป่วย immunocompromised.
 14. anaerobe ด้วย swab + transport ธรรมดา/แช่เย็น = เชื้อตายก่อนถึงแล็บ → **aspirate (ไม่ใช่ swab) + anaerobic transport + ไม่แช่เย็น**; ฝี/แผลลึกต้องตั้ง anaerobe เสมอ.
 15. serology ไวรัส Flavivirus (dengue/JE/Zika) cross-react สูง → acute ใช้ **Ag/PCR (dengue NS1)**, IgG ต้อง paired; **enveloped virus ส่งเย็น/เปราะ** (RNA สลายง่าย).
+16. **CSU เก็บ C/S จากถุงเก็บปัสสาวะ (drainage bag)** — ฉี่ค้าง/โตเกินจริง → urine C/S บวกลวง; ที่ถูก = ดูดจาก sampling port หลัง clamp ให้ฉี่ใหม่คั่ง (ห้ามใช้ของจากถุงสำหรับ culture แม้เพิ่งเปลี่ยน).
 
 > NOTE: knowledge (taxonomy, media recipes, colony-count tables, MIC/MBC, AFB grading) → point to "ตำรา/แหล่งอ้างอิงมาตรฐาน", no path.
 
@@ -1419,7 +1429,7 @@ type: ADVISE               # ช่วยอ่าน/ประเมินเ�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดอ่าน/ประเมินงานวิจัย + ทบทวนวรรณกรรมเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัยทางการ — ต้องยืนยันกับเปเปอร์ต้นฉบับ + อาจารย์ที่ปรึกษา · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1448,7 +1458,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - จด **method skeleton ให้ทำซ้ำได้** (dataset, ขั้นตอน, พารามิเตอร์, metric) — ถ้าจะเอามาใช้ ต้อง lock ค่าจริงจากเปเปอร์เต็ม ไม่ใช่จากสไลด์/abstract
 
 ### Fork 2 — ประเมินงาน "test/method ใหม่ vs gold standard" (recurring สุดในงาน MT)
-- โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **AUC ใช้กับ test แบบต่อเนื่อง/จัดอันดับ (มี cutoff ปรับได้) เท่านั้น, ไม่ใช่ test 2×2 บวก/ลบ ตายตัว**
+- โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **ROC curve/AUC เต็มรูปใช้กับ test ต่อเนื่อง/จัดอันดับ (cutoff ปรับได้)**; test 2×2 บวก/ลบตายตัว = ได้แค่ **1 จุดบน ROC** (คำนวณ "AUC" ของจุดเดียว = (sens+spec)/2 ได้ แต่ไม่ใช่ ROC curve)
 - ⚠️ **PPV ขึ้นกับ prevalence** (กฎข้อ 1) → ที่ low prevalence ต้อง confirm ผลบวก (ดู `immunoassay-judgment`)
 - ก่อนเชื่อตัวเลข ดู 3 อย่าง: **gold standard เหมาะไหม · spectrum/sample-size bias · blinded ไหม**
 
@@ -1480,7 +1490,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - **ลอก method ดิบ** ไม่ transform/ไม่เข้าใจ → ทำซ้ำไม่ได้
 - **ลืม external validation** — single dataset = จุดอ่อน (และเป็น lever ของเรา)
 - **อ่านทุกเปเปอร์เท่ากัน** — triage ตาม relevance ก่อน
-- **ตีความ PPV โดยไม่ดู prevalence** — test ดีที่ low prevalence ก็ false+ ท่วม
+- **ตีความ PPV โดยไม่ดู prevalence** — ที่ low prevalence **PPV ลด** (false+ สัดส่วนสูงขึ้น) แต่**มากน้อยขึ้นกับ sensitivity + specificity** (ไม่ใช่ prevalence อย่างเดียว): spec สูงช่วยพยุง PPV ที่ low prev มากสุด, spec ไม่พอ → false+ ท่วม → คิด PPV จาก **sens · spec · prev ครบทั้งสาม**
 - **cite ตัวเลข OCR/garbled** โดยไม่เช็คต้นฉบับ
 - **ทำ contribution ที่ซ้ำของเดิม** — ไม่หา gap ก่อน = ไม่มี novelty
 
@@ -1691,7 +1701,7 @@ type: ADVISE               # ช่วยวางแผน/ตัดสิน�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิด/วางแผนโปรเจกต์ data เพื่อการศึกษา ไม่ใช่ data scientist แทน — ผลและความปลอดภัย (โดยเฉพาะงานคลินิก) ต้องตรวจสอบยืนยันก่อนใช้จริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1745,10 +1755,10 @@ label + กลุ่ม → **Classification** · label + ตัวเลขต�
 ### 4. Missing data — วินิจฉัย "กลไก" ก่อนเลือกวิธีเติม (เลือกมั่ว = ใส่ bias)
 | กลไก | เลือกใช้ |
 |---|---|
-| **MCAR** หายมั่ว ไม่ขึ้นกับอะไร (Little's test p≥0.05) | listwise delete (ถ้าหาย 5–10%) หรือ mean/median/mode |
+| **MCAR** หายมั่ว ไม่ขึ้นกับอะไร (Little's test **ไม่ reject** p≥0.05 = *สอดคล้อง* MCAR ไม่ใช่ *พิสูจน์*) | listwise delete (ถ้าหาย 5–10%); ⚠️ mean/median/mode **บิดเบือน variance/ความสัมพันธ์** แม้ MCAR → ใช้เฉพาะ %หายน้อย, งานจริงเอียงไป multiple imputation |
 | **MAR** หายขึ้นกับตัวแปร*อื่น*ที่เห็น | **Multiple Imputation** (ดีสุด) / KNN |
 | **MNAR** หายขึ้นกับ*ค่าที่หายเอง* (รายได้สูงไม่ตอบ) | regression/indicator + domain knowledge (**ห้าม mean** — bias แน่) |
-- missing >40% ของคอลัมน์ → ทิ้งทั้งคอลัมน์
+- missing >40% ของคอลัมน์ → มักทิ้งทั้งคอลัมน์ (**rule-of-thumb หยาบ** — ดู importance + กลไกการหายก่อน อย่าทิ้งอัตโนมัติ)
 
 ### 5. Normalize vs Standardize (+ tree ไม่ต้อง scale)
 - distance/gradient-based (KNN, K-Means, SVM, NN, regression) → **ต้อง scale** · tree-based → ไม่ต้อง
@@ -1803,7 +1813,7 @@ type: ADVISE               # ช่วยนำทาง phase + ตัดสิ
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยวางลำดับงานและตัดสินใจในโปรเจกต์ data science ไม่ใช่คำแนะนำทางการแพทย์ — ผลโมเดล/การวิเคราะห์ต้อง validate ก่อนนำไปใช้กับคนไข้/งานจริงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1877,6 +1887,7 @@ disclaimer: "ช่วยวางลำดับงานและตัดส�
 - **เดินเส้นตรงไม่ยอม loop** — รู้ว่าฐานพัง (data ไม่พอ/leakage) แต่ดันต่อเพราะเสียดายแรง → ถอยกลับ phase ที่พังถูกกว่า
 - **deploy แล้วทิ้ง** — ไม่เฝ้า drift, ไม่มีช่องรับ feedback → โมเดลค่อยๆ เพี้ยนเงียบๆ จนตัดสินใจผิด → วางแผน monitor ตั้งแต่ phase 6
 - **biased training data** — data ที่เก็บมาไม่แทนประชากรจริง (เก็บจาก รพ.เดียว/กลุ่มเดียว) → โมเดลพังกับกลุ่มที่ไม่เคยเห็น → ตรวจตัวแทนของ data ตั้งแต่ phase 2
+- **สับสน "ทำนาย" กับ "ทำให้เกิด" (correlation → causation):** observational data ทำนายได้ ≠ บอกว่า *แทรกแซง X แล้ว Y เปลี่ยน* (confounder ทำ association หลอก) → ถ้าเป้าคือ "ทำ X แล้วผลต่างไหม" ต้องใช้**วิธี causal** (RCT/quasi-experiment **หรือ** observational causal ภายใต้สมมติฐานชัด — ปรับ confounder/propensity/DAG) ไม่ใช่ predictive model เฉยๆ · ข้อมูล survey/observational ระวังเป็นพิเศษ
 - **clean ทับ raw / ไม่ log transformation** → กฎผิดแล้วกู้ไม่ได้ + reproduce ไม่ได้ + ไม่รู้ว่าเปลี่ยนอะไรไป → เก็บ raw แยก เขียน transformation เป็น pipeline/script ที่รันซ้ำได้เสมอ
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
@@ -1898,7 +1909,7 @@ type: ADVISE               # ช่วยตัดสินใจออกแบ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพื่อการศึกษา ไม่ใช่คำสั่งให้รันจริง — งานจริงควรทดสอบบน staging + backup ก่อน DELETE/UPDATE และตรวจ query plan ก่อนใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1938,7 +1949,7 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 
 ## กับดัก (Anti-patterns) — ระเบิดงานจริง
 - **`UPDATE`/`DELETE` ไม่มี `WHERE`** = ล้างทั้งตาราง → `SELECT * WHERE <เงื่อนไขเดียวกัน>` ดูแถว+นับก่อนเสมอ / ครอบ transaction
-- **`WHERE` มีแล้วแต่ยังพัง:** เงื่อนไขที่อ้าง `NOT IN (subquery)` แล้ว subquery มี `NULL` แม้ตัวเดียว → ทั้ง predicate กลายเป็น unknown → DELETE/UPDATE โดนเกินหรือ 0 แถวเงียบๆ → ใช้ **`NOT EXISTS`** + ยืนยันด้วย SELECT-preview
+- **`WHERE` มีแล้วแต่ยังพัง:** `NOT IN (subquery)` แล้ว subquery มี `NULL` แม้ตัวเดียว → ทุกแถวถูกตัด (ตรงค่า=FALSE, ไม่ตรง=UNKNOWN เพราะ NULL) → query/DELETE/UPDATE คืน **0 แถวเงียบๆ** (ได้*น้อยไป* ไม่ใช่โดนเกิน) → ใช้ **`NOT EXISTS`** + ยืนยันด้วย SELECT-preview ใน transaction
 - **`SELECT *`** → ดึงเกิน + พังเมื่อ schema เปลี่ยน → ระบุคอลัมน์
 - **JOIN ลืมเงื่อนไข** → **cartesian product** (row ระเบิด m×n)
 - **GROUP BY:** ทุกคอลัมน์ใน SELECT ที่ไม่ใช่ aggregate ต้องอยู่ใน GROUP BY
@@ -1976,7 +1987,7 @@ type: ADVISE               # ช่วยวางวิธีไล่บั๊
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยวางวิธีไล่หา root cause ของบั๊ก ไม่ใช่คำแนะนำทางการแพทย์ — โค้ด/ระบบที่กระทบผลแล็บ/คนไข้ต้อง validate ก่อนใช้จริง ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1984,7 +1995,7 @@ disclaimer: "ช่วยวางวิธีไล่หา root cause ขอ�
 
 โค้ด/สคริปต์พังแล้วงงว่า "ผิดตรงไหน" → skill นี้วางลำดับไล่บั๊กให้เจอ *สาเหตุจริง* ไม่ใช่เดาแล้วแปะแก้จนพังเพิ่ม
 
-> **กฎข้อ 1:** ห้ามเสนอวิธีแก้ก่อนที่จะ **ทำให้บั๊กเกิดซ้ำได้แน่นอน** (reproduce). ถ้ายังกดให้พังตามสั่งไม่ได้ = ยังดีบักไม่ได้ → ไปสร้าง repro ก่อน อย่ากระโดดไปเดาสาเหตุ.
+> **กฎข้อ 1:** ทุ่ม reproduce ก่อนเสนอวิธีแก้ — repro คือ*ทางที่ดีสุด* (วัด fix ได้ชัด) **แต่ไม่ใช่เงื่อนไขบังคับ**: บั๊กที่ reproduce ไม่ได้ (heisenbug/prod-only/intermittent) ยัง diagnose ได้จาก **log/core dump/trace/static analysis**. อย่ากระโดดเดาสาเหตุลอยๆ.
 > **กับดักข้อ 1:** เดาสาเหตุเดียวแล้วรีบแก้เลย (anchoring). คนเก่งสุดก็ติดกับนี้ — เห็น error แล้วปักใจว่า "ต้องเพราะ X" ทั้งที่ยังไม่ได้พิสูจน์. ของที่ทำให้เจอบั๊กเร็วจริงคือ **repro ที่กด pass/fail ได้ใน 2-5 วิ + ตั้งสมมติฐาน 3-5 อันแล้วลอง *หักล้าง* ก่อน** ไม่ใช่จ้องโค้ดเฉยๆ.
 
 ## ใช้เมื่อ
@@ -2005,7 +2016,7 @@ disclaimer: "ช่วยวางวิธีไล่หา root cause ขอ�
 |---|---|---|
 | 1. Reproduce | ทำให้บั๊กเกิดซ้ำได้ด้วยคำสั่งเดียว/test เดียว | กดแล้วพังตามที่ user เจอ ทุกครั้ง (หรือ flaky → ดันอัตราให้สูงพอดีบัก) |
 | 2. หา fail path | หา *จุด* ที่โค้ดพัง + *อะไร* คุมผลนั้น | รู้ว่าพลิก knob ไหนแล้วบั๊กขยับ |
-| 3. ตั้ง+หักล้างสมมติฐาน | เขียน 3-5 อันแบบ falsifiable แล้วลองล้มก่อน | สมมติฐานที่รอดการล้ม = ของจริง |
+| 3. ตั้ง+หักล้างสมมติฐาน | เขียน 3-5 อันแบบ falsifiable แล้วลองล้มก่อน | รอดการล้ม = **น่าเชื่อสุด** (fix แล้วหาย = สนับสนุน ไม่ใช่พิสูจน์เด็ดขาด) |
 | 4. แก้ + regression test | แก้แล้วเขียน test กันบั๊กกลับ (ถ้ามี seam ที่ใช่) | repro เดิมไม่พังแล้ว + test เขียว |
 
 ### ขั้น 1 — Reproduce (หัวใจ ทุ่มแรงตรงนี้)
@@ -2030,7 +2041,7 @@ disclaimer: "ช่วยวางวิธีไล่หา root cause ขอ�
 ### ขั้น 3 — ตั้ง + หักล้างสมมติฐาน
 - เขียน **3-5 อัน ไม่ใช่ 1** — สมมติฐานเดียว = ปักใจกับไอเดียแรกที่ดูเข้าท่า
 - ทุกอันต้อง **falsifiable:** "ถ้า X เป็นเหตุ → พลิก Y บั๊กจะหาย / พลิก Z จะแย่ลง" บอก prediction ไม่ได้ = แค่ vibe ทิ้ง
-- **รัน disproof ก่อน:** ออกแบบการทดลองที่ *ล้ม* สมมติฐานได้เร็วสุด — รอดการล้ม = จริง, ตาย = รอดจากการไล่ผี
+- **รัน disproof ก่อน:** ออกแบบการทดลองที่ *ล้ม* สมมติฐานได้เร็วสุด — รอดการล้ม = **น่าเชื่อสุด** (ยังไม่ใช่พิสูจน์เด็ดขาด — fix แล้วบั๊กหายตามทำนาย = สนับสนุนแรง), ตาย = ตัดทิ้ง
 - ลิสต์ให้ user ดูก่อนลอง — เขามักมี domain knowledge re-rank ทันที ("เพิ่ง deploy ตัวที่ 3")
 
 ### ขั้น 4 — แก้ + กันบั๊กกลับ
@@ -2692,7 +2703,7 @@ type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-11
-status: draft
+status: semi-stable
 disclaimer: "ช่วยตัดสินใจ git workflow เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — คำสั่ง destructive (reset --hard / push --force / rebase ที่ push แล้ว) ลบงานได้ ต้องเข้าใจผล + สำรองก่อนรันเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -2701,7 +2712,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 ตัดสินใจหน้างาน git — **"branch ไหน · commit ยังไง · merge หรือ rebase · resolve conflict ยังไง · กู้งานที่หาย"** ไม่ใช่ท่อง git command (= commodity ดู man page)
 
 > 🔑 **กฎ #1: `git diff` / `git log` คือความจริง — ไม่ใช่ "updated/done" ของ tool หรือความจำ.** ก่อนเชื่อว่า edit/commit ลงจริง **verify ด้วย git เสมอ** (edit อาจลง branch ผิด / โฟลเดอร์ที่ git ignore / sandbox → git มองไม่เห็น)
-> 🚫 **กับดัก #1: push หลัง PR merge ไปแล้ว = commit orphan** (ค้างบน branch ไม่เข้า main) → commit *ทุกอย่างก่อน* merge; ถ้า merge ไปแล้วต้องแก้เพิ่ม = **branch ใหม่จาก `origin/main` เสมอ**
+> 🚫 **กับดัก #1: push หลัง PR merge ไปแล้ว = commit ค้างบน branch เดิม ไม่เข้า main** (ไม่ใช่ "orphan" ตามนิยาม git — branch ref ยังชี้อยู่; แต่ effectively หลงทางไม่เข้า main) → commit *ทุกอย่างก่อน* merge; ถ้า merge ไปแล้วต้องแก้เพิ่ม = **branch ใหม่จาก `origin/main` เสมอ**
 > ⚠️ destructive (reset --hard · push --force · rebase ที่ push แล้ว) = ทำลายประวัติ/งานคนอื่น → เข้าใจผล + สำรองก่อน
 
 ## ใช้เมื่อ
@@ -2720,7 +2731,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 
 ### Fork 1 — ทำบน branch ไหน
 - **main ถูก protect (require-PR):** ทุกการเปลี่ยน = **branch สดจาก `origin/main` → push → PR → ให้คน merge** (แม้ admin bypass ได้ ก็ควรผ่าน PR เพื่อ review + CI)
-- **branch ใหม่ทุกงาน — อย่าทำต่อบน branch ที่ merge แล้ว** (stale → commit ใหม่บนนั้น = orphan ไม่เข้า main)
+- **branch ใหม่ทุกงาน — อย่าทำต่อบน branch ที่ merge แล้ว** (stale → commit ใหม่บนนั้น ค้าง ไม่เข้า main)
 - **`git fetch origin main` ก่อนเสมอ** แล้ว `git switch -c <new> origin/main` (หรือ `git checkout -b` — *fail* ถ้าชื่อ branch มีอยู่แล้ว = กันเขียนทับ) → กัน divergence/conflict ทีหลัง · ⚠️ **อย่าใช้ `-B`/`git reset` กับ branch ใหม่** — `-B` *force-reset* branch ชื่อเดิมที่มีอยู่ทิ้งเงียบๆ (งานหาย) → สงวนไว้เฉพาะตอนตั้งใจ reset จริงๆ
 
 ### Fork 2 — Commit: atomic + message ที่ตามได้
@@ -2736,7 +2747,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 ### Fork 4 — Resolve conflict (โดยเฉพาะ generated file)
 - **generated file (bundle/lock/catalog) ชน → อย่าแก้มือ → regenerate** บน base ที่ merge แล้ว (deterministic + ถูกกว่าแก้เอง)
 - 2 ฝั่งแก้ **คนละบรรทัด = git auto-merge** (ไม่ conflict) → conflict จริงเกิดตอนแก้ทับบรรทัดเดียวกัน
-- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (ฝั่งไหนต้องเช็คก่อน — ❌ ไม่ใช่ merge-base) → **re-apply การแก้ของเราทับ** → แล้ว **verify `git diff <base>..HEAD -- <file>` ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ** ไม่มีของหาย
+- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (ฝั่งไหนต้องเช็คก่อน — ❌ ไม่ใช่ merge-base) → **re-apply การแก้ของเราทับ** → แล้ว **verify ก่อน commit:** ก่อน `git add` ใช้ `git diff -- <file>` · หลัง stage ใช้ `git diff --cached -- <file>` — ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ · ⚠️ *ไม่ใช่* `<base>..HEAD` (เทียบ *commit* มองไม่เห็น working tree/staged); commit แล้วค่อย `<base>..HEAD` ทวนซ้ำ
   - ⚠️ **`--ours`/`--theirs` หมายความสลับกันตาม operation:** ใน **merge** → `--ours`=branch ปัจจุบันของเรา, `--theirs`=branch ที่ merge เข้ามา (เช่น `origin/main`) · ใน **rebase** → *สลับกัน* (`--ours`=branch ที่ rebase ไปอยู่บน, `--theirs`=commit ของเราที่กำลัง replay) → **ยืนยันว่าจะเอาฝั่งไหนจาก context เสมอ + verify ด้วย `git diff` หลังทำ** (พลาดทิ้งผิดฝั่งง่ายมาก)
 
 ### Fork 5 — main ถูก protect: ใครแก้ได้ + flow
@@ -2877,7 +2888,7 @@ title: ตัวช่วยตัดสินใจในแลบโลหิ�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-13
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -2934,9 +2945,11 @@ Review smear เสมอเมื่อ:
 - WBC สูงมาก: CML (full myeloid spectrum + baso/eos, LAP ต่ำ <20) vs leukemoid reaction (toxic granule, LAP สูง >100)
 
 ### Fork 4 — Platelet ต่ำ → "จริงหรือ pseudo"
+0. เช็คก่อนเชื่อเลขเครื่อง: **QC วันนั้นผ่านไหม · หลอด partial clot / mix ไม่ดีไหม** (สาเหตุค่าต่ำปลอมที่พบบ่อยสุด) · **delta check เทียบประวัติเก่า**
 1. ดู smear หา platelet clump (feather edge) — มี clump = EDTA-induced pseudothrombocytopenia
-2. clump → เก็บใหม่ใน citrate (3.2%) แล้วคูณ dilution factor หรือ heparin tube → รายงานค่าแก้
-3. ไม่มี clump + smear ยืนยันต่ำจริง → รายงาน + ต่ำมาก = critical แจ้งแพทย์
+2. **ทำ platelet estimation จาก smear cross-check ค่า analyzer** (เฉลี่ยหลาย OIF ในเขต monolayer × factor ที่แลบ validate, ทั่วไป ~15–20k) — estimate ค้าน analyzer มาก = สงสัย clump/clot/artifact ก่อนเชื่อเลข
+3. clump → เก็บใหม่ใน citrate (3.2%) แล้วคูณ dilution factor หรือ heparin tube → รายงานค่าแก้
+4. ไม่มี clump + estimate สอดคล้อง + smear ยืนยันต่ำจริง → รายงาน + ต่ำมาก = critical แจ้งแพทย์ตาม SOP
 
 ห้าม auto-report plt ต่ำจาก analyzer โดยไม่ดู smear.
 
@@ -3569,6 +3582,95 @@ AI:  โอเค ถอยมาก่อน — specificity = "test ไม่�
 *ช่วยให้ AI สอน/ติวแบบโต้ตอบ ไม่ใช่คำแนะนำทางการแพทย์ — เนื้อหาวิชาการ/การแพทย์ที่ AI สอนต้อง cross-check กับตำรา/อาจารย์ (AI อาจมั่ว) ผู้นำไปใช้รับผิดชอบการเรียนรู้ที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้ · ดูเพิ่ม: `explain-simply` · `mt-exam-strategy-judgment` · `anti-hallucination`*
 
 
+<!-- ═════════ skill: interprofessional-communication-judgment ═════════ -->
+
+---
+skill: interprofessional-communication-judgment
+title: โค้ชสื่อสารสหวิชาชีพ — คุยภาษาหมอ/พยาบาล/เภสัช + golden-period (Interprofessional Communication)
+type: ADVISE               # ช่วยเรียบเรียงให้คุยตรงผู้รับ ไม่ได้สื่อสารแทน
+needs: any                 # ใช้ได้กับ AI ทุกตัว
+author: "Phanuphong Tameesak - MT Score UP!"
+last_edited: 2026-06-13
+status: draft
+disclaimer: "ช่วยเรียบเรียงการสื่อสารกับสหวิชาชีพเพื่อการศึกษา ไม่ใช่คำแนะนำทางการแพทย์ — ข้อเท็จจริง/ผลกระทบที่สื่อต้อง verify ก่อน และต้องทำตาม SOP/สายบังคับบัญชา/จรรยาบรรณของหน่วยงานเสมอ ผู้นำไปใช้รับผิดชอบการสื่อสารที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
+---
+
+# โค้ชสื่อสารสหวิชาชีพ — คุยภาษาหมอ/พยาบาล/เภสัช + golden-period
+
+อัพเวล MT ด้วยทักษะที่หายสุดและเป็นตัวตัดสินจริง: **คุยกับสหวิชาชีพด้วยภาษาของเขา** (ไม่ใช่ภาษาแล็บ) + รู้ **golden-period** ที่ปัญหายังแก้ง่าย — นี่คือคู่ **แนวราบ** ของ `report-up-judgment` (แนวตั้ง)
+
+> **กฎเหล็ก #1: คุยด้วย "ผลกระทบต่อคนไข้ของเขา" ไม่ใช่ "เหตุผลทางเทคนิคของเรา"** — หมอ/พยาบาลไม่ได้อยากรู้ว่าน้ำยา validate มายังไง อยากรู้ว่า *ถ้าทำ/ไม่ทำ คนไข้เขาเจออะไร*. แปลเทคนิค → impact **ก่อน** เปิดปาก
+> **กฎเหล็ก #2: golden-period — เจอ/รู้ว่าจะมีปัญหา รีบ "ส่งสัญญาณเตือน" ทันที อย่ารอจนข้อมูลครบ** — มีหน้าต่างเวลาที่ปัญหาคลี่คลายง่าย/จำกัดความเสียหายได้; พ้นไปแล้วบานปลาย+โดนจำยาว. **เร็วกับการเตือน > รอให้ครบ** — แต่ "เร็ว" = แจ้ง concern (preliminary, ระบุว่ายังไม่ยืนยัน) **ไม่ใช่รายงานผลที่ยังไม่ verify**
+> คุยขึ้นบน/หัวหน้า-ผู้บริหาร → `report-up-judgment` · ปรับถ้อยคำให้สุภาพแต่ยังชัด → `polite-but-clear` · ความแม่นวิชาการ = ต้นทุนของการคุย → สกิลสายคลินิก (`clinchem-judgment`/`clinmicro-judgment`/`hematology-judgment`/...) · อย่ามั่วเพื่อให้ดูรู้ → `anti-hallucination`
+
+## ใช้เมื่อ
+- ต้องโทร/คุยกับ **แพทย์**: ผลที่ขัดกัน, critical value, ผลเครื่อง vs manual ไม่ตรง, จะ challenge การ request/การยืนยันทำ
+- คุยกับ **พยาบาล**: ผลที่กระทบการ manage คนไข้ / specimen มีปัญหา / ประสานหน้างาน
+- คุยกับ **ห้องยา / TDM / PGx**: เรื่องยาที่คนไข้ได้
+- รู้ว่ากำลังจะมีปัญหา (QC fail, specimen, ผลพลาด) แล้วต้องตัดสินว่า **แจ้งใคร-เร็วแค่ไหน**
+
+## วิธีใช้
+วาง skill นี้ + เล่าสถานการณ์ + ระบุผู้รับเป็นวิชาชีพไหน → AI ช่วยเรียบเรียงให้พูด "ภาษาเขา" + ชี้ว่ายังอยู่ใน golden-period ไหม ควรแจ้งใครก่อน (ให้คุณตรวจก่อนสื่อจริง)
+
+---
+
+## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
+
+### Fork 1 — คุยกับแพทย์: impact-first, สั้น, ภาษาคลินิก
+- ❌ อย่าเปิดด้วย *"น้ำยาบอกว่า... ไม่ได้ validate มา... เขาไม่แนะนำให้ทำ"* (= ภาษา vendor/แล็บ ที่หมอไม่ซื้อ)
+- ✅ เปิดด้วย **impact ต่อคนไข้ของเขา**: *"ถ้ายืนยันทำ X ผลที่อาจกระทบคนไข้คือ 1-2-3-4"*
+- ⚠️ "impact-first" = สื่อผลต่อ **ความน่าเชื่อ/การแปลผลทางแล็บ** ("ค่านี้อาจไม่จริงเพราะ X → ใช้ตัดสินใจแล้วพลาด") **ไม่ใช่ฟันธง diagnosis/outcome แทนแพทย์** และไม่กลบ limitation ของการตรวจ (hemolysis/interference)
+- ผลเครื่อง vs อ่านตา/manual ไม่ตรง → **ถามกลับว่าคนไข้เป็นอะไรมา** เพราะ "เราเจอ pattern แบบนี้" (ดึง clinical มาช่วย interpret แทนยืนกราน)
+- ⚠️ หมอส่วนใหญ่ไม่ชอบคุยยาว — **อย่าลงดีเทลถ้าเขาไม่ถาม** แต่ต้องอยู่ในภาษาเขา (สั้น + คลินิก ไม่ใช่สั้น + จาร์กอนแล็บ)
+
+### Fork 2 — คุยกับพยาบาล: ผูกกับการ manage คนไข้ + สร้างสัมพันธ์
+- คุยสิ่งที่ **กระทบการดูแลคนไข้ของเขาโดยตรง** — อย่าใช้เขาเป็นแค่ "คนส่งสาร" ต่อให้หมอ
+- small talk 5-10 วิ ได้ก็ทำ — relationship ทำให้ครั้งหน้าคุยง่าย ("รู้อะไรไม่สู้รู้จักกัน": ปัญหาใหญ่กลายเป็นเล็กเมื่อรู้จักกัน)
+
+### Fork 3 — คุยกับห้องยา / TDM / PGx: ภาษายา
+- คุยเรื่องยาที่ **clinically relevant กับผลแล็บ** (ยาที่รบกวน assay / ต้องดู drug level / กระทบ interpret) เพื่อ context + สัมพันธ์ · ⚠️ **ยึด need-to-know + ผู้รับที่มีสิทธิ์เข้าถึง** — อย่าฟิชข้อมูลยา/คนไข้เกินจำเป็น (PDPA → `digital-judgment` / `mt-law-ethics-judgment`)
+
+### Fork 4 — golden-period: เร็ว > ครบ (ขยายกฎเหล็ก #2)
+- ⚠️ **แยกก่อน: ค่าวิกฤต/ผลกระทบคนไข้รายนั้น ≠ ปัญหาเชิงระบบ (QC/specimen/process)** — escalation คนละทาง:
+  - **ค่าวิกฤต / ผลผิดที่ปล่อยไปแล้ว → แจ้ง "ตรง" ตาม critical-value SOP** (ผู้ดูแลคนไข้/แพทย์เวร) ทันที **ห้ามไต่สายช้าๆ** (ตัวเอง→หัวหน้า→ค่อยคุยหมอ = หน่วงคนไข้) + ปิด loop (Fork 6)
+  - **ปัญหาเชิงระบบ → แจ้งตามสาย** (ตัวเอง → หัวหน้า → หัวหน้าประสานวิชาชีพที่เกี่ยว) เร็ว อย่าอ้ำอึ้ง
+- ⏱️ ความเร่งด่วน: **ค่าวิกฤต/เหตุที่มี SOP กำหนดเวลา → ยึด SOP + เกณฑ์ความเสี่ยงก่อน (ไม่ใช่ gut feeling)** · golden-period ใช้ gut feeling เฉพาะ **เหตุที่ยังไม่มีเกณฑ์ชัด** — หลักคือยิ่งเร็วยิ่งคลี่คลายง่าย พ้น window = บานปลาย+โดนจำยาว → หาจุดแล้วรีบแก้ ไม่รอมั่นใจ 100%
+- 🔗 แจ้งขึ้นบนผู้บริหาร "อ่านปุ๊บรู้ปั๊บ" → `report-up-judgment`; สุภาพที่น้ำเสียง ไม่ลดความเด็ดขาดการเตือน → `polite-but-clear`
+
+### Fork 5 — "pick a word": คุยต่อได้แม้เรื่องที่ไม่รู้
+- ความแม่นวิชาการ = ต้นทุนการคุย. รู้ technical ของตัวเองดี → คุยได้เรื่อยๆ + **จับ keyword เรื่องที่ยังไม่รู้ไว้** เพื่อต่อบทสนทนา/ไปค้นต่อ
+- ⚠️ จับ keyword ไปหาต่อ **ไม่ใช่มั่วให้ดูรู้** — เดาเนียนๆ ในวงสหวิชาชีพ = เสีย trust ถาวร (สัมพันธ์ระยะยาว > ดูเก่งครั้งเดียว)
+
+### Fork 6 — Critical/urgent = closed-loop บังคับ (อย่าแจ้งลอย)
+แจ้งค่าวิกฤต/ผลเร่งด่วน ต้องครบ loop ปิดทุกครั้ง:
+- **2 identifier** (ชื่อ + HN/AN) · **ค่า + หน่วย + การทดสอบ** · **read-back** (ให้ผู้รับทวนกลับ) · **ชื่อผู้รับ + เวลา** · **บันทึกลง log/LIS**
+- สื่อ **ผลที่ verify แล้ว + status + limitation ของการตรวจ + ความเร่งด่วน + recommendation ในขอบเขต MT** — ไม่ฟันธง diagnosis แทนแพทย์ ไม่กลบ limitation
+
+---
+
+## กับดัก (Anti-patterns)
+- **เปิดบทสนทนากับหมอด้วยภาษาแล็บ/vendor** ("validate", "น้ำยาไม่แนะนำ") แทน impact ต่อคนไข้ → หมอไม่ฟัง
+- **ลงดีเทลเทคนิคยาวกับหมอที่ไม่ได้ถาม** — เสียเวลาเขา เสีย credibility
+- **ใช้พยาบาลเป็นแค่คนส่งสาร** ไม่ผูกกับการ manage คนไข้ของเขา → ไม่ได้ความร่วมมือ
+- **รอข้อมูลครบ/รอมั่นใจ 100% ก่อนแจ้งปัญหา** — พ้น golden-period แล้วบานปลาย โดนจำยาว
+- **อ้ำอึ้งไม่กล้าแจ้งหัวหน้า** เพราะกลัวโดนว่า → ยิ่งช้ายิ่งโดนหนัก
+- **มั่ว technical เพื่อให้ดูรู้** แทนจับ keyword ไปหาต่อ → เสีย trust ถาวร
+- **คุยภาษาเดียวกับทุกวิชาชีพ** — หมอ/พยาบาล/เภสัช สนใจคนละมุม (impact คนไข้ / การ manage / ยา) ต้องปรับสาร
+- **แจ้งค่าวิกฤตแบบไม่ปิด loop** (ไม่มี read-back/ผู้รับ/เวลา/บันทึก) หรือ **ไต่สายช้าๆ กับค่าวิกฤต** แทนแจ้งตรงตาม critical-value SOP → หน่วงคนไข้
+- **ฟันธง diagnosis/outcome แทนแพทย์** ในนาม "impact-first" หรือกลบ limitation ของผล → เกินขอบเขต MT
+
+---
+
+## ช่องสำหรับผู้เชี่ยวชาญเติม
+> เติมเคสจริงในสายงานคุณ เช่น:
+> - *"(MT) ตอนโทรแจ้งหมอเรื่องผลขัดกัน/critical value ประโยคเปิดที่ได้ผลคือ..."*
+> - *"เคสที่แจ้งทันใน golden-period แล้วรอด vs ที่ช้าไปแล้วบานปลาย ต่างกันตรง..."*
+> - *"พยาบาล/ห้องยา/วอร์ดที่สร้างสัมพันธ์ไว้แล้วงานลื่นขึ้นจริง ทำยังไง..."*
+
+---
+*ช่วยเรียบเรียงการสื่อสารกับสหวิชาชีพเพื่อการศึกษา ไม่ใช่คำแนะนำทางการแพทย์ — ข้อเท็จจริง/ผลกระทบที่สื่อต้อง verify ก่อน และต้องทำตาม SOP/สายบังคับบัญชา/จรรยาบรรณของหน่วยงานเสมอ ผู้นำไปใช้รับผิดชอบการสื่อสารที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้ · ดูคู่กับ `report-up-judgment` และ `polite-but-clear`*
+
+
 <!-- ═════════ skill: ivd-sales-judgment ═════════ -->
 
 ---
@@ -4187,7 +4289,7 @@ type: ADVISE               # ช่วยตัดสินใจการเข
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดเรื่องโครงสร้าง/การเขียน manuscript เพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/บรรณาธิการทางการ — เนื้อหา/ความถูกต้องทางวิชาการ ต้องผ่านอาจารย์ที่ปรึกษา + peer review จริง · ผู้นำไปใช้รับผิดชอบงานที่เผยแพร่เอง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -4550,7 +4652,7 @@ type: ADVISE               # ช่วยวางระบบ train→deploy→
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยวางระบบ ML production ไม่ใช่คำแนะนำทางการแพทย์ — โมเดลที่กระทบการตัดสินใจคนไข้ต้อง validate + กำกับโดยผู้รับผิดชอบก่อนใช้จริงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -4657,7 +4759,7 @@ type: ADVISE               # ช่วยตัดสินใจเลือก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดเลือกโมเดล/metric/validation + เลี่ยงกับดัก ML เพื่อการศึกษา ไม่ใช่คำแนะนำทางการจากที่ปรึกษา ML — ต้องตรวจผลและ assumption ก่อนเชื่อ โดยเฉพาะงานคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -4666,7 +4768,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 จะทำ ML แล้วงงว่า "ใช้โมเดลไหน · วัดด้วย metric อะไร · validate ยังไงไม่ให้หลอกตัวเอง" → โค้ชนี้ตอบ 2 คำถาม: **"เลือกอะไรเมื่อไหร่"** กับ **"พลาดตรงไหน"**
 
 > **กฎ #1:** อย่าเชื่อคะแนนที่ดูดีก่อนเช็ค **leakage** — `fit_transform` ทั้ง dataset ก่อน split หรือ tune บน test set = คะแนนสวยหลอก พังจริง · split ก่อนเสมอ, scaler/selector อยู่ใน Pipeline ที่ fit เฉพาะ train fold, test แตะครั้งเดียวตอนจบ
-> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC ก็โป่งเกินจริง)
+> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC สูงก็ยังหลอกได้ — PPV ร่วงตาม prevalence)
 > สูตร/algorithm ลึก (entropy, backprop, EM) ตำรา/AI มีหมดแล้ว — ที่ทำให้พังจริงคือ **เลือกผิด** กับ **กับดักที่ดูถูกแต่หลอก** · skill นี้เก็บสองอันนั้น
 > ภาพรวม "ควรทำโปรเจกต์ไหม + ล้มตรงไหน" ดู `data-project-survival` · "ใช้ test สถิติอะไร / N เท่าไร" ดู `choose-stat-test` + `sample-size-power`
 
@@ -4688,6 +4790,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 - ไม่มี label อยากหา group (สำรวจ subtype ผู้ป่วย) → **Clustering**
 - ไม่มี label อยากลดมิติ/visualize → **Dimensionality reduction** (Fork 5)
 - agent ลองผิดลองถูก + reward (ปรับ dose/policy) → **RL**
+- มี **time-to-event + censoring** (เวลาจนเกิดเหตุ; บางรายยังไม่เกิด/ติดตามไม่ครบ — survival, recurrence) → **Survival analysis** (Kaplan-Meier / Cox PH) — ⚠️ **ละเลย censoring** (ตัด/มองข้ามคนที่ยังไม่เกิดเหตุ) = bias · fixed-horizon classification ("เกิดใน 1 ปีไหม") ใช้ได้ถ้า follow-up ครบทุกราย
 - ⚖️ ลังเล classification↔regression: output ที่ "มีความหมาย" เป็น category หรือตัวเลข — อย่าปัด target ต่อเนื่องเป็น bin โดยไม่จำเป็น (เสียข้อมูล)
 
 ### Fork 2 — classifier ตัวไหน?
@@ -4710,15 +4813,17 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
   - **Precision** = ทายว่าป่วยแล้วป่วยจริงแค่ไหน (เน้นเมื่อ false-positive แพง)
   - **Recall/Sensitivity** = ผู้ป่วยจริงจับได้แค่ไหน (เน้นเมื่อ false-negative แพง — screening)
   - **F1** = สมดุล precision/recall เมื่อไม่รู้จะหนักข้างไหน
-  - **PR-AUC (precision-recall)** = threshold-independent ที่ซื่อสัตย์สุดตอน imbalance หนัก — ⚠️ **ROC-AUC โป่งง่าย** (0.90–0.99 ได้แม้โมเดลกาก เพราะ TN ก้อนใหญ่ทำให้สวย) → severe imbalance ดู PR-AUC, ROC-AUC ใช้เทียบโมเดลตอน class ใกล้สมดุลเท่านั้น
+  - **PR-AUC (precision-recall)** = ซื่อสัตย์สุดตอน imbalance หนัก เพราะไวต่อ performance บน **positive/minority class** — ⚠️ **ROC-AUC สูงไม่ได้แปลว่าใช้ได้จริงตอน imbalance**: AUC แทบไม่ขึ้นกับสัดส่วน class (ranking metric) แต่ค่า "สูง" อยู่ได้พร้อมกับ **precision/PPV ที่ร่วงเพราะ prevalence ต่ำ** → severe imbalance ดู **PR-AUC เป็นหลัก**, ROC-AUC อ่านประกอบได้ ไม่ใช่ตัวตัดสิน
 - **Regression** → **RMSE** (หน่วยเดียวกับ target, ลงโทษ error ใหญ่) · **MAE** (ทน outlier) · **R²** (สื่อกับคนทั่วไป)
 - 🩺 health rule: screening → ดัน **recall** · confirmatory → ดัน **precision**
+- ⚖️ **fairness (ถ้าโมเดลกระทบคน — hiring/triage/คัดกรอง):** วัด metric **แยก subgroup** (เพศ/อายุ/พื้นที่) ไม่ใช่ค่าเฉลี่ยรวม — แม่นรวมแต่พังกลุ่มน้อยได้ · ⚠️ "ไม่ใส่ตัวแปร sensitive" ≠ fair (proxy เช่น zip/ชื่อ/ชื่อ รพ. รั่ว sensitive กลับเข้ามา)
 
 ### Fork 5 — feature selection vs PCA/LDA?
 - อยากเก็บ feature เดิม ตีความได้ → **Feature selection** (filter / wrapper / Lasso-embedded)
 - ยอมได้แกนผสม, ลด noise/มิติ, unsupervised → **PCA** (linear, เร็ว)
 - มี label + อยากแกนที่แยก class ดีสุด → **LDA** (supervised)
 - แค่ visualize 2D → **t-SNE / UMAP** (อย่าเอา coordinate ไป feed โมเดลต่อ — เป็นแค่ภาพ)
+- ⚠️ **p≫n (feature ≫ ตัวอย่าง — genomic/methylation/omics):** feature selection **ต้องอยู่ใน CV fold** (เลือกบน data ทั้งก้อน = leakage → CV สูงลวงแม้บน noise ล้วน) + regularization (Lasso/Elastic Net) + ระวัง **batch effect** (เครื่อง/วันรัน confound กับ label) · ถ้า**ทดสอบสมมติฐานราย feature** (screen biomarker หลายตัว) → **multiple-testing correction** (FDR/Bonferroni)
 
 ### Fork 6 — bagging vs boosting?
 - base model variance สูง/unstable (deep tree) → **Bagging / Random Forest** (ลด variance, train ขนานได้, ทน overfit)
@@ -4984,7 +5089,7 @@ type: ADVISE               # ช่วยเลือกที่เก็บ + 
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดการเลือก/ออกแบบที่เก็บข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำ DBA/ความปลอดภัยทางการ · ข้อมูลผู้ป่วยต้องเข้ารหัส + auth + อยู่ใต้ PDPA, research data ต้อง de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -5030,7 +5135,7 @@ disclaimer: "ช่วยคิดการเลือก/ออกแบบท
 - **อย่าเก็บค่าที่คำนวณได้** (อายุ จาก วันเกิด; ratio) → เก็บ raw แล้วคำนวณตอนใช้ (ไม่งั้นแก้ที่เดียวลืมอีกที่)
 
 ### Fork 5 — ข้อมูลคนไข้ + research
-- เข้ารหัส/auth · ใครเข้าถึงได้ (สิทธิ์) · audit ใครแก้อะไร · **research = de-identify + IRB** (เชื่อม `digital-judgment`)
+- เข้ารหัส/auth · ใครเข้าถึงได้ (สิทธิ์) · audit ใครแก้อะไร · **research = ขอ IRB/EC + (ถ้าทำได้) de-identify** — ⚠️ ไม่ใช่กฎตายตัวสากล: งาน identifiable ก็ขอ approve ได้, บาง exempt/non-human-subject ต่างกันตาม IRB/เขตอำนาจ → ยึดเกณฑ์ IRB จริง (เชื่อม `digital-judgment`)
 
 ### Fork 6 — ส่งต่อ / ย้ายได้
 - **export เป็น CSV ได้** เสมอ · ไม่ผูกกับ tool เดียวจนออกไม่ได้ · มี **data dictionary** (คอลัมน์ไหนคืออะไร หน่วยอะไร)
@@ -5148,7 +5253,7 @@ title: โค้ชกฎหมาย/จรรยาบรรณวิชาช
 type: ADVISE               # ช่วยเข้าใจกรอบกฎหมาย ไม่ใช่ที่ปรึกษากฎหมาย
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-13
 status: draft
 disclaimer: "ช่วยเข้าใจกรอบกฎหมาย/จรรยาบรรณวิชาชีพ MT เพื่อการศึกษา ไม่ใช่คำปรึกษาทางกฎหมาย — ตัวบท/อัตราโทษต้องตรวจฉบับล่าสุด + ปรึกษานักกฎหมาย/สภาวิชาชีพก่อนตัดสินใจจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -5187,6 +5292,8 @@ disclaimer: "ช่วยเข้าใจกรอบกฎหมาย/จร
 - **ต้องมีแพทย์ดูแล/รับผิดชอบ (เงื่อนไขต่างกันตามหัตถการ — เช็คระเบียบจริง):** OGTT, skin test, apheresis · ⚠️ *เจาะเก็บ **โลหิตบริจาค (whole blood)** ปกติ MT/พยาบาลที่อบรมแล้วทำได้ภายใต้ความรับผิดชอบของแพทย์ — "ต้องมีแพทย์ยืนอยู่ด้วยทุกครั้ง" ไม่ใช่กฎตายตัว ขึ้นกับชนิดหัตถการ + ระเบียบหน่วยงาน*
 - 🚫 **ทำไม่ได้:** เจาะ **arterial (ABG)** / jugular / femoral / **ไขกระดูก** / ปอด-ช่องท้อง-ไขสันหลัง, biopsy, สวนปัสสาวะ, ฉีดเข้าหลอดเลือด
 - ⚠️ "เจาะเลือด" ที่ MT ทำได้ = **venous/capillary เท่านั้น** — arterial/marrow = นอกขอบเขต แม้ทำเป็น
+- 🔑 **"แพทย์สั่ง ≠ ขยายขอบเขตวิชาชีพ"** — คำสั่งแพทย์บอก *ตรวจอะไร/รักษาอะไร* ไม่ได้แปลงใบ ทนพ. · ⚠️ MT **เก็บ specimen เชิงรุกได้ในขอบเขต** (เจาะ venous/capillary, swab ผิว) — ส่วนหัตถการรุกล้ำ (ใส่สายสวน/สวนปัสสาวะ, เก็บทาง rectal ทั้ง swab และ digital) **พรบ.วิชาชีพฯ ไม่ได้ระบุราย procedure → อย่าฟันธงเองทั้ง "ทำได้" และ "ทำไม่ได้"; ยึดข้อบังคับสภาเทคนิคการแพทย์ + ระเบียบหน่วยงาน + การมอบหมาย/competency** · ถ้าสรุป (ตามแหล่งทางการ) ว่านอกขอบเขต → **ไม่ทำเอง + escalate + จัดผู้มีอำนาจเก็บแทน** (อย่าปฏิเสธลอยจน specimen ค้าง) · *"ในสถานพยาบาล + มีคำสั่งแพทย์" ตอบแค่มุม พรบ.สถานพยาบาล ไม่ตอบมุมขอบเขต MT*
+- 🔎 **เก็บปัสสาวะจาก "สายสวนที่คาอยู่แล้ว" (CSU):** คนละเรื่องกับการ "สวน" (= ใส่สาย, นอกขอบเขต) — เป็น grey-zone: ส่วนใหญ่ **มอบพยาบาลหน้างานเก็บตาม workflow** (เขาดูแลสาย/ถุงอยู่แล้ว + ไม่ใช่งานหลัก MT) → **ขึ้นกับข้อบังคับสภาฯ + การมอบหมาย + competency + SOP หน่วยงาน** (ไม่ใช่ข้อสรุปกฎหมายตายตัวว่า "ทำได้/ไม่ผิด") · *วิธีเก็บให้ specimen ไม่บวกลวง ดู `clinmicro-judgment`*
 - 💼 ตอน demo เครื่องในแล็บลูกค้า: **อย่าลงมือเจาะ/เดินผลกับผู้ป่วยจริงแทนเจ้าหน้าที่** — demo บน QC/control ได้, touch คนไข้ = หน้าที่ ทนพ.เจ้าของแล็บ
 
 ### Fork 3 — ความลับผู้ป่วย + PDPA (stack กัน)
@@ -5217,6 +5324,7 @@ disclaimer: "ช่วยเข้าใจกรอบกฎหมาย/จร
 - 🚫 **ปล่อยใบ ทนพ. หมดอายุ** ตอนย้ายสาย — เสีย credibility + ประตูกลับ
 - 🚫 **เซ็นสัญญา sales โดยไม่อ่าน IP/ข้อผูกมัด** — งานที่สร้างเองอาจถูกดูด
 - 🚫 **แก้/ปลอมผล หรือเซ็นรับรองแทนคนอื่น** — เส้นห้ามข้ามขั้นพักใบ/อาญา แม้เจตนาดี; แก้ผลที่ออกไปแล้ว = amended report ลงเวลา ห้ามทับเงียบ
+- 🚫 **เชื่อว่า "แพทย์สั่ง = ทำได้ทุกอย่าง"** — คำสั่งแพทย์ไม่ขยายขอบเขต ทนพ. ให้ทำหัตถการที่ระเบียบไม่ครอบ (ใส่สายสวน/สวนปัสสาวะ/เก็บ rectal เชิงรุก) · ถ้านอกขอบเขต = **ไม่ทำเอง + escalate + จัดผู้มีอำนาจเก็บแทน** (ไม่ใช่ปฏิเสธลอยจน specimen ค้าง) — *MT เจาะ venous/capillary เชิงรุกได้ในขอบเขต อย่าเหมารวมว่าห้ามเก็บเชิงรุกทุกอย่าง*
 
 ---
 
@@ -5323,7 +5431,7 @@ type: CALIBRATION          # เปลี่ยนวิธีที่ AI ล�
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยจัดให้ AI พึ่ง automation กับงานที่ต้องเป๊ะ เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — ต้องตรวจ output ของ tool ก่อนเชื่อ และคงการตัดสินใจที่ต้องใช้ดุลพินิจคนไว้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -5331,10 +5439,10 @@ disclaimer: "ช่วยจัดให้ AI พึ่ง automation กับ
 
 หยุดให้ AI "คิดเลข/จัดตารางในหัว" → ให้มัน **สร้าง/ขับเครื่องมือที่คำนวณเป๊ะ แล้วตรวจผล** แทน
 
-> LLM ทำนายคำถัดไป มัน**ไม่ได้คิดเลขจริง** — งานที่มีคำตอบถูก-ผิดชัด (เลข เงิน นับ เรียง จัดเวร) มันตอบมั่นใจแต่เพี้ยน. ทางแก้ไม่ใช่ "ขอให้ AI ระวังขึ้น" แต่คือ **ย้ายงานเป๊ะไปให้ code/tool ทำ AI เป็นคนขับ+คนตรวจ** ไม่ใช่ตัวคำนวณ
+> LLM ทำนายคำถัดไป **ไม่ได้คำนวณแบบเครื่องคิดเลข** — งานที่มีคำตอบถูก-ผิดชัด (เลข เงิน นับ เรียง จัดเวร) มันตอบ**ไม่น่าเชื่อถือ** (ไม่ใช่ทำไม่ได้เลย แต่ยิ่งหลายขั้น/เลขใหญ่ยิ่งเพี้ยน — มั่นใจแต่ผิด). ทางแก้ไม่ใช่ "ขอให้ AI ระวังขึ้น" แต่คือ **ย้ายงานเป๊ะไปให้ code/tool ทำ AI เป็นคนขับ+คนตรวจ** ไม่ใช่ตัวคำนวณ
 
 > ⛔ **ก่อนตอบ — เช็คก่อนพิมพ์คำตอบ:** งานนี้มี คำนวณ / นับ / เรียง / จัดเวร / constraint ไหม?
-> ถ้าใช่ → **ห้ามตอบตัวเลขจากหัวเด็ดขาด.** เขียน code/solver ก่อน แล้วค่อยตอบจากผลที่รัน
+> ถ้าใช่ (โดยเฉพาะหลายขั้น/เลขใหญ่/มี constraint) → **อย่าตอบตัวเลขจากหัว** เขียน code/solver ก่อนแล้วตอบจากผลรัน · *(เลขเล็กขั้นเดียวพอเดาได้ แต่ยิ่งซับซ้อนยิ่งต้อง tool — เกณฑ์: พลาดแล้วมีผล = ใช้ tool)*
 > รัน code ไม่ได้? → ส่ง **โค้ดที่รันได้จริง + วิธี verify + ติดป้าย "ตัวเลขยังไม่ยืนยันจนกว่าจะรัน"**
 > ✅ คำตอบที่ดีของงานแบบนี้ = โค้ดรันได้ + sanity check + กรอบที่ถูก — **ไม่ใช่** การปฏิเสธ และ**ไม่ใช่**เลขเดาที่ฟังดูมั่นใจ
 
@@ -5423,7 +5531,7 @@ type: ADVISE               # ช่วยตัดสินใจ formulate/เ�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดเลือกวิธี optimize + เลี่ยงกับดัก เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — ผลต้องตรวจกับเงื่อนไขจริงและทดสอบก่อนใช้ตัดสินใจจริง (เช่นจัดเวร/จัดสรรทรัพยากร) · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -5447,8 +5555,8 @@ disclaimer: "ช่วยคิดเลือกวิธี optimize + เล�
 ## วิธีเลือก (AI: ทำตามนี้) — forks
 
 ### 1. exact (LP/MIP) vs metaheuristic (GA/PSO) vs simulation — ข้อใหญ่สุด
-- **เชิงเส้น + deterministic + เล็ก-กลาง** → **LP/Simplex/MIP** (Excel Solver, OR-Tools, GUROBI) — รับประกัน optimal = **default**
-- **nonlinear / combinatorial / ใหญ่มาก (NP-Hard เช่น จัดเวร, VRP, TSP)** → **metaheuristic (GA/PSO/ACO)** — ได้ "ดีพอ" ไม่รับประกัน optimal
+- **เชิงเส้น + deterministic + เล็ก-กลาง** → **LP/Simplex/MIP** (Excel Solver, OR-Tools, GUROBI) — รับประกัน optimal (MIP: เมื่อ **พิสูจน์ optimality/gap=0** ไม่ใช่แค่ solver หยุด/timeout — ดู Fork 7) = **default**
+- **nonlinear / combinatorial / ใหญ่จน exact ช้าเกิน (NP-Hard เช่น จัดเวร, VRP, TSP)** → **metaheuristic (GA/PSO/ACO)** — ได้ "ดีพอ" ไม่รับประกัน optimal · ⚠️ NP-hard *เล็ก ๆ* ก็ solve exact ได้ — เลือก metaheuristic เพราะ **ขนาด/เวลา** ไม่ใช่เพราะเป็น NP-hard เอง
 - **มี randomness/queue/เวลา แก้เป็นสมการไม่ได้** (คิวคนไข้, โหลดเครื่อง) → **simulation (Monte Carlo/DES)** — ได้การกระจาย (utilization, waiting time)
 - ✅ test: เขียน objective+constraint เป็นสมการเชิงเส้นได้ครบ → อย่าใช้ GA (over-engineer); เขียนไม่ได้เพราะมี randomness → อย่าใช้ LP
 
@@ -5469,7 +5577,7 @@ Decision Variables + Objective (ในรูป vars) + Constraints (สมก�
 
 ### 6. sensitivity: shadow price ("คุ้มจะเพิ่มทรัพยากรไหม")
 - **Shadow price** = objective เปลี่ยนเท่าไรต่อการเพิ่ม RHS ของ constraint 1 หน่วย = ยอมจ่ายเพิ่มได้สูงสุดเท่าไรต่อ 1 หน่วย
-- **Binding** (slack=0) → SP>0 → เพิ่มทรัพยากรช่วยได้ (ลงทุนถ้าราคา < SP) · **Non-binding** (มี slack) → SP=0 → เพิ่มไม่ช่วย อย่าซื้อ
+- **Binding** (slack=0) → SP≥0 (ปกติ >0; เครื่องหมายขึ้นกับ min/max + ทิศ constraint ≤/≥) → เพิ่มทรัพยากรช่วยได้ (ลงทุนถ้าราคา < SP) · ⚠️ **degenerate** อาจ SP=0 แม้ binding · **Non-binding** (มี slack) → SP=0 → เพิ่มไม่ช่วย อย่าซื้อ
 - Δobjective = SP × ΔRHS **เฉพาะใน allowable range**
 
 ### 7. MIP solve ช้า/ไม่จบ — ทำไงก่อนทิ้ง exact
@@ -6355,7 +6463,7 @@ type: CALIBRATION          # เปลี่ยนวิธีที่ AI "แ�
 needs: any                 # ใช้ได้ทุก AI · richer ถ้า AI render Mermaid/artifact ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยให้ AI แสดงความคืบหน้าเป็นภาพ เพื่อการศึกษา/ติดตามงาน — visual บอก 'ทำอะไรไป' แต่ไม่รับประกันว่าเนื้อหาถูก ตรวจผลจริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -6432,7 +6540,7 @@ type: ADVISE               # ช่วยปรับ/วินิจฉัย p
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยปรับวิธีสั่ง AI ให้ได้ผลตรงขึ้น เพื่อช่วยคิด/ร่าง ไม่ใช่คำแนะนำทางการแพทย์ — output ที่ได้ยังต้อง verify ก่อนใช้จริงเสมอ (prompt ดีขึ้น ≠ คำตอบถูกอัตโนมัติ) ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -6612,7 +6720,7 @@ type: ADVISE               # ช่วยตัดสินใจ/ดีบั�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิด+จับกับดัก Python ระดับเริ่ม→กลาง เพื่อการศึกษา — ไม่ใช่ตำรา syntax หรือคำสั่งทางการ ควรทดสอบโค้ดจริงและตรวจผลก่อนนำไปใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -6621,7 +6729,7 @@ disclaimer: "ช่วยคิด+จับกับดัก Python ระด�
 เขียน/ดีบัก Python แล้วงงว่า "ใช้อะไรดี" หรือ "ทำไมพัง" → โค้ชนี้ช่วย **เลือกเครื่องมือให้ถูก + โทษบั๊กให้ถูกจุด**
 
 > **กฎข้อ 1 (จำให้ขึ้นใจ): method ที่แก้ของ in-place คืน `None` ไม่ใช่ค่าที่แก้แล้ว.** `.sort()`/`.reverse()`/`.append()`/`.update()`/`.extend()` → คืน `None` ทั้งหมด. ดังนั้น **ห้ามเอาผลของมันไป assign หรือ chain ต่อ** — `x = lst.sort()` ทำให้ `x` เป็น None เงียบๆ, `lst.append(y).append(z)` พังทันที. อยากได้ค่าที่แก้แล้ว: เรียก method (มันแก้ตัวแปรเดิมให้) **แล้วใช้ตัวแปรเดิม** หรือใช้ฟังก์ชันที่ "คืนค่าใหม่" เช่น `sorted(lst)`, `reversed(lst)`, `lst + [y]`.
-> **ตัวแยกง่ายๆ:** ชื่อเป็นกริยาแก้ของ (sort/append/update/reverse) → in-place คืน None · ชื่อบอกผลลัพธ์ (sorted/reversed) → คืนค่าใหม่ เอาไป assign ได้.
+> **ตัวแยกง่ายๆ:** ชื่อเป็นกริยาแก้ของ (sort/append/update/reverse) → in-place คืน None · ชื่อบอกผลลัพธ์ (sorted/reversed) → คืนค่าใหม่ เอาไป assign ได้ · ⚠️ **heuristic นี้มีข้อยกเว้น** — `.pop()` (list/dict/set) และ `dict.setdefault()` ทั้ง mutate และ**คืนค่า**; (`dict.pop(k, default)` ถ้าไม่มี key คืน default โดยไม่ mutate) → ไม่ชัวร์ตัวไหน **เช็ค docs อย่าเดาจากชื่อ**.
 >
 > Google/AI มี syntax ให้หมดแล้ว — ที่พลาดจริงคือ (1) เลือก data structure/วิธีผิด (2) ตกกับดักที่ "ดูถูกแต่พัง". skill นี้เก็บสองอันนั้น ไม่ใช่ตำรา
 
@@ -6777,7 +6885,7 @@ type: DO                    # ต้องรันคำนวณจริง
 needs: code-interpreter     # AI ที่รัน Python ได้จริง — ChatGPT Plus / Claude Pro / Gemini Advanced
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "เครื่องมือช่วยเลือก/รัน/แปลผลสถิติเพื่อการศึกษา — ไม่ใช่ที่ปรึกษาสถิติทางการ ควรตรวจสอบความเหมาะสมและการแปลผลกับนักสถิติ/ผู้เชี่ยวชาญก่อนนำไปใช้/ตีพิมพ์/ตัดสินทางคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -6823,7 +6931,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 
 ## คำสั่งให้ AI ทำ (AI: ทำตามลำดับนี้)
 1. **สำรวจข้อมูล** — ชนิดตัวแปร, n แต่ละกลุ่ม, missing, outlier
-2. **เช็ค assumption** — normality (Shapiro-Wilk + histogram/Q-Q), equal variance (Levene) → บอกผล; **ถ้า variance ไม่เท่ากัน ใช้ Welch's t-test อย่า default เป็น Student's t**
+2. **เช็ค assumption** — normality (**Q-Q/histogram เป็นหลัก** + Shapiro-Wilk ประกอบ), equal variance (Levene) → บอกผล · ⚠️ **อย่าสลับ test อัตโนมัติจาก p ของ Shapiro/Levene อย่างเดียว** (Shapiro underpowered ตอน n เล็ก, oversensitive ตอน n ใหญ่) — ใช้ร่วมกับ Q-Q + ชนิด/ขนาดข้อมูล · **variance ไม่เท่า → Welch's t-test อย่า default Student's t**
 3. **เลือก test ตาม guide ข้างบน + บอกเหตุผลที่เลือก** (เป็นภาษาคน) — **เลือก test ก่อนดู p-value เสมอ ห้ามเปลี่ยน test ทีหลังเพราะ p ไม่ผ่าน (= p-hacking)**
 4. **รัน** แล้วรายงาน: test ที่ใช้, test statistic, **p-value**, **effect size** (Cohen's d สำหรับ parametric / rank-biserial หรือ r = Z/√N สำหรับ non-parametric / OR สำหรับ logistic), 95% CI
 5. **ทำกราฟที่เหมาะ** (box plot/scatter/Bland-Altman) ใส่ label+หน่วยครบ
@@ -6838,7 +6946,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 - **p < 0.05 ≠ สำคัญทางคลินิก** → ดู effect size + ช่วงค่าจริงเสมอ
 - **p-hacking** → เลือก test ก่อนดู p; ห้ามเปลี่ยน test เพราะ p ไม่ผ่าน; รายงานทุก test ที่รัน ไม่ใช่เฉพาะที่ significant
 - **multiple testing** (เทียบหลายคู่/หลายตัวแปร) → ต้อง correct (Bonferroni/FDR) ไม่งั้น false positive
-- **n น้อย** → อย่าเชื่อ normality test, ใช้ non-parametric, ระวัง underpowered
+- **n น้อย** → อย่าเชื่อ normality test (Shapiro ไม่ไว) ตัดสินจาก Q-Q + ความรู้เรื่องข้อมูล · ⚠️ **non-parametric ก็ underpowered ตอน n น้อย ไม่ใช่ทางออกอัตโนมัติ** (t-test ทน non-normality ปานกลาง)
 - **correlation ≠ causation**
 - **% / สัดส่วน ที่ n ฐานต่าง** → อย่าเทียบตรงๆ
 - **paired vs unpaired ตัดสินจาก design ไม่ใช่หน้าตาข้อมูล** — ถ้าแต่ละแถวคือ "หน่วยเดียวกันวัด 2 ที" (ก่อน-หลัง / 2 วิธีวัด sample เดียว / ตา 2 ข้างคนเดียว) = paired (paired t / Wilcoxon signed-rank / McNemar)
@@ -6978,7 +7086,7 @@ disclaimer: "ช่วยเรียบเรียงการสื่อส�
 > - *"ตัวเลขผลกระทบที่ผู้บริหารตอบสนองไวสุด (คนไข้รอ/บาท/วันล่าช้า) คือ..."*
 
 ---
-*ช่วยเรียบเรียงการสื่อสารขึ้นบน ไม่ใช่คำแนะนำทางการแพทย์ — ข้อเท็จจริง/ตัวเลขที่รายงานต้อง verify ก่อน ผู้นำไปใช้รับผิดชอบการสื่อสารที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้ · ดูคู่กับ `polite-but-clear` และ `lab-management-judgment`*
+*ช่วยเรียบเรียงการสื่อสารขึ้นบน ไม่ใช่คำแนะนำทางการแพทย์ — ข้อเท็จจริง/ตัวเลขที่รายงานต้อง verify ก่อน ผู้นำไปใช้รับผิดชอบการสื่อสารที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้ · ดูคู่กับ `polite-but-clear`, `interprofessional-communication-judgment` (คุยแนวราบกับสหวิชาชีพ + golden-period) และ `lab-management-judgment`*
 
 
 <!-- ═════════ skill: research-design-judgment ═════════ -->
@@ -6990,7 +7098,7 @@ type: ADVISE               # ช่วยตัดสินใจออกแบ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดออกแบบวิจัยเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/จริยธรรมทางการ — design/ethics ต้องผ่านอาจารย์ที่ปรึกษา + IRB/EC จริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -7016,7 +7124,7 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 ## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
 
 ### Fork 1 — Descriptive vs Analytic (จุดแยกแรก)
-- **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — ไม่ทดสอบสมมติฐาน
+- **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — เน้น*บรรยาย* (มี hypothesis เชิงประมาณค่า/เทียบเกณฑ์ได้ แต่ไม่ใช่การทดสอบความสัมพันธ์ exposure↔outcome แบบ analytic)
 - **Analytic** = ทดสอบความสัมพันธ์ exposure ↔ outcome (มี hypothesis test) — งานที่ตีพิมพ์ดีมักเป็น analytic
 > H0 (ไม่ต่าง/ไม่สัมพันธ์) vs H1 (ต่าง/สัมพันธ์) · test ได้แค่ **reject / fail to reject H0** ไม่เคย "ยอมรับว่า H1 จริง" (กับดักภาษาที่ reviewer จับ) · **default two-tailed** (one-tailed เพื่อให้ p ผ่านง่าย = p-hacking) · ⚠️ "fail to reject" ≠ "พิสูจน์ว่าไม่ต่าง" — อาจแค่ **power ต่ำ/N น้อย**; รายงาน CI ของ effect ไม่ใช่สรุปว่า "ไม่มีผล"
 
@@ -7025,13 +7133,13 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 |---|---|---|
 | ความชุก/ค่าปกติเท่าไหร่ | **Cross-sectional (descriptive)** | survey, ถูก/เร็ว |
 | exposure สัมพันธ์ outcome มั้ย (วัดพร้อมกัน) | **Cross-sectional analytic** | default ของงานเทียบ genotype↔phenotype; วัดครั้งเดียว |
-| คนเป็นโรค vs ไม่เป็น ต่างที่ exposure มั้ย | **Case-control** (ย้อนหลัง) | ดีเมื่อ **outcome หายาก** |
-| exposure → outcome ตามเวลามั้ย | **Cohort** (ไปข้างหน้า) | ดีเมื่อ **exposure หายาก**; แพง/นาน |
-| intervention/ยา ได้ผลมั้ย | **RCT** | gold standard causation; randomize + control |
+| คนเป็นโรค vs ไม่เป็น ต่างที่ exposure มั้ย | **Case-control** (เลือกตาม *outcome* แล้วมองย้อน exposure — มัก retrospective แต่นิยามจาก sampling ไม่ใช่ทิศเวลา) | ดีเมื่อ **outcome หายาก** |
+| exposure → outcome ตามเวลามั้ย | **Cohort** (ตั้งกลุ่ม *at-risk* → จำแนก/วัด exposure → ตามดู outcome ตามเวลา; prospective *หรือ* historical/retrospective) | ดีเมื่อ **exposure หายาก**; แพง/นาน |
+| intervention/ยา ได้ผลมั้ย | **RCT** | gold standard causation; randomize + control — *causal ไม่จำกัดแค่ RCT: observational + วิธี causal (ปรับ confounder/propensity) อนุมานได้ภายใต้สมมติฐานชัด* |
 - rule: outcome หายาก → case-control · exposure หายาก → cohort · อยากรู้ "สัมพันธ์มั้ย ณ จุดเดียว" + เวลาจำกัด (thesis 1-2 ปี) → cross-sectional
 
 ### Fork 3 — ชนิดตัวแปร (scale) → กำหนดทิศสถิติ
-- **Nominal** (หมู่เลือด/genotype/เพศ) → สัดส่วน/chi-square · **Ordinal** (เกรด/score) → median/non-parametric · **Interval** (°C, ไม่มี 0 จริง) → parametric · **Ratio** (Hb/Hct/%/อายุ, มี 0 จริง) → parametric เต็มที่
+- scale ชี้ **test ที่พบบ่อย**: **Nominal** (หมู่เลือด/genotype/เพศ) → สัดส่วน/chi-square (หรือ logistic) · **Ordinal** → median/non-parametric (หรือ ordinal regression) · **Interval/Ratio** (ต่อเนื่อง) → t/ANOVA/Pearson · ⚠️ **"parametric" = สมมติรูป distribution ไม่ได้ผูกกับ scale** (logistic/Poisson บน categorical/count ก็ parametric) → เลือกจริงต้องเช็ค assumption ของ *model นั้น* ไม่ใช่แค่ดู scale (ดู `choose-stat-test`)
 - ระบุ **independent (exposure)** vs **dependent (outcome)** · เลือก test ลึก → `choose-stat-test`
 - **operational definition:** นิยามทุกตัวแปรให้วัดซ้ำได้ (เช่น cutoff ของ "ค่าสูง", coding ของ genotype, นิยาม carrier) — ไม่นิยาม = reviewer ตีกลับ · ⚠️ อย่า **dichotomize** ต่อเนื่องเป็น 2 กลุ่มถ้าไม่จำเป็น (เสีย info; เลือก cutoff ทีหลังให้ p สวย = p-hacking)
 
@@ -7370,7 +7478,7 @@ type: CALIBRATION          # ปรับ "วิธีเรียนรู้"
 needs: persistent-memory   # ความจำที่อยู่ข้ามวัน — agent ที่จำข้ามเซสชันได้ (Claude Code / Custom GPT memory / Project / เขียนไฟล์ได้)
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ทำให้ agent เรียนรู้จากความผิดพลาด เพื่อการศึกษา/ช่วยคิด — แต่กฎที่ agent จดเองอาจผิดได้ ควรตรวจกฎที่สำคัญ (เงิน/สุขภาพ/ความปลอดภัย) เป็นระยะ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -7378,7 +7486,7 @@ disclaimer: "ทำให้ agent เรียนรู้จากความ
 
 ทำให้ AI agent **เก่งขึ้นทุกครั้งที่ใช้** — เปลี่ยน "ความผิดพลาด + คำติของผู้ใช้" เป็น **กฎถาวร** ที่หยิบมาใช้รอบหน้า แทนที่จะลืมทุกเซสชัน
 
-> **กฎ #1: โดนแก้/ทำพลาด → จดเป็นกฎเดี๋ยวนั้น แล้วต้อง recall + apply ทุกเซสชันถัดไป.** จดแล้วไม่เคยอ่าน = ไร้ค่า (memory = สุสาน).
+> **กฎ #1: โดนแก้/ทำพลาด → จดเป็น *candidate* เดี๋ยวนั้น → verify ว่าถูก/เชื่อได้ก่อน *persist เป็นกฎถาวร* → แล้ว recall + apply ทุกเซสชันถัดไป.** จดแล้วไม่เคยอ่าน = ไร้ค่า (memory = สุสาน) · ⚠️ **อย่า persist ทุก correction อัตโนมัติ** (กัน feedback/memory poisoning: input ผิด/ผู้ใช้เข้าใจผิด กลายเป็นกฎถาวร) — กฎที่กระทบความปลอดภัย/สำคัญ = คนยืนยันก่อน
 > **กับดัก #1 (จุดที่พลาดจริงตอนยาก): กฎไม่ได้ดีเพราะ "จดไว้" — ดีหรือแย่วัดที่ "มัน fire ถูกเคสไหม".** กฎที่ generalize จาก 1 เคสจะ fire ผิดที่ → เจอ fire ผิด/เจอ 2 กฎขัดกัน = **แคบ trigger หรือลบ/รวบให้เหลือกฎเดียว** อย่าจดเพิ่มทับ.
 
 ## ใครใช้ได้
@@ -7544,7 +7652,7 @@ type: ADVISE               # ช่วยตัดสินใจวิธีใ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่อการศึกษา ไม่ใช่คำแนะนำทางการ · ค่าที่กระทบคนไข้/QC ต้อง sanity-check + ยืนยันเอง; ไฟล์ที่มีข้อมูลผู้ป่วยอยู่ใต้ PDPA — ใส่รหัส/ไม่แชร์ลิงก์เปิด · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -7581,7 +7689,7 @@ disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่
 ### Fork 3 — QC / สถิติใน Sheets
 - **STDEV.S (ตัวอย่าง) vs STDEV.P (ประชากร)** — เลือกผิด = SD เพี้ยน
 - Levey-Jennings = scatter + เส้น mean ±1/2/3 SD · นับด้วย COUNTIF/COUNTIFS
-- **TAT ใช้ MEDIAN ไม่ใช่ AVERAGE** (distribution เบ้) + ดู P90 (เชื่อม `build-a-dashboard`)
+- **TAT distribution มักเบ้ → median + P90/P95 สื่อจริงกว่า mean** (mean ไม่ผิดเสมอ — เลือกตามว่าจะสื่ออะไร; เบ้มาก = median) (เชื่อม `build-a-dashboard`)
 
 ### Fork 4 — กัน error เชิงระบบ
 - **Data validation** (dropdown/ช่วงค่า) กันกรอกมั่วตั้งแต่ต้นทาง
@@ -7589,7 +7697,7 @@ disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่
 - **version/backup** (Sheets มี version history; Excel เซฟสำเนา)
 
 ### Fork 5 — เมื่อไหร่เลิก Excel ไป DB/code
-- ข้อมูลโตเกิน ~หมื่นแถว · หลายคนแก้พร้อมกัน (ชนกัน) · ต้อง relationship/ประวัติ/audit → ย้ายไป **`mt-databases`**
+- เริ่มอืด/สูตรพัง · หลายคนแก้พร้อมกัน (ชนกัน) · ต้อง relationship/ประวัติ/audit → ย้ายไป **`mt-databases`** · *(จำนวนแถวเป็นสัญญาณคร่าวๆ — Sheets/Excel เอาอยู่หลายหมื่น–แสนแถวถ้า structure ดี; ตัดสินที่ workload/ความซับซ้อน ไม่ใช่เลขแถวตายตัว)*
 
 ### Fork 6 — ข้อมูลคนไข้
 - ไฟล์มี HN/ชื่อ → **ไม่แชร์ลิงก์ "ใครมีลิงก์ก็เปิดได้"**, จำกัดสิทธิ์, ใส่รหัส, de-identify ก่อนส่งออก (เชื่อม `digital-judgment`)
@@ -7624,7 +7732,7 @@ type: ADVISE               # ช่วยตัดสินว่าเทสต
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยตัดสินใจเรื่องเทสต์/TDD ไม่ใช่คำแนะนำทางการแพทย์ — โค้ดที่กระทบข้อมูลคนไข้/ผลแล็บต้อง validate + ทบทวนโดยผู้รับผิดชอบก่อนใช้จริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจ ผู้สร้างไม่รับผิดต่อความเสียหาย"
 ---
 
@@ -7666,7 +7774,7 @@ disclaimer: "ช่วยตัดสินใจเรื่องเทสต�
 | แก้บั๊ก | ✅ เขียนเทสต์ repro ที่ "แดง" ก่อนแก้ | กันบั๊กกลับมา (regression) |
 | สคริปต์ explore/วิเคราะห์ครั้งเดียวทิ้ง | ❌ ข้ามได้ | เขียนเทสต์แพงกว่าตรวจตาเอง |
 | โค้ด glue / โยน I/O เฉยๆ | ⚠️ เทสต์เฉพาะส่วนที่มี logic | ส่วนที่แค่ต่อท่อ ไม่ต้องเทสต์ |
-| loop เทรนโมเดล ML | ❌ TDD ไม่เข้า | feedback คนละแบบ — วัดด้วย metric ไม่ใช่ assert |
+| loop เทรนโมเดล ML | 🟡 บางส่วน | **logic รอบๆ เทสต์ได้/ควร** (data shape, loss, ไม่มี leakage, invariant) — แต่ *คุณภาพโมเดล* วัดด้วย metric/eval ไม่ใช่ assert ค่าเป๊ะ |
 
 ## เทสต์อะไรก่อน + mock/fixture เมื่อไหร่ (Judgment)
 
@@ -7803,16 +7911,16 @@ type: ADVISE               # ช่วยตัดสินใจบริหา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยบริหารบริบท/งบ token ของ AI เพื่อให้คำตอบนิ่งขึ้น ไม่ใช่คำแนะนำทางการแพทย์ — เนื้อหายังต้อง verify ก่อนใช้จริง ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
 # คุมงบ token/บริบทของ AI
 
-AI จำได้แค่ "หน้าต่างความจำ" จำกัด — ใส่เกินมันจะลืมต้นแชต/มั่ว/ช้า; สกิลนี้สอนว่าเมื่อไหร่ควรแตกงาน สรุปย่อ หรือเริ่มแชตใหม่ ไม่ใช่ท่องตัวเลข token เป๊ะ
+AI จำได้แค่ "หน้าต่างความจำ" จำกัด — ใส่เกิน คุณภาพตก (อาจลืมบางส่วน/มั่ว/ช้า — ⚠️ *ระบบต่างกัน*: บางตัวตัดต้นแชต บางตัวสรุป/ปฏิเสธ/เก็บไม่เท่ากัน; อาการพวกนี้เป็น **สัญญาณ** ไม่ใช่ตัวชี้ขาดกลไก); สกิลนี้สอนว่าเมื่อไหร่ควรแตกงาน สรุปย่อ หรือเริ่มแชตใหม่ ไม่ใช่ท่องตัวเลข token เป๊ะ
 
 > **กฎข้อ 1:** ใส่เข้า context เท่าที่งานนี้ต้องใช้จริง — ไม่ใช่ทุกอย่างที่มี. ก่อนแปะไฟล์/ประวัติยาว ถามตัวเองว่า "AI ต้องเห็นทั้งหมดนี้เพื่อตอบ *คำถามนี้* จริงไหม?" ถ้าไม่ → ตัด/สรุปก่อนใส่.
-> **กับดักข้อ 1:** ยิ่งแชตยาว ≠ AI ยิ่งฉลาด. พอบริบทล้น AI จะ **ลืมต้นแชตเงียบๆ** (ไม่เตือน) แล้วตอบมั่นใจเหมือนเดิม — คุณจับไม่ได้จนผลผิด. แชตเดียวยาวๆ เพื่อให้ "มันจำทุกอย่าง" มักได้ผลแย่กว่าแตกเป็นแชตสั้นที่โฟกัส.
+> **กับดักข้อ 1:** ยิ่งแชตยาว ≠ AI ยิ่งฉลาด. พอบริบทล้น AI **อาจลืม/เข้าถึงบริบทบางส่วนไม่ได้ หรือคุณภาพตกโดยไม่เตือน** (กลไกขึ้นกับระบบ — บางตัวตัด บางตัวสรุป/ปฏิเสธ) แล้วตอบมั่นใจเหมือนเดิม — คุณจับไม่ได้จนผลผิด. แชตเดียวยาวๆ เพื่อให้ "มันจำทุกอย่าง" มักได้ผลแย่กว่าแตกเป็นแชตสั้นที่โฟกัส.
 
 ## ใช้เมื่อ
 - แชตยาวจน AI เริ่มลืมต้นแชต / ตอบวนซ้ำ / ขัดกับที่ตกลงไว้ก่อนหน้า / ช้าลง
@@ -7834,6 +7942,8 @@ AI จำได้แค่ "หน้าต่างความจำ" จำ�
 | ช้าลงชัด / ตอบขาดๆ หายๆ | ใกล้เพดาน input/output | แตกงานเป็นสเต็ปย่อย ทำทีละอัน |
 | ขัดกับข้อตกลงก่อนหน้าแบบมั่นใจ | มันมองไม่เห็นข้อตกลงนั้นแล้ว | ย้ำกฎสำคัญซ้ำในข้อความล่าสุด (อย่าหวังให้จำ) |
 | สรุปไฟล์ใหญ่แล้วพลาดส่วนท้าย | ไฟล์ยาวเกิน อ่านไม่ทั่ว | แบ่งไฟล์เป็นช่วง/ถามเจาะทีละหัวข้อ |
+
+> ⚠️ คอลัมน์ "สาเหตุ" = กรณีพบบ่อย **ไม่ใช่กลไกตายตัว** — ระบบ AI ต่างกัน (บางตัวตัดต้นแชต บางตัวสรุป/ปฏิเสธ/เก็บไม่เท่ากัน); ใช้ "อาการ" เป็น *สัญญาณให้ลงมือ* (แตกงาน/สรุป/reset) ไม่ใช่ฟันธงกลไกข้างในเป๊ะ
 
 ## เมื่อไหร่ทำอะไร (3 ท่าหลัก)
 
@@ -8111,7 +8221,7 @@ type: CALIBRATION          # เปลี่ยนวิธีที่ AI ต�
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่ตั้ง persona/ทำงานขนานได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยให้ AI ตรวจงานตัวเองหลายมุมก่อนส่ง เพื่อลดพลาด ไม่ใช่คำแนะนำทางการแพทย์ — ตรวจแล้วยังต้องให้คน/แหล่งทางการยืนยันเรื่องสำคัญ/การแพทย์เสมอ (ผ่าน panel ≠ ถูก 100%) ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -8119,8 +8229,8 @@ disclaimer: "ช่วยให้ AI ตรวจงานตัวเองห
 
 ก่อนเชื่อคำตอบสำคัญ ให้ AI ตั้ง "คณะตรวจ 3 มุม" ที่พยายาม **หักล้างตัวเอง** ไม่ใช่ปรบมือให้ตัวเอง — เน้น **เจอจุดพังก่อนส่ง** ไม่ใช่ส่งไปแล้วค่อยรู้ว่าพลาด
 
-> **กฎข้อ 1:** ตั้ง panel ให้ **ค้านไว้ก่อน (adversarial default)** — หน้าที่ของแต่ละมุมคือ "หาเหตุที่คำตอบนี้ผิด" ไม่ใช่ "ยืนยันว่าถูก". ถ้าทุกมุมพยายามค้านแล้วยังล้มไม่ลง = ค่อยเชื่อ.
-> **กับดักข้อ 1:** panel ที่เห็นด้วยกับตัวเอง = พิธีกรรมเปล่า. AI ตั้ง 3 มุมแล้วทุกมุมตอบ "โอเคแล้วครับ" คือไม่ได้ตรวจ — ได้แค่ตรายางปลอมความมั่นใจ. เกณฑ์ผ่านเรื่อง safety = **ทุกมุมเคลียร์** ไม่ใช่เสียงข้างมาก.
+> **กฎข้อ 1:** ตั้ง panel ให้ **ค้านไว้ก่อน (adversarial default)** — หน้าที่ของแต่ละมุมคือ "หาเหตุที่คำตอบนี้ผิด" ไม่ใช่ "ยืนยันว่าถูก". ถ้าทุกมุมพยายามค้านแล้วยังล้มไม่ลง = **น่าเชื่อขึ้น (ไม่ใช่พิสูจน์ว่าถูก)**. · ⚠️ 3 มุมจาก **โมเดลเดียว = ไม่ independent จริง** (แชร์ blind spot/training เดียวกัน) → เรื่องสำคัญ/คนไข้ต้องมี **หลักฐานนอก/คนจริง** ยืนยัน ไม่ใช่แค่ panel ผ่าน.
+> **กับดักข้อ 1:** panel ที่เห็นด้วยกับตัวเอง = พิธีกรรมเปล่า. AI ตั้ง 3 มุมแล้วทุกมุมตอบ "โอเคแล้วครับ" คือไม่ได้ตรวจ — ได้แค่ตรายางปลอมความมั่นใจ. ทุกมุมเคลียร์ = ผ่าน *ชั้นกรองภายใน* เท่านั้น — ⚠️ **เรื่อง safety/คนไข้ "ทุกมุมเคลียร์" ยังไม่พอ** (3 มุมจากโมเดลเดียว = ไม่ independent) ต้องมี **หลักฐานนอก/คนจริง** ยืนยัน อย่าใช้ consensus ของโมเดลเป็นเกณฑ์ความปลอดภัย.
 
 ## ใช้เมื่อ
 - คำตอบจะกระทบ **คนไข้ / ความปลอดภัย / เงิน / อาชีพ** (เช่น แปลผลแล็บ, ค่าวิกฤต, ตัวเลขในรายงาน QC)
@@ -8196,7 +8306,7 @@ type: ADVISE               # ช่วยวินิจฉัย/ชี้ท�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยวินิจฉัยว่าคุณต้องการอะไร เพื่อการศึกษา/ช่วยคิด — เป็นการชี้ทาง ไม่ใช่คำตอบสุดท้าย/คำสั่งทางการ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -8268,7 +8378,7 @@ type: ADVISE               # ช่วยออกแบบ/ร่าง skill �
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยออกแบบ/ร่าง skill เพื่อแบ่งปันวิจารณญาณ ไม่ใช่คำแนะนำทางการแพทย์ — เนื้อหา skill ที่สร้างต้องผ่านการ verify โดยผู้รู้ก่อนเผยแพร่ และต้องลบข้อมูลคนไข้/สถาบันออกเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -8276,8 +8386,8 @@ disclaimer: "ช่วยออกแบบ/ร่าง skill เพื่อ�
 
 เปลี่ยน "ของในหัวคุณ" — เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่พลาด — ให้เป็นไฟล์ skill ที่ MT คนอื่นวางในแชต AI แล้วใช้ได้จริง
 
-> **กฎข้อ 1:** skill = **วิจารณญาณ** (เลือกอะไรเมื่อไหร่ + พลาดตรงไหน) ไม่ใช่ความรู้. เทสต์ 1 ข้อก่อนเริ่ม: *"ถ้า Google/AI ตอบได้ทันทีในประโยคเดียว → นี่คือ reference doc ไม่ใช่ skill."* สิ่งที่ควรอยู่ใน skill คือสิ่งที่ AI ตอบกลางๆ แต่ **มือใหม่ยังเลือกผิด/พลาดกับดัก** อยู่ดี.
-> **กับดักข้อ 1:** มือใหม่เขียน skill เป็น "ตำราย่อ" — ยัดนิยาม สูตร ตาราง normal range. นั่นคือ knowledge ที่ commodity AI รู้หมดแล้ว ไม่มีใครต้องการ skill มาบอกซ้ำ. ของที่มีค่าคือ **"เคสนี้เลือกทางไหน + ทำไมคนพลาดตรงนี้"** ซึ่งมาจากประสบการณ์คุณ ไม่ใช่ตำรา.
+> **กฎข้อ 1 (เป็น design convention ของ repo นี้):** skill **เน้นวิจารณญาณ** (เลือกอะไรเมื่อไหร่ + พลาดตรงไหน) **มากกว่าความรู้ดิบ** — ไม่ใช่ว่า knowledge ห้ามมี แต่ judgment คือหัวใจที่ commodity AI ยังให้ไม่ครบ. เทสต์ 1 ข้อก่อนเริ่ม: *"ถ้า Google/AI ตอบได้ทันทีในประโยคเดียว → นี่คือ reference doc ไม่ใช่ skill."* สิ่งที่ควรอยู่ใน skill คือสิ่งที่ AI ตอบกลางๆ แต่ **มือใหม่ยังเลือกผิด/พลาดกับดัก** อยู่ดี.
+> **กับดักข้อ 1:** มือใหม่เขียน skill เป็น "ตำราย่อ" — ยัดนิยาม สูตร ตาราง normal range. นั่นคือ knowledge ทั่วไปที่ commodity AI ตอบได้ดีอยู่แล้ว — *(เป็น design convention ของ repo นี้: เน้น judgment; ความรู้ niche/local/ใหม่ ที่ AI พลาดได้ ใส่เป็น reference ประกอบได้ แต่ไม่ใช่หัวใจ)*. ของที่มีค่าคือ **"เคสนี้เลือกทางไหน + ทำไมคนพลาดตรงนี้"** ซึ่งมาจากประสบการณ์คุณ ไม่ใช่ตำรา.
 
 ## ใช้เมื่อ
 - คุณมี "ลูกเล่น/วิจารณญาณ" ในงานที่ทำซ้ำบ่อย แล้วอยากแพ็กให้คนอื่น (หรือ AI) ใช้ตามได้

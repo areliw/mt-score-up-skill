@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยตัดสินใจออกแบ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพื่อการศึกษา ไม่ใช่คำสั่งให้รันจริง — งานจริงควรทดสอบบน staging + backup ก่อน DELETE/UPDATE และตรวจ query plan ก่อนใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -45,7 +45,7 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 
 ## กับดัก (Anti-patterns) — ระเบิดงานจริง
 - **`UPDATE`/`DELETE` ไม่มี `WHERE`** = ล้างทั้งตาราง → `SELECT * WHERE <เงื่อนไขเดียวกัน>` ดูแถว+นับก่อนเสมอ / ครอบ transaction
-- **`WHERE` มีแล้วแต่ยังพัง:** เงื่อนไขที่อ้าง `NOT IN (subquery)` แล้ว subquery มี `NULL` แม้ตัวเดียว → ทั้ง predicate กลายเป็น unknown → DELETE/UPDATE โดนเกินหรือ 0 แถวเงียบๆ → ใช้ **`NOT EXISTS`** + ยืนยันด้วย SELECT-preview
+- **`WHERE` มีแล้วแต่ยังพัง:** `NOT IN (subquery)` แล้ว subquery มี `NULL` แม้ตัวเดียว → ทุกแถวถูกตัด (ตรงค่า=FALSE, ไม่ตรง=UNKNOWN เพราะ NULL) → query/DELETE/UPDATE คืน **0 แถวเงียบๆ** (ได้*น้อยไป* ไม่ใช่โดนเกิน) → ใช้ **`NOT EXISTS`** + ยืนยันด้วย SELECT-preview ใน transaction
 - **`SELECT *`** → ดึงเกิน + พังเมื่อ schema เปลี่ยน → ระบุคอลัมน์
 - **JOIN ลืมเงื่อนไข** → **cartesian product** (row ระเบิด m×n)
 - **GROUP BY:** ทุกคอลัมน์ใน SELECT ที่ไม่ใช่ aggregate ต้องอยู่ใน GROUP BY

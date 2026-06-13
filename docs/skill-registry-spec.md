@@ -13,7 +13,7 @@
 
 ## 1. ปัญหา — โตแล้วพังตรงไหน
 
-คลังตอนนี้ 88 ตัว ยังคุมด้วยตา + agent audit ไหว. ที่ 200–1000 ตัว สามอย่างพังพร้อมกัน:
+คลังตอนนี้ 89 ตัว ยังคุมด้วยตา + agent audit ไหว. ที่ 200–1000 ตัว สามอย่างพังพร้อมกัน:
 
 - **ใหญ่:** `dist/all-skills.md` ตอนนี้ ~133K tokens. ถ้าโตเชิงเส้น 1000 ตัว = เกิน context ทุกรุ่น → bundle หมดประโยชน์ ต้อง route แบบ select ก่อนโหลด ไม่ใช่ยัดทั้งคลัง.
 - **ซ้ำ:** หัวข้อซ้ำกันโดยธรรมชาติ — `bloodbank` กับ `clinical-correlation` แตะ DAT/HDN เหมือนกัน, `data-project-survival` เคยทับ `data-science-workflow` (ดู CHANGELOG v0.8.0). ที่ 1000 ตัว สองคนเขียนเรื่องเดียวกันคนละไฟล์ = แน่นอน ไม่ใช่ "ถ้า".
@@ -185,4 +185,4 @@ audience: [MT-bench, MT-student, ivd-sales]
 **ไม่ลืม:** เป้าคือ **"ทุกตัวคุ้มที่จะอยู่"** ไม่ใช่ตัวเลข. ทุก add ควรมาคู่กับคำถาม "ตัวไหนควร prune". registry ที่ดีไม่ใช่ที่ที่ของเข้าง่าย — แต่เป็นที่ที่ของซ้ำถูกหลอม ของตายถูกตัด และคนให้ทุกคนได้ชื่อติดของที่คนใช้จริง.
 
 ---
-*เอกสารสเปก/ทิศทางสำหรับ maintainer — ไม่ใช่ instruction ให้ AI โหลดเป็น skill. ทุก skill ในคลังยังเป็น `status: draft` ยังไม่ผ่าน clinical peer-review.*
+*เอกสารสเปก/ทิศทางสำหรับ maintainer — ไม่ใช่ instruction ให้ AI โหลดเป็น skill. **มาตรฐาน 3 ชั้น:** `draft` → `semi-stable` (Codex review + stress-test, ยังไม่ peer-review) → `stable` (clinical/formal peer-review — สงวน, ยังไม่มีตัวถึง). ปัจจุบัน non-clinical ที่ verify แล้ว = `semi-stable`; คลินิก + R2R-stats ที่มี error = `draft` จน rework.*

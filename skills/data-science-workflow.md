@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยนำทาง phase + ตัดสิ
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยวางลำดับงานและตัดสินใจในโปรเจกต์ data science ไม่ใช่คำแนะนำทางการแพทย์ — ผลโมเดล/การวิเคราะห์ต้อง validate ก่อนนำไปใช้กับคนไข้/งานจริงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -79,6 +79,7 @@ disclaimer: "ช่วยวางลำดับงานและตัดส�
 - **เดินเส้นตรงไม่ยอม loop** — รู้ว่าฐานพัง (data ไม่พอ/leakage) แต่ดันต่อเพราะเสียดายแรง → ถอยกลับ phase ที่พังถูกกว่า
 - **deploy แล้วทิ้ง** — ไม่เฝ้า drift, ไม่มีช่องรับ feedback → โมเดลค่อยๆ เพี้ยนเงียบๆ จนตัดสินใจผิด → วางแผน monitor ตั้งแต่ phase 6
 - **biased training data** — data ที่เก็บมาไม่แทนประชากรจริง (เก็บจาก รพ.เดียว/กลุ่มเดียว) → โมเดลพังกับกลุ่มที่ไม่เคยเห็น → ตรวจตัวแทนของ data ตั้งแต่ phase 2
+- **สับสน "ทำนาย" กับ "ทำให้เกิด" (correlation → causation):** observational data ทำนายได้ ≠ บอกว่า *แทรกแซง X แล้ว Y เปลี่ยน* (confounder ทำ association หลอก) → ถ้าเป้าคือ "ทำ X แล้วผลต่างไหม" ต้องใช้**วิธี causal** (RCT/quasi-experiment **หรือ** observational causal ภายใต้สมมติฐานชัด — ปรับ confounder/propensity/DAG) ไม่ใช่ predictive model เฉยๆ · ข้อมูล survey/observational ระวังเป็นพิเศษ
 - **clean ทับ raw / ไม่ log transformation** → กฎผิดแล้วกู้ไม่ได้ + reproduce ไม่ได้ + ไม่รู้ว่าเปลี่ยนอะไรไป → เก็บ raw แยก เขียน transformation เป็น pipeline/script ที่รันซ้ำได้เสมอ
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม

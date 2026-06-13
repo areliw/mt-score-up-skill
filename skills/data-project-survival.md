@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยวางแผน/ตัดสิน�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิด/วางแผนโปรเจกต์ data เพื่อการศึกษา ไม่ใช่ data scientist แทน — ผลและความปลอดภัย (โดยเฉพาะงานคลินิก) ต้องตรวจสอบยืนยันก่อนใช้จริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -59,10 +59,10 @@ label + กลุ่ม → **Classification** · label + ตัวเลขต�
 ### 4. Missing data — วินิจฉัย "กลไก" ก่อนเลือกวิธีเติม (เลือกมั่ว = ใส่ bias)
 | กลไก | เลือกใช้ |
 |---|---|
-| **MCAR** หายมั่ว ไม่ขึ้นกับอะไร (Little's test p≥0.05) | listwise delete (ถ้าหาย 5–10%) หรือ mean/median/mode |
+| **MCAR** หายมั่ว ไม่ขึ้นกับอะไร (Little's test **ไม่ reject** p≥0.05 = *สอดคล้อง* MCAR ไม่ใช่ *พิสูจน์*) | listwise delete (ถ้าหาย 5–10%); ⚠️ mean/median/mode **บิดเบือน variance/ความสัมพันธ์** แม้ MCAR → ใช้เฉพาะ %หายน้อย, งานจริงเอียงไป multiple imputation |
 | **MAR** หายขึ้นกับตัวแปร*อื่น*ที่เห็น | **Multiple Imputation** (ดีสุด) / KNN |
 | **MNAR** หายขึ้นกับ*ค่าที่หายเอง* (รายได้สูงไม่ตอบ) | regression/indicator + domain knowledge (**ห้าม mean** — bias แน่) |
-- missing >40% ของคอลัมน์ → ทิ้งทั้งคอลัมน์
+- missing >40% ของคอลัมน์ → มักทิ้งทั้งคอลัมน์ (**rule-of-thumb หยาบ** — ดู importance + กลไกการหายก่อน อย่าทิ้งอัตโนมัติ)
 
 ### 5. Normalize vs Standardize (+ tree ไม่ต้อง scale)
 - distance/gradient-based (KNN, K-Means, SVM, NN, regression) → **ต้อง scale** · tree-based → ไม่ต้อง

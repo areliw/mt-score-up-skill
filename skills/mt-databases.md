@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยเลือกที่เก็บ + 
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดการเลือก/ออกแบบที่เก็บข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำ DBA/ความปลอดภัยทางการ · ข้อมูลผู้ป่วยต้องเข้ารหัส + auth + อยู่ใต้ PDPA, research data ต้อง de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -51,7 +51,7 @@ disclaimer: "ช่วยคิดการเลือก/ออกแบบท
 - **อย่าเก็บค่าที่คำนวณได้** (อายุ จาก วันเกิด; ratio) → เก็บ raw แล้วคำนวณตอนใช้ (ไม่งั้นแก้ที่เดียวลืมอีกที่)
 
 ### Fork 5 — ข้อมูลคนไข้ + research
-- เข้ารหัส/auth · ใครเข้าถึงได้ (สิทธิ์) · audit ใครแก้อะไร · **research = de-identify + IRB** (เชื่อม `digital-judgment`)
+- เข้ารหัส/auth · ใครเข้าถึงได้ (สิทธิ์) · audit ใครแก้อะไร · **research = ขอ IRB/EC + (ถ้าทำได้) de-identify** — ⚠️ ไม่ใช่กฎตายตัวสากล: งาน identifiable ก็ขอ approve ได้, บาง exempt/non-human-subject ต่างกันตาม IRB/เขตอำนาจ → ยึดเกณฑ์ IRB จริง (เชื่อม `digital-judgment`)
 
 ### Fork 6 — ส่งต่อ / ย้ายได้
 - **export เป็น CSV ได้** เสมอ · ไม่ผูกกับ tool เดียวจนออกไม่ได้ · มี **data dictionary** (คอลัมน์ไหนคืออะไร หน่วยอะไร)

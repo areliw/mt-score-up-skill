@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยวางระบบ train→deploy→
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: stable
+status: semi-stable
 disclaimer: "ช่วยวางระบบ ML production ไม่ใช่คำแนะนำทางการแพทย์ — โมเดลที่กระทบการตัดสินใจคนไข้ต้อง validate + กำกับโดยผู้รับผิดชอบก่อนใช้จริงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

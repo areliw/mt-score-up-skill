@@ -5,7 +5,7 @@ type: CALIBRATION          # เปลี่ยนวิธีที่ AI "แ�
 needs: any                 # ใช้ได้ทุก AI · richer ถ้า AI render Mermaid/artifact ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: stable
+status: semi-stable
 disclaimer: "ช่วยให้ AI แสดงความคืบหน้าเป็นภาพ เพื่อการศึกษา/ติดตามงาน — visual บอก 'ทำอะไรไป' แต่ไม่รับประกันว่าเนื้อหาถูก ตรวจผลจริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

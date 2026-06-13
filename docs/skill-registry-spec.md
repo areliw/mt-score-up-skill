@@ -185,4 +185,4 @@ audience: [MT-bench, MT-student, ivd-sales]
 **ไม่ลืม:** เป้าคือ **"ทุกตัวคุ้มที่จะอยู่"** ไม่ใช่ตัวเลข. ทุก add ควรมาคู่กับคำถาม "ตัวไหนควร prune". registry ที่ดีไม่ใช่ที่ที่ของเข้าง่าย — แต่เป็นที่ที่ของซ้ำถูกหลอม ของตายถูกตัด และคนให้ทุกคนได้ชื่อติดของที่คนใช้จริง.
 
 ---
-*เอกสารสเปก/ทิศทางสำหรับ maintainer — ไม่ใช่ instruction ให้ AI โหลดเป็น skill. สกิลคลินิก + ที่ยังไม่ verify = `status: draft`; สกิล non-clinical ที่ผ่าน Codex stable-readiness review (+แก้ blocker) = `status: stable` (ดู status: ในไฟล์). สกิลที่เจอ error เชิงเนื้อหา (R2R stats บางตัว) คง draft จน rework.*
+*เอกสารสเปก/ทิศทางสำหรับ maintainer — ไม่ใช่ instruction ให้ AI โหลดเป็น skill. **มาตรฐาน 3 ชั้น:** `draft` → `semi-stable` (Codex review + stress-test, ยังไม่ peer-review) → `stable` (clinical/formal peer-review — สงวน, ยังไม่มีตัวถึง). ปัจจุบัน non-clinical ที่ verify แล้ว = `semi-stable`; คลินิก + R2R-stats ที่มี error = `draft` จน rework.*

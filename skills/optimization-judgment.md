@@ -29,8 +29,8 @@ disclaimer: "ช่วยคิดเลือกวิธี optimize + เล�
 ## วิธีเลือก (AI: ทำตามนี้) — forks
 
 ### 1. exact (LP/MIP) vs metaheuristic (GA/PSO) vs simulation — ข้อใหญ่สุด
-- **เชิงเส้น + deterministic + เล็ก-กลาง** → **LP/Simplex/MIP** (Excel Solver, OR-Tools, GUROBI) — รับประกัน optimal = **default**
-- **nonlinear / combinatorial / ใหญ่มาก (NP-Hard เช่น จัดเวร, VRP, TSP)** → **metaheuristic (GA/PSO/ACO)** — ได้ "ดีพอ" ไม่รับประกัน optimal
+- **เชิงเส้น + deterministic + เล็ก-กลาง** → **LP/Simplex/MIP** (Excel Solver, OR-Tools, GUROBI) — รับประกัน optimal (MIP: เมื่อ **พิสูจน์ optimality/gap=0** ไม่ใช่แค่ solver หยุด/timeout — ดู Fork 7) = **default**
+- **nonlinear / combinatorial / ใหญ่จน exact ช้าเกิน (NP-Hard เช่น จัดเวร, VRP, TSP)** → **metaheuristic (GA/PSO/ACO)** — ได้ "ดีพอ" ไม่รับประกัน optimal · ⚠️ NP-hard *เล็ก ๆ* ก็ solve exact ได้ — เลือก metaheuristic เพราะ **ขนาด/เวลา** ไม่ใช่เพราะเป็น NP-hard เอง
 - **มี randomness/queue/เวลา แก้เป็นสมการไม่ได้** (คิวคนไข้, โหลดเครื่อง) → **simulation (Monte Carlo/DES)** — ได้การกระจาย (utilization, waiting time)
 - ✅ test: เขียน objective+constraint เป็นสมการเชิงเส้นได้ครบ → อย่าใช้ GA (over-engineer); เขียนไม่ได้เพราะมี randomness → อย่าใช้ LP
 
@@ -51,7 +51,7 @@ Decision Variables + Objective (ในรูป vars) + Constraints (สมก�
 
 ### 6. sensitivity: shadow price ("คุ้มจะเพิ่มทรัพยากรไหม")
 - **Shadow price** = objective เปลี่ยนเท่าไรต่อการเพิ่ม RHS ของ constraint 1 หน่วย = ยอมจ่ายเพิ่มได้สูงสุดเท่าไรต่อ 1 หน่วย
-- **Binding** (slack=0) → SP>0 → เพิ่มทรัพยากรช่วยได้ (ลงทุนถ้าราคา < SP) · **Non-binding** (มี slack) → SP=0 → เพิ่มไม่ช่วย อย่าซื้อ
+- **Binding** (slack=0) → SP≥0 (ปกติ >0; เครื่องหมายขึ้นกับ min/max + ทิศ constraint ≤/≥) → เพิ่มทรัพยากรช่วยได้ (ลงทุนถ้าราคา < SP) · ⚠️ **degenerate** อาจ SP=0 แม้ binding · **Non-binding** (มี slack) → SP=0 → เพิ่มไม่ช่วย อย่าซื้อ
 - Δobjective = SP × ΔRHS **เฉพาะใน allowable range**
 
 ### 7. MIP solve ช้า/ไม่จบ — ทำไงก่อนทิ้ง exact

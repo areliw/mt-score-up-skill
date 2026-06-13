@@ -1754,10 +1754,10 @@ label + กลุ่ม → **Classification** · label + ตัวเลขต�
 ### 4. Missing data — วินิจฉัย "กลไก" ก่อนเลือกวิธีเติม (เลือกมั่ว = ใส่ bias)
 | กลไก | เลือกใช้ |
 |---|---|
-| **MCAR** หายมั่ว ไม่ขึ้นกับอะไร (Little's test p≥0.05) | listwise delete (ถ้าหาย 5–10%) หรือ mean/median/mode |
+| **MCAR** หายมั่ว ไม่ขึ้นกับอะไร (Little's test **ไม่ reject** p≥0.05 = *สอดคล้อง* MCAR ไม่ใช่ *พิสูจน์*) | listwise delete (ถ้าหาย 5–10%); ⚠️ mean/median/mode **บิดเบือน variance/ความสัมพันธ์** แม้ MCAR → ใช้เฉพาะ %หายน้อย, งานจริงเอียงไป multiple imputation |
 | **MAR** หายขึ้นกับตัวแปร*อื่น*ที่เห็น | **Multiple Imputation** (ดีสุด) / KNN |
 | **MNAR** หายขึ้นกับ*ค่าที่หายเอง* (รายได้สูงไม่ตอบ) | regression/indicator + domain knowledge (**ห้าม mean** — bias แน่) |
-- missing >40% ของคอลัมน์ → ทิ้งทั้งคอลัมน์
+- missing >40% ของคอลัมน์ → มักทิ้งทั้งคอลัมน์ (**rule-of-thumb หยาบ** — ดู importance + กลไกการหายก่อน อย่าทิ้งอัตโนมัติ)
 
 ### 5. Normalize vs Standardize (+ tree ไม่ต้อง scale)
 - distance/gradient-based (KNN, K-Means, SVM, NN, regression) → **ต้อง scale** · tree-based → ไม่ต้อง
@@ -1947,7 +1947,7 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 
 ## กับดัก (Anti-patterns) — ระเบิดงานจริง
 - **`UPDATE`/`DELETE` ไม่มี `WHERE`** = ล้างทั้งตาราง → `SELECT * WHERE <เงื่อนไขเดียวกัน>` ดูแถว+นับก่อนเสมอ / ครอบ transaction
-- **`WHERE` มีแล้วแต่ยังพัง:** เงื่อนไขที่อ้าง `NOT IN (subquery)` แล้ว subquery มี `NULL` แม้ตัวเดียว → ทั้ง predicate กลายเป็น unknown → DELETE/UPDATE โดนเกินหรือ 0 แถวเงียบๆ → ใช้ **`NOT EXISTS`** + ยืนยันด้วย SELECT-preview
+- **`WHERE` มีแล้วแต่ยังพัง:** `NOT IN (subquery)` แล้ว subquery มี `NULL` แม้ตัวเดียว → ทุกแถวถูกตัด (ตรงค่า=FALSE, ไม่ตรง=UNKNOWN เพราะ NULL) → query/DELETE/UPDATE คืน **0 แถวเงียบๆ** (ได้*น้อยไป* ไม่ใช่โดนเกิน) → ใช้ **`NOT EXISTS`** + ยืนยันด้วย SELECT-preview ใน transaction
 - **`SELECT *`** → ดึงเกิน + พังเมื่อ schema เปลี่ยน → ระบุคอลัมน์
 - **JOIN ลืมเงื่อนไข** → **cartesian product** (row ระเบิด m×n)
 - **GROUP BY:** ทุกคอลัมน์ใน SELECT ที่ไม่ใช่ aggregate ต้องอยู่ใน GROUP BY
@@ -4766,7 +4766,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 จะทำ ML แล้วงงว่า "ใช้โมเดลไหน · วัดด้วย metric อะไร · validate ยังไงไม่ให้หลอกตัวเอง" → โค้ชนี้ตอบ 2 คำถาม: **"เลือกอะไรเมื่อไหร่"** กับ **"พลาดตรงไหน"**
 
 > **กฎ #1:** อย่าเชื่อคะแนนที่ดูดีก่อนเช็ค **leakage** — `fit_transform` ทั้ง dataset ก่อน split หรือ tune บน test set = คะแนนสวยหลอก พังจริง · split ก่อนเสมอ, scaler/selector อยู่ใน Pipeline ที่ fit เฉพาะ train fold, test แตะครั้งเดียวตอนจบ
-> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC ก็โป่งเกินจริง)
+> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC สูงก็ยังหลอกได้ — PPV ร่วงตาม prevalence)
 > สูตร/algorithm ลึก (entropy, backprop, EM) ตำรา/AI มีหมดแล้ว — ที่ทำให้พังจริงคือ **เลือกผิด** กับ **กับดักที่ดูถูกแต่หลอก** · skill นี้เก็บสองอันนั้น
 > ภาพรวม "ควรทำโปรเจกต์ไหม + ล้มตรงไหน" ดู `data-project-survival` · "ใช้ test สถิติอะไร / N เท่าไร" ดู `choose-stat-test` + `sample-size-power`
 
@@ -4810,7 +4810,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
   - **Precision** = ทายว่าป่วยแล้วป่วยจริงแค่ไหน (เน้นเมื่อ false-positive แพง)
   - **Recall/Sensitivity** = ผู้ป่วยจริงจับได้แค่ไหน (เน้นเมื่อ false-negative แพง — screening)
   - **F1** = สมดุล precision/recall เมื่อไม่รู้จะหนักข้างไหน
-  - **PR-AUC (precision-recall)** = threshold-independent ที่ซื่อสัตย์สุดตอน imbalance หนัก — ⚠️ **ROC-AUC โป่งง่าย** (0.90–0.99 ได้แม้โมเดลกาก เพราะ TN ก้อนใหญ่ทำให้สวย) → severe imbalance ดู PR-AUC, ROC-AUC ใช้เทียบโมเดลตอน class ใกล้สมดุลเท่านั้น
+  - **PR-AUC (precision-recall)** = ซื่อสัตย์สุดตอน imbalance หนัก เพราะไวต่อ performance บน **positive/minority class** — ⚠️ **ROC-AUC สูงไม่ได้แปลว่าใช้ได้จริงตอน imbalance**: AUC แทบไม่ขึ้นกับสัดส่วน class (ranking metric) แต่ค่า "สูง" อยู่ได้พร้อมกับ **precision/PPV ที่ร่วงเพราะ prevalence ต่ำ** → severe imbalance ดู **PR-AUC เป็นหลัก**, ROC-AUC อ่านประกอบได้ ไม่ใช่ตัวตัดสิน
 - **Regression** → **RMSE** (หน่วยเดียวกับ target, ลงโทษ error ใหญ่) · **MAE** (ทน outlier) · **R²** (สื่อกับคนทั่วไป)
 - 🩺 health rule: screening → ดัน **recall** · confirmatory → ดัน **precision**
 
@@ -5550,8 +5550,8 @@ disclaimer: "ช่วยคิดเลือกวิธี optimize + เล�
 ## วิธีเลือก (AI: ทำตามนี้) — forks
 
 ### 1. exact (LP/MIP) vs metaheuristic (GA/PSO) vs simulation — ข้อใหญ่สุด
-- **เชิงเส้น + deterministic + เล็ก-กลาง** → **LP/Simplex/MIP** (Excel Solver, OR-Tools, GUROBI) — รับประกัน optimal = **default**
-- **nonlinear / combinatorial / ใหญ่มาก (NP-Hard เช่น จัดเวร, VRP, TSP)** → **metaheuristic (GA/PSO/ACO)** — ได้ "ดีพอ" ไม่รับประกัน optimal
+- **เชิงเส้น + deterministic + เล็ก-กลาง** → **LP/Simplex/MIP** (Excel Solver, OR-Tools, GUROBI) — รับประกัน optimal (MIP: เมื่อ **พิสูจน์ optimality/gap=0** ไม่ใช่แค่ solver หยุด/timeout — ดู Fork 7) = **default**
+- **nonlinear / combinatorial / ใหญ่จน exact ช้าเกิน (NP-Hard เช่น จัดเวร, VRP, TSP)** → **metaheuristic (GA/PSO/ACO)** — ได้ "ดีพอ" ไม่รับประกัน optimal · ⚠️ NP-hard *เล็ก ๆ* ก็ solve exact ได้ — เลือก metaheuristic เพราะ **ขนาด/เวลา** ไม่ใช่เพราะเป็น NP-hard เอง
 - **มี randomness/queue/เวลา แก้เป็นสมการไม่ได้** (คิวคนไข้, โหลดเครื่อง) → **simulation (Monte Carlo/DES)** — ได้การกระจาย (utilization, waiting time)
 - ✅ test: เขียน objective+constraint เป็นสมการเชิงเส้นได้ครบ → อย่าใช้ GA (over-engineer); เขียนไม่ได้เพราะมี randomness → อย่าใช้ LP
 
@@ -5572,7 +5572,7 @@ Decision Variables + Objective (ในรูป vars) + Constraints (สมก�
 
 ### 6. sensitivity: shadow price ("คุ้มจะเพิ่มทรัพยากรไหม")
 - **Shadow price** = objective เปลี่ยนเท่าไรต่อการเพิ่ม RHS ของ constraint 1 หน่วย = ยอมจ่ายเพิ่มได้สูงสุดเท่าไรต่อ 1 หน่วย
-- **Binding** (slack=0) → SP>0 → เพิ่มทรัพยากรช่วยได้ (ลงทุนถ้าราคา < SP) · **Non-binding** (มี slack) → SP=0 → เพิ่มไม่ช่วย อย่าซื้อ
+- **Binding** (slack=0) → SP≥0 (ปกติ >0; เครื่องหมายขึ้นกับ min/max + ทิศ constraint ≤/≥) → เพิ่มทรัพยากรช่วยได้ (ลงทุนถ้าราคา < SP) · ⚠️ **degenerate** อาจ SP=0 แม้ binding · **Non-binding** (มี slack) → SP=0 → เพิ่มไม่ช่วย อย่าซื้อ
 - Δobjective = SP × ΔRHS **เฉพาะใน allowable range**
 
 ### 7. MIP solve ช้า/ไม่จบ — ทำไงก่อนทิ้ง exact

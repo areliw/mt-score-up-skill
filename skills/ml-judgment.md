@@ -14,7 +14,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 จะทำ ML แล้วงงว่า "ใช้โมเดลไหน · วัดด้วย metric อะไร · validate ยังไงไม่ให้หลอกตัวเอง" → โค้ชนี้ตอบ 2 คำถาม: **"เลือกอะไรเมื่อไหร่"** กับ **"พลาดตรงไหน"**
 
 > **กฎ #1:** อย่าเชื่อคะแนนที่ดูดีก่อนเช็ค **leakage** — `fit_transform` ทั้ง dataset ก่อน split หรือ tune บน test set = คะแนนสวยหลอก พังจริง · split ก่อนเสมอ, scaler/selector อยู่ใน Pipeline ที่ fit เฉพาะ train fold, test แตะครั้งเดียวตอนจบ
-> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC ก็โป่งเกินจริง)
+> **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC สูงก็ยังหลอกได้ — PPV ร่วงตาม prevalence)
 > สูตร/algorithm ลึก (entropy, backprop, EM) ตำรา/AI มีหมดแล้ว — ที่ทำให้พังจริงคือ **เลือกผิด** กับ **กับดักที่ดูถูกแต่หลอก** · skill นี้เก็บสองอันนั้น
 > ภาพรวม "ควรทำโปรเจกต์ไหม + ล้มตรงไหน" ดู `data-project-survival` · "ใช้ test สถิติอะไร / N เท่าไร" ดู `choose-stat-test` + `sample-size-power`
 
@@ -58,7 +58,7 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
   - **Precision** = ทายว่าป่วยแล้วป่วยจริงแค่ไหน (เน้นเมื่อ false-positive แพง)
   - **Recall/Sensitivity** = ผู้ป่วยจริงจับได้แค่ไหน (เน้นเมื่อ false-negative แพง — screening)
   - **F1** = สมดุล precision/recall เมื่อไม่รู้จะหนักข้างไหน
-  - **PR-AUC (precision-recall)** = threshold-independent ที่ซื่อสัตย์สุดตอน imbalance หนัก — ⚠️ **ROC-AUC โป่งง่าย** (0.90–0.99 ได้แม้โมเดลกาก เพราะ TN ก้อนใหญ่ทำให้สวย) → severe imbalance ดู PR-AUC, ROC-AUC ใช้เทียบโมเดลตอน class ใกล้สมดุลเท่านั้น
+  - **PR-AUC (precision-recall)** = ซื่อสัตย์สุดตอน imbalance หนัก เพราะไวต่อ performance บน **positive/minority class** — ⚠️ **ROC-AUC สูงไม่ได้แปลว่าใช้ได้จริงตอน imbalance**: AUC แทบไม่ขึ้นกับสัดส่วน class (ranking metric) แต่ค่า "สูง" อยู่ได้พร้อมกับ **precision/PPV ที่ร่วงเพราะ prevalence ต่ำ** → severe imbalance ดู **PR-AUC เป็นหลัก**, ROC-AUC อ่านประกอบได้ ไม่ใช่ตัวตัดสิน
 - **Regression** → **RMSE** (หน่วยเดียวกับ target, ลงโทษ error ใหญ่) · **MAE** (ทน outlier) · **R²** (สื่อกับคนทั่วไป)
 - 🩺 health rule: screening → ดัน **recall** · confirmatory → ดัน **precision**
 

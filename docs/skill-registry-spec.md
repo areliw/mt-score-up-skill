@@ -185,4 +185,4 @@ audience: [MT-bench, MT-student, ivd-sales]
 **ไม่ลืม:** เป้าคือ **"ทุกตัวคุ้มที่จะอยู่"** ไม่ใช่ตัวเลข. ทุก add ควรมาคู่กับคำถาม "ตัวไหนควร prune". registry ที่ดีไม่ใช่ที่ที่ของเข้าง่าย — แต่เป็นที่ที่ของซ้ำถูกหลอม ของตายถูกตัด และคนให้ทุกคนได้ชื่อติดของที่คนใช้จริง.
 
 ---
-*เอกสารสเปก/ทิศทางสำหรับ maintainer — ไม่ใช่ instruction ให้ AI โหลดเป็น skill. ทุก skill ในคลังยังเป็น `status: draft` ยังไม่ผ่าน clinical peer-review.*
+*เอกสารสเปก/ทิศทางสำหรับ maintainer — ไม่ใช่ instruction ให้ AI โหลดเป็น skill. สกิลคลินิก + ส่วนใหญ่เป็น `status: draft` (ยังไม่ผ่าน clinical peer-review); 6 core data-science skills (Codex-reviewed + stress-tested) = `status: stable`.*

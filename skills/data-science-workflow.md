@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยนำทาง phase + ตัดสิ
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: stable
 disclaimer: "ช่วยวางลำดับงานและตัดสินใจในโปรเจกต์ data science ไม่ใช่คำแนะนำทางการแพทย์ — ผลโมเดล/การวิเคราะห์ต้อง validate ก่อนนำไปใช้กับคนไข้/งานจริงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

@@ -1,8 +1,10 @@
 # Changelog
 
 Notable changes to the MT Score UP! skills hub. Format loosely follows
-[Keep a Changelog](https://keepachangelog.com/). Every skill is `status: draft` —
-content เรียบเรียงจากองค์ความรู้มาตรฐาน, ยังไม่ผ่าน formal clinical peer-review.
+[Keep a Changelog](https://keepachangelog.com/). สกิลส่วนใหญ่ + คลินิกทั้งหมดเป็น `status: draft`
+(ยังไม่ผ่าน formal clinical peer-review) — ยกเว้น **6 core data-science skills**
+(ml-judgment · data-science-workflow · optimization-judgment · db-judgment · data-project-survival · ml-engineering-workflow)
+ที่ผ่าน Codex review 2 รอบ + empirical stress-test = `status: stable`.
 
 ## [0.8.2] — 2026-06-10
 

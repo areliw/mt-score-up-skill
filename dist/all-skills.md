@@ -1700,7 +1700,7 @@ type: ADVISE               # ช่วยวางแผน/ตัดสิน�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: stable
 disclaimer: "ช่วยคิด/วางแผนโปรเจกต์ data เพื่อการศึกษา ไม่ใช่ data scientist แทน — ผลและความปลอดภัย (โดยเฉพาะงานคลินิก) ต้องตรวจสอบยืนยันก่อนใช้จริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1812,7 +1812,7 @@ type: ADVISE               # ช่วยนำทาง phase + ตัดสิ
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: stable
 disclaimer: "ช่วยวางลำดับงานและตัดสินใจในโปรเจกต์ data science ไม่ใช่คำแนะนำทางการแพทย์ — ผลโมเดล/การวิเคราะห์ต้อง validate ก่อนนำไปใช้กับคนไข้/งานจริงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1908,7 +1908,7 @@ type: ADVISE               # ช่วยตัดสินใจออกแบ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: stable
 disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพื่อการศึกษา ไม่ใช่คำสั่งให้รันจริง — งานจริงควรทดสอบบน staging + backup ก่อน DELETE/UPDATE และตรวจ query plan ก่อนใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -4651,7 +4651,7 @@ type: ADVISE               # ช่วยวางระบบ train→deploy→
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: stable
 disclaimer: "ช่วยวางระบบ ML production ไม่ใช่คำแนะนำทางการแพทย์ — โมเดลที่กระทบการตัดสินใจคนไข้ต้อง validate + กำกับโดยผู้รับผิดชอบก่อนใช้จริงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -4758,7 +4758,7 @@ type: ADVISE               # ช่วยตัดสินใจเลือก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: stable
 disclaimer: "ช่วยคิดเลือกโมเดล/metric/validation + เลี่ยงกับดัก ML เพื่อการศึกษา ไม่ใช่คำแนะนำทางการจากที่ปรึกษา ML — ต้องตรวจผลและ assumption ก่อนเชื่อ โดยเฉพาะงานคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -5530,7 +5530,7 @@ type: ADVISE               # ช่วยตัดสินใจ formulate/เ�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: stable
 disclaimer: "ช่วยคิดเลือกวิธี optimize + เลี่ยงกับดัก เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — ผลต้องตรวจกับเงื่อนไขจริงและทดสอบก่อนใช้ตัดสินใจจริง (เช่นจัดเวร/จัดสรรทรัพยากร) · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

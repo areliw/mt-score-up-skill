@@ -99,6 +99,7 @@
 | [humanize-ai-writing](./skills/humanize-ai-writing.md) | เกลางานที่ AI ร่างให้เป็นคนเขียน — ตัดสัญญาณ AI โดยคงความถูกต้อง/ศัพท์เทคนิค |
 | [writing-judgment](./skills/writing-judgment.md) | เขียนงานยาวมีโครง+น้ำเสียง — เลือกโครงตามผู้อ่าน · hook · ตัดน้ำ (≠ manuscript วิชาการ) |
 | [report-up-judgment](./skills/report-up-judgment.md) | สื่อสารขึ้นบน/ผู้บริหาร — bottom-line first · แปลเทคนิค→ผลกระทบ · ขอ decision ชัด · escalate NC |
+| [interprofessional-communication-judgment](./skills/interprofessional-communication-judgment.md) | คุยสหวิชาชีพแนวราบด้วยภาษาเขา (หมอ=impact คนไข้ · พยาบาล=manage · เภสัช=ยา) + golden-period แจ้งเร็ว>ครบ |
 
 ### 🧭 ชีวิต / อาชีพ
 | skill | ช่วยอะไร |

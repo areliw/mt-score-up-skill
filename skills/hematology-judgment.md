@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจในแลบโลหิ�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-13
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -61,9 +61,11 @@ Review smear เสมอเมื่อ:
 - WBC สูงมาก: CML (full myeloid spectrum + baso/eos, LAP ต่ำ <20) vs leukemoid reaction (toxic granule, LAP สูง >100)
 
 ### Fork 4 — Platelet ต่ำ → "จริงหรือ pseudo"
+0. เช็คก่อนเชื่อเลขเครื่อง: **QC วันนั้นผ่านไหม · หลอด partial clot / mix ไม่ดีไหม** (สาเหตุค่าต่ำปลอมที่พบบ่อยสุด) · **delta check เทียบประวัติเก่า**
 1. ดู smear หา platelet clump (feather edge) — มี clump = EDTA-induced pseudothrombocytopenia
-2. clump → เก็บใหม่ใน citrate (3.2%) แล้วคูณ dilution factor หรือ heparin tube → รายงานค่าแก้
-3. ไม่มี clump + smear ยืนยันต่ำจริง → รายงาน + ต่ำมาก = critical แจ้งแพทย์
+2. **ทำ platelet estimation จาก smear cross-check ค่า analyzer** (เฉลี่ยหลาย OIF ในเขต monolayer × factor ที่แลบ validate, ทั่วไป ~15–20k) — estimate ค้าน analyzer มาก = สงสัย clump/clot/artifact ก่อนเชื่อเลข
+3. clump → เก็บใหม่ใน citrate (3.2%) แล้วคูณ dilution factor หรือ heparin tube → รายงานค่าแก้
+4. ไม่มี clump + estimate สอดคล้อง + smear ยืนยันต่ำจริง → รายงาน + ต่ำมาก = critical แจ้งแพทย์ตาม SOP
 
 ห้าม auto-report plt ต่ำจาก analyzer โดยไม่ดู smear.
 

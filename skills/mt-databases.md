@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยเลือกที่เก็บ + 
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดการเลือก/ออกแบบที่เก็บข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำ DBA/ความปลอดภัยทางการ · ข้อมูลผู้ป่วยต้องเข้ารหัส + auth + อยู่ใต้ PDPA, research data ต้อง de-identify + IRB · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

@@ -5,7 +5,7 @@ type: CALIBRATION          # เปลี่ยนวิธีที่ AI ล�
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยจัดให้ AI พึ่ง automation กับงานที่ต้องเป๊ะ เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — ต้องตรวจ output ของ tool ก่อนเชื่อ และคงการตัดสินใจที่ต้องใช้ดุลพินิจคนไว้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

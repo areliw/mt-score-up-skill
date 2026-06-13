@@ -5,7 +5,7 @@ type: CALIBRATION          # เปลี่ยน "พฤติกรรม" �
 needs: any                 # ใช้ได้กับ AI ทุกตัว (ChatGPT/Claude/Gemini)
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "skill นี้ช่วยปรับ 'วิธีตอบ/นิสัย' ของ AI เพื่อช่วยคิด ไม่ได้เพิ่ม 'ความรู้' และไม่ใช่คำสั่ง ความถูกต้องของเนื้อหายังขึ้นกับ AI + การตรวจสอบของผู้นำไปใช้ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

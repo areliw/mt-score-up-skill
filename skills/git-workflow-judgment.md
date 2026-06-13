@@ -49,7 +49,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 ### Fork 4 — Resolve conflict (โดยเฉพาะ generated file)
 - **generated file (bundle/lock/catalog) ชน → อย่าแก้มือ → regenerate** บน base ที่ merge แล้ว (deterministic + ถูกกว่าแก้เอง)
 - 2 ฝั่งแก้ **คนละบรรทัด = git auto-merge** (ไม่ conflict) → conflict จริงเกิดตอนแก้ทับบรรทัดเดียวกัน
-- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (ฝั่งไหนต้องเช็คก่อน — ❌ ไม่ใช่ merge-base) → **re-apply การแก้ของเราทับ** → แล้ว **verify ก่อน commit ด้วย `git diff -- <file>` (เทียบ working tree)** ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ — ⚠️ *ไม่ใช่* `<base>..HEAD` (เทียบ *commit* มองไม่เห็นการแก้ใน working tree ที่ยังไม่ commit); หลัง commit แล้วค่อยใช้ `<base>..HEAD` ทวนซ้ำ
+- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (ฝั่งไหนต้องเช็คก่อน — ❌ ไม่ใช่ merge-base) → **re-apply การแก้ของเราทับ** → แล้ว **verify ก่อน commit:** ก่อน `git add` ใช้ `git diff -- <file>` · หลัง stage ใช้ `git diff --cached -- <file>` — ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ · ⚠️ *ไม่ใช่* `<base>..HEAD` (เทียบ *commit* มองไม่เห็น working tree/staged); commit แล้วค่อย `<base>..HEAD` ทวนซ้ำ
   - ⚠️ **`--ours`/`--theirs` หมายความสลับกันตาม operation:** ใน **merge** → `--ours`=branch ปัจจุบันของเรา, `--theirs`=branch ที่ merge เข้ามา (เช่น `origin/main`) · ใน **rebase** → *สลับกัน* (`--ours`=branch ที่ rebase ไปอยู่บน, `--theirs`=commit ของเราที่กำลัง replay) → **ยืนยันว่าจะเอาฝั่งไหนจาก context เสมอ + verify ด้วย `git diff` หลังทำ** (พลาดทิ้งผิดฝั่งง่ายมาก)
 
 ### Fork 5 — main ถูก protect: ใครแก้ได้ + flow

@@ -5,7 +5,7 @@ type: CALIBRATION          # ปรับ "วิธีเรียนรู้"
 needs: persistent-memory   # ความจำที่อยู่ข้ามวัน — agent ที่จำข้ามเซสชันได้ (Claude Code / Custom GPT memory / Project / เขียนไฟล์ได้)
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ทำให้ agent เรียนรู้จากความผิดพลาด เพื่อการศึกษา/ช่วยคิด — แต่กฎที่ agent จดเองอาจผิดได้ ควรตรวจกฎที่สำคัญ (เงิน/สุขภาพ/ความปลอดภัย) เป็นระยะ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

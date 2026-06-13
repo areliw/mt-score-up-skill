@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยตัดสินใจออกแบ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดออกแบบวิจัยเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/จริยธรรมทางการ — design/ethics ต้องผ่านอาจารย์ที่ปรึกษา + IRB/EC จริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -31,7 +31,7 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 ## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
 
 ### Fork 1 — Descriptive vs Analytic (จุดแยกแรก)
-- **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — ไม่ทดสอบสมมติฐาน
+- **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — เน้น*บรรยาย* (มี hypothesis เชิงประมาณค่า/เทียบเกณฑ์ได้ แต่ไม่ใช่การทดสอบความสัมพันธ์ exposure↔outcome แบบ analytic)
 - **Analytic** = ทดสอบความสัมพันธ์ exposure ↔ outcome (มี hypothesis test) — งานที่ตีพิมพ์ดีมักเป็น analytic
 > H0 (ไม่ต่าง/ไม่สัมพันธ์) vs H1 (ต่าง/สัมพันธ์) · test ได้แค่ **reject / fail to reject H0** ไม่เคย "ยอมรับว่า H1 จริง" (กับดักภาษาที่ reviewer จับ) · **default two-tailed** (one-tailed เพื่อให้ p ผ่านง่าย = p-hacking) · ⚠️ "fail to reject" ≠ "พิสูจน์ว่าไม่ต่าง" — อาจแค่ **power ต่ำ/N น้อย**; รายงาน CI ของ effect ไม่ใช่สรุปว่า "ไม่มีผล"
 
@@ -40,13 +40,13 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 |---|---|---|
 | ความชุก/ค่าปกติเท่าไหร่ | **Cross-sectional (descriptive)** | survey, ถูก/เร็ว |
 | exposure สัมพันธ์ outcome มั้ย (วัดพร้อมกัน) | **Cross-sectional analytic** | default ของงานเทียบ genotype↔phenotype; วัดครั้งเดียว |
-| คนเป็นโรค vs ไม่เป็น ต่างที่ exposure มั้ย | **Case-control** (ย้อนหลัง) | ดีเมื่อ **outcome หายาก** |
-| exposure → outcome ตามเวลามั้ย | **Cohort** (ไปข้างหน้า) | ดีเมื่อ **exposure หายาก**; แพง/นาน |
-| intervention/ยา ได้ผลมั้ย | **RCT** | gold standard causation; randomize + control |
+| คนเป็นโรค vs ไม่เป็น ต่างที่ exposure มั้ย | **Case-control** (เลือกตาม *outcome* แล้วมองย้อน exposure — มัก retrospective แต่นิยามจาก sampling ไม่ใช่ทิศเวลา) | ดีเมื่อ **outcome หายาก** |
+| exposure → outcome ตามเวลามั้ย | **Cohort** (ตั้งกลุ่ม *at-risk* → จำแนก/วัด exposure → ตามดู outcome ตามเวลา; prospective *หรือ* historical/retrospective) | ดีเมื่อ **exposure หายาก**; แพง/นาน |
+| intervention/ยา ได้ผลมั้ย | **RCT** | gold standard causation; randomize + control — *causal ไม่จำกัดแค่ RCT: observational + วิธี causal (ปรับ confounder/propensity) อนุมานได้ภายใต้สมมติฐานชัด* |
 - rule: outcome หายาก → case-control · exposure หายาก → cohort · อยากรู้ "สัมพันธ์มั้ย ณ จุดเดียว" + เวลาจำกัด (thesis 1-2 ปี) → cross-sectional
 
 ### Fork 3 — ชนิดตัวแปร (scale) → กำหนดทิศสถิติ
-- **Nominal** (หมู่เลือด/genotype/เพศ) → สัดส่วน/chi-square · **Ordinal** (เกรด/score) → median/non-parametric · **Interval** (°C, ไม่มี 0 จริง) → parametric · **Ratio** (Hb/Hct/%/อายุ, มี 0 จริง) → parametric เต็มที่
+- scale ชี้ **test ที่พบบ่อย**: **Nominal** (หมู่เลือด/genotype/เพศ) → สัดส่วน/chi-square (หรือ logistic) · **Ordinal** → median/non-parametric (หรือ ordinal regression) · **Interval/Ratio** (ต่อเนื่อง) → t/ANOVA/Pearson · ⚠️ **"parametric" = สมมติรูป distribution ไม่ได้ผูกกับ scale** (logistic/Poisson บน categorical/count ก็ parametric) → เลือกจริงต้องเช็ค assumption ของ *model นั้น* ไม่ใช่แค่ดู scale (ดู `choose-stat-test`)
 - ระบุ **independent (exposure)** vs **dependent (outcome)** · เลือก test ลึก → `choose-stat-test`
 - **operational definition:** นิยามทุกตัวแปรให้วัดซ้ำได้ (เช่น cutoff ของ "ค่าสูง", coding ของ genotype, นิยาม carrier) — ไม่นิยาม = reviewer ตีกลับ · ⚠️ อย่า **dichotomize** ต่อเนื่องเป็น 2 กลุ่มถ้าไม่จำเป็น (เสีย info; เลือก cutoff ทีหลังให้ p สวย = p-hacking)
 

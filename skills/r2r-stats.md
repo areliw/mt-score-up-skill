@@ -5,7 +5,7 @@ type: DO                    # ต้องรันคำนวณจริง
 needs: code-interpreter     # AI ที่รัน Python ได้จริง — ChatGPT Plus / Claude Pro / Gemini Advanced
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "เครื่องมือช่วยเลือก/รัน/แปลผลสถิติเพื่อการศึกษา — ไม่ใช่ที่ปรึกษาสถิติทางการ ควรตรวจสอบความเหมาะสมและการแปลผลกับนักสถิติ/ผู้เชี่ยวชาญก่อนนำไปใช้/ตีพิมพ์/ตัดสินทางคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -51,7 +51,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 
 ## คำสั่งให้ AI ทำ (AI: ทำตามลำดับนี้)
 1. **สำรวจข้อมูล** — ชนิดตัวแปร, n แต่ละกลุ่ม, missing, outlier
-2. **เช็ค assumption** — normality (Shapiro-Wilk + histogram/Q-Q), equal variance (Levene) → บอกผล; **ถ้า variance ไม่เท่ากัน ใช้ Welch's t-test อย่า default เป็น Student's t**
+2. **เช็ค assumption** — normality (**Q-Q/histogram เป็นหลัก** + Shapiro-Wilk ประกอบ), equal variance (Levene) → บอกผล · ⚠️ **อย่าสลับ test อัตโนมัติจาก p ของ Shapiro/Levene อย่างเดียว** (Shapiro underpowered ตอน n เล็ก, oversensitive ตอน n ใหญ่) — ใช้ร่วมกับ Q-Q + ชนิด/ขนาดข้อมูล · **variance ไม่เท่า → Welch's t-test อย่า default Student's t**
 3. **เลือก test ตาม guide ข้างบน + บอกเหตุผลที่เลือก** (เป็นภาษาคน) — **เลือก test ก่อนดู p-value เสมอ ห้ามเปลี่ยน test ทีหลังเพราะ p ไม่ผ่าน (= p-hacking)**
 4. **รัน** แล้วรายงาน: test ที่ใช้, test statistic, **p-value**, **effect size** (Cohen's d สำหรับ parametric / rank-biserial หรือ r = Z/√N สำหรับ non-parametric / OR สำหรับ logistic), 95% CI
 5. **ทำกราฟที่เหมาะ** (box plot/scatter/Bland-Altman) ใส่ label+หน่วยครบ
@@ -66,7 +66,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 - **p < 0.05 ≠ สำคัญทางคลินิก** → ดู effect size + ช่วงค่าจริงเสมอ
 - **p-hacking** → เลือก test ก่อนดู p; ห้ามเปลี่ยน test เพราะ p ไม่ผ่าน; รายงานทุก test ที่รัน ไม่ใช่เฉพาะที่ significant
 - **multiple testing** (เทียบหลายคู่/หลายตัวแปร) → ต้อง correct (Bonferroni/FDR) ไม่งั้น false positive
-- **n น้อย** → อย่าเชื่อ normality test, ใช้ non-parametric, ระวัง underpowered
+- **n น้อย** → อย่าเชื่อ normality test (Shapiro ไม่ไว) ตัดสินจาก Q-Q + ความรู้เรื่องข้อมูล · ⚠️ **non-parametric ก็ underpowered ตอน n น้อย ไม่ใช่ทางออกอัตโนมัติ** (t-test ทน non-normality ปานกลาง)
 - **correlation ≠ causation**
 - **% / สัดส่วน ที่ n ฐานต่าง** → อย่าเทียบตรงๆ
 - **paired vs unpaired ตัดสินจาก design ไม่ใช่หน้าตาข้อมูล** — ถ้าแต่ละแถวคือ "หน่วยเดียวกันวัด 2 ที" (ก่อน-หลัง / 2 วิธีวัด sample เดียว / ตา 2 ข้างคนเดียว) = paired (paired t / Wilcoxon signed-rank / McNemar)

@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยตัดสินใจเลือก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยชี้ว่าควรใช้ test ไหนเพื่อช่วยคิด — เป็นการชี้ทางเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติ ควรตรวจเงื่อนไข/assumption จริงและปรึกษานักสถิติเมื่อเป็นงานตีพิมพ์ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -46,9 +46,10 @@ flowchart TD
   C -->|2 กลุ่ม จับคู่| C2["paired t-test"]
   C -->|2 กลุ่ม อิสระ| C3["two-sample Welch"]
   C -->|3 กลุ่มขึ้นไป| C4["ANOVA + post-hoc"]
-  C -->|skew หรือ n เล็ก หรือ ordinal| C5["non-parametric (Mann-Whitney/Wilcoxon/Kruskal)"]
+  C -->|ordinal / ไม่ normal และ transform ไม่ได้| C5["non-parametric (Mann-Whitney/Wilcoxon/Kruskal)"]
   B -->|สัดส่วน นับ| D{ลักษณะ}
-  D -->|1-2 สัดส่วน| D1["z-test proportion (SE ใช้ p0)"]
+  D -->|1 สัดส่วน vs ค่าอ้าง| D1["1-prop z (SE ใช้ p0)"]
+  D -->|2 สัดส่วนอิสระ| D1b["2-prop z (SE ใช้ pooled)"]
   D -->|ตาราง RxC| D2["Chi-square (expected 5+)"]
   D -->|2x2 cell เล็ก| D3["Fisher exact"]
   B -->|ความสัมพันธ์ ทำนาย| E{outcome}
@@ -66,12 +67,12 @@ flowchart TD
 - ≥3 กลุ่ม → **One-way ANOVA** + post-hoc (เช่น Tukey/LSD) ถ้า significant
 - 2 ปัจจัย → **Two-way ANOVA** — ⚠️ **ดู interaction ก่อน**: ถ้า A×B significant ตีความ main effect เดี่ยวๆ ไม่ได้
 
-**B. ถ้าไม่ normal / n เล็ก / ordinal → non-parametric** (digest ไม่เน้น แต่ข้อมูล lab เจอบ่อย)
+**B. เมื่อไหร่ non-parametric** (digest ไม่เน้น แต่ข้อมูล lab เจอบ่อย) — ใช้เมื่อ **ordinal** หรือ **ชัดว่าไม่ normal และ transform ไม่ช่วย** · ⚠️ **"n เล็ก → non-parametric" ไม่ใช่กฎอัตโนมัติ**: ที่ **n ใหญ่** CLT ช่วยให้ t-test ทน non-normality — แต่ **n เล็ก CLT ไม่ช่วย** + ทดสอบ normality ก็ไม่น่าเชื่อ · non-parametric **ไม่ได้ power ต่ำกว่าเสมอ** (บาง distribution สูงกว่า t-test ด้วยซ้ำ) → ตัดสินจาก **ชนิดตัวแปร + distribution + estimand (mean vs median)** ไม่ใช่แค่ n
 - paired → **Wilcoxon signed-rank** · 2 กลุ่มอิสระ → **Mann-Whitney U** · ≥3 กลุ่ม → **Kruskal-Wallis**
 - ความสัมพันธ์ที่ไม่เชิงเส้น/ordinal → **Spearman correlation** (แทน Pearson)
 
 **C. สัดส่วน / ข้อมูลนับ (outcome = หมวด)**
-- 1 หรือ 2 สัดส่วน **อิสระ** → **z-test for proportion** (⚠️ SE ใช้ **p₀** ของ null ไม่ใช่ p̂)
+- **1 สัดส่วน** เทียบค่าอ้าง p₀ → **one-proportion z-test** (SE ใช้ **p₀** ของ null) · **2 สัดส่วนอิสระ** → **two-proportion z-test** (⚠️ SE ใช้ **pooled p̂ = (x₁+x₂)/(n₁+n₂)** ภายใต้ H0: p₁=p₂ — *ไม่ใช่* p₀ และไม่ใช่ p̂ แยกกลุ่ม)
 - 2 สัดส่วน **จับคู่** (วิธี/test 2 ตัวบนคนเดียวกัน, ก่อน-หลัง แบบ yes/no) → **McNemar's test** (z-test 2 สัดส่วนใช้ไม่ได้ — correlated)
 - ตาราง R×C หาความสัมพันธ์ → **Chi-square independence** (⚠️ เกณฑ์ expected count: **2×2 ต้องทุก cell ≥5**; **R×C ใหญ่** ผ่อนได้ — ห้ามมี cell ใด <1 และ ≤20% ของ cell <5 ตามกฎ Cochran ไม่ใช่ "ทุก cell ≥5" แบบเหมารวม)
 - 2×2 + cell เล็ก (expected <5) → **Fisher's exact test**
@@ -86,7 +87,7 @@ flowchart TD
 - 2 ผู้อ่านตัดสินหมวด (เช่น อ่านสไลด์) → **Cohen's kappa** (ordinal → **weighted kappa**)
 
 ### ขั้น 3 — บอกเงื่อนไขที่ต้องเช็ค ไม่ใช่แค่ชื่อ test
-ทุกครั้งที่ชี้ test ให้แนบ assumption ที่ต้องตรวจ เช่น t-test → independence + normality (ของ residual/ค่าเฉลี่ย ไม่ใช่ data ดิบ); n เล็ก+skew → ย้าย non-parametric
+ทุกครั้งที่ชี้ test ให้แนบ assumption ที่ต้องตรวจ เช่น t-test → independence + normality (ของ residual/sampling distribution ไม่ใช่ data ดิบ — CLT ช่วยเมื่อ n พอ); ถ้า ordinal หรือไม่ normal ชัด & transform ไม่ช่วย → non-parametric (ไม่ใช่เพราะ n เล็กเฉยๆ)
 
 ### ขั้น 4 — เตือนกับดักที่เข้ากับเคสนั้น
 ดึงข้อที่เกี่ยวจาก "กับดัก" ด้านล่างมาเตือน (เช่น ถ้าเป็น 2 % จาก sample เดียวกัน → เตือนว่า correlated)
@@ -97,10 +98,10 @@ flowchart TD
 - **จับคู่แต่ใช้ two-sample** — ข้อมูลก่อน-หลังคนเดียวกันต้องทำผลต่าง (paired) ไม่งั้นเสีย power
 - **เอา correlation ไปสรุป agreement** — method comparison ต้อง ICC/Bland-Altman; r สูงไม่ได้แปลว่าตรงกัน
 - **2 สัดส่วนจาก sample เดียวกัน** (เช่น %เห็นด้วย A vs B ในคนกลุ่มเดียว) = correlated → ใช้ **McNemar** ไม่ใช่ two-sample proportion
-- **proportion test ใช้ p̂ ใน SE** — ที่ถูกคือใช้ **p₀** (ค่าจาก null hypothesis)
+- **ใช้ SE ผิดใน proportion z-test** — *1 สัดส่วน*: SE ใช้ **p₀** (null) · *2 สัดส่วนอิสระ*: SE ใช้ **pooled p̂** (ไม่ใช่ p₀, ไม่ใช่ p̂ แยกกลุ่ม)
 - **เหมา expected count ≥5 ทุก cell** → จริงแค่ 2×2 (ไม่งั้น Fisher); R×C ใหญ่ใช้กฎ Cochran (ดูข้อ C)
 - **ทำ t-test ทุกคู่เมื่อมีหลายกลุ่ม** → Type I error สะสม ใช้ ANOVA + post-hoc แทน
-- **ลืมเช็ค normality / ยัด t-test กับ ordinal** → n เล็ก/skew/Likert ใช้ non-parametric
+- **ยัด t-test กับ ordinal/Likert** → ใช้ non-parametric · ⚠️ แต่ **"n เล็ก = ต้อง non-parametric" ผิด** — ตัดสินที่ distribution + ชนิดตัวแปร ไม่ใช่ที่ n
 - **พูดว่า "accept H₀"** → ที่ถูกคือ "fail to reject H₀"
 - **two-way ANOVA แล้วตีความ main effect ทั้งที่ interaction significant**
 

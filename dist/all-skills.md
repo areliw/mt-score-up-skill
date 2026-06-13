@@ -253,7 +253,7 @@ disclaimer: "skill นี้ช่วยปรับ 'วิธีตอบ/น�
 ### เมื่อทำงานใหญ่ (power-user)
 > (เฉพาะ AI ที่มี tools/agents/memory — แชทธรรมดาข้ามได้)
 - **ทำขนานเยอะๆ** — ยิงหลายอย่างพร้อมกันในเทิร์นเดียว แทนทีละอัน
-- **กระจายงานเป็นทีม (multi-agent)** เป็นค่าเริ่มต้นสำหรับงานไม่ trivial; กัปตัน = คนสังเคราะห์
+- **กระจายงานเป็นทีม (multi-agent)** เป็นค่าเริ่มต้นสำหรับงานไม่ trivial **ที่แตกขนานได้จริง** — ⚠️ ชั่งกับ cost/latency/ความซับซ้อนในการรวมผล; งานเชิงเส้น/พึ่งกันเป็นทอดๆ ทำเดี่ยวดีกว่า · กัปตัน = คนสังเคราะห์
 - **ลองอันยากสุด 1 อันก่อน แล้วค่อยขยาย** — ถ้าได้ 0 ผลทั้งที่ควรมี = หยุดสืบ อย่าขยายต่อ
 - **อัปเดตสด** — บอกสถานะ 1-2 ประโยคก่อน/หลังลงมือ อย่าเงียบแล้วเทรายงานยักษ์
 
@@ -877,7 +877,7 @@ type: ADVISE               # ช่วยตัดสินใจเลือก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยชี้ว่าควรใช้ test ไหนเพื่อช่วยคิด — เป็นการชี้ทางเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติ ควรตรวจเงื่อนไข/assumption จริงและปรึกษานักสถิติเมื่อเป็นงานตีพิมพ์ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -918,9 +918,10 @@ flowchart TD
   C -->|2 กลุ่ม จับคู่| C2["paired t-test"]
   C -->|2 กลุ่ม อิสระ| C3["two-sample Welch"]
   C -->|3 กลุ่มขึ้นไป| C4["ANOVA + post-hoc"]
-  C -->|skew หรือ n เล็ก หรือ ordinal| C5["non-parametric (Mann-Whitney/Wilcoxon/Kruskal)"]
+  C -->|ordinal / ไม่ normal และ transform ไม่ได้| C5["non-parametric (Mann-Whitney/Wilcoxon/Kruskal)"]
   B -->|สัดส่วน นับ| D{ลักษณะ}
-  D -->|1-2 สัดส่วน| D1["z-test proportion (SE ใช้ p0)"]
+  D -->|1 สัดส่วน vs ค่าอ้าง| D1["1-prop z (SE ใช้ p0)"]
+  D -->|2 สัดส่วนอิสระ| D1b["2-prop z (SE ใช้ pooled)"]
   D -->|ตาราง RxC| D2["Chi-square (expected 5+)"]
   D -->|2x2 cell เล็ก| D3["Fisher exact"]
   B -->|ความสัมพันธ์ ทำนาย| E{outcome}
@@ -938,12 +939,12 @@ flowchart TD
 - ≥3 กลุ่ม → **One-way ANOVA** + post-hoc (เช่น Tukey/LSD) ถ้า significant
 - 2 ปัจจัย → **Two-way ANOVA** — ⚠️ **ดู interaction ก่อน**: ถ้า A×B significant ตีความ main effect เดี่ยวๆ ไม่ได้
 
-**B. ถ้าไม่ normal / n เล็ก / ordinal → non-parametric** (digest ไม่เน้น แต่ข้อมูล lab เจอบ่อย)
+**B. เมื่อไหร่ non-parametric** (digest ไม่เน้น แต่ข้อมูล lab เจอบ่อย) — ใช้เมื่อ **ordinal** หรือ **ชัดว่าไม่ normal และ transform ไม่ช่วย** · ⚠️ **"n เล็ก → non-parametric" ไม่ใช่กฎอัตโนมัติ**: ที่ **n ใหญ่** CLT ช่วยให้ t-test ทน non-normality — แต่ **n เล็ก CLT ไม่ช่วย** + ทดสอบ normality ก็ไม่น่าเชื่อ · non-parametric **ไม่ได้ power ต่ำกว่าเสมอ** (บาง distribution สูงกว่า t-test ด้วยซ้ำ) → ตัดสินจาก **ชนิดตัวแปร + distribution + estimand (mean vs median)** ไม่ใช่แค่ n
 - paired → **Wilcoxon signed-rank** · 2 กลุ่มอิสระ → **Mann-Whitney U** · ≥3 กลุ่ม → **Kruskal-Wallis**
 - ความสัมพันธ์ที่ไม่เชิงเส้น/ordinal → **Spearman correlation** (แทน Pearson)
 
 **C. สัดส่วน / ข้อมูลนับ (outcome = หมวด)**
-- 1 หรือ 2 สัดส่วน **อิสระ** → **z-test for proportion** (⚠️ SE ใช้ **p₀** ของ null ไม่ใช่ p̂)
+- **1 สัดส่วน** เทียบค่าอ้าง p₀ → **one-proportion z-test** (SE ใช้ **p₀** ของ null) · **2 สัดส่วนอิสระ** → **two-proportion z-test** (⚠️ SE ใช้ **pooled p̂ = (x₁+x₂)/(n₁+n₂)** ภายใต้ H0: p₁=p₂ — *ไม่ใช่* p₀ และไม่ใช่ p̂ แยกกลุ่ม)
 - 2 สัดส่วน **จับคู่** (วิธี/test 2 ตัวบนคนเดียวกัน, ก่อน-หลัง แบบ yes/no) → **McNemar's test** (z-test 2 สัดส่วนใช้ไม่ได้ — correlated)
 - ตาราง R×C หาความสัมพันธ์ → **Chi-square independence** (⚠️ เกณฑ์ expected count: **2×2 ต้องทุก cell ≥5**; **R×C ใหญ่** ผ่อนได้ — ห้ามมี cell ใด <1 และ ≤20% ของ cell <5 ตามกฎ Cochran ไม่ใช่ "ทุก cell ≥5" แบบเหมารวม)
 - 2×2 + cell เล็ก (expected <5) → **Fisher's exact test**
@@ -958,7 +959,7 @@ flowchart TD
 - 2 ผู้อ่านตัดสินหมวด (เช่น อ่านสไลด์) → **Cohen's kappa** (ordinal → **weighted kappa**)
 
 ### ขั้น 3 — บอกเงื่อนไขที่ต้องเช็ค ไม่ใช่แค่ชื่อ test
-ทุกครั้งที่ชี้ test ให้แนบ assumption ที่ต้องตรวจ เช่น t-test → independence + normality (ของ residual/ค่าเฉลี่ย ไม่ใช่ data ดิบ); n เล็ก+skew → ย้าย non-parametric
+ทุกครั้งที่ชี้ test ให้แนบ assumption ที่ต้องตรวจ เช่น t-test → independence + normality (ของ residual/sampling distribution ไม่ใช่ data ดิบ — CLT ช่วยเมื่อ n พอ); ถ้า ordinal หรือไม่ normal ชัด & transform ไม่ช่วย → non-parametric (ไม่ใช่เพราะ n เล็กเฉยๆ)
 
 ### ขั้น 4 — เตือนกับดักที่เข้ากับเคสนั้น
 ดึงข้อที่เกี่ยวจาก "กับดัก" ด้านล่างมาเตือน (เช่น ถ้าเป็น 2 % จาก sample เดียวกัน → เตือนว่า correlated)
@@ -969,10 +970,10 @@ flowchart TD
 - **จับคู่แต่ใช้ two-sample** — ข้อมูลก่อน-หลังคนเดียวกันต้องทำผลต่าง (paired) ไม่งั้นเสีย power
 - **เอา correlation ไปสรุป agreement** — method comparison ต้อง ICC/Bland-Altman; r สูงไม่ได้แปลว่าตรงกัน
 - **2 สัดส่วนจาก sample เดียวกัน** (เช่น %เห็นด้วย A vs B ในคนกลุ่มเดียว) = correlated → ใช้ **McNemar** ไม่ใช่ two-sample proportion
-- **proportion test ใช้ p̂ ใน SE** — ที่ถูกคือใช้ **p₀** (ค่าจาก null hypothesis)
+- **ใช้ SE ผิดใน proportion z-test** — *1 สัดส่วน*: SE ใช้ **p₀** (null) · *2 สัดส่วนอิสระ*: SE ใช้ **pooled p̂** (ไม่ใช่ p₀, ไม่ใช่ p̂ แยกกลุ่ม)
 - **เหมา expected count ≥5 ทุก cell** → จริงแค่ 2×2 (ไม่งั้น Fisher); R×C ใหญ่ใช้กฎ Cochran (ดูข้อ C)
 - **ทำ t-test ทุกคู่เมื่อมีหลายกลุ่ม** → Type I error สะสม ใช้ ANOVA + post-hoc แทน
-- **ลืมเช็ค normality / ยัด t-test กับ ordinal** → n เล็ก/skew/Likert ใช้ non-parametric
+- **ยัด t-test กับ ordinal/Likert** → ใช้ non-parametric · ⚠️ แต่ **"n เล็ก = ต้อง non-parametric" ผิด** — ตัดสินที่ distribution + ชนิดตัวแปร ไม่ใช่ที่ n
 - **พูดว่า "accept H₀"** → ที่ถูกคือ "fail to reject H₀"
 - **two-way ANOVA แล้วตีความ main effect ทั้งที่ interaction significant**
 
@@ -1428,7 +1429,7 @@ type: ADVISE               # ช่วยอ่าน/ประเมินเ�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดอ่าน/ประเมินงานวิจัย + ทบทวนวรรณกรรมเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัยทางการ — ต้องยืนยันกับเปเปอร์ต้นฉบับ + อาจารย์ที่ปรึกษา · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -1457,7 +1458,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - จด **method skeleton ให้ทำซ้ำได้** (dataset, ขั้นตอน, พารามิเตอร์, metric) — ถ้าจะเอามาใช้ ต้อง lock ค่าจริงจากเปเปอร์เต็ม ไม่ใช่จากสไลด์/abstract
 
 ### Fork 2 — ประเมินงาน "test/method ใหม่ vs gold standard" (recurring สุดในงาน MT)
-- โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **AUC ใช้กับ test แบบต่อเนื่อง/จัดอันดับ (มี cutoff ปรับได้) เท่านั้น, ไม่ใช่ test 2×2 บวก/ลบ ตายตัว**
+- โครง: **sensitivity / specificity / PPV / NPV / accuracy** เทียบ gold standard (เช่น molecular/biopsy/culture) — **ROC curve/AUC เต็มรูปใช้กับ test ต่อเนื่อง/จัดอันดับ (cutoff ปรับได้)**; test 2×2 บวก/ลบตายตัว = ได้แค่ **1 จุดบน ROC** (คำนวณ "AUC" ของจุดเดียว = (sens+spec)/2 ได้ แต่ไม่ใช่ ROC curve)
 - ⚠️ **PPV ขึ้นกับ prevalence** (กฎข้อ 1) → ที่ low prevalence ต้อง confirm ผลบวก (ดู `immunoassay-judgment`)
 - ก่อนเชื่อตัวเลข ดู 3 อย่าง: **gold standard เหมาะไหม · spectrum/sample-size bias · blinded ไหม**
 
@@ -1489,7 +1490,7 @@ disclaimer: "ช่วยคิดอ่าน/ประเมินงานว
 - **ลอก method ดิบ** ไม่ transform/ไม่เข้าใจ → ทำซ้ำไม่ได้
 - **ลืม external validation** — single dataset = จุดอ่อน (และเป็น lever ของเรา)
 - **อ่านทุกเปเปอร์เท่ากัน** — triage ตาม relevance ก่อน
-- **ตีความ PPV โดยไม่ดู prevalence** — test ดีที่ low prevalence ก็ false+ ท่วม
+- **ตีความ PPV โดยไม่ดู prevalence** — ที่ low prevalence **PPV ลด** (false+ สัดส่วนสูงขึ้น) แต่**มากน้อยขึ้นกับ sensitivity + specificity** (ไม่ใช่ prevalence อย่างเดียว): spec สูงช่วยพยุง PPV ที่ low prev มากสุด, spec ไม่พอ → false+ ท่วม → คิด PPV จาก **sens · spec · prev ครบทั้งสาม**
 - **cite ตัวเลข OCR/garbled** โดยไม่เช็คต้นฉบับ
 - **ทำ contribution ที่ซ้ำของเดิม** — ไม่หา gap ก่อน = ไม่มี novelty
 
@@ -5438,7 +5439,7 @@ disclaimer: "ช่วยจัดให้ AI พึ่ง automation กับ
 
 หยุดให้ AI "คิดเลข/จัดตารางในหัว" → ให้มัน **สร้าง/ขับเครื่องมือที่คำนวณเป๊ะ แล้วตรวจผล** แทน
 
-> LLM ทำนายคำถัดไป มัน**ไม่ได้คิดเลขจริง** — งานที่มีคำตอบถูก-ผิดชัด (เลข เงิน นับ เรียง จัดเวร) มันตอบมั่นใจแต่เพี้ยน. ทางแก้ไม่ใช่ "ขอให้ AI ระวังขึ้น" แต่คือ **ย้ายงานเป๊ะไปให้ code/tool ทำ AI เป็นคนขับ+คนตรวจ** ไม่ใช่ตัวคำนวณ
+> LLM ทำนายคำถัดไป **ไม่ได้คำนวณแบบเครื่องคิดเลข** — งานที่มีคำตอบถูก-ผิดชัด (เลข เงิน นับ เรียง จัดเวร) มันตอบ**ไม่น่าเชื่อถือ** (ไม่ใช่ทำไม่ได้เลย แต่ยิ่งหลายขั้น/เลขใหญ่ยิ่งเพี้ยน — มั่นใจแต่ผิด). ทางแก้ไม่ใช่ "ขอให้ AI ระวังขึ้น" แต่คือ **ย้ายงานเป๊ะไปให้ code/tool ทำ AI เป็นคนขับ+คนตรวจ** ไม่ใช่ตัวคำนวณ
 
 > ⛔ **ก่อนตอบ — เช็คก่อนพิมพ์คำตอบ:** งานนี้มี คำนวณ / นับ / เรียง / จัดเวร / constraint ไหม?
 > ถ้าใช่ → **ห้ามตอบตัวเลขจากหัวเด็ดขาด.** เขียน code/solver ก่อน แล้วค่อยตอบจากผลที่รัน
@@ -6884,7 +6885,7 @@ type: DO                    # ต้องรันคำนวณจริง
 needs: code-interpreter     # AI ที่รัน Python ได้จริง — ChatGPT Plus / Claude Pro / Gemini Advanced
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "เครื่องมือช่วยเลือก/รัน/แปลผลสถิติเพื่อการศึกษา — ไม่ใช่ที่ปรึกษาสถิติทางการ ควรตรวจสอบความเหมาะสมและการแปลผลกับนักสถิติ/ผู้เชี่ยวชาญก่อนนำไปใช้/ตีพิมพ์/ตัดสินทางคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -6930,7 +6931,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 
 ## คำสั่งให้ AI ทำ (AI: ทำตามลำดับนี้)
 1. **สำรวจข้อมูล** — ชนิดตัวแปร, n แต่ละกลุ่ม, missing, outlier
-2. **เช็ค assumption** — normality (Shapiro-Wilk + histogram/Q-Q), equal variance (Levene) → บอกผล; **ถ้า variance ไม่เท่ากัน ใช้ Welch's t-test อย่า default เป็น Student's t**
+2. **เช็ค assumption** — normality (**Q-Q/histogram เป็นหลัก** + Shapiro-Wilk ประกอบ), equal variance (Levene) → บอกผล · ⚠️ **อย่าสลับ test อัตโนมัติจาก p ของ Shapiro/Levene อย่างเดียว** (Shapiro underpowered ตอน n เล็ก, oversensitive ตอน n ใหญ่) — ใช้ร่วมกับ Q-Q + ชนิด/ขนาดข้อมูล · **variance ไม่เท่า → Welch's t-test อย่า default Student's t**
 3. **เลือก test ตาม guide ข้างบน + บอกเหตุผลที่เลือก** (เป็นภาษาคน) — **เลือก test ก่อนดู p-value เสมอ ห้ามเปลี่ยน test ทีหลังเพราะ p ไม่ผ่าน (= p-hacking)**
 4. **รัน** แล้วรายงาน: test ที่ใช้, test statistic, **p-value**, **effect size** (Cohen's d สำหรับ parametric / rank-biserial หรือ r = Z/√N สำหรับ non-parametric / OR สำหรับ logistic), 95% CI
 5. **ทำกราฟที่เหมาะ** (box plot/scatter/Bland-Altman) ใส่ label+หน่วยครบ
@@ -6945,7 +6946,7 @@ disclaimer: "เครื่องมือช่วยเลือก/รัน
 - **p < 0.05 ≠ สำคัญทางคลินิก** → ดู effect size + ช่วงค่าจริงเสมอ
 - **p-hacking** → เลือก test ก่อนดู p; ห้ามเปลี่ยน test เพราะ p ไม่ผ่าน; รายงานทุก test ที่รัน ไม่ใช่เฉพาะที่ significant
 - **multiple testing** (เทียบหลายคู่/หลายตัวแปร) → ต้อง correct (Bonferroni/FDR) ไม่งั้น false positive
-- **n น้อย** → อย่าเชื่อ normality test, ใช้ non-parametric, ระวัง underpowered
+- **n น้อย** → อย่าเชื่อ normality test (Shapiro ไม่ไว) ตัดสินจาก Q-Q + ความรู้เรื่องข้อมูล · ⚠️ **non-parametric ก็ underpowered ตอน n น้อย ไม่ใช่ทางออกอัตโนมัติ** (t-test ทน non-normality ปานกลาง)
 - **correlation ≠ causation**
 - **% / สัดส่วน ที่ n ฐานต่าง** → อย่าเทียบตรงๆ
 - **paired vs unpaired ตัดสินจาก design ไม่ใช่หน้าตาข้อมูล** — ถ้าแต่ละแถวคือ "หน่วยเดียวกันวัด 2 ที" (ก่อน-หลัง / 2 วิธีวัด sample เดียว / ตา 2 ข้างคนเดียว) = paired (paired t / Wilcoxon signed-rank / McNemar)
@@ -7097,7 +7098,7 @@ type: ADVISE               # ช่วยตัดสินใจออกแบ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิดออกแบบวิจัยเพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/จริยธรรมทางการ — design/ethics ต้องผ่านอาจารย์ที่ปรึกษา + IRB/EC จริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -7123,7 +7124,7 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 ## วิธีตัดสินใจ (AI: ทำตามนี้) — forks
 
 ### Fork 1 — Descriptive vs Analytic (จุดแยกแรก)
-- **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — ไม่ทดสอบสมมติฐาน
+- **Descriptive** = "มีเท่าไหร่ / เป็นยังไง" (prevalence, distribution, allele frequency) — เน้น*บรรยาย* (มี hypothesis เชิงประมาณค่า/เทียบเกณฑ์ได้ แต่ไม่ใช่การทดสอบความสัมพันธ์ exposure↔outcome แบบ analytic)
 - **Analytic** = ทดสอบความสัมพันธ์ exposure ↔ outcome (มี hypothesis test) — งานที่ตีพิมพ์ดีมักเป็น analytic
 > H0 (ไม่ต่าง/ไม่สัมพันธ์) vs H1 (ต่าง/สัมพันธ์) · test ได้แค่ **reject / fail to reject H0** ไม่เคย "ยอมรับว่า H1 จริง" (กับดักภาษาที่ reviewer จับ) · **default two-tailed** (one-tailed เพื่อให้ p ผ่านง่าย = p-hacking) · ⚠️ "fail to reject" ≠ "พิสูจน์ว่าไม่ต่าง" — อาจแค่ **power ต่ำ/N น้อย**; รายงาน CI ของ effect ไม่ใช่สรุปว่า "ไม่มีผล"
 
@@ -7132,13 +7133,13 @@ disclaimer: "ช่วยคิดออกแบบวิจัยเพื่�
 |---|---|---|
 | ความชุก/ค่าปกติเท่าไหร่ | **Cross-sectional (descriptive)** | survey, ถูก/เร็ว |
 | exposure สัมพันธ์ outcome มั้ย (วัดพร้อมกัน) | **Cross-sectional analytic** | default ของงานเทียบ genotype↔phenotype; วัดครั้งเดียว |
-| คนเป็นโรค vs ไม่เป็น ต่างที่ exposure มั้ย | **Case-control** (ย้อนหลัง) | ดีเมื่อ **outcome หายาก** |
-| exposure → outcome ตามเวลามั้ย | **Cohort** (ไปข้างหน้า) | ดีเมื่อ **exposure หายาก**; แพง/นาน |
-| intervention/ยา ได้ผลมั้ย | **RCT** | gold standard causation; randomize + control |
+| คนเป็นโรค vs ไม่เป็น ต่างที่ exposure มั้ย | **Case-control** (เลือกตาม *outcome* แล้วมองย้อน exposure — มัก retrospective แต่นิยามจาก sampling ไม่ใช่ทิศเวลา) | ดีเมื่อ **outcome หายาก** |
+| exposure → outcome ตามเวลามั้ย | **Cohort** (ตั้งกลุ่ม *at-risk* → จำแนก/วัด exposure → ตามดู outcome ตามเวลา; prospective *หรือ* historical/retrospective) | ดีเมื่อ **exposure หายาก**; แพง/นาน |
+| intervention/ยา ได้ผลมั้ย | **RCT** | gold standard causation; randomize + control — *causal ไม่จำกัดแค่ RCT: observational + วิธี causal (ปรับ confounder/propensity) อนุมานได้ภายใต้สมมติฐานชัด* |
 - rule: outcome หายาก → case-control · exposure หายาก → cohort · อยากรู้ "สัมพันธ์มั้ย ณ จุดเดียว" + เวลาจำกัด (thesis 1-2 ปี) → cross-sectional
 
 ### Fork 3 — ชนิดตัวแปร (scale) → กำหนดทิศสถิติ
-- **Nominal** (หมู่เลือด/genotype/เพศ) → สัดส่วน/chi-square · **Ordinal** (เกรด/score) → median/non-parametric · **Interval** (°C, ไม่มี 0 จริง) → parametric · **Ratio** (Hb/Hct/%/อายุ, มี 0 จริง) → parametric เต็มที่
+- scale ชี้ **test ที่พบบ่อย**: **Nominal** (หมู่เลือด/genotype/เพศ) → สัดส่วน/chi-square (หรือ logistic) · **Ordinal** → median/non-parametric (หรือ ordinal regression) · **Interval/Ratio** (ต่อเนื่อง) → t/ANOVA/Pearson · ⚠️ **"parametric" = สมมติรูป distribution ไม่ได้ผูกกับ scale** (logistic/Poisson บน categorical/count ก็ parametric) → เลือกจริงต้องเช็ค assumption ของ *model นั้น* ไม่ใช่แค่ดู scale (ดู `choose-stat-test`)
 - ระบุ **independent (exposure)** vs **dependent (outcome)** · เลือก test ลึก → `choose-stat-test`
 - **operational definition:** นิยามทุกตัวแปรให้วัดซ้ำได้ (เช่น cutoff ของ "ค่าสูง", coding ของ genotype, นิยาม carrier) — ไม่นิยาม = reviewer ตีกลับ · ⚠️ อย่า **dichotomize** ต่อเนื่องเป็น 2 กลุ่มถ้าไม่จำเป็น (เสีย info; เลือก cutoff ทีหลังให้ p สวย = p-hacking)
 
@@ -7485,7 +7486,7 @@ disclaimer: "ทำให้ agent เรียนรู้จากความ
 
 ทำให้ AI agent **เก่งขึ้นทุกครั้งที่ใช้** — เปลี่ยน "ความผิดพลาด + คำติของผู้ใช้" เป็น **กฎถาวร** ที่หยิบมาใช้รอบหน้า แทนที่จะลืมทุกเซสชัน
 
-> **กฎ #1: โดนแก้/ทำพลาด → จดเป็นกฎเดี๋ยวนั้น แล้วต้อง recall + apply ทุกเซสชันถัดไป.** จดแล้วไม่เคยอ่าน = ไร้ค่า (memory = สุสาน).
+> **กฎ #1: โดนแก้/ทำพลาด → จดเป็นกฎเดี๋ยวนั้น แล้วต้อง recall + apply ทุกเซสชันถัดไป.** จดแล้วไม่เคยอ่าน = ไร้ค่า (memory = สุสาน). · ⚠️ **อย่าจดทุก correction เป็นกฎถาวรอัตโนมัติ** — verify ก่อนว่า correction ถูกจริง + มาจาก source เชื่อได้ (กัน feedback/memory poisoning: input ผิดกลายเป็นกฎถาวร); กฎที่กระทบความปลอดภัย/สำคัญ = ให้คนยืนยันก่อน persist
 > **กับดัก #1 (จุดที่พลาดจริงตอนยาก): กฎไม่ได้ดีเพราะ "จดไว้" — ดีหรือแย่วัดที่ "มัน fire ถูกเคสไหม".** กฎที่ generalize จาก 1 เคสจะ fire ผิดที่ → เจอ fire ผิด/เจอ 2 กฎขัดกัน = **แคบ trigger หรือลบ/รวบให้เหลือกฎเดียว** อย่าจดเพิ่มทับ.
 
 ## ใครใช้ได้
@@ -7916,7 +7917,7 @@ disclaimer: "ช่วยบริหารบริบท/งบ token ขอ�
 
 # คุมงบ token/บริบทของ AI
 
-AI จำได้แค่ "หน้าต่างความจำ" จำกัด — ใส่เกินมันจะลืมต้นแชต/มั่ว/ช้า; สกิลนี้สอนว่าเมื่อไหร่ควรแตกงาน สรุปย่อ หรือเริ่มแชตใหม่ ไม่ใช่ท่องตัวเลข token เป๊ะ
+AI จำได้แค่ "หน้าต่างความจำ" จำกัด — ใส่เกิน คุณภาพตก (อาจลืมบางส่วน/มั่ว/ช้า — ⚠️ *ระบบต่างกัน*: บางตัวตัดต้นแชต บางตัวสรุป/ปฏิเสธ/เก็บไม่เท่ากัน; อาการพวกนี้เป็น **สัญญาณ** ไม่ใช่ตัวชี้ขาดกลไก); สกิลนี้สอนว่าเมื่อไหร่ควรแตกงาน สรุปย่อ หรือเริ่มแชตใหม่ ไม่ใช่ท่องตัวเลข token เป๊ะ
 
 > **กฎข้อ 1:** ใส่เข้า context เท่าที่งานนี้ต้องใช้จริง — ไม่ใช่ทุกอย่างที่มี. ก่อนแปะไฟล์/ประวัติยาว ถามตัวเองว่า "AI ต้องเห็นทั้งหมดนี้เพื่อตอบ *คำถามนี้* จริงไหม?" ถ้าไม่ → ตัด/สรุปก่อนใส่.
 > **กับดักข้อ 1:** ยิ่งแชตยาว ≠ AI ยิ่งฉลาด. พอบริบทล้น AI จะ **ลืมต้นแชตเงียบๆ** (ไม่เตือน) แล้วตอบมั่นใจเหมือนเดิม — คุณจับไม่ได้จนผลผิด. แชตเดียวยาวๆ เพื่อให้ "มันจำทุกอย่าง" มักได้ผลแย่กว่าแตกเป็นแชตสั้นที่โฟกัส.
@@ -8226,7 +8227,7 @@ disclaimer: "ช่วยให้ AI ตรวจงานตัวเองห
 
 ก่อนเชื่อคำตอบสำคัญ ให้ AI ตั้ง "คณะตรวจ 3 มุม" ที่พยายาม **หักล้างตัวเอง** ไม่ใช่ปรบมือให้ตัวเอง — เน้น **เจอจุดพังก่อนส่ง** ไม่ใช่ส่งไปแล้วค่อยรู้ว่าพลาด
 
-> **กฎข้อ 1:** ตั้ง panel ให้ **ค้านไว้ก่อน (adversarial default)** — หน้าที่ของแต่ละมุมคือ "หาเหตุที่คำตอบนี้ผิด" ไม่ใช่ "ยืนยันว่าถูก". ถ้าทุกมุมพยายามค้านแล้วยังล้มไม่ลง = ค่อยเชื่อ.
+> **กฎข้อ 1:** ตั้ง panel ให้ **ค้านไว้ก่อน (adversarial default)** — หน้าที่ของแต่ละมุมคือ "หาเหตุที่คำตอบนี้ผิด" ไม่ใช่ "ยืนยันว่าถูก". ถ้าทุกมุมพยายามค้านแล้วยังล้มไม่ลง = **น่าเชื่อขึ้น (ไม่ใช่พิสูจน์ว่าถูก)**. · ⚠️ 3 มุมจาก **โมเดลเดียว = ไม่ independent จริง** (แชร์ blind spot/training เดียวกัน) → เรื่องสำคัญ/คนไข้ต้องมี **หลักฐานนอก/คนจริง** ยืนยัน ไม่ใช่แค่ panel ผ่าน.
 > **กับดักข้อ 1:** panel ที่เห็นด้วยกับตัวเอง = พิธีกรรมเปล่า. AI ตั้ง 3 มุมแล้วทุกมุมตอบ "โอเคแล้วครับ" คือไม่ได้ตรวจ — ได้แค่ตรายางปลอมความมั่นใจ. เกณฑ์ผ่านเรื่อง safety = **ทุกมุมเคลียร์** ไม่ใช่เสียงข้างมาก.
 
 ## ใช้เมื่อ
@@ -8384,7 +8385,7 @@ disclaimer: "ช่วยออกแบบ/ร่าง skill เพื่อ�
 เปลี่ยน "ของในหัวคุณ" — เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่พลาด — ให้เป็นไฟล์ skill ที่ MT คนอื่นวางในแชต AI แล้วใช้ได้จริง
 
 > **กฎข้อ 1:** skill = **วิจารณญาณ** (เลือกอะไรเมื่อไหร่ + พลาดตรงไหน) ไม่ใช่ความรู้. เทสต์ 1 ข้อก่อนเริ่ม: *"ถ้า Google/AI ตอบได้ทันทีในประโยคเดียว → นี่คือ reference doc ไม่ใช่ skill."* สิ่งที่ควรอยู่ใน skill คือสิ่งที่ AI ตอบกลางๆ แต่ **มือใหม่ยังเลือกผิด/พลาดกับดัก** อยู่ดี.
-> **กับดักข้อ 1:** มือใหม่เขียน skill เป็น "ตำราย่อ" — ยัดนิยาม สูตร ตาราง normal range. นั่นคือ knowledge ที่ commodity AI รู้หมดแล้ว ไม่มีใครต้องการ skill มาบอกซ้ำ. ของที่มีค่าคือ **"เคสนี้เลือกทางไหน + ทำไมคนพลาดตรงนี้"** ซึ่งมาจากประสบการณ์คุณ ไม่ใช่ตำรา.
+> **กับดักข้อ 1:** มือใหม่เขียน skill เป็น "ตำราย่อ" — ยัดนิยาม สูตร ตาราง normal range. นั่นคือ knowledge ทั่วไปที่ commodity AI ตอบได้ดีอยู่แล้ว — *(เป็น design convention ของ repo นี้: เน้น judgment; ความรู้ niche/local/ใหม่ ที่ AI พลาดได้ ใส่เป็น reference ประกอบได้ แต่ไม่ใช่หัวใจ)*. ของที่มีค่าคือ **"เคสนี้เลือกทางไหน + ทำไมคนพลาดตรงนี้"** ซึ่งมาจากประสบการณ์คุณ ไม่ใช่ตำรา.
 
 ## ใช้เมื่อ
 - คุณมี "ลูกเล่น/วิจารณญาณ" ในงานที่ทำซ้ำบ่อย แล้วอยากแพ็กให้คนอื่น (หรือ AI) ใช้ตามได้

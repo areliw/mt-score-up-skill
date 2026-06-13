@@ -1987,7 +1987,7 @@ type: ADVISE               # ช่วยวางวิธีไล่บั๊
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยวางวิธีไล่หา root cause ของบั๊ก ไม่ใช่คำแนะนำทางการแพทย์ — โค้ด/ระบบที่กระทบผลแล็บ/คนไข้ต้อง validate ก่อนใช้จริง ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -2703,7 +2703,7 @@ type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-11
-status: draft
+status: semi-stable
 disclaimer: "ช่วยตัดสินใจ git workflow เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — คำสั่ง destructive (reset --hard / push --force / rebase ที่ push แล้ว) ลบงานได้ ต้องเข้าใจผล + สำรองก่อนรันเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -6720,7 +6720,7 @@ type: ADVISE               # ช่วยตัดสินใจ/ดีบั�
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-04
-status: draft
+status: semi-stable
 disclaimer: "ช่วยคิด+จับกับดัก Python ระดับเริ่ม→กลาง เพื่อการศึกษา — ไม่ใช่ตำรา syntax หรือคำสั่งทางการ ควรทดสอบโค้ดจริงและตรวจผลก่อนนำไปใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -7911,7 +7911,7 @@ type: ADVISE               # ช่วยตัดสินใจบริหา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: semi-stable
 disclaimer: "ช่วยบริหารบริบท/งบ token ของ AI เพื่อให้คำตอบนิ่งขึ้น ไม่ใช่คำแนะนำทางการแพทย์ — เนื้อหายังต้อง verify ก่อนใช้จริง ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

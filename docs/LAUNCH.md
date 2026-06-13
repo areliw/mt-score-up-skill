@@ -99,7 +99,7 @@
 
 สิ่งเหล่านี้ AI/CI ทำแทนไม่ได้ — ต้อง maintainer ลงมือเอง. ทำตามลำดับ:
 
-- [x] **1 · เปิด Google Form (no-GitHub lane)** — ✅ live: [forms.gle/N7RsgZqrHkikgfKK6](https://forms.gle/N7RsgZqrHkikgfKK6)
+- [x] **1 · เปิด Google Form (no-GitHub lane)** — ✅ live: [forms.gle/cWivk9zh6hJ5vdiy5](https://forms.gle/cWivk9zh6hJ5vdiy5)
   - เสียบลิงก์ครบทุกจุดแล้ว: CONTRIBUTING ×2 · README · FEEDBACK · CONTRIBUTORS · INTAKE · skill-interview · issue-template config
   - *เหตุผล:* ~80% ของกลุ่มเป้าหมาย (MT หน้างาน) ไม่มี GitHub — lane นี้ live แล้ว funnel ไม่ตันครึ่ง
 

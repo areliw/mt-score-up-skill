@@ -42,7 +42,7 @@ disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่
 ### Fork 3 — QC / สถิติใน Sheets
 - **STDEV.S (ตัวอย่าง) vs STDEV.P (ประชากร)** — เลือกผิด = SD เพี้ยน
 - Levey-Jennings = scatter + เส้น mean ±1/2/3 SD · นับด้วย COUNTIF/COUNTIFS
-- **TAT ใช้ MEDIAN ไม่ใช่ AVERAGE** (distribution เบ้) + ดู P90 (เชื่อม `build-a-dashboard`)
+- **TAT distribution มักเบ้ → median + P90/P95 สื่อจริงกว่า mean** (mean ไม่ผิดเสมอ — เลือกตามว่าจะสื่ออะไร; เบ้มาก = median) (เชื่อม `build-a-dashboard`)
 
 ### Fork 4 — กัน error เชิงระบบ
 - **Data validation** (dropdown/ช่วงค่า) กันกรอกมั่วตั้งแต่ต้นทาง
@@ -50,7 +50,7 @@ disclaimer: "ช่วยคิดวิธีใช้ spreadsheet เพื่
 - **version/backup** (Sheets มี version history; Excel เซฟสำเนา)
 
 ### Fork 5 — เมื่อไหร่เลิก Excel ไป DB/code
-- ข้อมูลโตเกิน ~หมื่นแถว · หลายคนแก้พร้อมกัน (ชนกัน) · ต้อง relationship/ประวัติ/audit → ย้ายไป **`mt-databases`**
+- เริ่มอืด/สูตรพัง · หลายคนแก้พร้อมกัน (ชนกัน) · ต้อง relationship/ประวัติ/audit → ย้ายไป **`mt-databases`** · *(จำนวนแถวเป็นสัญญาณคร่าวๆ — Sheets/Excel เอาอยู่หลายหมื่น–แสนแถวถ้า structure ดี; ตัดสินที่ workload/ความซับซ้อน ไม่ใช่เลขแถวตายตัว)*
 
 ### Fork 6 — ข้อมูลคนไข้
 - ไฟล์มี HN/ชื่อ → **ไม่แชร์ลิงก์ "ใครมีลิงก์ก็เปิดได้"**, จำกัดสิทธิ์, ใส่รหัส, de-identify ก่อนส่งออก (เชื่อม `digital-judgment`)

@@ -14,7 +14,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 ตัดสินใจหน้างาน git — **"branch ไหน · commit ยังไง · merge หรือ rebase · resolve conflict ยังไง · กู้งานที่หาย"** ไม่ใช่ท่อง git command (= commodity ดู man page)
 
 > 🔑 **กฎ #1: `git diff` / `git log` คือความจริง — ไม่ใช่ "updated/done" ของ tool หรือความจำ.** ก่อนเชื่อว่า edit/commit ลงจริง **verify ด้วย git เสมอ** (edit อาจลง branch ผิด / โฟลเดอร์ที่ git ignore / sandbox → git มองไม่เห็น)
-> 🚫 **กับดัก #1: push หลัง PR merge ไปแล้ว = commit orphan** (ค้างบน branch ไม่เข้า main) → commit *ทุกอย่างก่อน* merge; ถ้า merge ไปแล้วต้องแก้เพิ่ม = **branch ใหม่จาก `origin/main` เสมอ**
+> 🚫 **กับดัก #1: push หลัง PR merge ไปแล้ว = commit ค้างบน branch เดิม ไม่เข้า main** (ไม่ใช่ "orphan" ตามนิยาม git — branch ref ยังชี้อยู่; แต่ effectively หลงทางไม่เข้า main) → commit *ทุกอย่างก่อน* merge; ถ้า merge ไปแล้วต้องแก้เพิ่ม = **branch ใหม่จาก `origin/main` เสมอ**
 > ⚠️ destructive (reset --hard · push --force · rebase ที่ push แล้ว) = ทำลายประวัติ/งานคนอื่น → เข้าใจผล + สำรองก่อน
 
 ## ใช้เมื่อ
@@ -33,7 +33,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 
 ### Fork 1 — ทำบน branch ไหน
 - **main ถูก protect (require-PR):** ทุกการเปลี่ยน = **branch สดจาก `origin/main` → push → PR → ให้คน merge** (แม้ admin bypass ได้ ก็ควรผ่าน PR เพื่อ review + CI)
-- **branch ใหม่ทุกงาน — อย่าทำต่อบน branch ที่ merge แล้ว** (stale → commit ใหม่บนนั้น = orphan ไม่เข้า main)
+- **branch ใหม่ทุกงาน — อย่าทำต่อบน branch ที่ merge แล้ว** (stale → commit ใหม่บนนั้น ค้าง ไม่เข้า main)
 - **`git fetch origin main` ก่อนเสมอ** แล้ว `git switch -c <new> origin/main` (หรือ `git checkout -b` — *fail* ถ้าชื่อ branch มีอยู่แล้ว = กันเขียนทับ) → กัน divergence/conflict ทีหลัง · ⚠️ **อย่าใช้ `-B`/`git reset` กับ branch ใหม่** — `-B` *force-reset* branch ชื่อเดิมที่มีอยู่ทิ้งเงียบๆ (งานหาย) → สงวนไว้เฉพาะตอนตั้งใจ reset จริงๆ
 
 ### Fork 2 — Commit: atomic + message ที่ตามได้
@@ -49,7 +49,7 @@ disclaimer: "ช่วยตัดสินใจ git workflow เพื่อ�
 ### Fork 4 — Resolve conflict (โดยเฉพาะ generated file)
 - **generated file (bundle/lock/catalog) ชน → อย่าแก้มือ → regenerate** บน base ที่ merge แล้ว (deterministic + ถูกกว่าแก้เอง)
 - 2 ฝั่งแก้ **คนละบรรทัด = git auto-merge** (ไม่ conflict) → conflict จริงเกิดตอนแก้ทับบรรทัดเดียวกัน
-- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (ฝั่งไหนต้องเช็คก่อน — ❌ ไม่ใช่ merge-base) → **re-apply การแก้ของเราทับ** → แล้ว **verify `git diff <base>..HEAD -- <file>` ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ** ไม่มีของหาย
+- pattern กู้เมื่อรู้ exact edit: `git checkout --theirs <file>` (ฝั่งไหนต้องเช็คก่อน — ❌ ไม่ใช่ merge-base) → **re-apply การแก้ของเราทับ** → แล้ว **verify ก่อน commit ด้วย `git diff -- <file>` (เทียบ working tree)** ต้องเห็นเฉพาะการเปลี่ยนที่ตั้งใจ — ⚠️ *ไม่ใช่* `<base>..HEAD` (เทียบ *commit* มองไม่เห็นการแก้ใน working tree ที่ยังไม่ commit); หลัง commit แล้วค่อยใช้ `<base>..HEAD` ทวนซ้ำ
   - ⚠️ **`--ours`/`--theirs` หมายความสลับกันตาม operation:** ใน **merge** → `--ours`=branch ปัจจุบันของเรา, `--theirs`=branch ที่ merge เข้ามา (เช่น `origin/main`) · ใน **rebase** → *สลับกัน* (`--ours`=branch ที่ rebase ไปอยู่บน, `--theirs`=commit ของเราที่กำลัง replay) → **ยืนยันว่าจะเอาฝั่งไหนจาก context เสมอ + verify ด้วย `git diff` หลังทำ** (พลาดทิ้งผิดฝั่งง่ายมาก)
 
 ### Fork 5 — main ถูก protect: ใครแก้ได้ + flow

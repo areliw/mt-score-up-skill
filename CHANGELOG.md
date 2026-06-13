@@ -1,10 +1,9 @@
 # Changelog
 
 Notable changes to the MT Score UP! skills hub. Format loosely follows
-[Keep a Changelog](https://keepachangelog.com/). สกิลส่วนใหญ่ + คลินิกทั้งหมดเป็น `status: draft`
-(ยังไม่ผ่าน formal clinical peer-review) — ยกเว้น **6 core data-science skills**
-(ml-judgment · data-science-workflow · optimization-judgment · db-judgment · data-project-survival · ml-engineering-workflow)
-ที่ผ่าน Codex review 2 รอบ + empirical stress-test = `status: stable`.
+[Keep a Changelog](https://keepachangelog.com/). สกิลคลินิก + ที่ยังไม่ verify = `status: draft`
+(ยังไม่ผ่าน clinical/quality peer-review). สกิล **non-clinical ที่ผ่าน Codex stable-readiness review + แก้ blocker แล้ว = `status: stable`** (ปัจจุบัน 13 ตัว — ดู `status:` ในแต่ละไฟล์).
+⚠️ สกิลที่ Codex เจอ error เชิงเนื้อหา (โดยเฉพาะ R2R stats: choose-stat-test / r2r-stats / research-design-judgment / critical-appraisal-judgment) คง `draft` จนกว่าจะ rework จริง — ไม่ flip เพื่อความสมบูรณ์.
 
 ## [0.8.2] — 2026-06-10
 

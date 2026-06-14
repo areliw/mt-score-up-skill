@@ -56,7 +56,7 @@
 | `ml-engineering-workflow` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-engineering-workflow.md | 2026-06-08 |
 | `ml-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-judgment.md | 2026-06-04 |
 | `molecular-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/molecular-judgment.md | 2026-06-04 |
-| `mt-career-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-career-judgment.md | 2026-06-04 |
+| `mt-career-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-career-judgment.md | 2026-06-15 |
 | `mt-databases` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-databases.md | 2026-06-08 |
 | `mt-exam-strategy-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-exam-strategy-judgment.md | 2026-06-04 |
 | `mt-law-ethics-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-law-ethics-judgment.md | 2026-06-13 |

@@ -22,7 +22,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (89 สกิล)
+## 📚 ส่วนที่ 1 — Skills (90 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -104,6 +104,7 @@
 | [self-development-coach](./skills/self-development-coach.md) | โค้ชพัฒนาตัวเองแบบตรงไปตรงมา |
 | [know-yourself](./skills/know-yourself.md) | สัมภาษณ์ตัวเองให้ลึก → master profile ที่ reuse ได้ (resume/สัมภาษณ์/pivot) |
 | [mt-career-judgment](./skills/mt-career-judgment.md) | เส้นทางอาชีพ MT — bench→industry/commercial/AI + โครงรายได้/skill gap |
+| [professional-voice-exit-judgment](./skills/professional-voice-exit-judgment.md) | ไม่เห็นด้วยกับองค์กร/สภาวิชาชีพ → voice/exit/loyalty + อ่าน governance |
 | [digital-judgment](./skills/digital-judgment.md) | privacy/PDPA/security/ลิขสิทธิ์/ลงทุน — ไม่โดนหลอก |
 | [finance-judgment](./skills/finance-judgment.md) | การเงิน/ลงทุน/อ่านงบ/ธุรกิจ — ลำดับเงิน + กันกับดัก/scam |
 | [financial-statement-judgment](./skills/financial-statement-judgment.md) | อ่านงบ 5 ฉบับ + คุณภาพกำไร (CFO) + จับ window-dressing |
@@ -187,7 +188,7 @@ skill เป็นไฟล์ — มี 2 วิธีโหลด เลื�
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 89 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 90 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)
@@ -205,7 +206,7 @@ mt-score-up-skill/
 ├── contributions/ # พื้นที่ชุมชน — ส่ง skill/เคสจริง (+ INTAKE.md = playbook maintainer)
 ├── CONTRIBUTORS.md # ผู้ลงขันกองกลาง (credit)
 ├── STANDARDS.md   # Source-of-truth edition + auto-recheck รายเดือน
-└── CHANGELOG.md   # Version history (v0.8.2)
+└── CHANGELOG.md   # Version history (v0.9.0)
 ```
 
 ## ความปลอดภัย & Privacy

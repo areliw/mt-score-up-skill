@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**89 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**90 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -76,7 +76,8 @@
 - **ikigai-finder** — หา ikigai แบบไม่หลอกตัวเอง → จบที่ "1 การทดลอง" ไม่ใช่ลาออกตามฝัน
 - **self-development-coach** — โค้ชพัฒนาตัวเองแบบตรงไปตรงมา ไม่ปลอบใจลอยๆ
 - **know-yourself** — สัมภาษณ์ตัวเองให้ลึก → master profile ก้อนเดียวที่ slice ไปใช้ได้ (resume/LinkedIn/เตรียมสัมภาษณ์/เปลี่ยนสาย/ป้อน AI ให้รู้จักเรา)
-- **mt-career-judgment** — เส้นทางอาชีพ MT (bench→industry/commercial/AI): แผนที่สาย · ladder ฝั่งขาย+โครงรายได้ · skill gap (KOL/English/commercial-craft) · T-shaped Data&AI 3 ระดับ · เป็นเจ้าของแล็บ
+- **mt-career-judgment** — เส้นทางอาชีพ MT (bench→industry/commercial/AI): แผนที่สาย · ladder ฝั่งขาย+โครงรายได้ · skill gap (KOL/English/commercial-craft) · T-shaped Data&AI 3 ระดับ · เป็นเจ้าของแล็บ · diversify สายแล็บข้างเคียง (อาหาร/QC) — จำเพาะที่ method + กัน gatekeeping
+- **professional-voice-exit-judgment** — ไม่เห็นด้วยกับมติสภา/นโยบายหน่วยงาน/เปลี่ยนมาตรฐาน-ชื่อปริญญา → เลือก voice/exit/loyalty (อ่านช่องรับฟัง+ทางเลือกจริง ไม่ใช่ reflex ต้นทุน) · ส่ง voice ให้เป็นสัญญาณไม่ใช่โจมตี · (ผู้บริหาร) อ่านเสียงบ่น + lazy-monopoly · governance: ใครตัดสิน vs ใครแบกผล
 - **lab-clinic-business-judgment** — เปิด/บริหารคลินิกแล็บ MT เอง: เลือกโมเดล (premium-longevity vs volume-รัฐ vs hybrid) · moat จริง (วิชาชีพ+จดทะเบียน+LIS-HIS ไม่ใช่เครื่อง) · ปิด business-gap ที่ MT ขาด · เข้าระบบรายได้รัฐเมื่อไหร่ · อ่านใจ buyer (สาย sales) · หา unit economics ก่อนลงเงิน
 - **digital-judgment** — privacy/PDPA/de-identify/security/ลิขสิทธิ์/ลงทุนออนไลน์ — ตัดสินใจปลอดภัย ไม่โดนหลอก
 - **finance-judgment** — การเงิน/ลงทุน/ธุรกิจ (บันไดเงิน · asset ตาม horizon · อ่านงบ/CFO · valuation · หนี้ดี-เลว · go/pivot · จับ scam · เลนส์ econ: opportunity cost/elasticity/real-vs-nominal)

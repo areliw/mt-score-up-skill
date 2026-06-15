@@ -12,6 +12,8 @@
 > analysis below still holds *directionally*; for the headline trust round 3 + the **~1.4 noise
 > floor** (a per-skill delta must clear ~1.4 to be real signal).
 
+> 📊 **Update 2026-06-15 — full coverage reached.** Round 6 upgraded the remaining 36 SCREEN-only skills to full blind-judge, so **all 89 skills now have a blind-judge Δ**. Round 6: **17 lift(real) · 18 safe · 1 regression** — `deep-research`, a tool-execution skill that fabricates citations when handed to a tool-less model; demoted to `draft`, guarded, and **re-verified (regression closed)**. So **library-wide: 0 regression across all 89**. Details: [`round6-probe.md`](round6-probe.md). The n=53 analysis below stands for the original cohort.
+
 ## TL;DR
 
 - On each skill's **own worst-case trap**, given to a **weak** model (Haiku), blind-judged:

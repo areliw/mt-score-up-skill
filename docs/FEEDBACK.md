@@ -43,7 +43,7 @@ feedback ของคุณคือวิธีที่กองกลาง�
 
 ➡️ **[เปิด Skill feedback issue](../.github/ISSUE_TEMPLATE/skill-feedback.md)**
 
-ไม่มี GitHub → **[Google Form](https://forms.gle/N7RsgZqrHkikgfKK6)** หรือ**ทักเพจ Score UP** — ดู[ด้านล่าง](#ช่องสำหรับคนไม่มี-github)
+ไม่มี GitHub → **[Google Form](https://forms.gle/cWivk9zh6hJ5vdiy5)** หรือ**ทักเพจ Score UP** — ดู[ด้านล่าง](#ช่องสำหรับคนไม่มี-github)
 
 > 💡 วิธีสมทบที่มีค่าสุดคือเติม **"ช่องสำหรับผู้เชี่ยวชาญเติม"** ที่มีอยู่ท้าย skill ทุกอันด้วยเคสจริงของคุณ (de-identify ก่อน) — ดู [`contributions/README.md`](../contributions/README.md)
 
@@ -66,7 +66,7 @@ feedback ของคุณคือวิธีที่กองกลาง�
 MT หน้างานส่วนใหญ่ไม่เล่น GitHub — ไม่เป็นไร ส่งได้ทั้ง **ข้อความ / เสียง / รูปโน้ตมือ**
 
 1. *(ไม่บังคับ แต่ช่วยมาก)* ร่างให้เนียนก่อนด้วย AI — แปะ [prompt ตัวช่วยร่างใน CONTRIBUTING.md](../CONTRIBUTING.md#-ตัวช่วยร่างด้วย-ai) ลง ChatGPT/Claude/Gemini แล้วเล่าปัญหา → ได้ draft พร้อมส่ง + มันเตือนให้ลบข้อมูลคนไข้ก่อน
-2. ส่งทาง **[Google Form](https://forms.gle/N7RsgZqrHkikgfKK6)** (เร็วสุด · ไม่ต้อง login)
+2. ส่งทาง **[Google Form](https://forms.gle/cWivk9zh6hJ5vdiy5)** (เร็วสุด · ไม่ต้อง login)
 3. หรือ **ทักเพจ Score UP** ก็ได้
 
 > ⚠️ **ก่อนส่งทุกครั้ง: ลบข้อมูลที่ระบุตัวตน** — ชื่อคนไข้ / HN / ชื่อ รพ. / ชื่อบุคลากร · ใช้ placeholder แทน (`[ผู้ป่วย]`, `[รพ.]`). คลังนี้เป็นของสาธารณะ ถ้าไม่แน่ใจ consult MT head / QC manager ก่อน

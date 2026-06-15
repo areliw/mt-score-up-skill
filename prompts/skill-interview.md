@@ -101,7 +101,7 @@
 
 ### ② บอกวิธีส่ง (เลือกทางที่พี่สะดวก — ไม่ต้องมี GitHub)
 > "ร่างนี้พร้อมส่งแล้วครับ พี่เลือกทางไหนก็ได้:"
-> - 🟢 **[Google Form](https://forms.gle/N7RsgZqrHkikgfKK6)** (ง่ายสุด ไม่ต้องสมัครอะไร) — ก๊อปร่างข้างบนไปวางในฟอร์มได้เลย
+> - 🟢 **[Google Form](https://forms.gle/cWivk9zh6hJ5vdiy5)** (ง่ายสุด ไม่ต้องสมัครอะไร) — ก๊อปร่างข้างบนไปวางในฟอร์มได้เลย
 > - 💬 **ทักเพจ Score UP** — ส่งร่างนี้ให้ทีมงานได้ตรงๆ
 > - 🐙 **GitHub Issue** (ถ้าพี่มีบัญชี) — เปิดที่ `https://github.com/areliw/mt-score-up-skill/issues/new?labels=skill-proposal` แล้ววางร่าง
 

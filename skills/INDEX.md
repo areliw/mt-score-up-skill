@@ -56,7 +56,7 @@
 | `ml-engineering-workflow` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-engineering-workflow.md | 2026-06-08 |
 | `ml-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ml-judgment.md | 2026-06-04 |
 | `molecular-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/molecular-judgment.md | 2026-06-04 |
-| `mt-career-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-career-judgment.md | 2026-06-04 |
+| `mt-career-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-career-judgment.md | 2026-06-15 |
 | `mt-databases` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-databases.md | 2026-06-08 |
 | `mt-exam-strategy-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-exam-strategy-judgment.md | 2026-06-04 |
 | `mt-law-ethics-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-law-ethics-judgment.md | 2026-06-13 |
@@ -72,6 +72,7 @@
 | `polite-but-clear` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/polite-but-clear.md | 2026-06-04 |
 | `pomodoro-focus` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pomodoro-focus.md | 2026-06-08 |
 | `preanalytical-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/preanalytical-judgment.md | 2026-06-08 |
+| `professional-voice-exit-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/professional-voice-exit-judgment.md | 2026-06-15 |
 | `progress-tracker` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/progress-tracker.md | 2026-06-04 |
 | `prompt-optimizer` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/prompt-optimizer.md | 2026-06-08 |
 | `pubmed-search-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pubmed-search-judgment.md | 2026-06-08 |

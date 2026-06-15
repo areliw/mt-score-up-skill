@@ -9,8 +9,10 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 
 ### Added
 - `interprofessional-communication-judgment` — สื่อสารสหวิชาชีพแนวราบ (พูดภาษาของแต่ละวิชาชีพ) + golden-period: แจ้งเร็วสำคัญกว่าแจ้งครบ (สกิลที่ 89)
+- `professional-voice-exit-judgment` — Hirschman voice/exit/loyalty สำหรับการตัดสินใจเชิงองค์กร/สภาวิชาชีพ: เลือกท่า (อ่านช่องรับฟัง+ทางเลือกจริง ไม่ใช่ reflex ต้นทุน) · ส่ง voice ให้เป็นสัญญาณไม่ใช่โจมตี · ผู้บริหารอ่านเสียงบ่น (lazy-monopoly) · governance ใครตัดสิน-vs-ใครแบกผล (สกิลที่ 90) — `draft` (ผ่าน codex แล้ว, รอ stress-test)
 
 ### Changed
+- **`mt-career-judgment` +Fork 7 (สายแล็บข้างเคียง):** เพิ่มการตัดสินใจ diversify เข้าแล็บอาหาร/เกษตร/QC/โภชนาการเมื่อสาย bench ตัน — กับดัก "งานสบาย/ไม่ต้องแม่น" (จริงๆ ความเข้มงวดอยู่ที่ validate method + accreditation ISO/IEC 17025 + legal liability ทั้งล็อต) · กับดัก gatekeeping ("งานนอกคลินิก = ไม่ใช่ MT") · 4 เกณฑ์อ่านโอกาส.
 - **Maturity ladder ใช้เต็มรูป (`draft` → `semi-stable` → `stable`):** promote 29 สกิล non-clinical (กลุ่มโค้ด/เทคนิค/data · ใช้ AI · วิจัย/สถิติ core) เป็น `semi-stable` หลังผ่าน Codex review + empirical eval. 4 สกิล R2R-stats (`choose-stat-test` / `r2r-stats` / `research-design-judgment` / `critical-appraisal-judgment`) rework แก้ความถูกต้องเชิงสถิติแล้ว promote.
 - **R2R wave สุดท้าย:** promote อีก 6 สกิลวิจัย/สถิติ (`r2r-research-proposal` · `sample-size-power` · `literature-review-judgment` · `deep-research` · `source-credibility-judgment` · `pubmed-search-judgment`) เป็น `semi-stable` หลัง Codex หา + ยืนยันแก้ — two-proportion N → pooled score-test (≈93/กลุ่ม), evidence/source/pyramid ขึ้นกับชนิดคำถาม (diagnostic ≠ RCT), EC = approval **หรือ** exempt determination (ไม่มีย้อนหลัง). รวม **35 semi-stable**.
 - **README เกลาให้อ่านง่าย:** แก้จำนวนเป็น 89 · รวมสองส่วน Privacy / clinical-stack ที่เนื้อหาทับกันเป็นส่วนเดียว · ย่อสรุป eval เหลือประเด็นหลัก · ย่อคำอธิบาย catalog 62 รายการให้สั้น-สม่ำเสมอ (รายละเอียดเต็มยังอยู่ที่ `skills/README.md`).

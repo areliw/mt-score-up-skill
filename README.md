@@ -22,7 +22,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (90 สกิล)
+## 📚 ส่วนที่ 1 — Skills (91 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -96,6 +96,7 @@
 | [writing-judgment](./skills/writing-judgment.md) | เขียนงานยาวมีโครง+น้ำเสียง — เลือกโครงตามผู้อ่าน (≠ manuscript วิชาการ) |
 | [report-up-judgment](./skills/report-up-judgment.md) | สื่อสารขึ้นผู้บริหาร — bottom-line first + แปลเทคนิค→ผลกระทบ |
 | [interprofessional-communication-judgment](./skills/interprofessional-communication-judgment.md) | คุยสหวิชาชีพด้วยภาษาของเขา + golden-period: แจ้งเร็วสำคัญกว่าแจ้งครบ |
+| [receiving-review-judgment](./skills/receiving-review-judgment.md) | รับรีวิว/คำติ — take/drop/push-back ไม่ caved ไม่ ego + อ่าน nit ทะลุ |
 
 ### 🧭 ชีวิต / อาชีพ
 | skill | ช่วยอะไร |
@@ -188,7 +189,7 @@ skill เป็นไฟล์ — มี 2 วิธีโหลด เลื�
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 90 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 91 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

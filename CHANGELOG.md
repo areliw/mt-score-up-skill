@@ -7,6 +7,9 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 
 ## [Unreleased]
 
+### Added
+- `receiving-review-judgment` — รับ/ตอบ feedback (code review · รีวิวเปเปอร์ · หัวหน้าติ · codex/CI) ให้เป็น: triage **take/drop/push-back** (ไม่ caved/ไม่ ego) · disagree-and-commit **ยกเว้น correctness/security/legal** · อ่าน nit ที่ชี้ root · AI-review = **verify ก่อน apply** ไม่เชื่อดิบ. สกัดจากการเทียบ repo กับ `obra/superpowers` — ช่องว่างเดียวที่เป็น judgment แท้ (สกิลที่ 91) — `draft` (ผ่าน codex).
+
 ### Changed
 - `mt-career-judgment` — เพิ่ม **Fork 1B "ราชการสายข้าง: ทนพ → นวก./สสจ./สคร."** (เคสจริงจากคอมมูฯ MT, ตัวเลข case-specific ต้อง verify): break-even = heuristic "คุ้มต่อเมื่อไปไกลถึงเชี่ยวชาญ (ชช.)" · comp-cliff เคสเล่าเงินรวมหาย ~20K/เดือน (ฉ.11+พตส.+เงินตำแหน่ง+ค่าเวร) — ยืนยันสิทธิ์กับ HR ก่อน · บางหน่วยลังเลรับคนนอกสาย นวก. (ไม่ใช่กฎ ก.พ.) + 2 anti-pattern. PII-clean · ผ่าน codex review (PR #40)
 

@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this skills hub, please cite it as below."
+title: "MT Score UP! — Judgment Skills Hub for Thai Medical Technologists"
+abstract: >-
+  A free, portable library of Thai-language judgment skills
+  (decision-forks + traps, not knowledge dumps) for Medical
+  Technologists — paste into any AI chat. Covers clinical lab,
+  research/statistics, career, lab business, and safe AI use.
+type: dataset
+authors:
+  - family-names: Tameesak
+    given-names: Phanuphong
+    alias: areliw
+version: "0.9.0"
+date-released: "2026-06-15"
+license: MIT
+url: "https://github.com/areliw/mt-score-up-skill"
+repository-code: "https://github.com/areliw/mt-score-up-skill"
+keywords:
+  - medical-technology
+  - medical-laboratory-science
+  - clinical-laboratory
+  - judgment-skills
+  - AI-skills
+  - Thai
+  - prompt-engineering

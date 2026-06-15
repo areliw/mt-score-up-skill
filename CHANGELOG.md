@@ -7,6 +7,8 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 
 ## [Unreleased]
 
+## [0.9.0] — 2026-06-15
+
 ### Added
 - `interprofessional-communication-judgment` — สื่อสารสหวิชาชีพแนวราบ (พูดภาษาของแต่ละวิชาชีพ) + golden-period: แจ้งเร็วสำคัญกว่าแจ้งครบ (สกิลที่ 89)
 - `professional-voice-exit-judgment` — Hirschman voice/exit/loyalty สำหรับการตัดสินใจเชิงองค์กร/สภาวิชาชีพ: เลือกท่า (อ่านช่องรับฟัง+ทางเลือกจริง ไม่ใช่ reflex ต้นทุน) · ส่ง voice ให้เป็นสัญญาณไม่ใช่โจมตี · ผู้บริหารอ่านเสียงบ่น (lazy-monopoly) · governance ใครตัดสิน-vs-ใครแบกผล (สกิลที่ 90) — `draft` (ผ่าน codex แล้ว, รอ stress-test)

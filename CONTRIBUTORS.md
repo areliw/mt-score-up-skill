@@ -23,7 +23,7 @@
 | ชื่อ | สังกัด | contribute อะไร |
 |---|---|---|
 | **สุดหล่อเพื่อนอาหลิว** (เสือนนท์ — ถ้าอยากรู้ชื่อจริงถามอาหลิว) | — | 🎉 **คนแรกที่ส่งผ่านช่อง no-GitHub (Google Form)** — เปิดประเด็น *"MT อยู่รอดยุค AI ยังไง: hard + soft skill · จิตวิทยา · ฉลาดการเงิน"* → theme ฝากไว้ที่ [`mt-career-judgment`](./skills/mt-career-judgment.md) |
-| **สมาชิกแห่งความมืด–องค์กรลับแห่งรัตติกาล** *(นามแฝงกองกลางของผู้ส่งแบบไม่ระบุชื่อ)* | — | 🩸 **graft** กับดัก *pseudothrombocytopenia* — platelet ต่ำต้อง cross-check (smear estimation / QC / delta) ก่อนรายงาน → เติม [`hematology-judgment`](./skills/hematology-judgment.md) Fork 4 |
+| **สมาชิกแห่งความมืด–องค์กรลับแห่งรัตติกาล** *(นามแฝงกองกลางของผู้ส่งแบบไม่ระบุชื่อ)* | — | 🩸 **graft** กับดัก *pseudothrombocytopenia* — platelet ต่ำต้อง cross-check (smear estimation / QC / delta) ก่อนรายงาน → เติม [`hematology-judgment`](./skills/hematology-judgment.md) Fork 4 · 🏛️ **graft** เคสย้ายสาย *ทนพ → นวก./สสจ./สคร.* — comp-cliff (เคสเล่า ~20K/เดือน) · คุ้มต่อเมื่อไปไกลถึงเชี่ยวชาญ · บางหน่วยลังเลรับคนนอกสาย นวก. → เติม [`mt-career-judgment`](./skills/mt-career-judgment.md) Fork 1B |
 
 > ไม่อยากเปิดเผยชื่อจริง/สังกัด ใส่นามแฝงหรือเว้น `—` ได้ — เราเคารพความเป็นส่วนตัว (และห้ามใส่ชื่อ รพ. เฉพาะเจาะจงในของสาธารณะอยู่แล้ว)
 >

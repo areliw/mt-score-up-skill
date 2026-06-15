@@ -22,7 +22,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (91 สกิล)
+## 📚 ส่วนที่ 1 — Skills (92 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -155,6 +155,7 @@
 | [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety — hand hygiene + N95 vs surgical + precaution/เข็มตำ |
 | [urinalysis-judgment](./skills/urinalysis-judgment.md) | ยูริน + body-fluid micro — strip↔micro↔clinical ให้ตรง + กับดัก strip |
 | [preanalytical-judgment](./skills/preanalytical-judgment.md) | pre-analytical/phlebotomy — ลำดับเจาะ/หลอด/ระบุตัว ให้ตัวอย่างเชื่อได้ |
+| [result-release-judgment](./skills/result-release-judgment.md) | post-analytical/ปล่อยผล — delta-check · autoverify · critical · corrected |
 | [poct-judgment](./skills/poct-judgment.md) | Point-of-care testing — ให้แล็บนอกแล็บเชื่อได้เท่าแล็บกลาง + QC/connectivity |
 | [flow-cytometry-judgment](./skills/flow-cytometry-judgment.md) | flow cytometry — gate ถูก/อ่าน pattern + กับดัก compensation/artifact |
 
@@ -189,7 +190,7 @@ skill เป็นไฟล์ — มี 2 วิธีโหลด เลื�
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 91 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 92 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**91 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**92 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -30,6 +30,7 @@
 - **infection-control-judgment** — ป้องกันการติดเชื้อ/biosafety: hand hygiene (alcohol vs สบู่ C.diff spore) · N95 vs surgical · transmission precaution (contact/droplet/airborne) · ห้องความดันลบ/บวก · post-exposure · BSL
 - **urinalysis-judgment** — โค้ชยูริน + body-fluid microscopy: ให้ strip ↔ micro ↔ clinical ตรงกัน — เน้น ตัดสินว่า cast/crystal/cell อันไหนสำคัญ + กับดัก strip false +/− ไม่ใช่ท่องตารางสี
 - **preanalytical-judgment** — ด่าน pre-analytical/phlebotomy: ลำดับเจาะ · เลือกหลอด · ระบุตัวผู้ป่วย · ขนส่ง/เก็บรักษา ให้ตัวอย่างเชื่อได้ก่อนถึงเครื่อง — เน้น จุดที่พลาดแล้วผลเพี้ยนเงียบ
+- **result-release-judgment** — ด่าน post-analytical/ปล่อยผล: delta-check เด้ง→แยกเปลี่ยนจริง/artifact/สลับตัวอย่าง · autoverify stop-rule · critical value (read-back+log+escalate) · corrected/amended report — เน้น ด่านสุดท้ายที่ผิดแล้วถึงคนไข้ตรงๆ
 - **poct-judgment** — โค้ช POCT: ทำให้ "แล็บนอกแล็บ" เชื่อได้เท่าแล็บกลาง — QC/connectivity/ผู้ใช้นอกสายแล็บ · เมื่อไหร่ต้อง confirm แล็บกลาง
 - **flow-cytometry-judgment** — โค้ช flow cytometry: gate ให้ถูก · อ่าน pattern · correlate clinical — เน้น กับดัก compensation/artifact + เมื่อไหร่ผลเชื่อไม่ได้
 

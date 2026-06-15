@@ -8,6 +8,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 ## [Unreleased]
 
 ### Added
+- `result-release-judgment` — ด่าน post-analytical/ปล่อยผล (W1 gap-fill, สกิลที่ 92): ปล่อย/repeat/recollect/hold/escalate · delta-check เด้ง→แยกเปลี่ยนจริง/artifact/**specimen mix-up** · autoverify stop-rule · critical value (read-back+log) · corrected/amended report. 🩸 clinical — `draft` · **ผ่าน codex 2 รอบ** (แก้ overstatement: delta-mixup ไม่ใช่กฎ, AMR≠reportable-range, read-back/corrected-amended ตาม SOP/accreditor, CLSI AUTO15 ไม่ใช่ AUTO10). flag-only verify.
 - `receiving-review-judgment` — รับ/ตอบ feedback (code review · รีวิวเปเปอร์ · หัวหน้าติ · codex/CI) ให้เป็น: triage **take/drop/push-back** (ไม่ caved/ไม่ ego) · disagree-and-commit **ยกเว้น correctness/security/legal** · อ่าน nit ที่ชี้ root · AI-review = **verify ก่อน apply** ไม่เชื่อดิบ. สกัดจากการเทียบ repo กับ `obra/superpowers` — ช่องว่างเดียวที่เป็น judgment แท้ (สกิลที่ 91) — `draft` (ผ่าน codex).
 
 ### Changed

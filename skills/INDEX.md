@@ -26,7 +26,7 @@
 | `data-science-workflow` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/data-science-workflow.md | 2026-06-08 |
 | `db-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/db-judgment.md | 2026-06-04 |
 | `debugging-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/debugging-judgment.md | 2026-06-08 |
-| `deep-research` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/deep-research.md | 2026-06-08 |
+| `deep-research` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/deep-research.md | 2026-06-15 |
 | `digital-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/digital-judgment.md | 2026-06-04 |
 | `dx-company-brief` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/dx-company-brief.md | 2026-06-08 |
 | `explain-simply` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/explain-simply.md | 2026-06-04 |

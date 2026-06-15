@@ -79,6 +79,7 @@
 | `python-coach` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/python-coach.md | 2026-06-04 |
 | `r2r-research-proposal` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/r2r-research-proposal.md | 2026-06-04 |
 | `r2r-stats` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/r2r-stats.md | 2026-06-04 |
+| `receiving-review-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/receiving-review-judgment.md | 2026-06-15 |
 | `report-up-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/report-up-judgment.md | 2026-06-15 |
 | `research-design-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/research-design-judgment.md | 2026-06-04 |
 | `sales-psychology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/sales-psychology-judgment.md | 2026-06-04 |

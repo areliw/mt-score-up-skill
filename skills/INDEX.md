@@ -78,7 +78,7 @@
 | `python-coach` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/python-coach.md | 2026-06-04 |
 | `r2r-research-proposal` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/r2r-research-proposal.md | 2026-06-04 |
 | `r2r-stats` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/r2r-stats.md | 2026-06-04 |
-| `report-up-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/report-up-judgment.md | 2026-06-08 |
+| `report-up-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/report-up-judgment.md | 2026-06-15 |
 | `research-design-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/research-design-judgment.md | 2026-06-04 |
 | `sales-psychology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/sales-psychology-judgment.md | 2026-06-04 |
 | `sample-size-power` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/sample-size-power.md | 2026-06-04 |
@@ -94,4 +94,4 @@
 | `verification-panel` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/verification-panel.md | 2026-06-08 |
 | `what-skill-do-i-need` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/what-skill-do-i-need.md | 2026-06-04 |
 | `write-a-skill` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/write-a-skill.md | 2026-06-08 |
-| `writing-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/writing-judgment.md | 2026-06-08 |
+| `writing-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/writing-judgment.md | 2026-06-15 |

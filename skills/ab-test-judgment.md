@@ -4,8 +4,8 @@ title: ทดสอบ prompt/skill ให้เชื่อผลได้ ไ�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: draft
+last_edited: 2026-06-15
+status: semi-stable
 disclaimer: "กรอบคิดการวัดผล prompt/skill เพื่อการศึกษา — ผลขึ้นกับ setup/ตัวตอบ/กรรมการ และมี noise เสมอ ไม่ใช่ความจริงสัมบูรณ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -34,7 +34,7 @@ disclaimer: "กรอบคิดการวัดผล prompt/skill เพ�
 - **ground truth จากกับดักของตัวเอง:** ตั้งโจทย์จาก **anti-pattern #1 ของสิ่งที่เทสต์** (worst-case ของมันเอง) → ไม่ใช่โจทย์ที่เราถนัด
 - **judge ตาบอด:** กรรมการต้อง**ไม่รู้**ว่าคำตอบไหนคือตัวที่มี treatment (สลับ A/B ตำแหน่งกัน positional bias)
 - **อนุญาตให้แพ้:** ถ้า design ออกมาแต่ผลบวกเสมอ = rigged/marketing. ผลลบต้องเกิดได้จริง
-- ⛔ **ห้าม bias judge เข้าข้างตัวเอง:** เพิ่งแก้ skill ให้ "lead-with-verdict" แล้วไปบอก judge "เห็น verdict ให้ +1" = **p-hacking** วัดเงาตัวเอง. เกณฑ์ต้องล็อก**ก่อน**รัน + ให้ทั้งสองฝั่งเท่ากัน
+- ⛔ **ห้าม bias judge เข้าข้างตัวเอง:** เพิ่งแก้ skill ให้ "lead-with-verdict" แล้วไปบอก judge "เห็น verdict ให้ +1" = **judge/measurement bias** (วัดเงาตัวเอง). เกณฑ์ต้องล็อก**ก่อน**รัน + ให้ทั้งสองฝั่งเท่ากัน
 
 ### Fork 2 — เลือก "ตัวตอบ" (answerer) ให้ตรงกับสิ่งที่อยากรู้
 - **frontier model embody judgment อยู่แล้ว** → with/without เกือบเท่ากัน = **no signal** (ไม่ใช่ skill ไม่ดี แต่วัดไม่เห็นเพราะโมเดลเก่งเองอยู่แล้ว)
@@ -49,19 +49,19 @@ edge_before = with_before − without_before
 edge_after  = with_after  − without_after
 real effect = edge_after − edge_before      ← นี่คือผลของการแก้
 ```
-- **with ขึ้น แต่ control ขึ้นเท่ากัน → effect = 0** (ทั้ง batch เลื่อน = drift ไม่ใช่ improvement). control คือ**ตัววัด noise** ของระบบ
+- **with ขึ้น แต่ control ขึ้นเท่ากัน → effect = 0** (ทั้ง batch เลื่อน = drift ไม่ใช่ improvement). control ใช้เป็น**ตัวประมาณ noise** ของระบบ (ตามงาน อาจดู CI/uncertainty ร่วม)
 - จัด kind ก่อนสรุป: **"เสมอ (tie) ≠ แย่"** (โจทย์ง่าย โมเดลตอบถูกเอง) · **"ตอบถูกทั้งคู่ เสีย style point" ≠ regression** · ตัวที่ต้องกลัวคือ **treatment ทำให้คำตอบที่ถูก → พัง** เท่านั้น
 
 ### Fork 4 — noise floor: เลขต้องเกินเท่าไรถึงเชื่อ
 - **วัด noise floor ก่อน:** รันชุดเดิมซ้ำ N รอบบนโจทย์เดียวกัน → ดูว่าคะแนนแกว่งเฉลี่ยเท่าไร = พื้น noise
-- **delta ต้องเกิน noise floor** ถึงนับเป็น signal (เคสจริงเคยวัดได้ ~1.4 บน 0–5 scale → edit ที่ขยับ <1 มองไม่เห็น)
+- **delta ควรเกิน noise floor** (rule-of-thumb) ถึงนับเป็น signal — เคสที่ต้องการความมั่นใจ ดู CI/power ร่วม (เคสจริงเคยวัดได้ ~1.4 บน 0–5 scale → edit ที่ขยับ <1 มองไม่เห็น)
 - **single run ไม่เคยพอ** — ต้อง averaged / repeated. noise ส่วนใหญ่อยู่ที่ **answerer** (สุ่ม) ไม่ใช่ judge
 - ⚠️ output ของ judge: ถ้าบังคับ **schema/JSON เข้ม** บนงานที่ judge ต้องให้เหตุผลยาว → ล่มเงียบบ่อย. ใช้ **text + tag** (`<score>4</score>`) ดึงผลได้ครบกว่า
 
 ### Fork 5 — เมื่อไหร่หยุดวัด → ตัดสินด้วย expert review แทน
 - **edit เล็กกว่า noise floor** → A/B ที่ N เล็กพิสูจน์ไม่ได้ → **review เร็วกว่า+ถูกกว่า**: ชัดขึ้นไหม? ถูกหลักวิชาไหม? ครบไหม? กระชับไหม? ถ้าใช่ = เก็บ ไม่ต้องรอเลขอนุมัติ
 - **ใช้ A/B แค่ระดับ aggregate** — "คลัง skill ทั้งหมดช่วย weak model ไหม / มี regression ไหม" ไม่ใช่ตัดสินต่อ edit
-- ต้องพิสูจน์ edit เดียวจริงๆ → จ่ายค่า **N≥20** หรือเปลี่ยนไป **answerer ที่ deterministic กว่า** เพื่อกด noise floor
+- ต้องพิสูจน์ edit เดียวจริงๆ → จ่ายค่า **N ใหญ่ขึ้น (default ~20+ แล้วแต่ effect/power)** หรือเปลี่ยนไป **answerer ที่ deterministic กว่า** เพื่อกด noise floor
 
 ### Fork 6 — ถ้าจะ "ยก" skill ที่อ่อน (improve playbook)
 วินิจฉัยก่อนว่าต่ำเพราะอะไร แล้วเลือก fix: **lead-with-verdict** (กฎ+กับดักบนสุด one-shot อ่านแล้วทำตามได้) · **procedural trigger** (`⛔ ถ้าเจอ X → ทำ Y ก่อนตอบ` สำหรับ skill ที่ value = การกระทำ) · **negative constraint** (`ห้ามตอบแบบ X` — weak model ตามคำสั่งห้ามเก่ง) · **tighten** (ตัด filler แก้ style-cost) · **correctness fold** (อัปเดตตาม literature)

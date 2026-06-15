@@ -6,7 +6,7 @@
 
 | skill | live URL (raw) | updated |
 |---|---|---|
-| `ab-test-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ab-test-judgment.md | 2026-06-04 |
+| `ab-test-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ab-test-judgment.md | 2026-06-15 |
 | `ai-agent-team` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-agent-team.md | 2026-06-04 |
 | `ai-assistant-calibration` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-assistant-calibration.md | 2026-06-04 |
 | `ai-coding-guardrails` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-coding-guardrails.md | 2026-06-08 |
@@ -36,18 +36,18 @@
 | `git-workflow-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/git-workflow-judgment.md | 2026-06-11 |
 | `grill-my-plan` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/grill-my-plan.md | 2026-06-08 |
 | `hematology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/hematology-judgment.md | 2026-06-13 |
-| `humanize-ai-writing` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/humanize-ai-writing.md | 2026-06-08 |
+| `humanize-ai-writing` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/humanize-ai-writing.md | 2026-06-15 |
 | `ikigai-finder` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ikigai-finder.md | 2026-06-04 |
 | `immunoassay-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/immunoassay-judgment.md | 2026-06-11 |
 | `incident-postmortem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/incident-postmortem-judgment.md | 2026-06-08 |
 | `infection-control-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/infection-control-judgment.md | 2026-06-11 |
 | `interactive-course` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interactive-course.md | 2026-06-08 |
-| `interprofessional-communication-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interprofessional-communication-judgment.md | 2026-06-13 |
+| `interprofessional-communication-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interprofessional-communication-judgment.md | 2026-06-15 |
 | `ivd-sales-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ivd-sales-judgment.md | 2026-06-04 |
 | `know-yourself` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/know-yourself.md | 2026-06-04 |
-| `lab-clinic-business-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-clinic-business-judgment.md | 2026-06-04 |
+| `lab-clinic-business-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-clinic-business-judgment.md | 2026-06-15 |
 | `lab-management-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-management-judgment.md | 2026-06-04 |
-| `lead-intelligence-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lead-intelligence-judgment.md | 2026-06-08 |
+| `lead-intelligence-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lead-intelligence-judgment.md | 2026-06-15 |
 | `literature-review-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/literature-review-judgment.md | 2026-06-08 |
 | `manuscript-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/manuscript-judgment.md | 2026-06-04 |
 | `market-research-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/market-research-judgment.md | 2026-06-08 |

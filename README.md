@@ -22,7 +22,7 @@
 
 > ⚠️ **เพื่อการศึกษา / ช่วยคิดเท่านั้น — NOT FOR CLINICAL USE.** กลุ่มสกิลงานแล็บ (🩸) เป็นกรอบช่วย *ตัดสินใจ/ทบทวน* ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่รับประกันความถูกต้อง — การใช้กับผู้ป่วยจริงต้องอิง SOP + วิจารณญาณของ MT/แพทย์ผู้มีใบประกอบวิชาชีพเสมอ · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้
 
-## 📚 ส่วนที่ 1 — Skills (92 สกิล)
+## 📚 ส่วนที่ 1 — Skills (93 สกิล)
 
 **🧭 ไม่รู้จะใช้ตัวไหน? เริ่มที่นี่:** วาง [`prompts/triage.md`](./prompts/triage.md) ในแชต AI แล้วเล่าปัญหา/เคส/งานวิจัยของคุณ → AI จะบอกว่าใช้ skill ไหน (หรือถ้าคลังยังไม่มี จะช่วยร่างให้ส่งเข้า GitHub)
 
@@ -148,6 +148,7 @@
 | [immunoassay-judgment](./skills/immunoassay-judgment.md) | เลือก format + อ่าน HBV/HIV/syphilis/ANA panel + prozone/hook/window |
 | [molecular-judgment](./skills/molecular-judgment.md) | เลือก method (Sanger/NGS/qPCR) + แปล Ct + กัน false +/− |
 | [pathology-judgment](./skills/pathology-judgment.md) | อ่าน pattern — benign/malignant + grading/staging + dysplasia |
+| [histotech-cytology-judgment](./skills/histotech-cytology-judgment.md) | งาน histo/cyto (process) — adequacy/fixation/stain QC/artifact (≠ อ่านผล) |
 | [parasitology-judgment](./skills/parasitology-judgment.md) | เลือก concentration/stain + malaria thick/thin + กัน single-stool false-neg |
 | [toxicology-judgment](./skills/toxicology-judgment.md) | screen vs confirm + antidote (OP/paraquat) + TDM timing |
 | [pharmacology-judgment](./skills/pharmacology-judgment.md) | ยาเบื้องต้น — ADME + แพ้ยา vs ผลข้างเคียง (SJS/TEN) + ยาตีกัน |
@@ -190,7 +191,7 @@ skill เป็นไฟล์ — มี 2 วิธีโหลด เลื�
 
 ```
 mt-score-up-skill/
-├── skills/        # ★ 92 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
+├── skills/        # ★ 93 สกิล — copy (แช่แข็ง) หรือโหลดสดผ่าน INDEX.md (auto-sync)
 ├── examples/      # ★ เห็น skill ทำงานจริง (before/after) — เริ่มที่นี่
 ├── exercises/     # โจทย์ฝึก ลองเองแล้วเทียบเฉลย
 ├── dist/          # all-skills.md — รวมทุก skill ไฟล์เดียว (auto-generated)

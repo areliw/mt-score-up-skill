@@ -1,6 +1,6 @@
 # Skills — คลังวิจารณญาณ MT
 
-**92 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
+**93 สกิล** ที่แพ็ก "วิจารณญาณ" (judgment) ของ MT ให้พกพาได้ — copy ทั้งไฟล์ไปวางในแชต AI ที่คุณใช้อยู่ (Claude / ChatGPT / Gemini) แล้วพิมพ์ปัญหาของคุณ
 
 > skill พวกนี้ไม่ได้เพิ่ม "ความรู้" ให้ AI (ตำรามีหมดแล้ว) — มันให้ **"เลือกอะไรเมื่อไหร่ + กับดักที่มือใหม่ไม่รู้"** ซึ่งเป็นส่วนที่ AI ทั่วไปทำพลาดบ่อย
 
@@ -23,6 +23,7 @@
 - **immunoassay-judgment** — เลือก format (sandwich/competitive/CLIA/lateral flow) · อ่าน HBV/HIV/syphilis/ANA panel · prozone/hook/window/confirm
 - **molecular-judgment** — เลือก method detect variant (RFLP/ASO/HRM/Sanger/NGS) · real-time chemistry · แปล Ct/melt valid-invalid · กัน contamination/false-neg · HLA typing · pharmacogenomics
 - **pathology-judgment** — อ่าน pattern: benign/malignant (5 แกน) · cell injury reversible/irreversible · necrosis type · acute/chronic อักเสบ · grading/staging · dysplasia→cancer (basement membrane) · granuloma/hypersensitivity
+- **histotech-cytology-judgment** — งาน histo/cyto ระดับ *process* (ไม่ใช่อ่านผล — MT ไม่วินิจฉัย): specimen adequacy (flag/แนะนำ recollect) · fixation/cold-ischemia/decalc กระทบ IHC-molecular (ER/PR/HER2) ทำซ้ำบนเนื้อเดิมไม่ได้ · air-dried vs wet-fixed ให้ตรง stain · artifact vs ของจริง (re-cut/re-stain) · control fail = invalid ≠ negative — คู่ process ของ `pathology-judgment`
 - **parasitology-judgment** — เลือก concentration/stain ตามเป้า · malaria thick vs thin + ตรวจซ้ำ · single-stool false-neg · artifact vs parasite
 - **toxicology-judgment** — screen vs confirm · antidote tree (OP/carbamate/paraquat/โลหะ) · chelator คู่โลหะ · RBC-AChE vs plasma ChE · TDM timing · chain of custody
 - **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็นภาพเดียว ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal value → DDx → rule-out → cause-effect chain) · *MT ไม่วินิจฉัย*

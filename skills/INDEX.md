@@ -36,6 +36,7 @@
 | `git-workflow-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/git-workflow-judgment.md | 2026-06-11 |
 | `grill-my-plan` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/grill-my-plan.md | 2026-06-08 |
 | `hematology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/hematology-judgment.md | 2026-06-13 |
+| `histotech-cytology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/histotech-cytology-judgment.md | 2026-06-16 |
 | `humanize-ai-writing` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/humanize-ai-writing.md | 2026-06-15 |
 | `ikigai-finder` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ikigai-finder.md | 2026-06-04 |
 | `immunoassay-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/immunoassay-judgment.md | 2026-06-11 |

@@ -27,6 +27,7 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 - เจอ sample hemolyzed/lipemic/icteric/clotted → ปล่อยผลได้มั้ย ตัวไหนเชื่อไม่ได้
 - ได้ค่า critical / outlier / เกิน linearity → dilute / repeat / โทร หรือ report
 - เลือกทาง recalibrate vs troubleshoot vs เปลี่ยน lot น้ำยา เมื่อ QC พัง
+- เครื่องหลักล่ม / โหลดถล่ม → triage STAT, เปิด backup/ส่งต่อ, แจ้ง delay ยังไง
 - (สาย sales/IVD) คุยภาษา sigma/TEa/QC กับ lab head ให้ตรงประเด็น
 
 ## วิธีใช้
@@ -91,6 +92,15 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 **Verdict: สงสัย = repeat ก่อนปล่อย. ได้ค่าเดิม = เชื่อ; ต่าง = หา pre-analytical/carryover.**
 Repeat ก่อนปล่อย เมื่อ: ค่า critical, ค่าขัด clinical/ผล panel อื่น (Cr สูงแต่ BUN ปกติ), delta check ต่างมาก, run QC borderline, มี HIL flag. Repeat ได้ค่าเดิม = เชื่อ; ต่าง = หา pre-analytical/carryover
 
+### FORK 7 — เครื่องหลักล่ม / โหลดถล่ม: triage STAT + backup/ส่งต่อ (operational continuity)
+**Verdict: จัดลำดับตาม downtime/STAT SOP + ความเสี่ยงทางคลินิก (critical/STAT ก่อน routine) — แต่ห้ามข้าม QC/ID/comparability/การแจ้งที่ต้องทำ · เปิด backup/manual ได้เฉพาะที่ "run QC ผ่าน (+ รู้ comparability ตาม SOP)" · แจ้ง ward เชิงรุกเรื่อง delay — อย่าเงียบ.** (เป็นการ "เดินงานต่อ" ตอนเครื่องล่ม ไม่ใช่การ accept/reject run ปกติ — FORK 1)
+- **triage:** ทุ่มกำลังที่ critical/STAT ก่อน (เช่น K⁺/glucose/blood gas/troponin) → routine เลื่อนได้ตามเกณฑ์ SOP/แพทย์ · งานที่ผูกธนาคารเลือด = ประสานตาม SOP BB (โยง `bloodbank-judgment`)
+- **backup analyzer / method สำรอง:** ใช้ได้ก็ต่อเมื่อ **run QC ผ่านบนเครื่องสำรอง** + (ตาม SOP) รู้ว่าผล comparable กับเครื่องหลัก — คนละเครื่อง/method = calibration/reference อาจต่าง → อย่าปล่อยผลข้ามเครื่องโดยไม่ดู comparability + ใส่หมายเหตุ method ตาม SOP
+- **manual/visual method สำรอง:** มักช้ากว่า/precision ต่างกัน (method-specific) → ใช้เฉพาะ method ที่ verified/กำหนดใน SOP + ระบุ method ที่ใช้
+- **ส่งต่อ (send-out/refer):** เมื่อ backup ก็ทำไม่ได้ → label/transport/แจ้ง TAT ที่ต่างไป (ผลอาจคนละ unit/method)
+- **สื่อสารเชิงรุก:** แจ้ง ward/แพทย์ว่า delay + ค่าไหนยัง report ได้/ไม่ได้ — แจ้งให้รู้ทัน (โยง `interprofessional-communication-judgment`; "เร็ว" = แจ้งข่าว delay ทันเวลา **ไม่ใช่ลัด QC/ID**) · downtime ต้อง document
+- **เครื่องกลับมา:** อย่า dump backlog ทันที → **run QC ผ่านก่อน** + reconcile งาน pending/STAT ที่ค้าง
+
 ## กับดัก (Anti-patterns)
 - 🚫 report ผลจาก run ที่ Westgard FAIL — run reject = ผู้ป่วยทุกคนใน run นั้น hold; แก้ QC ก่อน
 - 🚫 report K⁺ (หรือ LDH/AST) จากตัวอย่าง hemolyzed — สูงปลอม → เจาะใหม่ อย่า report
@@ -102,6 +112,8 @@ Repeat ก่อนปล่อย เมื่อ: ค่า critical, ค่�
 - 🚫 report ค่าที่เกิน linearity โดยไม่ dilute
 - 🚫 recalibrate ทันทีทุกครั้งที่ QC พัง — เช็ค control/sample/reagent expiry ก่อน
 - 🚫 ลืม carryover — ตัวอย่างเข้มข้นสูงตามด้วยต่ำ → ค่าต่ำสูงปลอม; repeat
+- 🚫 เครื่องล่มแล้วปล่อยผลจาก backup/manual โดยไม่ run QC + ไม่ดู comparability ข้ามเครื่อง
+- 🚫 ทำ routine ก่อน critical/STAT ตอนกำลังจำกัด · เงียบไม่แจ้ง ward เรื่อง delay · dump backlog ตอนเครื่องกลับมาโดยไม่ run QC ก่อน · เร่ง STAT จนลัด QC/ID/comparability (เร่งได้แต่ห้ามข้ามด่าน)
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > เติมเคส QC จริงที่เจอ: Westgard ตัวไหน fire บ่อยกับ analyte ไหนในแล็บคุณ และ root cause จริงที่เจอคืออะไร

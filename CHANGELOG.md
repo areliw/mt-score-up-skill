@@ -13,6 +13,10 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 - `receiving-review-judgment` — รับ/ตอบ feedback (code review · รีวิวเปเปอร์ · หัวหน้าติ · codex/CI) ให้เป็น: triage **take/drop/push-back** (ไม่ caved/ไม่ ego) · disagree-and-commit **ยกเว้น correctness/security/legal** · อ่าน nit ที่ชี้ root · AI-review = **verify ก่อน apply** ไม่เชื่อดิบ. สกัดจากการเทียบ repo กับ `obra/superpowers` — ช่องว่างเดียวที่เป็น judgment แท้ (สกิลที่ 91) — `draft` (ผ่าน codex).
 
 ### Changed
+- **W1 forks (3 สกิลเดิม เติม fork ปิด wave content-void):** ทุกตัวผ่าน codex review · clinical = flag-only · ตัวเลข hedge เป็น teaching illustration ผูก SOP/มาตรฐาน
+  - `clinchem-judgment` +**Fork 7 operational continuity** — เครื่องหลักล่ม/โหลดถล่ม → triage critical/STAT ก่อน routine · backup/manual ใช้ได้เฉพาะ run QC ผ่าน + รู้ comparability ข้ามเครื่อง · ส่งต่อ · แจ้ง ward เชิงรุก (เร็ว>ครบ) · เครื่องกลับมาอย่า dump backlog ก่อน run QC (แยกจาก accept/reject run ปกติ Fork 1)
+  - `lab-management-judgment` +**Fork 9 EQA/PT failure investigation** — สอบสวนเป็นระบบก่อน CAPA (clerical→IQC→peer/method-group→lot→competency) · PT sample commutability/matrix · miss เดี่ยว≠systematic · **ห้ามรันซ้ำจนผ่าน/แลกผล PT (referral)=เพิกถอน accreditation** (ต่อยอด Fork 2 EQA concept)
+  - `infection-control-judgment` +**Fork 7 chemical/occupational safety** — formalin/xylene → **fume hood ไม่ใช่ BSC** (type A หมุนเวียนไอเคมี) · exposure limit = teaching ยึดเกณฑ์พื้นที่ · spill ใหญ่/ระเหย=อพยพ+เรียกทีม (เคมี≠ชีวภาพ) · ของเสียแยก incompatibility/ห้ามลงท่อ · ขยาย scope เป็น lab safety (ชีวภาพ+เคมี/อาชีวะ)
 - `mt-career-judgment` — เพิ่ม **Fork 1B "ราชการสายข้าง: ทนพ → นวก./สสจ./สคร."** (เคสจริงจากคอมมูฯ MT, ตัวเลข case-specific ต้อง verify): break-even = heuristic "คุ้มต่อเมื่อไปไกลถึงเชี่ยวชาญ (ชช.)" · comp-cliff เคสเล่าเงินรวมหาย ~20K/เดือน (ฉ.11+พตส.+เงินตำแหน่ง+ค่าเวร) — ยืนยันสิทธิ์กับ HR ก่อน · บางหน่วยลังเลรับคนนอกสาย นวก. (ไม่ใช่กฎ ก.พ.) + 2 anti-pattern. PII-clean · ผ่าน codex review (PR #40)
 
 ## [0.9.0] — 2026-06-15

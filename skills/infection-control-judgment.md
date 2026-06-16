@@ -23,6 +23,7 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 - เคสนี้ใช้ PPE อะไร / precaution แบบไหน / ห้องความดันบวกหรือลบ
 - เข็มตำ/สัมผัสสารคัดหลั่ง → ทำอะไรต่อ
 - จัดการ specimen/เชื้อเสี่ยงในแล็บ (biosafety)
+- จัดการ **สารเคมี/ไอระเหย (formalin/xylene) / สารหก / ของเสียเคมี** ในแล็บ (chemical & occupational safety)
 
 ## วิธีใช้
 วาง skill นี้ + เล่าสถานการณ์ (เชื้อ/หัตถการ/ผู้ป่วย) → AI ชี้ระดับการป้องกัน + กับดักที่ทำให้แพร่เชื้อ
@@ -68,7 +69,16 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 ### Fork 6 — Biosafety ในแล็บ
 > **VERDICT: เชื้ออันตราย (TB culture, B. pseudomallei AST) ต้อง BSL-3 — lab BSL-2 ทำไม่ได้.**
 - จัดการ specimen ตามระดับความเสี่ยงเชื้อ (BSL) · เชื้ออันตราย (**M. tuberculosis culture, Burkholderia pseudomallei AST**) = **ต้อง BSL-3** (lab ทั่วไป BSL-2 ทำไม่ได้)
-- closed-system/automation = ลด aerosol/exposure · spill → containment ตาม SOP
+- closed-system/automation = ลด aerosol/exposure · spill ชีวภาพ → containment + disinfectant ตาม SOP
+
+### Fork 7 — สารเคมี/ความปลอดภัยอาชีวะ (formalin/spill/waste) — คนละชุดควบคุมกับชีวภาพ
+> **VERDICT: อันตรายเคมี ≠ ชีวภาพ → ไอระเหยเคมีใช้ fume hood ไม่ใช่ BSC · อ่าน SDS ก่อนใช้ · spill ใหญ่/ระเหย/ไม่รู้จัก = อพยพ+เรียกทีม อย่าฮีโร่ · ทิ้งของเสียแยกตาม incompatibility.**
+- ⚠️ **อย่าใช้ biosafety cabinet (BSC) แทน fume hood กับสารระเหย (formalin/xylene):** BSC ส่วนใหญ่ (type A) **หมุนเวียนอากาศกลับ** → ไอเคมีฟุ้งใส่คน + สะสมไส้กรอง → **default = chemical fume hood**; BSC ใช้ได้เฉพาะรุ่น/การต่อท่อที่ผู้ผลิต+SOP อนุญาตสำหรับสารนั้น (ไม่ใช่ ducted ทุกตัวรับสารระเหยได้ — A2 thimble มีข้อจำกัด) — BSC คุม *aerosol ชีวภาพ* ไม่ใช่ไอเคมี
+- **formaldehyde/formalin = สารก่อมะเร็ง + sensitizer/ระคายเคือง/พิษเฉียบพลัน** (ไม่ใช่แค่มะเร็งระยะยาว) → ที่ระบายอากาศดี, ปิดภาชนะ, PPE, มี spill kit + (ตามเกณฑ์) เฝ้าระวังระดับสัมผัส · ⚠️ ค่า exposure limit (PEL/STEL/TWA) = **teaching — ยึดเกณฑ์ที่บังคับในพื้นที่ (OSHA/มอก./กรมสวัสดิการฯ)** ไม่ใช่เลขสากลตัวเดียว
+- **spill เคมี:** ประเมินขนาด/ชนิด → เล็ก+รู้จัก = spill kit ดูดซับตาม SDS · **ใหญ่/ระเหย/ไวไฟ/ไม่รู้จัก = อพยพ + เรียกทีม** (ต่างจาก spill ชีวภาพที่ราด disinfectant — เคมีบางตัวเจอ disinfectant ยิ่งอันตราย)
+- **เก็บ/ทิ้งแยกตาม incompatibility:** กรด≠เบส · oxidizer≠ไวไฟ · แยก solvent **halogenated/non-halogenated** + formalin/aqueous ตาม SDS · formalin/solvent **ห้ามทิ้งลงท่อ** เว้นได้รับอนุญาต → ตาม SOP ของเสีย
+- **occupational อื่น:** ถังแก๊สอัด (ยึดให้แน่น) · cryogen/LN₂ (เสี่ยง asphyxiation/ผิวไหม้เย็น → ที่ระบายอากาศ) · ergonomics (pipette/กล้องซ้ำ ๆ) · เข็มตำ/bloodborne = Fork 5
+- **ระบบ:** chemical hygiene plan + SDS เข้าถึงได้ + ฉลาก GHS (โยง `lab-management-judgment` ISO 15190)
 
 ---
 
@@ -81,6 +91,9 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 - **ใส่/ถอด PPE ผิดลำดับ** → ปนเปื้อนตัวเอง
 - **เพาะ/ทำ AST เชื้อ BSL-3 (TB/melioidosis) ใน lab BSL-2** — เสี่ยงติดเชื้อ
 - **มอง pre-analytical/specimen ว่าไม่ติดเชื้อ** — standard precaution กับทุกตัวอย่าง
+- **ใช้ BSC แทน fume hood กับ formalin/xylene** — BSC type A หมุนเวียนอากาศ → ไอเคมีใส่คน (เคมีระเหย default = fume hood; BSC เฉพาะรุ่นที่อนุญาต)
+- **spill เคมีใหญ่แล้วราด disinfectant/เก็บเอง** — เคมี ≠ ชีวภาพ → ใหญ่/ระเหย/ไม่รู้จัก = อพยพ+เรียกทีม
+- **ทิ้งของเสียเคมีปนกัน/ลงท่อ** — กรด-เบส/oxidizer-ไวไฟ incompatible; formalin/solvent ห้ามลงท่อ
 
 ---
 

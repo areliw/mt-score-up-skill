@@ -21,6 +21,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 ## ใช้เมื่อ
 - เตรียม/ต่ออายุ accreditation (ISO 15189 / LA / HA) — เลือกระดับ + เตรียมเอกสาร
 - QC แพง/รันซ้ำเปลือง → วางแผน QC ตาม sigma/IQCP
+- ได้ผล **EQA/PT fail** → สอบสวนยังไงก่อนแก้/ก่อนกระทบ accreditation
 - สั่งน้ำยา-คุมสต็อก · ของบเครื่อง/น้ำยา · รับเครื่องใหม่ (verification) · จัดการความเสี่ยง/TAT
 
 ## วิธีใช้
@@ -79,13 +80,21 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้อง�
 - **LIS/LIMS** (ISO บังคับ): สิทธิ์เข้าถึง, ใคร approve, กันแก้-สูญหาย, **audit trail**, ความลับคนไข้ (PDPA)
 - **TAT** = KPI ที่ ward/แพทย์กดดันสุด → automation/STAT pathway ลด TAT
 
+### Fork 9 — EQA/PT fail → investigate (ไม่ใช่โทษเครื่องทันที / ไม่ใช่รันซ้ำจนผ่าน)
+> **verdict:** EQA/PT flag = **สอบสวนเป็นระบบก่อน CAPA** — ไล่ clerical → IQC ตอนนั้น → peer/method-group ถูกไหม → lot/calibration → competency. **miss เดี่ยว ≠ systematic** (หลาย analyte/ผิดซ้ำ = หนักกว่า) — เกณฑ์ "fail" (SDI/z-score ฯลฯ) ต่างตาม scheme
+- **ไล่ตามลำดับ (น่าจะสุดก่อน):** (1) **clerical/transcription** — กรอก/หน่วยผิด, สลับ sample, ส่งผิดช่อง (พบบ่อยสุด) (2) **IQC วันที่ทำ PT ผ่านไหม** (3) **peer/method group ถูกไหม** — เทียบกับกลุ่ม method/instrument ของตัวเองหรือเปล่า (เทียบผิดกลุ่ม = "bias" ลวง) (4) **reagent lot / calibration drift** ช่วงนั้น (5) **competency/ขั้นตอน**
+- ⚠️ **PT/EQA sample matrix / commutability:** วัสดุ PT บางตัว **ไม่ commutable** → ความต่างจาก method อาจไม่ใช่ error ที่เกิดกับ sample คนไข้จริง → ดู method-specific target group ก่อนสรุป (ยึดเกณฑ์ scheme)
+- **CAPA + เอกสาร:** หา root cause → แก้ → บันทึก · ⚠️ **อย่ารันซ้ำจนผ่านโดยไม่หาเหตุ** · ⚠️ **ห้ามแลก/ดูผล PT กับแล็บอื่น (PT referral)** — โดยทั่วไปเป็น serious nonconformity/ต้องห้ามในหลาย PT/accreditation rule (ผลขึ้นกับ scheme/พื้นที่ — อาจถึงเพิกถอน)
+- **ผลต่อ accreditation:** PT fail ซ้ำ/ไม่สอบสวน = จุดที่ผู้ตรวจ LA/ISO 15189 จับ → ต้องมีหลักฐาน investigation + CAPA
+
 ---
 
 ## กับดัก (Anti-patterns)
 - ละเมิดกฎ #1: ใช้ค่าจากกล่องน้ำยา · เก็บ 20 จุดวันเดียว (SD แคบ → false reject) · carry mean/SD ข้าม lot
 - **2SD กับทุก test** → false reject ท่วม รันซ้ำเปลืองเงิน (สับ warning 1₂s กับ reject)
 - **QC out → รันซ้ำจนผ่าน** โดยไม่หา root cause → ปล่อย systematic error หลุด
-- **EQA fail = โทษเครื่องทันที** → อาจ pre-analytical / ลงค่าผิด / lot
+- **EQA fail = โทษเครื่องทันที** → อาจ clerical / ลงค่าผิด / เทียบผิด peer-group / lot (สอบสวนตาม Fork 9 ก่อน)
+- **PT fail แล้วรันซ้ำจนผ่าน / แลกผล PT กับแล็บอื่น** → ไม่หา root cause + **PT referral = serious nonconformity/ต้องห้ามในหลาย rule (ผลตาม scheme/พื้นที่ — อาจถึงเพิกถอน)**
 - **สั่งล็อตใหญ่เพราะถูก/หน่วย** → หมดอายุก่อนใช้ + แช่เงินทุน
 - **มอง pre-analytical ว่าไม่ใช่ปัญหาแล็บ** ทั้งที่เป็น error อันดับ 1
 - **สับ verification กับ validation** → รับเครื่องโดยไม่ทวนสอบเองก่อนใช้

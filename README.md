@@ -139,7 +139,8 @@
 ### 🩸 งานแล็บ (Lab bench)
 | skill | ช่วยอะไร |
 |---|---|
-| [bloodbank-judgment](./skills/bloodbank-judgment.md) | ตัดสินใจหน้างานธนาคารเลือด — ABO discrepancy / antibody ID / transfusion reaction |
+| [bloodbank-judgment](./skills/bloodbank-judgment.md) | ตัดสินใจหน้างานธนาคารเลือด (ฝั่งผู้รับ) — ABO discrepancy / antibody ID / transfusion reaction |
+| [blood-donor-component-judgment](./skills/blood-donor-component-judgment.md) | ฝั่งผู้บริจาค/ผลิตเลือด — eligibility · apheresis · component QC · TTI/recall (≠ ฝั่งผู้รับ) |
 | [hematology-judgment](./skills/hematology-judgment.md) | อ่าน CBC/smear/coag — review smear เมื่อไหร่ + thal vs IDA + PT/aPTT |
 | [clinchem-judgment](./skills/clinchem-judgment.md) | QC accept/reject (Westgard) + interference HIL + critical value |
 | [chemistry-interpretation-judgment](./skills/chemistry-interpretation-judgment.md) | แปลผล organ-system — tumor/renal(eGFR)/LFT/cardiac + ABG/anion gap |

@@ -14,7 +14,8 @@
 ## รายการ
 
 ### 🩸 งานแล็บ (Lab bench)
-- **bloodbank-judgment** — ตัดสินใจหน้างานธนาคารเลือด (CLERICAL ก่อน · ABO discrepancy 8 เคส · antibody ID · crossmatch IS/AHG/electronic · เมื่อไหร่ irradiate · transfusion reaction) — patient-safety สูงสุด
+- **bloodbank-judgment** — ตัดสินใจหน้างานธนาคารเลือด **ฝั่งผู้รับ** (CLERICAL ก่อน · ABO discrepancy 8 เคส · antibody ID · crossmatch IS/AHG/electronic · เมื่อไหร่ irradiate · transfusion reaction) — patient-safety สูงสุด
+- **blood-donor-component-judgment** — ฝั่ง **ผู้บริจาค/ผลิต/QC** (ไม่ใช่ฝั่งผู้รับ = `bloodbank`): donor eligibility (defer ปกป้อง 2 ทาง · เลขเกณฑ์ verify SOP) · whole blood vs apheresis + citrate/ECV · donor reaction (vasovagal/delayed faint) · component prep timing (FFP vs FP24 · platelet ห้ามแช่เย็น) · component QC (fail=สงสัยทั้ง batch) · storage/รับ unit คืน · TTI reactive→confirm ก่อนแจ้ง donor (window period) · post-donation/look-back/recall — คู่ donor-side ของ `bloodbank-judgment`
 - **hematology-judgment** — อ่าน CBC/smear/coag (review smear เมื่อไหร่ · anemia ตาม MCV · blast=urgent · thal vs IDA · PT/aPTT + mixing test · platelet จริงหรือ pseudo)
 - **clinchem-judgment** — accept/reject QC run (Westgard) · interference HIL กระทบ analyte ไหน · critical value · recalibrate vs troubleshoot · dilute/repeat/report
 - **chemistry-interpretation-judgment** — แปลผล organ-system (ค่าออกมาแล้วแปลว่าอะไร): tumor marker ใช้/ไม่ใช้ · renal (eGFR/cystatin/Jaffe) · LFT pattern (AST:ALT, DB/TB) · cardiac timing (troponin/CK-MB) · acid-base + anion gap · interference (HIL/paraprotein/drug) — *MT ไม่วินิจฉัย*

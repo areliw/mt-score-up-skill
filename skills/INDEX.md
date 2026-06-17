@@ -12,6 +12,7 @@
 | `ai-coding-guardrails` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-coding-guardrails.md | 2026-06-08 |
 | `anti-hallucination` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/anti-hallucination.md | 2026-06-13 |
 | `applied-microbiology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/applied-microbiology-judgment.md | 2026-06-04 |
+| `blood-donor-component-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/blood-donor-component-judgment.md | 2026-06-16 |
 | `bloodbank-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/bloodbank-judgment.md | 2026-06-11 |
 | `chemistry-interpretation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/chemistry-interpretation-judgment.md | 2026-06-04 |
 | `choose-stat-test` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/choose-stat-test.md | 2026-06-04 |

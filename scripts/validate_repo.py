@@ -3,9 +3,11 @@
 Repo validator — fast, zero-dependency CI guard for the skills library.
 
 Checks (fails CI on any error):
-  1. Frontmatter — every skills/*.md (except catalogs) has the required keys
-     and a valid `type` / `needs` / `last_edited` format.
-  2. Internal links — every relative markdown link in README + skills/ resolves
+  1. Frontmatter — every skills/*.md (except catalogs) has the required keys,
+     a valid `type` / `needs` / `last_edited` format, and a title within length.
+  2. Structure — every skill keeps the canonical sections (ใช้เมื่อ / กับดัก /
+     ช่องสำหรับผู้เชี่ยวชาญ) so the judgment-skill shape can't silently erode.
+  3. Internal links — every relative markdown link in README + skills/ resolves
      to a real file or folder (catches dead links as the repo grows).
 
 Stdlib only (no PyYAML / external action) → matches the project's 0-dependency,
@@ -35,6 +37,11 @@ SKILLS = ROOT / "skills"
 REQUIRED_KEYS = ["skill", "title", "type", "needs", "author", "last_edited", "status", "disclaimer"]
 VALID_TYPE = {"ADVISE", "DO", "CALIBRATION"}
 VALID_NEEDS = {"any", "code-interpreter", "persistent-memory"}
+# Structural lint: every skill keeps the canonical sections (all 93 comply as of
+# 2026-06-18 — gate guards against future skills silently dropping them). Substring,
+# not heading-anchored, so legitimate heading variants ("## กับดัก (Anti-patterns)") pass.
+REQUIRED_SECTIONS = ["ใช้เมื่อ", "กับดัก", "ช่องสำหรับผู้เชี่ยวชาญ"]
+TITLE_MAXLEN = 160  # catalog/triage truncates ~150; keep titles scannable
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 KEY_RE = re.compile(r"^([A-Za-z_]+):\s*(.*)$")
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
@@ -78,6 +85,12 @@ for md in skill_files:
         errors.append(f"{rel}: needs '{fm['needs'].split()[0]}' not in {sorted(VALID_NEEDS)}")
     if fm.get("last_edited") and not DATE_RE.match(fm["last_edited"].split()[0]):
         errors.append(f"{rel}: last_edited '{fm['last_edited']}' not YYYY-MM-DD")
+    if fm.get("title") and len(fm["title"]) > TITLE_MAXLEN:
+        errors.append(f"{rel}: title {len(fm['title'])} chars > {TITLE_MAXLEN} (keep it scannable)")
+    body = md.read_text(encoding="utf-8")
+    for section in REQUIRED_SECTIONS:
+        if section not in body:
+            errors.append(f"{rel}: missing canonical section '{section}'")
 
 # 2. internal links (README + every skill file)
 for md in [ROOT / "README.md", SKILLS / "README.md", *skill_files]:

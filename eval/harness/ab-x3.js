@@ -32,8 +32,14 @@ export const meta = {
 const SCENARIO = { type:'object', properties:{ scenario:{type:'string'} }, required:['scenario'], additionalProperties:false }
 const VERDICT = { type:'object', properties:{ score1:{type:'number'}, score2:{type:'number'}, reason:{type:'string'} }, required:['score1','score2','reason'], additionalProperties:false }
 
-const TARGETS = Array.isArray(args) ? args : []
-if (!TARGETS.length) { log('ab-x3: no targets in args — pass [{skill,file,focus}, ...]'); return { error: 'no targets' } }
+// args may arrive as an array OR as a JSON string (the Workflow tool can stringify it) — handle both.
+function parseTargets(a) {
+  if (Array.isArray(a)) return a
+  if (typeof a === 'string') { try { const v = JSON.parse(a); return Array.isArray(v) ? v : [] } catch { return [] } }
+  return []
+}
+const TARGETS = parseTargets(args)
+if (!TARGETS.length) { log('ab-x3: no targets — pass args as a JSON array [{skill,file,focus}, ...]'); return { error: 'no targets' } }
 
 const results = await pipeline(
   TARGETS,

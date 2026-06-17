@@ -75,6 +75,32 @@ result is re-classified by the `trapAvoid` field into what it *means*:
 
 The `regression` row is the one that would actually condemn a skill. See RESULTS for the count.
 
+### Layer 2 upgrade (2026-06-18) — control arm · selftest · split gates
+
+Three refinements adapted from a teardown of `DietrichGebert/ponytail`'s benchmark harness
+([study](../docs/design/study-ponytail.md)), proven on one discriminating trap
+([probe](2026-06-18-harness-upgrade-probe.md)) and now the protocol for promote-grade runs:
+
+1. **`--selftest` the judge before spending.** Each trap ships a pre-written *gold* answer
+   (should score ≥4) and a *known-bad* answer (should score ≤2). Run the blind judge on these
+   **first**; if the spread < 2 the instrument can't discriminate → fix the trap/judge before
+   burning answerer runs. (Catches the failure mode where a flat result means "bad ruler", not
+   "no effect" — cf. the textbook-trap ties where Haiku already knew the answer.)
+2. **Third arm = control.** Add a *generic-careful* arm (a plain "answer carefully as a
+   professional" system prompt, **no judgment scaffolding**) alongside baseline (null) and
+   with-skill. Report **delta-of-deltas**: a skill must beat the control, not just the null —
+   otherwise the "lift" may be *any* framing making the model try harder, not the specific
+   judgment. (In the probe the control scored *below* baseline, so the skill's +3 was provably
+   its domain judgment, not generic caution.)
+3. **Split the score into axes.** Keep helpfulness 0–5, **plus** a binary **correctness/safety**
+   gate (did it avoid the dangerous action?) **plus** a binary **specificity** gate (did it
+   deliver the specific senior judgment the skill claims?). When a trap is "safe for every arm"
+   (correctness all-pass), specificity is what still measures the skill — rescuing cases that
+   a single helpfulness average would score as a tie.
+
+Discipline unchanged: hard cases per fork **and** anti-pattern, median ≥10 reps for promote
+decisions, log/halt if answerer drop-rate > 5%.
+
 ## Layer 3 — Measurable exemplar (Titanic, real code)
 
 **Question: can we put a number on the judgment, not just a vote?** For `ml-judgment` we run

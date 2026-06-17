@@ -1,426 +1,446 @@
 [
-{
-"skill": "ai-agent-team.md",
-"effect": "backfire",
-"withScore": 4,
-"withoutScore": 5,
-"delta": -1,
-"trapAvoid": "both"
-},
-{
-"skill": "ai-assistant-calibration.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "anti-hallucination.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 2,
-"delta": 3,
-"trapAvoid": "with-only"
-},
-{
-"skill": "choose-stat-test.md",
-"effect": "neutral",
-"withScore": 4.5,
-"withoutScore": 4,
-"delta": 0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "content-creator-judgment.md",
-"effect": "lift",
-"withScore": 4.5,
-"withoutScore": 1,
-"delta": 3.5,
-"trapAvoid": "with-only"
-},
-{
-"skill": "critical-appraisal-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "crm-judgment.md",
-"effect": "neutral",
-"withScore": 4,
-"withoutScore": 4,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "cv-judgment.md",
-"effect": "neutral",
-"withScore": 5,
-"withoutScore": 5,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "data-project-survival.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "db-judgment.md",
-"effect": "neutral",
-"withScore": 4.5,
-"withoutScore": 5,
-"delta": -0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "digital-judgment.md",
-"effect": "backfire",
-"withScore": 4,
-"withoutScore": 5,
-"delta": -1,
-"trapAvoid": "both"
-},
-{
-"skill": "explain-simply.md",
-"effect": "neutral",
-"withScore": 3,
-"withoutScore": 3.5,
-"delta": -0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "finance-judgment.md",
-"effect": "neutral",
-"withScore": 4,
-"withoutScore": 4.5,
-"delta": -0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "financial-statement-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "ikigai-finder.md",
-"effect": "lift",
-"withScore": 4,
-"withoutScore": 2.5,
-"delta": 1.5,
-"trapAvoid": "with-only"
-},
-{
-"skill": "ivd-sales-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 1,
-"delta": 4,
-"trapAvoid": "with-only"
-},
-{
-"skill": "manuscript-judgment.md",
-"effect": "neutral",
-"withScore": 4,
-"withoutScore": 4.5,
-"delta": -0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "marketing-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "ml-judgment.md",
-"effect": "lift",
-"withScore": 4,
-"withoutScore": 3,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "mt-exam-strategy-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 2,
-"delta": 3,
-"trapAvoid": "with-only"
-},
-{
-"skill": "mt-law-ethics-judgment.md",
-"effect": "neutral",
-"withScore": 4,
-"withoutScore": 3.5,
-"delta": 0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "never-lose-a-file.md",
-"effect": "backfire",
-"withScore": 4,
-"withoutScore": 5,
-"delta": -1,
-"trapAvoid": "both"
-},
-{
-"skill": "offload-to-automation.md",
-"effect": "backfire",
-"withScore": 0,
-"withoutScore": 2,
-"delta": -2,
-"trapAvoid": "neither"
-},
-{
-"skill": "optimization-judgment.md",
-"effect": "lift",
-"withScore": 4,
-"withoutScore": 3,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "photography-judgment.md",
-"effect": "lift",
-"withScore": 2,
-"withoutScore": 1,
-"delta": 1,
-"trapAvoid": "neither"
-},
-{
-"skill": "polite-but-clear.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 2,
-"delta": 3,
-"trapAvoid": "with-only"
-},
-{
-"skill": "progress-tracker.md",
-"effect": "neutral",
-"withScore": 5,
-"withoutScore": 5,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "python-coach.md",
-"effect": "neutral",
-"withScore": 5,
-"withoutScore": 5,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "r2r-research-proposal.md",
-"effect": "lift",
-"withScore": 4.5,
-"withoutScore": 2,
-"delta": 2.5,
-"trapAvoid": "with-only"
-},
-{
-"skill": "r2r-stats.md",
-"effect": "neutral",
-"withScore": 5,
-"withoutScore": 5,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "research-design-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "sales-psychology-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "sample-size-power.md",
-"effect": "lift",
-"withScore": 3,
-"withoutScore": 2,
-"delta": 1,
-"trapAvoid": "with-only"
-},
-{
-"skill": "self-development-coach.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "self-improving-agent.md",
-"effect": "neutral",
-"withScore": 5,
-"withoutScore": 4.5,
-"delta": 0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "what-skill-do-i-need.md",
-"effect": "neutral",
-"withScore": 4.5,
-"withoutScore": 4,
-"delta": 0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "lab-management-judgment.md",
-"effect": "neutral",
-"withScore": 5,
-"withoutScore": 5,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "clinchem-judgment.md",
-"effect": "backfire",
-"withScore": 4,
-"withoutScore": 5,
-"delta": -1,
-"trapAvoid": "both"
-},
-{
-"skill": "molecular-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "applied-microbiology-judgment.md",
-"effect": "neutral",
-"withScore": 5,
-"withoutScore": 5,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "clinical-correlation-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "know-yourself.md",
-"effect": "backfire",
-"withScore": 1.5,
-"withoutScore": 2.5,
-"delta": -1,
-"trapAvoid": "neither"
-},
-{
-"skill": "mt-career-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 2,
-"delta": 3,
-"trapAvoid": "with-only"
-},
-{
-"skill": "toxicology-judgment.md",
-"effect": "backfire",
-"withScore": 4,
-"withoutScore": 5,
-"delta": -1,
-"trapAvoid": "both"
-},
-{
-"skill": "hematology-judgment.md",
-"effect": "neutral",
-"withScore": 4,
-"withoutScore": 4,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "pharmacology-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-},
-{
-"skill": "clinmicro-judgment.md",
-"effect": "neutral",
-"withScore": 4,
-"withoutScore": 4,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "pathology-judgment.md",
-"effect": "neutral",
-"withScore": 4,
-"withoutScore": 3.5,
-"delta": 0.5,
-"trapAvoid": "both"
-},
-{
-"skill": "infection-control-judgment.md",
-"effect": "backfire",
-"withScore": 4,
-"withoutScore": 5,
-"delta": -1,
-"trapAvoid": "both"
-},
-{
-"skill": "parasitology-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 3,
-"delta": 2,
-"trapAvoid": "both"
-},
-{
-"skill": "bloodbank-judgment.md",
-"effect": "backfire",
-"withScore": 3.5,
-"withoutScore": 4.5,
-"delta": -1,
-"trapAvoid": "both"
-},
-{
-"skill": "immunoassay-judgment.md",
-"effect": "neutral",
-"withScore": 4.5,
-"withoutScore": 4.5,
-"delta": 0,
-"trapAvoid": "both"
-},
-{
-"skill": "chemistry-interpretation-judgment.md",
-"effect": "lift",
-"withScore": 5,
-"withoutScore": 4,
-"delta": 1,
-"trapAvoid": "both"
-}
+ {
+  "skill": "ai-agent-team.md",
+  "effect": "backfire",
+  "withScore": 4,
+  "withoutScore": 5,
+  "delta": -1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "ai-assistant-calibration.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "anti-hallucination.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 2,
+  "delta": 3,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "choose-stat-test.md",
+  "effect": "neutral",
+  "withScore": 4.5,
+  "withoutScore": 4,
+  "delta": 0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "content-creator-judgment.md",
+  "effect": "lift",
+  "withScore": 4.5,
+  "withoutScore": 1,
+  "delta": 3.5,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "critical-appraisal-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "crm-judgment.md",
+  "effect": "neutral",
+  "withScore": 4,
+  "withoutScore": 4,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "cv-judgment.md",
+  "effect": "neutral",
+  "withScore": 5,
+  "withoutScore": 5,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "data-project-survival.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "db-judgment.md",
+  "effect": "neutral",
+  "withScore": 4.5,
+  "withoutScore": 5,
+  "delta": -0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "digital-judgment.md",
+  "effect": "backfire",
+  "withScore": 4,
+  "withoutScore": 5,
+  "delta": -1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "explain-simply.md",
+  "effect": "neutral",
+  "withScore": 3,
+  "withoutScore": 3.5,
+  "delta": -0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "finance-judgment.md",
+  "effect": "neutral",
+  "withScore": 4,
+  "withoutScore": 4.5,
+  "delta": -0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "financial-statement-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "ikigai-finder.md",
+  "effect": "lift",
+  "withScore": 4,
+  "withoutScore": 2.5,
+  "delta": 1.5,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "ivd-sales-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 1,
+  "delta": 4,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "manuscript-judgment.md",
+  "effect": "neutral",
+  "withScore": 4,
+  "withoutScore": 4.5,
+  "delta": -0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "marketing-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "ml-judgment.md",
+  "effect": "lift",
+  "withScore": 4,
+  "withoutScore": 3,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "mt-exam-strategy-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 2,
+  "delta": 3,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "mt-law-ethics-judgment.md",
+  "effect": "neutral",
+  "withScore": 4,
+  "withoutScore": 3.5,
+  "delta": 0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "never-lose-a-file.md",
+  "effect": "backfire",
+  "withScore": 4,
+  "withoutScore": 5,
+  "delta": -1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "offload-to-automation.md",
+  "effect": "backfire",
+  "withScore": 0,
+  "withoutScore": 2,
+  "delta": -2,
+  "trapAvoid": "neither"
+ },
+ {
+  "skill": "optimization-judgment.md",
+  "effect": "lift",
+  "withScore": 4,
+  "withoutScore": 3,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "photography-judgment.md",
+  "effect": "lift",
+  "withScore": 2,
+  "withoutScore": 1,
+  "delta": 1,
+  "trapAvoid": "neither"
+ },
+ {
+  "skill": "polite-but-clear.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 2,
+  "delta": 3,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "progress-tracker.md",
+  "effect": "neutral",
+  "withScore": 5,
+  "withoutScore": 5,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "python-coach.md",
+  "effect": "neutral",
+  "withScore": 5,
+  "withoutScore": 5,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "r2r-research-proposal.md",
+  "effect": "lift",
+  "withScore": 4.5,
+  "withoutScore": 2,
+  "delta": 2.5,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "r2r-stats.md",
+  "effect": "neutral",
+  "withScore": 5,
+  "withoutScore": 5,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "research-design-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "sales-psychology-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "sample-size-power.md",
+  "effect": "lift",
+  "withScore": 3,
+  "withoutScore": 2,
+  "delta": 1,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "self-development-coach.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "self-improving-agent.md",
+  "effect": "neutral",
+  "withScore": 5,
+  "withoutScore": 4.5,
+  "delta": 0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "what-skill-do-i-need.md",
+  "effect": "neutral",
+  "withScore": 4.5,
+  "withoutScore": 4,
+  "delta": 0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "lab-management-judgment.md",
+  "effect": "neutral",
+  "withScore": 5,
+  "withoutScore": 5,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "clinchem-judgment.md",
+  "effect": "backfire",
+  "withScore": 4,
+  "withoutScore": 5,
+  "delta": -1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "molecular-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "applied-microbiology-judgment.md",
+  "effect": "neutral",
+  "withScore": 5,
+  "withoutScore": 5,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "clinical-correlation-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "know-yourself.md",
+  "effect": "backfire",
+  "withScore": 1.5,
+  "withoutScore": 2.5,
+  "delta": -1,
+  "trapAvoid": "neither"
+ },
+ {
+  "skill": "mt-career-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 2,
+  "delta": 3,
+  "trapAvoid": "with-only"
+ },
+ {
+  "skill": "toxicology-judgment.md",
+  "effect": "backfire",
+  "withScore": 4,
+  "withoutScore": 5,
+  "delta": -1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "hematology-judgment.md",
+  "effect": "neutral",
+  "withScore": 4,
+  "withoutScore": 4,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "pharmacology-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "clinmicro-judgment.md",
+  "effect": "neutral",
+  "withScore": 4,
+  "withoutScore": 4,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "pathology-judgment.md",
+  "effect": "neutral",
+  "withScore": 4,
+  "withoutScore": 3.5,
+  "delta": 0.5,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "infection-control-judgment.md",
+  "effect": "backfire",
+  "withScore": 4,
+  "withoutScore": 5,
+  "delta": -1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "parasitology-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 3,
+  "delta": 2,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "bloodbank-judgment.md",
+  "effect": "backfire",
+  "withScore": 3.5,
+  "withoutScore": 4.5,
+  "delta": -1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "immunoassay-judgment.md",
+  "effect": "neutral",
+  "withScore": 4.5,
+  "withoutScore": 4.5,
+  "delta": 0,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "chemistry-interpretation-judgment.md",
+  "effect": "lift",
+  "withScore": 5,
+  "withoutScore": 4,
+  "delta": 1,
+  "trapAvoid": "both"
+ },
+ {
+  "skill": "blood-donor-component-judgment.md",
+  "effect": "lift",
+  "withScore": 4.67,
+  "withoutScore": 3.33,
+  "delta": 1.33,
+  "trapAvoid": "both",
+  "method": "x3",
+  "run": "wf_2c1d45c1-f41"
+ },
+ {
+  "skill": "lab-clinic-business-judgment.md",
+  "effect": "backfire",
+  "withScore": 3.5,
+  "withoutScore": 4.33,
+  "delta": -0.83,
+  "trapAvoid": "both",
+  "method": "x3",
+  "run": "wf_2c1d45c1-f41"
+ }
 ]

@@ -5148,6 +5148,7 @@ MT ไม่ได้มีแค่ "อยู่หน้า bench" — มี
 - **บันได (สาย diagnostics/IVD):** Sales Rep → Supervisor/Product Specialist → Sales/Product Manager → Marketing → Business Development → Business Unit/Country Manager → Regional Director → VP — **เป็นบันไดจริงที่มีคนเดินถึงระดับภูมิภาคได้**
 - **role ที่เข้าได้:** Sales Rep (Diagnostics/Scientific Equipment) · Product Specialist/Manager (สาย technical-commercial) · **Medical Product Specialist** (หลายที่ *ไม่ต้องใช้ใบอนุญาต* = exit friction ต่ำ) · Medical Advisor/Innovation (biotech, จ่ายสูง)
 - edge ของ MT: เข้าใจ science + งานแล็บ + pain ของลูกค้า (คนขายทั่วไปไม่มี) → ขายแบบ consultative ได้
+- **คงใบประกอบฯ ไว้แม้ย้ายออกจาก bench = asset ไม่ใช่ภาระ:** เคสรุ่นพี่สายขาย/บริหารหลายคนเก็บใบต่อเนื่อง — ได้ใช้ตอนบริษัทต้อง **จดทะเบียน/set up แล็บ** (คลินิกเทคนิคการแพทย์/แล็บที่เปิดบริการ มักต้องมี ทนพ. มีใบอนุญาตเป็นผู้ดำเนินการ/ผู้รับผิดชอบตามเงื่อนไขกฎหมาย — ไม่ใช่ทุกแล็บ/ทุกที่) + เป็น credential ติดตัว · *ไม่ขัดกับ* "เลี่ยง role ที่บังคับใช้ใบโดยไม่จำเป็น" (Fork 8) — นั่นคืออย่าผูกงานประจำกับใบ ส่วนนี้คือรักษาใบไว้เป็นสินทรัพย์ (เช็คเงื่อนไขต่อใบ/ชม.พัฒนาวิชาชีพเอง)
 - ⚠️ บันได/ชื่อ role + ข้อ *"ไม่ต้องใช้ใบอนุญาต"* นี้อิงบริบท **ไทย/SEA** — ต่างกันตามประเทศ/บริษัท ต้องเช็คของจริงในตลาดนั้นเอง (อย่าฟันธงว่าเป็นจริงทุกที่)
 
 ### Fork 3 — รายได้ฝั่ง commercial ≠ base salary (อย่าเทียบผิด)

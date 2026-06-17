@@ -98,6 +98,22 @@ Three refinements adapted from a teardown of `DietrichGebert/ponytail`'s benchma
    (correctness all-pass), specificity is what still measures the skill — rescuing cases that
    a single helpfulness average would score as a tie.
 
+**Mental model — run an eval like a gel/assay.** The three upgrades are really one thing an MT
+already does on every run: a **control panel**. No one reports a gel where the positive control
+didn't run or the negative lane lit up — an eval result without its controls is just as
+untrustworthy.
+
+| gel/assay lane | must… | eval-harness equivalent |
+|---|---|---|
+| **negative control** (no template) | stay blank | null/baseline arm + known-bad ref must score **low** — if a no-skill/bad answer scores high, the judge is contaminated (too lenient) |
+| **positive control** (known +) | light up | gold ref must score **high** — if a known-good expert answer doesn't, the judge can't detect quality → run **invalid** |
+| **blank / contamination check** | catch carryover | generic-careful control arm — isolates lift from *mere framing* (delta-of-deltas) |
+| **ladder / size marker** | calibrate scale | noise floor (Δ≥1.4) + the gold↔bad spread — defines how big a difference counts as real |
+| **test lanes (×N)** | the unknowns | with-skill answers × median ≥10 reps on hard scenarios |
+
+→ **discipline: an eval run whose control panel doesn't pass is discarded, not reported** —
+exactly like a QC-fail run (cf. `clinchem-judgment`).
+
 Discipline unchanged: hard cases per fork **and** anti-pattern, median ≥10 reps for promote
 decisions, log/halt if answerer drop-rate > 5%.
 

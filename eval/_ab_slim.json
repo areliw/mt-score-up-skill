@@ -475,12 +475,13 @@
  },
  {
   "skill": "histotech-cytology-judgment.md",
-  "effect": "backfire",
-  "withScore": 2.83,
-  "withoutScore": 4,
-  "delta": -1.17,
+  "effect": "lift",
+  "withScore": 4.0,
+  "withoutScore": 2.9,
+  "delta": 1.1,
   "trapAvoid": "both",
-  "method": "x3",
-  "run": "wf_03e68a6f-30b"
+  "method": "x5",
+  "run": "wf_38dc19db-1cb",
+  "note": "x3 trap gave -1.17; x5 fresh trap = +1.1 (flag cleared)"
  }
 ]

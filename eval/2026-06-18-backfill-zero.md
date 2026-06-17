@@ -26,5 +26,16 @@
     on **codex + MT peer review** (P3) for clinical *correctness*, not the Haiku proxy alone.
 
 ## Status
-All 4 now have a Δ entry in `_ab_slim.json` → the ab-gate goes green for them. `histotech` carries
-a ⚠️ note here as the one to revisit (×5 + MT review), not an automatic rewrite.
+All 4 now have a Δ entry in `_ab_slim.json` → the ab-gate goes green for them.
+
+## ✅ UPDATE — histotech flag CLEARED (×5, run `wf_38dc19db-1cb`)
+Re-ran `histotech-cytology-judgment` with a **fresh trap + 5 passes**: mean without **2.9** →
+with **4.0**, **Δ +1.1** (with-arm consistently ≥3 / safe). The earlier −1.17 was
+**scenario-luck + noise** from a single ×3 trap, not a real defect — **no rewrite needed.** The
+judges noted the with-skill arm hewing to the skill's specific guidance (e.g. "absent TZ alone
+≠ unsatisfactory", cellularity-based adequacy per Bethesda) — the judgment *is* transferring.
+`_ab_slim.json` updated to the ×5 reading.
+
+**Lesson (reinforced):** don't act on a single point estimate — even ×3 on one trap misled here
+(−1.17 → +1.1). Confirm a borderline/negative with **×5 + a fresh trap** before touching a skill.
+This is the second false-negative caught this way (cf. `blood-donor` −3 → +1.33).

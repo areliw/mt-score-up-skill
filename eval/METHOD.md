@@ -75,6 +75,48 @@ result is re-classified by the `trapAvoid` field into what it *means*:
 
 The `regression` row is the one that would actually condemn a skill. See RESULTS for the count.
 
+### Layer 2 upgrade (2026-06-18) — control arm · selftest · split gates
+
+Three refinements adapted from a teardown of `DietrichGebert/ponytail`'s benchmark harness
+([study](../docs/design/study-ponytail.md)), proven on one discriminating trap
+([probe](2026-06-18-harness-upgrade-probe.md)) and now the protocol for promote-grade runs:
+
+1. **`--selftest` the judge before spending.** Each trap ships a pre-written *gold* answer
+   (should score ≥4) and a *known-bad* answer (should score ≤2). Run the blind judge on these
+   **first**; if the spread < 2 the instrument can't discriminate → fix the trap/judge before
+   burning answerer runs. (Catches the failure mode where a flat result means "bad ruler", not
+   "no effect" — cf. the textbook-trap ties where Haiku already knew the answer.)
+2. **Third arm = control.** Add a *generic-careful* arm (a plain "answer carefully as a
+   professional" system prompt, **no judgment scaffolding**) alongside baseline (null) and
+   with-skill. Report **delta-of-deltas**: a skill must beat the control, not just the null —
+   otherwise the "lift" may be *any* framing making the model try harder, not the specific
+   judgment. (In the probe the control scored *below* baseline, so the skill's +3 was provably
+   its domain judgment, not generic caution.)
+3. **Split the score into axes.** Keep helpfulness 0–5, **plus** a binary **correctness/safety**
+   gate (did it avoid the dangerous action?) **plus** a binary **specificity** gate (did it
+   deliver the specific senior judgment the skill claims?). When a trap is "safe for every arm"
+   (correctness all-pass), specificity is what still measures the skill — rescuing cases that
+   a single helpfulness average would score as a tie.
+
+**Mental model — run an eval like a gel/assay.** The three upgrades are really one thing an MT
+already does on every run: a **control panel**. No one reports a gel where the positive control
+didn't run or the negative lane lit up — an eval result without its controls is just as
+untrustworthy.
+
+| gel/assay lane | must… | eval-harness equivalent |
+|---|---|---|
+| **negative control** (no template) | stay blank | null/baseline arm + known-bad ref must score **low** — if a no-skill/bad answer scores high, the judge is contaminated (too lenient) |
+| **positive control** (known +) | light up | gold ref must score **high** — if a known-good expert answer doesn't, the judge can't detect quality → run **invalid** |
+| **blank / contamination check** | catch carryover | generic-careful control arm — isolates lift from *mere framing* (delta-of-deltas) |
+| **ladder / size marker** | calibrate scale | noise floor (Δ≥1.4) + the gold↔bad spread — defines how big a difference counts as real |
+| **test lanes (×N)** | the unknowns | with-skill answers × median ≥10 reps on hard scenarios |
+
+→ **discipline: an eval run whose control panel doesn't pass is discarded, not reported** —
+exactly like a QC-fail run (cf. `clinchem-judgment`).
+
+Discipline unchanged: hard cases per fork **and** anti-pattern, median ≥10 reps for promote
+decisions, log/halt if answerer drop-rate > 5%.
+
 ## Layer 3 — Measurable exemplar (Titanic, real code)
 
 **Question: can we put a number on the judgment, not just a vote?** For `ml-judgment` we run

@@ -46,8 +46,28 @@
   tags via style noise. Average the arms before computing Δ.
 - **Judge should weight safety ≫ style** so a both-safe answer can't read as a regression.
 
-## Next
-1. Re-run `blood-donor` + the 2 ties + 2 style-costs with **×3 passes** to denoise.
-2. If blood-donor confirms negative → rewrite its `## กับดัก` #1 (unmissable for a weak reader),
-   re-test until Δ ≥ floor.
-3. Fan out the full blind-judge to the remaining ~84 (P1), then act per P2.
+## ×3 denoise — CONFIRMED (run `wf_2c1d45c1-f41`, 5 skills × 3 passes/arm, averaged)
+
+| skill | mean without | mean with | Δ (×3) | vs single-pass |
+|---|---|---|---|---|
+| **blood-donor-component** | 3.33 | 4.67 | **+1.33** (better) | **flipped −3 → +1.33 — the regression was single-pass NOISE** |
+| mt-career (อบจ) | 3.67 | 4.33 | +0.67 (tie) | stable ~tie |
+| ivd-sales (HEOR) | 3.00 | 3.00 | 0 (tie) | stable ~tie |
+| lab-management (competency) | 3.67 | 3.33 | −0.33 (tie) | "−1 style-cost" → within noise (neutral) |
+| lab-clinic-business (LAAB) | 4.33 | 3.50 | −0.83 (style-cost) | both safe |
+
+**Verdict: 0 real regressions. `blood-donor` needs NO rewrite — its −3 was a single-pass
+artifact.** Had we acted on the single pass we'd have rewritten a skill that actually *helps*
+(+1.33). This is the decisive proof that **single-pass A/B is unsafe for action; ×3 (≥3) is
+mandatory** before any cut/rewrite decision.
+
+## Conclusion → strategy update
+1. **×3 is now the eval default.** Single-pass = directional triage only; never act on it.
+2. **Cost reality:** a *reliable* (×3) 84-skill scoreboard ≈ ~34M tokens — too expensive for the
+   marginal decision value of a one-time mass sweep. The probe + denoise (5 skills, ~3.7M total)
+   already delivered the highest-value output: a validated method + a caught false alarm.
+3. **Pivot the moat from one-time mass-scoring → continuous + on-demand:**
+   - **P4 (now the lead):** wire a **×3 A/B gate into the skill add/edit flow** (1 skill at a
+     time, cheap) — every new/changed skill must clear Δ ≥ floor before merge.
+   - **P3:** run ×3 A/B + real peer review **on-demand** when promoting a skill to `stable`.
+   - Skip the brute-force 94-sweep; score on the margin where decisions actually happen.

@@ -46,7 +46,7 @@
 | `interprofessional-communication-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interprofessional-communication-judgment.md | 2026-06-15 |
 | `ivd-sales-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ivd-sales-judgment.md | 2026-06-18 |
 | `know-yourself` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/know-yourself.md | 2026-06-04 |
-| `lab-clinic-business-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-clinic-business-judgment.md | 2026-06-15 |
+| `lab-clinic-business-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-clinic-business-judgment.md | 2026-06-18 |
 | `lab-management-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-management-judgment.md | 2026-06-04 |
 | `lead-intelligence-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lead-intelligence-judgment.md | 2026-06-15 |
 | `literature-review-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/literature-review-judgment.md | 2026-06-08 |

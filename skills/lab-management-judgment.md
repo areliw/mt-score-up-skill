@@ -73,6 +73,7 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้อง�
 ### Fork 7 — รับเครื่อง/method ใหม่: Verification ≠ Validation
 - **Validation** = ผู้ผลิตพิสูจน์แล้วว่า method ใช้ได้ · **Verification** = **แล็บทวนสอบเองก่อนใช้จริง** ว่าได้ตามที่อ้างในสภาพแล็บตน (ISO 15189 บังคับ) — precision/accuracy/linearity/reportable range
 - เครื่องใหม่ / method ใหม่ / เปลี่ยน lot ใหญ่ → re-verify
+- **คน ≠ เครื่อง: verify วิธีแล้วยังไม่พอ — ต้อง verify "คน" ก่อน go-live ด้วย:** เปิด section/เทสต์ใหม่ (เช่น bacteriology/molecular/genomics) ที่ผู้ทำ **ไม่เคยทำ/ห่างมานาน** → ต้อง **train + competency assessment + QC ผ่าน + EQA/ILC หรือ alternative assessment (ตามที่มี/ตามรอบ — ISO 15189:2022) + ref-lab/พี่เลี้ยงสำรองตามความเสี่ยง** ก่อนปล่อยผลจริง · ⚠️ **อย่าเปิดเพราะ "ตึกเสร็จ/นโยบายสั่ง" ทั้งที่คนยังทำไม่เป็น** — ปล่อยผลที่ไม่มั่นใจ = คนไข้รักษาผิด · **ถูก assign แต่ยังไม่พร้อม = escalate ขอเวลา/training ก่อน go-live** (ไม่ใช่ฝืนปล่อย/เงียบ) (โยง `result-release-judgment`, `mt-law-ethics-judgment`)
 
 ### Fork 8 — Risk management + LIS/TAT
 - ระบุความเสี่ยง → ประเมิน **Likelihood × Impact** → จัดลำดับ → จัดการ: **ยอมรับ / ลด-คุม / โอน (ประกัน-outsource) / เลี่ยง** → ทบทวน

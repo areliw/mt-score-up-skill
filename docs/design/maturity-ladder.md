@@ -44,3 +44,10 @@
 2. re-baseline `status:` ทั้ง 89 ตาม evidence จริง (honest — หลายตัวหล่น)
 3. `scripts/check_maturity_gate.py` wire เข้า build_triage CI (status ≤ evidence-level + hash-current)
 4. แก้ CHANGELOG/README/spec ให้สะท้อน 10 ชั้น
+
+## Implementation status (2026-06-18)
+- ✅ **measurement keystone:** `scripts/maturity_report.py` — เทียบ `status:` vs หลักฐาน A/B จริง (advisory, ไม่ mutate). รันแล้ว: 94 skills · full-A/B **59** · screen-A/B 18 · NONE 17.
+- ✅ **over-claim ที่ ladder ทำนายไว้ = จริง:** **11 ตัว `semi-stable` แต่ไม่มี A/B เลย** (debugging · interprofessional-communication · lead-intelligence · literature-review · pubmed-search · report-up · source-credibility · spreadsheet · tdd · token-budget · writing) → ควร re-baseline → L2 `reviewed` (ถ้า codex สด) จนกว่าจะ A/B. *ยังไม่ mutate — taxonomy call ของ maintainer (+ แก้ CHANGELOG/spec ตาม project_status_draft_intentional).*
+- ✅ **L7 enabler:** `eval/peer-review/TEMPLATE.md` — ฟอร์ม MT peer-review (hash + checklist + verdict) ปลด human bottleneck สู่ `stable`.
+- ✅ **continuous gate (P4):** `ab-gate.yml` + `ab_gate_check.py` (อ่าน `_ab_slim.json`) + harness `eval/harness/ab-x3.js`.
+- ⏳ **TODO:** hash-registry `ab-coverage.json` · re-baseline status (maintainer) · `check_maturity_gate.py` wire CI · เก็บ test-time hash เพื่อ hash-currency อัตโนมัติ.

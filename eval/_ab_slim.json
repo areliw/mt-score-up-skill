@@ -442,5 +442,45 @@
   "trapAvoid": "both",
   "method": "x3",
   "run": "wf_2c1d45c1-f41"
+ },
+ {
+  "skill": "receiving-review-judgment.md",
+  "effect": "lift",
+  "withScore": 3,
+  "withoutScore": 2,
+  "delta": 1.0,
+  "trapAvoid": "both",
+  "method": "x3",
+  "run": "wf_03e68a6f-30b"
+ },
+ {
+  "skill": "result-release-judgment.md",
+  "effect": "neutral",
+  "withScore": 3.33,
+  "withoutScore": 3,
+  "delta": 0.33,
+  "trapAvoid": "both",
+  "method": "x3",
+  "run": "wf_03e68a6f-30b"
+ },
+ {
+  "skill": "professional-voice-exit-judgment.md",
+  "effect": "backfire",
+  "withScore": 4,
+  "withoutScore": 5,
+  "delta": -1.0,
+  "trapAvoid": "both",
+  "method": "x3",
+  "run": "wf_03e68a6f-30b"
+ },
+ {
+  "skill": "histotech-cytology-judgment.md",
+  "effect": "backfire",
+  "withScore": 2.83,
+  "withoutScore": 4,
+  "delta": -1.17,
+  "trapAvoid": "both",
+  "method": "x3",
+  "run": "wf_03e68a6f-30b"
  }
 ]

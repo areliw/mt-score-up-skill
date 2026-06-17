@@ -4,7 +4,7 @@ title: โค้ชเส้นทางอาชีพ MT — bench → industr
 type: ADVISE               # ช่วยคิดเส้นทางอาชีพ ไม่ใช่ที่ปรึกษา HR/จัดหางาน
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-15
+last_edited: 2026-06-18
 status: draft
 disclaimer: "ช่วยคิดเส้นทางอาชีพ MT เพื่อการศึกษา ไม่ใช่ที่ปรึกษาอาชีพ/จัดหางานทางการ — โครงสร้างตำแหน่ง/รายได้/ตลาดงานต่างกันตามบริษัท/ประเทศ/ช่วงเวลา ต้องเช็คของจริงเอง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -73,6 +73,7 @@ MT ไม่ได้มีแค่ "อยู่หน้า bench" — มี
 - **Lv2 Data analytics:** Python/R เบื้องต้น, สถิติ, สร้าง validation rule
 - **Lv3 AI/Data science:** train/validate ML, curate dataset, เข้าใจ regulatory pathway
 - หลัก: **ยิ่งขึ้นชั้น = ยิ่งห่างจาก "routine ที่ถูกแทน" → เป็น change-leader** · จุดตัด "MT + Data/AI" หรือ "MT + commercial" = หายากกว่าเก่งอย่างเดียว = ค่าตัวสูง
+- ⚠️ **AI = เครื่องมือ ไม่ใช่ตัวแทน:** AI จะกิน routine *บางส่วน* จริง — แต่กรอบที่ใช้ได้: *"MT ที่ใช้ AI เป็น + ตรวจ output ได้ ได้เปรียบ MT ที่ใช้ไม่เป็น"* → ใช้ AI เป็น = competitive skill (นายจ้างเริ่มขอ) · ⚠️ **AI ไม่ใช่เกราะกันความรับผิด** — ผลผิดที่เอาไปใช้ คนรับผิดคือผู้ใช้/ผู้ประกอบวิชาชีพ/หน่วยงาน (MT/lab director/รพ.) ไม่ใช่ AI → ต้องมี domain knowledge แน่นพอ **verify output ก่อนใช้ ไม่เชื่อดิบ** (โยง `anti-hallucination`)
 
 ### Fork 6 — megatrend ที่ MT เป็นผู้เล่นหลัก + ความจริงเรื่อง automation
 - **Precision Medicine & Genomics** (pharmacogenomics, cancer/ยีน) · **Medical AI & SaMD** (software เป็นเครื่องมือแพทย์) · **Wellness & Longevity** (biomarker)

@@ -142,7 +142,7 @@
 | [bloodbank-judgment](./skills/bloodbank-judgment.md) | ตัดสินใจหน้างานธนาคารเลือด (ฝั่งผู้รับ) — ABO discrepancy / antibody ID / transfusion reaction |
 | [blood-donor-component-judgment](./skills/blood-donor-component-judgment.md) | ฝั่งผู้บริจาค/ผลิตเลือด — eligibility · apheresis · component QC · TTI/recall (≠ ฝั่งผู้รับ) |
 | [hematology-judgment](./skills/hematology-judgment.md) | อ่าน CBC/smear/coag — review smear เมื่อไหร่ + thal vs IDA + PT/aPTT |
-| [clinchem-judgment](./skills/clinchem-judgment.md) | QC accept/reject (Westgard) + interference HIL + critical value |
+| [clinchem-judgment](./skills/clinchem-judgment.md) | QC accept/reject (Westgard) + interference HIL + critical value + เครื่องล่ม/STAT triage |
 | [chemistry-interpretation-judgment](./skills/chemistry-interpretation-judgment.md) | แปลผล organ-system — tumor/renal(eGFR)/LFT/cardiac + ABG/anion gap |
 | [clinmicro-judgment](./skills/clinmicro-judgment.md) | เชื้อจริง vs contaminate + อ่าน AST/MDR + culture vs molecular |
 | [applied-microbiology-judgment](./skills/applied-microbiology-judgment.md) | จุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม) — screen≠confirm + metagenomics |
@@ -154,7 +154,7 @@
 | [toxicology-judgment](./skills/toxicology-judgment.md) | screen vs confirm + antidote (OP/paraquat) + TDM timing |
 | [pharmacology-judgment](./skills/pharmacology-judgment.md) | ยาเบื้องต้น — ADME + แพ้ยา vs ผลข้างเคียง (SJS/TEN) + ยาตีกัน |
 | [clinical-correlation-judgment](./skills/clinical-correlation-judgment.md) | อ่านผลแล็บข้ามแขนง → ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal → rule-out) |
-| [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety — hand hygiene + N95 vs surgical + precaution/เข็มตำ |
+| [infection-control-judgment](./skills/infection-control-judgment.md) | IPC/biosafety + chemical/occupational safety — N95/precaution/เข็มตำ + formalin/spill/waste |
 | [urinalysis-judgment](./skills/urinalysis-judgment.md) | ยูริน + body-fluid micro — strip↔micro↔clinical ให้ตรง + กับดัก strip |
 | [preanalytical-judgment](./skills/preanalytical-judgment.md) | pre-analytical/phlebotomy — ลำดับเจาะ/หลอด/ระบุตัว ให้ตัวอย่างเชื่อได้ |
 | [result-release-judgment](./skills/result-release-judgment.md) | post-analytical/ปล่อยผล — delta-check · autoverify · critical · corrected |

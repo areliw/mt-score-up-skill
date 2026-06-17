@@ -17,7 +17,7 @@
 - **bloodbank-judgment** — ตัดสินใจหน้างานธนาคารเลือด **ฝั่งผู้รับ** (CLERICAL ก่อน · ABO discrepancy 8 เคส · antibody ID · crossmatch IS/AHG/electronic · เมื่อไหร่ irradiate · transfusion reaction) — patient-safety สูงสุด
 - **blood-donor-component-judgment** — ฝั่ง **ผู้บริจาค/ผลิต/QC** (ไม่ใช่ฝั่งผู้รับ = `bloodbank`): donor eligibility (defer ปกป้อง 2 ทาง · เลขเกณฑ์ verify SOP) · whole blood vs apheresis + citrate/ECV · donor reaction (vasovagal/delayed faint) · component prep timing (FFP vs FP24 · platelet ห้ามแช่เย็น) · component QC (fail=สงสัยทั้ง batch) · storage/รับ unit คืน · TTI reactive→confirm ก่อนแจ้ง donor (window period) · post-donation/look-back/recall — คู่ donor-side ของ `bloodbank-judgment`
 - **hematology-judgment** — อ่าน CBC/smear/coag (review smear เมื่อไหร่ · anemia ตาม MCV · blast=urgent · thal vs IDA · PT/aPTT + mixing test · platelet จริงหรือ pseudo)
-- **clinchem-judgment** — accept/reject QC run (Westgard) · interference HIL กระทบ analyte ไหน · critical value · recalibrate vs troubleshoot · dilute/repeat/report
+- **clinchem-judgment** — accept/reject QC run (Westgard) · interference HIL กระทบ analyte ไหน · critical value · recalibrate vs troubleshoot · dilute/repeat/report · **เครื่องหลักล่ม/โหลดถล่ม → triage STAT + backup/ส่งต่อ** (operational continuity)
 - **chemistry-interpretation-judgment** — แปลผล organ-system (ค่าออกมาแล้วแปลว่าอะไร): tumor marker ใช้/ไม่ใช้ · renal (eGFR/cystatin/Jaffe) · LFT pattern (AST:ALT, DB/TB) · cardiac timing (troponin/CK-MB) · acid-base + anion gap · interference (HIL/paraprotein/drug) — *MT ไม่วินิจฉัย*
 - **clinmicro-judgment** — เชื้อจริง vs contaminate · ID workflow + เมื่อไหร่พอ · อ่าน AST (ESBL/MRSA/inducible-clinda/CRE) · เลือก media/atmosphere · culture vs molecular
 - **applied-microbiology-judgment** — จุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม/สิ่งแวดล้อม คนละเลน clinical): ถนอมอาหาร · food pathogen screen≠confirm · culture-dependent vs metagenomics vs polyphasic · bioremediation · probiotic/prebiotic/FMT
@@ -29,7 +29,7 @@
 - **toxicology-judgment** — screen vs confirm · antidote tree (OP/carbamate/paraquat/โลหะ) · chelator คู่โลหะ · RBC-AChE vs plasma ChE · TDM timing · chain of custody
 - **clinical-correlation-judgment** — อ่านผลแล็บข้ามแขนง (hema+chem+micro+immuno+BB) → ร้อยเป็นภาพเดียว ตั้ง DDx/ชี้ทางให้แพทย์ (pivotal value → DDx → rule-out → cause-effect chain) · *MT ไม่วินิจฉัย*
 - **pharmacology-judgment** — ยาเบื้องต้นมุม MT: ADME (ตับ/ไตเสื่อม→พิษ) · แพ้ยา vs ผลข้างเคียง (SJS/TEN) · ยาตีกัน (ยา-ยา/อาหาร/โรค) · ใช้ยาถูก (ห้ามบด EC/SR) · TDM (peak/trough) · anticoag↔coag · pharmacogenomics — *MT ไม่สั่งจ่ายยา*
-- **infection-control-judgment** — ป้องกันการติดเชื้อ/biosafety: hand hygiene (alcohol vs สบู่ C.diff spore) · N95 vs surgical · transmission precaution (contact/droplet/airborne) · ห้องความดันลบ/บวก · post-exposure · BSL
+- **infection-control-judgment** — ป้องกันการติดเชื้อ/biosafety **+ chemical/occupational safety**: hand hygiene (alcohol vs สบู่ C.diff spore) · N95 vs surgical · transmission precaution (contact/droplet/airborne) · ห้องความดันลบ/บวก · post-exposure · BSL · **สารเคมี (formalin/xylene → fume hood ไม่ใช่ BSC) · spill/ของเสียเคมี**
 - **urinalysis-judgment** — โค้ชยูริน + body-fluid microscopy: ให้ strip ↔ micro ↔ clinical ตรงกัน — เน้น ตัดสินว่า cast/crystal/cell อันไหนสำคัญ + กับดัก strip false +/− ไม่ใช่ท่องตารางสี
 - **preanalytical-judgment** — ด่าน pre-analytical/phlebotomy: ลำดับเจาะ · เลือกหลอด · ระบุตัวผู้ป่วย · ขนส่ง/เก็บรักษา ให้ตัวอย่างเชื่อได้ก่อนถึงเครื่อง — เน้น จุดที่พลาดแล้วผลเพี้ยนเงียบ
 - **result-release-judgment** — ด่าน post-analytical/ปล่อยผล: delta-check เด้ง→แยกเปลี่ยนจริง/artifact/สลับตัวอย่าง · autoverify stop-rule · critical value (read-back+log+escalate) · corrected/amended report — เน้น ด่านสุดท้ายที่ผิดแล้วถึงคนไข้ตรงๆ
@@ -93,7 +93,7 @@
 - **time-blocking** — วางทุกชั่วโมงที่ตื่นให้มี "หมวด" — เอาเวรที่ fix แล้วเป็นโครง แล้วจัดชั่วโมงว่างด้วยความตั้งใจ ไม่ใช่ปล่อยให้อารมณ์เลือก
 
 ### 💼 บริหารแล็บ / ขาย IVD
-- **lab-management-judgment** — บริหารแล็บ: accreditation (ISO 15189/LA/HA) · QC strategy (sigma metric/IQCP) · งบ (เครื่อง=ลงทุน vs น้ำยา=ดำเนินงาน) · verification vs validation · inventory/FEFO
+- **lab-management-judgment** — บริหารแล็บ: accreditation (ISO 15189/LA/HA) · QC strategy (sigma metric/IQCP) · งบ (เครื่อง=ลงทุน vs น้ำยา=ดำเนินงาน) · verification vs validation · inventory/FEFO · **EQA/PT fail → investigate (clerical→peer-group→lot→CAPA)**
 - **ivd-sales-judgment** — ขาย IVD/diagnostics: ขายผลลัพธ์บริหารไม่ใช่สเปก · budget-pocket (rental→opex) · sigma-ROI · cost-per-reportable-result · spec-in · after-sales
 - **crm-judgment** — คิดแบบลูกค้า (segment/CLV 2×2/CF-CBF/วิกฤต PR) สำหรับ MT สาย sales/คลินิก/แอป
 - **marketing-judgment** — กลยุทธ์การตลาด B2B: STP ก่อน 4P · buying center 5 บทบาท · pricing (อย่าตัดราคา/elasticity) · positioning · push vs pull · razor-blade install base

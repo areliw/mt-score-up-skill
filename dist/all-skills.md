@@ -1157,6 +1157,7 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 - เจอ sample hemolyzed/lipemic/icteric/clotted → ปล่อยผลได้มั้ย ตัวไหนเชื่อไม่ได้
 - ได้ค่า critical / outlier / เกิน linearity → dilute / repeat / โทร หรือ report
 - เลือกทาง recalibrate vs troubleshoot vs เปลี่ยน lot น้ำยา เมื่อ QC พัง
+- เครื่องหลักล่ม / โหลดถล่ม → triage STAT, เปิด backup/ส่งต่อ, แจ้ง delay ยังไง
 - (สาย sales/IVD) คุยภาษา sigma/TEa/QC กับ lab head ให้ตรงประเด็น
 
 ## วิธีใช้
@@ -1221,6 +1222,15 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 **Verdict: สงสัย = repeat ก่อนปล่อย. ได้ค่าเดิม = เชื่อ; ต่าง = หา pre-analytical/carryover.**
 Repeat ก่อนปล่อย เมื่อ: ค่า critical, ค่าขัด clinical/ผล panel อื่น (Cr สูงแต่ BUN ปกติ), delta check ต่างมาก, run QC borderline, มี HIL flag. Repeat ได้ค่าเดิม = เชื่อ; ต่าง = หา pre-analytical/carryover
 
+### FORK 7 — เครื่องหลักล่ม / โหลดถล่ม: triage STAT + backup/ส่งต่อ (operational continuity)
+**Verdict: จัดลำดับตาม downtime/STAT SOP + ความเสี่ยงทางคลินิก (critical/STAT ก่อน routine) — แต่ห้ามข้าม QC/ID/comparability/การแจ้งที่ต้องทำ · เปิด backup/manual ได้เฉพาะที่ "run QC ผ่าน (+ รู้ comparability ตาม SOP)" · แจ้ง ward เชิงรุกเรื่อง delay — อย่าเงียบ.** (เป็นการ "เดินงานต่อ" ตอนเครื่องล่ม ไม่ใช่การ accept/reject run ปกติ — FORK 1)
+- **triage:** ทุ่มกำลังที่ critical/STAT ก่อน (เช่น K⁺/glucose/blood gas/troponin) → routine เลื่อนได้ตามเกณฑ์ SOP/แพทย์ · งานที่ผูกธนาคารเลือด = ประสานตาม SOP BB (โยง `bloodbank-judgment`)
+- **backup analyzer / method สำรอง:** ใช้ได้ก็ต่อเมื่อ **run QC ผ่านบนเครื่องสำรอง** + (ตาม SOP) รู้ว่าผล comparable กับเครื่องหลัก — คนละเครื่อง/method = calibration/reference อาจต่าง → อย่าปล่อยผลข้ามเครื่องโดยไม่ดู comparability + ใส่หมายเหตุ method ตาม SOP
+- **manual/visual method สำรอง:** มักช้ากว่า/precision ต่างกัน (method-specific) → ใช้เฉพาะ method ที่ verified/กำหนดใน SOP + ระบุ method ที่ใช้
+- **ส่งต่อ (send-out/refer):** เมื่อ backup ก็ทำไม่ได้ → label/transport/แจ้ง TAT ที่ต่างไป (ผลอาจคนละ unit/method)
+- **สื่อสารเชิงรุก:** แจ้ง ward/แพทย์ว่า delay + ค่าไหนยัง report ได้/ไม่ได้ — แจ้งให้รู้ทัน (โยง `interprofessional-communication-judgment`; "เร็ว" = แจ้งข่าว delay ทันเวลา **ไม่ใช่ลัด QC/ID**) · downtime ต้อง document
+- **เครื่องกลับมา:** อย่า dump backlog ทันที → **run QC ผ่านก่อน** + reconcile งาน pending/STAT ที่ค้าง
+
 ## กับดัก (Anti-patterns)
 - 🚫 report ผลจาก run ที่ Westgard FAIL — run reject = ผู้ป่วยทุกคนใน run นั้น hold; แก้ QC ก่อน
 - 🚫 report K⁺ (หรือ LDH/AST) จากตัวอย่าง hemolyzed — สูงปลอม → เจาะใหม่ อย่า report
@@ -1232,6 +1242,8 @@ Repeat ก่อนปล่อย เมื่อ: ค่า critical, ค่�
 - 🚫 report ค่าที่เกิน linearity โดยไม่ dilute
 - 🚫 recalibrate ทันทีทุกครั้งที่ QC พัง — เช็ค control/sample/reagent expiry ก่อน
 - 🚫 ลืม carryover — ตัวอย่างเข้มข้นสูงตามด้วยต่ำ → ค่าต่ำสูงปลอม; repeat
+- 🚫 เครื่องล่มแล้วปล่อยผลจาก backup/manual โดยไม่ run QC + ไม่ดู comparability ข้ามเครื่อง
+- 🚫 ทำ routine ก่อน critical/STAT ตอนกำลังจำกัด · เงียบไม่แจ้ง ward เรื่อง delay · dump backlog ตอนเครื่องกลับมาโดยไม่ run QC ก่อน · เร่ง STAT จนลัด QC/ID/comparability (เร่งได้แต่ห้ามข้ามด่าน)
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > เติมเคส QC จริงที่เจอ: Westgard ตัวไหน fire บ่อยกับ analyte ไหนในแล็บคุณ และ root cause จริงที่เจอคืออะไร
@@ -3617,6 +3629,7 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 - เคสนี้ใช้ PPE อะไร / precaution แบบไหน / ห้องความดันบวกหรือลบ
 - เข็มตำ/สัมผัสสารคัดหลั่ง → ทำอะไรต่อ
 - จัดการ specimen/เชื้อเสี่ยงในแล็บ (biosafety)
+- จัดการ **สารเคมี/ไอระเหย (formalin/xylene) / สารหก / ของเสียเคมี** ในแล็บ (chemical & occupational safety)
 
 ## วิธีใช้
 วาง skill นี้ + เล่าสถานการณ์ (เชื้อ/หัตถการ/ผู้ป่วย) → AI ชี้ระดับการป้องกัน + กับดักที่ทำให้แพร่เชื้อ
@@ -3662,7 +3675,16 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 ### Fork 6 — Biosafety ในแล็บ
 > **VERDICT: เชื้ออันตราย (TB culture, B. pseudomallei AST) ต้อง BSL-3 — lab BSL-2 ทำไม่ได้.**
 - จัดการ specimen ตามระดับความเสี่ยงเชื้อ (BSL) · เชื้ออันตราย (**M. tuberculosis culture, Burkholderia pseudomallei AST**) = **ต้อง BSL-3** (lab ทั่วไป BSL-2 ทำไม่ได้)
-- closed-system/automation = ลด aerosol/exposure · spill → containment ตาม SOP
+- closed-system/automation = ลด aerosol/exposure · spill ชีวภาพ → containment + disinfectant ตาม SOP
+
+### Fork 7 — สารเคมี/ความปลอดภัยอาชีวะ (formalin/spill/waste) — คนละชุดควบคุมกับชีวภาพ
+> **VERDICT: อันตรายเคมี ≠ ชีวภาพ → ไอระเหยเคมีใช้ fume hood ไม่ใช่ BSC · อ่าน SDS ก่อนใช้ · spill ใหญ่/ระเหย/ไม่รู้จัก = อพยพ+เรียกทีม อย่าฮีโร่ · ทิ้งของเสียแยกตาม incompatibility.**
+- ⚠️ **อย่าใช้ biosafety cabinet (BSC) แทน fume hood กับสารระเหย (formalin/xylene):** BSC ส่วนใหญ่ (type A) **หมุนเวียนอากาศกลับ** → ไอเคมีฟุ้งใส่คน + สะสมไส้กรอง → **default = chemical fume hood**; BSC ใช้ได้เฉพาะรุ่น/การต่อท่อที่ผู้ผลิต+SOP อนุญาตสำหรับสารนั้น (ไม่ใช่ ducted ทุกตัวรับสารระเหยได้ — A2 thimble มีข้อจำกัด) — BSC คุม *aerosol ชีวภาพ* ไม่ใช่ไอเคมี
+- **formaldehyde/formalin = สารก่อมะเร็ง + sensitizer/ระคายเคือง/พิษเฉียบพลัน** (ไม่ใช่แค่มะเร็งระยะยาว) → ที่ระบายอากาศดี, ปิดภาชนะ, PPE, มี spill kit + (ตามเกณฑ์) เฝ้าระวังระดับสัมผัส · ⚠️ ค่า exposure limit (PEL/STEL/TWA) = **teaching — ยึดเกณฑ์ที่บังคับในพื้นที่ (OSHA/มอก./กรมสวัสดิการฯ)** ไม่ใช่เลขสากลตัวเดียว
+- **spill เคมี:** ประเมินขนาด/ชนิด → เล็ก+รู้จัก = spill kit ดูดซับตาม SDS · **ใหญ่/ระเหย/ไวไฟ/ไม่รู้จัก = อพยพ + เรียกทีม** (ต่างจาก spill ชีวภาพที่ราด disinfectant — เคมีบางตัวเจอ disinfectant ยิ่งอันตราย)
+- **เก็บ/ทิ้งแยกตาม incompatibility:** กรด≠เบส · oxidizer≠ไวไฟ · แยก solvent **halogenated/non-halogenated** + formalin/aqueous ตาม SDS · formalin/solvent **ห้ามทิ้งลงท่อ** เว้นได้รับอนุญาต → ตาม SOP ของเสีย
+- **occupational อื่น:** ถังแก๊สอัด (ยึดให้แน่น) · cryogen/LN₂ (เสี่ยง asphyxiation/ผิวไหม้เย็น → ที่ระบายอากาศ) · ergonomics (pipette/กล้องซ้ำ ๆ) · เข็มตำ/bloodborne = Fork 5
+- **ระบบ:** chemical hygiene plan + SDS เข้าถึงได้ + ฉลาก GHS (โยง `lab-management-judgment` ISO 15190)
 
 ---
 
@@ -3675,6 +3697,9 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 - **ใส่/ถอด PPE ผิดลำดับ** → ปนเปื้อนตัวเอง
 - **เพาะ/ทำ AST เชื้อ BSL-3 (TB/melioidosis) ใน lab BSL-2** — เสี่ยงติดเชื้อ
 - **มอง pre-analytical/specimen ว่าไม่ติดเชื้อ** — standard precaution กับทุกตัวอย่าง
+- **ใช้ BSC แทน fume hood กับ formalin/xylene** — BSC type A หมุนเวียนอากาศ → ไอเคมีใส่คน (เคมีระเหย default = fume hood; BSC เฉพาะรุ่นที่อนุญาต)
+- **spill เคมีใหญ่แล้วราด disinfectant/เก็บเอง** — เคมี ≠ ชีวภาพ → ใหญ่/ระเหย/ไม่รู้จัก = อพยพ+เรียกทีม
+- **ทิ้งของเสียเคมีปนกัน/ลงท่อ** — กรด-เบส/oxidizer-ไวไฟ incompatible; formalin/solvent ห้ามลงท่อ
 
 ---
 
@@ -4214,6 +4239,7 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 ## ใช้เมื่อ
 - เตรียม/ต่ออายุ accreditation (ISO 15189 / LA / HA) — เลือกระดับ + เตรียมเอกสาร
 - QC แพง/รันซ้ำเปลือง → วางแผน QC ตาม sigma/IQCP
+- ได้ผล **EQA/PT fail** → สอบสวนยังไงก่อนแก้/ก่อนกระทบ accreditation
 - สั่งน้ำยา-คุมสต็อก · ของบเครื่อง/น้ำยา · รับเครื่องใหม่ (verification) · จัดการความเสี่ยง/TAT
 
 ## วิธีใช้
@@ -4272,13 +4298,21 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้อง�
 - **LIS/LIMS** (ISO บังคับ): สิทธิ์เข้าถึง, ใคร approve, กันแก้-สูญหาย, **audit trail**, ความลับคนไข้ (PDPA)
 - **TAT** = KPI ที่ ward/แพทย์กดดันสุด → automation/STAT pathway ลด TAT
 
+### Fork 9 — EQA/PT fail → investigate (ไม่ใช่โทษเครื่องทันที / ไม่ใช่รันซ้ำจนผ่าน)
+> **verdict:** EQA/PT flag = **สอบสวนเป็นระบบก่อน CAPA** — ไล่ clerical → IQC ตอนนั้น → peer/method-group ถูกไหม → lot/calibration → competency. **miss เดี่ยว ≠ systematic** (หลาย analyte/ผิดซ้ำ = หนักกว่า) — เกณฑ์ "fail" (SDI/z-score ฯลฯ) ต่างตาม scheme
+- **ไล่ตามลำดับ (น่าจะสุดก่อน):** (1) **clerical/transcription** — กรอก/หน่วยผิด, สลับ sample, ส่งผิดช่อง (พบบ่อยสุด) (2) **IQC วันที่ทำ PT ผ่านไหม** (3) **peer/method group ถูกไหม** — เทียบกับกลุ่ม method/instrument ของตัวเองหรือเปล่า (เทียบผิดกลุ่ม = "bias" ลวง) (4) **reagent lot / calibration drift** ช่วงนั้น (5) **competency/ขั้นตอน**
+- ⚠️ **PT/EQA sample matrix / commutability:** วัสดุ PT บางตัว **ไม่ commutable** → ความต่างจาก method อาจไม่ใช่ error ที่เกิดกับ sample คนไข้จริง → ดู method-specific target group ก่อนสรุป (ยึดเกณฑ์ scheme)
+- **CAPA + เอกสาร:** หา root cause → แก้ → บันทึก · ⚠️ **อย่ารันซ้ำจนผ่านโดยไม่หาเหตุ** · ⚠️ **ห้ามแลก/ดูผล PT กับแล็บอื่น (PT referral)** — โดยทั่วไปเป็น serious nonconformity/ต้องห้ามในหลาย PT/accreditation rule (ผลขึ้นกับ scheme/พื้นที่ — อาจถึงเพิกถอน)
+- **ผลต่อ accreditation:** PT fail ซ้ำ/ไม่สอบสวน = จุดที่ผู้ตรวจ LA/ISO 15189 จับ → ต้องมีหลักฐาน investigation + CAPA
+
 ---
 
 ## กับดัก (Anti-patterns)
 - ละเมิดกฎ #1: ใช้ค่าจากกล่องน้ำยา · เก็บ 20 จุดวันเดียว (SD แคบ → false reject) · carry mean/SD ข้าม lot
 - **2SD กับทุก test** → false reject ท่วม รันซ้ำเปลืองเงิน (สับ warning 1₂s กับ reject)
 - **QC out → รันซ้ำจนผ่าน** โดยไม่หา root cause → ปล่อย systematic error หลุด
-- **EQA fail = โทษเครื่องทันที** → อาจ pre-analytical / ลงค่าผิด / lot
+- **EQA fail = โทษเครื่องทันที** → อาจ clerical / ลงค่าผิด / เทียบผิด peer-group / lot (สอบสวนตาม Fork 9 ก่อน)
+- **PT fail แล้วรันซ้ำจนผ่าน / แลกผล PT กับแล็บอื่น** → ไม่หา root cause + **PT referral = serious nonconformity/ต้องห้ามในหลาย rule (ผลตาม scheme/พื้นที่ — อาจถึงเพิกถอน)**
 - **สั่งล็อตใหญ่เพราะถูก/หน่วย** → หมดอายุก่อนใช้ + แช่เงินทุน
 - **มอง pre-analytical ว่าไม่ใช่ปัญหาแล็บ** ทั้งที่เป็น error อันดับ 1
 - **สับ verification กับ validation** → รับเครื่องโดยไม่ทวนสอบเองก่อนใช้

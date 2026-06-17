@@ -9,5 +9,6 @@
 | [contribution-credit.md](./contribution-credit.md) | นับ "ภูมิที่เก็บได้" (U) เป็น north-star tier | design |
 | [roadmap.md](./roadmap.md) | wave W0–W5 ที่จะทำ | living |
 | [catalog-steward.md](./catalog-steward.md) | loop ดูแลคลังตัวเอง (detect→propose→gate→apply) | design |
+| [study-ponytail.md](./study-ponytail.md) | teardown `DietrichGebert/ponytail` (21k★) — เทียบ skill/AGENTS.md/eval + บทเรียน take/drop (control arm + correctness gate) | study |
 
 ออกแบบ 2026-06-15. ดู [`roadmap.md`](./roadmap.md) สำหรับลำดับ wave + dependency. ข้อเสนอ/ติชม → เปิด issue ได้

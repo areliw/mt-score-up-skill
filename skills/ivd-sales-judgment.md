@@ -4,7 +4,7 @@ title: โค้ชขาย IVD/Lab Dx — ขายผลลัพธ์บร
 type: ADVISE               # ช่วยคิดกลยุทธ์ขาย ไม่ใช่สคริปต์ปิดการขาย
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-18
 status: draft
 disclaimer: "ช่วยคิดกลยุทธ์ขาย IVD/diagnostics เพื่อการศึกษา ไม่ใช่คำแนะนำจัดซื้อ/กฎหมาย/การรับรองผลิตภัณฑ์ใด — ห้ามใช้กล่าวอ้างเกินจริง/ทำลายคู่แข่งโดยไม่มีหลักฐาน · ผู้นำไปใช้รับผิดชอบการกระทำที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -46,6 +46,7 @@ MT ที่ย้ายไปสายขาย IVD/diagnostics — ลูก�
 ### Fork 3 — ROI argument ที่หัวหน้าแล็บเซ็น
 - **Sigma → QC saving:** "เครื่องเดิม sigma 3.5 ต้องรัน QC N=6/วัน; เครื่องเรา sigma 5.5 รัน N=2 พอ → ประหยัด control ปีละ X" (ขาย "ต้นทุน QC ที่ลด" ไม่ใช่สเปก)
 - **Cost-per-reportable-result (CPR):** เสนอราคาเป็น "บาท/ผลที่รายงานได้จริง" รวม recalibrate + QC + ของเสีย → ลูกค้าเทียบง่าย เซ็นง่าย (ไม่ใช่ราคา/กล่อง)
+- **ขายขึ้นเหนือหัวหน้าแล็บ (ผู้บริหาร รพ./payer)** = คนละ argument คนละ audience → ดู **Fork 7 (HEOR)**
 
 ### Fork 4 — Timing + access (เข้าให้ถูกจังหวะ/ช่องทาง)
 - ช่วง **เตรียม/ต่อ accreditation** = ลูกค้ายอมจ่ายเพื่อ "ลดความเสี่ยงตก" = จังหวะทอง
@@ -64,6 +65,19 @@ MT ที่ย้ายไปสายขาย IVD/diagnostics — ลูก�
 - **LIS integration:** เชื่อม LIS ลูกค้าไม่ได้ = **deal breaker** → เช็คก่อนเสมอ
 - **managed inventory/consignment** = ลูกค้าไม่อยากเปลี่ยนเจ้า (lock-in เชิงบริการ)
 
+### Fork 7 — HEOR: พิสูจน์คุณค่าให้ "ผู้บริหาร/payer" (เหนือหัวหน้าแล็บ)
+> **verdict:** เลือก analysis ตาม **"ใครตัดสิน"** — CFO/ผอ.รพ. = **BIA** (จ่ายไหวปีนี้) · HTA ชาติ (ไทย=HITAP) = **CEA/CUA** (ICER/QALY) · ผลเท่ากัน = CMA. ผูกผลแล็บกับ outcome *downstream* (LOS/admission/stewardship) ไม่ใช่ราคา test
+- **HEOR = Health Economics and Outcomes Research** (กรอบ ECHO: Economic/Clinical/Humanistic) = ชุดวิธี *พิสูจน์* คุณค่าให้คนถือเงิน ไม่ใช่แค่พูดลอยว่า "ขายคุณค่า"
+- **เลือกเครื่องมือตาม audience (เลือกผิด = pitch ตกพื้น):**
+  - **BIA (budget-impact)** = "จ่ายไหวไหมปีนี้ ยอดรวมทั้งระบบ" → **ผู้บริหาร รพ./payer ท้องถิ่น สนสุด**
+  - **CEA** = คุ้มต่อ outcome ธรรมชาติ (เคสที่เจอ/ติดเชื้อที่เลี่ยง/life-year) · **CUA** = ต่อ **QALY** — ทั้งคู่รายงานเป็น **ICER** เทียบ WTP threshold → **HTA ระดับชาติ** ไม่ใช่ CFO รพ.
+  - **CMA** = เทียบเฉพาะต้นทุน **เฉพาะเมื่อพิสูจน์/ยอมรับว่า outcome เทียบเท่าจริง** (ถ้า sensitivity/TAT/stewardship/downstream ต่าง = ใช้ CMA ไม่ได้ — กับดักที่ rep ชอบใช้ผิด)
+- **ทำไมแล็บต้องใช้:** แล็บ ~2-3% ของงบสุขภาพ แต่ชี้นำการตัดสินใจคลินิกส่วนใหญ่ (เลข "~70%" quote บ่อยแต่ soft — อย่าฟันธง) → คุณค่าอยู่ **downstream** (test เปลี่ยน*การตัดสินใจ* → เปลี่ยน LOS/admission/ยา) ไม่ใช่ราคา test เอง
+- ⚠️ **perspective ต้องตรงคนตัดสิน:** societal vs hospital vs payer — test ที่ประหยัด*ระบบ* อาจทำ*รพ.ขาดทุน* (กลับกันได้). insight ครองเตียง: ลด LOS = เพิ่ม margin **เฉพาะ รพ.เตียงตึง + รายได้ front-loaded** · DRG/เหมาจ่าย/capitation = cost-avoidance ไม่ใช่ revenue · FFS/per-diem/เตียงว่าง อาจรายได้ลด → เลือกมุมให้ตรง decision-maker
+- ⚠️ **กับดัก attribution:** test *enable* การตัดสินใจ ไม่ได้ *cause* outcome ตรงๆ → ต้องมี decision-model/หลักฐานเชื่อมให้น่าเชื่อ ไม่งั้น overclaim โดน audit/HTA จับ
+- ⚠️ **กับดัก HEOR-theater:** model ด้วย assumption ที่ไม่ได้มาจากข้อมูล รพ.จริง = สวยแต่เชื่อไม่ได้ → ใช้ data รพ.นั้น + ระบุ assumption โปร่งใส + sensitivity analysis
+- โยง: `lab-management-judgment` (justify งบ internal) · `report-up-judgment` (สื่อขึ้นผู้บริหาร bottom-line first) · `finance-judgment` (อ่านงบ/ROI) · `method-validation-stats` (ถ้าทำ study เอง)
+
 ---
 
 ## กับดัก (Anti-patterns)
@@ -73,6 +87,7 @@ MT ที่ย้ายไปสายขาย IVD/diagnostics — ลูก�
 - **ด่วนด่าเครื่องคู่แข่งว่าห่วย** จาก EQA bias — bias อาจมาจาก operator/pre-analytical → เสนอเป็น "ช่วย investigate ให้" ดูโปรกว่า + ไม่เสี่ยงพูดผิด
 - **กล่าวอ้างเกินจริง/ตัวเลขไม่มีหลักฐาน** — ลูกค้าที่ทำ audit จับได้ = เสียเครดิตถาวร
 - **ขายของแล้วหาย** — ไม่มี after-sales = แพ้เจ้าที่ support ดีแม้แพงกว่า
+- **HEOR ผิด analysis/ผิด audience** — โชว์ cost/QALY ให้ CFO รพ. ที่ต้องการ BIA · attribute outcome ให้ test ตรงๆ ไม่มี model · model ด้วย assumption ลอยไม่ใช่ data รพ.จริง (HEOR-theater) → ดู Fork 7
 
 ---
 

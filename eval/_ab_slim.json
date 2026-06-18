@@ -483,5 +483,115 @@
   "method": "x5",
   "run": "wf_38dc19db-1cb",
   "note": "x3 trap gave -1.17; x5 fresh trap = +1.1 (flag cleared)"
+ },
+ {
+  "skill": "report-up-judgment.md",
+  "effect": "lift",
+  "withScore": 4.6,
+  "withoutScore": 1.8,
+  "delta": 2.8,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "pubmed-search-judgment.md",
+  "effect": "lift",
+  "withScore": 5.0,
+  "withoutScore": 2.4,
+  "delta": 2.6,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "literature-review-judgment.md",
+  "effect": "lift",
+  "withScore": 4.8,
+  "withoutScore": 2.3,
+  "delta": 2.5,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "lead-intelligence-judgment.md",
+  "effect": "lift",
+  "withScore": 5.0,
+  "withoutScore": 3.0,
+  "delta": 2.0,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "token-budget-judgment.md",
+  "effect": "lift",
+  "withScore": 4.6,
+  "withoutScore": 2.6,
+  "delta": 2.0,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "spreadsheet-judgment.md",
+  "effect": "lift",
+  "withScore": 4.8,
+  "withoutScore": 3.0,
+  "delta": 1.8,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "writing-judgment.md",
+  "effect": "lift",
+  "withScore": 4.2,
+  "withoutScore": 2.8,
+  "delta": 1.4,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "tdd-judgment.md",
+  "effect": "neutral",
+  "withScore": 4.6,
+  "withoutScore": 3.6,
+  "delta": 1.0,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "source-credibility-judgment.md",
+  "effect": "neutral",
+  "withScore": 4.6,
+  "withoutScore": 4.4,
+  "delta": 0.2,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "debugging-judgment.md",
+  "effect": "neutral",
+  "withScore": 4.3,
+  "withoutScore": 4.4,
+  "delta": -0.1,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
+ },
+ {
+  "skill": "interprofessional-communication-judgment.md",
+  "effect": "neutral",
+  "withScore": 3.4,
+  "withoutScore": 3.7,
+  "delta": -0.3,
+  "trapAvoid": "both",
+  "method": "x5",
+  "run": "wf_4abf369f-143"
  }
 ]

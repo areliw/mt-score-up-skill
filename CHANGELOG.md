@@ -3,7 +3,7 @@
 Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). **มาตรฐานความพร้อม 3 ชั้น:**
 `draft` (ยังไม่ verify / มี blocker) → `semi-stable` (ผ่าน Codex review + empirical stress-test, ไม่มี error ที่รู้ — **แต่ยังไม่ผ่าน formal/clinical peer-review**) → `stable` (ผ่าน clinical/formal peer-review — *สงวนไว้ ยังไม่มีสกิลใดถึง*).
-ปัจจุบัน: 31 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
+ปัจจุบัน: 37 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
 
 ## [Unreleased]
 
@@ -22,6 +22,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 
 - **Re-baseline 11 สกิล `semi-stable` → `draft` (honest maturity):** `scripts/maturity_report.py` พบ 11 ตัวที่อ้าง semi-stable แต่**ไม่มี A/B record เลย** (debugging · interprofessional-communication · lead-intelligence · literature-review · pubmed-search · report-up · source-credibility · spreadsheet · tdd · token-budget · writing) → ลดเป็น `draft` จนกว่าจะผ่าน A/B (รันได้ด้วย `eval/harness/ab-x3.js` + gate `ab-gate.yml`). semi-stable 42→31. **ไม่แตะเนื้อหา/judgment — แค่ปรับ status ให้ตรงหลักฐาน** (ตาม `docs/design/maturity-ladder.md`).
 
+- **Earn-back: 6 ใน 11 ที่ถูก demote กลับขึ้น `semi-stable` ด้วยหลักฐาน A/B (reps=5, run wf_4abf369f-143):** report-up · pubmed-search · literature-review · lead-intelligence · token-budget · spreadsheet — Δ +1.8 ถึง +2.8 (**≥2.9σ**, ใช้เกณฑ์ **Δ≥2·SE** ไม่ใช่ flat 1.4). semi-stable 31→37. คงเหลือ draft: writing (Δ1.4 = borderline 2.2σ), tdd (+1.0), source-credibility/debugging/interprofessional-communication (tie — weak model ปลอดภัยเองอยู่แล้ว). ทั้ง 11 มี A/B record ครบใน `_ab_slim.json` แล้ว.
 ## [0.9.0] — 2026-06-15
 
 ### Added

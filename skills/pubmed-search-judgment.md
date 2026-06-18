@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยวางวิธีค้น + กั
 needs: any                 # ใช้ได้ทุก AI — เต็มที่สุดกับ AI ที่เปิด PubMed/เน็ตได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: semi-stable
+status: draft
 disclaimer: "ช่วยวางกลยุทธ์ค้น PubMed/วรรณกรรม ไม่ใช่คำแนะนำทางการแพทย์ — ผลที่เจอต้องเปิดอ่านต้นฉบับจริงก่อนอ้าง (AI แต่ง PMID/citation ได้เนียน) ผู้นำไปใช้รับผิดชอบงานที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

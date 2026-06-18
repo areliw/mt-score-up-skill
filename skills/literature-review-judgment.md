@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยวางกระบวนการร
 needs: any                 # ใช้ได้ทุก AI — แต่ดีขึ้นมากถ้า AI ค้นเปเปอร์ได้ (ChatGPT search / Gemini / PubMed)
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: semi-stable
+status: draft
 disclaimer: "ช่วยวางกระบวนการรีวิววรรณกรรม ไม่ใช่คำแนะนำทางการแพทย์ — ทุกเปเปอร์/ตัวเลข/อ้างอิงต้องเปิดตรวจจากต้นฉบับจริงก่อนใช้ (AI แต่ง citation ได้เนียน) ผู้นำไปใช้รับผิดชอบงานวิจัยที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

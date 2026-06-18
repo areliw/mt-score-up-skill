@@ -1,40 +1,37 @@
 name: ab-gate
 
 # P4 — A/B coverage gate. On a PR that adds/edits skills, confirm each changed
-# skill has an A/B record under eval/. Deterministic, no AI / no API key in CI.
-# The actual ×3 blind-judge runs via Claude Code Workflow (eval/harness/ab-x3.js);
-# this job only enforces that the evidence exists. See eval/AB-GATE.md.
-#
-# Advisory by default (the repo's branch protection has required_status_checks=null,
-# so a red check does not hard-block an admin merge) — it is a visible signal.
+# skill has an A/B record in eval/_ab_slim.json. Deterministic, no AI / no API key.
+# The actual ×3 blind-judge runs via Claude Code Workflow (eval/harness/ab-x3.js).
+# Advisory (branch protection has required_status_checks=null) — a visible signal.
 
 on:
   pull_request:
     paths:
       - 'skills/**'
 
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   ab-gate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Find changed skill files
         id: changed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          base="origin/${{ github.base_ref }}"
-          git fetch origin "${{ github.base_ref }}" --depth=1 || true
-          files=$(git diff --name-only "$base"...HEAD -- 'skills/*.md' | grep -vE '/(README|INDEX)\.md$' || true)
+          files=$(gh pr diff ${{ github.event.pull_request.number }} --name-only             | grep -E '^skills/.+\.md$' | grep -vE '/(README|INDEX)\.md$' || true)
           echo "files<<EOF" >> "$GITHUB_OUTPUT"
           echo "$files" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
-          if [ -z "$files" ]; then echo "no skill files changed"; fi
+          if [ -z "$files" ]; then echo "no skill files changed"; else echo "changed:"; echo "$files"; fi
       - name: A/B coverage check
         if: steps.changed.outputs.files != ''
-        run: |
-          echo "${{ steps.changed.outputs.files }}" | tr '\n' ' '
-          python scripts/ab_gate_check.py ${{ steps.changed.outputs.files }}
+        run: python scripts/ab_gate_check.py ${{ steps.changed.outputs.files }}

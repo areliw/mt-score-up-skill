@@ -1,0 +1,848 @@
+{
+ "ab-test-judgment": {
+  "status": "semi-stable",
+  "body_hash": "e2d23c5082e9",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "ai-agent-team": {
+  "status": "semi-stable",
+  "body_hash": "14da4a7122ce",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "ai-assistant-calibration": {
+  "status": "semi-stable",
+  "body_hash": "4a10705f0d2f",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "ai-coding-guardrails": {
+  "status": "semi-stable",
+  "body_hash": "9e5ed3af295f",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "anti-hallucination": {
+  "status": "semi-stable",
+  "body_hash": "148de71f94a4",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 3,
+  "screen": false,
+  "peer": false
+ },
+ "applied-microbiology-judgment": {
+  "status": "draft",
+  "body_hash": "c4bf347e3e65",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "blood-donor-component-judgment": {
+  "status": "draft",
+  "body_hash": "f3dc2bf7eab0",
+  "ab": true,
+  "ab_method": "x3",
+  "ab_delta": 1.33,
+  "screen": false,
+  "peer": false
+ },
+ "bloodbank-judgment": {
+  "status": "draft",
+  "body_hash": "52dc923cc9f3",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "chemistry-interpretation-judgment": {
+  "status": "draft",
+  "body_hash": "cb6248085168",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "choose-stat-test": {
+  "status": "semi-stable",
+  "body_hash": "4a3faa28860a",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0.5,
+  "screen": false,
+  "peer": false
+ },
+ "clinchem-judgment": {
+  "status": "draft",
+  "body_hash": "c8c123b0b5fe",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "clinical-correlation-judgment": {
+  "status": "draft",
+  "body_hash": "715b5e526cc0",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "clinmicro-judgment": {
+  "status": "draft",
+  "body_hash": "8aadb01b2c4a",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "content-creator-judgment": {
+  "status": "draft",
+  "body_hash": "afb97a92f7de",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 3.5,
+  "screen": false,
+  "peer": false
+ },
+ "critical-appraisal-judgment": {
+  "status": "semi-stable",
+  "body_hash": "ca76f9035bb9",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "crm-judgment": {
+  "status": "draft",
+  "body_hash": "1eb5ebfe48b7",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "cv-judgment": {
+  "status": "draft",
+  "body_hash": "868a653fc807",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "data-project-survival": {
+  "status": "semi-stable",
+  "body_hash": "ba164680b271",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "data-science-workflow": {
+  "status": "semi-stable",
+  "body_hash": "f06b17ccb058",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "db-judgment": {
+  "status": "semi-stable",
+  "body_hash": "dd41fb65097a",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -0.5,
+  "screen": false,
+  "peer": false
+ },
+ "debugging-judgment": {
+  "status": "draft",
+  "body_hash": "2e85798c86c0",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": -0.1,
+  "screen": false,
+  "peer": false
+ },
+ "deep-research": {
+  "status": "semi-stable",
+  "body_hash": "6849ba525794",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "digital-judgment": {
+  "status": "draft",
+  "body_hash": "f8f9aace71be",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "dx-company-brief": {
+  "status": "draft",
+  "body_hash": "23e056c09cd2",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "explain-simply": {
+  "status": "draft",
+  "body_hash": "13b4676450bd",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -0.5,
+  "screen": false,
+  "peer": false
+ },
+ "finance-judgment": {
+  "status": "draft",
+  "body_hash": "6d9054e47f7b",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -0.5,
+  "screen": false,
+  "peer": false
+ },
+ "financial-statement-judgment": {
+  "status": "draft",
+  "body_hash": "c1625583889d",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "flow-cytometry-judgment": {
+  "status": "draft",
+  "body_hash": "642e425b0df6",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": false,
+  "peer": false
+ },
+ "git-workflow-judgment": {
+  "status": "semi-stable",
+  "body_hash": "49e8e747ea98",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "grill-my-plan": {
+  "status": "draft",
+  "body_hash": "c6a1cf9577ff",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "hematology-judgment": {
+  "status": "draft",
+  "body_hash": "8fda63156c12",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "histotech-cytology-judgment": {
+  "status": "draft",
+  "body_hash": "90e1c43ad586",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 1.1,
+  "screen": false,
+  "peer": false
+ },
+ "humanize-ai-writing": {
+  "status": "semi-stable",
+  "body_hash": "ae798607f31f",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "ikigai-finder": {
+  "status": "draft",
+  "body_hash": "2ed329ca9473",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1.5,
+  "screen": false,
+  "peer": false
+ },
+ "immunoassay-judgment": {
+  "status": "draft",
+  "body_hash": "9ac2d254fd26",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "incident-postmortem-judgment": {
+  "status": "draft",
+  "body_hash": "6a4d519f12b9",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": false,
+  "peer": false
+ },
+ "infection-control-judgment": {
+  "status": "draft",
+  "body_hash": "e686ea42238a",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "interactive-course": {
+  "status": "draft",
+  "body_hash": "058b291ce169",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "interprofessional-communication-judgment": {
+  "status": "draft",
+  "body_hash": "96351568c3a5",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": -0.3,
+  "screen": false,
+  "peer": false
+ },
+ "ivd-sales-judgment": {
+  "status": "draft",
+  "body_hash": "b896a2e44e2a",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 4,
+  "screen": false,
+  "peer": false
+ },
+ "know-yourself": {
+  "status": "draft",
+  "body_hash": "70218e4ebacb",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "lab-clinic-business-judgment": {
+  "status": "semi-stable",
+  "body_hash": "f9f640d5f55e",
+  "ab": true,
+  "ab_method": "x3",
+  "ab_delta": -0.83,
+  "screen": true,
+  "peer": false
+ },
+ "lab-management-judgment": {
+  "status": "draft",
+  "body_hash": "dcba28359e9c",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "lead-intelligence-judgment": {
+  "status": "semi-stable",
+  "body_hash": "b7b00cdedad2",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 2.0,
+  "screen": false,
+  "peer": false
+ },
+ "literature-review-judgment": {
+  "status": "semi-stable",
+  "body_hash": "a3293a710a07",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 2.5,
+  "screen": false,
+  "peer": false
+ },
+ "manuscript-judgment": {
+  "status": "semi-stable",
+  "body_hash": "09e23a2a4e94",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -0.5,
+  "screen": false,
+  "peer": false
+ },
+ "market-research-judgment": {
+  "status": "draft",
+  "body_hash": "4ff78a22c814",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": false,
+  "peer": false
+ },
+ "marketing-judgment": {
+  "status": "draft",
+  "body_hash": "288ba45144fa",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "method-validation-stats": {
+  "status": "draft",
+  "body_hash": "feb52be70cf6",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "ml-engineering-workflow": {
+  "status": "semi-stable",
+  "body_hash": "1f2d60592ec6",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "ml-judgment": {
+  "status": "semi-stable",
+  "body_hash": "26f7814f3a43",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "molecular-judgment": {
+  "status": "draft",
+  "body_hash": "aaf0fbed97d6",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "mt-career-judgment": {
+  "status": "draft",
+  "body_hash": "15d328196191",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 3,
+  "screen": false,
+  "peer": false
+ },
+ "mt-databases": {
+  "status": "semi-stable",
+  "body_hash": "d9cfc4b22738",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "mt-exam-strategy-judgment": {
+  "status": "draft",
+  "body_hash": "65c308b3df16",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 3,
+  "screen": false,
+  "peer": false
+ },
+ "mt-law-ethics-judgment": {
+  "status": "draft",
+  "body_hash": "362de55b11c0",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0.5,
+  "screen": false,
+  "peer": false
+ },
+ "never-lose-a-file": {
+  "status": "draft",
+  "body_hash": "7862b827b9c1",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "offload-to-automation": {
+  "status": "semi-stable",
+  "body_hash": "17f10b9c2f31",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -2,
+  "screen": false,
+  "peer": false
+ },
+ "optimization-judgment": {
+  "status": "semi-stable",
+  "body_hash": "fd3bbcdf0669",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "parasitology-judgment": {
+  "status": "draft",
+  "body_hash": "7620c819007b",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 2,
+  "screen": false,
+  "peer": false
+ },
+ "pathology-judgment": {
+  "status": "draft",
+  "body_hash": "e07af909cc77",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0.5,
+  "screen": false,
+  "peer": false
+ },
+ "pharmacology-judgment": {
+  "status": "draft",
+  "body_hash": "8abbcdbabfb5",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "phi-data-handling": {
+  "status": "draft",
+  "body_hash": "70deff30b6a8",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "photography-judgment": {
+  "status": "draft",
+  "body_hash": "bf5d579c9ca0",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "poct-judgment": {
+  "status": "draft",
+  "body_hash": "028ec8c7d1b6",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": false,
+  "peer": false
+ },
+ "polite-but-clear": {
+  "status": "draft",
+  "body_hash": "907abf5a46ba",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 3,
+  "screen": false,
+  "peer": false
+ },
+ "pomodoro-focus": {
+  "status": "draft",
+  "body_hash": "69b2cdd0b238",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "preanalytical-judgment": {
+  "status": "draft",
+  "body_hash": "8eb96ef7576a",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": false,
+  "peer": false
+ },
+ "professional-voice-exit-judgment": {
+  "status": "draft",
+  "body_hash": "40c2b27fd6c8",
+  "ab": true,
+  "ab_method": "x3",
+  "ab_delta": -1.0,
+  "screen": false,
+  "peer": false
+ },
+ "progress-tracker": {
+  "status": "semi-stable",
+  "body_hash": "14e1b7ee385f",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "prompt-optimizer": {
+  "status": "semi-stable",
+  "body_hash": "6f9b08b1fccb",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "pubmed-search-judgment": {
+  "status": "semi-stable",
+  "body_hash": "c19cf030f961",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 2.6,
+  "screen": false,
+  "peer": false
+ },
+ "python-coach": {
+  "status": "semi-stable",
+  "body_hash": "0d01eea7e092",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "r2r-research-proposal": {
+  "status": "semi-stable",
+  "body_hash": "30203e42f15e",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 2.5,
+  "screen": false,
+  "peer": false
+ },
+ "r2r-stats": {
+  "status": "semi-stable",
+  "body_hash": "834f745b3fb6",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "receiving-review-judgment": {
+  "status": "draft",
+  "body_hash": "b61a0ddd6052",
+  "ab": true,
+  "ab_method": "x3",
+  "ab_delta": 1.0,
+  "screen": false,
+  "peer": false
+ },
+ "report-up-judgment": {
+  "status": "semi-stable",
+  "body_hash": "7cc8c79c5310",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 2.8,
+  "screen": false,
+  "peer": false
+ },
+ "research-design-judgment": {
+  "status": "semi-stable",
+  "body_hash": "d597595f355a",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "result-release-judgment": {
+  "status": "draft",
+  "body_hash": "ba73eae91ec6",
+  "ab": true,
+  "ab_method": "x3",
+  "ab_delta": 0.33,
+  "screen": false,
+  "peer": false
+ },
+ "sales-psychology-judgment": {
+  "status": "draft",
+  "body_hash": "c160dc3cef16",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "sample-size-power": {
+  "status": "semi-stable",
+  "body_hash": "02227301a6ad",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "self-development-coach": {
+  "status": "draft",
+  "body_hash": "f710d6154e81",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 1,
+  "screen": false,
+  "peer": false
+ },
+ "self-improving-agent": {
+  "status": "semi-stable",
+  "body_hash": "77c70353c83b",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0.5,
+  "screen": false,
+  "peer": false
+ },
+ "source-credibility-judgment": {
+  "status": "draft",
+  "body_hash": "e3215a86fb8a",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 0.2,
+  "screen": false,
+  "peer": false
+ },
+ "spreadsheet-judgment": {
+  "status": "semi-stable",
+  "body_hash": "162c43bcd7ac",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 1.8,
+  "screen": false,
+  "peer": false
+ },
+ "tdd-judgment": {
+  "status": "draft",
+  "body_hash": "261495e31bd6",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 1.0,
+  "screen": false,
+  "peer": false
+ },
+ "time-blocking": {
+  "status": "draft",
+  "body_hash": "7a3fac2eb759",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "token-budget-judgment": {
+  "status": "semi-stable",
+  "body_hash": "1332bc5be73a",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 2.0,
+  "screen": false,
+  "peer": false
+ },
+ "toxicology-judgment": {
+  "status": "draft",
+  "body_hash": "54be687f8085",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": -1,
+  "screen": false,
+  "peer": false
+ },
+ "urinalysis-judgment": {
+  "status": "draft",
+  "body_hash": "c1d94f71f0ca",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": false,
+  "peer": false
+ },
+ "verification-panel": {
+  "status": "semi-stable",
+  "body_hash": "89e5ecd070b6",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "what-skill-do-i-need": {
+  "status": "semi-stable",
+  "body_hash": "e1b070f3b4e0",
+  "ab": true,
+  "ab_method": "legacy",
+  "ab_delta": 0.5,
+  "screen": false,
+  "peer": false
+ },
+ "write-a-skill": {
+  "status": "semi-stable",
+  "body_hash": "18ebbfb88a26",
+  "ab": false,
+  "ab_method": null,
+  "ab_delta": null,
+  "screen": true,
+  "peer": false
+ },
+ "writing-judgment": {
+  "status": "draft",
+  "body_hash": "808f848a934f",
+  "ab": true,
+  "ab_method": "x5",
+  "ab_delta": 1.4,
+  "screen": false,
+  "peer": false
+ }
+}

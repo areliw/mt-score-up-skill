@@ -1,7 +1,9 @@
 name: maturity-gate
 
 # Maturity ladder enforcement: a changed skill's `status:` must not out-rank its evidence
-# (semi-stable ⟹ has A/B; stable ⟹ has a signed MT peer-review). Deterministic, no AI / no key.
+# (semi-stable ⟹ has A/B; stable ⟹ has a signed MT peer-review) AND its evidence must still cover
+# the current content — hash-currency: a tested skill whose body changed since eval/ab-coverage.json
+# was built is flagged STALE (re-A/B + rebuild). Deterministic, no AI / no key.
 # Stricter-but-cleaner companion to ab-gate (which nudges A/B coverage on every skill):
 # this one fires only on an actual over-claim, so a `draft` edit never trips it.
 # Advisory (branch protection has required_status_checks=null) — a visible signal.

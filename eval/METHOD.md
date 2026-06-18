@@ -108,7 +108,7 @@ untrustworthy.
 | **negative control** (no template) | stay blank | null/baseline arm + known-bad ref must score **low** — if a no-skill/bad answer scores high, the judge is contaminated (too lenient) |
 | **positive control** (known +) | light up | gold ref must score **high** — if a known-good expert answer doesn't, the judge can't detect quality → run **invalid** |
 | **blank / contamination check** | catch carryover | generic-careful control arm — isolates lift from *mere framing* (delta-of-deltas) |
-| **ladder / size marker** | calibrate scale | noise floor (Δ≥1.4) + the gold↔bad spread — defines how big a difference counts as real |
+| **ladder / size marker** | calibrate scale | **Δ ≥ 2·SE(Δ)** (SE from rep variance, floored 0.8 — not a flat 1.4) + the gold↔bad spread — defines how big a difference counts as real |
 | **test lanes (×N)** | the unknowns | with-skill answers × median ≥10 reps on hard scenarios |
 
 → **discipline: an eval run whose control panel doesn't pass is discarded, not reported** —

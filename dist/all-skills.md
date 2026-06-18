@@ -124,8 +124,8 @@ title: ตั้ง AI เป็นทีมแบบบริษัท (AI Spec
 type: CALIBRATION          # เปลี่ยนวิธีทำงานของ AI ให้เป็นทีมหลายตำแหน่ง
 needs: any                 # ใช้ได้ทุก AI · ได้ผลเต็มที่สุดกับ AI ที่ทำงานขนาน/มี agent ได้
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: semi-stable
+last_edited: 2026-06-19
+status: draft
 disclaimer: "skill นี้ช่วยปรับวิธีทำงานของ AI ให้เป็นทีมเพื่อช่วยคิด ไม่ได้เพิ่มความรู้และไม่ใช่คำสั่ง ความถูกต้องยังขึ้นกับ AI + การตรวจสอบของผู้นำไปใช้ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -2059,8 +2059,8 @@ title: โค้ช SQL + ออกแบบ DB — ตัดสินใจถ�
 type: ADVISE               # ช่วยตัดสินใจออกแบบ/เขียน query ไม่ใช่ตำรา syntax
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: semi-stable
+last_edited: 2026-06-19
+status: draft
 disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพื่อการศึกษา ไม่ใช่คำสั่งให้รันจริง — งานจริงควรทดสอบบน staging + backup ก่อน DELETE/UPDATE และตรวจ query plan ก่อนใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -4140,8 +4140,8 @@ title: ธุรกิจคลินิกแล็บ MT — เลือก�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-18
-status: semi-stable
+last_edited: 2026-06-19
+status: draft
 disclaimer: "กรอบคิดธุรกิจคลินิกแล็บ เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน/กฎหมาย — ตัวเลข ต้นทุน เงื่อนไขจดทะเบียน และนโยบายรัฐเปลี่ยนได้ ต้อง verify เองก่อนตัดสินใจ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -4574,8 +4574,8 @@ title: โค้ชเขียน manuscript/proposal — ให้ผ่าน
 type: ADVISE               # ช่วยตัดสินใจการเขียน/ตอบ reviewer ไม่ใช่เขียนแทน
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: semi-stable
+last_edited: 2026-06-19
+status: draft
 disclaimer: "ช่วยคิดเรื่องโครงสร้าง/การเขียน manuscript เพื่อการศึกษา ไม่ใช่ที่ปรึกษาวิจัย/บรรณาธิการทางการ — เนื้อหา/ความถูกต้องทางวิชาการ ต้องผ่านอาจารย์ที่ปรึกษา + peer review จริง · ผู้นำไปใช้รับผิดชอบงานที่เผยแพร่เอง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -5757,8 +5757,8 @@ title: งานที่ต้องเป๊ะ โยนให้ automation 
 type: CALIBRATION          # เปลี่ยนวิธีที่ AI ลงมือทำงาน
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code/tool ได้
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: semi-stable
+last_edited: 2026-06-19
+status: draft
 disclaimer: "ช่วยจัดให้ AI พึ่ง automation กับงานที่ต้องเป๊ะ เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — ต้องตรวจ output ของ tool ก่อนเชื่อ และคงการตัดสินใจที่ต้องใช้ดุลพินิจคนไว้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

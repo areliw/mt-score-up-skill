@@ -7,7 +7,7 @@
 | skill | live URL (raw) | updated |
 |---|---|---|
 | `ab-test-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ab-test-judgment.md | 2026-06-15 |
-| `ai-agent-team` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-agent-team.md | 2026-06-04 |
+| `ai-agent-team` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-agent-team.md | 2026-06-19 |
 | `ai-assistant-calibration` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-assistant-calibration.md | 2026-06-04 |
 | `ai-coding-guardrails` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ai-coding-guardrails.md | 2026-06-08 |
 | `anti-hallucination` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/anti-hallucination.md | 2026-06-13 |
@@ -25,7 +25,7 @@
 | `cv-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/cv-judgment.md | 2026-06-04 |
 | `data-project-survival` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/data-project-survival.md | 2026-06-04 |
 | `data-science-workflow` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/data-science-workflow.md | 2026-06-08 |
-| `db-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/db-judgment.md | 2026-06-04 |
+| `db-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/db-judgment.md | 2026-06-19 |
 | `debugging-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/debugging-judgment.md | 2026-06-08 |
 | `deep-research` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/deep-research.md | 2026-06-15 |
 | `digital-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/digital-judgment.md | 2026-06-04 |
@@ -47,11 +47,11 @@
 | `interprofessional-communication-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interprofessional-communication-judgment.md | 2026-06-15 |
 | `ivd-sales-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ivd-sales-judgment.md | 2026-06-18 |
 | `know-yourself` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/know-yourself.md | 2026-06-04 |
-| `lab-clinic-business-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-clinic-business-judgment.md | 2026-06-18 |
+| `lab-clinic-business-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-clinic-business-judgment.md | 2026-06-19 |
 | `lab-management-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lab-management-judgment.md | 2026-06-04 |
 | `lead-intelligence-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/lead-intelligence-judgment.md | 2026-06-15 |
 | `literature-review-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/literature-review-judgment.md | 2026-06-08 |
-| `manuscript-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/manuscript-judgment.md | 2026-06-04 |
+| `manuscript-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/manuscript-judgment.md | 2026-06-19 |
 | `market-research-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/market-research-judgment.md | 2026-06-08 |
 | `marketing-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/marketing-judgment.md | 2026-06-04 |
 | `method-validation-stats` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/method-validation-stats.md | 2026-06-11 |
@@ -63,7 +63,7 @@
 | `mt-exam-strategy-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-exam-strategy-judgment.md | 2026-06-04 |
 | `mt-law-ethics-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/mt-law-ethics-judgment.md | 2026-06-13 |
 | `never-lose-a-file` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/never-lose-a-file.md | 2026-06-04 |
-| `offload-to-automation` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/offload-to-automation.md | 2026-06-04 |
+| `offload-to-automation` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/offload-to-automation.md | 2026-06-19 |
 | `optimization-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/optimization-judgment.md | 2026-06-04 |
 | `parasitology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/parasitology-judgment.md | 2026-06-04 |
 | `pathology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pathology-judgment.md | 2026-06-04 |

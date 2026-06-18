@@ -9,7 +9,7 @@
   "peer": false
  },
  "ai-agent-team": {
-  "status": "semi-stable",
+  "status": "draft",
   "body_hash": "14da4a7122ce",
   "ab": true,
   "ab_method": "legacy",
@@ -171,7 +171,7 @@
   "peer": false
  },
  "db-judgment": {
-  "status": "semi-stable",
+  "status": "draft",
   "body_hash": "dd41fb65097a",
   "ab": true,
   "ab_method": "legacy",
@@ -369,7 +369,7 @@
   "peer": false
  },
  "lab-clinic-business-judgment": {
-  "status": "semi-stable",
+  "status": "draft",
   "body_hash": "f9f640d5f55e",
   "ab": true,
   "ab_method": "x3",
@@ -405,7 +405,7 @@
   "peer": false
  },
  "manuscript-judgment": {
-  "status": "semi-stable",
+  "status": "draft",
   "body_hash": "09e23a2a4e94",
   "ab": true,
   "ab_method": "legacy",
@@ -513,7 +513,7 @@
   "peer": false
  },
  "offload-to-automation": {
-  "status": "semi-stable",
+  "status": "draft",
   "body_hash": "17f10b9c2f31",
   "ab": true,
   "ab_method": "legacy",

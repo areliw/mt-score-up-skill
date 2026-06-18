@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยตัดสินใจเรื่อ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-15
-status: semi-stable
+status: draft
 disclaimer: "ช่วยตัดสินใจเรื่องการเขียน long-form ไม่ใช่คำแนะนำทางการแพทย์ — เนื้อหาข้อเท็จจริง/การแพทย์ต้อง verify ก่อนเผยแพร่ ผู้นำไปใช้รับผิดชอบงานที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

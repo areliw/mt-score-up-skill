@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยตัดสินใจบริหา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: semi-stable
+status: draft
 disclaimer: "ช่วยบริหารบริบท/งบ token ของ AI เพื่อให้คำตอบนิ่งขึ้น ไม่ใช่คำแนะนำทางการแพทย์ — เนื้อหายังต้อง verify ก่อนใช้จริง ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

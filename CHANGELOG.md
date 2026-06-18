@@ -3,7 +3,7 @@
 Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). **มาตรฐานความพร้อม 3 ชั้น:**
 `draft` (ยังไม่ verify / มี blocker) → `semi-stable` (ผ่าน Codex review + empirical stress-test, ไม่มี error ที่รู้ — **แต่ยังไม่ผ่าน formal/clinical peer-review**) → `stable` (ผ่าน clinical/formal peer-review — *สงวนไว้ ยังไม่มีสกิลใดถึง*).
-ปัจจุบัน: 35 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
+ปัจจุบัน: 31 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
 
 ## [Unreleased]
 
@@ -19,6 +19,8 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
   - `lab-management-judgment` +**Fork 9 EQA/PT failure investigation** — สอบสวนเป็นระบบก่อน CAPA (clerical→IQC→peer/method-group→lot→competency) · PT sample commutability/matrix · miss เดี่ยว≠systematic · **ห้ามรันซ้ำจนผ่าน/แลกผล PT (referral)=เพิกถอน accreditation** (ต่อยอด Fork 2 EQA concept)
   - `infection-control-judgment` +**Fork 7 chemical/occupational safety** — formalin/xylene → **fume hood ไม่ใช่ BSC** (type A หมุนเวียนไอเคมี) · exposure limit = teaching ยึดเกณฑ์พื้นที่ · spill ใหญ่/ระเหย=อพยพ+เรียกทีม (เคมี≠ชีวภาพ) · ของเสียแยก incompatibility/ห้ามลงท่อ · ขยาย scope เป็น lab safety (ชีวภาพ+เคมี/อาชีวะ)
 - `mt-career-judgment` — เพิ่ม **Fork 1B "ราชการสายข้าง: ทนพ → นวก./สสจ./สคร."** (เคสจริงจากคอมมูฯ MT, ตัวเลข case-specific ต้อง verify): break-even = heuristic "คุ้มต่อเมื่อไปไกลถึงเชี่ยวชาญ (ชช.)" · comp-cliff เคสเล่าเงินรวมหาย ~20K/เดือน (ฉ.11+พตส.+เงินตำแหน่ง+ค่าเวร) — ยืนยันสิทธิ์กับ HR ก่อน · บางหน่วยลังเลรับคนนอกสาย นวก. (ไม่ใช่กฎ ก.พ.) + 2 anti-pattern. PII-clean · ผ่าน codex review (PR #40)
+
+- **Re-baseline 11 สกิล `semi-stable` → `draft` (honest maturity):** `scripts/maturity_report.py` พบ 11 ตัวที่อ้าง semi-stable แต่**ไม่มี A/B record เลย** (debugging · interprofessional-communication · lead-intelligence · literature-review · pubmed-search · report-up · source-credibility · spreadsheet · tdd · token-budget · writing) → ลดเป็น `draft` จนกว่าจะผ่าน A/B (รันได้ด้วย `eval/harness/ab-x3.js` + gate `ab-gate.yml`). semi-stable 42→31. **ไม่แตะเนื้อหา/judgment — แค่ปรับ status ให้ตรงหลักฐาน** (ตาม `docs/design/maturity-ladder.md`).
 
 ## [0.9.0] — 2026-06-15
 

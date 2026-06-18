@@ -143,3 +143,10 @@ reproducible, in 60 lines. [`titanic/`](titanic/).
 
 The goal was never to prove these are perfect — it was to find where they help, where they
 don't, and where they could hurt, *honestly enough that the failures show up*. They did.
+
+
+## Reps per arm (2026-06-18)
+**3 = screen · 5 = act · borderline/negative → fresh trap (or tie).** Scores 0–5, SD~1.0/arm →
+`SE(Δ)≈√(2/n)` (n=3→0.82, n=5→0.63). Single-pass and even ×3 produced false negatives this session
+(blood-donor, histotech) that more reps + a fresh trap corrected. Never cut/rewrite/promote below
+reps=5. Harness: `eval/harness/ab-x3.js` takes `{targets,reps}`. Details: `AB-GATE.md`.

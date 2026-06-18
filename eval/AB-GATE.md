@@ -48,3 +48,19 @@ To run the A/B *inside* CI and hard-block: add `ANTHROPIC_API_KEY` as a repo sec
 `ab-x3.js` to a standalone API script, and enable branch-protection required-checks for `ab-gate`.
 Trade-off: real API $ per PR + A/B is stochastic near the floor (flaky) — keep the floor lenient
 or run ×5. The current design avoids both by keeping the run in Claude Code.
+
+
+## How many reps per arm? (3 screen · 5 act · borderline → fresh trap)
+Scores are 0–5 with high weak-model variance (SD ~1.0/arm), so Δ carries real noise:
+`SE(Δ) ≈ √(2/n)` → n=3 → 0.82 · n=5 → 0.63 · n=10 → 0.45.
+- **3 = screen (default):** detects a clear rescue (Δ≥1.4 ≈ 1.7·SE) and sorts it from ties — cheap, wide.
+- **5 = act:** required before any **cut / rewrite / promote** (Δ≥1.4 ≈ 2.2·SE).
+- **borderline / negative (|Δ| < ~1.5):** reps alone can't settle it — re-run with a **fresh trap**
+  (scenario-luck is a *separate* variance source from rep noise) or call it a **tie**.
+
+Proven the hard way (2026-06-18): single-pass → blood-donor false −3 (real +1.33); ×3 → histotech
+false −1.17 (×5 + fresh trap → +1.1). **Never act below 5 reps; never trust one trap on a borderline.**
+Maps to the ladder: L5 `proven` = 3-run, **L6 `replicated` = a 2nd axis** (fresh trap / judge / model) —
+this session is the evidence you must reach L6 before acting, not stop at L5.
+
+Run act-grade: `Workflow({scriptPath:'eval/harness/ab-x3.js', args:{targets:[...], reps:5}})`.

@@ -5,7 +5,7 @@ type: ADVISE               # ช่วยวางวิธีไล่บั๊
 needs: any                 # ใช้ได้ทุก AI · เต็มที่สุดกับ AI ที่รัน code ได้
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-08
-status: draft
+status: stable
 disclaimer: "ช่วยวางวิธีไล่หา root cause ของบั๊ก ไม่ใช่คำแนะนำทางการแพทย์ — โค้ด/ระบบที่กระทบผลแล็บ/คนไข้ต้อง validate ก่อนใช้จริง ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 

@@ -50,4 +50,6 @@
 - ✅ **over-claim ที่ ladder ทำนายไว้ = จริง:** **11 ตัว `semi-stable` แต่ไม่มี A/B เลย** (debugging · interprofessional-communication · lead-intelligence · literature-review · pubmed-search · report-up · source-credibility · spreadsheet · tdd · token-budget · writing) → ควร re-baseline → L2 `reviewed` (ถ้า codex สด) จนกว่าจะ A/B. *ยังไม่ mutate — taxonomy call ของ maintainer (+ แก้ CHANGELOG/spec ตาม project_status_draft_intentional).*
 - ✅ **L7 enabler:** `eval/peer-review/TEMPLATE.md` — ฟอร์ม MT peer-review (hash + checklist + verdict) ปลด human bottleneck สู่ `stable`.
 - ✅ **continuous gate (P4):** `ab-gate.yml` + `ab_gate_check.py` (อ่าน `_ab_slim.json`) + harness `eval/harness/ab-x3.js`.
-- ⏳ **TODO:** hash-registry `ab-coverage.json` · re-baseline status (maintainer) · `check_maturity_gate.py` wire CI · เก็บ test-time hash เพื่อ hash-currency อัตโนมัติ.
+- ✅ **status≤evidence gate (item 3):** `scripts/check_maturity_gate.py` + `.github/workflows/maturity-gate.yml` — semi-stable⟹มี A/B, stable⟹มี signed peer-review; fire เฉพาะตอน over-claim จริง (แก้ draft ไม่ trip). advisory. building มันเองจับเพิ่มอีก 11 ตัว (screen-only) → ปรับ gate ให้ยอมรับ screen-A/B = L4 ตรงกับ re-baseline.
+- ✅ **re-baseline status (item 2):** เสร็จ — PR #65 demote 11 → #70 earn-back 6 (Δ≥2·SE). semi-stable honest แล้ว.
+- ⏳ **TODO ที่เหลือ:** hash-registry `ab-coverage.json` (item 1) + เก็บ test-time hash → **hash-currency อัตโนมัติ** (ตอนนี้ gate เช็คแค่ evidence-class ยังไม่เช็คว่า edit ทำ A/B stale).

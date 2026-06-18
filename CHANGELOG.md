@@ -3,7 +3,7 @@
 Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). **มาตรฐานความพร้อม 3 ชั้น:**
 `draft` (ยังไม่ verify / มี blocker) → `semi-stable` (ผ่าน Codex review + empirical stress-test, ไม่มี error ที่รู้ — **แต่ยังไม่ผ่าน formal/clinical peer-review**) → `stable` (ผ่าน clinical/formal peer-review — *สงวนไว้ ยังไม่มีสกิลใดถึง*).
-ปัจจุบัน: 37 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
+ปัจจุบัน: 32 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
 
 ## [Unreleased]
 
@@ -24,6 +24,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 
 - **Earn-back: 6 ใน 11 ที่ถูก demote กลับขึ้น `semi-stable` ด้วยหลักฐาน A/B (reps=5, run wf_4abf369f-143):** report-up · pubmed-search · literature-review · lead-intelligence · token-budget · spreadsheet — Δ +1.8 ถึง +2.8 (**≥2.9σ**, ใช้เกณฑ์ **Δ≥2·SE** ไม่ใช่ flat 1.4). semi-stable 31→37. คงเหลือ draft: writing (Δ1.4 = borderline 2.2σ), tdd (+1.0), source-credibility/debugging/interprofessional-communication (tie — weak model ปลอดภัยเองอยู่แล้ว). ทั้ง 11 มี A/B record ครบใน `_ab_slim.json` แล้ว.
 - **hash-currency gate (maturity-ladder item 1) — #74:** `eval/ab-coverage.json` registry เก็บ `status` + **`body_hash`** (sha256 ของเนื้อหลัง frontmatter) + evidence flags ต่อสกิล (สร้างด้วย `scripts/build_ab_coverage.py`). `scripts/check_maturity_gate.py` เทียบ body_hash ปัจจุบัน vs registry → `semi-stable`/`stable` ที่ **แก้ judgment หลัง A/B** = STALE → CI แดงจนกว่าจะ re-A/B + rebuild registry. hash เฉพาะ body จึงแก้ `status:`/`last_edited:` ไม่ trip (metadata churn ≠ judgment churn). baseline = forward-looking reset stamp 2026-06-18.
+- **Over-claim sweep: 5 สกิล `semi-stable` → `draft` (A/B ติดลบ) + อุดรูรั่ว gate:** ตรวจ `eval/ab-coverage.json` พบ 5 ตัวที่อ้าง `semi-stable` แต่ A/B หลักฐานเดียว = **ติดลบ** (ai-agent-team Δ−1 · offload-to-automation Δ−2 · db-judgment Δ−0.5 · manuscript-judgment Δ−0.5 · lab-clinic-business Δ−0.83) → ลดเป็น `draft` (ผลลบ/within-noise ≠ "พิสูจน์ว่าช่วย"; ผลลบรอบเดียวมักเป็น noise → รอ re-test ×5 ก่อนเคลม). `scripts/check_maturity_gate.py` เดิมเช็คแค่ "มี A/B record" → เพิ่มเช็ค **winning delta ติดลบ = over-claim** ปิดรูรั่ว (regression-verified). semi-stable 37→32. **ไม่แตะ judgment — แค่ปรับ status ให้ตรงหลักฐาน.**
 ## [0.9.0] — 2026-06-15
 
 ### Added

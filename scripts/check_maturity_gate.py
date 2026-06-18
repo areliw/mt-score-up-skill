@@ -8,6 +8,8 @@ from docs/design/maturity-ladder.md, on the live 3-tier vocab (draft / semi-stab
   - draft        → no requirement
   - semi-stable  → MUST have empirical A/B: a record in eval/_ab_slim.json (full blind-judge)
                    OR a light screen in eval/round4-new-skills.md / round5-remaining.md
+  - semi-stable/stable → its WINNING A/B delta (eval/ab-coverage.json) must NOT be negative
+                   (a "backfire" result cannot back a "proven helpful" claim).
   - stable       → MUST have a signed MT peer-review in eval/peer-review/<slug>-*.md
   - semi-stable/stable → its BODY hash must match eval/ab-coverage.json (else the judgment was
                    edited since it was tested → evidence stale → re-test + rebuild the registry).
@@ -123,6 +125,13 @@ def main(argv: list[str]) -> int:
         if st == "stable" and slug not in signed:
             viol.append((slug, st, "stable but no signed MT peer-review in eval/peer-review/"))
             continue
+        # negative-evidence: a tested skill whose WINNING A/B delta is negative (backfire) is
+        # over-claimed — "proven helpful" cannot rest on a negative result. (gate hole, fixed 2026-06-19)
+        if st in ("semi-stable", "stable") and slug in reg:
+            d = reg[slug].get("ab_delta")
+            if isinstance(d, (int, float)) and d < 0:
+                viol.append((slug, st, f"A/B winning delta is NEGATIVE ({d}) — over-claim; re-test (x5, need delta>=2*SE) or demote to draft"))
+                continue
         # hash-currency: a tested skill whose body changed since the registry was built = stale
         if st in ("semi-stable", "stable") and slug in reg:
             if reg[slug].get("body_hash") and reg[slug]["body_hash"] != body_hash(text):

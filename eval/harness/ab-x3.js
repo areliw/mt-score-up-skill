@@ -1,4 +1,4 @@
-// Reusable ×3 A/B blind-judge harness (the AI half of the P4 gate).
+// Reusable A/B blind-judge harness (the AI half of the P4 gate) — reps per arm configurable (default 3).
 //
 // Run via Claude Code Workflow — NOT node:
 //   Workflow({ scriptPath: 'eval/harness/ab-x3.js', args: [
@@ -32,14 +32,20 @@ export const meta = {
 const SCENARIO = { type:'object', properties:{ scenario:{type:'string'} }, required:['scenario'], additionalProperties:false }
 const VERDICT = { type:'object', properties:{ score1:{type:'number'}, score2:{type:'number'}, reason:{type:'string'} }, required:['score1','score2','reason'], additionalProperties:false }
 
-// args may arrive as an array OR as a JSON string (the Workflow tool can stringify it) — handle both.
-function parseTargets(a) {
-  if (Array.isArray(a)) return a
-  if (typeof a === 'string') { try { const v = JSON.parse(a); return Array.isArray(v) ? v : [] } catch { return [] } }
-  return []
+// args: an array of targets · a JSON string of it · or {targets:[...], reps:N}.
+// reps per arm — DEFAULT 3 = screen (sort clear rescues from ties). Use **5 to ACT** (cut/rewrite);
+// for a borderline/negative result also re-run with a FRESH trap (scenario-luck ≠ rep noise).
+function parseConfig(a) {
+  if (typeof a === 'string') { try { a = JSON.parse(a) } catch { a = [] } }
+  if (Array.isArray(a)) return { targets: a, reps: 3 }
+  if (a && Array.isArray(a.targets)) return { targets: a.targets, reps: Number(a.reps) > 0 ? Number(a.reps) : 3 }
+  return { targets: [], reps: 3 }
 }
-const TARGETS = parseTargets(args)
-if (!TARGETS.length) { log('ab-x3: no targets — pass args as a JSON array [{skill,file,focus}, ...]'); return { error: 'no targets' } }
+const CFG = parseConfig(args)
+const TARGETS = CFG.targets
+const REPS = CFG.reps
+if (!TARGETS.length) { log('ab-x3: no targets — pass [{skill,file,focus},...] or {targets:[...], reps:5}'); return { error: 'no targets' } }
+log(`ab-x3: ${TARGETS.length} target(s), reps=${REPS} (${REPS >= 5 ? 'act-grade' : 'screen'})`)
 
 const results = await pipeline(
   TARGETS,
@@ -50,7 +56,7 @@ const results = await pipeline(
   ),
   (trap, t, i) => {
     if (!trap || !trap.scenario) return null
-    const repThunks = [0,1,2].map(r => () => {
+    const repThunks = Array.from({length: REPS}, (_, r) => r).map(r => () => {
       const baseFn  = () => agent(
         `(rep ${r}) คุณเป็นนักเทคนิคการแพทย์จบใหม่ ไม่มีคู่มือพิเศษ. ตอบกระชับ ≤150 คำ ว่าจะตัดสินใจ/ทำยังไง:\n\n${trap.scenario}`,
         { model:'haiku', phase:'Answer', label:`base:${t.skill}#${r}` }
@@ -90,4 +96,4 @@ const results = await pipeline(
 )
 
 const clean = results.filter(Boolean)
-return { n: clean.length, rows: clean.sort((a,b)=>b.delta-a.delta) }
+return { n: clean.length, reps: REPS, rows: clean.sort((a,b)=>b.delta-a.delta) }

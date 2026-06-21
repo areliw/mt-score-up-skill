@@ -281,10 +281,10 @@
  },
  {
   "skill": "what-skill-do-i-need.md",
-  "effect": "neutral",
-  "withScore": 4.5,
-  "withoutScore": 4,
-  "delta": 0.5,
+  "effect": "rescued",
+  "withScore": 3.4,
+  "withoutScore": 1.6,
+  "delta": 1.8,
   "trapAvoid": "both"
  },
  {

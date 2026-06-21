@@ -38,4 +38,6 @@ jobs:
           if [ -z "$files" ]; then echo "no skill files changed"; else echo "changed:"; echo "$files"; fi
       - name: status ≤ evidence check
         if: steps.changed.outputs.files != ''
-        run: python scripts/check_maturity_gate.py ${{ steps.changed.outputs.files }}
+        env:
+          FILES: ${{ steps.changed.outputs.files }}
+        run: echo "$FILES" | xargs -r python scripts/check_maturity_gate.py

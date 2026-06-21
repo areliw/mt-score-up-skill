@@ -34,4 +34,6 @@ jobs:
           if [ -z "$files" ]; then echo "no skill files changed"; else echo "changed:"; echo "$files"; fi
       - name: A/B coverage check
         if: steps.changed.outputs.files != ''
-        run: python scripts/ab_gate_check.py ${{ steps.changed.outputs.files }}
+        env:
+          FILES: ${{ steps.changed.outputs.files }}
+        run: echo "$FILES" | xargs -r python scripts/ab_gate_check.py

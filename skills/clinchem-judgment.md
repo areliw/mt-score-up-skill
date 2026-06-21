@@ -58,6 +58,7 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 - Shift (จุดกระโดดไปอยู่ด้านเดียว mean ทันที) → เปลี่ยน lot น้ำยา/calibrator, หลัง maintenance/recalibrate → verify lot/calibration ก่อนโทษเครื่อง
 - Trend (ค่อยๆ ไหลขึ้น/ลง) → น้ำยาเสื่อม, light source เสื่อม, electrode/probe ค่อยๆ ตัน → คาดการณ์ล่วงหน้าได้ อย่ารอจน reject
 - IQC ผ่านสวยทุกวัน แต่ EQA fail = precise but inaccurate (bias ซ่อน) = บทเรียน Theranos. "IQC OK ≠ ผลถูก" — bias คงที่ L-J จับไม่ได้ ต้องพึ่ง EQA/method comparison
+- ⚠️ **เงื่อนไขที่ทำให้ FORK นี้ทำงานจริง = traceability:** จะแยก shift/trend → root cause (lot ใหม่? recal? น้ำยาขวด/cartridge ใหม่?) ได้ ต้องรู้ว่า **อะไรเปลี่ยนวันไหน** — แต่หน้าจอเครื่อง + middleware/3rd-party หลายที่ **ไม่ได้เก็บ/ไม่ sync ครบ** (lot ของ QC, รหัสขวด/cartridge/pack หรือ S/N น้ำยา current/standby, วัน cal, วันปรับ lab-mean มักหลุด → ต้องวนกลับไปกดหน้าเครื่อง) → ควรมี **record ของตัวเอง** (sheet/LIS) ที่ผูกแต่ละจุด QC กับ lot · รหัสขวด/cartridge/pack (S/N) · วัน cal · วันเปลี่ยน lab-mean/SD; ไม่มี annotation นี้ = เห็น shift แต่สืบ root-cause + ทำ CAPA ไม่ได้ · ⚠️ **คิดสถิติให้คงฐานเดียว:** mean/SD/CV เปลี่ยนตามวิธีคิด (per-lot vs per-S/N vs pooled, ตัด ±2SD หรือไม่) — เลือกฐานแล้วอย่าสลับกลางคัน (เทียบข้ามฐาน = หลอกตัวเอง)
 
 ### FORK 3 — interference (HIL) กระทบ analyte ไหน → ปล่อยได้/ไม่ได้
 **Verdict: hemolyzed → ห้าม report K⁺/LDH/AST (สูงปลอม) เจาะใหม่. เช็ค HIL index ก่อนโทษเครื่อง.** interference ไม่ได้เพี้ยนทุกตัวเท่ากัน — รู้ "ตัวไหน + ทิศไหน" ก่อนตัดสินปล่อย

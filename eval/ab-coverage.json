@@ -91,7 +91,7 @@
  },
  "clinchem-judgment": {
   "status": "draft",
-  "body_hash": "c8c123b0b5fe",
+  "body_hash": "3d190cd71186",
   "ab": true,
   "ab_method": "legacy",
   "ab_delta": -1,
@@ -469,7 +469,7 @@
  },
  "mt-career-judgment": {
   "status": "draft",
-  "body_hash": "15d328196191",
+  "body_hash": "2c701b5510c7",
   "ab": true,
   "ab_method": "legacy",
   "ab_delta": 3,
@@ -487,7 +487,7 @@
  },
  "mt-exam-strategy-judgment": {
   "status": "draft",
-  "body_hash": "65c308b3df16",
+  "body_hash": "c268ec164146",
   "ab": true,
   "ab_method": "legacy",
   "ab_delta": 3,
@@ -820,10 +820,10 @@
  },
  "what-skill-do-i-need": {
   "status": "semi-stable",
-  "body_hash": "e1b070f3b4e0",
+  "body_hash": "43398a8d5dd5",
   "ab": true,
   "ab_method": "legacy",
-  "ab_delta": 0.5,
+  "ab_delta": 1.8,
   "screen": false,
   "peer": false
  },

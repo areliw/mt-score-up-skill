@@ -8,6 +8,8 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 ## [Unreleased]
 
 ### Added
+- **`eval/SAFETY-EVAL.md`** — W3 safety-eval scaffold: four harm axes (unsafe-confident, scope, missing-context, escalation), 0–5 rubric vs helpfulness Δ, pilot plan for 5 clinical skills + illustrative scenarios
+- **`eval/peer-review/`** — README + **`flow-cytometry-judgment-DRAFT.md`** (round-6 Δ+3.67; scope/claims/forks pre-filled from AI pre-screen; SIGN block empty for MT)
 - **`eval/ANTI-BIAS-PROTOCOL.md`** — Thai-first protocol: Haiku answerer, blind judge, ×3/×5, manual tier rules
 - **`scripts/ab_tier.py`** — shared evidence-tier inference for gate/coverage/report scripts
 
@@ -15,7 +17,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 - **Anti-bias hardening:** `_ab_slim.json` optional `tier` (`full`|`manual`|`screen`); 6 manual-2026-06-24 rows → `tier: manual`; restored `round6-probe` **full-tier** rows for same 6 skills
 - **`check_maturity_gate.py` / `build_ab_coverage.py` / `maturity_report.py` / `ab_gate_check.py`** — semi-stable requires full-tier A/B (manual insufficient); ab-gate warns on manual-only
 - **`eval/manual-ab-2026-06-24.md`** — superseded disclaimer; exploratory only
-- **`eval/AB-GATE.md`**, **`eval/METHOD.md`** — document tier rules
+- **`eval/AB-GATE.md`**, **`eval/METHOD.md`** — document tier rules; METHOD links Layer 2b safety-eval + peer-review path to `stable`
 
 ### Added
 - **`eval/harness/router-eval.js` — router-accuracy eval (วัด triage หยิบสกิลถูกตัวไหม)** + baseline report `eval/router-eval-2026-06-22.md`. เดิม A/B ทดสอบสกิลแบบ "ป้อนให้แล้ว" — ไม่เคยวัด routing ซึ่งเป็นพื้นผิวที่เดิมพัน "94 สกิล" ทั้งหมดวางอยู่. method: Opus แต่งปัญหาภาษาคนจาก 1 สกิล (กัน keyword-leak) → Haiku route ผ่าน catalog (blind) → top1/top3 → Opus adjudicate hard vs soft. **batched (chunk 10 sequential)** กัน rate-limit/usage-limit ทำ run ล่ม. **baseline 94: top1 0.798 · top3 0.936 · hard miss 1** (router แกนแข็ง). hard miss `what-skill-do-i-need` (catalog meta-นามธรรมเกิน ไม่มี trigger ภาษาคน → แพ้ `data-science-workflow` ที่ misleading) → **fix:** เติม trigger ลง tagline → re-route เลิกส่งไป misleading (ไป `research-design-judgment` ที่ช่วยจริง) · semi-stable → re-A/B (Δ+1.8 rescued) + re-anchor hash. self-improvement loop ปิดครบ (measure→diagnose→fix→verify).

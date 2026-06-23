@@ -46,3 +46,5 @@
 ---
 
 > 📊 อยากรู้ว่า skill ไหนพิสูจน์แล้วว่าช่วย (และอันไหนเสมอ/ทำไม) → [`eval/ab-scorecard.md`](../eval/ab-scorecard.md) · อยากลองโจทย์เองเพื่อฝึก → [`exercises/`](../exercises)
+
+> **หมายเหตุ:** ไฟล์ CV/resume ตัวอย่างส่วนตัว (เช่น `profile_recruiter*.txt`) ไม่ได้อยู่ใน repo — ถูก `.gitignore` ไว้ เก็บ local ได้ที่เครื่องคุณเอง

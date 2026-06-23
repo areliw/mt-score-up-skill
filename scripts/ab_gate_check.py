@@ -17,6 +17,8 @@ import pathlib
 
 import json
 
+from ab_tier import any_slugs, manual_only_slugs, full_slugs
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 SCOREBOARD = ROOT / "eval" / "_ab_slim.json"  # canonical structured A/B record
@@ -29,27 +31,13 @@ except Exception:
 
 
 def scored_slugs() -> set[str]:
-    """Skill slugs that have a real Δ entry in the structured scoreboard.
-
-    Reads only the structured record (not free-text docs) so that merely *mentioning*
-    a skill name in a doc — e.g. listing it as an uncovered gap — does NOT count.
-    """
-    try:
-        data = json.loads(SCOREBOARD.read_text(encoding="utf-8"))
-    except Exception:
-        return set()
-    out = set()
-    for row in data if isinstance(data, list) else []:
-        name = str(row.get("skill", "")).strip()
-        if name.endswith(".md"):
-            name = name[:-3]
-        if name:
-            out.add(name)
-    return out
+    """Skill slugs that have any Δ entry in the structured scoreboard."""
+    return any_slugs()
 
 
 def main(argv: list[str]) -> int:
     scored = scored_slugs()
+    manual_only = manual_only_slugs() - full_slugs()
     if argv == ["--all"]:
         targets = sorted(SKILLS.glob("*.md"))
     else:
@@ -82,6 +70,12 @@ def main(argv: list[str]) -> int:
         )
         return 1
     print("  all checked skills have an A/B record - OK")
+    warned = [s for s in checked if s in manual_only]
+    if warned:
+        print(f"\n  WARNING — manual-tier only (NOT valid for semi-stable promotion) ({len(warned)}):")
+        for w in warned:
+            print(f"    - {w}")
+        print("     -> re-run eval/harness/ab-x3.js per eval/ANTI-BIAS-PROTOCOL.md\n")
     return 0
 
 

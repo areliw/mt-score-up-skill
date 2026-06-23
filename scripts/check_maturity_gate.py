@@ -6,8 +6,9 @@ Hard-gate version of scripts/maturity_report.py. Implements "status ≤ evidence
 from docs/design/maturity-ladder.md, on the live 3-tier vocab (draft / semi-stable / stable):
 
   - draft        → no requirement
-  - semi-stable  → MUST have empirical A/B: a record in eval/_ab_slim.json (full blind-judge)
-                   OR a light screen in eval/round4-new-skills.md / round5-remaining.md
+  - semi-stable  → MUST have **full-tier** A/B in eval/_ab_slim.json (Haiku+Opus harness)
+                   OR a light screen in eval/round4-new-skills.md / round5-remaining.md.
+                   Manual-tier rows in _ab_slim do NOT count (see eval/ANTI-BIAS-PROTOCOL.md).
   - semi-stable/stable → its WINNING A/B delta (eval/ab-coverage.json) must NOT be negative
                    (a "backfire" result cannot back a "proven helpful" claim).
   - stable       → MUST have a signed MT peer-review in eval/peer-review/<slug>-*.md
@@ -22,6 +23,8 @@ import sys
 import json
 import hashlib
 import pathlib
+
+from ab_tier import full_slugs, promotion_entry
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
@@ -59,18 +62,6 @@ def body_hash(text: str) -> str:
     return hashlib.sha256(split_body(text).strip().encode("utf-8")).hexdigest()[:12]
 
 
-def ab_scored() -> set[str]:
-    try:
-        rows = json.loads(SCOREBOARD.read_text(encoding="utf-8"))
-    except Exception:
-        return set()
-    out = set()
-    for r in rows if isinstance(rows, list) else []:
-        name = str(r.get("skill", "")).strip()
-        out.add(name[:-3] if name.endswith(".md") else name)
-    return out
-
-
 def screen_corpus() -> str:
     parts = []
     for f in SCREEN_FILES:
@@ -101,10 +92,11 @@ def registry() -> dict:
 
 
 def main(argv: list[str]) -> int:
-    scored = ab_scored()
+    full_ab = full_slugs()
     screen = screen_corpus()
     signed = peer_signed()
     reg = registry()
+    promo = promotion_entry()
     targets = sorted(SKILLS.glob("*.md")) if (not argv or argv == ["--all"]) else [pathlib.Path(a) for a in argv]
 
     checked, viol = [], []
@@ -115,25 +107,29 @@ def main(argv: list[str]) -> int:
         text = t.read_text(encoding="utf-8", errors="ignore")
         st = status_of(text)
         checked.append(slug)
-        has_ab = slug in scored or slug in screen
+        has_full = slug in full_ab
+        has_screen = slug in screen
         if st not in VALID:
             viol.append((slug, st, f"unknown status (allowed: {', '.join(sorted(VALID))})"))
             continue
-        if st == "semi-stable" and not has_ab:
-            viol.append((slug, st, "semi-stable but no A/B evidence (neither _ab_slim.json nor a screen round)"))
+        if st == "semi-stable" and not has_full and not has_screen:
+            viol.append((slug, st, "semi-stable but no full-tier A/B (_ab_slim tier=full) nor round4/5 screen"))
             continue
         if st == "stable" and slug not in signed:
             viol.append((slug, st, "stable but no signed MT peer-review in eval/peer-review/"))
             continue
         # negative-evidence: a tested skill whose WINNING A/B delta is negative (backfire) is
         # over-claimed — "proven helpful" cannot rest on a negative result. (gate hole, fixed 2026-06-19)
-        if st in ("semi-stable", "stable") and slug in reg:
-            d = reg[slug].get("ab_delta")
+        if st in ("semi-stable", "stable") and slug in promo:
+            d = promo[slug].get("delta")
             if isinstance(d, (int, float)) and d < 0:
-                viol.append((slug, st, f"A/B winning delta is NEGATIVE ({d}) — over-claim; re-test (x5, need delta>=2*SE) or demote to draft"))
+                viol.append((slug, st, f"full-tier A/B delta is NEGATIVE ({d}) — over-claim; re-test (x5, need delta>=2*SE) or demote to draft"))
                 continue
+        elif st in ("semi-stable", "stable") and slug in reg and reg[slug].get("ab_tier") == "manual":
+            viol.append((slug, st, "semi-stable/stable backed only by manual-tier A/B — re-run harness (eval/ANTI-BIAS-PROTOCOL.md)"))
+            continue
         # hash-currency: a tested skill whose body changed since the registry was built = stale
-        if st in ("semi-stable", "stable") and slug in reg:
+        if st in ("semi-stable", "stable") and slug in reg and reg[slug].get("ab_full"):
             if reg[slug].get("body_hash") and reg[slug]["body_hash"] != body_hash(text):
                 viol.append((slug, st, "evidence STALE — body changed since last A/B; re-test (eval/harness/ab-x3.js) + rebuild ab-coverage.json"))
 

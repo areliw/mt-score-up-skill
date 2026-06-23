@@ -12,8 +12,7 @@
 | **the actual A/B** | ×3 blind-judge (Opus gen → Haiku answer ×3 with/without → Opus blind judge) | Claude Code Workflow → `eval/harness/ab-x3.js` | model tokens (run by maintainer) |
 
 The AI half stays in Claude Code (managed model access, no secret to manage); CI only enforces
-that the evidence exists. CI is **advisory** — the repo's branch protection has
-`required_status_checks=null`, so a red check is a visible signal, not a hard block.
+that the evidence exists. Required checks on `main`: see [`docs/BRANCH-PROTECTION.md`](../docs/BRANCH-PROTECTION.md).
 
 ## The ritual (when you add or edit a skill's judgment)
 
@@ -33,15 +32,27 @@ that the evidence exists. CI is **advisory** — the repo's branch protection ha
 3. **Always ×3.** Never act on a single pass — it is noise (a single pass gave `blood-donor`
    a false −3 that ×3 flipped to +1.33: `2026-06-18-p1-probe-results.md`).
 4. **Append the Δ row to `eval/_ab_slim.json`** (the harness returns JSON; Workflow scripts can't
-   write files, so paste it in). The gate reads only this structured file — a mention of a skill
+   write files, so paste it in). Set **`"tier": "full"`** and `"method": "x3"` or `"x5"`.
+   Manual same-session runs → **`"tier": "manual"`** only (see [`ANTI-BIAS-PROTOCOL.md`](ANTI-BIAS-PROTOCOL.md)).
+   The gate reads only this structured file — a mention of a skill
    name in prose does **not** count as a record (that subtlety was a real bug, caught on 2026-06-18).
 
-## Coverage status (gate audit, 2026-06-18)
-**55 / 94** skills have a Δ entry in `_ab_slim.json` (53 legacy single-pass + 5 this-session ×3;
-2 of those newly inserted). **39** lack one — the 34 screen-only skills (`coverage-gap.md`) +
-recent additions. They are the backfill queue, and the gate flags any of them the moment it is
-edited — by design: an edited skill should carry a current Δ. (Legacy 53 are single-pass →
-re-confirm with ×3 when promoting to `stable`, P3.)
+## Coverage status (gate audit, 2026-06-24)
+**76 / 94** skills have a **full-tier** Δ in `_ab_slim.json` (round 1–3, round 6, session ×3/×5).
+**18** have light screen only (`round4`/`round5`). Manual-tier rows (e.g. `manual-2026-06-24`) are
+recorded for audit but **do not count** toward `semi-stable` — see [`ANTI-BIAS-PROTOCOL.md`](ANTI-BIAS-PROTOCOL.md).
+
+### Evidence tiers in `_ab_slim.json`
+
+| `tier` | source | counts for semi-stable? |
+|---|---|---|
+| `full` (default legacy) | `eval/harness/ab-x3.js` — Haiku answerer, Opus blind judge | ✅ |
+| `manual` | same-session manual (`method` contains `manual`) | ❌ — PR gate warns |
+| `screen` | rare structured screen row | ❌ — use round4/5 markdown instead |
+
+`scripts/check_maturity_gate.py` requires **full-tier** `_ab_slim` (or round4/5 screen markdown) for
+`semi-stable`. `scripts/ab_gate_check.py` still requires *some* row on changed skills but prints
+**WARNING** when only `tier: manual` exists.
 
 ## Hardening to a fully-automatic gate (optional, later)
 To run the A/B *inside* CI and hard-block: add `ANTHROPIC_API_KEY` as a repo secret, port

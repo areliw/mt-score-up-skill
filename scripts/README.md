@@ -8,6 +8,38 @@
 | `fill_template.py` | Basic template-fill (doc-control box via `paragraph.text`, no docxtpl/numbering). | ⚠️ deprecated → use `fill_with_docxtpl.py` |
 | `recheck_standards.py` | CI: monthly check of current ISO editions on iso.org → refresh `STANDARDS.md` date stamps; flag a newer edition for human review (no silent edit). | ✅ (CI) |
 | `replace_personnel.py` | Swap personnel names across a rendered WI `.docx` (body + header/footer + tables). Writes a `.bak` backup; supports `--dry-run`. | ✅ |
+| `build_triage.py` | **Canonical catalog regen** — from skill frontmatter, rebuilds `prompts/triage.md` CATALOG, `skills/INDEX.md`, `dist/all-skills.md`. Run after **any** change under `skills/`. | ✅ canonical |
+| `validate_repo.py` | CI: frontmatter keys, canonical sections, internal markdown links across all skills. | ✅ (CI) |
+| `check_duplicates.py` | Advisory char-3gram Jaccard overlap report — flags merge/graft candidates (threshold 0.22). | advisory |
+| `ab_gate_check.py` | PR gate: changed skills must have an entry in `eval/_ab_slim.json`; warns if only `tier: manual`. See [`eval/AB-GATE.md`](../eval/AB-GATE.md). | CI gate (advisory) |
+| `ab_tier.py` | Shared `_ab_slim.json` evidence-tier helpers (`full` / `manual` / `screen`). | library |
+| `check_maturity_gate.py` | PR gate: `status` must not out-rank evidence (semi-stable ⟹ full-tier A/B or round4/5 screen) + body hash must match `eval/ab-coverage.json`. | CI gate (advisory) |
+| `build_ab_coverage.py` | Maintainer: rebuild `eval/ab-coverage.json` maturity registry (body hashes + evidence flags). | maintainer |
+| `maturity_report.py` | Advisory: claimed `status:` vs actual A/B evidence — surfaces over-claims without mutating files. | advisory |
+| `create_contribution_form.gs` | Google Apps Script for the public contribution intake form. | helper (GAS) |
+
+## Skill library pipeline
+
+```bash
+# After editing any skill:
+python scripts/build_triage.py
+
+# Before opening a PR:
+python scripts/validate_repo.py
+python scripts/check_duplicates.py          # advisory
+python scripts/maturity_report.py           # advisory — check status vs evidence
+python scripts/check_maturity_gate.py       # if you changed status or judgment body
+python scripts/ab_gate_check.py           # if you changed skills (needs git diff context)
+```
+
+See also: [`eval/AB-GATE.md`](../eval/AB-GATE.md) · [`eval/ANTI-BIAS-PROTOCOL.md`](../eval/ANTI-BIAS-PROTOCOL.md) · [`eval/METHOD.md`](../eval/METHOD.md) · [`docs/design/maturity-ladder.md`](../docs/design/maturity-ladder.md) · [`docs/BRANCH-PROTECTION.md`](../docs/BRANCH-PROTECTION.md)
+
+### Regression tests (W3)
+
+```bash
+pip install -r requirements-dev.txt
+pytest tests/ -q
+```
 
 ## Two document pipelines
 

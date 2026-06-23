@@ -20,6 +20,8 @@ import json
 import hashlib
 import pathlib
 
+from ab_tier import index_by_slug, infer_tier, load_rows, any_slugs
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 EVAL = ROOT / "eval"
@@ -57,15 +59,14 @@ def status_of(text: str) -> str:
 
 
 def ab_index() -> dict:
-    try:
-        rows = json.loads((EVAL / "_ab_slim.json").read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    idx = index_by_slug(load_rows())
     out = {}
-    for r in rows if isinstance(rows, list) else []:
-        name = str(r.get("skill", "")).strip()
-        slug = name[:-3] if name.endswith(".md") else name
-        out[slug] = {"delta": r.get("delta"), "method": r.get("method", "legacy")}  # later entries win
+    for slug, r in idx.items():
+        out[slug] = {
+            "delta": r.get("delta"),
+            "method": r.get("method", "legacy"),
+            "tier": infer_tier(r),
+        }
     return out
 
 
@@ -94,6 +95,8 @@ def peer_signed() -> set[str]:
 
 def main() -> int:
     abi = ab_index()
+    promo = {s: r for s, r in abi.items() if r.get("tier") == "full"}
+    any_ab = any_slugs()
     screen = screen_corpus()
     signed = peer_signed()
     reg = {}
@@ -103,18 +106,22 @@ def main() -> int:
         text = p.read_text(encoding="utf-8", errors="ignore")
         slug = p.stem
         ab = abi.get(slug)
+        full = promo.get(slug)
         reg[slug] = {
             "status": status_of(text),
             "body_hash": body_hash(text),
-            "ab": bool(ab),
-            "ab_method": (ab or {}).get("method"),
-            "ab_delta": (ab or {}).get("delta"),
+            "ab": slug in any_ab,
+            "ab_full": bool(full),
+            "ab_tier": (ab or {}).get("tier"),
+            "ab_method": (full or ab or {}).get("method"),
+            "ab_delta": (full or ab or {}).get("delta"),
             "screen": slug in screen,
             "peer": slug in signed,
         }
     OUT.write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
-    n_ab = sum(1 for v in reg.values() if v["ab"])
-    print(f"ab-coverage.json: {len(reg)} skills · full-A/B {n_ab} · screen {sum(1 for v in reg.values() if v['screen'] and not v['ab'])} · peer {sum(1 for v in reg.values() if v['peer'])}")
+    n_full = sum(1 for v in reg.values() if v["ab_full"])
+    n_manual = sum(1 for v in reg.values() if v["ab"] and not v["ab_full"])
+    print(f"ab-coverage.json: {len(reg)} skills · full-tier {n_full} · manual-tier {n_manual} · screen-only {sum(1 for v in reg.values() if v['screen'] and not v['ab'])} · peer {sum(1 for v in reg.values() if v['peer'])}")
     return 0
 
 

@@ -11,8 +11,9 @@
 | `build_triage.py` | **Canonical catalog regen** — from skill frontmatter, rebuilds `prompts/triage.md` CATALOG, `skills/INDEX.md`, `dist/all-skills.md`. Run after **any** change under `skills/`. | ✅ canonical |
 | `validate_repo.py` | CI: frontmatter keys, canonical sections, internal markdown links across all skills. | ✅ (CI) |
 | `check_duplicates.py` | Advisory char-3gram Jaccard overlap report — flags merge/graft candidates (threshold 0.22). | advisory |
-| `ab_gate_check.py` | PR gate: changed skills must have an entry in `eval/_ab_slim.json`. See [`eval/AB-GATE.md`](../eval/AB-GATE.md). | CI gate (advisory) |
-| `check_maturity_gate.py` | PR gate: `status` must not out-rank evidence + body hash must match `eval/ab-coverage.json`. | CI gate (advisory) |
+| `ab_gate_check.py` | PR gate: changed skills must have an entry in `eval/_ab_slim.json`; warns if only `tier: manual`. See [`eval/AB-GATE.md`](../eval/AB-GATE.md). | CI gate (advisory) |
+| `ab_tier.py` | Shared `_ab_slim.json` evidence-tier helpers (`full` / `manual` / `screen`). | library |
+| `check_maturity_gate.py` | PR gate: `status` must not out-rank evidence (semi-stable ⟹ full-tier A/B or round4/5 screen) + body hash must match `eval/ab-coverage.json`. | CI gate (advisory) |
 | `build_ab_coverage.py` | Maintainer: rebuild `eval/ab-coverage.json` maturity registry (body hashes + evidence flags). | maintainer |
 | `maturity_report.py` | Advisory: claimed `status:` vs actual A/B evidence — surfaces over-claims without mutating files. | advisory |
 | `create_contribution_form.gs` | Google Apps Script for the public contribution intake form. | helper (GAS) |
@@ -31,7 +32,7 @@ python scripts/check_maturity_gate.py       # if you changed status or judgment 
 python scripts/ab_gate_check.py           # if you changed skills (needs git diff context)
 ```
 
-See also: [`eval/AB-GATE.md`](../eval/AB-GATE.md) · [`eval/METHOD.md`](../eval/METHOD.md) · [`docs/design/maturity-ladder.md`](../docs/design/maturity-ladder.md) · [`docs/BRANCH-PROTECTION.md`](../docs/BRANCH-PROTECTION.md)
+See also: [`eval/AB-GATE.md`](../eval/AB-GATE.md) · [`eval/ANTI-BIAS-PROTOCOL.md`](../eval/ANTI-BIAS-PROTOCOL.md) · [`eval/METHOD.md`](../eval/METHOD.md) · [`docs/design/maturity-ladder.md`](../docs/design/maturity-ladder.md) · [`docs/BRANCH-PROTECTION.md`](../docs/BRANCH-PROTECTION.md)
 
 ### Regression tests (W3)
 

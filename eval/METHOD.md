@@ -58,6 +58,11 @@ The design that makes this non-trivial:
 Full table: [`ab-scorecard.md`](ab-scorecard.md). Per-skill judge rationales: in the workflow
 output.
 
+**Evidence tiers (2026-06-24):** structured rows in `eval/_ab_slim.json` carry optional
+`"tier": "full" | "manual" | "screen"`. Only **`full`** (Haiku+Opus blind harness) counts toward
+`semi-stable`; same-session manual runs are **`manual`** — exploratory, not promotion-grade.
+See [`ANTI-BIAS-PROTOCOL.md`](ANTI-BIAS-PROTOCOL.md).
+
 ### Why a raw "lift/neutral/backfire" tally isn't enough
 
 A judge giving the with-skill answer one fewer style point when **both answers were clinically

@@ -17,6 +17,8 @@ Usage: python scripts/maturity_report.py
 """
 import sys, json, pathlib, hashlib
 
+from ab_tier import full_slugs, index_by_slug, infer_tier, load_rows, manual_only_slugs
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 EVAL = ROOT / "eval"
@@ -36,18 +38,8 @@ def frontmatter_status(text: str) -> str:
 
 
 def full_ab() -> dict:
-    try:
-        rows = json.loads((EVAL / "_ab_slim.json").read_text(encoding="utf-8"))
-    except Exception:
-        return {}
-    out = {}
-    for r in rows:  # later entries (this-session x3/x5) overwrite legacy -> best current read
-        name = str(r.get("skill", "")).strip()
-        if name.endswith(".md"):
-            name = name[:-3]
-        if name:
-            out[name] = {"delta": r.get("delta"), "kind": r.get("effect") or r.get("kind"), "method": r.get("method", "legacy")}
-    return out
+    return {s: {"delta": r.get("delta"), "kind": r.get("effect") or r.get("kind"), "method": r.get("method", "legacy"), "tier": infer_tier(r)}
+            for s, r in index_by_slug(load_rows()).items() if infer_tier(r) == "full"}
 
 
 def screen_corpus() -> str:
@@ -61,35 +53,47 @@ def screen_corpus() -> str:
 
 def main() -> int:
     fab = full_ab()
+    manual_only = manual_only_slugs() - full_slugs()
     screen = screen_corpus()
     skills = sorted(p for p in SKILLS.glob("*.md") if p.stem not in SKIP)
 
     rows, overclaim = [], []
-    n_full = n_screen = n_none = 0
+    n_full = n_manual = n_screen = n_none = 0
     for p in skills:
         slug = p.stem
         text = p.read_text(encoding="utf-8", errors="ignore")
         status = frontmatter_status(text)
         has_full = slug in fab
+        has_manual = slug in manual_only
         has_screen = slug in screen
         if has_full: n_full += 1
+        elif has_manual: n_manual += 1
         elif has_screen: n_screen += 1
         else: n_none += 1
-        ev = "full-A/B" if has_full else ("screen-A/B" if has_screen else "NONE")
+        if has_full:
+            ev = "full-A/B"
+        elif has_manual:
+            ev = "manual-A/B"
+        elif has_screen:
+            ev = "screen-A/B"
+        else:
+            ev = "NONE"
         rows.append((slug, status, ev, fab.get(slug, {})))
-        # over-claim: semi-stable (old: "codex + A/B") with no A/B evidence of any kind
         if status == "semi-stable" and not has_full and not has_screen:
+            overclaim.append(slug)
+        elif status == "semi-stable" and has_manual and not has_full and not has_screen:
             overclaim.append(slug)
 
     print(f"maturity report — {len(skills)} skills")
-    print(f"  evidence:  full-A/B {n_full} · screen-A/B {n_screen} · NONE {n_none}")
+    print(f"  evidence:  full-tier {n_full} · manual-tier {n_manual} · screen-A/B {n_screen} · NONE {n_none}")
     semi = [r for r in rows if r[1] == "semi-stable"]
     semi_full = sum(1 for r in semi if r[2] == "full-A/B")
+    semi_manual = sum(1 for r in semi if r[2] == "manual-A/B")
     semi_screen = sum(1 for r in semi if r[2] == "screen-A/B")
     semi_none = sum(1 for r in semi if r[2] == "NONE")
-    print(f"  semi-stable ({len(semi)}):  full-A/B {semi_full} · screen-A/B {semi_screen} · NONE {semi_none}")
+    print(f"  semi-stable ({len(semi)}):  full-tier {semi_full} · manual-tier {semi_manual} · screen-A/B {semi_screen} · NONE {semi_none}")
     if overclaim:
-        print(f"\n  OVER-CLAIM — status=semi-stable but NO A/B evidence ({len(overclaim)}):")
+        print(f"\n  OVER-CLAIM — status=semi-stable but no full-tier A/B nor screen ({len(overclaim)}):")
         for s in overclaim:
             print(f"    - {s}")
         print("\n  -> re-baseline these toward L2 `reviewed` (codex) until re-A/B, per maturity-ladder.md")

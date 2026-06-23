@@ -18,7 +18,7 @@
 
 ## Top 10 — AI พลาดหนักสุด (ต้องมีวิจารณญาณ)
 1. **ขายน้ำยา/IVD** (ธุรกิจ/ขาย) · Δ +4.0 · `ivd-sales-judgment`
-2. **ทำคอนเทนต์/แคสเกม** (ธุรกิจ/ขาย) · Δ +3.5 · `content-creator-judgment`
+2. **ทำคอนเทนต์/เพจให้ความรู้** (ธุรกิจ/ขาย) · Δ +3.5 · `content-creator-judgment`
 3. **เส้นทางอาชีพ MT** (อาชีพ) · Δ +3.2 · `mt-career-judgment`
 4. **กัน AI มั่ว** (AI/meta) · Δ +3.0 · `anti-hallucination`
 5. **กลยุทธ์สอบใบประกอบ** (อาชีพ) · Δ +3.0 · `mt-exam-strategy-judgment`

@@ -59,7 +59,7 @@ JUDGMENT_CLUSTER = {"career", "business", "comms", "AImeta"}
 
 # Thai labels for readability on the leaderboard (slug -> short gloss)
 LABELS = {
-    "ivd-sales-judgment": "ขายน้ำยา/IVD", "content-creator-judgment": "ทำคอนเทนต์/แคสเกม",
+    "ivd-sales-judgment": "ขายน้ำยา/IVD", "content-creator-judgment": "ทำคอนเทนต์/เพจให้ความรู้",
     "mt-career-judgment": "เส้นทางอาชีพ MT", "anti-hallucination": "กัน AI มั่ว",
     "mt-exam-strategy-judgment": "กลยุทธ์สอบใบประกอบ", "polite-but-clear": "พูดสุภาพแต่ชัด",
     "report-up-judgment": "รายงานขึ้นบน", "pubmed-search-judgment": "ค้น PubMed",

@@ -41,7 +41,7 @@
 
 ## Implementation plan
 1. `eval/ab-coverage.json` — registry: `{skill, level, codex_hash, ab_round, ab_kind, ab_delta, ab_hash, lit, peer}` + คำนวณ hash ปัจจุบัน
-2. re-baseline `status:` ทั้ง 89 ตาม evidence จริง (honest — หลายตัวหล่น)
+2. re-baseline `status:` ทั้ง 94 ตาม evidence จริง (honest — หลายตัวหล่น)
 3. `scripts/check_maturity_gate.py` wire เข้า build_triage CI (status ≤ evidence-level + hash-current)
 4. แก้ CHANGELOG/README/spec ให้สะท้อน 10 ชั้น
 

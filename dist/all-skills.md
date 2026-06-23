@@ -887,7 +887,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 > เติม war-story หน้า bench จริง เช่น:
 > - *"(MT BB) เคส ABO discrepancy ที่ผมเจอจริง คือ... resolve โดย..."*
 > - *"เคสที่เกือบจ่ายเลือดผิด จับได้เพราะ clerical/anti-H ตรง..."*
-> - *(สาย sales) เทคนิคหน้างาน → product: gel/CAT = Ortho/Bio-Rad · SPRCA = Immucor · HLA SSO = One Lambda/Thermo · NAT/molecular = Grifols/Roche*
+> - *(เทคนิคหน้างาน) เลือกวิธีให้ตรงกับคำถาม: gel/CAT · SPRCA · HLA SSO · NAT/molecular — ตรวจสอบข้อบ่งใช้และ SOP ของห้องปฏิบัติการก่อนเสมอ*
 
 ---
 *เครื่องมือช่วยคิดหน้างานธนาคารเลือดเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินใจแทน งาน BB เกี่ยวชีวิตคนไข้โดยตรง ต้องทำตาม SOP, ยืนยันกับ MT/แพทย์, ยึดมาตรฐานธนาคารเลือดและงานบริการโลหิต ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย (AABB = อ้างอิงสากล) และศูนย์อ้างอิงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้*
@@ -3039,7 +3039,7 @@ disclaimer: "ช่วยซักไซ้/หาจุดอ่อนของ
 
 ---
 skill: hematology-judgment
-title: ตัวช่วยตัดสินใจในแลบโลหิตวิทยา (Hematology Judgment)
+title: ตัวช่วยตัดสินใจในแล็บโลหิตวิทยา (Hematology Judgment)
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
@@ -3049,9 +3049,9 @@ status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
-# ตัวช่วยตัดสินใจในแลบโลหิตวิทยา
+# ตัวช่วยตัดสินใจในแล็บโลหิตวิทยา
 
-ตัวช่วยตัดสินใจในแลบโลหิตวิทยา — เน้น "ผล CBC/smear/coag นี้ ต้องทำอะไรต่อ + อย่าพลาดตรงไหน" ไม่ใช่ atlas รูปเซลล์หรือตารางค่าปกติ
+ตัวช่วยตัดสินใจในแล็บโลหิตวิทยา — เน้น "ผล CBC/smear/coag นี้ ต้องทำอะไรต่อ + อย่าพลาดตรงไหน" ไม่ใช่ atlas รูปเซลล์หรือตารางค่าปกติ
 
 > **กฎ #1:** ทุกผลที่กระทบการรักษา (blast, platelet ต่ำ) **ต้อง review smear ด้วยตาก่อน report เสมอ** — flag จากเครื่อง = สัญญาณ ไม่ใช่คำตอบ
 > **กับดัก #1 (ขั้น hard):** ตัวเลข/flag เครื่อง "ปกติ" ≠ smear ปกติ — เครื่องนับ blast เป็น lymph/mono ได้ ปล่อย acute leukemia ทั้งที่ WBC ปกติ. **เลขปกติแต่อาการ/บริบทค้าน = ยังต้อง smear** อย่าให้ "ไม่มี flag" เป็นใบผ่าน
@@ -3103,7 +3103,7 @@ Review smear เสมอเมื่อ:
 ### Fork 4 — Platelet ต่ำ → "จริงหรือ pseudo"
 0. เช็คก่อนเชื่อเลขเครื่อง: **QC วันนั้นผ่านไหม · หลอด partial clot / mix ไม่ดีไหม** (สาเหตุค่าต่ำปลอมที่พบบ่อยสุด) · **delta check เทียบประวัติเก่า**
 1. ดู smear หา platelet clump (feather edge) — มี clump = EDTA-induced pseudothrombocytopenia
-2. **ทำ platelet estimation จาก smear cross-check ค่า analyzer** (เฉลี่ยหลาย OIF ในเขต monolayer × factor ที่แลบ validate, ทั่วไป ~15–20k) — estimate ค้าน analyzer มาก = สงสัย clump/clot/artifact ก่อนเชื่อเลข
+2. **ทำ platelet estimation จาก smear cross-check ค่า analyzer** (เฉลี่ยหลาย OIF ในเขต monolayer × factor ที่แล็บ validate, ทั่วไป ~15–20k) — estimate ค้าน analyzer มาก = สงสัย clump/clot/artifact ก่อนเชื่อเลข
 3. clump → เก็บใหม่ใน citrate (3.2%) แล้วคูณ dilution factor หรือ heparin tube → รายงานค่าแก้
 4. ไม่มี clump + estimate สอดคล้อง + smear ยืนยันต่ำจริง → รายงาน + ต่ำมาก = critical แจ้งแพทย์ตาม SOP
 
@@ -3142,7 +3142,7 @@ Review smear เสมอเมื่อ:
 - #10 Pre-analytical ละเลย: tourniquet นาน, blood:anticoag ผิด (coag 1:9 + แก้ตาม Hct >55), hemolysis.
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
-> - SOP ของแลบคุณกำหนด smear-review criteria / critical-value list / delta-check rule ไว้อย่างไร? (เติมให้ตรงเครื่องและ policy จริง)
+> - SOP ของแล็บคุณกำหนด smear-review criteria / critical-value list / delta-check rule ไว้อย่างไร? (เติมให้ตรงเครื่องและ policy จริง)
 > - analyzer รุ่นที่ใช้ (เช่น Sysmex/Beckman) มี flag เฉพาะตัวไหนที่ทีมตีความต่างจาก default?
 > - screening flow thalassemia / reflex algorithm ในพื้นที่คุณ ต่างจากที่ระบุไว้ตรงไหน (cut-off, DNA referral)?
 
@@ -3429,7 +3429,7 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพ
 - ก้ำกึ่งว่า reactive screen ต้อง confirm ไหม / dilute เพราะ prozone-hook ไหม
 - ผลลบสวนอาการ หรือ ผลบวกในคน prevalence ต่ำ — ต้องตัดสินใจว่าเชื่อหรือทวน
 - เลือก/อ่าน non-label (agglutination/nephelometry/precipitation) · immunoblot/Western · IGRA (QFT) · ระวัง HAMA/biotin interference
-- (สาย sales/IVD) เตรียมคุยงาน diagnostics — Abbott Architect/Alinity, Roche Elecsys/cobas, Bio-Rad, Siemens
+- ต้องการเปรียบเทียบ platform immunoassay เพื่อใช้งานจริง — ยึด analyte, throughput, performance, service และการ validate ในหน่วยงาน ไม่ยึดชื่อบริษัท
 
 ## วิธีใช้
 วาง skill นี้ + เคส/ผลที่เจอ (analyte, format, ค่า screen/confirm, clinical) → AI เดินตาม fork ด้านล่าง บอก "เลือก/ตีความอะไร" + "กับดักที่ต้องระวัง" โดยยึดหลัก confirm-ก่อน-report เสมอ
@@ -3442,7 +3442,7 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพ
 ถามก่อน: analyte ใหญ่หรือเล็ก? ต้องการ throughput/quant แค่ไหน? อยู่ที่ไหน (lab vs POC)?
 - Analyte = โมเลกุลใหญ่ (โปรตีน, ≥2 epitope) → Sandwich (non-competitive): 2 Ab จับคนละ epitope, signal แปรผันตรง. เช่น HBsAg, troponin, tumor marker, hormone โปรตีน.
 - Analyte = โมเลกุลเล็ก / hapten (drug, steroid, T4, epitope เดียว) → Competitive: Ab ตัวเดียว, labeled-Ag แข่งกับ sample, signal แปรผกผัน. เช่น drug-of-abuse, cortisol, digoxin. → เล็ก = competitive = ผกผัน.
-- ต้องการ throughput สูง + quant + automation → CLIA/ECLIA/CMIA. ECLIA = Roche Elecsys/cobas; CMIA = Abbott Architect/Alinity; CLIA/EIA = Bio-Rad/Siemens.
+- ต้องการ throughput สูง + quant + automation → พิจารณา CLIA/ECLIA/CMIA ตาม assay ที่มี, performance ที่ผ่านการยืนยัน และ workflow ของห้องปฏิบัติการ; ชื่อวิธีอย่างเดียวไม่พอให้สรุปว่า platform ใดเหมาะกว่า.
 - ตรวจ Ab (ไม่ใช่ Ag) → Indirect format (+ secondary anti-human IgG/IgM). แยก IgM (acute) vs IgG (past/immune).
 - ผลเร็ว / POC → Lateral flow (immunochromatographic, colloidal gold): hCG, dengue NS1, COVID Ag, HIV/syphilis rapid.
 - quantitate Ig/RF/complement/CRP → Nephelometry/turbidimetry (particle-enhanced latex).
@@ -3503,7 +3503,7 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > - เติม cutoff/algorithm ของ HIV/HCV/syphilis ที่ใช้จริงตาม SOP ห้องแล็บนั้นๆ (traditional vs reverse)
-> - ระบุ analyzer + reagent platform ที่ใช้ (Abbott/Roche/Bio-Rad/Siemens) + protocol dilution เมื่อสงสัย prozone/hook
+> - ระบุ analyzer + reagent platform ที่ใช้ + protocol dilution เมื่อสงสัย prozone/hook
 > - เพิ่ม panel/marker เฉพาะที่ รพ. ใช้บ่อย + criteria การ confirm/repeat ตาม policy ห้องแล็บ
 
 ---

@@ -12,15 +12,15 @@
 > analysis below still holds *directionally*; for the headline trust round 3 + the **~1.4 noise
 > floor** (a per-skill delta must clear ~1.4 to be real signal).
 
-> 📊 **Update 2026-06-15 — full coverage reached.** Round 6 upgraded the remaining 36 SCREEN-only skills to full blind-judge, so **all 89 skills now have a blind-judge Δ**. Round 6: **17 lift(real) · 18 safe · 1 regression** — `deep-research`, a tool-execution skill that fabricates citations when handed to a tool-less model; demoted to `draft`, guarded, and **re-verified (regression closed)**. So **library-wide: 0 regression across all 89**. Details: [`round6-probe.md`](round6-probe.md). The n=53 analysis below stands for the original cohort.
+> 📊 **Update 2026-06-15 — full blind-judge through round 6 (89 skills at the time).** Round 6 upgraded the remaining 36 SCREEN-only skills to full blind-judge. Round 6: **17 lift(real) · 18 safe · 1 regression** — `deep-research`, demoted to `draft`, guarded, and **re-verified (regression closed)**. **Library-wide at round 6: 0 regression across all 89.** Details: [`round6-probe.md`](round6-probe.md). The library is now **94 skills** (5 added since round 6); **6 still have no A/B record** — all `draft`. See `python scripts/maturity_report.py`. The n=53 analysis below stands for the original cohort.
 
 ## TL;DR
 
 - On each skill's **own worst-case trap**, given to a **weak** model (Haiku), blind-judged:
   **9 rescued · 16 better · 19 tie · 7 style-cost · 2 no-rescue · 0 regression** (n=53).
-  <sub>(n=53 = the library **at eval time** (v0.2 era). The library is now **88**. The +34 added by
-  v0.6.0 had a lighter **spot-A/B screen** (round4/5) but not this full blind-judge eval; only the newest
-  skill `git-workflow-judgment` (#88) has had **no** A/B screen at all yet. See `CHANGELOG.md`.)</sub>
+  <sub>(n=53 = the library **at eval time** (v0.2 era). The library is now **94**. Post–round-6 adds
+  had lighter **spot-A/B screen** (round4/5) where noted; **6 skills still have no A/B** — see
+  `maturity_report.py`. This scorecard is a claim only about the original 53.)</sub>
 - **0 skills made a weak model more dangerous.** No skill turned a correct answer into a
   trap-fall. The 9 raw "backfires" are 7 *both-answers-correct* style-point losses + 2
   *both-failed* no-rescues.

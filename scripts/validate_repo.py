@@ -37,8 +37,8 @@ SKILLS = ROOT / "skills"
 REQUIRED_KEYS = ["skill", "title", "type", "needs", "author", "last_edited", "status", "disclaimer"]
 VALID_TYPE = {"ADVISE", "DO", "CALIBRATION"}
 VALID_NEEDS = {"any", "code-interpreter", "persistent-memory"}
-# Structural lint: every skill keeps the canonical sections (all 93 comply as of
-# 2026-06-18 — gate guards against future skills silently dropping them). Substring,
+# Structural lint: every skill keeps the canonical sections (all 94 comply as of
+# 2026-06-24 — gate guards against future skills silently dropping them). Substring,
 # not heading-anchored, so legitimate heading variants ("## กับดัก (Anti-patterns)") pass.
 REQUIRED_SECTIONS = ["ใช้เมื่อ", "กับดัก", "ช่องสำหรับผู้เชี่ยวชาญ"]
 TITLE_MAXLEN = 160  # catalog/triage truncates ~150; keep titles scannable

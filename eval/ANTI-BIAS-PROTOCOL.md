@@ -37,7 +37,22 @@ Composer/Opus ทั้งตอบและให้คะแนนในเซ
 
 ---
 
-## 5) คำสั่ง harness ที่ไม่ bias (Claude Code Workflow)
+## 5) ช่องทาง harness ที่ไม่ bias (tier `full`)
+
+Protocol กลาง: [`harness/PROTOCOL.md`](harness/PROTOCOL.md) · ตาราง adapter:
+[`harness/README.md`](harness/README.md)
+
+### A) Python CLI (แนะนำ — Cursor / Codex / local)
+
+```bash
+pip install -r requirements-dev.txt
+export ANTHROPIC_API_KEY=…
+python scripts/ab_harness.py --skill foo-judgment --reps 3 --append-slim
+```
+
+ก่อน **promote / cut / rewrite** ใช้ `--reps 5`.
+
+### B) Claude Code Workflow (เดิม)
 
 ```javascript
 Workflow({
@@ -61,11 +76,16 @@ Workflow({
 })
 ```
 
+### C) Cursor agent manual (tier `manual` เท่านั้น)
+
+ทำ 4 phase ตาม `PROTOCOL.md` ในแชทเดียว → บันทึก `eval/manual-ab-*.md` + `_ab_slim`
+ด้วย `"tier": "manual"` — **ห้าม promote**
+
 ---
 
 ## 6) Checklist ก่อน append `_ab_slim.json`
 
-- [ ] รันผ่าน `eval/harness/ab-x3.js` (ไม่ใช่ manual ในแชทเดียว)
+- [ ] รันผ่าน **`scripts/ab_harness.py`** หรือ **`eval/harness/ab-x3.js`** (ไม่ใช่ manual ในแชทเดียว)
 - [ ] Answerer = **Haiku** · Judge = **Opus แยก** · blind + order swap
 - [ ] **×3 ขึ้นไป** (×5 ถ้าจะ act)
 - [ ] `"tier": "full"` · `"method": "x3"` หรือ `"x5"` · `"run": "wf_…"`

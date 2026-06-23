@@ -1,3 +1,7 @@
+// Portable protocol (prompts, scoring, tiers): eval/harness/PROTOCOL.md
+// Scoring tests (must match this file L86–101): eval/harness/python/protocol.py
+// Alternative adapter (Anthropic API, no Workflow): scripts/ab_harness.py
+//
 // Reusable A/B blind-judge harness (the AI half of the P4 gate) — reps per arm configurable (default 3).
 //
 // Run via Claude Code Workflow — NOT node:

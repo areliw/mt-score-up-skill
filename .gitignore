@@ -48,6 +48,9 @@ profiles/*-logo.*
 *.log
 logs/
 
+# A/B harness checkpoints (local runs — see eval/harness/README.md)
+eval/runs/
+
 # OS
 desktop.ini
 

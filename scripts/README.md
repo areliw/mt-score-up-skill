@@ -31,7 +31,14 @@ python scripts/check_maturity_gate.py       # if you changed status or judgment 
 python scripts/ab_gate_check.py           # if you changed skills (needs git diff context)
 ```
 
-See also: [`eval/AB-GATE.md`](../eval/AB-GATE.md) · [`eval/METHOD.md`](../eval/METHOD.md) · [`docs/design/maturity-ladder.md`](../docs/design/maturity-ladder.md)
+See also: [`eval/AB-GATE.md`](../eval/AB-GATE.md) · [`eval/METHOD.md`](../eval/METHOD.md) · [`docs/design/maturity-ladder.md`](../docs/design/maturity-ladder.md) · [`docs/BRANCH-PROTECTION.md`](../docs/BRANCH-PROTECTION.md)
+
+### Regression tests (W3)
+
+```bash
+pip install -r requirements-dev.txt
+pytest tests/ -q
+```
 
 ## Two document pipelines
 

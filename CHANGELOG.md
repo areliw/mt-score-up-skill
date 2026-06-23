@@ -7,8 +7,14 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 
 ## [Unreleased]
 
+### Added
+- **`eval/manual-ab-2026-06-24.md`** — manual ×3 A/B (Composer session) for 6 formerly-NONE skills; **6/6 rescued, 0 regression**
+
 ### Changed
-- **Housekeeping (post-review):** sync doc counts 88/89 → **94** (`RESULTS.md`, `ab-scorecard.md`, `USING.md`, `FEEDBACK.md`, `INTAKE.md`, `skill-registry-spec.md`, `maturity-ladder.md`, `validate_repo.py` comment) · note **6 skills still have no A/B** · fix typo `hematology-judgment` "แลบ"→"แล็บ" · scrub vendor names in `bloodbank-judgment` / `immunoassay-judgment` + matching eval scenario (`round3`) · expand `scripts/README.md` (gate/registry scripts).
+- **Housekeeping (post-review):** sync doc counts → **94** · fix typo hematology · vendor scrub · expand `scripts/README.md`
+- **Manual A/B refresh:** `eval/manual-ab-2026-06-24.md` replaces round6 rows for 6 skills in `_ab_slim.json` (method `manual-x3`)
+- **W3 pytest:** `tests/` + `requirements-dev.txt` + `.github/workflows/pytest.yml`
+- **Branch protection doc:** [`docs/BRANCH-PROTECTION.md`](docs/BRANCH-PROTECTION.md)
 
 ### Added
 - **`eval/harness/router-eval.js` — router-accuracy eval (วัด triage หยิบสกิลถูกตัวไหม)** + baseline report `eval/router-eval-2026-06-22.md`. เดิม A/B ทดสอบสกิลแบบ "ป้อนให้แล้ว" — ไม่เคยวัด routing ซึ่งเป็นพื้นผิวที่เดิมพัน "94 สกิล" ทั้งหมดวางอยู่. method: Opus แต่งปัญหาภาษาคนจาก 1 สกิล (กัน keyword-leak) → Haiku route ผ่าน catalog (blind) → top1/top3 → Opus adjudicate hard vs soft. **batched (chunk 10 sequential)** กัน rate-limit/usage-limit ทำ run ล่ม. **baseline 94: top1 0.798 · top3 0.936 · hard miss 1** (router แกนแข็ง). hard miss `what-skill-do-i-need` (catalog meta-นามธรรมเกิน ไม่มี trigger ภาษาคน → แพ้ `data-science-workflow` ที่ misleading) → **fix:** เติม trigger ลง tagline → re-route เลิกส่งไป misleading (ไป `research-design-judgment` ที่ช่วยจริง) · semi-stable → re-A/B (Δ+1.8 rescued) + re-anchor hash. self-improvement loop ปิดครบ (measure→diagnose→fix→verify).

@@ -597,5 +597,65 @@
     "trapAvoid": "both",
     "method": "x5",
     "run": "wf_4abf369f-143"
+  },
+  {
+    "skill": "incident-postmortem-judgment.md",
+    "effect": "lift",
+    "withScore": 4.83,
+    "withoutScore": 1.33,
+    "delta": 3.5,
+    "trapAvoid": "with-only",
+    "method": "manual-x3",
+    "run": "manual-2026-06-24"
+  },
+  {
+    "skill": "market-research-judgment.md",
+    "effect": "lift",
+    "withScore": 4.83,
+    "withoutScore": 1.33,
+    "delta": 3.5,
+    "trapAvoid": "with-only",
+    "method": "manual-x3",
+    "run": "manual-2026-06-24"
+  },
+  {
+    "skill": "flow-cytometry-judgment.md",
+    "effect": "lift",
+    "withScore": 4.67,
+    "withoutScore": 1.33,
+    "delta": 3.34,
+    "trapAvoid": "with-only",
+    "method": "manual-x3",
+    "run": "manual-2026-06-24"
+  },
+  {
+    "skill": "preanalytical-judgment.md",
+    "effect": "lift",
+    "withScore": 4.83,
+    "withoutScore": 1.67,
+    "delta": 3.16,
+    "trapAvoid": "with-only",
+    "method": "manual-x3",
+    "run": "manual-2026-06-24"
+  },
+  {
+    "skill": "urinalysis-judgment.md",
+    "effect": "lift",
+    "withScore": 4.83,
+    "withoutScore": 1.33,
+    "delta": 3.5,
+    "trapAvoid": "with-only",
+    "method": "manual-x3",
+    "run": "manual-2026-06-24"
+  },
+  {
+    "skill": "poct-judgment.md",
+    "effect": "lift",
+    "withScore": 4.83,
+    "withoutScore": 1.67,
+    "delta": 3.16,
+    "trapAvoid": "with-only",
+    "method": "manual-x3",
+    "run": "manual-2026-06-24"
   }
 ]

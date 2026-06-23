@@ -64,7 +64,7 @@
  },
  "bloodbank-judgment": {
   "status": "draft",
-  "body_hash": "52dc923cc9f3",
+  "body_hash": "a1ebe96999b3",
   "ab": true,
   "ab_method": "legacy",
   "ab_delta": -1,
@@ -245,9 +245,9 @@
  "flow-cytometry-judgment": {
   "status": "draft",
   "body_hash": "642e425b0df6",
-  "ab": false,
-  "ab_method": null,
-  "ab_delta": null,
+  "ab": true,
+  "ab_method": "manual-x3",
+  "ab_delta": 3.34,
   "screen": false,
   "peer": false
  },
@@ -271,7 +271,7 @@
  },
  "hematology-judgment": {
   "status": "draft",
-  "body_hash": "8fda63156c12",
+  "body_hash": "5bbfb2fc696e",
   "ab": true,
   "ab_method": "legacy",
   "ab_delta": 0,
@@ -307,7 +307,7 @@
  },
  "immunoassay-judgment": {
   "status": "draft",
-  "body_hash": "9ac2d254fd26",
+  "body_hash": "db5e03551f74",
   "ab": true,
   "ab_method": "legacy",
   "ab_delta": 0,
@@ -317,9 +317,9 @@
  "incident-postmortem-judgment": {
   "status": "draft",
   "body_hash": "6a4d519f12b9",
-  "ab": false,
-  "ab_method": null,
-  "ab_delta": null,
+  "ab": true,
+  "ab_method": "manual-x3",
+  "ab_delta": 3.5,
   "screen": false,
   "peer": false
  },
@@ -416,9 +416,9 @@
  "market-research-judgment": {
   "status": "draft",
   "body_hash": "4ff78a22c814",
-  "ab": false,
-  "ab_method": null,
-  "ab_delta": null,
+  "ab": true,
+  "ab_method": "manual-x3",
+  "ab_delta": 3.5,
   "screen": false,
   "peer": false
  },
@@ -469,10 +469,10 @@
  },
  "mt-career-judgment": {
   "status": "draft",
-  "body_hash": "2c701b5510c7",
+  "body_hash": "43418f498abc",
   "ab": true,
-  "ab_method": "legacy",
-  "ab_delta": 3,
+  "ab_method": "x5",
+  "ab_delta": 3.2,
   "screen": false,
   "peer": false
  },
@@ -487,7 +487,7 @@
  },
  "mt-exam-strategy-judgment": {
   "status": "draft",
-  "body_hash": "c268ec164146",
+  "body_hash": "15b9677500dc",
   "ab": true,
   "ab_method": "legacy",
   "ab_delta": 3,
@@ -496,10 +496,10 @@
  },
  "mt-law-ethics-judgment": {
   "status": "draft",
-  "body_hash": "362de55b11c0",
+  "body_hash": "b3b1b32de751",
   "ab": true,
-  "ab_method": "legacy",
-  "ab_delta": 0.5,
+  "ab_method": "x5",
+  "ab_delta": 0.1,
   "screen": false,
   "peer": false
  },
@@ -578,9 +578,9 @@
  "poct-judgment": {
   "status": "draft",
   "body_hash": "028ec8c7d1b6",
-  "ab": false,
-  "ab_method": null,
-  "ab_delta": null,
+  "ab": true,
+  "ab_method": "manual-x3",
+  "ab_delta": 3.16,
   "screen": false,
   "peer": false
  },
@@ -605,18 +605,18 @@
  "preanalytical-judgment": {
   "status": "draft",
   "body_hash": "8eb96ef7576a",
-  "ab": false,
-  "ab_method": null,
-  "ab_delta": null,
+  "ab": true,
+  "ab_method": "manual-x3",
+  "ab_delta": 3.16,
   "screen": false,
   "peer": false
  },
  "professional-voice-exit-judgment": {
   "status": "draft",
-  "body_hash": "40c2b27fd6c8",
+  "body_hash": "1bb17546ef05",
   "ab": true,
-  "ab_method": "x3",
-  "ab_delta": -1.0,
+  "ab_method": "x5",
+  "ab_delta": 1.5,
   "screen": false,
   "peer": false
  },
@@ -803,9 +803,9 @@
  "urinalysis-judgment": {
   "status": "draft",
   "body_hash": "c1d94f71f0ca",
-  "ab": false,
-  "ab_method": null,
-  "ab_delta": null,
+  "ab": true,
+  "ab_method": "manual-x3",
+  "ab_delta": 3.5,
   "screen": false,
   "peer": false
  },

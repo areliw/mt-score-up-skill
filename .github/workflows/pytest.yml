@@ -1,0 +1,40 @@
+name: pytest
+
+# W3 hardening — regression tests for the zero-dependency skill-library scripts.
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "scripts/**"
+      - "tests/**"
+      - "eval/_ab_slim.json"
+      - "eval/ab-coverage.json"
+      - "requirements-dev.txt"
+      - ".github/workflows/pytest.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "scripts/**"
+      - "tests/**"
+      - "eval/_ab_slim.json"
+      - "eval/ab-coverage.json"
+      - "requirements-dev.txt"
+      - ".github/workflows/pytest.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dev deps
+        run: pip install -r requirements-dev.txt
+      - name: Run pytest
+        run: pytest tests/ -q

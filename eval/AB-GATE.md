@@ -12,8 +12,7 @@
 | **the actual A/B** | ×3 blind-judge (Opus gen → Haiku answer ×3 with/without → Opus blind judge) | Claude Code Workflow → `eval/harness/ab-x3.js` | model tokens (run by maintainer) |
 
 The AI half stays in Claude Code (managed model access, no secret to manage); CI only enforces
-that the evidence exists. CI is **advisory** — the repo's branch protection has
-`required_status_checks=null`, so a red check is a visible signal, not a hard block.
+that the evidence exists. Required checks on `main`: see [`docs/BRANCH-PROTECTION.md`](../docs/BRANCH-PROTECTION.md).
 
 ## The ritual (when you add or edit a skill's judgment)
 
@@ -36,12 +35,10 @@ that the evidence exists. CI is **advisory** — the repo's branch protection ha
    write files, so paste it in). The gate reads only this structured file — a mention of a skill
    name in prose does **not** count as a record (that subtlety was a real bug, caught on 2026-06-18).
 
-## Coverage status (gate audit, 2026-06-18)
-**55 / 94** skills have a Δ entry in `_ab_slim.json` (53 legacy single-pass + 5 this-session ×3;
-2 of those newly inserted). **39** lack one — the 34 screen-only skills (`coverage-gap.md`) +
-recent additions. They are the backfill queue, and the gate flags any of them the moment it is
-edited — by design: an edited skill should carry a current Δ. (Legacy 53 are single-pass →
-re-confirm with ×3 when promoting to `stable`, P3.)
+## Coverage status (gate audit, 2026-06-24)
+**76 / 94** skills have a Δ entry in `_ab_slim.json` from full blind-judge (round 1–3, round 6,
+and session ×3/×5 runs). **18** have light screen only (`round4`/`round5`). **0** lack any
+record after round-6 backfill of the last 6 NONE gaps (see `eval/round6-probe.md` Batch 1–4).
 
 ## Hardening to a fully-automatic gate (optional, later)
 To run the A/B *inside* CI and hard-block: add `ANTHROPIC_API_KEY` as a repo secret, port

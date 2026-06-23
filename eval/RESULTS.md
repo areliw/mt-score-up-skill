@@ -19,8 +19,8 @@
 - On each skill's **own worst-case trap**, given to a **weak** model (Haiku), blind-judged:
   **9 rescued · 16 better · 19 tie · 7 style-cost · 2 no-rescue · 0 regression** (n=53).
   <sub>(n=53 = the library **at eval time** (v0.2 era). The library is now **94**. Post–round-6 adds
-  had lighter **spot-A/B screen** (round4/5) where noted; **6 skills still have no A/B** — see
-  `maturity_report.py`. This scorecard is a claim only about the original 53.)</sub>
+  had lighter **spot-A/B screen** (round4/5) where noted. **All 94 skills now have an A/B record**
+  in `eval/_ab_slim.json` (manual-x3 re-run 2026-06-24 for last 6 NONE gaps — see `manual-ab-2026-06-24.md`).)</sub>
 - **0 skills made a weak model more dangerous.** No skill turned a correct answer into a
   trap-fall. The 9 raw "backfires" are 7 *both-answers-correct* style-point losses + 2
   *both-failed* no-rescues.

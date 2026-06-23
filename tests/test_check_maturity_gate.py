@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from conftest import run_script
+from conftest import run_maturity_gate_on_fixture, run_script
 
 
 def test_maturity_gate_all_skills_pass(repo_root: Path) -> None:
@@ -50,3 +50,15 @@ def test_ab_tier_promotion_prefers_full_over_manual(repo_root: Path) -> None:
     assert reg["flow-cytometry-judgment"]["ab_tier"] == "full"
     assert reg["flow-cytometry-judgment"]["ab_delta"] == 3.67
     assert reg["poct-judgment"]["ab_delta"] == -0.67
+
+
+def test_maturity_gate_semi_stable_without_ab_fails(repo_root: Path) -> None:
+    proc = run_maturity_gate_on_fixture(repo_root, "semi_stable_no_ab.md")
+    assert proc.returncode == 1, proc.stdout + proc.stderr
+    assert "semi-stable but no full-tier A/B" in proc.stdout
+
+
+def test_maturity_gate_draft_fixture_passes(repo_root: Path) -> None:
+    proc = run_maturity_gate_on_fixture(repo_root, "minimal_valid_skill.md")
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert "within their evidence" in proc.stdout

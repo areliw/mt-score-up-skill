@@ -26,3 +26,20 @@ def test_build_triage_regenerates_catalog_in_sync(repo_root: Path) -> None:
     assert len(slugs) == 94
     for slug in slugs:
         assert f"`{slug}`" in block, f"missing catalog entry for {slug}"
+
+
+def test_build_triage_index_lists_every_slug(repo_root: Path) -> None:
+    proc = run_script(repo_root, "build_triage.py")
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    index = (repo_root / "skills" / "INDEX.md").read_text(encoding="utf-8")
+    for slug in _skill_slugs(repo_root / "skills"):
+        assert slug in index, f"INDEX.md missing {slug}"
+
+
+def test_build_triage_bundle_contains_skill_headers(repo_root: Path) -> None:
+    proc = run_script(repo_root, "build_triage.py")
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    bundle = (repo_root / "dist" / "all-skills.md").read_text(encoding="utf-8")
+    sample = ["pomodoro-focus", "hematology-judgment", "what-skill-do-i-need"]
+    for slug in sample:
+        assert slug in bundle

@@ -1,0 +1,10 @@
+{
+  "generated": "2026-06-24",
+  "note": "Harness batch for skills lacking full-tier _ab_slim. Run via Claude Code Workflow only — NOT manual same-model A/B.",
+  "protocol": "eval/ANTI-BIAS-PROTOCOL.md",
+  "workflow": {
+    "scriptPath": "eval/harness/ab-x3.js",
+    "args": []
+  },
+  "remaining_gaps": 0
+}

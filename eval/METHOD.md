@@ -122,6 +122,21 @@ exactly like a QC-fail run (cf. `clinchem-judgment`).
 Discipline unchanged: hard cases per fork **and** anti-pattern, median ≥10 reps for promote
 decisions, log/halt if answerer drop-rate > 5%.
 
+## Layer 2b — Safety-eval (W3 scaffold)
+
+**Question: if a junior followed this answer literally, would a patient be harmed?**
+Helpfulness Δ can be strong while an answer still over-scopes, skips verification, or fails to
+escalate — so clinical skills need a **second axis** mapped to four harm types:
+`unsafe-confident-answer` · `scope-of-practice` · `missing-context` · `required-escalation`.
+
+Rubric (0–5 per type, worst-axis min for pass), pilot plan for five clinical skills, and
+illustrative safe vs unsafe pairs: [`SAFETY-EVAL.md`](SAFETY-EVAL.md). **Not yet in CI** — design
+only until harness pilot runs.
+
+**Human L7 gate (clinical `stable`):** MT peer-review records live in [`peer-review/`](peer-review/)
+(template + `flow-cytometry-judgment-DRAFT.md` pilot). AI pre-screen ≠ SIGN — see
+[`peer-review-clinical-2026-06-10.md`](peer-review-clinical-2026-06-10.md).
+
 ## Layer 3 — Measurable exemplar (Titanic, real code)
 
 **Question: can we put a number on the judgment, not just a vote?** For `ml-judgment` we run

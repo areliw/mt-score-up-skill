@@ -1,50 +1,50 @@
 {
-  "n": 70,
+  "n": 100,
   "headline": {
-    "judgment_avg": 0.96,
-    "judgment_n": 29,
-    "clinical_avg": 0.35,
-    "clinical_n": 18,
-    "ratio": 2.7
+    "judgment_avg": 1.15,
+    "judgment_n": 41,
+    "clinical_avg": 1.01,
+    "clinical_n": 30,
+    "ratio": 1.1
   },
   "distribution": {
-    "gap": 17,
-    "lift": 24,
-    "tie": 15,
-    "back": 14
+    "gap": 32,
+    "lift": 32,
+    "tie": 21,
+    "back": 15
   },
   "by_category": {
     "other": {
-      "n": 1,
-      "avg": 1.4
+      "n": 2,
+      "avg": 2.37
     },
     "comms": {
-      "n": 4,
-      "avg": 1.38
+      "n": 7,
+      "avg": 1.43
     },
     "business": {
-      "n": 9,
-      "avg": 1.24
+      "n": 12,
+      "avg": 1.31
     },
     "career": {
       "n": 8,
       "avg": 1.23
     },
     "research": {
-      "n": 13,
-      "avg": 1.05
-    },
-    "tools": {
-      "n": 9,
-      "avg": 0.47
+      "n": 14,
+      "avg": 1.02
     },
     "clinical": {
-      "n": 18,
-      "avg": 0.35
+      "n": 30,
+      "avg": 1.01
     },
     "AImeta": {
-      "n": 8,
-      "avg": 0.19
+      "n": 14,
+      "avg": 0.82
+    },
+    "tools": {
+      "n": 13,
+      "avg": 0.68
     }
   },
   "top_gaps": [
@@ -58,6 +58,24 @@
       "tier": "gap"
     },
     {
+      "slug": "humanize-ai-writing",
+      "label": "humanize-ai-writing",
+      "delta": 4.0,
+      "with": 5.0,
+      "without": 1.5,
+      "cat": "AImeta",
+      "tier": "gap"
+    },
+    {
+      "slug": "flow-cytometry-judgment",
+      "label": "flow-cytometry-judgment",
+      "delta": 3.67,
+      "with": 4.67,
+      "without": 1.0,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
       "slug": "content-creator-judgment",
       "label": "ทำคอนเทนต์/เพจให้ความรู้",
       "delta": 3.5,
@@ -67,75 +85,57 @@
       "tier": "gap"
     },
     {
+      "slug": "incident-postmortem-judgment",
+      "label": "incident-postmortem-judgment",
+      "delta": 3.5,
+      "with": 4.83,
+      "without": 1.33,
+      "cat": "comms",
+      "tier": "gap"
+    },
+    {
+      "slug": "market-research-judgment",
+      "label": "market-research-judgment",
+      "delta": 3.5,
+      "with": 4.83,
+      "without": 1.33,
+      "cat": "business",
+      "tier": "gap"
+    },
+    {
+      "slug": "urinalysis-judgment",
+      "label": "urinalysis-judgment",
+      "delta": 3.5,
+      "with": 4.83,
+      "without": 1.33,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
+      "slug": "flow-cytometry-judgment",
+      "label": "flow-cytometry-judgment",
+      "delta": 3.34,
+      "with": 4.67,
+      "without": 1.33,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
+      "slug": "ab-test-judgment",
+      "label": "ab-test-judgment",
+      "delta": 3.33,
+      "with": 4.67,
+      "without": 1.5,
+      "cat": "other",
+      "tier": "gap"
+    },
+    {
       "slug": "mt-career-judgment",
       "label": "เส้นทางอาชีพ MT",
       "delta": 3.2,
       "with": 5,
       "without": 1.8,
       "cat": "career",
-      "tier": "gap"
-    },
-    {
-      "slug": "anti-hallucination",
-      "label": "กัน AI มั่ว",
-      "delta": 3.0,
-      "with": 5,
-      "without": 2,
-      "cat": "AImeta",
-      "tier": "gap"
-    },
-    {
-      "slug": "mt-exam-strategy-judgment",
-      "label": "กลยุทธ์สอบใบประกอบ",
-      "delta": 3.0,
-      "with": 5,
-      "without": 2,
-      "cat": "career",
-      "tier": "gap"
-    },
-    {
-      "slug": "polite-but-clear",
-      "label": "พูดสุภาพแต่ชัด",
-      "delta": 3.0,
-      "with": 5,
-      "without": 2,
-      "cat": "comms",
-      "tier": "gap"
-    },
-    {
-      "slug": "report-up-judgment",
-      "label": "รายงานขึ้นบน",
-      "delta": 2.8,
-      "with": 4.6,
-      "without": 1.8,
-      "cat": "comms",
-      "tier": "gap"
-    },
-    {
-      "slug": "pubmed-search-judgment",
-      "label": "ค้น PubMed",
-      "delta": 2.6,
-      "with": 5.0,
-      "without": 2.4,
-      "cat": "research",
-      "tier": "gap"
-    },
-    {
-      "slug": "r2r-research-proposal",
-      "label": "เขียน proposal R2R",
-      "delta": 2.5,
-      "with": 4.5,
-      "without": 2,
-      "cat": "research",
-      "tier": "gap"
-    },
-    {
-      "slug": "literature-review-judgment",
-      "label": "ทบทวนวรรณกรรม",
-      "delta": 2.5,
-      "with": 4.8,
-      "without": 2.3,
-      "cat": "research",
       "tier": "gap"
     }
   ],
@@ -174,6 +174,15 @@
       "with": 4,
       "without": 4.5,
       "cat": "research",
+      "tier": "back"
+    },
+    {
+      "slug": "poct-judgment",
+      "label": "poct-judgment",
+      "delta": -0.67,
+      "with": 3.0,
+      "without": 3.67,
+      "cat": "clinical",
       "tier": "back"
     },
     {
@@ -278,6 +287,24 @@
       "tier": "gap"
     },
     {
+      "slug": "humanize-ai-writing",
+      "label": "humanize-ai-writing",
+      "delta": 4.0,
+      "with": 5.0,
+      "without": 1.5,
+      "cat": "AImeta",
+      "tier": "gap"
+    },
+    {
+      "slug": "flow-cytometry-judgment",
+      "label": "flow-cytometry-judgment",
+      "delta": 3.67,
+      "with": 4.67,
+      "without": 1.0,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
       "slug": "content-creator-judgment",
       "label": "ทำคอนเทนต์/เพจให้ความรู้",
       "delta": 3.5,
@@ -287,12 +314,75 @@
       "tier": "gap"
     },
     {
+      "slug": "incident-postmortem-judgment",
+      "label": "incident-postmortem-judgment",
+      "delta": 3.5,
+      "with": 4.83,
+      "without": 1.33,
+      "cat": "comms",
+      "tier": "gap"
+    },
+    {
+      "slug": "market-research-judgment",
+      "label": "market-research-judgment",
+      "delta": 3.5,
+      "with": 4.83,
+      "without": 1.33,
+      "cat": "business",
+      "tier": "gap"
+    },
+    {
+      "slug": "urinalysis-judgment",
+      "label": "urinalysis-judgment",
+      "delta": 3.5,
+      "with": 4.83,
+      "without": 1.33,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
+      "slug": "flow-cytometry-judgment",
+      "label": "flow-cytometry-judgment",
+      "delta": 3.34,
+      "with": 4.67,
+      "without": 1.33,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
+      "slug": "ab-test-judgment",
+      "label": "ab-test-judgment",
+      "delta": 3.33,
+      "with": 4.67,
+      "without": 1.5,
+      "cat": "other",
+      "tier": "gap"
+    },
+    {
       "slug": "mt-career-judgment",
       "label": "เส้นทางอาชีพ MT",
       "delta": 3.2,
       "with": 5,
       "without": 1.8,
       "cat": "career",
+      "tier": "gap"
+    },
+    {
+      "slug": "preanalytical-judgment",
+      "label": "preanalytical-judgment",
+      "delta": 3.16,
+      "with": 4.83,
+      "without": 1.67,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
+      "slug": "poct-judgment",
+      "label": "poct-judgment",
+      "delta": 3.16,
+      "with": 4.83,
+      "without": 1.67,
+      "cat": "clinical",
       "tier": "gap"
     },
     {
@@ -332,6 +422,15 @@
       "tier": "gap"
     },
     {
+      "slug": "ai-coding-guardrails",
+      "label": "ai-coding-guardrails",
+      "delta": 2.67,
+      "with": 4.83,
+      "without": 2.17,
+      "cat": "AImeta",
+      "tier": "gap"
+    },
+    {
       "slug": "pubmed-search-judgment",
       "label": "ค้น PubMed",
       "delta": 2.6,
@@ -356,6 +455,24 @@
       "with": 4.8,
       "without": 2.3,
       "cat": "research",
+      "tier": "gap"
+    },
+    {
+      "slug": "mt-databases",
+      "label": "mt-databases",
+      "delta": 2.33,
+      "with": 4.17,
+      "without": 1.5,
+      "cat": "tools",
+      "tier": "gap"
+    },
+    {
+      "slug": "prompt-optimizer",
+      "label": "prompt-optimizer",
+      "delta": 2.33,
+      "with": 4.17,
+      "without": 1.5,
+      "cat": "AImeta",
       "tier": "gap"
     },
     {
@@ -386,6 +503,15 @@
       "tier": "gap"
     },
     {
+      "slug": "git-workflow-judgment",
+      "label": "git-workflow-judgment",
+      "delta": 2.0,
+      "with": 4.5,
+      "without": 2.5,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
       "slug": "what-skill-do-i-need",
       "label": "เลือกสกิลไหนดี",
       "delta": 1.8,
@@ -401,6 +527,24 @@
       "with": 4.8,
       "without": 3.0,
       "cat": "tools",
+      "tier": "gap"
+    },
+    {
+      "slug": "data-science-workflow",
+      "label": "data-science-workflow",
+      "delta": 1.67,
+      "with": 4.33,
+      "without": 2.67,
+      "cat": "clinical",
+      "tier": "gap"
+    },
+    {
+      "slug": "ml-engineering-workflow",
+      "label": "ml-engineering-workflow",
+      "delta": 1.67,
+      "with": 4.33,
+      "without": 2.67,
+      "cat": "clinical",
       "tier": "gap"
     },
     {
@@ -437,6 +581,33 @@
       "with": 4.67,
       "without": 3.33,
       "cat": "clinical",
+      "tier": "lift"
+    },
+    {
+      "slug": "incident-postmortem-judgment",
+      "label": "incident-postmortem-judgment",
+      "delta": 1.33,
+      "with": 4.0,
+      "without": 2.67,
+      "cat": "comms",
+      "tier": "lift"
+    },
+    {
+      "slug": "method-validation-stats",
+      "label": "method-validation-stats",
+      "delta": 1.33,
+      "with": 4.17,
+      "without": 2.83,
+      "cat": "clinical",
+      "tier": "lift"
+    },
+    {
+      "slug": "pomodoro-focus",
+      "label": "pomodoro-focus",
+      "delta": 1.33,
+      "with": 4.17,
+      "without": 2.83,
+      "cat": "tools",
       "tier": "lift"
     },
     {
@@ -611,6 +782,51 @@
       "tier": "lift"
     },
     {
+      "slug": "preanalytical-judgment",
+      "label": "preanalytical-judgment",
+      "delta": 1.0,
+      "with": 4.0,
+      "without": 3.0,
+      "cat": "clinical",
+      "tier": "lift"
+    },
+    {
+      "slug": "market-research-judgment",
+      "label": "market-research-judgment",
+      "delta": 0.67,
+      "with": 3.67,
+      "without": 3.0,
+      "cat": "business",
+      "tier": "lift"
+    },
+    {
+      "slug": "deep-research",
+      "label": "deep-research",
+      "delta": 0.67,
+      "with": 3.83,
+      "without": 3.17,
+      "cat": "AImeta",
+      "tier": "lift"
+    },
+    {
+      "slug": "interactive-course",
+      "label": "interactive-course",
+      "delta": 0.67,
+      "with": 3.83,
+      "without": 3.17,
+      "cat": "tools",
+      "tier": "lift"
+    },
+    {
+      "slug": "phi-data-handling",
+      "label": "phi-data-handling",
+      "delta": 0.67,
+      "with": 3.83,
+      "without": 3.17,
+      "cat": "research",
+      "tier": "lift"
+    },
+    {
       "slug": "choose-stat-test",
       "label": "เลือกสถิติ",
       "delta": 0.5,
@@ -644,6 +860,42 @@
       "with": 3.33,
       "without": 3,
       "cat": "clinical",
+      "tier": "tie"
+    },
+    {
+      "slug": "urinalysis-judgment",
+      "label": "urinalysis-judgment",
+      "delta": 0.33,
+      "with": 3.33,
+      "without": 3.0,
+      "cat": "clinical",
+      "tier": "tie"
+    },
+    {
+      "slug": "dx-company-brief",
+      "label": "dx-company-brief",
+      "delta": 0.33,
+      "with": 3.67,
+      "without": 3.33,
+      "cat": "business",
+      "tier": "tie"
+    },
+    {
+      "slug": "time-blocking",
+      "label": "time-blocking",
+      "delta": 0.33,
+      "with": 3.67,
+      "without": 3.33,
+      "cat": "tools",
+      "tier": "tie"
+    },
+    {
+      "slug": "verification-panel",
+      "label": "verification-panel",
+      "delta": 0.33,
+      "with": 3.67,
+      "without": 3.33,
+      "cat": "AImeta",
       "tier": "tie"
     },
     {
@@ -755,6 +1007,15 @@
       "tier": "tie"
     },
     {
+      "slug": "write-a-skill",
+      "label": "write-a-skill",
+      "delta": 0.0,
+      "with": 3.5,
+      "without": 3.5,
+      "cat": "AImeta",
+      "tier": "tie"
+    },
+    {
       "slug": "debugging-judgment",
       "label": "ดีบักโค้ด",
       "delta": -0.1,
@@ -769,6 +1030,15 @@
       "delta": -0.3,
       "with": 3.4,
       "without": 3.7,
+      "cat": "comms",
+      "tier": "tie"
+    },
+    {
+      "slug": "grill-my-plan",
+      "label": "grill-my-plan",
+      "delta": -0.33,
+      "with": 3.33,
+      "without": 3.67,
       "cat": "comms",
       "tier": "tie"
     },
@@ -806,6 +1076,15 @@
       "with": 4,
       "without": 4.5,
       "cat": "research",
+      "tier": "back"
+    },
+    {
+      "slug": "poct-judgment",
+      "label": "poct-judgment",
+      "delta": -0.67,
+      "with": 3.0,
+      "without": 3.67,
+      "cat": "clinical",
       "tier": "back"
     },
     {

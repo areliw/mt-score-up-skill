@@ -1,0 +1,77 @@
+name: insights-leaderboard
+
+# L4 flywheel: rebuild the judgment-gap leaderboard + INSIGHTS from eval/_ab_slim.json
+# and PUBLISH eval/leaderboard.html to GitHub Pages on every change to main — so the
+# benchmark stays fresh without anyone remembering to run build_insights.py by hand.
+# (This workflow exists because INSIGHTS.md silently went 30 records stale once exactly
+# that way: a backfill grew _ab_slim.json 70->100 but nobody regenerated the synthesis.)
+#
+# ONE-TIME maintainer setup: repo Settings > Pages > Build and deployment >
+# Source = "GitHub Actions" — otherwise the deploy job has nowhere to publish.
+#
+# main is a PROTECTED branch (the bot cannot push back), so this does NOT commit the
+# regenerated files. The published site is rebuilt from source each run, so a slightly
+# stale committed eval/INSIGHTS.md is only cosmetic; PR runs just report the drift.
+
+on:
+  pull_request:
+    paths:
+      - "eval/_ab_slim.json"
+      - "scripts/build_insights.py"
+      - "skills/**"
+  push:
+    branches: [main]
+    paths:
+      - "eval/_ab_slim.json"
+      - "scripts/build_insights.py"
+      - "skills/**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate insights (report drift — non-blocking)
+        run: |
+          python scripts/build_insights.py
+          if ! git diff --quiet -- eval/INSIGHTS.md eval/insights-data.json eval/leaderboard.html; then
+            echo "::warning::insights outputs drifted — run 'python scripts/build_insights.py' and commit eval/INSIGHTS.md, eval/insights-data.json, eval/leaderboard.html."
+            git --no-pager diff --stat -- eval/INSIGHTS.md eval/insights-data.json eval/leaderboard.html
+          else
+            echo "insights in sync ✓"
+          fi
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild leaderboard from source
+        run: python scripts/build_insights.py
+      - name: Stage Pages content
+        run: |
+          mkdir -p _site
+          cp eval/leaderboard.html _site/index.html
+          if [ -f eval/insights-data.json ]; then cp eval/insights-data.json _site/; fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

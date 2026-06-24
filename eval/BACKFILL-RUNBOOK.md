@@ -27,21 +27,30 @@ python scripts/refresh_coverage_gap.py   # อัปเดต coverage-gap.md + 
 1. **ค้น evidence เก่าก่อน** — `eval/round6-probe.md`, `round4-new-skills.md`, `round5-remaining.md`  
    ถ้ามี full blind-judge ×3 บันทึกไว้ → append `_ab_slim` ด้วย `"tier":"full"`, `"method":"x3"`, `"run":"round6-probe"` (หรือ `wf_…`)  
    **อย่า** copy จาก `manual-ab-*.md` เป็น full-tier
-2. **ที่เหลือ** → รัน harness จริงใน Claude Code (ขั้นตอน 3–5)
+2. **ที่เหลือ** → รัน harness จริง (ขั้นตอน 3–5)
 
-### 3) รัน batch ใน Claude Code
+### 3) รัน harness (Python CLI — แนะนำ)
 
-เปิด repo ใน Claude Code แล้วรัน Workflow (ไม่ใช่ `node`):
+จาก repo root (Cursor terminal / Codex / local):
 
-```javascript
-// อ่าน targets จาก backfill-screen-only.json → field workflow.args
-Workflow({
-  scriptPath: 'eval/harness/ab-x3.js',
-  args: [/* copy จาก eval/harness/backfill-screen-only.json */]
-})
+```bash
+pip install -r requirements-dev.txt
+export ANTHROPIC_API_KEY=…
+
+# ทีละ skill
+python scripts/ab_harness.py --skill foo-judgment --reps 3 --append-slim
+
+# batch จาก config (เมื่อ backfill JSON มี targets)
+python scripts/ab_harness.py --config eval/harness/backfill-screen-only.json --reps 3 --append-slim
 ```
 
-หรือทีละ skill:
+Dry-run (ไม่ต้องมี API key): `--dry-run`
+
+Protocol: [`harness/PROTOCOL.md`](harness/PROTOCOL.md) · Adapters: [`harness/README.md`](harness/README.md)
+
+#### ทางเลือก: Claude Code Workflow
+
+เปิด repo ใน Claude Code แล้วรัน Workflow (ไม่ใช่ `node`):
 
 ```javascript
 Workflow({

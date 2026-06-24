@@ -9,15 +9,20 @@
 | half | what | where | cost |
 |---|---|---|---|
 | **deterministic gate** | every changed skill must have a Δ entry in `eval/_ab_slim.json` | GitHub Actions `ab-gate.yml` → `scripts/ab_gate_check.py` | free, no API key |
-| **the actual A/B** | ×3 blind-judge (Opus gen → Haiku answer ×3 with/without → Opus blind judge) | Claude Code Workflow → `eval/harness/ab-x3.js` | model tokens (run by maintainer) |
+| **the actual A/B** | ×3 blind-judge (Opus gen → Haiku answer ×3 with/without → Opus blind judge) | **Primary:** `python scripts/ab_harness.py` · **Alt:** Claude Code → `eval/harness/ab-x3.js` · **Manual (tier manual only):** Cursor agent loop per `eval/harness/PROTOCOL.md` | model tokens (run by maintainer) |
 
 The AI half stays in Claude Code (managed model access, no secret to manage); CI only enforces
 that the evidence exists. Required checks on `main`: see [`docs/BRANCH-PROTECTION.md`](../docs/BRANCH-PROTECTION.md).
 
 ## The ritual (when you add or edit a skill's judgment)
 
-1. Run the harness on the changed skill(s):
+1. Run the harness on the changed skill(s) — pick one path (`eval/harness/README.md`):
+   ```bash
+   # Primary (portable)
+   python scripts/ab_harness.py --skill foo-judgment --reps 3
    ```
+   ```javascript
+   // Alternative (Claude Code Workflow)
    Workflow({ scriptPath: 'eval/harness/ab-x3.js', args: [
      { skill: 'foo-judgment', file: 'skills/foo-judgment.md',
        focus: "the specific new landmine, or \"the skill's own #1 anti-pattern\"" }
@@ -55,10 +60,10 @@ recorded for audit but **do not count** toward `semi-stable` — see [`ANTI-BIAS
 **WARNING** when only `tier: manual` exists.
 
 ## Hardening to a fully-automatic gate (optional, later)
-To run the A/B *inside* CI and hard-block: add `ANTHROPIC_API_KEY` as a repo secret, port
-`ab-x3.js` to a standalone API script, and enable branch-protection required-checks for `ab-gate`.
-Trade-off: real API $ per PR + A/B is stochastic near the floor (flaky) — keep the floor lenient
-or run ×5. The current design avoids both by keeping the run in Claude Code.
+`scripts/ab_harness.py` already ports the protocol to the Anthropic API (local/maintainer only).
+Running it **inside** CI would still require `ANTHROPIC_API_KEY` as a repo secret — intentionally
+**not** wired (stochastic near the floor, API cost). The deterministic gate only checks that
+`_ab_slim.json` has a row.
 
 
 ## How many reps per arm? (3 screen · 5 act · borderline → fresh trap)

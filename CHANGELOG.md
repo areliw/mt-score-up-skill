@@ -11,6 +11,7 @@ Notable changes to the MT Score UP! skills hub. Format loosely follows
 - **`mt-career-judgment` promoted `draft` → `semi-stable`** — expanded with Fork 10 (year-1 entry/switch-major decision), an oversupply market macro-frame, and Fork 9 freshness; codex (gpt-5.5) review applied (hedges, no must-fix); re-A/B ×5 **Δ +1.8** (`rescued`: without 2.4 → with 4.2, σ≈5.7) re-anchored in `_ab_slim.json` + `ab-coverage.json`.
 
 ### Added
+- **Portable A/B harness** — `eval/harness/PROTOCOL.md` + shared `prompts/*.txt` + `eval/harness/python/` (`protocol.py`, `anthropic_driver.py`, `runner.py`, `append_slim.py`) + `scripts/ab_harness.py` CLI (`--config`, `--skill`, `--reps`, `--dry-run`, `--append-slim`); checkpoints under `eval/runs/<timestamp>/results.json`; adapter docs (`harness/adapters/claude-code.md`, `cursor.md`, `codex.md`, `harness/README.md`); `tests/test_ab_protocol.py` golden vectors; `anthropic>=0.40` in `requirements-dev.txt` only
 - **`eval/SAFETY-EVAL.md`** — W3 safety-eval scaffold: four harm axes (unsafe-confident, scope, missing-context, escalation), 0–5 rubric vs helpfulness Δ, pilot plan for 5 clinical skills + illustrative scenarios
 - **`eval/peer-review/`** — README + **`flow-cytometry-judgment-DRAFT.md`** (round-6 Δ+3.67; scope/claims/forks pre-filled from AI pre-screen; SIGN block empty for MT)
 - **`eval/ANTI-BIAS-PROTOCOL.md`** — Thai-first protocol: Haiku answerer, blind judge, ×3/×5, manual tier rules

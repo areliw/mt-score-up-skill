@@ -3,9 +3,12 @@
 Notable changes to the MT Score UP! skills hub. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). **มาตรฐานความพร้อม 3 ชั้น:**
 `draft` (ยังไม่ verify / มี blocker) → `semi-stable` (ผ่าน Codex review + empirical stress-test, ไม่มี error ที่รู้ — **แต่ยังไม่ผ่าน formal/clinical peer-review**) → `stable` (ผ่าน clinical/formal peer-review — *สงวนไว้ ยังไม่มีสกิลใดถึง*).
-ปัจจุบัน: 32 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
+ปัจจุบัน: 33 สกิล non-clinical ที่ผ่าน Codex review + empirical eval = `semi-stable` · สกิลกลุ่ม clinical (🩸) + ตัวที่ยังมี blocker = `draft`.
 
 ## [Unreleased]
+
+### Changed
+- **`mt-career-judgment` promoted `draft` → `semi-stable`** — expanded with Fork 10 (year-1 entry/switch-major decision), an oversupply market macro-frame, and Fork 9 freshness; codex (gpt-5.5) review applied (hedges, no must-fix); re-A/B ×5 **Δ +1.8** (`rescued`: without 2.4 → with 4.2, σ≈5.7) re-anchored in `_ab_slim.json` + `ab-coverage.json`.
 
 ### Added
 - **`eval/SAFETY-EVAL.md`** — W3 safety-eval scaffold: four harm axes (unsafe-confident, scope, missing-context, escalation), 0–5 rubric vs helpfulness Δ, pilot plan for 5 clinical skills + illustrative scenarios

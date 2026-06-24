@@ -15,6 +15,7 @@ The value is **"which to choose when + the traps a senior would warn you about"*
 - `skills/` — the skills (one `*.md` each) · `README.md` (human catalog) · `INDEX.md` (generated)
 - `prompts/` — `triage.md` router (has a generated CATALOG block) · `skill-interview.md`
 - `eval/` — empirical evaluation; start at `METHOD.md`
+- `synthesis/` — L3 **domain theses** (cross-signal reads no single skill holds); start at `README.md`
 - `docs/` — `USING.md` · `design/roadmap.md` · `skill-registry-spec.md`
 - `contributions/` — `INTAKE.md` (maintainer playbook: submission → skill)
 - `scripts/` — `build_triage.py` · `validate_repo.py` · `check_duplicates.py`

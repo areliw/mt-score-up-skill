@@ -339,13 +339,13 @@
   },
   {
     "skill": "mt-career-judgment.md",
-    "effect": "rescued",
-    "withScore": 4.2,
-    "withoutScore": 2.4,
-    "delta": 1.8,
+    "effect": "lift",
+    "withScore": 4.6,
+    "withoutScore": 4.2,
+    "delta": 0.4,
     "trapAvoid": "with-only",
     "method": "x5",
-    "run": "wf_4979fd88-baa"
+    "run": "wf_9617e723-12a"
   },
   {
     "skill": "toxicology-judgment.md",

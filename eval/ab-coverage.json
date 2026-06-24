@@ -572,13 +572,13 @@
   "peer": false
  },
  "mt-career-judgment": {
-  "status": "draft",
-  "body_hash": "43418f498abc",
+  "status": "semi-stable",
+  "body_hash": "17839cf02277",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
   "ab_method": "x5",
-  "ab_delta": 3.2,
+  "ab_delta": 1.8,
   "screen": false,
   "peer": false
  },

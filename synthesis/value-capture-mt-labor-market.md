@@ -41,7 +41,7 @@ feeds: mt-career-judgment
 
 ## Update 2026-06-24 — systemic dead-ends + entry-path data (จากบทสนทนายาว)
 
-**1) Scarcity เป็น absolute ไม่ใช่ matching (ground-truth จากผู้เคยทำ job board เอง):** เปิดงานราว **20-30 ตำแหน่ง/เดือน** (~240-360/ปีที่ aggregate ได้) vs grad ใหม่ ~1500-1600/ปี + backlog = **~5:1 บน flow ใหม่**. **job board ตาย** เพราะงานโพสต์ในกลุ่ม FB (scrape ไม่ได้) + คนหางานก็อยู่ในกลุ่มนั้น → ไม่ใช่ปัญหา findability, **มันมีน้อยจริง**.
+**1) Scarcity เป็น absolute ไม่ใช่ matching (ground-truth จากผู้เคยทำ job board เอง):** ตำแหน่ง bench เปิด **น้อยมากเทียบจบใหม่หลักพัน/ปี** → รับไม่ทัน = musical chairs (⚠️ *ตัวเลขเป๊ะไม่มีหลักฐานทางการ — มีคนเล่าว่าหลักสิบ/เดือน เป็นการประมาณ ไม่ใช่สถิติ*). **job board ตาย** เพราะงานโพสต์ในกลุ่ม FB (scrape ไม่ได้) + คนหางานก็อยู่ในกลุ่มนั้น → ไม่ใช่ปัญหา findability, **มันมีน้อยจริง**.
 
 **2) AI = double squeeze:** supply↑ (สอบใบเฟ้อ ~48%→60%+, AI ช่วย cram) **+** demand↓ ที่ bench (automation) พร้อมกัน → ล้นเร็วกว่าเดิม. + **ใบประกอบเสื่อมเป็น signal** (ทุกคนผ่าน แยกเก่ง-ห่วยไม่ออก) เพราะเป็น **fixed-threshold ไม่ใช่ quota** → เฟ้อแล้วล้นไม่มีเบรก (ต่าง TCAS ที่ cutoff ปรับเอง).
 
@@ -51,6 +51,6 @@ feeds: mt-career-judgment
 
 **5) → ยืนยัน north-star ([[project_northstar_senior_collects_cases]]):** เมื่อ system แก้ไม่ได้จริง สิ่งเดียวที่ honest = **(ก) ช่วยบุคคลหนีไป edge (ข) บอกความจริงก่อนเข้าเรียน (mt-career Fork 10) เพื่อเร่ง correction ไม่หลอกคนใหม่เข้ามาเพิ่ม** — ไม่ใช่กอบกู้ระบบ (กู้ไม่ได้).
 
-**6) ตอบคำถามเปิด "ย้ายสำเร็จกี่ %" — data-driven (6-path workflow + adversarial verify, 2026-06-24):** edge path ที่ **new grad ไม่มี ปสก. เสียบได้ตอนนี้จริง = แค่ 2/6** — (1) **แล็บเอกชน/เครือแล็บ** (base 16-22k `[✓src jobbkk]` · value-capture *ต่ำสุด* = ใช้เป็น runway) · (2) **IVD distributor sales** (base 14-17k+commission `[~est eduzones]` · value-capture *สูงสุดในกลุ่มที่เข้าได้* · เล็ง distributor ไทยไม่ใช่ principal). อีก 4 (genomics/CRA-CRC/regulatory-QA/IVF) = **value/ทน-AI ดี แต่ประตู opaque/ต้อง bridge 1-2 ปี → เป้าปี 2-3 ไม่ใช่ first job**. **บทเรียน: "value ย้ายไป edge" จริง แต่ edge แคบ/เข้ายากกว่าที่ vibe บอก — ต้องใช้ data ไม่ใช่ความหวัง.** (verified มี source จริงแค่ 2: เงินเดือน N Health + genomics shortage PMC; ที่เหลือ directional/modeled)
+**6) ตอบคำถามเปิด "ย้ายสำเร็จกี่ %" — data-driven (6-path workflow + adversarial verify, 2026-06-24):** edge path ที่ **new grad ไม่มี ปสก. เสียบได้ตอนนี้จริง = แค่ 2/6** — (1) **แล็บเอกชน/เครือแล็บ** (base 16-22k `[✓src jobbkk]` · value-capture *ต่ำสุด* = ใช้เป็น runway) · (2) **IVD distributor sales** (base 14-17k+commission `[~est eduzones]` · value-capture *สูงสุดในกลุ่มที่เข้าได้* · เล็ง distributor ไทยไม่ใช่ principal). อีก 4 (genomics/CRA-CRC/regulatory-QA/IVF) = **value/ทน-AI ดี แต่ประตู opaque/ต้อง bridge 1-2 ปี → เป้าปี 2-3 ไม่ใช่ first job**. **บทเรียน: "value ย้ายไป edge" จริง แต่ edge แคบ/เข้ายากกว่าที่ vibe บอก — ต้องใช้ data ไม่ใช่ความหวัง.** (verified มี source จริงแค่ 2: ช่วงเงินเดือนแล็บเอกชน [jobbkk] + genomics shortage [PMC]; ที่เหลือ directional/modeled — **บทเรียน: อย่าใส่ชื่อบริษัทเฉพาะ/ตัวเลขเป๊ะใน skill เพราะ stale + เน่าเร็ว + เสี่ยง assert เกินหลักฐาน**)
 
 **ป้อนต่อ:** mt-career Fork 9 ควรปรับ frame ให้ตรง data นี้ — **non-bench = primary path สำหรับ majority + ระบุ 2 ประตูจริง (private lab + IVD sales) แยกจาก 4 สะพาน** (รอ re-A/B เพราะ semi-stable).

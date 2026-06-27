@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจ Immunoassay และ Serol
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-11
+last_edited: 2026-06-28
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพื่อการศึกษาเรื่อง immunoassay/serology ไม่ใช่คำสั่งวินิจฉัย/รักษา ผล reactive screen ไม่เท่ากับการวินิจฉัย ต้อง confirm ด้วย test ที่ specificity สูงก่อนรายงานเสมอ ทุกผลต้องยืนยันกับ MT/แพทย์ และทำตาม SOP/QC ของห้องแล็บ ความผิดพลาดในการตีความ serology อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -84,6 +84,12 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 - whole blood + peptide จำเพาะ TB (ESAT-6/CFP-10) → วัด **IFN-γ ที่ T cell หลั่ง ด้วย ELISA (sandwich)** = ตรวจ cell-mediated immunity (รวม latent TB) แทน/เสริม TST (ไม่ false+ จาก BCG)
 - ⚠️ **Indeterminate** = mitogen control ไม่ขึ้น / nil สูง → ตีความไม่ได้ ต้องเจาะใหม่ · clotted = invalid
 
+### FORK 7 — Widal (typhoid serology): ทำไม single titer หลอก + เมื่อไหร่อย่าใช้เป็น primary screen 🩸
+- 🩸 **กลไกที่หลอก:** Widal = agglutination วัด Ab ต่อ O/H antigen ของ *S.* Typhi — แต่ (1) **cross-react** กับ Salmonella อื่น/เชื้อ-ภาวะอื่นบางกลุ่ม (เช่น malaria/dengue/autoimmune — ขึ้นกับ organism/assay) → false-positive · (2) พื้นที่ **endemic** ประชากรมี **baseline titer** จากสัมผัสเดิม/วัคซีน → **single acute-phase titer แยก "ติดเชื้ออดีต vs ปัจจุบัน" ไม่ได้** · (3) **window** — Ab มักขึ้นพอวัดได้ *ราว* 7–10 วันหลังไข้ → ช่วงไข้เฉียบพลันแรกๆ มัก false-negative
+- 🚫 **อย่าใช้ titer เดี่ยวฟันธง typhoid:** หลักที่ถูก = paired sera ห่าง ~1–2 สัปดาห์ ดู ≥4-fold rise (แต่ช้าเกินใช้ตัดสินรักษาจริง) · พึ่ง titer เดี่ยว (cutoff เช่น >1:80/1:160 — *ขึ้นกับ baseline ท้องถิ่น/แต่ละแล็บ ตั้งเอง, verify*) → over-diagnosis + จ่าย ATB เกิน → เร่ง AMR
+- ✅ **mainstay/practical reference = hemoculture (blood culture)** — specificity สูงมาก (sensitivity ปานกลาง — ขึ้นกับ timing/ปริมาณเลือด/ได้ ATB มาก่อนไหม) + ได้ ID/AST · *(bone marrow culture ไวกว่าแต่ invasive/ไม่ routine)* · ทางเลือกเสริม = molecular (PCR) หรือ **validated RDT บางชุด — performance ต่างกันตามชุด ไม่จำเพาะกว่า Widal เสมอ**, culture/AST ยังสำคัญ → ดู `clinmicro-judgment`
+- ⚠️ **เส้นกลาง (อย่าสุดทาง):** "Widal ไร้ค่าโดยสิ้นเชิง" ก็ไม่เป๊ะ — บางพื้นที่ทรัพยากรจำกัดยังใช้เป็น *adjunct เมื่อแปลร่วม clinical + รู้ baseline ท้องถิ่น* — แต่ **ไม่ใช่ primary diagnostic/screen เดี่ยว** · ยึดแนวทาง/มาตรฐานที่หน่วยถือใช้ (verify ฉบับล่าสุด)
+
 ## กับดัก (Anti-patterns)
 1. Prozone (false-negative ที่ titer สูง) #1 — Ab เกินมาก → ไม่เกิด lattice → ผลลบทั้งที่ป่วยหนัก (RPR ใน secondary syphilis). เจอ clinical สงสัยแต่ผลลบ → เจือจาง (dilute) ทดสอบใหม่. Postzone = Ag เกิน. optimal = equivalence.
 2. Hook effect (high-dose hook) — sandwich CLIA: analyte สูงมาก (tumor marker, β-hCG) → saturate Ab ทั้งสองข้าง → signal ต่ำหลอก. ผลต่ำสวนอาการ → dilute ซ้ำ.
@@ -96,6 +102,7 @@ HBV panel (HBsAg / anti-HBs / anti-HBc) — อ่าน 3 ตัวรวมก
 9. HAMA (human anti-mouse Ab) — คนไข้เคยรับ mAb บำบัด → จับ capture+detection Ab ของ sandwich → false +/− → ต้อง blocking reagent.
 10. Biotin interference — กิน biotin (วิตามินผม/เล็บ) สูง รบกวน assay biotin-streptavidin → ผลเพี้ยน (TSH/troponin ต่ำปลอม อันตราย) → งด biotin ก่อนเจาะ.
 11. Competitive / lateral-flow อ่านกลับด้าน — สัญญาณต่ำ หรือ "ไม่มีแถบ test" = analyte สูง (ชุดยาเสพติด); **control line ไม่ขึ้น = invalid ไม่ใช่ลบ**.
+12. 🩸 Widal single titer → ฟันธง typhoid: single acute titer แยกอดีต/ปัจจุบันไม่ได้ในพื้นที่ endemic + cross-react + window ~7–10 วัน → false +/−; ไม่ใช่ primary screen เดี่ยว, gold standard = blood culture (Fork 7).
 
 > NOTE: knowledge (Ig class, complement pathway, hypersensitivity I-IV, Sens/Spec/PPV/NPV) → point to "ตำรา/แหล่งอ้างอิงมาตรฐาน", no path.
 

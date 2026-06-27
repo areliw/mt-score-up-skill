@@ -4,7 +4,7 @@ title: โค้ช Molecular Dx — เลือก method/แปลผล/ก�
 type: ADVISE               # ช่วยตัดสินใจหน้างาน molecular ไม่ใช่ตำรา PCR
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-06-28
 status: draft
 disclaimer: "ช่วยคิดเลือก method/แปลผล molecular เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — งานวินิจฉัยระดับโมเลกุลกระทบการรักษาผู้ป่วยโดยตรง ต้องตาม SOP + validation ของแล็บ และยืนยันกับ MT/แพทย์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -24,6 +24,7 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 - แปล real-time PCR (Ct, melt curve, HRM) · ตัดสิน positive/negative/invalid
 - วาง pipeline genotyping/sequencing · ตัดสิน sample/tube/anticoagulant · DNA vs RNA workflow
 - HLA typing (transplant) · pharmacogenomics gate ก่อนให้ยา · companion Dx
+- ตัวอย่าง **สารตั้งต้นน้อยมาก** — embryo 1–2 เซลล์ (PGT-M), น้ำคร่ำ/รก, cell-free fetal DNA (NIPT/NIPP) → ต้องทำ **linkage/haplotype** คู่ไหม + กัน ADO (Fork 10)
 
 ## วิธีใช้
 วาง skill นี้ + เล่า variant/เชื้อ/ผล qPCR → AI ชี้ method/การแปลผล + กับดัก
@@ -90,6 +91,20 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 - **G6PD ก่อน primaquine / dapsone / rasburicase / ยา oxidant** → กัน acute hemolysis (G6PD def พบบ่อยในไทย/มาเลย์ + เกี่ยวกับ malaria → ตรวจก่อนให้ primaquine เสมอ) · **TPMT/NUDT15 ก่อน thiopurine** (azathioprine/6-MP → myelosuppression รุนแรงถ้า deficient; NUDT15 สำคัญในเอเชีย) · **DPYD ก่อน 5-FU/capecitabine**
 > ตรวจ **ก่อน** prescribe ไม่ใช่หลังเกิด ADR — เฉพาะยา/เชื้อชาติที่ risk สูง (ไม่ใช่ทุกยา) · ⚠️ คู่ที่ขาดบ่อยในไทย: **G6PD↔primaquine** (malaria) + **HLA-B*15:02↔carbamazepine** (SJS)
 
+### Fork 10 — single-cell/PGT-M + งานสารตั้งต้นน้อย: direct mutation เดี่ยวเชื่อไม่ได้ → คู่ linkage/haplotype (และ cfDNA คนละกลไก)
+**(ก) PGT-M / single-cell (กลไก = WGA → ADO):** การตรวจตัวอ่อน (embryo biopsy — เดิมหลัก 1–2 เซลล์, ปัจจุบันมัก trophectoderm หลายเซลล์) **ต้องผ่าน WGA/MDA** ก่อน ซึ่งขยาย*ไม่เท่ากัน*ทั้งจีโนม:
+- 🔑 **Allele imbalance + Allele Dropout (ADO):** het ที่ควร 50:50 อาจเพี้ยนเป็น ~90:10 (อ่านเป็น % allele เหมือน somatic/tumor) — ถ้า allele ที่ถือ mutation "หลุด" ในขั้นเพิ่มจำนวน → **direct mutation analysis อ่านเป็นปกติทั้งที่เป็นโรคจริง (false-negative)** · polymerase สร้าง false variant ได้ + DNA ปนเปื้อน → false-positive
+- 🚫 **อย่าเชื่อ "วิธี % สูง/อ่านเบสละเอียดขึ้น" แล้วตัด linkage ทิ้ง:** ความละเอียด sequencing ไม่แก้ ADO/bias ที่เกิด *ก่อน* อ่าน (ในขั้น amplify) — risk สูงและตัดทิ้งทั้งหมดไม่ได้ (TE หลายเซลล์ + WGA/QC ที่ดีช่วย*ลด* ADO ได้ แต่ไม่หมด) · นี่คือจุดที่สเปกผู้ขายมักทำให้เข้าใจผิด
+- ✅ **ทางแก้ = Linkage/Haplotype analysis คู่ (double-check):** ใช้ marker ที่ขนาบยีนก่อโรค (STR/microsatellite หรือ SNP) เป็น *surrogate* ตามรอยว่า chromosome ที่นำพายีนก่อโรคถ่ายทอดไปตัวไหน — marker ชิดยีนมาก โอกาส crossing-over แยกจากกันต่ำ → ถ่ายทอดเป็นก้อน · workflow PGT-M มัก **ยึด linkage ก่อน + ใช้ direct mutation เสริม** ไม่ใช่กลับกัน
+- **มักต้องมี family/reference เพื่อ phase haplotype** (พ่อ-แม่ + proband/ผู้เป็นโรคชัดเจน) → ไม่มี proband = ใช้ญาติอื่น/embryo data/direct phasing ได้บ้าง หรือต้องระบุ **residual risk / อาจทำไม่ได้** (ไม่ใช่บังคับมี proband เสมอ)
+- ⚠️ **"Predict haplotype" = การอนุมานจาก segregation ไม่ใช่ยืนยันเชิงกายภาพ:** family/segregation + informative markers สร้าง usable haplotype ได้โดยไม่ต้อง long-read — long/linked-read ช่วย *physical phasing* แต่ไม่ทำให้ 100% และไม่ลบ recombination/QC risk → เลือก marker ชิดยีน + หลายตัวขนาบสองข้าง
+- ⚠️ **น้ำคร่ำ/ชิ้นเนื้อรก (amnio/CVS) ปกติได้ DNA พอเป็น diagnostic (ไม่ต้อง WGA)** — แต่ในงาน monogenic prenatal มัก *ยัง*ทำ linkage ยืนยันคู่ + ระวัง maternal cell contamination (MCC); อย่าเหมาว่า "สารตั้งต้นน้อย" = ADO เหมือน single-cell ทุกกรณี
+
+**(ข) cfDNA / NIPT / NIPP (กลไกหลักคนละตัว = fetal fraction/maternal background ไม่ใช่ WGA-ADO):**
+- 🩸 fetal fraction มักต่ำ (ช่วงต้นครรภ์อาจ *ราว* ไม่กี่ % — *แปรผันตามอายุครรภ์/แพลตฟอร์ม, verify*) บนพื้น maternal cfDNA มหาศาล + ต้นกำเนิดจากรก (placental) → **เช็ค fetal fraction ผ่านเกณฑ์ก่อนเชื่อผล** · **no-call/ต่ำเกิน ≠ "ปกติ"** (อาจสัมพันธ์ aneuploidy/placental issue) · หลอดรักษาสภาพเซลล์ใช้เมื่อขนส่ง/ดีเลย์ กัน maternal cell แตกมาเจือจาง signal
+- ⚖️ **screening vs diagnostic อย่าเหมารวม:** NIPT/NIPS หา aneuploidy = **screening → ผลบวกต้อง confirm ด้วย CVS/amnio** · ส่วน targeted NIPD ที่ validated (เช่น fetal RHD, fetal sexing, paternal/de-novo variant) และ NIPP paternity *บางอย่างจัดเป็น diagnostic-grade* — ขึ้นกับ assay/validation อย่าตีว่า "cfDNA = screening เสมอ"
+- ⚖️ **Cross-ref จริยธรรม/กฎหมาย:** linkage/family study/paternity เผย **ความสัมพันธ์-ไม่สัมพันธ์ทางสายเลือด** เป็น incidental ได้ → consent ต้องระบุล่วงหน้าว่าแล็บจะแจ้ง/ไม่แจ้งอะไร + paternity/forensic มีนัยกฎหมาย → ดู `mt-law-ethics-judgment`, `phi-data-handling`
+
 ---
 
 ## กับดัก (Anti-patterns) — อันตราย เช็คทุกครั้ง
@@ -104,6 +119,8 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 - 🚫 **qPCR quantify โดยไม่มี standard curve / efficiency ไม่ดี** → copy number เชื่อไม่ได้
 - 🚫 **Pharmacogenomics ข้าม HLA-B*15:02 ก่อน carbamazepine ในคนไทย** → SJS/TEN ที่ป้องกันได้
 - 🚫 **เทียบ/รวม variant coordinate ข้าม genome build** (GRCh37/hg19 vs GRCh38/hg38) โดยไม่ liftover → ตำแหน่ง/ยีน/ผลแปลเพี้ยนทั้งสาย → ระบุ build ของทุกแหล่งให้ตรง + liftover ก่อนเทียบ (และ pin DB release ไว้ reproduce ได้)
+- 🚫 **เชื่อ direct mutation analysis เดี่ยวบนตัวอย่างสารตั้งต้นน้อย/ผ่าน WGA** (PGT-M, cfDNA) → ADO/allele-imbalance ทำให้ false-negative; ต้องคู่ **linkage/haplotype + family study** (Fork 10)
+- 🚫 **อ่านผล cfDNA/NIPT โดยไม่เช็ค fetal fraction / เหมา NIPT aneuploidy ว่า diagnostic** → no-call/FF ต่ำ ≠ "ปกติ"; NIPT หา aneuploidy = screening (บวกต้อง confirm CVS/amnio) แม้ targeted NIPD บางตัว validated เป็น diagnostic-grade (Fork 10)
 
 ---
 

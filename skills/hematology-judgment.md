@@ -5,7 +5,7 @@ type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
 contributors: ["สมาชิกแห่งความมืด–องค์กรลับแห่งรัตติกาล — graft กับดัก pseudothrombocytopenia (Fork 4)"]
-last_edited: 2026-06-13
+last_edited: 2026-06-28
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -85,6 +85,7 @@ Review smear เสมอเมื่อ:
 - CBC + PT/aPTT ปกติ แต่เลือดออกจริง → mild factor (>5%), FXIII def, fibrinolysis
 - mixing test: PT/aPTT ยาว → mix 1:1 normal plasma → corrected = factor deficiency; not corrected = inhibitor (FVIII inhibitor / lupus anticoagulant)
 - snake bite: 20-min WBCT ไม่แข็ง = viperine; Russell's → DIC.
+- ⚠️ 🩸 **Bleeding time (BT — Duke/Ivy) ไม่แนะนำเป็น pre-op bleeding screen แล้ว:** ทำนายเลือดออกตอนผ่าตัดจริงได้ไม่ดี + ไม่ standardize (Duke ไม่คุมความดัน/ขนาด-ความลึกแผล → variability สูง) + ไวต่ำ (mild platelet dysfunction/mild (type 1) vWD พลาด) · แนวทางปัจจุบันยึด **ประวัติเลือดออก + coag/platelet-function test ที่เหมาะ** (เช่น PFA/ตรวจจำเพาะ) แทน · *ถ้าหน่วยยังมี order ก็ทำตาม SOP แต่รู้ข้อจำกัด — verify guideline ฉบับที่ถือใช้*
 
 ### Fork 7 — ESR / abnormal flag = prognostic ไม่ใช่ diagnostic
 - ESR สูง → บอก "มีอักเสบ" ไม่ชี้โรค → ติดตาม; เช็ค rouleaux/anemia ที่ดันค่า
@@ -101,6 +102,7 @@ Review smear เสมอเมื่อ:
 - #8 MCV เกิน 100 = B12 ทุกราย (ผิด): retic สูง = macro เทียมจาก hemolysis — ดู retic ก่อน.
 - #9 รายงาน PT/aPTT "ปกติ" แล้วจบทั้งที่เลือดออก: คิด FXIII def / mild factor / vWD / fibrinolysis.
 - #10 Pre-analytical ละเลย: tourniquet นาน, blood:anticoag ผิด (coag 1:9 + แก้ตาม Hct >55), hemolysis.
+- #11 🩸 ใช้ Bleeding time (Duke/Ivy) เป็น pre-op bleeding screen / เชื่อว่า normal = ผ่าตัดปลอดภัย → BT ทำนาย surgical bleeding ไม่ได้ + ไวต่ำ (vWD/mild dysfunction พลาด); ยึดประวัติ + test จำเพาะ (Fork 6).
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > - SOP ของแล็บคุณกำหนด smear-review criteria / critical-value list / delta-check rule ไว้อย่างไร? (เติมให้ตรงเครื่องและ policy จริง)

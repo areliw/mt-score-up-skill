@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจงานพิษวิท�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-11
+last_edited: 2026-06-28
 status: draft
 disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยา (รามาธิบดี สายด่วน 1367) ก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -104,6 +104,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 - forensic specimen ทุกขั้น: ปิดผนึก + เซ็นชื่อ + log ผู้ถือครองทุกทอด + ป้องกัน tampering
 - chain หลุดแม้ขั้นเดียว = หลักฐานใช้ในศาลไม่ได้ (inadmissible) แม้ผลแลบถูก
 - forensic = ต้อง confirm (GC-MS/LC-MS) เสมอ
+- 💊 **Drug-of-abuse screen — กันสับ/เจือจางตัวอย่าง (โดยเฉพาะงานวินัย/ยืนยันเลิกยา):** ปัสสาวะ window สั้น (~วัน — *drug-dependent มาก*; หยุดไม่กี่วันตรวจไม่เจอ; เส้นผมย้อนได้ ~สัปดาห์-เดือน, Fork 3) + เสี่ยง "สับฉี่"/เจือจาง → ใช้ **observed/witnessed collection + เช็คอุณหภูมิ + validity test (creatinine/specific gravity)** กัน adulteration *(ตาม SOP/กฎหมาย/สิทธิความเป็นส่วนตัว — ไม่ใช่ default ทุกเคส)* · งานที่มีผลทางวินัย/กฎหมาย = chain-of-custody + confirm เสมอ (อย่ารายงานจาก screen เดี่ยว)
 
 ## กับดัก (Anti-patterns)
 - 🔴 รายงาน "positive" จาก screen โดยไม่ confirm → false positive จาก cross-react — confirm GC-MS/LC-MS ก่อนเสมอ

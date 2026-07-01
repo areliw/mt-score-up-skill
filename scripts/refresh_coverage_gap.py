@@ -94,7 +94,13 @@ def infer_trap(delta: float, kinds: str) -> str:
 
 
 def approx_scores(delta: float, trap: str) -> tuple[float, float]:
-    """Rough with/without from delta for registry display."""
+    """Rough with/without RECONSTRUCTED from delta (NOT measured) — see `synthetic` flag.
+
+    round6-probe recorded a real blind-judge delta + qualitative `kinds`, not the absolute
+    per-run scores. These approximations exist only so downstream code has a number; rows
+    carrying them are stamped `synthetic: true` so build_insights.py shows delta-only and
+    never presents the pair as measured.
+    """
     if trap == "with-only":
         return round(3.0 + delta * 0.5, 2), round(1.5, 2)
     mid = 3.5
@@ -117,6 +123,7 @@ def backfill_row(slug: str, meta: dict) -> dict:
         "method": "x3",
         "tier": "full",
         "run": "round6-probe",
+        "synthetic": True,  # delta is real; with/without are reconstructed from it
         "note": f"Round6 {meta['batch']} — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
     }
 

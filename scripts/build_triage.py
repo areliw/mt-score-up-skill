@@ -70,7 +70,7 @@ def intro_line(text: str) -> str:
 
 def use_when(text: str) -> str:
     """Condensed '## ใช้เมื่อ' triggers — the routing signal — joined to one line."""
-    m = re.search(r"(?m)^##\s*ใช้เมื่อ\s*$(.+?)(?=^##\s)", text, flags=re.S)
+    m = re.search(r"(?m)^##\s*ใช้เมื่อ\s*$(.+?)(?=^##\s|\Z)", text, flags=re.S)
     if not m:
         return ""
     bullets = []

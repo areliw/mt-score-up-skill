@@ -20,7 +20,7 @@ import json
 import hashlib
 import pathlib
 
-from ab_tier import index_by_slug, infer_tier, load_rows, any_slugs
+from ab_tier import index_by_slug, infer_tier, load_rows, any_slugs, peer_signed
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
@@ -79,26 +79,12 @@ def screen_corpus() -> str:
     return "\n".join(parts)
 
 
-def peer_signed() -> set[str]:
-    out = set()
-    if not PEER_DIR.exists():
-        return out
-    for p in PEER_DIR.glob("*.md"):
-        if p.stem.upper() == "TEMPLATE":
-            continue
-        body = p.read_text(encoding="utf-8", errors="ignore")
-        if "SIGN" in body:
-            stem = p.stem
-            out.add(stem.rsplit("-", 3)[0] if stem.count("-") >= 3 else stem)
-    return out
-
-
 def main() -> int:
     abi = ab_index()
     promo = {s: r for s, r in abi.items() if r.get("tier") == "full"}
     any_ab = any_slugs()
     screen = screen_corpus()
-    signed = peer_signed()
+    signed = peer_signed(PEER_DIR)
     reg = {}
     for p in sorted(SKILLS.glob("*.md")):
         if p.stem in SKIP:

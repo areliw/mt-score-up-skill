@@ -43,13 +43,41 @@ def test_manual_ab_six_skills_tiered_and_full_restored(repo_root: Path) -> None:
 
 
 def test_ab_tier_promotion_prefers_full_over_manual(repo_root: Path) -> None:
-    proc = run_script(repo_root, "build_ab_coverage.py")
-    assert proc.returncode == 0, proc.stdout + proc.stderr
-    reg = json.loads((repo_root / "eval" / "ab-coverage.json").read_text(encoding="utf-8"))
-    assert reg["flow-cytometry-judgment"]["ab_full"] is True
-    assert reg["flow-cytometry-judgment"]["ab_tier"] == "full"
-    assert reg["flow-cytometry-judgment"]["ab_delta"] == 3.67
-    assert reg["poct-judgment"]["ab_delta"] == -0.67
+    # build_ab_coverage.py writes the tracked eval/ab-coverage.json in place; snapshot and
+    # restore it so the test never dirties the working tree (test-isolation).
+    reg_path = repo_root / "eval" / "ab-coverage.json"
+    original = reg_path.read_text(encoding="utf-8")
+    try:
+        proc = run_script(repo_root, "build_ab_coverage.py")
+        assert proc.returncode == 0, proc.stdout + proc.stderr
+        reg = json.loads(reg_path.read_text(encoding="utf-8"))
+        assert reg["flow-cytometry-judgment"]["ab_full"] is True
+        assert reg["flow-cytometry-judgment"]["ab_tier"] == "full"
+        assert reg["flow-cytometry-judgment"]["ab_delta"] == 3.67
+        assert reg["poct-judgment"]["ab_delta"] == -0.67
+    finally:
+        reg_path.write_text(original, encoding="utf-8")
+
+
+def test_peer_signed_ignores_draft_and_reads_skill_line(repo_root: Path, tmp_path: Path) -> None:
+    import sys
+
+    sys.path.insert(0, str(repo_root / "scripts"))
+    from ab_tier import peer_signed
+
+    d = tmp_path / "peer-review"
+    d.mkdir()
+    (d / "TEMPLATE.md").write_text("- **skill:** `<skill-slug>`\n- [ ] **SIGN**\n", encoding="utf-8")
+    # DRAFT: names its skill but the SIGN box is unchecked -> not signed
+    (d / "foo-judgment-DRAFT.md").write_text(
+        "- **skill:** `foo-judgment`\n## Verdict\n- [ ] **SIGN** — endorsed\n", encoding="utf-8"
+    )
+    # Signed: SIGN checked; slug must come from the **skill:** line, not the filename
+    # (filename rsplit would wrongly yield "bar").
+    (d / "bar-judgment-reviewer-2026-07-02.md").write_text(
+        "- **skill:** `bar-judgment`\n## Verdict\n- [x] **SIGN** — content endorsed\n", encoding="utf-8"
+    )
+    assert peer_signed(d) == {"bar-judgment"}
 
 
 def test_maturity_gate_semi_stable_without_ab_fails(repo_root: Path) -> None:

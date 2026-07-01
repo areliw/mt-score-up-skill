@@ -12,12 +12,19 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 from typing import Any
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCOREBOARD = ROOT / "eval" / "_ab_slim.json"
+PEER_DIR = ROOT / "eval" / "peer-review"
 
 TIER_RANK = {"full": 3, "screen": 2, "manual": 1}
+
+# A peer-review file names its skill in a `**skill:** `<slug>`` line and is SIGNED only when
+# the `## Verdict` SIGN checkbox is ticked `[x]` (DRAFT/TEMPLATE leave it `[ ]`).
+_PEER_SKILL_RE = re.compile(r"\*\*skill:\*\*\s*`?([a-z0-9][a-z0-9-]*)`?")
+_PEER_SIGN_RE = re.compile(r"(?m)^\s*-?\s*\[[xX]\]\s*\*\*SIGN\*\*")
 
 
 def slug_of(name: str) -> str:
@@ -87,3 +94,26 @@ def promotion_entry(rows: list[dict[str, Any]] | None = None) -> dict[str, dict[
     """Entry used for semi-stable promotion / winning delta — full tier only."""
     rows = rows if rows is not None else load_rows()
     return {s: r for s, r in index_by_slug(rows).items() if infer_tier(r) == "full"}
+
+
+def peer_signed(peer_dir: pathlib.Path | None = None) -> set[str]:
+    """Slugs with a SIGNED MT peer-review in eval/peer-review/.
+
+    "Signed" = the `## Verdict` SIGN checkbox is ticked `[x]`; DRAFT and TEMPLATE files
+    (unchecked `[ ]`) are excluded. The skill slug is read from the `**skill:**` line,
+    never guessed from the filename (a `<slug>-<reviewer>-<date>.md` name would mis-split).
+    """
+    d = peer_dir or PEER_DIR
+    out: set[str] = set()
+    if not d.exists():
+        return out
+    for p in d.glob("*.md"):
+        if p.stem.upper() == "TEMPLATE":
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if not _PEER_SIGN_RE.search(text):
+            continue
+        m = _PEER_SKILL_RE.search(text)
+        if m:
+            out.add(m.group(1))
+    return out

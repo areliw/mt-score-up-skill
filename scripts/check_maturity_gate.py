@@ -24,7 +24,7 @@ import json
 import hashlib
 import pathlib
 
-from ab_tier import full_slugs, promotion_entry
+from ab_tier import full_slugs, promotion_entry, peer_signed
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
@@ -71,19 +71,6 @@ def screen_corpus() -> str:
     return "\n".join(parts)
 
 
-def peer_signed() -> set[str]:
-    out = set()
-    if not PEER_DIR.exists():
-        return out
-    for p in PEER_DIR.glob("*.md"):
-        if p.stem.upper() == "TEMPLATE":
-            continue
-        if "SIGN" in p.read_text(encoding="utf-8", errors="ignore"):
-            stem = p.stem
-            out.add(stem.rsplit("-", 3)[0] if stem.count("-") >= 3 else stem)
-    return out
-
-
 def registry() -> dict:
     try:
         return json.loads(REGISTRY.read_text(encoding="utf-8"))
@@ -94,7 +81,7 @@ def registry() -> dict:
 def main(argv: list[str]) -> int:
     full_ab = full_slugs()
     screen = screen_corpus()
-    signed = peer_signed()
+    signed = peer_signed(PEER_DIR)
     reg = registry()
     promo = promotion_entry()
     targets = sorted(SKILLS.glob("*.md")) if (not argv or argv == ["--all"]) else [pathlib.Path(a) for a in argv]

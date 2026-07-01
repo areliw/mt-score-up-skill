@@ -149,7 +149,8 @@
     "withScore": 4,
     "withoutScore": 3,
     "delta": 1,
-    "trapAvoid": "both"
+    "trapAvoid": "both",
+    "synthetic": true
   },
   {
     "skill": "mt-exam-strategy-judgment.md",
@@ -191,7 +192,8 @@
     "withScore": 4,
     "withoutScore": 3,
     "delta": 1,
-    "trapAvoid": "both"
+    "trapAvoid": "both",
+    "synthetic": true
   },
   {
     "skill": "photography-judgment.md",
@@ -556,7 +558,8 @@
     "delta": 1.4,
     "trapAvoid": "both",
     "method": "x5",
-    "run": "wf_4abf369f-143"
+    "run": "wf_4abf369f-143",
+    "synthetic": true
   },
   {
     "skill": "tdd-judgment.md",
@@ -716,7 +719,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Batch 4 clinical — Haiku+Opus blind harness; slight+"
+    "note": "Batch 4 clinical — Haiku+Opus blind harness; slight+",
+    "synthetic": true
   },
   {
     "skill": "urinalysis-judgment.md",
@@ -752,7 +756,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 probe — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 probe — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "ab-test-judgment.md",
@@ -764,7 +769,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "ai-coding-guardrails.md",
@@ -776,7 +782,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "data-science-workflow.md",
@@ -788,7 +795,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "deep-research.md",
@@ -800,7 +808,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1-after-guard — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1-after-guard — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "dx-company-brief.md",
@@ -812,7 +821,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "grill-my-plan.md",
@@ -824,7 +834,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "humanize-ai-writing.md",
@@ -836,7 +847,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "interactive-course.md",
@@ -848,7 +860,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B1 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "method-validation-stats.md",
@@ -860,7 +873,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "ml-engineering-workflow.md",
@@ -872,7 +886,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B2 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B2 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "mt-databases.md",
@@ -884,7 +899,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "phi-data-handling.md",
@@ -896,7 +912,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "pomodoro-focus.md",
@@ -908,7 +925,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B2 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B2 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "prompt-optimizer.md",
@@ -920,7 +938,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B2 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B2 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "time-blocking.md",
@@ -932,7 +951,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "verification-panel.md",
@@ -944,7 +964,8 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   },
   {
     "skill": "write-a-skill.md",
@@ -956,6 +977,7 @@
     "method": "x3",
     "tier": "full",
     "run": "round6-probe",
-    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md"
+    "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
+    "synthetic": true
   }
 ]

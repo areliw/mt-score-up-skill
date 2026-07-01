@@ -1,16 +1,16 @@
 {
   "n": 100,
   "headline": {
-    "judgment_avg": 1.15,
+    "judgment_avg": 1.08,
     "judgment_n": 41,
     "clinical_avg": 1.01,
     "clinical_n": 30,
     "ratio": 1.1
   },
   "distribution": {
-    "gap": 32,
+    "gap": 31,
     "lift": 32,
-    "tie": 21,
+    "tie": 22,
     "back": 15
   },
   "by_category": {
@@ -26,10 +26,6 @@
       "n": 12,
       "avg": 1.31
     },
-    "career": {
-      "n": 8,
-      "avg": 1.23
-    },
     "research": {
       "n": 14,
       "avg": 1.02
@@ -37,6 +33,10 @@
     "clinical": {
       "n": 30,
       "avg": 1.01
+    },
+    "career": {
+      "n": 8,
+      "avg": 0.88
     },
     "AImeta": {
       "n": 14,
@@ -54,6 +54,7 @@
       "delta": 4.0,
       "with": 5,
       "without": 1,
+      "synthetic": false,
       "cat": "business",
       "tier": "gap"
     },
@@ -61,8 +62,9 @@
       "slug": "humanize-ai-writing",
       "label": "humanize-ai-writing",
       "delta": 4.0,
-      "with": 5.0,
-      "without": 1.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "AImeta",
       "tier": "gap"
     },
@@ -72,6 +74,7 @@
       "delta": 3.67,
       "with": 4.67,
       "without": 1.0,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -81,6 +84,7 @@
       "delta": 3.5,
       "with": 4.5,
       "without": 1,
+      "synthetic": false,
       "cat": "business",
       "tier": "gap"
     },
@@ -90,6 +94,7 @@
       "delta": 3.5,
       "with": 4.83,
       "without": 1.33,
+      "synthetic": false,
       "cat": "comms",
       "tier": "gap"
     },
@@ -99,6 +104,7 @@
       "delta": 3.5,
       "with": 4.83,
       "without": 1.33,
+      "synthetic": false,
       "cat": "business",
       "tier": "gap"
     },
@@ -108,6 +114,7 @@
       "delta": 3.5,
       "with": 4.83,
       "without": 1.33,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -117,6 +124,7 @@
       "delta": 3.34,
       "with": 4.67,
       "without": 1.33,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -124,18 +132,20 @@
       "slug": "ab-test-judgment",
       "label": "ab-test-judgment",
       "delta": 3.33,
-      "with": 4.67,
-      "without": 1.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "other",
       "tier": "gap"
     },
     {
-      "slug": "mt-career-judgment",
-      "label": "เส้นทางอาชีพ MT",
-      "delta": 3.2,
-      "with": 5,
-      "without": 1.8,
-      "cat": "career",
+      "slug": "preanalytical-judgment",
+      "label": "preanalytical-judgment",
+      "delta": 3.16,
+      "with": 4.83,
+      "without": 1.67,
+      "synthetic": false,
+      "cat": "clinical",
       "tier": "gap"
     }
   ],
@@ -146,6 +156,7 @@
       "delta": -0.5,
       "with": 4.5,
       "without": 5,
+      "synthetic": false,
       "cat": "tools",
       "tier": "back"
     },
@@ -155,6 +166,7 @@
       "delta": -0.5,
       "with": 3,
       "without": 3.5,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     },
@@ -164,6 +176,7 @@
       "delta": -0.5,
       "with": 4,
       "without": 4.5,
+      "synthetic": false,
       "cat": "business",
       "tier": "back"
     },
@@ -173,6 +186,7 @@
       "delta": -0.5,
       "with": 4,
       "without": 4.5,
+      "synthetic": false,
       "cat": "research",
       "tier": "back"
     },
@@ -182,6 +196,7 @@
       "delta": -0.67,
       "with": 3.0,
       "without": 3.67,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -191,6 +206,7 @@
       "delta": -0.83,
       "with": 3.5,
       "without": 4.33,
+      "synthetic": false,
       "cat": "business",
       "tier": "back"
     },
@@ -200,6 +216,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     },
@@ -209,6 +226,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     },
@@ -218,6 +236,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "tools",
       "tier": "back"
     },
@@ -227,6 +246,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -236,6 +256,7 @@
       "delta": -1.0,
       "with": 1.5,
       "without": 2.5,
+      "synthetic": false,
       "cat": "career",
       "tier": "back"
     },
@@ -245,6 +266,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -254,6 +276,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -263,6 +286,7 @@
       "delta": -1.0,
       "with": 3.5,
       "without": 4.5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -272,6 +296,7 @@
       "delta": -2.0,
       "with": 0,
       "without": 2,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     }
@@ -283,6 +308,7 @@
       "delta": 4.0,
       "with": 5,
       "without": 1,
+      "synthetic": false,
       "cat": "business",
       "tier": "gap"
     },
@@ -290,8 +316,9 @@
       "slug": "humanize-ai-writing",
       "label": "humanize-ai-writing",
       "delta": 4.0,
-      "with": 5.0,
-      "without": 1.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "AImeta",
       "tier": "gap"
     },
@@ -301,6 +328,7 @@
       "delta": 3.67,
       "with": 4.67,
       "without": 1.0,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -310,6 +338,7 @@
       "delta": 3.5,
       "with": 4.5,
       "without": 1,
+      "synthetic": false,
       "cat": "business",
       "tier": "gap"
     },
@@ -319,6 +348,7 @@
       "delta": 3.5,
       "with": 4.83,
       "without": 1.33,
+      "synthetic": false,
       "cat": "comms",
       "tier": "gap"
     },
@@ -328,6 +358,7 @@
       "delta": 3.5,
       "with": 4.83,
       "without": 1.33,
+      "synthetic": false,
       "cat": "business",
       "tier": "gap"
     },
@@ -337,6 +368,7 @@
       "delta": 3.5,
       "with": 4.83,
       "without": 1.33,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -346,6 +378,7 @@
       "delta": 3.34,
       "with": 4.67,
       "without": 1.33,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -353,18 +386,10 @@
       "slug": "ab-test-judgment",
       "label": "ab-test-judgment",
       "delta": 3.33,
-      "with": 4.67,
-      "without": 1.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "other",
-      "tier": "gap"
-    },
-    {
-      "slug": "mt-career-judgment",
-      "label": "เส้นทางอาชีพ MT",
-      "delta": 3.2,
-      "with": 5,
-      "without": 1.8,
-      "cat": "career",
       "tier": "gap"
     },
     {
@@ -373,6 +398,7 @@
       "delta": 3.16,
       "with": 4.83,
       "without": 1.67,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -382,6 +408,7 @@
       "delta": 3.16,
       "with": 4.83,
       "without": 1.67,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -391,6 +418,7 @@
       "delta": 3.0,
       "with": 5,
       "without": 2,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "gap"
     },
@@ -400,6 +428,7 @@
       "delta": 3.0,
       "with": 5,
       "without": 2,
+      "synthetic": false,
       "cat": "career",
       "tier": "gap"
     },
@@ -409,6 +438,7 @@
       "delta": 3.0,
       "with": 5,
       "without": 2,
+      "synthetic": false,
       "cat": "comms",
       "tier": "gap"
     },
@@ -418,6 +448,7 @@
       "delta": 2.8,
       "with": 4.6,
       "without": 1.8,
+      "synthetic": false,
       "cat": "comms",
       "tier": "gap"
     },
@@ -425,8 +456,9 @@
       "slug": "ai-coding-guardrails",
       "label": "ai-coding-guardrails",
       "delta": 2.67,
-      "with": 4.83,
-      "without": 2.17,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "AImeta",
       "tier": "gap"
     },
@@ -436,6 +468,7 @@
       "delta": 2.6,
       "with": 5.0,
       "without": 2.4,
+      "synthetic": false,
       "cat": "research",
       "tier": "gap"
     },
@@ -445,6 +478,7 @@
       "delta": 2.5,
       "with": 4.5,
       "without": 2,
+      "synthetic": false,
       "cat": "research",
       "tier": "gap"
     },
@@ -454,6 +488,7 @@
       "delta": 2.5,
       "with": 4.8,
       "without": 2.3,
+      "synthetic": false,
       "cat": "research",
       "tier": "gap"
     },
@@ -461,8 +496,9 @@
       "slug": "mt-databases",
       "label": "mt-databases",
       "delta": 2.33,
-      "with": 4.17,
-      "without": 1.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "tools",
       "tier": "gap"
     },
@@ -470,8 +506,9 @@
       "slug": "prompt-optimizer",
       "label": "prompt-optimizer",
       "delta": 2.33,
-      "with": 4.17,
-      "without": 1.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "AImeta",
       "tier": "gap"
     },
@@ -481,6 +518,7 @@
       "delta": 2.0,
       "with": 5,
       "without": 3,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -490,6 +528,7 @@
       "delta": 2.0,
       "with": 5.0,
       "without": 3.0,
+      "synthetic": false,
       "cat": "business",
       "tier": "gap"
     },
@@ -499,6 +538,7 @@
       "delta": 2.0,
       "with": 4.6,
       "without": 2.6,
+      "synthetic": false,
       "cat": "tools",
       "tier": "gap"
     },
@@ -506,8 +546,9 @@
       "slug": "git-workflow-judgment",
       "label": "git-workflow-judgment",
       "delta": 2.0,
-      "with": 4.5,
-      "without": 2.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -517,6 +558,7 @@
       "delta": 1.8,
       "with": 3.4,
       "without": 1.6,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "gap"
     },
@@ -526,6 +568,7 @@
       "delta": 1.8,
       "with": 4.8,
       "without": 3.0,
+      "synthetic": false,
       "cat": "tools",
       "tier": "gap"
     },
@@ -533,8 +576,9 @@
       "slug": "data-science-workflow",
       "label": "data-science-workflow",
       "delta": 1.67,
-      "with": 4.33,
-      "without": 2.67,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -542,8 +586,9 @@
       "slug": "ml-engineering-workflow",
       "label": "ml-engineering-workflow",
       "delta": 1.67,
-      "with": 4.33,
-      "without": 2.67,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "clinical",
       "tier": "gap"
     },
@@ -553,6 +598,7 @@
       "delta": 1.5,
       "with": 4,
       "without": 2.5,
+      "synthetic": false,
       "cat": "career",
       "tier": "gap"
     },
@@ -562,6 +608,7 @@
       "delta": 1.5,
       "with": 4,
       "without": 2.5,
+      "synthetic": false,
       "cat": "career",
       "tier": "gap"
     },
@@ -569,8 +616,9 @@
       "slug": "writing-judgment",
       "label": "เขียนงานยาว",
       "delta": 1.4,
-      "with": 4.2,
-      "without": 2.8,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "other",
       "tier": "lift"
     },
@@ -580,6 +628,7 @@
       "delta": 1.33,
       "with": 4.67,
       "without": 3.33,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -589,6 +638,7 @@
       "delta": 1.33,
       "with": 4.0,
       "without": 2.67,
+      "synthetic": false,
       "cat": "comms",
       "tier": "lift"
     },
@@ -596,8 +646,9 @@
       "slug": "method-validation-stats",
       "label": "method-validation-stats",
       "delta": 1.33,
-      "with": 4.17,
-      "without": 2.83,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -605,8 +656,9 @@
       "slug": "pomodoro-focus",
       "label": "pomodoro-focus",
       "delta": 1.33,
-      "with": 4.17,
-      "without": 2.83,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "tools",
       "tier": "lift"
     },
@@ -616,6 +668,7 @@
       "delta": 1.1,
       "with": 4.0,
       "without": 2.9,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -625,6 +678,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "lift"
     },
@@ -634,6 +688,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "research",
       "tier": "lift"
     },
@@ -643,6 +698,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "research",
       "tier": "lift"
     },
@@ -652,6 +708,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "business",
       "tier": "lift"
     },
@@ -661,6 +718,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "business",
       "tier": "lift"
     },
@@ -668,8 +726,9 @@
       "slug": "ml-judgment",
       "label": "ตัดสินใจ ML",
       "delta": 1.0,
-      "with": 4,
-      "without": 3,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "research",
       "tier": "lift"
     },
@@ -677,8 +736,9 @@
       "slug": "optimization-judgment",
       "label": "optimization",
       "delta": 1.0,
-      "with": 4,
-      "without": 3,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "research",
       "tier": "lift"
     },
@@ -688,6 +748,7 @@
       "delta": 1.0,
       "with": 2,
       "without": 1,
+      "synthetic": false,
       "cat": "tools",
       "tier": "lift"
     },
@@ -697,6 +758,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "research",
       "tier": "lift"
     },
@@ -706,6 +768,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "business",
       "tier": "lift"
     },
@@ -715,6 +778,7 @@
       "delta": 1.0,
       "with": 3,
       "without": 2,
+      "synthetic": false,
       "cat": "research",
       "tier": "lift"
     },
@@ -724,6 +788,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "career",
       "tier": "lift"
     },
@@ -733,6 +798,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -742,6 +808,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -751,6 +818,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -760,6 +828,7 @@
       "delta": 1.0,
       "with": 5,
       "without": 4,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -769,6 +838,7 @@
       "delta": 1.0,
       "with": 3,
       "without": 2,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -778,6 +848,7 @@
       "delta": 1.0,
       "with": 4.6,
       "without": 3.6,
+      "synthetic": false,
       "cat": "tools",
       "tier": "lift"
     },
@@ -785,8 +856,9 @@
       "slug": "preanalytical-judgment",
       "label": "preanalytical-judgment",
       "delta": 1.0,
-      "with": 4.0,
-      "without": 3.0,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "clinical",
       "tier": "lift"
     },
@@ -796,6 +868,7 @@
       "delta": 0.67,
       "with": 3.67,
       "without": 3.0,
+      "synthetic": false,
       "cat": "business",
       "tier": "lift"
     },
@@ -803,8 +876,9 @@
       "slug": "deep-research",
       "label": "deep-research",
       "delta": 0.67,
-      "with": 3.83,
-      "without": 3.17,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "AImeta",
       "tier": "lift"
     },
@@ -812,8 +886,9 @@
       "slug": "interactive-course",
       "label": "interactive-course",
       "delta": 0.67,
-      "with": 3.83,
-      "without": 3.17,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "tools",
       "tier": "lift"
     },
@@ -821,8 +896,9 @@
       "slug": "phi-data-handling",
       "label": "phi-data-handling",
       "delta": 0.67,
-      "with": 3.83,
-      "without": 3.17,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "research",
       "tier": "lift"
     },
@@ -832,6 +908,7 @@
       "delta": 0.5,
       "with": 4.5,
       "without": 4,
+      "synthetic": false,
       "cat": "research",
       "tier": "lift"
     },
@@ -841,6 +918,7 @@
       "delta": 0.5,
       "with": 5,
       "without": 4.5,
+      "synthetic": false,
       "cat": "career",
       "tier": "lift"
     },
@@ -850,8 +928,19 @@
       "delta": 0.5,
       "with": 4,
       "without": 3.5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "lift"
+    },
+    {
+      "slug": "mt-career-judgment",
+      "label": "เส้นทางอาชีพ MT",
+      "delta": 0.4,
+      "with": 4.6,
+      "without": 4.2,
+      "synthetic": false,
+      "cat": "career",
+      "tier": "tie"
     },
     {
       "slug": "result-release-judgment",
@@ -859,6 +948,7 @@
       "delta": 0.33,
       "with": 3.33,
       "without": 3,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "tie"
     },
@@ -868,6 +958,7 @@
       "delta": 0.33,
       "with": 3.33,
       "without": 3.0,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "tie"
     },
@@ -875,8 +966,9 @@
       "slug": "dx-company-brief",
       "label": "dx-company-brief",
       "delta": 0.33,
-      "with": 3.67,
-      "without": 3.33,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "business",
       "tier": "tie"
     },
@@ -884,8 +976,9 @@
       "slug": "time-blocking",
       "label": "time-blocking",
       "delta": 0.33,
-      "with": 3.67,
-      "without": 3.33,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "tools",
       "tier": "tie"
     },
@@ -893,8 +986,9 @@
       "slug": "verification-panel",
       "label": "verification-panel",
       "delta": 0.33,
-      "with": 3.67,
-      "without": 3.33,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "AImeta",
       "tier": "tie"
     },
@@ -904,6 +998,7 @@
       "delta": 0.2,
       "with": 4.6,
       "without": 4.4,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "tie"
     },
@@ -913,6 +1008,7 @@
       "delta": 0.1,
       "with": 4.1,
       "without": 4.0,
+      "synthetic": false,
       "cat": "career",
       "tier": "tie"
     },
@@ -922,6 +1018,7 @@
       "delta": 0.0,
       "with": 4,
       "without": 4,
+      "synthetic": false,
       "cat": "business",
       "tier": "tie"
     },
@@ -931,6 +1028,7 @@
       "delta": 0.0,
       "with": 5,
       "without": 5,
+      "synthetic": false,
       "cat": "research",
       "tier": "tie"
     },
@@ -940,6 +1038,7 @@
       "delta": 0.0,
       "with": 5,
       "without": 5,
+      "synthetic": false,
       "cat": "tools",
       "tier": "tie"
     },
@@ -949,6 +1048,7 @@
       "delta": 0.0,
       "with": 5,
       "without": 5,
+      "synthetic": false,
       "cat": "tools",
       "tier": "tie"
     },
@@ -958,6 +1058,7 @@
       "delta": 0.0,
       "with": 5,
       "without": 5,
+      "synthetic": false,
       "cat": "research",
       "tier": "tie"
     },
@@ -967,6 +1068,7 @@
       "delta": 0.0,
       "with": 5,
       "without": 5,
+      "synthetic": false,
       "cat": "comms",
       "tier": "tie"
     },
@@ -976,6 +1078,7 @@
       "delta": 0.0,
       "with": 5,
       "without": 5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "tie"
     },
@@ -985,6 +1088,7 @@
       "delta": 0.0,
       "with": 4,
       "without": 4,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "tie"
     },
@@ -994,6 +1098,7 @@
       "delta": 0.0,
       "with": 4,
       "without": 4,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "tie"
     },
@@ -1003,6 +1108,7 @@
       "delta": 0.0,
       "with": 4.5,
       "without": 4.5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "tie"
     },
@@ -1010,8 +1116,9 @@
       "slug": "write-a-skill",
       "label": "write-a-skill",
       "delta": 0.0,
-      "with": 3.5,
-      "without": 3.5,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "AImeta",
       "tier": "tie"
     },
@@ -1021,6 +1128,7 @@
       "delta": -0.1,
       "with": 4.3,
       "without": 4.4,
+      "synthetic": false,
       "cat": "tools",
       "tier": "tie"
     },
@@ -1030,6 +1138,7 @@
       "delta": -0.3,
       "with": 3.4,
       "without": 3.7,
+      "synthetic": false,
       "cat": "comms",
       "tier": "tie"
     },
@@ -1037,8 +1146,9 @@
       "slug": "grill-my-plan",
       "label": "grill-my-plan",
       "delta": -0.33,
-      "with": 3.33,
-      "without": 3.67,
+      "with": null,
+      "without": null,
+      "synthetic": true,
       "cat": "comms",
       "tier": "tie"
     },
@@ -1048,6 +1158,7 @@
       "delta": -0.5,
       "with": 4.5,
       "without": 5,
+      "synthetic": false,
       "cat": "tools",
       "tier": "back"
     },
@@ -1057,6 +1168,7 @@
       "delta": -0.5,
       "with": 3,
       "without": 3.5,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     },
@@ -1066,6 +1178,7 @@
       "delta": -0.5,
       "with": 4,
       "without": 4.5,
+      "synthetic": false,
       "cat": "business",
       "tier": "back"
     },
@@ -1075,6 +1188,7 @@
       "delta": -0.5,
       "with": 4,
       "without": 4.5,
+      "synthetic": false,
       "cat": "research",
       "tier": "back"
     },
@@ -1084,6 +1198,7 @@
       "delta": -0.67,
       "with": 3.0,
       "without": 3.67,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -1093,6 +1208,7 @@
       "delta": -0.83,
       "with": 3.5,
       "without": 4.33,
+      "synthetic": false,
       "cat": "business",
       "tier": "back"
     },
@@ -1102,6 +1218,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     },
@@ -1111,6 +1228,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     },
@@ -1120,6 +1238,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "tools",
       "tier": "back"
     },
@@ -1129,6 +1248,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -1138,6 +1258,7 @@
       "delta": -1.0,
       "with": 1.5,
       "without": 2.5,
+      "synthetic": false,
       "cat": "career",
       "tier": "back"
     },
@@ -1147,6 +1268,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -1156,6 +1278,7 @@
       "delta": -1.0,
       "with": 4,
       "without": 5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -1165,6 +1288,7 @@
       "delta": -1.0,
       "with": 3.5,
       "without": 4.5,
+      "synthetic": false,
       "cat": "clinical",
       "tier": "back"
     },
@@ -1174,6 +1298,7 @@
       "delta": -2.0,
       "with": 0,
       "without": 2,
+      "synthetic": false,
       "cat": "AImeta",
       "tier": "back"
     }

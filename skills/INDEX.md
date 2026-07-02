@@ -84,6 +84,7 @@
 | `receiving-review-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/receiving-review-judgment.md | 2026-06-15 |
 | `report-up-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/report-up-judgment.md | 2026-06-15 |
 | `research-design-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/research-design-judgment.md | 2026-06-04 |
+| `research-section-drafting` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/research-section-drafting.md | 2026-07-03 |
 | `result-release-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/result-release-judgment.md | 2026-06-15 |
 | `sales-psychology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/sales-psychology-judgment.md | 2026-06-04 |
 | `sample-size-power` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/sample-size-power.md | 2026-06-04 |

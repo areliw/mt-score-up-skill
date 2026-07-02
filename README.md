@@ -61,6 +61,7 @@
 | [choose-stat-test](./skills/choose-stat-test.md) | เลือก statistical test ให้ถูกตัว |
 | [sample-size-power](./skills/sample-size-power.md) | หาขนาดตัวอย่าง N (power analysis) |
 | [r2r-stats](./skills/r2r-stats.md) | รัน + แปลผลสถิติ R2R |
+| [research-section-drafting](./skills/research-section-drafting.md) | ร่าง 5 ส่วนงานวิจัยจากไอเดีย (บทนำ/วิธี/ผล/อภิปราย) — ไม่ให้ AI มั่วผล/อ้างอิง |
 | [manuscript-judgment](./skills/manuscript-judgment.md) | เขียน manuscript/proposal (IMRaD) ให้ผ่าน reviewer |
 | [critical-appraisal-judgment](./skills/critical-appraisal-judgment.md) | อ่าน/ประเมินงานวิจัย + หา gap + ประเมิน test (sens/spec/PPV) |
 | [literature-review-judgment](./skills/literature-review-judgment.md) | รีวิววรรณกรรมเป็นระบบ — ค้นหลายแหล่ง→screen→สังเคราะห์ theme/gap |

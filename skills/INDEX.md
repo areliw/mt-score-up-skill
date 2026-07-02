@@ -42,7 +42,7 @@
 | `ikigai-finder` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ikigai-finder.md | 2026-06-04 |
 | `immunoassay-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/immunoassay-judgment.md | 2026-06-28 |
 | `incident-postmortem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/incident-postmortem-judgment.md | 2026-06-08 |
-| `infection-control-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/infection-control-judgment.md | 2026-06-11 |
+| `infection-control-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/infection-control-judgment.md | 2026-07-03 |
 | `interactive-course` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interactive-course.md | 2026-06-08 |
 | `interprofessional-communication-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/interprofessional-communication-judgment.md | 2026-06-15 |
 | `ivd-sales-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ivd-sales-judgment.md | 2026-06-18 |

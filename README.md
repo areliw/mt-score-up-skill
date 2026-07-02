@@ -92,6 +92,7 @@
 | [polite-but-clear](./skills/polite-but-clear.md) | ปรับถ้อยคำให้สุภาพแต่ยังได้ใจความ |
 | [explain-simply](./skills/explain-simply.md) | อธิบายเรื่องยากแบบเด็ก ป.3 (ไม่ผิด) |
 | [content-creator-judgment](./skills/content-creator-judgment.md) | เลือกหัวข้อคอนเทนต์ให้ความรู้ + ไม่ทำให้เพจตาย |
+| [content-creator-copyright](./skills/content-creator-copyright.md) | เพลง/ภาพ/อินโฟกราฟิกใช้ได้แค่ไหน + กัน Content ID เตะ + PII เคสคนไข้ |
 | [photography-judgment](./skills/photography-judgment.md) | ถ่ายภาพ/วิดีโอ + photomicrography (สไลด์/colony/gel) ให้คม |
 | [humanize-ai-writing](./skills/humanize-ai-writing.md) | เกลางานที่ AI ร่างให้เป็นคนเขียน — ตัดสัญญาณ AI โดยคงความถูกต้อง |
 | [writing-judgment](./skills/writing-judgment.md) | เขียนงานยาวมีโครง+น้ำเสียง — เลือกโครงตามผู้อ่าน (≠ manuscript วิชาการ) |

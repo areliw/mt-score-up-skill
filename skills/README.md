@@ -39,6 +39,7 @@
 ### 🔬 งานวิจัย / สถิติ (R2R)
 - **r2r-research-proposal** — ปั้นโจทย์วิจัยจากปัญหา → คำถาม → objective + เช็คคู่ objective↔method
 - **research-design-judgment** — เลือก study design (descriptive/analytic · cross-sectional/case-control/cohort/RCT) + ชนิดตัวแปร + bias/confounder + gate IRB/ethics
+- **research-section-drafting** — ร่างแต่ละส่วนของงานวิจัยจากไอเดีย (ว.19 5 ส่วน / thesis 5 บท / IMRaD) + ด่านกัน AI แต่งผล/อ้างอิง (fabrication firewall)
 - **manuscript-judgment** — เขียน proposal/manuscript (IMRaD) ให้ผ่าน reviewer + เกณฑ์ accept/reject + objective=results=conclusion
 - **critical-appraisal-judgment** — อ่าน/ประเมินเปเปอร์คนอื่น + lit review: สกัด method/finding · diagnostic-accuracy (sens/spec/PPV vs gold standard) · หา research gap=contribution · เลือก method spine · จับ limitation-to-beat
 - **choose-stat-test** — decision tree เลือก statistical test จาก 3 คำถาม (เป้าหมาย × ชนิด outcome × กี่กลุ่ม)
@@ -134,7 +135,7 @@
 *confirm lane:* reactive screen → `immunoassay-judgment` + `molecular-judgment` (ยืนยัน) · ⚠️ **MT ตีความ/flag/ส่งต่อ — การวินิจฉัยเป็นหน้าที่แพทย์**
 
 **🔬 ทำวิจัย R2R ครบวงจร**
-`critical-appraisal-judgment` (อ่าน lit + หา gap) → `r2r-research-proposal` (โจทย์) → `research-design-judgment` (design+bias+IRB) → `sample-size-power` (N) → `choose-stat-test` (test) → `r2r-stats` (รัน) → `manuscript-judgment` (เขียน/ตีพิมพ์) + `polite-but-clear` (ตอบ reviewer)
+`critical-appraisal-judgment` (อ่าน lit + หา gap) → `r2r-research-proposal` (โจทย์) → `research-design-judgment` (design+bias+IRB) → `sample-size-power` (N) → `choose-stat-test` (test) → `r2r-stats` (รัน) → `research-section-drafting` (ร่าง 5 ส่วน) → `manuscript-judgment` (เขียน/ตีพิมพ์) + `polite-but-clear` (ตอบ reviewer)
 
 **💻 โปรเจกต์ data/ML**
 `data-project-survival` (วางโครง) → `ml-judgment` (เลือกโมเดล/metric) → `cv-judgment` (ถ้าเป็นภาพ) → `python-coach`/`db-judgment` (เขียนจริง) → `offload-to-automation` + `anti-hallucination` (กันพลาด + verify)

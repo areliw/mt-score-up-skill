@@ -16,7 +16,7 @@ disclaimer: "ช่วยคิดเรื่องโครงสร้าง/
 > **กฎ #1: objective = results = conclusion ต้องตรงกัน 3 ชั้น** — objective ถามอะไร, results ตอบอันนั้น, conclusion สรุปแค่อันนั้น. ไม่ตรง = reviewer จับทันที = reject.
 > **กับดัก #1 (เวอร์ชันยาก ที่คนมักหลุด): conclusion พูดเกินข้อมูล** — ถึงทั้ง 3 จะดู "ตรงหัวข้อ" กัน แต่ถ้า conclusion อ้าง **กว้างกว่า/แรงกว่า** ที่ design+results รองรับ ก็ reject. กฎทั่วไป: **claim ทุกประโยคต้องมี data หนุนตรงๆ** — design correlation ห้ามสรุป causal · pilot/n เล็ก/กลุ่มเดียว ห้าม generalize หรือแนะนำใช้คลินิก · in-vitro ห้ามฟันธง in-vivo. ตัด/ลดน้ำหนักคำให้พอดีข้อมูล.
 > รองลงมา: paper โดน reject เพราะ **"นำเสนอแย่/ไม่ชัด" บ่อยกว่าเพราะ "ไม่ใหม่"** — clarity สำคัญกว่าที่คิด.
-> ก่อนเขียน: ตั้งโจทย์ → `r2r-research-proposal` · design → `research-design-judgment` · สถิติ → `choose-stat-test` + `r2r-stats`
+> ก่อนเขียน: ตั้งโจทย์ → `r2r-research-proposal` · design → `research-design-judgment` · สถิติ → `choose-stat-test` + `r2r-stats` · **ร่างแต่ละส่วนจากไอเดีย → `research-section-drafting`** แล้วเอาร่างกลับมาให้ skill นี้ (manuscript-judgment) วิจารณ์แบบ reviewer
 
 ## ใช้เมื่อ
 - เขียน proposal / manuscript / thesis / poster

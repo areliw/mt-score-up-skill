@@ -331,7 +331,7 @@
  },
  "hematology-judgment": {
   "status": "draft",
-  "body_hash": "5bbfb2fc696e",
+  "body_hash": "3d6b0ec20f44",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -375,7 +375,7 @@
  },
  "immunoassay-judgment": {
   "status": "draft",
-  "body_hash": "db5e03551f74",
+  "body_hash": "77bf9503ebd0",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -496,7 +496,7 @@
  },
  "manuscript-judgment": {
   "status": "draft",
-  "body_hash": "09e23a2a4e94",
+  "body_hash": "e1d76f814c2d",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -562,7 +562,7 @@
  },
  "molecular-judgment": {
   "status": "draft",
-  "body_hash": "aaf0fbed97d6",
+  "body_hash": "78cffdf406f0",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -573,7 +573,7 @@
  },
  "mt-career-judgment": {
   "status": "draft",
-  "body_hash": "8962cc9fe35e",
+  "body_hash": "a28b81135e9d",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -606,7 +606,7 @@
  },
  "mt-law-ethics-judgment": {
   "status": "draft",
-  "body_hash": "b3b1b32de751",
+  "body_hash": "3da8838d9b49",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -857,6 +857,17 @@
   "screen": false,
   "peer": false
  },
+ "research-section-drafting": {
+  "status": "semi-stable",
+  "body_hash": "e88ad7c58772",
+  "ab": true,
+  "ab_full": true,
+  "ab_tier": "full",
+  "ab_method": "x5",
+  "ab_delta": 0.8,
+  "screen": false,
+  "peer": false
+ },
  "result-release-judgment": {
   "status": "draft",
   "body_hash": "ba73eae91ec6",
@@ -969,7 +980,7 @@
  },
  "toxicology-judgment": {
   "status": "draft",
-  "body_hash": "54be687f8085",
+  "body_hash": "ad9277109fc9",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",

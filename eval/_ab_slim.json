@@ -979,5 +979,17 @@
     "run": "round6-probe",
     "note": "Round6 B3 — Haiku+Opus blind harness; backfilled from eval/round6-probe.md",
     "synthetic": true
+  },
+  {
+    "skill": "research-section-drafting.md",
+    "effect": "lift",
+    "withScore": 5.0,
+    "withoutScore": 4.2,
+    "delta": 0.8,
+    "trapAvoid": "both",
+    "method": "x5",
+    "tier": "full",
+    "run": "wf_ec1d6b2b-2d9",
+    "note": "base refuses fabrication (headline trap intuitive even to Haiku); measured lift = senior nuances base kept missing (draftable-vs-wait line, แก้ทีหลัง=still-fabrication, EC-before-data, DOI-verify). x5 sigma4 se0.2 consistent"
   }
 ]

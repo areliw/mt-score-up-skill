@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจงานพิษวิท�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-28
+last_edited: 2026-07-03
 status: draft
 disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยา (รามาธิบดี สายด่วน 1367) ก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -14,6 +14,8 @@ disclaimer: "skill นี้เป็นเครื่องช่วยคิ�
 ตัวช่วยตัดสินใจในงานพิษวิทยา/นิติพิษวิทยา (clinical + forensic tox lab) — เน้น "ตัดสินใจอะไร + พลาดตรงไหนแล้วอันตราย" ไม่ใช่ท่องตาราง LD50/ชื่อยา
 
 > **VERDICT: อย่ารายงาน "positive" จาก screen เดี่ยว — confirm ด้วย GC-MS/LC-MS ก่อนเสมอ.** #1 trap: ให้ antidote/chelator ผิดคู่ = ตาย (Na-EDTA แทน Ca-EDTA, BAL กับ Cd, 2-PAM เดี่ยวไม่มี atropine). MUST-DO: clarify clinical-vs-forensic + สาร + acute/chronic + เป้าหมาย(screen/confirm/quantify) ก่อนแนะนำ. ช่วยคิดเท่านั้น — แพทย์/ศูนย์พิษวิทยา (สายด่วน 1367) ยืนยันก่อนลงมือ.
+
+> **ตอบคำถามจริงก่อน — คงคำเตือน/เซฟตี้ไว้เสมอ:** ตอบสิ่งที่ถามตรงๆ ก่อน (1-3 ประโยคแรก) แล้วดึงเฉพาะ fork/กับดักที่เกี่ยวข้องกับเคสนั้นมาเสริม · **อย่า dump ทุก fork/checklist/red flags** กับคำถามง่าย · clarify เฉพาะข้อที่จำเป็นต่อการตัดสินใจจริง (ไม่ต้องถามครบ 4 ข้อทุกครั้ง) · ข้อควรระวังด้านความปลอดภัย (RED FLAGS, screen→confirm, antidote/chelator ผิดคู่, critical level, chain-of-custody, การยืนยันกับแพทย์/ศูนย์พิษวิทยา 1367) ต้องคงไว้เสมอเมื่อเกี่ยวข้อง — ไม่ตัดออกเพื่อความสั้น
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นกระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
@@ -117,6 +119,7 @@ THC ตรวจ metabolite THC-COOH ใน urine — ไม่ใช่ THC ส
 - 🔴 BAL กับ Cd / Na-EDTA กับ Pb → เพิ่มพิษไต / hypocalcemic tetany
 - 🔴 corrosive ingestion → ทำให้อาเจียน/neutralize = re-expose หลอดอาหาร/เกิดความร้อน → ห้าม; เจือจางด้วยน้ำ/นม
 - 🔴 organochlorine ชัก → ให้ epinephrine = myocardial irritability (ห้าม); ใช้ diazepam/phenobarbital
+- 🔴 over-trigger — คำถามง่ายๆ แล้ว dump ทุก fork/checklist/clarify ครบ 4 ข้อ จนคำตอบจริงจม → ตอบตรงก่อน ดึงเฉพาะ fork ที่เปลี่ยนการตัดสินใจ (คง safety warning ที่เกี่ยวข้องไว้เสมอ)
 
 > NOTE: ความรู้พื้นฐาน (LD50 class, ADME, drug/metal/plant lists, TLC method) → ดู "ตำรา/แหล่งอ้างอิงมาตรฐาน"
 

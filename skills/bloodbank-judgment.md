@@ -4,7 +4,7 @@ title: โค้ชธนาคารเลือด — ตัดสินใ�
 type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ตำรา antigen frequency
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-11
+last_edited: 2026-07-03
 status: draft
 disclaimer: "เครื่องมือช่วยคิดหน้างานธนาคารเลือดเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินใจแทน งาน BB เกี่ยวชีวิตคนไข้โดยตรง ต้องทำตาม SOP, ยืนยันกับ MT/แพทย์, ยึดมาตรฐานธนาคารเลือดและงานบริการโลหิต ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย (AABB = อ้างอิงสากล) และศูนย์อ้างอิงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -22,6 +22,8 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 > 🇹🇭 **มาตรฐานอ้างอิง (ไทย):** ยึด **มาตรฐานธนาคารเลือดและงานบริการโลหิต — ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย** เป็นหลัก (AABB/ISBT = อ้างอิงสากล) · ทุกที่ในสกิลที่เขียน **"ref lab ระดับชาติ / rare registry / ศูนย์อ้างอิง"** = **ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย** (national reference lab + rare-donor registry ของไทย — Rhnull/Bombay/anti-Rh29 ส่งที่นี่)
 >
 > ⚠️ **ขอบเขต:** ตัวเลข (Gy/titer/dose/วัน) = teaching illustration ยึด **SOP/มาตรฐานกาชาด** · logic เน้น **ผู้ใหญ่**; neonatal exchange / RhIG / เลือดทารก ยึด **protocol neonatal เฉพาะ + ปรึกษาแพทย์**
+
+> **ตอบคำถามจริงก่อน — คงคำเตือน/เซฟตี้ไว้เสมอ:** ตอบสิ่งที่ถามตรงๆ ก่อน (คำถามจุดเดียว/MCQ/ขอแปลผลสั้น = ตอบใน 1-3 บรรทัด) แล้วดึงเฉพาะ fork/กับดักที่เกี่ยวข้องมาเสริม · **อย่า dump ทุก fork/checklist/RED FLAGS** กับคำถามง่าย ใช้ framework เต็มเฉพาะตอนมันเปลี่ยน decision จริง · **ข้อควรระวังด้านความปลอดภัยที่ผูกกับเคส** (clerical ก่อน serology, ABO mislabel, transfusion reaction, emergency O release, ยืนยันกับ MT/แพทย์/ref lab) ต้องคงไว้เสมอ ไม่ตัดออกเพื่อความสั้น
 
 > 🛑 **RED FLAGS — เจอข้อใด = หยุด ยืนยันกับ MT อาวุโส/แพทย์/ref lab ก่อน อย่าเชื่อ AI เดี่ยว:** ABO discrepancy · DAT+ ร่วม hemolysis · massive transfusion / emergency O release · เลือดทารก-แรกเกิด / exchange · **Bombay / Rhnull / anti–high-incidence Ag** · multiple / pan-reactive antibody. — สกิลนี้ช่วย *คิด* แต่กลุ่มนี้กระทบชีวิตคนไข้โดยตรง ต้องมีคนยืนยันเสมอ
 
@@ -199,6 +201,7 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 - **เลือกสารพิเศษผิด → ลบ Ag ที่อยากตรวจ** — DTT ทำลาย Kell · chloroquine ทำลาย HLA-I/Rh · enzyme ทำลาย MNS/Duffy
 - **PEG ห้ามปั่น / ห้ามใช้กับ IgM (ABO/Lewis) · Polybrene ใช้กับ Kell ไม่ได้ · LISS ห้ามใน titration**
 - **ลืม autocontrol ในเทคนิคพิเศษ** (prewarmed/cold/low-pH/enhance) → แยก cold-auto vs allo ไม่ออก
+- **over-trigger: dump ทุก fork/checklist กับคำถามง่าย** → คำตอบจริงจมอยู่ใต้กองกรอบ, อ่านแล้วไม่รู้ตอบอะไร → ตอบตรงก่อน ดึงเฉพาะ fork ที่เกี่ยวมาเสริม (แต่ safety warning ที่ผูกกับเคสคงไว้เสมอ)
 
 ---
 

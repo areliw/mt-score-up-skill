@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจแล็บเคมีค�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-11
+last_edited: 2026-07-03
 status: draft
 disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินแทน. ปล่อยผลผิด 1 ค่า = หมอรักษาผิด 1 คน — นี่คือความปลอดภัยผู้ป่วยโดยตรง. AI ช่วยไล่ logic/Westgard/interference เท่านั้น ทุกการตัดสิน accept/reject/report ต้องเป็นไปตาม SOP + QC policy ของแล็บ และยืนยันกับ MT/ผู้มีอำนาจลงนามก่อนเสมอ. ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -21,6 +21,8 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 > ⚠️ **ขอบเขต:** ทุก cutoff/ค่าในสกิล = teaching illustration — **ค่าตัดสินจริงยึด reference range + critical-value limit + SOP ของแลบคุณ** เท่านั้น ไม่ใช่ค่ากล่อง/ตำรา
 
 > 🛑 **RED FLAGS — เจอข้อใด = HOLD ห้ามปล่อยผล ยืนยัน QC + sample + ผู้ลงนามก่อน:** run ที่ Westgard FAIL · critical value (K⁺/glucose/Ca/troponin) · HIL กระทบ analyte (hemolysis → K⁺, lipemia, icterus) · ผลขัด delta-check/clinical ชัด · สงสัย calibration drift. — ปล่อยผิด 1 ค่า = รักษาผิด 1 คน
+
+> **ตอบคำถามจริงก่อน — คงคำเตือน/เซฟตี้ไว้เสมอ:** ตอบสิ่งที่ถามตรงๆ ก่อน แล้วดึงเฉพาะ fork/กับดักที่เกี่ยวข้องมาเสริม · **อย่า dump ทุก fork/checklist** กับคำถามง่าย (definition / แปล / เทียบ / "อันนี้แปลว่าอะไร") — ใช้ framework เต็ม (sample→QC→report) เฉพาะเมื่อเป็นคำถาม accept/reject/report/repeat/dilute/โทร หรือข้อมูลที่ให้ trigger safety gate จริง · ข้อควรระวังด้านความปลอดภัย (Westgard fail, HIL, critical value, reject sample, calibration drift ฯลฯ) ที่เกี่ยวกับเคสตรงหน้า **ต้องคงไว้เสมอ ไม่ตัดออกเพื่อความสั้น**
 
 ## ใช้เมื่อ
 - ดู QC แล้วต้องตัดสิน accept หรือ reject run · Westgard ตัวไหน fire · L-J chart shift/trend แปลว่าอะไร
@@ -115,6 +117,7 @@ Repeat ก่อนปล่อย เมื่อ: ค่า critical, ค่�
 - 🚫 ลืม carryover — ตัวอย่างเข้มข้นสูงตามด้วยต่ำ → ค่าต่ำสูงปลอม; repeat
 - 🚫 เครื่องล่มแล้วปล่อยผลจาก backup/manual โดยไม่ run QC + ไม่ดู comparability ข้ามเครื่อง
 - 🚫 ทำ routine ก่อน critical/STAT ตอนกำลังจำกัด · เงียบไม่แจ้ง ward เรื่อง delay · dump backlog ตอนเครื่องกลับมาโดยไม่ run QC ก่อน · เร่ง STAT จนลัด QC/ID/comparability (เร่งได้แต่ห้ามข้ามด่าน)
+- 🚫 (AI) over-trigger — ถามง่ายๆ ทีเดียวแต่ dump ทั้ง 7 fork/checklist จนคำตอบจริงจม → ตอบตรงคำถามก่อน ดึงเฉพาะ fork ที่เปลี่ยนการตัดสินใจ (คำเตือนเซฟตี้ที่เกี่ยวกับเคสยังต้องคงไว้)
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > เติมเคส QC จริงที่เจอ: Westgard ตัวไหน fire บ่อยกับ analyte ไหนในแล็บคุณ และ root cause จริงที่เจอคืออะไร

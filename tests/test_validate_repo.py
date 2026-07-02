@@ -12,7 +12,7 @@ from conftest import run_validate_in_temp_repo, run_script
 def test_validate_repo_passes_on_current_library(repo_root: Path) -> None:
     proc = run_script(repo_root, "validate_repo.py")
     assert proc.returncode == 0, proc.stdout + proc.stderr
-    assert "94 skill files scanned" in proc.stdout
+    assert "95 skill files scanned" in proc.stdout
 
 
 def test_validate_repo_accepts_minimal_valid_fixture(repo_root: Path) -> None:

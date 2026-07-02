@@ -23,7 +23,7 @@ def test_build_triage_regenerates_catalog_in_sync(repo_root: Path) -> None:
     assert CATALOG_START in triage and CATALOG_END in triage
     block = triage.split(CATALOG_START, 1)[1].split(CATALOG_END, 1)[0]
     slugs = _skill_slugs(repo_root / "skills")
-    assert len(slugs) == 94
+    assert len(slugs) == 95
     for slug in slugs:
         assert f"`{slug}`" in block, f"missing catalog entry for {slug}"
 

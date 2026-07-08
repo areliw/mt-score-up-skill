@@ -5033,6 +5033,8 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 ### Fork 3 — Diagnostic accuracy
 - 2×2 ให้ถูก → **sens/spec/PPV/NPV/LR+,LR−**, **ROC-AUC** เทียบ cutoff
 - **PPV/NPV ขึ้นกับ prevalence** — รายงานต้องระบุ population (เชื่อม `immunoassay-judgment`, `critical-appraisal-judgment`)
+- ⚠️ **sens/spec/agreement มีความหมายเทียบกับ "reference standard" ที่เลือกเท่านั้น — reference แย่ = ตัวเลขเพี้ยน (imperfect-gold-standard bias):** ถ้า validate เทียบ **gold standard ที่ไม่สมบูรณ์** หรือ (แย่กว่า) **เทียบกับ test อีกตัวที่ไม่ใช่ reference มาตรฐานของโรคนั้น** (เช่น ชุดตรวจ antigen ใหม่เทียบ serology อีกวิธี แทน reference ที่ยอมรับตาม target condition/SOP — microscopy/culture/PCR/composite แล้วแต่โรค) → sens/spec/%agreement/**Kappa** **เพี้ยนได้ทั้งสูง/ต่ำ** (ขึ้นกับ error ของ reference + shared/conditional-dependent error) ทั้งที่ test อาจไม่ดีจริง · **ก่อนเชื่อตัวเลข ถามก่อน: reference คืออะไร + ยอมรับตาม target condition ไหม** (ไม่มี gold สมบูรณ์ → *พิจารณา* composite/latent-class reference — มีสมมติฐาน/ข้อจำกัด ไม่ใช่ fix อัตโนมัติ + รายงานข้อจำกัด)
+- ⚠️ **แยก "diagnostic performance ใน study (study-condition)" ออกจาก "implementation/process error ตอนใช้จริง (field)":** false positive ภาคสนามอาจมาจาก **คนอ่าน cut-off ไม่ผ่าน training · เลย time window · lot-to-lot variation (spec แกว่งตาม lot)** — ไม่ใช่ค่า sens/spec ของตัว test ใน study · ตัวเลขจาก 1 study/1 lot ไม่การันตีทุก lot/ทุกมือ (verify เอง)
 
 ### Fork 4 — Precision / QC stats
 - **repeatability (within-run) vs reproducibility (between-run/day)** — คนละค่า; **CLSI EP05**
@@ -5053,6 +5055,7 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 - #6 %agreement แทน kappa (categorical)
 - #7 ตัดสิน method ด้วย p-value (significance) แทน clinical acceptability (bias ที่ยอมรับได้)
 - #8 ใช้ accuracy บน prevalence ต่ำ/ข้อมูล imbalanced → หลอก (ควร sens/spec/LR)
+- #9 ประเมิน sens/spec/agreement เทียบ **comparator ที่ไม่ใช่ reference มาตรฐานของโรคนั้น** (เช่น serology อีกตัว แทน microscopy/culture/PCR) → imperfect-gold-standard bias, ตัวเลข**เพี้ยนได้ทั้งสูง/ต่ำ** อ่านความหมายไม่ได้; ระบุ reference + คุณภาพมันเสมอ (Fork 3)
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > - TEa/allowable bias ของ analyte ที่คุณ validate (อิง CLIA/biological variation/SOP)

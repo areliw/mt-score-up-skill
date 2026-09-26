@@ -5,7 +5,7 @@ type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
 last_edited: 2026-06-15
-status: semi-stable
+status: draft
 disclaimer: "กรอบคิดการวัดผล prompt/skill เพื่อการศึกษา — ผลขึ้นกับ setup/ตัวตอบ/กรรมการ และมี noise เสมอ ไม่ใช่ความจริงสัมบูรณ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -88,6 +88,7 @@ real effect = edge_after − edge_before      ← นี่คือผลขอ
 - **อ่าน easy-scenario tie ว่า "skill ไร้ค่า"** — จริงๆ โจทย์ง่ายไป โมเดลเปล่าก็ตอบได้ → ต้องโจทย์โหดขึ้น
 - **เทสต์กับ frontier model แล้วสรุปว่า skill ไม่ช่วย** — มันเก่งเองอยู่แล้ว = no signal คนละเรื่องกับ no value
 - **เอา A/B เป็น gate แทน review** — ทำให้ test ระเบิดตาม count (O(n²)); กลับด้านซะ → review เป็น gate, A/B เฉพาะตอนสงสัย
+- **รันซ้ำแบบปิดตาไม่ได้ แล้วเอา coverage + review มาแทน** — บางที่รัน blind ×3/×5 ไม่ได้เลย (ไม่มี managed runner/ไม่มีงบ/ตัวตอบล็อก) ตรงนั้น **ชั้น A/B ถือว่าไม่มี ไม่ใช่ผ่าน** — deterministic coverage (เทสต์เขียว/เคสครบ) กับ reviewer check เป็นหลักฐานคนละชนิด ใช้ยืนยันความถูกต้องได้ แต่**แทนหลักฐาน "ดีขึ้นจริง" ไม่ได้** → ประกาศตรงๆ ว่า A/B unavailable แล้วกั้น promotion ไว้ ดีกว่าเขียนว่า "ผ่านการทดสอบแล้ว"
 - **re-run ทั้งคลังทุกครั้งที่เพิ่ม skill** — ของเก่าไม่เปลี่ยน ไม่ต้องวัดซ้ำ; ใช้ canary set เฉพาะตอน systemic change
 
 ---

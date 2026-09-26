@@ -5,7 +5,7 @@ type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
 contributors: ["สมาชิกแห่งความมืด–องค์กรลับแห่งรัตติกาล — graft กับดัก pseudothrombocytopenia (Fork 4)"]
-last_edited: 2026-06-28
+last_edited: 2026-07-16
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -69,6 +69,14 @@ Review smear เสมอเมื่อ:
 4. ไม่มี clump + estimate สอดคล้อง + smear ยืนยันต่ำจริง → รายงาน + ต่ำมาก = critical แจ้งแพทย์ตาม SOP
 
 ห้าม auto-report plt ต่ำจาก analyzer โดยไม่ดู smear.
+
+### Fork 4B — Platelet "สูงลวง" (spurious thrombocytosis): ชิ้นส่วน RBC ถูกนับเป็นเกล็ดเลือด
+กระจกเงาของ Fork 4 — เครื่องรายงาน plt **สูง**เกินจริง (เคสจริงเคยพบ >1,000 ×10⁹/L ที่ไม่เข้ากับคลินิก โดยเฉพาะ **severe burn / ภาวะที่มี RBC fragment เยอะ**):
+0. เช็คก่อน: plt สูงค้านคลินิก / delta check กระโดด = ตั้งข้อสงสัย อย่าเพิ่งเชื่อเลขเครื่อง
+1. 🔑 **กลไก:** schistocyte / microspherocyte / RBC fragment (burn ทำ spectrin เสียสภาพ · MAHA/DIC · severe microcytosis) ขนาดใกล้เกล็ดเลือด → **impedance นับรวมเป็น platelet** → สูงลวง · optical-scatter ธรรมดาก็ยังแยกไม่หมดในบางราย
+2. 🔑 **จับได้ยังไง:** ดู **platelet histogram/scattergram** ผิดปกติไหม + **review smear** → platelet estimate + หา RBC fragment/schistocyte/microspherocyte
+3. ✅ **ยืนยัน:** เครื่องมี **optical fluorescent platelet count (ย้อม RNA)** = จำเพาะกว่า impedance/optical-scatter → ใช้ตัวนี้ · ไม่มี → manual count / วิธีอ้างอิงตามศักยภาพแล็บ + แจ้งแพทย์เจ้าของเคส
+4. 🚫 **อย่า auto-report plt สูงลวง** — อาจกลบ thrombocytopenia จริงที่ผู้ป่วยต้องได้เกล็ดเลือด (โยง กฎ #1: flag เครื่อง = สัญญาณ ไม่ใช่คำตอบ)
 
 ### Fork 5 — Thalassemia vs IDA
 - เบาะแส: Mentzer MCV/RBC < 13 → thal (RBC สูง), > 13 → IDA · thal มัก RDW ปกติ + RBC count สูง · IDA มัก RDW สูง + RBC ต่ำ + ferritin ต่ำ

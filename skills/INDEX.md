@@ -19,7 +19,7 @@
 | `clinchem-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinchem-judgment.md | 2026-06-11 |
 | `clinical-correlation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinical-correlation-judgment.md | 2026-06-04 |
 | `clinmicro-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinmicro-judgment.md | 2026-06-13 |
-| `content-creator-copyright` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/content-creator-copyright.md | 2026-07-03 |
+| `content-creator-copyright` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/content-creator-copyright.md | 2026-07-16 |
 | `content-creator-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/content-creator-judgment.md | 2026-06-04 |
 | `critical-appraisal-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/critical-appraisal-judgment.md | 2026-06-04 |
 | `crm-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/crm-judgment.md | 2026-06-04 |
@@ -37,7 +37,7 @@
 | `flow-cytometry-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/flow-cytometry-judgment.md | 2026-06-08 |
 | `git-workflow-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/git-workflow-judgment.md | 2026-06-11 |
 | `grill-my-plan` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/grill-my-plan.md | 2026-06-08 |
-| `hematology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/hematology-judgment.md | 2026-06-28 |
+| `hematology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/hematology-judgment.md | 2026-07-16 |
 | `histotech-cytology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/histotech-cytology-judgment.md | 2026-06-16 |
 | `humanize-ai-writing` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/humanize-ai-writing.md | 2026-06-15 |
 | `ikigai-finder` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/ikigai-finder.md | 2026-06-04 |
@@ -66,7 +66,7 @@
 | `never-lose-a-file` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/never-lose-a-file.md | 2026-06-04 |
 | `offload-to-automation` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/offload-to-automation.md | 2026-06-19 |
 | `optimization-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/optimization-judgment.md | 2026-06-04 |
-| `parasitology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/parasitology-judgment.md | 2026-06-04 |
+| `parasitology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/parasitology-judgment.md | 2026-07-16 |
 | `pathology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pathology-judgment.md | 2026-06-04 |
 | `pharmacology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/pharmacology-judgment.md | 2026-06-04 |
 | `phi-data-handling` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/phi-data-handling.md | 2026-06-08 |

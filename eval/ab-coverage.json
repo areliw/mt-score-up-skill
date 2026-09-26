@@ -1,12 +1,12 @@
 {
  "ab-test-judgment": {
   "status": "semi-stable",
-  "body_hash": "e2d23c5082e9",
+  "body_hash": "0d0a1dd89314",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
-  "ab_method": "x3",
-  "ab_delta": 3.33,
+  "ab_method": "x5",
+  "ab_delta": 1.1,
   "screen": true,
   "peer": false
  },
@@ -34,12 +34,12 @@
  },
  "ai-coding-guardrails": {
   "status": "semi-stable",
-  "body_hash": "9e5ed3af295f",
+  "body_hash": "c53632b00f51",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
-  "ab_method": "x3",
-  "ab_delta": 2.67,
+  "ab_method": "x5",
+  "ab_delta": 1.3,
   "screen": true,
   "peer": false
  },
@@ -139,6 +139,17 @@
   "ab_tier": "full",
   "ab_method": "legacy",
   "ab_delta": 0,
+  "screen": false,
+  "peer": false
+ },
+ "content-creator-copyright": {
+  "status": "draft",
+  "body_hash": "2601707a6250",
+  "ab": false,
+  "ab_full": false,
+  "ab_tier": null,
+  "ab_method": null,
+  "ab_delta": null,
   "screen": false,
   "peer": false
  },
@@ -397,7 +408,7 @@
  },
  "infection-control-judgment": {
   "status": "draft",
-  "body_hash": "e686ea42238a",
+  "body_hash": "f70d17088640",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -463,7 +474,7 @@
  },
  "lab-management-judgment": {
   "status": "draft",
-  "body_hash": "dcba28359e9c",
+  "body_hash": "6a892179ad7a",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -529,7 +540,7 @@
  },
  "method-validation-stats": {
   "status": "draft",
-  "body_hash": "feb52be70cf6",
+  "body_hash": "d3e97c325cd6",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -573,7 +584,7 @@
  },
  "mt-career-judgment": {
   "status": "draft",
-  "body_hash": "a28b81135e9d",
+  "body_hash": "0b2c4138f024",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -606,7 +617,7 @@
  },
  "mt-law-ethics-judgment": {
   "status": "draft",
-  "body_hash": "3da8838d9b49",
+  "body_hash": "cec1ddf3c9b0",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",

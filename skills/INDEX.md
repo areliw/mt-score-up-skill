@@ -20,7 +20,7 @@
 | `clinical-correlation-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinical-correlation-judgment.md | 2026-06-04 |
 | `clinmicro-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/clinmicro-judgment.md | 2026-06-13 |
 | `content-creator-copyright` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/content-creator-copyright.md | 2026-07-03 |
-| `content-creator-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/content-creator-judgment.md | 2026-06-04 |
+| `content-creator-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/content-creator-judgment.md | 2026-08-11 |
 | `critical-appraisal-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/critical-appraisal-judgment.md | 2026-06-04 |
 | `crm-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/crm-judgment.md | 2026-06-04 |
 | `cv-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/cv-judgment.md | 2026-06-04 |

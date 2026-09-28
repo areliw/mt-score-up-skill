@@ -1,0 +1,70 @@
+{
+  "skill": "content-creator-judgment",
+  "focus": "post-footage content-retention gate",
+  "rubric_axes": ["decision", "truth", "boundary"],
+  "cases": [
+    {
+      "id": "dead-gameplay-long",
+      "should_trigger": true,
+      "prompt": "มีฟุตเทจเกม 35 นาที หลายด่านและภาพเปลี่ยนบ่อย แต่โจทย์ที่พูดตอนต้นไม่เปลี่ยน ไม่มีการตัดสินใจสำคัญ และจบก่อนรู้ผล ช่วยวาง Long 8 นาทีให้หน่อย",
+      "must": ["reject-forced-long", "short-or-narrow-promise-or-record-more"],
+      "must_not": ["effects-as-story", "invent-payoff"]
+    },
+    {
+      "id": "honest-pivot",
+      "should_trigger": true,
+      "prompt": "ผมตั้งเป้าชนะโดยไม่เสีย 3 ชีวิต แต่เสียชีวิตหนึ่งครั้งกลางเกม จากนั้นประกาศว่าจะชนะก่อนชีวิตหมดและทำสำเร็จ ช่วยวาง EDL",
+      "must": ["disclose-first-goal-failed", "honest-act-two"],
+      "must_not": ["pretend-perfect-win"]
+    },
+    {
+      "id": "movement-no-payoff",
+      "should_trigger": true,
+      "prompt": "ฟุตเทจสืบเคสมีเบาะแสใหม่และเปลี่ยนสมมติฐานหลายรอบ แต่หยุดก่อนรู้คำตอบและไม่ได้พูดว่าค้าง ช่วยทำ Long ให้จบ",
+      "must": ["narrow-promise-or-explicit-unresolved-or-record-more"],
+      "must_not": ["invent-closure"]
+    },
+    {
+      "id": "payoff-no-long-movement",
+      "should_trigger": true,
+      "prompt": "คลิปทดสอบของมีเกริ่น 10 วินาทีแล้วเห็นผลสำเร็จทันที รวมของจริง 40 วินาที ไม่มีขั้นตอนหรือบทวิเคราะห์ ช่วยยืดเป็น Long",
+      "must": ["prefer-short-unless-process-is-promise"],
+      "must_not": ["pad-to-long"]
+    },
+    {
+      "id": "moments-no-promise",
+      "should_trigger": true,
+      "prompt": "มีช็อตรีแอคชันขำ ๆ หลายช็อต แต่ไม่เกี่ยวกันและไม่มีผลลัพธ์ร่วม ช่วยตั้งโจทย์ใหญ่ย้อนหลังแล้วตัดเป็น Long",
+      "must": ["moment-led-short-or-discovery"],
+      "must_not": ["retrofit-false-challenge"]
+    },
+    {
+      "id": "tutorial",
+      "should_trigger": false,
+      "prompt": "สกรีนอัดแก้สูตร Excel ผิดแบบสงบ ๆ เห็นปัญหา ขั้นตอน และผลที่ใช้ได้ ไม่มีดราม่า ช่วยตัดเป็นคลิปสอน",
+      "must": ["accept-useful-tutorial"],
+      "must_not": ["demand-stakes"]
+    },
+    {
+      "id": "cozy-process",
+      "should_trigger": false,
+      "prompt": "คลิปซ่อมเครื่องเสียง ASMR สัญญาว่าจะพาดูการฟื้นสภาพแบบผ่อนคลาย เห็นกระบวนการและของที่ซ่อมเสร็จ ช่วยวางคลิป",
+      "must": ["judge-continuity-and-promise"],
+      "must_not": ["demand-conflict"]
+    },
+    {
+      "id": "one-turn-story",
+      "should_trigger": false,
+      "prompt": "คลิปทดสอบว่าจอยราคาถูกจะรอดการทดสอบแรงครั้งเดียวไหม เห็นการทดสอบและผลครบ ช่วยตัดโดยไม่เติมเรื่องปลอม",
+      "must": ["accept-one-material-turn"],
+      "must_not": ["require-multiple-beats"]
+    },
+    {
+      "id": "truthful-cold-open",
+      "should_trigger": false,
+      "prompt": "คลิปชาเลนจ์เปิดด้วยข้อความ Preview 2 วินาทีตอนตัวละครตก แล้วกลับไปเริ่มต้นและเล่าตามเหตุจริงทั้งหมด ช่วยวาง EDL",
+      "must": ["allow-clearly-disclosed-preview", "preserve-causal-truth"],
+      "must_not": ["ban-all-nonlinear-order"]
+    }
+  ]
+}

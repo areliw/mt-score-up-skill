@@ -1,0 +1,13 @@
+{
+ "skill": "clinchem-judgment",
+ "history": [
+  {"v": 1, "date": "2026-06-11", "trigger": "built from 505402 digest", "evidence": "judgment card (forks + traps)", "gate": "pass"},
+  {"v": 2, "date": "2026-10-08", "trigger": "GAP: G3 tools", "evidence": "scripts/westgard.py + qc_calc.py, evals/test_clinchem_tools.py 17/17 incl. 2 must-fail controls", "gate": "pass"},
+  {"v": 3, "date": "2026-10-08", "trigger": "promotion attempt 1 (v2 vs v1)", "evidence": "evals/RESULT.md attempt 1: 10.50 vs 7.50, delta +3.00 < 2SE 3.46 (model picked classic mode)", "gate": "fail"},
+  {"v": 3, "date": "2026-10-08", "trigger": "promotion attempt 2 (v2.1 mode rule vs v1)", "evidence": "evals/RESULT.md attempt 2: 12.00 vs 7.50, delta +4.50 > 2SE 1.73", "gate": "pending-owner"}
+ ],
+ "sources": [
+  {"ref": "06_Background_MedTech/505402-CLINICAL-CHEMISTRY-LAB-63-66/505402-DIGEST-2026-05-31.md §2.3 §3 §3.1", "last_verified": "2026-10-08"}
+ ],
+ "telemetry": {}
+}

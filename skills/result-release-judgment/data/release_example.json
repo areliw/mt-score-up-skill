@@ -1,0 +1,9 @@
+[
+ {"_note": "TEACHING EXAMPLE ONLY - invented values and limits, not patient data or a real SOP",
+  "id": "R1", "analyte": "K", "value": 4.4, "qc": "pass", "integrity": "ok", "instrument_flag": false, "prev": 4.1},
+ {"id": "R2", "analyte": "K", "value": 7.0, "qc": "pass", "integrity": "ok", "instrument_flag": false},
+ {"id": "R3", "analyte": "Glucose", "value": 850, "qc": "pass", "integrity": "ok", "instrument_flag": false},
+ {"id": "R4", "analyte": "Na", "value": 140, "qc": "fail", "integrity": "ok", "instrument_flag": false},
+ {"id": "R5", "analyte": "K", "value": 6.0, "qc": "pass", "integrity": "hemolyzed", "instrument_flag": false},
+ {"id": "R6", "analyte": "Na", "value": 152, "qc": "pass", "integrity": "ok", "instrument_flag": false, "prev": 138}
+]

@@ -4,7 +4,7 @@ title: ปล่อยผล/post-analytical ให้เป็น — delta-che
 type: ADVISE               # ช่วยตัดสินใจด่าน post-analytical ไม่ใช่สั่งปล่อย/วินิจฉัยแทน
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-15
+last_edited: 2026-10-08
 status: draft
 disclaimer: "เพื่อการศึกษา/ช่วยทบทวน ไม่ใช่คำสั่งปล่อยผลหรือวินิจฉัย — ทุกการปล่อย/ยับยั้ง/แก้ไขผลต้องอิง SOP ของแล็บ + วิจารณญาณ MT/แพทย์ผู้มีใบประกอบฯ และเกณฑ์/threshold/limit ต่างกันตามเครื่อง/analyte/ประชากร/มาตรฐาน (verify เอง) · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -16,6 +16,13 @@ disclaimer: "เพื่อการศึกษา/ช่วยทบทวน
 > **กฎ #1:** **delta check เด้ง = อย่าเพิ่งเชื่อว่า "คนไข้เปลี่ยนจริง" — rule-out สาเหตุอื่นก่อน** โดยเฉพาะ **specimen mix-up/mislabel** (error อันตรายสุด, delta เป็นด่านสำคัญที่ดักได้). สาเหตุ delta = biological change/รักษา/transfusion · timing · pre-analytical · analytical · mix-up — น้ำหนักต่างกันตาม analyte/ช่วงเวลา/SOP ไม่ใช่ลำดับตายตัว
 > **กับดัก #1:** ปล่อยผลจาก **รอบ QC ที่ fail** หรือจาก **ตัวอย่างที่ integrity เสีย** (HIL/clot/wrong tube) โดยไม่สอบสวนก่อน — ผลจาก process ที่ invalid = ขยะที่ดูเหมือนข้อมูล (เช็ค QC + sample ก่อนดูตัวเลข — โยง `clinchem-judgment` · `preanalytical-judgment`)
 > โยง: `clinchem-judgment` (QC accept/reject · critical · repeat-vs-report) · `chemistry-interpretation-judgment` (plausible กับ clinical ไหม) · `interprofessional-communication-judgment` (แจ้ง critical — golden-period) · `incident-postmortem-judgment` (root-cause เมื่อต้องแก้ผล)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+คิด delta / ไล่ด่านปล่อยผล / ตรวจบันทึกแจ้ง critical → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/result-release-judgment/scripts/`)
+- `python scripts/delta_check.py --prev 4.0 --cur 6.1 --abs-limit 1.0` หรือ `--panel panel.csv` — ตาราง delta และ delta% (หารด้วย**ค่าเดิม**) เทียบ limit ของแล็บ (ต้องใส่เอง ไม่มีค่าฝังในสคริปต์) → `HOLD` + ลำดับสอบสวน (ID/สลับตัวอย่างก่อน) · ค่าใหม่อยู่ใน reference range **ไม่ล้าง flag** · หลาย analyte เด้งพร้อมกัน = บรรทัด `PANEL` เตือนว่าสงสัยสลับคน (ไม่ใช่ข้อพิสูจน์)
+- `python scripts/release_gate.py results.json --limits limits.csv` — ไล่ด่าน Fork 1 ตามลำดับ (QC → integrity → flag/AMR → delta → plausible → critical) → บอกด่านแรกที่ `STOP` + ปล่อยอัตโนมัติได้ไหม (Fork 3) · ด่านที่ไม่รู้ค่า = `STOP` ไม่ใช่ผ่าน · critical = `RELEASE + NOTIFY` ไม่ใช่ auto-release · AMR/critical/delta limit อยู่ในไฟล์ limits ของแล็บ
+- `python scripts/critical_log_check.py log.csv --max-minutes <SOP>` — ตรวจบันทึกแจ้ง critical ตาม § ผลงานที่ต้องส่ง (identifiers · read-back · escalation · นาทีจากออกผลถึงแจ้ง)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · ปล่อย/ยับยั้งจริงตาม SOP + MT ผู้มีอำนาจลงนาม · ทดสอบแล้ว: `evals/test_result_release_tools.py` (24 ข้อ รวม must-fail control: ปล่อยเพราะ "ค่าดูเป็นไปได้", autoverify ที่ไม่มี critical stop, log ที่ไม่เช็ค read-back — ทั้งสามต้องแดง)
 
 ## ใช้เมื่อ
 - ผลออกจากเครื่องแล้ว ต้องตัดสิน **ปล่อย / repeat / recollect / hold / dilute / escalate**
@@ -74,6 +81,21 @@ disclaimer: "เพื่อการศึกษา/ช่วยทบทวน
 - **critical value แจ้งแล้วไม่ read-back / ไม่ระบุ identifier / ไม่ log** → แจ้งผิดค่า/ผิดคน/พิสูจน์ไม่ได้
 - **แก้ผลที่ปล่อยแล้วแบบลบเงียบ** ไม่มี audit trail + ไม่แจ้งคนที่ใช้ผลเดิม
 - **หน่วงแจ้ง critical เพื่อ repeat จนเกิน turnaround** — repeat ก่อนแจ้งไม่ใช่ routine
+
+---
+
+## ผลงานที่ต้องส่ง
+เมื่อ output เป็น **บันทึกแจ้ง critical value** หรือ **บันทึกแก้ผลที่ปล่อยแล้ว** — ใช้ template นี้ (รูปแบบจริงตาม LIS/SOP ของแล็บ)
+
+**A. บันทึกแจ้ง critical value** (Fork 4 · 1 แถวต่อ 1 การแจ้ง · หัวคอลัมน์ตรงกับ `scripts/critical_log_check.py`)
+
+| id1 | id2 | analyte | value | unit | result_time | call_time | caller | receiver | receiver_role | method | read_back | reached | escalated_to | escalation_time |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+นิยามเสร็จ: identifiers ครบตามที่ SOP กำหนด (สคริปต์ default 2) · มี analyte/ค่า/หน่วย/เวลาออกผล/ผู้แจ้ง · แจ้งถึงตัว = มีผู้รับ + ตำแหน่ง + เวลา + วิธี และ**แจ้งทางวาจาต้อง read-back = Y** · ติดต่อไม่ได้ = มี escalate ถึงใคร + เวลา · เวลาออกผล→แจ้ง ≤ เกณฑ์ SOP · `python scripts/critical_log_check.py log.csv --max-minutes <SOP>` ขึ้น `DEFINITION OF DONE: MET`
+
+**B. บันทึกแก้ผลที่ปล่อยแล้ว (corrected/amended)** (Fork 5): ค่าเดิม (เก็บไว้ ไม่ลบ) · ค่าใหม่ · ชนิด corrected/amended ตามนิยาม LIS/SOP · เหตุผล · ใครแก้ + เวลา · ใครที่ใช้ผลเดิมถูกแจ้ง + เวลา + ระดับความเร่งด่วน · ระดับ RCA ที่เลือกตามความเสี่ยง (โยง `incident-postmortem-judgment`)
+นิยามเสร็จ: original + audit trail ครบ · ผู้ใช้ผลเดิมถูกแจ้งตามข้อกำหนด · บันทึกเหตุ/ทบทวนแล้ว — ส่วนนี้ไม่มีสคริปต์ตรวจ ให้คนตรวจตามรายการนี้
 
 ---
 

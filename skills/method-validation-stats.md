@@ -4,7 +4,7 @@ title: สถิติเฉพาะ MT — method comparison / reference inter
 type: ADVISE               # ช่วยเลือก+ตีความสถิติงานแล็บ ไม่ใช่รันเลขให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-11
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดสถิติงาน verification/validation/วิจัยแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษาสถิติทางการ · เกณฑ์ยอมรับทางคลินิกต้องอิง CLSI/SOP แลบ + ปรึกษานักสถิติเมื่อตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,13 @@ disclaimer: "ช่วยคิดสถิติงาน verification/validati
 > **กับดัก #1 (ขั้น hard):** ใช้ **correlation (r) หรือ paired t-test ตัดสิน "2 method แทนกันได้ไหม" = ผิด**. r สูงไม่ได้แปลว่า agree (มี constant/proportional bias ได้ทั้งที่ r≈1); paired-t บอกแค่ "ต่างกันเชิงสถิติ" ไม่บอกขนาด bias ที่ยอมรับทางคลินิก → ใช้ **Bland-Altman + Passing-Bablok/Deming**
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+เทียบ method / คิด precision-TE / ช่วงอ้างอิง / sens-spec-PPV-kappa → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** (อย่าคิดเลขสถิติเอง โดยเฉพาะ PPV) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/method-validation-stats/scripts/`)
+- `python scripts/method_compare.py pairs.csv --xc 126 --allowable-bias-pct 5` — CSV คอลัมน์ `x` (วิธีเดิม/วิธีเทียบ) กับ `y` (วิธีใหม่) → Bland-Altman (bias + LoA ±1.96SD) · Passing-Bablok + Deming (slope/intercept + 95% CI → บอก constant/proportional bias) · bias ที่ medical decision level · r พิมพ์ไว้**เช็คช่วงข้อมูลเท่านั้น** (510403: r ≥ 0.99 = ช่วงกว้างพอใช้ regression) ไม่ใช่ agreement · ตัดสินจาก allowable bias ที่แล็บเลือก (ไม่ใส่ = ไม่ให้ verdict) · n < 40 มีคำเตือน
+- `python scripts/validation_calc.py precision runs.csv --tea 10` (คอลัมน์ day,value → แยก repeatability / between-day / within-lab SD-CV + เกณฑ์ 0.25/0.33 TEa) · `te --bias --sd --tea` (TEcalc = |bias| + 3SD ตาม 510403) · `refint-verify --low --high <20 ค่า>` (หลุด ≤2/20 = ผ่าน) · `refint-estimate values.csv` (percentile 2.5/97.5; n < 120 = `NOT VALID`; mean±2SD พิมพ์ไว้เทียบเท่านั้น) · sigma metric → ใช้ `scripts/qc_calc.py sigma` ของ `clinchem-judgment` (ไม่ทำซ้ำที่นี่)
+- `python scripts/diag_accuracy.py table --tp --fp --fn --tn --reference "<reference standard>" --prevalence <p>` (sens/spec + Wilson CI, LR, PPV/NPV ที่ prevalence ของ study **และ** ของประชากรเรา; ไม่ระบุ reference = เตือน) · `ppv --sens --spec --prevalence` (สอน PPV แบบ "จาก 1,000 คน" + ตาราง PPV ที่ prevalence ต่างๆ) · `kappa --matrix "a,b;c,d"` (kappa คู่กับ %agreement + chance agreement)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · เกณฑ์ยอมรับจริงตาม SOP/CLSI ที่แล็บอ้าง + MT ผู้รับผิดชอบ; งานตีพิมพ์ปรึกษานักสถิติ · ทดสอบแล้ว: `evals/test_method_validation_tools.py` (22 ข้อ รวม must-fail control 6 ตัว: r เป็น agreement, OLS แทน Deming, SD รวมเป็น repeatability, mean±2SD เป็นช่วงอ้างอิง, PPV ไม่สน prevalence, %agreement เป็น kappa — ต้องแดงทุกตัว)
 
 ## ใช้เมื่อ
 - เทียบวิธี/เครื่องตรวจใหม่ vs เก่า (method comparison / verification)

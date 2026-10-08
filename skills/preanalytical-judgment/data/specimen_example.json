@@ -1,0 +1,9 @@
+[
+ {"_note": "TEACHING EXAMPLE ONLY - invented values, not patient data",
+  "id": "T-001", "id_match": true, "identifiers": 2, "labeled_at": "bedside",
+  "tube": "serum", "tests": ["K", "Na", "LDH", "Cr"], "hemolysis_index": 120, "hours_since_collection": 1.5},
+ {"id": "T-002", "id_match": true, "identifiers": 2, "labeled_at": "bedside",
+  "tube": "citrate", "tests": ["PT", "aPTT"], "fill_pct": 70, "hct": 58},
+ {"id": "T-003", "id_match": false, "identifiers": 2, "labeled_at": "counter",
+  "tube": "edta", "tests": ["CBC"]}
+]

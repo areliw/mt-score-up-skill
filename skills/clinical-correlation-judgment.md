@@ -4,7 +4,7 @@ title: โค้ชอ่านผลแล็บข้ามแขนง — co
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "เครื่องมือช่วยคิดเชิงวินิจฉัยจากผลแล็บข้ามแขนงเพื่อการศึกษา — ช่วยคิด ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน การตีความผลแล็บกระทบการวินิจฉัยและรักษาผู้ป่วยโดยตรง ต้องยืนยันกับ MT/แพทย์ผู้ดูแล + ทำตาม SOP และตำรา/แหล่งอ้างอิงมาตรฐานเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -18,6 +18,14 @@ disclaimer: "เครื่องมือช่วยคิดเชิงว�
 > ⚠️ **ขอบเขต: MT ไม่วินิจฉัย** — MT correlate/flag + ชี้ทาง reflex test + ส่งต่อ; **วินิจฉัยเป็นหน้าที่แพทย์**
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+แยกทาง anemia / อ่าน DB/TB / ตรวจ worksheet ก่อน lock คำตอบ → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/clinical-correlation-judgment/scripts/`)
+- `python scripts/pivot_check.py anemia --mcv 66 --ferritin N --hba2 5.2` — MCV → branch (micro/normo/macro) → iron pattern จาก **flag ของแล็บเอง** (`L/N/H` เทียบ reference range ของแล็บ ไม่มีช่วงค่าฝังในสคริปต์) → ferritin ปกติใน microcytic = ห้ามหยุดที่ IDA · HbA2 ≥ 3.5% = pattern β-thal trait + เตือน KLF1 · พิมพ์ DDx ที่ต้องเปิดไว้เสมอ (กัน anchoring)
+- `python scripts/pivot_check.py jaundice --db 2.9 --tb 5.0` — คิด DB/TB แล้ววางบน heuristic **ทั้ง 3 แหล่ง** (การ์ดนี้ · 505402 §5.3 · 510416 §2) · แหล่งขัดกัน/ตกช่องว่าง = `SOURCES DISAGREE` → ตัดสินด้วย enzyme pattern + clinical ไม่ใช่ ratio (เช่น DB/TB 0.58 ของเคส DILI ใน 510416 ตกช่อง post-hepatic ตาม heuristic ของการ์ด)
+- `python scripts/ddx_check.py worksheet.json` — ตรวจ worksheet ตาม § ผลงานที่ต้องส่ง: กฎเหล็ก 4 ข้อ · DDx ≥ 3 + test หักล้างทุกตัว · ruled-out ต้องมีหลักฐาน · ห้ามประกาศ exclusion ขณะยังมี DDx เปิด · screen บวกต้องมี confirm · ถ้อยคำแบบ "วินิจฉัย" = เตือน (MT ไม่วินิจฉัย)
+- hs-troponin delta (0h→1h) → คิดด้วย `scripts/delta_check.py` ของ `result-release-judgment` โดยใส่ delta limit ของ assay/SOP เอง
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · วินิจฉัยเป็นหน้าที่แพทย์ · ทดสอบแล้ว: `evals/test_clinical_correlation_tools.py` (23 ข้อ รวม must-fail control: ใช้ DB/TB cutoff ชุดเดียวเป็นค่าตายตัว และยอมให้ DDx ตัวเดียว — ต้องแดง)
 
 ## ใช้เมื่อ
 - มีผลแล็บหลายตัว/หลายแขนงในผู้ป่วยคนเดียว → "ค่าไหนชี้ทางไหน → DDx → ตัดออกจนเหลือคำตอบ"
@@ -92,6 +100,22 @@ disclaimer: "เครื่องมือช่วยคิดเชิงว�
 | Confirmatory cascade (micro) | culture→Gram→biochem→AST(MIC)→resistance gene |
 | Hormone source localization | RAIU+Tg+autoAb แยก endo vs exo |
 | BB interference recognition | panreactive AHG + ยา → drug interference |
+
+## ผลงานที่ต้องส่ง
+เมื่อ output เป็น **คำตอบ case study / ข้อสอบ integrate / บันทึกส่งต่อแพทย์** — เขียนเป็น worksheet นี้ (คีย์ตรงกับ `scripts/ddx_check.py`; ตัวอย่างเต็ม: `data/worksheet_example.json`)
+
+| ส่วน | เขียนอะไร |
+|---|---|
+| `context` | อายุ/เพศ/อาการ/ยา/ประวัติ (กฎเหล็ก 1) |
+| `preanalytical` | เช็คตัวอย่างแล้วเจออะไร (กฎเหล็ก 2) |
+| `pivotal` | ค่าเด่น + ชี้ทางเดียวหรือหลายทาง (กฎเหล็ก 3) |
+| `interference` | ยา/ภาวะที่รบกวนผล (กฎเหล็ก 4) |
+| `ddx` (≥ 3) | ชื่อ · สถานะ open/leading/ruled-out · test ที่หักล้างหรือยืนยันได้ · หลักฐาน (บังคับเมื่อ ruled-out) |
+| `screens` | screen ที่บวก → confirmatory test |
+| `chain` | trigger → mechanism → lab → clinical sign (Fork 5) |
+| `conclusion` | "ผลเข้าได้กับ / ชี้ทาง ... แนะนำ reflex test ... ส่งต่อแพทย์" — ไม่ใช่ "วินิจฉัยว่า" |
+
+นิยามเสร็จ: `python scripts/ddx_check.py worksheet.json` ขึ้น `DONE (no FAIL)` · WARN ที่เหลือ (ไม่มี chain / ถ้อยคำแบบวินิจฉัย) แก้แล้วหรือมีเหตุผล · ทุก DDx ที่ตัดออกอ้างหลักฐานจริง ไม่ใช่ความรู้สึก
 
 ## ช่องสำหรับผู้เชี่ยวชาญเติม
 > เติมเคสจริงที่เคยร้อยผลแล็บข้ามแขนงได้/พลาด เช่น:

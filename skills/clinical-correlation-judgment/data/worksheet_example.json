@@ -1,0 +1,16 @@
+{
+ "_note": "TEACHING EXAMPLE ONLY - invented case, not patient data",
+ "context": "adult, fatigue 2 months, planning pregnancy with partner, no iron supplements",
+ "preanalytical": "EDTA tube, no clot, analysed within 2 h - no artifact suspected",
+ "pivotal": ["MCV 66 fL", "ferritin within lab range (N)", "HbA2 5.2% on Hb typing"],
+ "interference": "no transfusion in 3 months; no relevant drugs",
+ "ddx": [
+  {"name": "beta-thal trait", "status": "leading", "discriminating_test": "beta-globin DNA (MARMS)", "evidence": "HbA2 5.2%"},
+  {"name": "KLF1 variant mimicking beta-thal trait", "status": "open", "discriminating_test": "KLF1 sequencing if beta-globin DNA negative"},
+  {"name": "iron deficiency anemia", "status": "ruled-out", "discriminating_test": "ferritin", "evidence": "ferritin N"},
+  {"name": "alpha-thal co-inheritance", "status": "open", "discriminating_test": "alpha-thal gap-PCR"}
+ ],
+ "screens": [{"screen": "OF test positive", "confirm": "Hb typing + DNA"}],
+ "chain": "inherited reduced beta-globin -> fewer, smaller RBCs (MCV low) with normal iron -> HbA2 raised",
+ "conclusion": "Findings suggest beta-thalassemia trait pattern; recommend beta-globin DNA confirmation and refer to physician for couple counselling."
+}

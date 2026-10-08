@@ -1,0 +1,22 @@
+# TEACHING EXAMPLE ONLY - simulated control, 5 days x 4 replicates, not patient data
+day,value
+D1,101.69
+D1,100.45
+D1,101.40
+D1,100.67
+D2,101.17
+D2,100.40
+D2,103.34
+D2,99.42
+D3,99.48
+D3,99.79
+D3,98.79
+D3,98.83
+D4,98.46
+D4,97.69
+D4,98.66
+D4,99.82
+D5,98.56
+D5,99.45
+D5,100.64
+D5,99.83

@@ -28,3 +28,6 @@ Traps: Q1 2-2s across levels within one run · Q2 +2.5 then −2.5 SD in DIFFERE
 Δ = +4.50 > 2·SE = 1.73 (floor 0.8) → **A/B gate PASSED.**
 Clinical content: per the promotion gate, a lab QC decision skill is promoted only after the owner confirms →
 recorded as `pending-owner` in VERSION.json; the ladder counts it as v3 once the owner flips it to `pass`.
+
+## Promotion
+Owner confirmed v3 on 2026-10-08 ('ขึ้น'). Open follow-up: which Westgard mode the owner's lab runs (all rules vs classic 1-2s gate vs QC-software rule set) - the card's default is 'all'.

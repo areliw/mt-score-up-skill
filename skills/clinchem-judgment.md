@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจแล็บเคมีค�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-11
+last_edited: 2026-10-08
 status: draft
 disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินแทน. ปล่อยผลผิด 1 ค่า = หมอรักษาผิด 1 คน — นี่คือความปลอดภัยผู้ป่วยโดยตรง. AI ช่วยไล่ logic/Westgard/interference เท่านั้น ทุกการตัดสิน accept/reject/report ต้องเป็นไปตาม SOP + QC policy ของแล็บ และยืนยันกับ MT/ผู้มีอำนาจลงนามก่อนเสมอ. ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -19,6 +19,12 @@ disclaimer: "skill นี้เป็นตัวช่วย 'คิด' สำ
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 >
 > ⚠️ **ขอบเขต:** ทุก cutoff/ค่าในสกิล = teaching illustration — **ค่าตัดสินจริงยึด reference range + critical-value limit + SOP ของแลบคุณ** เท่านั้น ไม่ใช่ค่ากล่อง/ตำรา
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ไล่กฎ Westgard หรือคิดเลข QC → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** (อย่าไล่ z-score ด้วยตาเอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/clinchem-judgment/scripts/`)
+- `python scripts/westgard.py qc.csv` — CSV คอลัมน์ `run,level,value,mean,sd` เรียงตามเวลา → ตาราง z ราย run + กฎที่ fire + ชนิด error + ตัดสิน run ล่าสุด · `--mode classic` (1₂ₛ เป็นประตู) · `--mode modified` (ระบบเสถียร: 1₂ₛ/4₁ₛ/10ₓ = warning) · `--mode sigma --sigma 5.4` (เลือกกฎตาม sigma §FORK 1) · ถ้า classic ข้ามกฎที่ fire จริง สคริปต์จะพิมพ์ `NOTE` ให้เห็น
+- `python scripts/qc_calc.py stats …` (mean/SD n−1/%CV/ขอบ ±1–3SD) · `ocv-rcv --ocv-cv --rcv-cv` (RCV ≤ 2×OCV) · `sigma --tea --bias --cv` (TEa = ค่าที่แล็บเลือก ต้องใส่เอง) · `ldl --tc --hdl --tg` (Friedewald ปฏิเสธเมื่อ TG ≥ 400)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · การตัดสิน accept/reject จริงตาม QC policy ของแล็บ + ผู้ลงนาม · ทดสอบแล้ว: `evals/test_clinchem_tools.py` (17 ข้อ รวม must-fail control: R₄ₛ ข้าม run และ SD หาร n ต้องแดง)
 
 > 🛑 **RED FLAGS — เจอข้อใด = HOLD ห้ามปล่อยผล ยืนยัน QC + sample + ผู้ลงนามก่อน:** run ที่ Westgard FAIL · critical value (K⁺/glucose/Ca/troponin) · HIL กระทบ analyte (hemolysis → K⁺, lipemia, icterus) · ผลขัด delta-check/clinical ชัด · สงสัย calibration drift. — ปล่อยผิด 1 ค่า = รักษาผิด 1 คน
 

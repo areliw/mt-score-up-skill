@@ -1,0 +1,7 @@
+# TEACHING DATA (synthetic 4-level image, not patient data)
+# Haralick, Shanmugam & Dinstein 1973, IEEE Trans. SMC-3(6):610-621, Fig. 2 test image
+# (also the example in the scikit-image graycomatrix docstring).
+0 0 1 1
+0 0 1 1
+0 2 2 2
+2 2 3 3

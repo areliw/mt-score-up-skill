@@ -1,0 +1,10 @@
+# TEACHING DATA (synthetic 4-level image, not patient data)
+# The worked GLCM example of CMU 261753 deck #5 (slides 5-12): x = row (down), y = column (right).
+# Expected: C_ASYM(dx=0, dy=1) = [[7,2,0,0],[5,1,2,0],[2,3,2,2],[0,1,4,4]] (slide 8), sum 35.
+3 3 2 1 0 0
+3 3 3 2 1 0
+3 3 2 1 0 0
+2 3 2 2 0 0
+1 2 3 1 1 0
+0 1 2 2 0 0
+0 0 0 1 0 0

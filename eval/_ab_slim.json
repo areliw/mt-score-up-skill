@@ -991,5 +991,17 @@
     "tier": "full",
     "run": "wf_ec1d6b2b-2d9",
     "note": "base refuses fabrication (headline trap intuitive even to Haiku); measured lift = senior nuances base kept missing (draftable-vs-wait line, แก้ทีหลัง=still-fabrication, EC-before-data, DOI-verify). x5 sigma4 se0.2 consistent"
+  },
+  {
+    "skill": "content-creator-copyright.md",
+    "effect": "neutral",
+    "withScore": 4.33,
+    "withoutScore": 4.67,
+    "delta": -0.33,
+    "trapAvoid": "both",
+    "method": "x3-agents",
+    "tier": "manual",
+    "run": "manual-2026-10-08-agents",
+    "note": "ab-x3.js protocol run as separate Agent subagents (not Workflow): Opus trap gen -> Haiku x3 per arm (base 0 tool calls) -> Opus blind judge, order swapped by rep parity. se 0.471 thr 0.94 -> tie; headline trap (credit != license, TikTok library != YouTube) intuitive to Haiku = ceiling. Details eval/manual-ab-2026-10-08.md. NOT valid for semi-stable promotion"
   }
 ]

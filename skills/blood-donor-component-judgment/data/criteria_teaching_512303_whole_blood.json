@@ -1,0 +1,21 @@
+{
+ "_label": "TEACHING VALUES ONLY - whole-blood donor criteria as summarised in the 512303 digest (Thai Red Cross criteria from OCR'd slides). NOT an SOP. Replace every number with your own SOP / standard edition before any real use.",
+ "_source": "06_Background_MedTech/512303-TRANSFUSION-SCIENCE-1/512303-DIGEST-2026-05-31.md section 10.1",
+ "_interval_note": "digest says 'every 3 months' but the OCR also shows '~4 months / 3-4 times a year' - verify against your SOP",
+ "donation": "whole blood",
+ "age_years": {"min": 17, "max": 70},
+ "first_time_age_max": 60,
+ "consent_required_below_age": 18,
+ "weight_kg": {"min_exclusive": 45},
+ "temp_c": {"max_exclusive": 37.5},
+ "sbp_mmhg": {"max_exclusive": 160},
+ "dbp_mmhg": {"max_exclusive": 100},
+ "pulse_bpm": {"min": 50, "max": 100},
+ "hb_g_dl": {"F": {"min": 12.5, "max": 16.5}, "M": {"min": 13.0, "max": 18.5}},
+ "hct_pct": {"F": {"min": 37, "max": 49}, "M": {"min": 39, "max": 55}},
+ "min_interval_days": 90,
+ "volume_by_weight": [
+  {"weight_kg": {"min_exclusive": 45, "max": 50}, "volume_ml": 350},
+  {"weight_kg": {"min_exclusive": 50}, "volume_ml": 450}
+ ]
+}

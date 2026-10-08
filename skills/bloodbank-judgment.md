@@ -4,7 +4,7 @@ title: โค้ชธนาคารเลือด — ตัดสินใ�
 type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ตำรา antigen frequency
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-11
+last_edited: 2026-10-08
 status: draft
 disclaimer: "เครื่องมือช่วยคิดหน้างานธนาคารเลือดเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ใช่ผู้ตัดสินใจแทน งาน BB เกี่ยวชีวิตคนไข้โดยตรง ต้องทำตาม SOP, ยืนยันกับ MT/แพทย์, ยึดมาตรฐานธนาคารเลือดและงานบริการโลหิต ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย (AABB = อ้างอิงสากล) และศูนย์อ้างอิงเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -24,6 +24,14 @@ disclaimer: "เครื่องมือช่วยคิดหน้าง�
 > ⚠️ **ขอบเขต:** ตัวเลข (Gy/titer/dose/วัน) = teaching illustration ยึด **SOP/มาตรฐานกาชาด** · logic เน้น **ผู้ใหญ่**; neonatal exchange / RhIG / เลือดทารก ยึด **protocol neonatal เฉพาะ + ปรึกษาแพทย์**
 
 > 🛑 **RED FLAGS — เจอข้อใด = หยุด ยืนยันกับ MT อาวุโส/แพทย์/ref lab ก่อน อย่าเชื่อ AI เดี่ยว:** ABO discrepancy · DAT+ ร่วม hemolysis · massive transfusion / emergency O release · เลือดทารก-แรกเกิด / exchange · **Bombay / Rhnull / anti–high-incidence Ag** · multiple / pan-reactive antibody. — สกิลนี้ช่วย *คิด* แต่กลุ่มนี้กระทบชีวิตคนไข้โดยตรง ต้องมีคนยืนยันเสมอ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+อ่านผล ABO/Rh · ขีดฆ่า (cross-out) บน panel · คิดจำนวน unit / RhIG → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** (อย่าขีดฆ่า panel ด้วยตาหรือคิดเลขในหัว) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/bloodbank-judgment/scripts/`)
+- `python scripts/abo_rh.py type --anti-a 4+ --anti-b 1+ --a1-cells 0 --b-cells 3+ --o-cells 0 --auto 0 --anti-d 0 --d-ahg 2+ --role patient` → หมู่จาก forward/reverse + `STATUS` (CONCORDANT / DISCREPANCY / FORWARD-ONLY / INCOMPLETE) + flag ที่ทำให้ไม่ตรง (หมู่ขัด, reaction อ่อน, mixed-field, O cell/autocontrol บวก) + สาเหตุที่เป็นไปได้จาก Fork 1 + ระหว่างยัง resolve ไม่ได้ให้อะไร (RBC O / plasma AB — **สงสัย Bombay สคริปต์จะห้ามให้ O**) + RhD ตาม `--role` (Fork 9: donor weak D = D-pos · patient = ให้ D-neg) · ระดับที่นับว่า "อ่อน" ปรับด้วย `--forward-min` / `--reverse-min` ตาม SOP
+- `python scripts/abo_rh.py compat --recipient A --component all --rh neg` → หมู่ ABO ที่รับได้ต่อ component (RBC / plasma / platelet / cryo / WB) ตามตาราง 512303 §2.6 + platelet แยกหมู่ที่ plasma ไม่เข้ากัน (Fork 5) + RhD ของ RBC (Fork 7)
+- `python scripts/panel_ruleout.py panel.csv --auto 0 [--confirm E,Jka] [--patient "E-,Jka-"]` → antigram **ของแล็บคุณเอง** (CSV: `cell,<antigen>...,result`) → antigen ที่ถูกขีดฆ่า (บอกว่าเซลล์ไหนขีด) · ตัวที่ยังไม่ถูกตัด + ตัวที่รอดเพราะเซลล์ที่ลบเป็น het (dosage) · rule of three แบบเข้ม (นับเฉพาะเซลล์ที่ลบต่อ Ab ตัวอื่น) · ต้องหา selected cell อะไรเพิ่ม · default = ขีดฆ่าด้วย homozygous cell ตาม dosage list ของ Fork 2 (`--dosage-antigens` ปรับตาม SOP; `--rule-out any` มีไว้ดูกับดักเท่านั้น) · ตัวอย่าง `data/panel_teaching_anti-E_anti-Jka.csv` (panel สอนที่แต่งขึ้นเอง ไม่ใช่ใบ panel ของบริษัท)
+- `python scripts/bb_calc.py units --requested 3 --neg-freq E=0.70 --neg-freq Jka=0.25` (ความถี่ Ag-negative ต้องใส่เองตามประชากร donor) · `rhig --kb-pct 1.5 --maternal-bv-ml <ค่าตาม protocol>` หรือ `--fmh-ml` → จำนวน vial (30 mL WB/vial, ปัด .5 ขึ้น แล้ว +1 vial ตาม 512303 §3.3)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · การ assign หมู่ / สรุปชนิด Ab / จ่ายเลือดจริงตาม SOP + ผู้มีอำนาจลงนาม · ทดสอบแล้ว: `evals/test_bloodbank_tools.py` (55 ข้อ รวม must-fail control 6 ตัว: ขีดฆ่าด้วยเซลล์ het, นับ rule of three หลวม, ให้ plasma O กับคนหมู่ A, weak D ของผู้ป่วยถูกรายงาน D-pos, Bombay ได้เลือด O, ให้ RhIG dose มาตรฐานโดยไม่คำนวณ FMH — ทุกตัวต้องแดง)
 
 ## ใช้เมื่อ
 - ABO ไม่ตรง (cell ≠ serum) · antibody screen บวก → จะ ID ยังไง · DAT/IAT อันไหน · crossmatch แบบไหน

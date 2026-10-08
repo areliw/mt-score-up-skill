@@ -32,6 +32,13 @@ import json
 import math
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 CARD_DEFAULTS = {"eff_min": 90.0, "eff_max": 110.0, "r2_min": 0.98}  # card Fork 5 teaching values
 
 

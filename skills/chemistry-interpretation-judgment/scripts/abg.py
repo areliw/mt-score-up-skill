@@ -25,6 +25,13 @@ import json
 import math
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 TEACHING_PH = (7.35, 7.45)
 TEACHING_PCO2 = (35.0, 45.0)
 TEACHING_HCO3 = (22.0, 26.0)

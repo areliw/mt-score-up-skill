@@ -29,6 +29,13 @@ import argparse
 import json
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 PROTEIN_RATIO = 0.5
 LDH_RATIO = 0.6
 LDH_ULN_FRACTION = 2 / 3

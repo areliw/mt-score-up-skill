@@ -46,6 +46,13 @@ import json
 import re
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 ADVISORY = "ADVISORY: decision support only - antibody ID is confirmed and signed off per blood bank SOP."
 
 PAIRS = {"C": "c", "c": "C", "E": "e", "e": "E", "M": "N", "N": "M", "S": "s", "s": "S",

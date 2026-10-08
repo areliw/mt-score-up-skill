@@ -27,6 +27,13 @@ import csv
 import json
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 KINDS = {"all", "time", "scatter", "singlet", "viable", "dump", "cd45", "marker", "other"}
 ORDER = {"time": 0, "scatter": 1, "singlet": 2, "viable": 3, "dump": 3, "cd45": 4, "marker": 5}
 REQUIRED_UPSTREAM = {

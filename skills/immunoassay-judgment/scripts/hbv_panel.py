@@ -33,6 +33,13 @@ import csv
 import json
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 VALUES = {"pos": "pos", "+": "pos", "positive": "pos", "reactive": "pos", "r": "pos",
           "neg": "neg", "-": "neg", "negative": "neg", "nonreactive": "neg", "nr": "neg",
           "na": "na", "": "na", "nd": "na", "unknown": "na", "?": "na"}

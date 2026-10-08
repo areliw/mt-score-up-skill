@@ -26,6 +26,13 @@ import argparse
 import json
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 CAVEATS = [
     "Cr normal != kidney normal: <25% glomerular loss keeps Cr normal; elderly (low muscle) and cirrhosis "
     "(low creatine) -> Cr falsely reassuring -> consider cystatin C (card Fork 2)",

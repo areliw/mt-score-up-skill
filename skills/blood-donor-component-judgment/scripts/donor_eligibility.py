@@ -30,6 +30,13 @@ import argparse
 import json
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 ADVISORY = "ADVISORY: decision support only - confirm with the donor-unit SOP and the responsible MT/physician."
 
 MEASURED = [  # (criteria key, donor field, label)

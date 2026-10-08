@@ -32,6 +32,13 @@ import json
 import math
 import sys
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 GRADES = {"0": 0, "neg": 0, "-": 0, "nr": 0, "negative": 0,
           "w": 0.5, "w+": 0.5, "weak": 0.5, "+/-": 0.5, "±": 0.5,
           "pos": 1, "+": 1, "r": 1, "positive": 1, "1+": 1, "2+": 2, "3+": 3, "4+": 4}

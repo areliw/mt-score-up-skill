@@ -32,6 +32,13 @@ import json
 import sys
 from datetime import datetime, timedelta
 
+# cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 ADVISORY = ("ADVISORY: decision support only - document, flag to the pathologist and follow the lab SOP / "
             "guideline edition; fixation cannot be redone on the same tissue.")
 ACTION = ("document + flag to the pathologist: morphology / IHC (e.g. ER/PR/HER2) / molecular MAY be "

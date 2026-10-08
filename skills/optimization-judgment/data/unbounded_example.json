@@ -1,0 +1,6 @@
+{"name": "Unbounded LP from the CMU 261475 special-cases table - teaching example",
+ "sense": "max", "vars": ["x1", "x2"], "c": [3, 4],
+ "constraints": [
+  {"name": "a", "a": [1, -1], "op": "<=", "b": 1},
+  {"name": "b", "a": [-1, 1], "op": "<=", "b": 2}
+ ]}

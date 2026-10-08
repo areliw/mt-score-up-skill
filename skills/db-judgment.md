@@ -4,7 +4,7 @@ title: โค้ช SQL + ออกแบบ DB — ตัดสินใจถ�
 type: ADVISE               # ช่วยตัดสินใจออกแบบ/เขียน query ไม่ใช่ตำรา syntax
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-19
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพื่อการศึกษา ไม่ใช่คำสั่งให้รันจริง — งานจริงควรทดสอบบน staging + backup ก่อน DELETE/UPDATE และตรวจ query plan ก่อนใช้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -15,6 +15,14 @@ disclaimer: "ช่วยคิดออกแบบ/เขียน SQL เพ�
 
 > **กฎเหล็ก #1: ก่อนรัน `UPDATE`/`DELETE` ทุกครั้ง → `SELECT` ดูแถวที่จะโดน ด้วย `WHERE` ตัวเดียวกันก่อน + ครอบ transaction.** ไม่มี `WHERE` = ล้างทั้งตาราง.
 > **กับดักขั้นโหด (ที่ `WHERE` มีแล้วแต่ยังพัง): `WHERE` ที่อ้าง subquery/`NOT IN` แล้ว subquery คืน `NULL` แม้แถวเดียว → ทั้งเงื่อนไขกลายเป็นกรองผิด/ไม่ match → DELETE โดนเกินหรือ 0 แถวเงียบๆ.** กฎทั่วไป: subquery ที่อาจมี `NULL` ให้ใช้ `NOT EXISTS` เสมอ และอย่าเชื่อ `WHERE` จน SELECT-preview ยืนยันจำนวนแถวตรง. (อย่างอื่น: ออกแบบ normalize เกิน/ขาด, index ผิดที่, cartesian — อยู่ด้านล่าง)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+เขียน/รีวิว SQL เสร็จแล้ว **รันสคริปต์ก่อนส่งไปรันจริง** (อย่าอ่านหาเองว่ามี `NOT IN`+NULL หรือ JOIN ไม่มี ON ซ่อนอยู่ไหม) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/db-judgment/scripts/`) · ใช้ Python stdlib เท่านั้น
+- `python scripts/sql_lint.py query.sql` (หรือ `--sql "..."`, หรือ `-` อ่านจาก stdin) → รายการ rule พร้อมเลขบรรทัด: **D001** UPDATE/DELETE ไม่มี WHERE ระดับบนสุด (WHERE ใน subquery ไม่นับ) · **D002** `NOT IN (subquery/NULL)` · **D004** JOIN ไม่มี ON/USING · **D009** `= NULL` · D003 `SELECT *` · D005 comma join · D006 `UNION` ไม่มี ALL · D007 OFFSET ลึก (`--offset-warn`) · D008 `COUNT` หลัง JOIN · exit 1 เมื่อมี ERROR · comment/string literal ถูก mask ก่อน จึงไม่ยิงมั่ว
+- `python scripts/sql_lint.py --code app.py` → D012 หา SQL ที่ประกอบด้วย f-string / `+` / `%` / `.format` (SQL injection) ในโค้ดแอป
+- `python scripts/dml_preview.py lab.db "DELETE FROM results WHERE status = 'void'" --max-expected 20` → **กฎเหล็ก #1 แบบอัตโนมัติ** (SQLite): พิมพ์ `SELECT` ที่เทียบเท่า, จำนวนแถวทั้งตาราง/ที่ WHERE จับได้/ที่คำสั่งจริงรายงาน, ตัวอย่างแถว, แล้ว **ROLLBACK เสมอ** · ธง `NO-WHERE` `ALL-ROWS` `ZERO-ROWS` (อาการของ `NOT IN`+NULL) `MORE-THAN-EXPECTED` `COUNT-MISMATCH` · ฐานข้อมูลอื่น (MySQL/Postgres) ให้ทำขั้นเดียวกันด้วยมือ: SELECT-preview + transaction
+- ไม่ตรวจ (ต้องใช้ parser จริง → ยังเป็น judgment): GROUP BY ครบไหม · เลือก index · normalize ถึงระดับไหน · ทุกผล lint เป็น heuristic — ธง = "ไปอ่านบรรทัดนี้" ไม่ใช่ "ผิดแน่" · ทุก output มีบรรทัด `ADVISORY`
+- ทดสอบแล้ว: `evals/test_db_tools.py` (21 ข้อ) — oracle คือ SQLite จริง: รัน trap ก่อนแล้วดูว่าพังจริง (`NOT IN` + NULL → 0 แถว, `JOIN` ไม่มี ON 3×2 = 6 แถว, `= NULL` → 0 แถว, `COUNT` หลัง JOIN = 2 ทั้งที่มี 1 คนไข้, `UNION` ตัดซ้ำ) แล้วค่อยบังคับให้ linter ยิง และเงียบกับ rewrite ที่ปลอดภัย · must-fail control 3 ตัว: ถือว่า WHERE ใน subquery คือ WHERE · "preview" ที่ commit จริง · lint โดยไม่ mask comment → ต้องแดง · สูตรอ้างอิงจาก digest 270701 (three-valued logic, CROSS JOIN = Cartesian product, DELETE ไม่มี WHERE ลบทุกแถว)
 
 ## ใช้เมื่อ
 - เขียน SQL / ออกแบบ schema / จูน query ที่ช้า

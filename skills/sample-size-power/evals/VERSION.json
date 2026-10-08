@@ -1,0 +1,13 @@
+{
+ "skill": "sample-size-power",
+ "history": [
+  {"v": 2, "date": "2026-10-08", "trigger": "GAP: G1 (forks unlabelled), G2 (no deliverable template), G3 (no tools)", "evidence": "scripts/power_calc.py + evals/test_power_calc.py 18/18 incl. 3 must-fail controls (dropout x(1+rate), SE used as SD, one-sided z for two-sided); card gains ## เครื่องมือ, ## ทางแยก, ## ผลงานที่ต้องส่ง (additive: 56 insertions, 1 changed line = last_edited)", "gate": "pass"}
+ ],
+ "sources": [
+  {"ref": "01_Study_Masters/229711-Lec.001801/Lecture-Series-2026-04/229711-COURSE-DIGEST-2026-05-31.md (z = 1.645 / 1.96 / 2.576; CI and proportion formulas)", "last_verified": "2026-10-08"},
+  {"ref": "Cohen J. (1988) Statistical Power Analysis for the Behavioral Sciences 2nd ed., Table 2.4.1 (d=.50 -> n=64/group) and Table 3.4.1 (r=.30 -> n=85)", "last_verified": null, "note": "cited from memory, not re-opened; each expected value is also re-derived by hand in the test comments"},
+  {"ref": "Guenther WC (1981) t-test sample-size correction (+z^2/4 two-sample, +z^2/2 one-sample); G*Power 3 gives 64/group and 34 pairs for d=.5", "last_verified": null, "note": "cited from memory; not opened"},
+  {"ref": "Hoenig JM, Heisey DM (2001) The abuse of power. Am Stat 55:19-24 (post-hoc power is a function of the p-value)", "last_verified": null, "note": "cited from memory; not opened"}
+ ],
+ "telemetry": {}
+}

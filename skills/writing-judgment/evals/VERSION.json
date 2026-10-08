@@ -1,0 +1,14 @@
+{
+ "skill": "writing-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 (decision table not labelled as forks), G2 (no craft section)",
+   "evidence": "added ## ทางแยก (เลือกอะไรเมื่อไร) (draft-condition -> which layer to fix first; routes to manuscript-judgment / humanize-ai-writing / polite-but-clear already named in the card) and ## ผลงานที่ต้องส่ง (8 ordered steps with checks, Brief+claim->evidence template, definition of done); additions only; no tool",
+   "gate": "pass"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

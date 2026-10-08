@@ -1,0 +1,14 @@
+{
+ "skill": "content-creator-copyright",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 (artifact output without a craft section)",
+   "evidence": "added ## ผลงานที่ต้องส่ง (clearance-log: 6 ordered steps with checks, fill-in table, definition of done); additions only - the only removed line is the last_edited bump; no tool added (no rule-checkable arithmetic in the card)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

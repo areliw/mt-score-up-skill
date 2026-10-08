@@ -1,0 +1,14 @@
+{
+ "skill": "report-up-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 (craft assembled nowhere), G3 (BLUF/ask rule stated in words, no tool)",
+   "evidence": "added scripts/bluf_check.py (stdlib; ask-in-first-line, approval needs figure+deadline, blanks, jargon by audience, patronising/minimising wording, --safety, numbers-to-verify) + evals/test_report_up_tools.py (43 tests, oracle = the card's own rules and its OK/NOT-OK examples, 6 must-fail controls; 10/10 hand-made source mutants killed) + ## เครื่องมือ + ## ผลงานที่ต้องส่ง; additions only",
+   "gate": "pass"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

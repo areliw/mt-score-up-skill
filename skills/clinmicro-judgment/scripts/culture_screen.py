@@ -229,6 +229,10 @@ def main(argv=None):
                    help="override the organism class")
     p.add_argument("--flora", help="JSON organism-class list (see data/)")
 
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
+
     a = ap.parse_args(argv)
     if a.cmd == "sputum":
         if a.cutoffs and a.profile:

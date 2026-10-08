@@ -109,6 +109,8 @@ def main(argv=None):
     p = sub.add_parser("synovial")
     p.add_argument("--shape", required=True, choices=["needle", "rhomboid", "other"])
     p.add_argument("--birefringence", required=True, choices=["negative", "positive", "none"])
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     if a.cmd == "lights":
         res = lights(a.fluid_protein, a.serum_protein, a.fluid_ldh, a.serum_ldh, a.ldh_uln, a.fluid)

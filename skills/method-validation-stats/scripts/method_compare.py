@@ -193,6 +193,17 @@ def fmt_ci(ci):
     return "[%.4g, %.4g]" % ci
 
 
+def json_safe(o):
+    """JSON has no Infinity/NaN: an unbounded value (e.g. a ratio with a zero denominator) is written as null."""
+    if isinstance(o, float) and not math.isfinite(o):
+        return None
+    if isinstance(o, dict):
+        return {k: json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [json_safe(v) for v in o]
+    return o
+
+
 def main(argv=None):
     try:  # never crash a non-UTF-8 console (e.g. Thai cp874) on the section sign / Thai text
         sys.stdout.reconfigure(errors="replace")
@@ -216,7 +227,7 @@ def main(argv=None):
     except ValueError as e:
         sys.exit(str(e))
     if a.json:
-        print(json.dumps(res, ensure_ascii=False, indent=1))
+        print(json.dumps(json_safe(res), ensure_ascii=False, indent=1, allow_nan=False))
         return 0
     ba, pb, dm = res["bland_altman"], res["passing_bablok"], res["deming"]
     u = "%" if ba["unit"] == "%" else ""

@@ -227,3 +227,23 @@ def test_must_fail_control_percent_agreement_as_kappa(monkeypatch):
     monkeypatch.setattr(da, "kappa", lambda m: dict(real(m), kappa=real(m)["po"]))
     with pytest.raises(AssertionError):
         test_kappa_hand_examples()
+
+
+def _strict_json(text):
+    """json.loads that rejects the non-standard Infinity / NaN tokens."""
+    import json
+
+    def bad(token):
+        raise ValueError("non-standard JSON token %s" % token)
+    return json.loads(text, parse_constant=bad)
+
+
+def test_json_output_is_strict_when_lr_is_unbounded(capsys):
+    # PR #125 review: perfect specificity (fp=0) made LR+ = inf and --json printed `Infinity`
+    assert da.main(["table", "--tp", "45", "--fp", "0", "--fn", "5", "--tn", "50", "--json"]) == 0
+    res = _strict_json(capsys.readouterr().out)
+    assert res["specificity"] == 1.0 and res["lr_pos"] is None
+    assert math.isclose(res["lr_neg"], 0.1)
+    # zero specificity -> LR- unbounded
+    assert da.main(["--json", "table", "--tp", "45", "--fp", "50", "--fn", "5", "--tn", "0"]) == 0
+    assert _strict_json(capsys.readouterr().out)["lr_neg"] is None

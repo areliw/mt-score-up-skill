@@ -20,6 +20,7 @@ Examples
 """
 import argparse
 import json
+import math
 import sys
 
 # cp874-safe-stdout: Thai Windows consoles default to cp874, which cannot print § Σ Δ ≥ and crashes.
@@ -81,6 +82,17 @@ def _print(res):
     print(ADVISORY)
 
 
+def json_safe(o):
+    """JSON has no Infinity/NaN: an unbounded value (e.g. a ratio with a zero denominator) is written as null."""
+    if isinstance(o, float) and not math.isfinite(o):
+        return None
+    if isinstance(o, dict):
+        return {k: json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [json_safe(v) for v in o]
+    return o
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--json", action="store_true")
@@ -94,6 +106,8 @@ def main(argv=None):
     p.add_argument("--count", type=float, required=True)
     p.add_argument("--blood-parts", type=float, default=9.0, help="teaching default 9 (3.2%% citrate 1:9, 503402 §6)")
     p.add_argument("--anticoag-parts", type=float, default=1.0, help="teaching default 1")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "estimate":
@@ -105,7 +119,7 @@ def main(argv=None):
         return 2
     if a.json:
         res["advisory"] = ADVISORY
-        print(json.dumps(res, ensure_ascii=False, indent=1))
+        print(json.dumps(json_safe(res), ensure_ascii=False, indent=1, allow_nan=False))
     else:
         _print(res)
     return 0

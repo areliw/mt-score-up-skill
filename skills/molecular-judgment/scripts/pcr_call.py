@@ -94,13 +94,19 @@ def call_sample(w, ct_cutoff, ic_cutoff, chemistry="probe", melt_tm=None, melt_t
     ic = (not ic_absent) and detected(w["ic_ct"], ic_cutoff)
     if target:
         if chemistry == "sybr":
-            if w["melt_peaks"] is None and w["melt_tm"] is None:
-                return "REVIEW", "SYBR positive without melt data -> cannot exclude primer-dimer/non-specific"
-            if w["melt_peaks"] is not None and w["melt_peaks"] > 1:
-                return "REVIEW", "multiple melt peaks -> non-specific product, not a true positive yet"
-            if melt_tm is not None and w["melt_tm"] is not None and abs(w["melt_tm"] - melt_tm) > melt_tol:
-                return "REVIEW", "melt Tm %.2f vs expected %.2f +/- %.2f -> non-specific product" % (
-                    w["melt_tm"], melt_tm, melt_tol)
+            # every configured piece of melt evidence must be present: one alone cannot prove a single
+            # specific product (a peak count without Tm, or a Tm without a peak count, both stay REVIEW)
+            if w["melt_peaks"] is None:
+                return "REVIEW", "SYBR positive without a melt peak count -> cannot exclude primer-dimer/non-specific"
+            if w["melt_peaks"] != 1:
+                return "REVIEW", "%d melt peaks (need exactly 1) -> non-specific product, not a true positive yet" % (
+                    w["melt_peaks"])
+            if melt_tm is not None:
+                if w["melt_tm"] is None:
+                    return "REVIEW", "SYBR positive without melt Tm -> cannot confirm the expected product"
+                if abs(w["melt_tm"] - melt_tm) > melt_tol:
+                    return "REVIEW", "melt Tm %.2f vs expected %.2f +/- %.2f -> non-specific product" % (
+                        w["melt_tm"], melt_tm, melt_tol)
         if ic_absent or ic:
             return "POSITIVE", "target Ct %.2f <= cut-off %.2f" % (w["target_ct"], ct_cutoff)
         return "POSITIVE (check IC)", ("target detected but internal control not detected - card does not cover "

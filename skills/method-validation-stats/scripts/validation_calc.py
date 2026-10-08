@@ -141,6 +141,8 @@ def main(argv=None):
     p.add_argument("values", nargs="+", type=float)
     p = sub.add_parser("refint-estimate", help="CSV with a column 'value'")
     p.add_argument("csv")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "precision":

@@ -118,6 +118,8 @@ def main(argv=None):
     p.add_argument("--objective", required=True, help="objective used for THIS measurement, e.g. 40x")
     p.add_argument("--cal", action="append", required=True, help="OBJECTIVE=UM_PER_DIV, repeat per objective")
     p.add_argument("--candidates", help="JSON list of {name, min_um, max_um}")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
 
     if a.cmd == "density":

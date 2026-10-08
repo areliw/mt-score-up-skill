@@ -117,6 +117,8 @@ def main(argv=None):
     p.add_argument("--rules", required=True)
     p.add_argument("--target", required=True, help="key in the rules file, e.g. stool_ruleout / e_histolytica")
     p.add_argument("--specimen", action="append", required=True, help="collection date YYYY-MM-DD")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     with open(a.rules, encoding="utf-8") as f:
         rules = json.load(f)

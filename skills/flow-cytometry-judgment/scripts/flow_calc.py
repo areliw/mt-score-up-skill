@@ -117,6 +117,8 @@ def main(argv=None):
     p.add_argument("--events", type=float, required=True, help="evaluable (viable nucleated singlet) events")
     p.add_argument("--min-cluster", type=float, required=True, help="lab-validated minimum cluster size")
     p.add_argument("--claim", type=float, help="sensitivity to be reported, as a fraction (1e-4 = 0.01%%)")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "abs-dual":

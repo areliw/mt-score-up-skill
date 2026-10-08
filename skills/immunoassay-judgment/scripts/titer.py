@@ -154,6 +154,17 @@ def load_series_csv(path):
     return [(parse_dilution(r["dilution"]), parse_grade(r["result"])) for r in rows]
 
 
+def json_safe(o):
+    """JSON has no Infinity/NaN: an unbounded value (e.g. a ratio with a zero denominator) is written as null."""
+    if isinstance(o, float) and not math.isfinite(o):
+        return None
+    if isinstance(o, dict):
+        return {k: json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [json_safe(v) for v in o]
+    return o
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--json", action="store_true")
@@ -171,6 +182,8 @@ def main(argv=None):
     p.add_argument("--diluted", action="append", required=True, help="FACTOR:MEASURED, e.g. 10:95")
     p.add_argument("--tolerance", type=float, required=True,
                    help="%% the lab accepts between dilutions (lab SOP value, no default)")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "series":
@@ -190,7 +203,7 @@ def main(argv=None):
     except ValueError as e:
         ap.error(str(e))
     if a.json:
-        print(json.dumps(res, ensure_ascii=False, indent=1))
+        print(json.dumps(json_safe(res), ensure_ascii=False, indent=1, allow_nan=False))
         return 0
     if a.cmd == "series":
         print("%-10s %s" % ("dilution", "grade"))

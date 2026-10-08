@@ -75,6 +75,8 @@ def main(argv=None):
     p.add_argument("--half-life", type=float, required=True, help="hours")
     p.add_argument("--hours", type=float, help="hours since start or last dose change")
     p.add_argument("--kinetics", choices=["first", "zero"], default="first")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         res = halflife(a.vd, a.cl) if a.cmd == "halflife" else steady_state(a.half_life, a.hours, a.kinetics)

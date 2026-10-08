@@ -145,6 +145,8 @@ def main(argv=None):
     p = sub.add_parser("fold")
     p.add_argument("--dct", type=float, required=True)
     p.add_argument("--eff", type=float, default=100.0)
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "curve":

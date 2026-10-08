@@ -380,6 +380,8 @@ def main(argv=None):
     c.add_argument("--recipient", required=True, help="O, A, B, AB or unknown")
     c.add_argument("--component", choices=COMPONENTS + ["all"], default="all")
     c.add_argument("--rh", choices=["pos", "neg", "unknown"], default="unknown", help="recipient RhD")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "type":

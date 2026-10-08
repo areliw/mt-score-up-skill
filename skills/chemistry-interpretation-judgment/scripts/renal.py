@@ -113,6 +113,8 @@ def main(argv=None):
     g.add_argument("--bun", type=float, help="BUN mg/dL")
     g.add_argument("--urea", type=float, help="urea mg/dL (BUN = urea / 2.14)")
     p.add_argument("--cr", type=float, required=True, help="creatinine mg/dL")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
 
     if a.cmd == "egfr":

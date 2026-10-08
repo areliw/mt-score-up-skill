@@ -121,6 +121,17 @@ def render(r):
     return "\n".join(out)
 
 
+def json_safe(o):
+    """JSON has no Infinity/NaN: an unbounded value (e.g. a ratio with a zero denominator) is written as null."""
+    if isinstance(o, float) and not math.isfinite(o):
+        return None
+    if isinstance(o, dict):
+        return {k: json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [json_safe(v) for v in o]
+    return o
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Automation ROI: time saved x frequency vs build + upkeep, with break-even.")
     ap.add_argument("--manual-min", type=float, required=True, help="minutes per run done by hand")
@@ -143,7 +154,7 @@ def main(argv=None):
     r = roi(a.manual_min, a.auto_min, runs, a.build_hours, a.maintain_hours_per_month,
             a.rule_changes_per_year, a.rework_hours, a.horizon_months, a.error_costly)
     if a.json:
-        print(json.dumps(r, ensure_ascii=False, indent=1, default=lambda x: None))
+        print(json.dumps(json_safe(r), ensure_ascii=False, indent=1, default=lambda x: None, allow_nan=False))
     else:
         print(render(r))
     return 0

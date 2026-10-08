@@ -172,6 +172,8 @@ def main(argv=None):
     b.add_argument("--expect", action="append", default=[])
     b.add_argument("--pass-rate", type=float)
     b.add_argument("--critical", default="")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "volume":

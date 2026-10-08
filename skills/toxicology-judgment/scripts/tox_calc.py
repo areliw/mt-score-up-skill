@@ -165,6 +165,8 @@ def main(argv=None):
     p.add_argument("--tube", required=True, choices=["gel", "plain", "edta", "heparin", "fluoride", "whole-blood"],
                    help="gel = serum separator; plain = serum, no gel; edta/heparin/fluoride/whole-blood = unspun whole blood")
     p.add_argument("--unsealed", action="store_true", help="tube was left open / not airtight")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
 
     if a.cmd == "che":

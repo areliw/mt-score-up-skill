@@ -195,6 +195,8 @@ def main(argv=None):
                    help="clsi = CLSI H21 C=0.00185x(100-Hct)xV (default); digest = 503402 §6 teaching form")
     p.add_argument("--std-citrate-ml", type=float, default=0.5, help="teaching default 0.5 mL (503402 §6)")
     p.add_argument("--blood-ml", type=float, default=4.5, help="blood volume for the clsi form (default 4.5)")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "pattern":

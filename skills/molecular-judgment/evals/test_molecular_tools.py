@@ -96,6 +96,20 @@ def test_sybr_positive_needs_a_clean_melt():
     assert calls(base + [well("S", "sample", 26.0, 30.0)], chemistry="sybr")[1]["S"] == "REVIEW"
 
 
+def test_sybr_partial_melt_evidence_is_never_positive():
+    # PR #125 review: one melt field alone must not release a SYBR positive
+    base = [well("PC", "pos", 28.0, 30.0, melt_tm=82.4, melt_peaks=1), well("NTC", "ntc", None, None)]
+    kw = dict(chemistry="sybr", melt_tm=82.5, melt_tol=1.0)
+    # peak count without Tm while an expected Tm is configured -> the Tm check would be skipped
+    assert calls(base + [well("S", "sample", 26.0, 30.0, melt_peaks=1)], **kw)[1]["S"] == "REVIEW"
+    # Tm without a peak count -> the single-peak check would be skipped
+    assert calls(base + [well("S", "sample", 26.0, 30.0, melt_tm=82.3)], **kw)[1]["S"] == "REVIEW"
+    # zero peaks is not "one peak"
+    assert calls(base + [well("S", "sample", 26.0, 30.0, melt_tm=82.3, melt_peaks=0)], **kw)[1]["S"] == "REVIEW"
+    # no expected Tm configured: a single peak is the only configured evidence and is enough
+    assert calls(base + [well("S", "sample", 26.0, 30.0, melt_peaks=1)], chemistry="sybr")[1]["S"] == "POSITIVE"
+
+
 def test_must_fail_control_failed_reaction_read_as_negative(monkeypatch):
     """Inject trap #1 of the card: no target + no internal control reported as NEGATIVE."""
     real = pcr_call.call_sample

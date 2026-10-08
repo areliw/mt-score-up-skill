@@ -182,6 +182,8 @@ def main(argv=None):
     p.add_argument("--alt-uln", type=float, required=True, help="your lab's ALT upper reference limit")
     p.add_argument("--alp", type=float, required=True)
     p.add_argument("--alp-uln", type=float, required=True, help="your lab's ALP upper reference limit")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "anemia":

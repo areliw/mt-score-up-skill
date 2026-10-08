@@ -12,6 +12,7 @@ Sources:
     prevalence)
 PPV at prevalence p (Bayes) = sens*p / (sens*p + (1-spec)*(1-p)); NPV = spec*(1-p) / (spec*(1-p) + (1-sens)*p).
 Kappa = (po - pe) / (1 - pe). CIs for proportions are Wilson 95%.
+--json: an unbounded LR (specificity 1 -> LR+, specificity 0 -> LR-) is written as null (JSON has no Infinity).
 ADVISORY ONLY: interpretation for a real test needs the study design, the reference standard and the lab SOP.
 
 Examples
@@ -99,6 +100,17 @@ def pct(v):
     return "-" if v is None else "%.2f%%" % (v * 100)
 
 
+def json_safe(o):
+    """JSON has no Infinity/NaN: an unbounded value (e.g. a ratio with a zero denominator) is written as null."""
+    if isinstance(o, float) and not math.isfinite(o):
+        return None
+    if isinstance(o, dict):
+        return {k: json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [json_safe(v) for v in o]
+    return o
+
+
 def main(argv=None):
     try:  # never crash a non-UTF-8 console (e.g. Thai cp874) on the section sign / Thai text
         sys.stdout.reconfigure(errors="replace")
@@ -119,6 +131,8 @@ def main(argv=None):
     p.add_argument("--per", type=int, default=1000)
     p = sub.add_parser("kappa", help="Cohen's kappa from an agreement matrix")
     p.add_argument("--matrix", required=True, help='rows ";" cols "," e.g. "40,10;5,45" (method A rows, method B cols)')
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "table":
@@ -135,7 +149,7 @@ def main(argv=None):
     except (ValueError, ZeroDivisionError) as e:
         sys.exit(str(e))
     if a.json:
-        print(json.dumps(res, ensure_ascii=False, indent=1, default=str))
+        print(json.dumps(json_safe(res), ensure_ascii=False, indent=1, default=str, allow_nan=False))
         return 0
     if a.cmd == "table":
         print("              reference +   reference -")

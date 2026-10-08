@@ -86,6 +86,8 @@ def main(argv=None):
     p.add_argument("--tc", type=float, required=True)
     p.add_argument("--hdl", type=float, required=True)
     p.add_argument("--tg", type=float, required=True)
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     if a.cmd == "stats":
         res = stats(a.values)

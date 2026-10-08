@@ -97,6 +97,8 @@ def main(argv=None):
     r.add_argument("--ml-per-vial", type=float, default=30.0,
                    help="mL fetal whole blood covered by one vial (default 30 for 300 ug, 512303 §3.3; check product insert)")
     r.add_argument("--extra-vials", type=int, default=1, help="safety vials added after rounding (default 1, 512303 §3.3)")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "units":

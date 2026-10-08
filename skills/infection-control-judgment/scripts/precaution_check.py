@@ -170,6 +170,8 @@ def main(argv=None):
     p = sub.add_parser("sequence", help="check a don/doff order")
     p.add_argument("--don", required=True, help="comma list, e.g. gown,mask,gloves")
     p.add_argument("--doff", required=True, help="comma list, e.g. gloves,gown,mask,hand-hygiene")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     if a.cmd == "plan":
         routes, soap = set(a.route), False

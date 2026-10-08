@@ -170,6 +170,8 @@ def main(argv=None):
     p.add_argument("--spec", type=float, help="fraction, same for every test")
     p.add_argument("--tests", type=int, default=1, help="number of serial positive tests")
     p.add_argument("--test", action="append", help="SENS,SPEC per test, in order (overrides --sens/--spec)")
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "syphilis":

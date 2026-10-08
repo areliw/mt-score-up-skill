@@ -199,6 +199,10 @@ def main(argv=None):
     p.add_argument("--low", type=float, default=20.0, help="teaching default 20 (503402 §5)")
     p.add_argument("--high", type=float, default=100.0, help="teaching default 100 (503402 §5)")
 
+    for _sp in sub.choices.values():  # also accept --json after the subcommand, as the examples show
+
+        _sp.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="print JSON")
+
     a = ap.parse_args(argv)
     try:
         if a.cmd == "indices":

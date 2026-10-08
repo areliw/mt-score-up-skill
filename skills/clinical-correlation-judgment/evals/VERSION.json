@@ -1,0 +1,14 @@
+{
+ "skill": "clinical-correlation-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "source conflict: DB/TB bands across card/505402/510416 (owner did not know -> decide from data)",
+   "evidence": "added R ratio (ACG 2014 DILI; LiverTox RUCAM manual NBK548272); 510416 Case 8 -> hepatocellular",
+   "gate": "pass (bug fix, rung unchanged)"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

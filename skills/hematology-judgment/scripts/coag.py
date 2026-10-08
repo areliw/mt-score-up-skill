@@ -21,7 +21,7 @@ ADVISORY ONLY: patterns point to a differential; the lab SOP, factor assays and 
                                index <= cutoff = corrected (index: Rosner et al., Thromb Haemost 1987; cutoff = lab's)
   citrate-hct only when Hct > 55% (card trap #10; 503402 §6):
                 digest  citrate mL = std_citrate_mL x (100 - Hct) / 55       (503402 §6, std 0.5 mL teaching default)
-                clsi    citrate mL = 0.00185 x (100 - Hct) x blood mL         (CLSI H21 form; published variant)
+                clsi    citrate mL = 0.00185 x (100 - Hct) x blood mL         (CLSI H21 form; DEFAULT since 2026-10-08)
 
 Examples
   python coag.py pattern --pt 18.2 --pt-uln 14.5 --aptt 31 --aptt-uln 35 --tt normal
@@ -134,7 +134,7 @@ def mixing(mix, uln=None, patient=None, npp=None, rosner_cutoff=None):
             "verdict": verdict}
 
 
-def citrate_hct(hct, formula="digest", std_citrate_ml=0.5, blood_ml=4.5, threshold=55.0):
+def citrate_hct(hct, formula="clsi", std_citrate_ml=0.5, blood_ml=4.5, threshold=55.0):
     if not 0 < hct < 100:
         raise ValueError("Hct must be a percentage between 0 and 100")
     if hct <= threshold:
@@ -144,10 +144,10 @@ def citrate_hct(hct, formula="digest", std_citrate_ml=0.5, blood_ml=4.5, thresho
         ml = std_citrate_ml * (100 - hct) / 55
         expr = "%g x (100 - %g) / 55" % (std_citrate_ml, hct)
         ref = std_citrate_ml
-    else:
+    else:  # default since 2026-10-08: CLSI H21 form, used by LabCorp, ARUP, Mayo and CAP Today
         ml = 0.00185 * (100 - hct) * blood_ml
         expr = "0.00185 x (100 - %g) x %g" % (hct, blood_ml)
-        ref = None
+        ref = blood_ml / 9  # citrate already in a 9:1 tube for this blood volume
     res = {"inputs": {"hct_pct": hct, "formula": formula}, "adjust": True,
            "citrate_ml": ml, "expression": expr,
            "verdict": ("Hct > %g%% -> plasma volume is low; use %.3f mL citrate (less than standard) "
@@ -191,7 +191,8 @@ def main(argv=None):
     p.add_argument("--rosner-cutoff", type=float, help="lab cut-off for the Rosner index")
     p = sub.add_parser("citrate-hct", help="citrate volume when Hct > 55%%")
     p.add_argument("--hct", type=float, required=True)
-    p.add_argument("--formula", choices=["digest", "clsi"], default="digest")
+    p.add_argument("--formula", choices=["clsi", "digest"], default="clsi",
+                   help="clsi = CLSI H21 C=0.00185x(100-Hct)xV (default); digest = 503402 §6 teaching form")
     p.add_argument("--std-citrate-ml", type=float, default=0.5, help="teaching default 0.5 mL (503402 §6)")
     p.add_argument("--blood-ml", type=float, default=4.5, help="blood volume for the clsi form (default 4.5)")
     a = ap.parse_args(argv)

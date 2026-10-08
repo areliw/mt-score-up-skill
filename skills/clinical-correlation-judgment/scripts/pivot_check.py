@@ -119,7 +119,42 @@ def jaundice(db=None, tb=None, ratio=None):
     return {"ratio": ratio, "readings": readings, "sources_agree": agree,
             "verdict": ("sources agree: %s" % next(iter(cats))) if agree else
             "SOURCES DISAGREE / boundary zone -> the ratio cannot decide; use the enzyme pattern (AST/ALT vs "
-            "ALP/GGT) + clinical context (card Fork 1)"}
+            "ALP/GGT) + clinical context (card Fork 1)",
+            "next": "DB/TB separates unconjugated (< 0.20) from conjugated only; hepatocellular vs cholestatic "
+                    "-> run: pivot_check.py liver --alt .. --alt-uln .. --alp .. --alp-uln .. (R ratio)"}
+
+
+def liver_pattern(alt, alt_uln, alp, alp_uln):
+    """Injury pattern from the R ratio = (ALT/ULN) / (ALP/ULN), with the lab's own ULNs.
+
+    Convention (ACG 2014 DILI guideline; LiverTox/RUCAM manual, NBK548272): R >= 5 hepatocellular,
+    R <= 2 cholestatic, 2 < R < 5 mixed. RUCAM writes the bounds strictly (> 5 / < 2), so an R of exactly
+    5 or 2 is flagged. Shortcuts from the same manual: ALT > 2xULN with ALP normal = hepatocellular, and
+    ALP > 2xULN with ALT normal = cholestatic (no ratio needed). Use same-day values.
+    Added 2026-10-08: the owner could not settle the DB/TB bands and our three sources disagree; the
+    R ratio is the standard way to split hepatocellular from cholestatic (510416 Case 8: ALT 1220,
+    ALP 111 normal, DB/TB 0.58 -> hepatocellular DILI, which the card's DB/TB band calls post-hepatic).
+    """
+    for v, name in ((alt, "ALT"), (alt_uln, "ALT ULN"), (alp, "ALP"), (alp_uln, "ALP ULN")):
+        if v is None or v <= 0:
+            raise ValueError("%s must be > 0 (use the lab's own reference limits)" % name)
+    alt_x, alp_x = alt / alt_uln, alp / alp_uln
+    if alt_x > 2 and alp_x <= 1:
+        return {"alt_x_uln": alt_x, "alp_x_uln": alp_x, "r": None, "pattern": "hepatocellular",
+                "how": "shortcut: ALT > 2xULN with ALP normal (RUCAM manual)", "boundary": False}
+    if alp_x > 2 and alt_x <= 1:
+        return {"alt_x_uln": alt_x, "alp_x_uln": alp_x, "r": None, "pattern": "cholestatic",
+                "how": "shortcut: ALP > 2xULN with ALT normal (RUCAM manual)", "boundary": False}
+    r = alt_x / alp_x
+    if r >= 5:
+        pattern = "hepatocellular"
+    elif r <= 2:
+        pattern = "cholestatic"
+    else:
+        pattern = "mixed"
+    boundary = abs(r - 5) < 1e-9 or abs(r - 2) < 1e-9
+    return {"alt_x_uln": alt_x, "alp_x_uln": alp_x, "r": r, "pattern": pattern,
+            "how": "R = (ALT/ULN) / (ALP/ULN) = %.2f / %.2f" % (alt_x, alp_x), "boundary": boundary}
 
 
 def main(argv=None):
@@ -142,10 +177,17 @@ def main(argv=None):
     p.add_argument("--db", type=float, help="direct bilirubin")
     p.add_argument("--tb", type=float, help="total bilirubin (same unit)")
     p.add_argument("--ratio", type=float, help="DB/TB as a fraction (0-1) if already computed")
+    p = sub.add_parser("liver", help="R ratio: hepatocellular / mixed / cholestatic")
+    p.add_argument("--alt", type=float, required=True)
+    p.add_argument("--alt-uln", type=float, required=True, help="your lab's ALT upper reference limit")
+    p.add_argument("--alp", type=float, required=True)
+    p.add_argument("--alp-uln", type=float, required=True, help="your lab's ALP upper reference limit")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "anemia":
             res = anemia(a.mcv, a.ferritin, a.tibc, a.sat, a.serum_iron, a.hba2, a.mcv_low, a.mcv_high, a.hba2_cut)
+        elif a.cmd == "liver":
+            res = liver_pattern(a.alt, a.alt_uln, a.alp, a.alp_uln)
         else:
             res = jaundice(a.db, a.tb, a.ratio)
     except ValueError as e:
@@ -161,11 +203,17 @@ def main(argv=None):
             print("  CAVEAT: " + c)
         print("KEEP OPEN: " + "; ".join(res["keep_open_ddx"]))
         print("GUARD: " + res["anchoring_guard"])
+    elif a.cmd == "liver":
+        print("ALT %.2f x ULN · ALP %.2f x ULN" % (res["alt_x_uln"], res["alp_x_uln"]))
+        print("PATTERN: %s  (%s)" % (res["pattern"].upper(), res["how"]))
+        if res["boundary"]:
+            print("  NOTE: R exactly on a bound - RUCAM writes > 5 / < 2, so this case is 'mixed' under RUCAM")
     else:
         print("DB/TB = %.2f (%.0f%%)" % (res["ratio"], res["ratio"] * 100))
         for src, r in res["readings"].items():
             print("  %-18s %s" % (src, r["label"]))
         print("VERDICT: " + res["verdict"])
+        print("NEXT: " + res["next"])
     print("ADVISORY: MT correlates and flags; diagnosis belongs to the physician - confirm per SOP and references.")
     return 0
 

@@ -96,8 +96,9 @@ def group_from_antibodies(anti_a, anti_b):
 
 
 # ------------------------------------------------------------------ RhD (512303 §3.2, card Fork 9)
-def interpret_rh(anti_d, d_ahg=None, role="patient", forward_min=2, auto=None):
+def interpret_rh(anti_d, d_ahg=None, role="patient", forward_min=2, auto=None, ccc=None):
     d, w = parse_grade(anti_d), parse_grade(d_ahg)
+    cc = parse_grade(ccc)
     out = {"anti_d": anti_d, "d_ahg": d_ahg, "role": role, "d_status": "not tested",
            "label_as": None, "transfuse_as": None, "notes": []}
     if d is None:
@@ -116,7 +117,20 @@ def interpret_rh(anti_d, d_ahg=None, role="patient", forward_min=2, auto=None):
     elif pos(w):
         out["d_status"] = "WEAK D (negative at IS, positive at 37C/AHG)"
     elif w is not None:
-        out.update(d_status="D-NEGATIVE", label_as="D-negative", transfuse_as="D-negative")
+        # a negative AHG read is valid only when Coombs control cells (CCC) then agglutinate
+        # (owner's lab flow 2026-10-08: IS anti-D neg -> 37C -> AHG -> microscope -> CCC)
+        if cc is not None and not pos(cc):
+            out.update(d_status="INVALID AHG (CCC negative)", label_as="repeat weak-D test",
+                       transfuse_as="D-negative" if role != "donor" else None)
+            out["notes"].append("CCC did not agglutinate -> AHG reagent missing/neutralised or poor washing; the negative "
+                                "AHG read is NOT valid - repeat the weak-D test (owner's lab flow 2026-10-08)")
+            return out
+        out.update(d_status="D-NEGATIVE (tested through AHG)", label_as="D-negative", transfuse_as="D-negative")
+        if cc is None:
+            out["notes"].append("CCC result not recorded: confirm Coombs control cells agglutinated before "
+                                "accepting this negative AHG read")
+        out["notes"].append("Thai Red Cross may confirm D status by RHD genotyping; Asian-type DEL stays D-negative "
+                            "even at AHG and is found only by adsorption-elution or genotyping (owner 2026-10-08)")
         return out
     else:  # IS negative, weak-D test not done
         if role == "donor":
@@ -127,7 +141,8 @@ def interpret_rh(anti_d, d_ahg=None, role="patient", forward_min=2, auto=None):
             out["notes"].append("pregnant woman: weak-D test is needed for the RhIG decision (512303 §3.2)")
         else:
             out.update(d_status="D-NEGATIVE", label_as="D-negative", transfuse_as="D-negative")
-            out["notes"].append("patient: weak-D test not required - give D-negative (512303 §3.2)")
+            out["notes"].append("patient: weak-D test not required - give D-negative (512303 §3.2); many labs still "
+                                "take every IS-negative through 37C/AHG with CCC (owner's lab flow 2026-10-08)")
         return out
     # weak D handling depends on who the cells belong to
     if role == "donor":
@@ -136,6 +151,8 @@ def interpret_rh(anti_d, d_ahg=None, role="patient", forward_min=2, auto=None):
     else:
         out.update(label_as="weak D (report wording per SOP)", transfuse_as="D-negative")
         out["notes"].append("patient weak/partial D -> transfuse D-NEGATIVE (partial D can make anti-D) (512303 §3.2; card Fork 9)")
+        out["notes"].append("send for RHD genotyping (Thai population: Asian-type DEL and other RHD variants); "
+                            "which team confirms depends on your network (owner 2026-10-08)")
         out["notes"].append("510403 §3.1 reports weak D as 'Rh positive' with no donor/patient split - for transfusing a patient the role-specific rule above applies")
         if role == "prenatal":
             out["notes"].append("pregnant: RhIG decision per SOP/physician; consider RHD genotyping (card Fork 9)")
@@ -144,7 +161,7 @@ def interpret_rh(anti_d, d_ahg=None, role="patient", forward_min=2, auto=None):
 
 # ------------------------------------------------------------------ ABO typing (512303 §8, card Fork 1)
 def interpret_type(anti_a, anti_b, a1_cells=None, b_cells=None, o_cells=None, auto=None,
-                   anti_d=None, d_ahg=None, role="patient", neonate=False, forward_min=2, reverse_min=1):
+                   anti_d=None, d_ahg=None, role="patient", neonate=False, forward_min=2, reverse_min=1, ccc=None):
     fa, fb = parse_grade(anti_a), parse_grade(anti_b)
     ra, rb, ro, au = parse_grade(a1_cells), parse_grade(b_cells), parse_grade(o_cells), parse_grade(auto)
     if fa is None or fb is None:
@@ -171,12 +188,12 @@ def interpret_type(anti_a, anti_b, a1_cells=None, b_cells=None, o_cells=None, au
         res["status"] = "FORWARD-ONLY"
         res["issue_while_unresolved"] = ("neonate: serum grouping is not valid before ~3-6 months (512303 §2.4); "
                                          "follow the neonatal protocol (card scope note)")
-        res["rh"] = interpret_rh(anti_d, d_ahg, role, forward_min, auto)
+        res["rh"] = interpret_rh(anti_d, d_ahg, role, forward_min, auto, ccc)
         return res
     if ra is None or rb is None:
         res["status"] = "INCOMPLETE"
         res["issue_while_unresolved"] = "reverse grouping (A1 and B cells) is required to assign a group"
-        res["rh"] = interpret_rh(anti_d, d_ahg, role, forward_min, auto)
+        res["rh"] = interpret_rh(anti_d, d_ahg, role, forward_min, auto, ccc)
         return res
 
     anti_A, anti_B = pos(ra), pos(rb)
@@ -244,7 +261,7 @@ def interpret_type(anti_a, anti_b, a1_cells=None, b_cells=None, o_cells=None, au
     # de-duplicate, keep order
     seen = set()
     res["candidate_causes"] = [c for c in causes if not (c in seen or seen.add(c))]
-    res["rh"] = interpret_rh(anti_d, d_ahg, role, forward_min, auto)
+    res["rh"] = interpret_rh(anti_d, d_ahg, role, forward_min, auto, ccc)
     return res
 
 
@@ -354,6 +371,7 @@ def main(argv=None):
     t.add_argument("--auto", help="autocontrol, if tested")
     t.add_argument("--anti-d")
     t.add_argument("--d-ahg", help="weak-D test (37C/AHG) result, if done")
+    t.add_argument("--ccc", help="Coombs control cells after a negative AHG read (must agglutinate)")
     t.add_argument("--role", choices=["patient", "donor", "prenatal"], default="patient")
     t.add_argument("--neonate", action="store_true", help="forward only (serum grouping not valid yet)")
     t.add_argument("--forward-min", type=float, default=2, help="forward grade below this = weak (default 2)")
@@ -366,7 +384,7 @@ def main(argv=None):
     try:
         if a.cmd == "type":
             res = interpret_type(a.anti_a, a.anti_b, a.a1_cells, a.b_cells, a.o_cells, a.auto, a.anti_d, a.d_ahg,
-                                 a.role, a.neonate, a.forward_min, a.reverse_min)
+                                 a.role, a.neonate, a.forward_min, a.reverse_min, a.ccc)
         else:
             comps = COMPONENTS if a.component == "all" else [a.component]
             res = [compat(a.recipient, k, a.rh) for k in comps]

@@ -147,3 +147,48 @@ def test_must_fail_control_anchoring_allowed(monkeypatch):
     monkeypatch.setattr(dx, "MIN_DDX", 1)
     with pytest.raises(AssertionError):
         test_single_ddx_is_anchoring()
+
+
+# ================================================================ R ratio (added 2026-10-08)
+# Convention: ACG 2014 DILI guideline / LiverTox RUCAM manual (NBK548272): R = (ALT/ULN)/(ALP/ULN);
+# >= 5 hepatocellular, <= 2 cholestatic, between = mixed; shortcuts ALT>2xULN & ALP normal ->
+# hepatocellular, ALP>2xULN & ALT normal -> cholestatic. ULNs below (ALT 40, ALP 120 U/L) are
+# TEACHING values, not from a source - the tool always takes the lab's own limits.
+import pivot_check as pc  # noqa: E402
+
+
+def test_case8_dili_is_hepatocellular_by_enzymes():
+    # 510416 Case 8: ALT 1220, AST 577, ALP 111 (normal), DB/TB 0.58 -> hepatocellular DILI.
+    r = pc.liver_pattern(1220, 40, 111, 120)
+    assert r["pattern"] == "hepatocellular" and r["r"] is None      # shortcut: ALT 30.5x, ALP normal
+    # the card's DB/TB band alone would have said post-hepatic -> the jaundice read points to `liver`
+    assert pc.jaundice(ratio=0.58)["readings"]["card (heuristic)"]["category"] == "post"
+    assert "liver" in pc.jaundice(ratio=0.58)["next"]
+
+
+def test_r_ratio_bands_by_hand():
+    # ALT 200/40 = 5.0x, ALP 180/120 = 1.5x -> R = 3.33 -> mixed
+    assert pc.liver_pattern(200, 40, 180, 120)["pattern"] == "mixed"
+    # ALT 400/40 = 10x, ALP 240/120 = 2x -> R = 5.0 exactly -> hepatocellular, flagged as boundary
+    r = pc.liver_pattern(400, 40, 240, 120)
+    assert r["pattern"] == "hepatocellular" and r["boundary"] is True
+    # ALT 90/40 = 2.25x, ALP 360/120 = 3x -> R = 0.75 -> cholestatic
+    assert pc.liver_pattern(90, 40, 360, 120)["pattern"] == "cholestatic"
+    # shortcut the other way: ALP 400/120 = 3.3x, ALT 30/40 normal -> cholestatic
+    assert pc.liver_pattern(30, 40, 400, 120)["pattern"] == "cholestatic"
+
+
+def test_liver_pattern_rejects_missing_uln():
+    with pytest.raises(ValueError):
+        pc.liver_pattern(100, 0, 120, 120)
+
+
+def test_must_fail_control_ratio_without_uln(monkeypatch):
+    """Inject the trap: raw ALT/ALP without dividing by each ULN. The hand-worked bands must go red."""
+    def raw_ratio(alt, alt_uln, alp, alp_uln):
+        r = alt / alp
+        return {"alt_x_uln": alt, "alp_x_uln": alp, "r": r, "boundary": False,
+                "pattern": "hepatocellular" if r >= 5 else ("cholestatic" if r <= 2 else "mixed")}
+    monkeypatch.setattr(pc, "liver_pattern", raw_ratio)
+    with pytest.raises(AssertionError):
+        test_r_ratio_bands_by_hand()

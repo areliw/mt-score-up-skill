@@ -1,0 +1,14 @@
+{
+ "skill": "bloodbank-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "FAIL: owner lesson (LESSONS.jsonl)",
+   "evidence": "CCC validation + RHD genotyping note; RhIG rounding confirmed vs Mayo Clinic Labs test FMB",
+   "gate": "pass (bug fix, rung unchanged)"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

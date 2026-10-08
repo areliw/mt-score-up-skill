@@ -261,10 +261,10 @@ def test_mixing_criteria():
 
 def test_citrate_for_high_hct():
     # digest: 0.5 x (100 - 65)/55 = 17.5/55 = 0.318182 mL ; Hct 60 -> 20/55 = 0.363636 mL
-    assert coag.citrate_hct(65)["citrate_ml"] == pytest.approx(0.318182, abs=1e-6)
-    assert coag.citrate_hct(60)["citrate_ml"] == pytest.approx(0.363636, abs=1e-6)
-    # CLSI form: 0.00185 x 35 x 4.5 = 0.291375 mL
-    assert coag.citrate_hct(65, formula="clsi")["citrate_ml"] == pytest.approx(0.291375)
+    assert coag.citrate_hct(65, formula="digest")["citrate_ml"] == pytest.approx(0.318182, abs=1e-6)
+    assert coag.citrate_hct(60, formula="digest")["citrate_ml"] == pytest.approx(0.363636, abs=1e-6)
+    # CLSI form (default): 0.00185 x 35 x 4.5 = 0.291375 mL
+    assert coag.citrate_hct(65)["citrate_ml"] == pytest.approx(0.291375)
     # Hct 55 is not > 55 -> no adjustment
     assert coag.citrate_hct(55)["adjust"] is False
 
@@ -287,3 +287,19 @@ def test_cli_prints_advisory_and_json(mod, args, capsys):
     assert "ADVISORY" in capsys.readouterr().out
     assert mod.main(["--json"] + args) == 0
     assert "ADVISORY" in json.loads(capsys.readouterr().out)["advisory"]
+
+
+def test_citrate_clsi_matches_arup_worked_example():
+    # ARUP worked example (CLSI H21 form): Hct 60 %, 2.7 mL tube -> blood 2.43 mL, citrate 0.27 mL;
+    # C = 0.00185 x 40 x 2.43 = 0.17982 ~ 0.18 mL -> remove 0.27 - 0.18 = 0.09 mL
+    r = coag.citrate_hct(60, blood_ml=2.43)
+    assert r["citrate_ml"] == pytest.approx(0.17982, abs=1e-5)
+    assert r["remove_from_standard_ml"] == pytest.approx(0.09, abs=0.001)
+
+
+def test_must_fail_control_digest_form_as_default(monkeypatch):
+    """Inject the old default (digest form). The ARUP/CLSI oracle must go red."""
+    real = coag.citrate_hct
+    monkeypatch.setattr(coag, "citrate_hct", lambda hct, formula="digest", **k: real(hct, formula, **k))
+    with pytest.raises(AssertionError):
+        test_citrate_clsi_matches_arup_worked_example()

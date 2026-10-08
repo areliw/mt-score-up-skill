@@ -335,3 +335,33 @@ def test_must_fail_control_standard_dose_regardless_of_bleed(monkeypatch):
 def test_cli_prints_advisory(mod, args, capsys):
     assert mod.main(args) == 0
     assert "ADVISORY:" in capsys.readouterr().out
+
+
+# ================================================================ owner lab flow 2026-10-08
+# Owner: IS anti-D negative -> incubate 37C -> AHG -> read under the microscope -> Coombs control
+# cells (CCC); still negative -> report D-negative through AHG; Thai Red Cross confirms by genotype.
+# Standard practice: a negative AHG read is valid only if the IgG-coated CCC then agglutinate.
+def test_ahg_negative_valid_only_with_ccc():
+    ok = abo_rh.interpret_rh("0", d_ahg="0", role="patient", ccc="2+")
+    assert ok["d_status"] == "D-NEGATIVE (tested through AHG)" and ok["label_as"] == "D-negative"
+    bad = abo_rh.interpret_rh("0", d_ahg="0", role="patient", ccc="0")
+    assert bad["d_status"].startswith("INVALID AHG") and bad["label_as"] == "repeat weak-D test"
+    assert bad["transfuse_as"] == "D-negative"                     # patient stays safe while repeating
+    donor = abo_rh.interpret_rh("0", d_ahg="0", role="donor", ccc="0")
+    assert donor["transfuse_as"] is None                           # never label a donor unit off an invalid read
+    missing = abo_rh.interpret_rh("0", d_ahg="0", role="patient")
+    assert any("CCC result not recorded" in n for n in missing["notes"])
+
+
+def test_patient_weak_d_is_sent_for_genotyping():
+    r = abo_rh.interpret_rh("0", d_ahg="2+", role="patient")
+    assert r["transfuse_as"] == "D-negative"
+    assert any("RHD genotyping" in n for n in r["notes"])
+
+
+def test_must_fail_control_ccc_ignored(monkeypatch):
+    """Inject the trap: accept a negative AHG read without checking the Coombs control cells."""
+    real = abo_rh.interpret_rh
+    monkeypatch.setattr(abo_rh, "interpret_rh", lambda *a, **k: real(*a, **{**k, "ccc": None}))
+    with pytest.raises(AssertionError):
+        test_ahg_negative_valid_only_with_ccc()

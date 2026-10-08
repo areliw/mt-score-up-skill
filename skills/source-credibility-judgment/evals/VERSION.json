@@ -1,0 +1,10 @@
+{
+ "skill": "source-credibility-judgment",
+ "history": [
+  {"v": 2, "date": "2026-10-08", "trigger": "GAP: G2 craft missing (forks and traps existed, but no ordered steps / assessment-record template / definition of done for the verdict the card produces)", "evidence": "skills/source-credibility-judgment.md: + ## ผลงานที่ต้องส่ง (7 gated steps mapped to Forks 1-6, 8-row assessment record, DoD); no script on purpose: weighting a source is a judgment and any numeric score would be invented; existing card text only added to (git diff: 0 deleted body lines); last_edited bumped to 2026-10-08; status stays draft", "gate": "pass"}
+ ],
+ "sources": [
+  {"ref": "skills/source-credibility-judgment.md Forks 1-6 + anti-patterns (the card's own content; Retraction Watch / PubMed retraction notices are named in Fork 5 as the lookup places)", "last_verified": "2026-10-08"}
+ ],
+ "telemetry": {}
+}

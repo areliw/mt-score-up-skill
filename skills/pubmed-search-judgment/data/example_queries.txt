@@ -1,0 +1,14 @@
+# TEACHING EXAMPLES (not search results; no patient data). One query per line: "label<TAB>query".
+# Run one:  python scripts/pubmed_query_check.py "<query>" [--question diagnostic]
+# Verdicts below are what pubmed_query_check.py prints for them (see evals/test_pubmed_query_check.py).
+OK (card Fork 5 example; 1 WARN: concept 1 is MeSH only)	(thalassemia[mh]) AND (machine learning[tiab] OR deep learning[tiab])
+OK (card Fork 2 example, synonyms grouped with OR)	(thalassemia[mh] OR thalassaemia[tiab])
+OK (year range)	2018:2026[dp]
+ERROR (OR and AND at one level: PubMed reads left to right)	thalassemia[mh] OR anemia[mh] AND screening[tiab]
+ERROR (whole question typed as a sentence)	what is the best test for thalassemia screening in pregnant women
+ERROR (RCT-only filter on a diagnostic-accuracy question)	(thalassemia[mh]) AND (sensitivity[tiab] OR specificity[tiab]) AND randomized controlled trial[pt]
+ERROR (range runs backwards)	thalassemia[mh] AND 2026:2020[dp]
+ERROR (parenthesis not closed)	(thalassemia[mh] OR thalassaemia[tiab] AND screening[tiab]
+WARN (lowercase and is not an operator)	thalassemia[mh] and screening[tiab]
+WARN (anemia without anaemia in a keyword concept)	(anemia[tiab]) AND (screening[tiab] OR mass screening[tiab])
+WARN (4 concepts)	(a[tiab]) AND (b[tiab]) AND (c[tiab]) AND (d[tiab])

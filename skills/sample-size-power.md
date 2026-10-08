@@ -4,8 +4,8 @@ title: หาขนาดตัวอย่าง N ด้วย power analysis 
 type: ADVISE               # ช่วยคำนวณ/ตัดสินใจ N ไม่ได้รันสถิติให้
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: semi-stable
+last_edited: 2026-10-08
+status: draft
 disclaimer: "ช่วยประมาณ N เบื้องต้นด้วยสูตรมาตรฐานเพื่อการศึกษา/ช่วยคิด — ตัวเลขจริงควรยืนยันด้วย G*Power/R และปรึกษานักสถิติก่อนยื่น EC/ตีพิมพ์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง (รวมถึง assumption ที่ใส่) · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -14,6 +14,13 @@ disclaimer: "ช่วยประมาณ N เบื้องต้นด้�
 จะเก็บข้อมูลกี่คนถึงจะ "พอ" → คำนวณ N **ก่อนเก็บ (a priori)** จาก effect size ที่ "มีเหตุผล" + ตรึง 4 คันโยก (effect, α, power, ความแปรปรวน) แล้วแก้หา N — ไม่ใช่ "เก็บได้เท่าไหร่เอาเท่านั้น"
 
 > กฎเหล็ก: effect size เอามาจาก clinically meaningful > literature > pilot (conservative). กับดักที่ฆ่างานบ่อยสุด = **เลือก effect ใหญ่ตามความหวังให้ N เล็ก** หรือ **เก็บได้เท่าไหร่แล้วหาเหตุผลย้อนหลัง** → underpowered ของจริง (หาไม่เจอทั้งที่มีอยู่ = เสียเวลาเปล่า) + reviewer/EC ตีกลับ. ส่วน N เยอะเกิน = เปลืองคน/เงิน + เจอ "นัยสำคัญ" จิ๊บจ๊อยไร้ความหมายคลินิก. รายงาน N ต้องแนบ **ที่มา effect size + assumption** เสมอ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ต้องได้ตัวเลข N → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตัดสินว่า assumption ที่ใส่เชื่อได้ไหม** (อย่าถือเครื่องคิดเลขกับ z ปัดเศษเอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/sample-size-power/scripts/`)
+- `python scripts/power_calc.py two-means --delta 5 --sd 10 --dropout 0.15` → พิมพ์สูตร, z ที่ใช้, `n_raw` (ยังไม่ปัด), `n` (ปัดขึ้น) และ N ที่ต้องรับเข้า · ซับคำสั่ง `prop-ci` (A) · `mean-ci` (B) · `two-means` (C) · `paired` (D) · `two-props` (E) · `corr` (F) · `dropout` (ขั้น 5) · เติม `--json` ได้ทุกคำสั่ง
+- `two-means`/`paired` พิมพ์ 3 บรรทัดให้เทียบ: normal-approx (สูตรในการ์ด) · `t-adjusted` (+ z²/4 หรือ z²/2 ใกล้ G*Power) · `Lehr 16/d²` — ต่างกัน ~1 คนเป็นเรื่องปกติ ไม่ใช่บั๊ก; ตัวเลขที่ลงเอกสารให้ยืนยันด้วย G*Power/R `pwr` (ขั้น 6)
+- `python scripts/power_calc.py se2sd --se 2 --n 25` → แปลง SE เป็น SD ก่อนใส่ช่อง σ (กับดัก "ใช้ SE แทน SD") · `posthoc` = **ปฏิเสธเสมอ** (กับดัก post-hoc power) · `--one-sided` ใช้ได้แต่ tool เตือนว่าต้องกำหนดทิศก่อนเห็นข้อมูล
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · effect size/SD/p เป็น argument ที่คุณต้องมีที่มาเอง · ทดสอบแล้ว: `evals/test_power_calc.py` (18 ข้อ เทียบตัวอย่างในการ์ด + Cohen 1988 Table 2.4.1/3.4.1 + G*Power; must-fail control 3 ตัว: dropout คูณ (1+rate), ใช้ SE เป็น SD, ใช้ z one-sided แทน two-sided → ต้องแดง)
 
 ## ใช้เมื่อ
 - กำลังเขียน proposal / ยื่น EC → ต้องระบุ N + วิธีคำนวณ
@@ -81,6 +88,27 @@ N ถูกกำหนดโดย 4 อย่าง ตรึง 4 แก้ N
 
 ---
 
+## ทางแยก (เลือกอะไรเมื่อไร)
+สรุปจุดตัดสินใจของ ขั้น 1–6 ข้างบนเป็นตารางเดียว (ไม่มีข้อเท็จจริงใหม่ — แค่ชี้ว่าทางไหนใช้สูตร/ซับคำสั่งไหน)
+
+| ถ้าโจทย์คือ | เลือก | ซับคำสั่ง | ระวัง |
+|---|---|---|---|
+| **ประมาณ**ความชุก/สัดส่วน (อยากได้ CI แคบ) | สูตร A | `prop-ci` | ไม่รู้ p → ใช้ 0.5 (N มากสุด ปลอดภัย) |
+| **ประมาณ**ค่าเฉลี่ย 1 กลุ่ม | สูตร B | `mean-ci` | ช่อง σ = SD ไม่ใช่ SE |
+| **เทียบ** 2 กลุ่มอิสระ ผลต่อเนื่อง | สูตร C | `two-means` | ได้ n **ต่อกลุ่ม** (รวม = ×2) |
+| **เทียบ**ก่อน–หลัง/จับคู่ | สูตร D | `paired` | ใช้ SD ของ**ผลต่าง** σ_d — มักเล็กกว่า → N น้อยกว่า two-sample |
+| **เทียบ** 2 สัดส่วน | สูตร E | `two-props` | ต้องมี p₁, p₂ คนละค่า; ผลต่างเล็ก N พุ่ง |
+| ความสัมพันธ์ 2 ตัวแปรต่อเนื่อง | สูตร F | `corr` | r ที่ตั้งต้องมีที่มา ไม่ใช่ r ที่หวัง |
+| ยังไม่รู้ test ที่จะใช้ | หยุด → `choose-stat-test` ก่อน | — | N ขึ้นกับ test (ขั้น 1) |
+
+- **effect size ไม่มีที่มา** → ลำดับ: clinically meaningful > literature > pilot (ใช้แบบ conservative) · ไม่มีอะไรเลยจริงๆ ค่อยใช้ Cohen benchmark (d 0.2/0.5/0.8, r 0.1/0.3/0.5) และเขียนว่าเป็น benchmark
+- **N ออกมาเก็บไม่ไหว** → ปรับ**ที่ design** (เช่น paired ถ้า σ_d เล็กกว่าจริง ตามสูตร D) หรือยอมรับ power ต่ำพร้อมบอกตรงๆ · ❌ ห้ามปรับ effect ให้ใหญ่ขึ้นเพื่อให้ N เล็ก
+- **หลาย hypothesis** → "อย่างน้อย 1 บวก" ต้อง α-control ล่วงหน้า · co-primary ที่ต้องผ่านทุก endpoint ไม่ inflate Type-I (power ตกแทน)
+- **ผลออกมาไม่ significant แล้วอยากรู้ว่า N พอไหม** → ❌ ห้าม post-hoc power · ใช้ CI ของ effect (เครื่องมือ `posthoc` ปฏิเสธ)
+- **ตัวเลขจากสูตรนี้ vs G*Power ต่างกัน ~1 คน** → ปกติ (normal approx ไม่รวมความหนาของหาง t) · ลงเอกสารด้วยตัวที่ยืนยันกับ G*Power แล้ว และเขียนว่าใช้ตัวไหน
+
+---
+
 ## กับดัก (Anti-patterns)
 - **Post-hoc / observed power** — คำนวณ power *หลัง*ได้ผลไม่ significant เพื่ออธิบายว่า "เพราะ N น้อย" = วนซ้ำ ไร้ความหมาย ใช้ **CI** บอกความไม่แน่นอนแทน
 - **Convenience N แล้วหาเหตุผลย้อนหลัง** — "เก็บได้ 30" แล้วค่อยหาว่า 30 พอ → reviewer จับได้; ต้องคำนวณ **a priori** (ก่อนเก็บ)
@@ -91,6 +119,33 @@ N ถูกกำหนดโดย 4 อย่าง ตรึง 4 แก้ N
 - **ลืม dropout** — คำนวณเป๊ะแต่คนหายระหว่างทาง → จบแบบ underpowered
 - **หลาย hypothesis แบบ "อย่างน้อย 1 บวก" ไม่คุม multiplicity** → กำหนด α-control ล่วงหน้า (เพิ่ม N/แบ่ง α) · *แต่ co-primary ที่ต้องผ่าน **ทุก** endpoint ไม่ inflate Type-I (power ตกแทน)*
 - **ใช้ SE แทน SD** ในช่อง σ (SE = σ/√n เล็กกว่ามาก → N ผิดมหาศาล)
+
+---
+
+## ผลงานที่ต้องส่ง (ข้อความ sample-size justification สำหรับ protocol / EC)
+ผลลัพธ์ของ skill นี้ไม่ใช่แค่ตัวเลข N แต่คือ **ข้อความที่ reviewer/EC ตรวจย้อนได้** — ทำตามลำดับ ผ่านด่านทีละข้อ:
+1. **design + test** ตั้งแล้ว (ด่าน: ตอบได้ว่าเป็นประมาณค่าหรือเทียบ; ยังไม่รู้ test → `choose-stat-test` ก่อน)
+2. **effect size / p / σ พร้อมที่มา** (ด่าน: ที่มาเป็นข้อใดข้อหนึ่ง = clinically meaningful · literature (อ้างอิงได้) · pilot (conservative) — "หวังว่าจะต่าง" ไม่ผ่าน; ถ้าได้ SE มา → `se2sd` ก่อน)
+3. **ตรึง α และ power** (ด่าน: two-sided เว้นแต่ทิศถูกกำหนดก่อนเก็บข้อมูล)
+4. **รัน `scripts/power_calc.py`** (ด่าน: เก็บ `n_raw` + `n`; ตรวจซ้ำกับ G*Power/R `pwr` ต่างกันไม่เกิน ~1 คน; ถ้าเกิน → หาสาเหตุ ไม่ปัดเอง)
+5. **dropout** (ด่าน: N รับเข้า = n / (1 − อัตรา) ไม่ใช่ n × (1 + อัตรา))
+6. **เขียนข้อความตาม template** (ด่าน: ครบทุกช่อง ไม่มีช่องว่าง)
+
+Template (ค่าในวงเล็บเหลี่ยมเป็นตัวอย่างประกอบ — แทนด้วยค่าและที่มาของงานคุณ):
+```
+Sample size justification
+- Design / test        : [two independent groups, independent t-test]
+- Primary outcome      : [outcome, scale, unit]
+- Effect size          : [Δ = 5 units (d = 0.5)]   source: [clinically meaningful / ref. / pilot-conservative]
+- Variability          : [SD = 10]                 source: [ref. / pilot]   (confirmed SD, not SE)
+- alpha / power        : [0.05 two-sided / 0.80]
+- Calculation          : [power_calc.py two-means → n_raw = 62.8 → 63; G*Power → 64 per group]
+- Dropout              : [15%] -> enrol [64 / 0.85 = 75.3 -> 76 per group]
+- Total                : [152 enrolled]
+- Assumptions/limits   : [normal approximation; equal group sizes; ...]
+```
+ตัวอย่างประโยค: "With α = 0.05 (two-sided), power 80%, a clinically meaningful difference of [5] units and SD [10] (source: …), [64] participants per group are required (G*Power, independent t-test); allowing 15% dropout, [76] per group will be enrolled."
+- **นิยามว่าเสร็จ:** ครบ 9 ช่องของ template · ทุกตัวเลขตามรอยกลับไปที่ที่มาได้ · N ที่ลงเอกสารยืนยันกับเครื่องมือภายนอกแล้ว · ไม่มีการคำนวณ power หลังเก็บข้อมูล · บอกชัดว่าเป็น a priori
 
 ---
 

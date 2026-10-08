@@ -4,8 +4,8 @@ title: โค้ช ML — เลือกโมเดล/metric/validation ใ�
 type: ADVISE               # ช่วยตัดสินใจเลือก ไม่ใช่ที่ท่องสูตร
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: semi-stable
+last_edited: 2026-10-08
+status: draft
 disclaimer: "ช่วยคิดเลือกโมเดล/metric/validation + เลี่ยงกับดัก ML เพื่อการศึกษา ไม่ใช่คำแนะนำทางการจากที่ปรึกษา ML — ต้องตรวจผลและ assumption ก่อนเชื่อ โดยเฉพาะงานคลินิก · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -17,6 +17,14 @@ disclaimer: "ช่วยคิดเลือกโมเดล/metric/validati
 > **กับดัก #1:** **accuracy บน imbalanced หลอก** (โรคหายาก 2% → ทาย "ไม่โรค" หมด = acc 98% recall 0) → ใช้ precision/recall/F1 และ **PR-AUC** (ภายใต้ imbalance หนัก ROC-AUC สูงก็ยังหลอกได้ — PPV ร่วงตาม prevalence)
 > สูตร/algorithm ลึก (entropy, backprop, EM) ตำรา/AI มีหมดแล้ว — ที่ทำให้พังจริงคือ **เลือกผิด** กับ **กับดักที่ดูถูกแต่หลอก** · skill นี้เก็บสองอันนั้น
 > ภาพรวม "ควรทำโปรเจกต์ไหม + ล้มตรงไหน" ดู `data-project-survival` · "ใช้ test สถิติอะไร / N เท่าไร" ดู `choose-stat-test` + `sample-size-power`
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ได้ตัวเลข metric / ผล CV มาแล้วกำลังจะเชื่อ → **รันสคริปต์ก่อน แล้วค่อยตัดสินด้วย Fork 4 + กับดักข้างล่าง** (อย่าไล่ TP/FP หรือเดาว่า fold นี้มี minority ไหมด้วยตา) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/ml-judgment/scripts/`)
+- `python scripts/clf_metrics.py confusion --tp 0 --fp 0 --fn 2 --tn 98` → accuracy / precision / recall / specificity / F1 + **majority-baseline accuracy** และธง `ACCURACY-TRAP` เมื่อ accuracy ไม่ชนะการทาย majority (precision ที่หาร 0 พิมพ์ `None` ไม่ใช่ 0) · `from-csv FILE --true COL --pred COL` นับ TP/FP/FN/TN จากไฟล์ · เติม `--prevalence P` เพื่อดู PPV/NPV ที่ prevalence หน้างาน
+- `python scripts/clf_metrics.py ppv --sens 0.95 --spec 0.95 --prevalence 0.5 0.1 0.02` → PPV ร่วงตาม prevalence (กับดัก "ROC-AUC สูงแต่ precision ต่ำ") · `auc FILE --label COL --score COL` → ROC-AUC คู่กับ average precision (PR-AUC) และ AP ของ random scorer (= prevalence)
+- `python scripts/cv_check.py audit data.csv --target y --id-cols patient_id --folds 5` → class balance + baseline · **fold feasibility** (minority < k = บาง fold ไม่มี minority แม้ stratify) · ไฟล์เรียงตาม class จะเกิดอะไรถ้า split ไม่ shuffle · คอลัมน์ ID-like · feature เดี่ยวที่ตัดสิน target ได้เกือบสมบูรณ์ (AUC/purity → ถามว่ารู้ก่อน prediction time ไหม) · แถวซ้ำข้าม train/test (`--split-col`) · p > n ; `--strict` = exit 1 เมื่อมี ERROR · ธงเป็น screening ไม่ใช่คำตัดสิน
+- `python scripts/cv_check.py demo --seed 1` → ทดลอง null ของ ESL §7.10.2 (label ไม่เกี่ยวกับ 5,000 predictor): คัด feature บน data ทั้งก้อนแล้ว CV ได้ ~0.9–1.0 ("ทางผิด") เทียบคัดใน fold ได้ ~0.5 ("ทางถูก") — ใช้โชว์ว่า Fork 5 (p≫n) ไม่ใช่เรื่องทฤษฎี
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · เลือกโมเดล/paradigm/overfit-underfit/bagging-boosting (Fork 1–3, 5–6) = ยังเป็น judgment ไม่มี tool เพราะไม่มีกฎที่คำนวณได้ · ทดสอบแล้ว: `evals/test_ml_tools.py` (21 ข้อ เทียบสูตรใน digest 961701/229711, ตัวอย่าง cancer ของ Han-Kamber-Pei, ตัวอย่าง AUC/AP ของ scikit-learn, การทดลอง ESL §7.10.2 + must-fail control 4 ตัว: accuracy ไม่มี baseline · PPV ไม่ดู prevalence · ไม่ stratify · คัด feature นอก fold → ต้องแดง)
 
 ## ใช้เมื่อ
 - เลือกโมเดล / metric / validation scheme

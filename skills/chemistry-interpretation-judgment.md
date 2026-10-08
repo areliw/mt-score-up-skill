@@ -4,7 +4,7 @@ title: โค้ชแปลผลเคมีคลินิก — เลื�
 type: ADVISE               # ช่วยแปลผล/เลือก marker ไม่ใช่ตำราค่า analyte
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดแปลผลเคมีคลินิกเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — MT ตีความ/flag/ส่งต่อ การวินิจฉัยเป็นหน้าที่แพทย์ · ทุกผลต้อง correlate clinical + ทำตาม SOP/reference range ของห้องแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -19,6 +19,14 @@ disclaimer: "ช่วยคิดแปลผลเคมีคลินิก�
 > ⚠️ MT ตีความ/flag/ชี้ทาง — **การวินิจฉัยเป็นหน้าที่แพทย์**
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ต้องคิดเลข ABG/AG, eGFR/CrCl, BUN:Cr, AST:ALT, DB/TB, CK-MB index, Friedewald → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** (อย่าคิดเลขเอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/chemistry-interpretation-judgment/scripts/`)
+- `python scripts/abg.py --ph 7.31 --pco2 33 --hco3 16 --na 138 --k 3.9 --cl 113 --ag-ref <ช่วง AG ของแล็บ>` → ตาราง 5 ขั้น (Fork 5) + primary/compensation + AG + เช็ค Henderson-Hasselbalch · ช่วง ABG default = ค่าสอน (`--ph-ref` ฯลฯ ใส่ของแล็บ) · **AG จะไม่ถูกเรียกว่าสูง/ปกติจนกว่าใส่ `--ag-ref`** (ช่วงขึ้นกับเครื่อง + สูตรมี/ไม่มี K) · `--urine-cl` แยก saline-responsive/resistant · บรรทัด `CHECK` = ค่าไม่เข้ากัน → สงสัย pre-analytical ก่อนแปล
+- `python scripts/renal.py egfr --cr 1.0 --age 50 --sex M --weight 70` (CKD-EPI 2021 + Cockcroft-Gault) · `crcl --ucr --volume --hours --pcr --weight` (เช็คเก็บปัสสาวะไม่ครบจาก urine Cr mg/kg/day) · `bun-cr --bun --cr` (>20 = prerenal/GI bleed)
+- `python scripts/chem_patterns.py lft --ast --alt --dbil --tbil` (AST:ALT + DB/TB ตามแถบของการ์ด; ค่าที่ตกช่องว่าง 20–30% / 60–70% สคริปต์บอก "between bands" ไม่เดา) · `cardiac --ckmb --ck` / `--ctn0 --ctn1 --delta-cutoff <ของ assay>` · `ldl --tc --hdl --tg` (ปฏิเสธเมื่อ TG ≥ 400 หรือ non-fasting; เตือน underestimate เมื่อ TG ≥ 150)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_chemistry_interpretation_tools.py` (26 ข้อ รวม must-fail control 3 ตัว: เลือก primary จาก "ค่าที่ผิดปกติตัวแรก" แทน "ค่าที่ไปทางเดียวกับ pH", เชื่อ CrCl โดยไม่เช็คเก็บครบ, Friedewald ไม่กัน TG ≥ 400 — ต้องแดงทั้งหมด)
+- ⚠️ แหล่งไม่ตรงกัน (สคริปต์เลือกแล้ว แจ้งไว้): เกณฑ์ urine Cr ขั้นต่ำ — การ์ด ~15 mg/kg/day (default) vs digest เคมี 2 ใช้ 8.5 → ปรับ `--min-mgkg` ตาม SOP · Friedewald — การ์ดเขียน "TG > 400" แต่ digest lab ใช้ "≥ 400" → สคริปต์ใช้ ≥ 400 (เข้มกว่า)
 
 ## ใช้เมื่อ
 - อ่าน LFT/renal/cardiac/ABG/tumor marker แล้วต้องบอก pattern + ขั้นถัดไป

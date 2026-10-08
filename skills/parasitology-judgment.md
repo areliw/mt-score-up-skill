@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจในแล็บปรส�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' การตัดสินใจในแล็บปรสิตวิทยา เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รายงาน — ผลลบจาก stool/film ตัวอย่างเดียว 'ไม่ตัดโรคออก' การเลือก technique/stain/การตีความทุกครั้งต้องทำตาม SOP ของหน่วยงาน และยืนยันกับ MT ผู้รับผิดชอบ/แพทย์เสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,12 @@ disclaimer: "skill นี้ช่วย 'คิด' การตัดสิน
 > **กับดัก #1:** เลือก stain/technique ไม่ตรงเป้า แล้วมองข้ามเชื้อ — oocyst (Crypto/Cyclospora/Cystoisospora) ต้อง modified acid-fast · microsporidia spore ต้อง modified trichrome · ภูมิต่ำ/HIV ท้องเสีย = สั่ง 2 อย่างนี้ทันที (ย้อมธรรมดามองไม่เห็น)
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+คิด parasite density / EPG / วัดขนาดด้วย micrometer / เช็คว่าผลลบชุดนี้ "ตัดออก" ได้หรือยัง → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/parasitology-judgment/scripts/`)
+- `python scripts/negative_ruleout.py malaria --rules data/ruleout_rules_teaching.json --film 2026-10-01T08:00:100 --film 2026-10-01T20:30:100` → นับเฉพาะ film ที่อ่าน ≥100 thick field และห่างจากครั้งก่อน ≥12 ชม. (3 film เจาะพร้อมกัน = 1 ครั้ง) → ครบ 3 หรือยัง + เวลาครั้งถัดไป · `stool --target stool_ruleout --specimen 2026-10-01 ...` → 3 ตัวอย่างวันเว้นวัน · `--target e_histolytica` = 6 ตัวอย่าง (digest ไม่ระบุระยะห่าง → สคริปต์บอกว่าไม่ได้เช็ค)
+- `python scripts/parasite_calc.py density --parasites 50 --wbc-counted 200 --wbc-per-ul 8000 --switch-above 40000` (ปรสิต/µl = ปรสิต × WBC/µl ÷ WBC ที่นับ; 8,000 = ค่าสมมุติ ต้องระบุในรายงาน) · `epg --eggs 10 --smear-mg 41.7` · `calibrate --stage-div 10 --ocular-div 39` · `measure --ocular-div 2 --objective 40x --cal 40x=2.56 --cal 10x=9.9 --candidates data/oocyst_sizes_teaching.json` (ค่าต่อขีดต้องเป็นของ objective ที่ใช้วัด · ไม่เข้าช่วงไหน = คิดถึง artifact)
+- จำนวนครั้ง / ระยะห่าง / จำนวน field = ตัวเลข SOP ใส่ในไฟล์ rules เอง (`data/*_teaching.json` = ค่าสอนจากการ์ด + digest 317331) · output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_parasitology_judgment_tools.py` (16 ข้อ รวม must-fail control 3 ตัว: นับ film ไม่ดูระยะห่าง · ไม่เช็คจำนวน field · ใช้ค่า micrometer ของ 10x ตอนวัดที่ 40x — ต้องแดง)
 
 ## ใช้เมื่อ
 - "ตัวอย่างนี้ใช้ concentration ไหน?" · "ย้อมสีอะไรถึงจะเห็น?" · "malaria ดู film ไหน / ต้องตรวจซ้ำมั้ย?"

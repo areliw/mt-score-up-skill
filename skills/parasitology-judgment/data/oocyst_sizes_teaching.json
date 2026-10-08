@@ -1,0 +1,9 @@
+{
+ "_label": "TEACHING size ranges for acid-fast oocysts - from the 317331 digest high-yield #8. Use your atlas/SOP ranges for real work.",
+ "_src": "317331 digest EXAM-LIKELY #8: Cryptosporidium 4-6 um vs Cyclospora 8-10 um (modified acid-fast)",
+ "candidates": [
+  {"name": "Cryptosporidium oocyst", "min_um": 4, "max_um": 6},
+  {"name": "Cyclospora oocyst", "min_um": 8, "max_um": 10}
+ ],
+ "_calibration_example": "317331 digest §5.3 example factors: 10x -> 9.9 um/div, 40x -> 2.56 um/div (each objective calibrated separately)"
+}

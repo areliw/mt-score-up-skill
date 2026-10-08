@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจแล็บจุลชี�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-13
+last_edited: 2026-10-08
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บจุลชีววิทยาคลินิกเพื่อการศึกษา ไม่ตัดสินแทน และไม่ใช่คำสั่งวินิจฉัย/รักษา ทุกผลต้อง correlate กับ Gram stain + clinical + colony morphology และทำตาม SOP/QC ของห้องแล็บเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง ความผิดพลาดในการรายงานเชื้อก่อโรค/ความไวต่อยา อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -19,6 +19,14 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
 > 🛑 **RED FLAGS — เจอข้อใด = หยุด correlate Gram/clinical + escalate ก่อนรายงาน:** MDR alert (MRSA/VRE/ESBL/CRE/MDR-TB → report + IC + กรมควบคุมโรค/NARST) · AST ขัด Gram/ID (S แต่ดื้อจริง — AmpC / inducible-clinda / ESBL) · sterile site (blood/CSF) ขึ้นเชื้อ · contaminant-vs-pathogen ใน specimen สำคัญ · QC strain นอก range แต่จะรายงาน. — รายงานผิด = ยาผิด/ระบาด
+
+## เครื่องมือ (รันก่อนคิดเลข)
+คิด colony count / ตัดสิน sputum / ไล่ blood culture / อ่าน AST panel → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** (อย่าคูณเลขหรือไล่ breakpoint ด้วยตาเอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/clinmicro-judgment/scripts/`) · **cutoff ทุกตัว = ของแล็บ ต้องใส่เอง** (`data/*_teaching.json` = ค่าสอนจาก digest ติดป้ายแล้ว ไม่ใช่ SOP)
+- `python scripts/culture_screen.py sputum --sec 15 --pmn 30 --cutoffs data/micro_cutoffs_teaching.json --profile sputum-card-fork5` → ACCEPT / BORDERLINE / REJECT · ⚠️ มี 2 profile ที่ขัดกันโดยตั้งใจ (การ์ด FORK 5 reject SEC >25/lpf vs digest 508304 reject SEC >10/lpf) — SOP แล็บเป็นคนเลือก สคริปต์แค่ใช้ตาม
+- `python scripts/culture_screen.py count --loop-ml 0.001 --org "E. coli=150" --symptoms yes --cutoffs data/micro_cutoffs_teaching.json --profile urine-509402` → CFU/ml = colony ÷ ปริมาตร loop (ml) × dilution + band + flag mixed growth / สถานะอาการ (FORK 3) · 0 colony รายงาน "< detection limit" ไม่ใช่ 0 · BAL ใช้ `--loop-ml 0.01 --profile bal-508304`
+- `python scripts/culture_screen.py blood --organism "Staphylococcus epidermidis" --positive 1 --drawn 2 --flora data/blood_culture_flora_teaching.json` (+ `--line` ถ้ามีสาย/prosthesis) → LIKELY CONTAMINANT / CORRELATE / SIGNIFICANT / INDETERMINATE (FORK 3)
+- `python scripts/ast_read.py isolate.json --rules <ไฟล์ breakpoint ของแล็บ>.json` → ตาราง raw vs FINAL S/I/R + ALERT · **ไม่มีตาราง CLSI/EUCAST ในโค้ด** — breakpoint + QC range ใส่จาก M100 ฉบับที่แล็บใช้ · ลำดับที่ไล่: QC strain นอก range → HOLD ยานั้น · breakpoint ค้นตาม group เท่านั้น (CoNS ห้ามยืม 21 mm ของ S. aureus) · D-test · ESBL combo ≥ เกณฑ์ · penicillin ขอบ zone คม = R · intrinsic R · AmpC core-3 flag
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · การ report จริงตาม SOP + ผู้ลงนาม · ทดสอบแล้ว: `evals/test_clinmicro_judgment_tools.py` (28 ข้อ รวม must-fail control 4 ตัว: คูณ ×1,000 ทุก loop · รายงาน skin flora เป็น pathogen · ยืม breakpoint ข้าม group · ข้าม D-test — ต้องแดงทุกตัว)
 
 ## ใช้เมื่อ
 - ต้อง decide ในงาน Micro — เชื้อจริงหรือปน, ID พอยัง, อ่าน AST, รายงาน MDR

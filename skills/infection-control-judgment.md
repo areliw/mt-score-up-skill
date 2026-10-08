@@ -4,7 +4,7 @@ title: โค้ชป้องกันการติดเชื้อ/biosaf
 type: ADVISE               # ช่วยตัดสินใจ IPC/ความปลอดภัย ไม่ใช่ตำรา CDC
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-07-03
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดการป้องกันการติดเชื้อ/ความปลอดภัยทางชีวภาพเพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ — ต้องทำตามนโยบาย IPC + มาตรฐานความปลอดภัย (กรมควบคุมโรค/สถาบันบำราศนราดูร·ไทย; CDC/HICPAC/ISO 15190/WHO·สากล) + คณะกรรมการ IC ของหน่วยงานจริงเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -18,6 +18,12 @@ disclaimer: "ช่วยคิดการป้องกันการติ�
 > สำหรับ MT/lab ที่จับ specimen ติดเชื้อทุกวัน + งาน IPC · เชื้อก่อโรค/AST ดู `clinmicro-judgment` · ความปลอดภัยระดับระบบ (ISO 15190) ดู `lab-management-judgment`
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ไม่มีเลขให้คิด แต่ "แผน PPE/ห้อง ตรงกับทางแพร่เชื้อไหม" ตรวจกฎได้แน่นอน → **รันสคริปต์เช็คแผนก่อนยืนยัน แล้วค่อยใช้ judgment ข้างล่าง** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/infection-control-judgment/scripts/`)
+- `python scripts/precaution_check.py plan --map data/agent_routes_teaching.json --agent tuberculosis --mask surgical --room positive --hand alcohol` → ตาราง required vs proposed ราย item (mask / room / gloves / gown / hand) = PASS / WARN / FAIL · `--aerosol-procedure` (ต้อง N95 แม้โรค droplet) · `--immunocompromised-host` (ห้องความดันบวก) · airborne + host ภูมิต่ำ = CONFLICT ส่ง IPC (การ์ดไม่ครอบ สคริปต์ไม่เดาให้)
+- `python scripts/precaution_check.py sequence --don gown,mask,gloves --doff gloves,gown,mask,hand-hygiene` → เช็คลำดับใส่/ถอด (Fork 2) + ล้างมือปิดท้าย (Fork 1)
+- แผนที่ agent → ทางแพร่ใน `data/` = ตัวอย่างของการ์ดเอง แก้ตามนโยบาย IPC ได้ · output มีบรรทัด `ADVISORY` · ⚠️ การ์ดนี้ไม่มี digest วิชารองรับ — กฎมาจากตัวการ์ด (เทียบ CDC/HICPAC แล้วตาม CHANGELOG) · ทดสอบแล้ว: `evals/test_infection_control_judgment_tools.py` (14 ข้อ รวม must-fail control 2 ตัว: ยอม surgical mask กับ airborne · ยอมห้องความดันบวกกับ airborne — ต้องแดง)
 
 ## ใช้เมื่อ
 - เคสนี้ใช้ PPE อะไร / precaution แบบไหน / ห้องความดันบวกหรือลบ

@@ -1,0 +1,33 @@
+{
+ "_label": "TEACHING rules - a handful of values quoted in the owner's digests/card, NOT a CLSI/EUCAST table. Breakpoints and QC ranges change by edition: replace with your lab's current CLSI M100 / EUCAST values.",
+ "breakpoints": [
+  {"group": "S. aureus", "drug": "cefoxitin", "method": "disk", "s": 22, "r": 21, "report_as": "oxacillin",
+   "_src": "509402 digest §3.3 MRSA: cefoxitin 30 ug, S. aureus zone <=21 R, >=22 S, report as oxacillin"},
+  {"group": "CoNS", "drug": "cefoxitin", "method": "disk", "s": 25, "r": 24, "report_as": "oxacillin",
+   "_src": "clinmicro card FORK 4: CoNS zone <=24 mm = R. S >=25 assumed (no I category stated) - verify against your edition"},
+  {"group": "S. aureus", "drug": "oxacillin", "method": "mic", "s": 2, "r": 4,
+   "_src": "509402 digest §3.3: oxacillin MIC S. aureus R >=4, S <=2 ug/mL"}
+ ],
+ "qc_ranges": [
+  {"strain": "E. coli ATCC 25922", "drug": "gentamicin", "low": 19, "high": 26, "_src": "MICRO-QC digest §B11 (student QC project table)"},
+  {"strain": "S. aureus ATCC 25923", "drug": "gentamicin", "low": 19, "high": 27, "_src": "MICRO-QC digest §B11"},
+  {"strain": "E. coli ATCC 25922", "drug": "amikacin", "low": 19, "high": 26, "_src": "MICRO-QC digest §B11"},
+  {"strain": "S. aureus ATCC 25923", "drug": "amikacin", "low": 20, "high": 26, "_src": "MICRO-QC digest §B11"},
+  {"strain": "E. coli ATCC 25922", "drug": "tetracycline", "low": 18, "high": 25, "_src": "MICRO-QC digest §B11"},
+  {"strain": "S. aureus ATCC 25923", "drug": "tetracycline", "low": 24, "high": 30, "_src": "MICRO-QC digest §B11"}
+ ],
+ "criteria": {
+  "esbl_combo_min_increase_mm": 5,
+  "_src": "509402 digest §3.3 ESBL combination disk: zone with clavulanate >= 5 mm larger -> ESBL+"
+ },
+ "methicillin_screen": {"drug": "cefoxitin", "_src": "509402 digest §3.3; card FORK 4"},
+ "ampc_high_risk_species": ["Enterobacter cloacae", "Klebsiella aerogenes", "Citrobacter freundii"],
+ "_ampc_src": "clinmicro card trap 10b (IDSA 2023 core three). Hafnia/Serratia/Morganella/Providencia deliberately NOT listed (card: low-risk, treat per AST).",
+ "third_gen_cephalosporins": ["ceftriaxone", "cefotaxime", "ceftazidime", "cefpodoxime"],
+ "intrinsic_resistance": [
+  {"organism": "Pseudomonas aeruginosa", "drugs": ["ampicillin"],
+   "_src": "509402 digest §3.4 (no AMP / low-generation cephalosporin on the P. aeruginosa panel); card trap 10. Add low-generation cephalosporins from your table."},
+  {"organism": "Enterococcus", "drugs": ["cefazolin", "cefoxitin", "ceftriaxone", "cefotaxime", "ceftazidime"],
+   "_src": "CLINMICRO1 digest §AMR: Enterococcus intrinsically resistant to cephalosporins"}
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "_label": "TEACHING VALUES ONLY - quoted from the owner's course digests and the clinmicro-judgment card so the tools can be demonstrated. NOT a lab SOP: replace with your lab's specimen-acceptance and culture-interpretation SOP.",
+ "profiles": {
+  "sputum-card-fork5": {
+   "kind": "sputum",
+   "sec_accept_below": 10,
+   "sec_reject_above": 25,
+   "pmn_above": 25,
+   "_src": "clinmicro-judgment card FORK 5 + FORK 7 LRTI: accept SEC<10 and PMN>25/LPF; reject SEC>25/LPF; 10-25 borderline"
+  },
+  "sputum-508304": {
+   "kind": "sputum",
+   "sec_accept_below": 10,
+   "sec_reject_above": 10,
+   "pmn_above": 25,
+   "_src": "508304 lecture digest §2 sputum quality (Bartlett/Q-score): accept PMN>25 and SEC<10/LPF; reject SEC>10/LPF"
+  },
+  "urine-509402": {
+   "kind": "count",
+   "bands": [
+    {"min": 0, "label": "<1e3", "action": "No significant growth"},
+    {"min": 1000, "label": "1e3-1e4", "action": "May be normal flora -> Gram + ID; interpret by site/symptoms/single vs mixed"},
+    {"min": 10000, "label": "1e4-1e5", "action": "Suspected pathogen -> ID + AST"},
+    {"min": 100000, "label": ">=1e5", "action": "Indicated pathogen (pure/predominant) -> ID + AST"}
+   ],
+   "mixed_min_species": 3,
+   "symptomatic_single_uropathogen_min": 1000,
+   "_src": "509402 digest §4 colony-count table (loop 0.001 mL, colonies x 1,000) + '>=1e5 pure/predominant'; card FORK 3",
+   "_note": "Sources differ on mixed growth: card iron rule #1 and trap 1 say '>=3 species', 509402 §4 and the card FORK 3 table say '>3'. Card FORK 3 says a symptomatic single uropathogen can be significant from 1e2-1e3 CFU/mL; 1000 here is a teaching pick. Your SOP decides both."
+  },
+  "bal-508304": {
+   "kind": "count",
+   "bands": [
+    {"min": 0, "label": "<1e4", "action": "Below the VAP quantitative threshold"},
+    {"min": 10000, "label": ">=1e4", "action": "Meets the VAP quantitative threshold -> ID + AST"}
+   ],
+   "mixed_min_species": null,
+   "_src": "508304 digest §2 BAL quantitative culture (0.01 mL loop; 100 colonies = 1e4 CFU/mL; VAP >= 1e4 CFU/mL); card FORK 7"
+  }
+ }
+}

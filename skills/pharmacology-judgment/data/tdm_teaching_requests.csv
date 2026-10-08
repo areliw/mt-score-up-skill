@@ -1,0 +1,8 @@
+id,drug_class,half_life_h,hours_on_regimen,sample,purpose,paired_sample,level,range_low,range_high,k,k_low
+R1-dig-early,digoxin,40,72,trough,efficacy,none,1.4,1,2,4.0,3.5
+R2-dig-lowK,digoxin,40,220,trough,efficacy,none,1.6,1,2,3.1,3.5
+R3-genta-1lvl,aminoglycoside,2.5,24,trough,toxicity,none,1.2,,,,
+R4-genta-pair,aminoglycoside,2.5,24,peak,efficacy,trough,7.5,,,,
+R5-vanco,vancomycin,6,48,trough,efficacy,none,,,,,
+R6-pheny,zero-order,,96,trough,efficacy,none,,,,,
+R7-wrong-type,other,8,60,peak,efficacy,none,,,,,

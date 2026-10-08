@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจ Immunoassay และ Serol
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-28
+last_edited: 2026-10-08
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพื่อการศึกษาเรื่อง immunoassay/serology ไม่ใช่คำสั่งวินิจฉัย/รักษา ผล reactive screen ไม่เท่ากับการวินิจฉัย ต้อง confirm ด้วย test ที่ specificity สูงก่อนรายงานเสมอ ทุกผลต้องยืนยันกับ MT/แพทย์ และทำตาม SOP/QC ของห้องแล็บ ความผิดพลาดในการตีความ serology อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -20,6 +20,13 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' เพ
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
 > 🛑 **RED FLAGS — เจอข้อใด = หยุด confirm ก่อนรายงาน อย่าเชื่อ screen เดี่ยว:** reactive screen HIV/syphilis/HCV กำลังจะรายงาน positive · ผลขัด clinical (ลบทั้งที่ป่วยชัด → prozone/window · สูงผิด → hook) · HBV panel แยก acute/chronic · HIV algorithm / window period · สงสัย biotin/HAMA interference. — reactive screen ≠ diagnosis
+
+## เครื่องมือ (รันก่อนคิดเลข)
+อ่าน HBV panel / เดิน algorithm confirm / คิด titer-PPV → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** (อย่าอ่าน marker ทีละตัวด้วยตาเอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/immunoassay-judgment/scripts/`)
+- `python scripts/hbv_panel.py --hbsag neg --anti-hbc pos --anti-hbs pos [--igm-anti-hbc pos] [--hbsag-months 9]` → อ่าน marker เป็น pattern เดียวตามตาราง FORK 2 + บรรทัด `next:` · ไม่มี anti-HBc = `UNDETERMINED` (ไม่เดา vaccinated/recovered) · pattern นอกตารางการ์ด = `ATYPICAL` หรือติด `[ทั่วไป]` · `--csv` อ่านหลายเคส
+- `python scripts/serology_algo.py syphilis --algorithm reverse --tt R --ntt NR` (traditional/reverse → test ถัดไป) · `hiv --n-tests 3 --results R R NR` (จำนวน test ตาม algorithm ประเทศ ต้องใส่เอง; อายุ <24 ด. → NAT) · `ppv --prevalence 0.0005 --sens 0.995 --spec 0.99 --tests 3` (PPV หลังบวกทีละ test — FORK 3) · อ่านบรรทัด `reportable as positive:` ก่อนเสมอ
+- `python scripts/titer.py series 1:1=0 1:2=0 1:4=2+ …` (titer + `PROZONE` + endpoint ยังไม่ถึง) · `compare 1:8 1:32 --same-test` (กฎ 4 เท่า; `--mode infant-vs-mother` = congenital: <4× ไม่ได้ตัดออก) · `hook --neat … --diluted 10:95 --tolerance <ค่าแล็บ>` (hook effect; tolerance ไม่มี default)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · cutoff/tolerance/จำนวน test = ค่าของแล็บ/ประเทศ ใส่เอง · ค่าตัวอย่างสอนอยู่ใน `data/` · ทดสอบแล้ว: `evals/test_immunoassay_tools.py` (25 ข้อ รวม must-fail control 4 ตัว: อ่าน anti-HBs เดี่ยวเป็น vaccinated, นับ 2 เท่าเป็นนัยสำคัญ, รายงานบวกจาก screen เดี่ยว, เอา spec มาแทน PPV — ต้องแดง)
 
 ## ใช้เมื่อ
 - ต้องเลือก immunoassay format ให้เหมาะกับ analyte (sandwich vs competitive vs CLIA/ECLIA vs lateral flow)

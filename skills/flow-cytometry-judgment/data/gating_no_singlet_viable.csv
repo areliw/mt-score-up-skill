@@ -1,0 +1,5 @@
+gate,parent,events,kind
+All events,,100000,all
+Lymph FSC/SSC,All events,22000,scatter
+CD3+,Lymph FSC/SSC,15400,marker
+CD4+,CD3+,6930,marker

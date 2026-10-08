@@ -1,0 +1,10 @@
+gate,parent,events,kind
+All events,,100000,all
+Time OK,All events,98000,time
+Cells FSC/SSC,Time OK,80000,scatter
+Singlets,Cells FSC/SSC,70000,singlet
+Live,Singlets,63000,viable
+Lymph CD45br,Live,18000,cd45
+CD3+,Lymph CD45br,13500,marker
+CD4+,CD3+,6750,marker
+CD8+,CD3+,5400,marker

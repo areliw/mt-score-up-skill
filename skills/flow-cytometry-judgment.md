@@ -4,7 +4,7 @@ title: โค้ช flow cytometry — gate ถูก + อ่าน pattern + c
 type: ADVISE               # ช่วยตัดสินใจ gating/panel/ตีความ ไม่ใช่ atlas marker
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดงาน flow cytometry เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ผล immunophenotyping ต้อง correlate morphology/clinical/genetics + ยืนยันโดยผู้เชี่ยวชาญ/แพทย์ ทำตาม SOP/QC ของแล็บ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,12 @@ disclaimer: "ช่วยคิดงาน flow cytometry เพื่อกา
 > **กับดัก #1 (ขั้น hard):** **gating ผิด** (รวม debris/doublet/เซลล์ตาย หรือ gate ผิด population) → ผล % เพี้ยน + แปล population ผิด. ต้อง gate **viability + singlet + scatter (CD45/SSC)** ก่อนอ่าน marker
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = ผู้เชี่ยวชาญ/แพทย์ยืนยัน
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ไล่ gating hierarchy / คิด absolute count / MRD sensitivity → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/flow-cytometry-judgment/scripts/`)
+- `python scripts/gating_check.py gates.csv` — CSV `gate,parent,events,kind` (ตัวอย่าง `data/gating_example.csv`) → ตาราง %parent/%total ทุก gate + เช็คว่าเหนือทุก marker gate มี **singlet + viable + scatter/CD45** ครบ (กับดัก #1) → อ่านบรรทัด `FAIL`/`WARN`/`NOTE` และ `OVERALL` · ลำดับไม่ตรง Fork 1 = แค่ `NOTE` (บางแล็บสลับขั้น — ใช้ judgment ไม่ auto-fail)
+- `python scripts/flow_calc.py abs-dual --wbc 6000 --lymph-pct 30 --subset-pct 25 --threshold 200` (dual-platform: subset% = % ของ lymphocyte ไม่ใช่ของ WBC) · `abs-bead --cell-events … --bead-events … --beads-per-tube <จาก lot> --volume-ul …` (single-platform) · `mrd-lod --events <viable singlet ที่ประเมินได้> --min-cluster <ที่แล็บ validate> --claim 1e-4` → LOD ที่ทำได้จริง + events ที่ต้องมี; `NOT SUPPORTED` = ห้ามรายงาน "MRD negative" ที่ระดับนั้น (Fork 4)
+- `--min-cluster`, beads per tube, threshold = **ของแล็บ/lot ต้องใส่เอง ไม่มี default** · สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · hierarchy ผ่าน ≠ ผลถูก — ยังต้อง FMO/compensation/correlate (Fork 3–5) · ทดสอบแล้ว: `evals/test_flow_cytometry_tools.py` (16 ข้อ รวม must-fail control 4 ตัว: % หารด้วย event ทั้งหมด · ไม่เช็ค hierarchy · CD4 = WBC × CD4% ลืม lymph% · MRD LOD = 1/events ไม่ดู cluster — ทุกตัวต้องแดง)
 
 ## ใช้เมื่อ
 - วาง gating strategy / panel หรือ debug ผล flow ที่ดูแปลก

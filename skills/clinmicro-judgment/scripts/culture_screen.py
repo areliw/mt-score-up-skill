@@ -3,9 +3,11 @@
 
 Black-box tool. Run --help first; read the source only if a result looks wrong.
 Every cutoff is a LAB choice: pass it as flags, or point --cutoffs at a JSON file and pick a
---profile. data/micro_cutoffs_teaching.json holds TEACHING values from the owner's digests. It
-ships two sputum profiles that DISAGREE (card FORK 5 rejects SEC>25/LPF, the 508304 digest
-rejects SEC>10/LPF) on purpose: your SOP decides, the tool only applies it.
+--profile. data/micro_cutoffs_teaching.json holds TEACHING values from the owner's digests.
+Sputum: use profile sputum-murray-washington-1975 (accept SEC<10 and PMN>25/LPF, reject SEC>10/LPF;
+Murray & Washington, Mayo Clin Proc 1975, PMID 1127999; confirmed by the owner 2026-10-08). The old
+sputum-card-fork5 profile (reject only SEC>25) mixed in Bartlett score points and now prints a
+superseded WARNING. Your lab SOP still decides; the tool only applies it.
 
 Subcommands
   sputum  SEC/LPF + PMN/LPF -> ACCEPT / BORDERLINE / REJECT
@@ -21,7 +23,7 @@ Subcommands
           real), trap #1
 
 Examples (run from the skill folder)
-  python scripts/culture_screen.py sputum --sec 8 --pmn 30 --cutoffs data/micro_cutoffs_teaching.json --profile sputum-card-fork5
+  python scripts/culture_screen.py sputum --sec 8 --pmn 30 --cutoffs data/micro_cutoffs_teaching.json --profile sputum-murray-washington-1975
   python scripts/culture_screen.py sputum --sec 15 --pmn 30 --sec-accept-below 10 --sec-reject-above 25 --pmn-above 25
   python scripts/culture_screen.py count --loop-ml 0.001 --org "E. coli=150" --symptoms no --cutoffs data/micro_cutoffs_teaching.json --profile urine-509402
   python scripts/culture_screen.py count --loop-ml 0.01 --org "P. aeruginosa=100" --cutoffs data/micro_cutoffs_teaching.json --profile bal-508304
@@ -54,6 +56,10 @@ def load_profile(path, name, kind):
     if prof.get("kind") != kind:
         raise SystemExit("profile %r is kind=%r, not %r" % (name, prof.get("kind"), kind))
     prof["_from"] = "%s [%s] - %s" % (path, name, data.get("_label", "no label"))
+    if prof.get("superseded_by"):
+        prof["_warning"] = "WARNING: profile %r is superseded by %r - %s" % (
+            name, prof["superseded_by"], prof.get("superseded_why", "see the cutoffs file"))
+        print(prof["_warning"], file=sys.stderr)
     return prof
 
 

@@ -269,3 +269,38 @@ def test_cli_runs_on_teaching_data(capsys):
 def test_cli_refuses_without_cutoffs():
     with pytest.raises(SystemExit):
         cs.main(["sputum", "--sec", "8", "--pmn", "30"])
+
+
+# ================================================================ owner correction 2026-10-08
+# Owner (voice note): sputum acceptable = SEC < 10 and WBC > 25 per LPF; the "25" belongs to WBC.
+# Primary source: Murray & Washington, Mayo Clin Proc 1975 (PMID 1127999): >10 SEC per LPF yields
+# oropharyngeal flora; <10 SEC resembles transtracheal aspirates.
+def test_murray_washington_profile_rejects_saliva_above_10():
+    p = profile("sputum-murray-washington-1975")
+    a = (p["sec_accept_below"], p["sec_reject_above"], p["pmn_above"])
+    assert cs.sputum(8, 30, *a)["verdict"] == "ACCEPT"
+    assert cs.sputum(15, 30, *a)["verdict"] == "REJECT"      # the old card profile called this BORDERLINE
+    assert cs.sputum(30, 40, *a)["verdict"] == "REJECT"
+    assert cs.sputum(8, 20, *a)["verdict"] == "BORDERLINE"   # SEC fine, WBC not > 25
+    assert cs.sputum(10, 30, *a)["verdict"] == "BORDERLINE"  # exactly 10 is undefined in the paper
+
+
+def test_superseded_profile_warns(capsys):
+    p = profile("sputum-card-fork5")
+    assert p["superseded_by"] == "sputum-murray-washington-1975"
+    assert "superseded" in capsys.readouterr().err
+
+
+def test_must_fail_control_card_fork5_numbers_under_new_name(monkeypatch):
+    """Inject the old mistake: reject only above 25. The primary-source test must go red."""
+    real = cs.load_profile
+
+    def old_numbers(path, name, kind):
+        prof = real(path, name, kind)
+        if name == "sputum-murray-washington-1975":
+            prof["sec_reject_above"] = 25
+        return prof
+
+    monkeypatch.setattr(cs, "load_profile", old_numbers)
+    with pytest.raises(AssertionError):
+        test_murray_washington_profile_rejects_saliva_above_10()

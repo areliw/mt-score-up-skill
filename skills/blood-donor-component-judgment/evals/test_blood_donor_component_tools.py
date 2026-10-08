@@ -47,7 +47,7 @@ def test_teaching_criteria_file_matches_digest():
     # Hb F 12.5-16.5 / M 13.0-18.5, Hct F 37-49 / M 39-55
     c = CRITERIA
     assert c["age_years"] == {"min": 17, "max": 70} and c["first_time_age_max"] == 60
-    assert c["weight_kg"] == {"min_exclusive": 45} and c["temp_c"] == {"max_exclusive": 37.5}
+    assert c["weight_kg"] == {"min": 45} and c["temp_c"] == {"max_exclusive": 37.5}  # TRC: 45 kg and above
     assert c["sbp_mmhg"] == {"max_exclusive": 160} and c["dbp_mmhg"] == {"max_exclusive": 100}
     assert c["hb_g_dl"]["F"] == {"min": 12.5, "max": 16.5} and c["hb_g_dl"]["M"] == {"min": 13.0, "max": 18.5}
     assert "NOT an SOP" in c["_label"]
@@ -74,10 +74,10 @@ def test_hb_upper_limit_defers():
     assert result_of(donor(hb=16.8), "Hb") == "DEFER (temporary)"
 
 
-@pytest.mark.parametrize("w,overall,vol", [(45, "DEFER", None), (50, "MEASURED CRITERIA MET", 350),
-                                           (50.5, "MEASURED CRITERIA MET", 450)])
+@pytest.mark.parametrize("w,overall,vol", [(44.9, "DEFER", None), (45, "MEASURED CRITERIA MET", 350),
+                                           (49.9, "MEASURED CRITERIA MET", 350), (50, "MEASURED CRITERIA MET", 450)])
 def test_weight_boundaries(w, overall, vol):
-    # ">45 kg" is exclusive; "45-50 kg -> 350 mL, >50 kg -> 450 mL"
+    # Thai Red Cross: "น้ำหนัก 45 กิโลกรัมขึ้นไป" (45 inclusive); owner 2026-10-08: 45 to <50 kg -> 350 mL, >=50 -> 450 mL
     r = donor(weight_kg=w)
     assert r["overall"] == overall and r["collection_volume_ml"] == vol
 
@@ -252,3 +252,10 @@ def test_unit_return_limits_are_required():
 def test_cli_prints_advisory(mod, args, capsys):
     assert mod.main(args) == 0
     assert "ADVISORY:" in capsys.readouterr().out
+
+
+def test_must_fail_control_weight_45_exclusive(monkeypatch):
+    """Inject the old OCR reading '>45 kg' (exclusive). The 45-kg boundary case must go red."""
+    monkeypatch.setitem(CRITERIA, "weight_kg", {"min_exclusive": 45})
+    with pytest.raises(AssertionError):
+        test_weight_boundaries(45, "MEASURED CRITERIA MET", 350)

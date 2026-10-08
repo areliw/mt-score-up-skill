@@ -1,12 +1,21 @@
 {
  "_label": "TEACHING VALUES ONLY - quoted from the owner's course digests and the clinmicro-judgment card so the tools can be demonstrated. NOT a lab SOP: replace with your lab's specimen-acceptance and culture-interpretation SOP.",
  "profiles": {
+  "sputum-murray-washington-1975": {
+   "kind": "sputum",
+   "sec_accept_below": 10,
+   "sec_reject_above": 10,
+   "pmn_above": 25,
+   "_src": "Murray PR, Washington JA. Mayo Clin Proc 1975;50:339-44 (PMID 1127999): >10 SEC per LPF = oropharyngeal flora, <10 SEC resembles transtracheal aspirate; acceptance pairs SEC<10 with leukocytes >25/LPF. Owner confirmed 2026-10-08. Same numbers as the 508304 digest. SEC exactly 10 is not defined by the paper -> BORDERLINE here; follow the lab SOP."
+  },
   "sputum-card-fork5": {
    "kind": "sputum",
    "sec_accept_below": 10,
    "sec_reject_above": 25,
    "pmn_above": 25,
-   "_src": "clinmicro-judgment card FORK 5 + FORK 7 LRTI: accept SEC<10 and PMN>25/LPF; reject SEC>25/LPF; 10-25 borderline"
+   "superseded_by": "sputum-murray-washington-1975",
+   "superseded_why": "2026-10-08: the card's 'reject only SEC>25, 10-25 borderline' mixed in Bartlett score points (SEC 10-25 = -1, >25 = -2); the primary paper rejects SEC>10/LPF. Kept only for traceability.",
+   "_src": "old clinmicro-judgment card FORK 5 + FORK 7 LRTI text (corrected 2026-10-08)"
   },
   "sputum-508304": {
    "kind": "sputum",

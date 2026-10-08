@@ -1,0 +1,19 @@
+{
+ "skill": "mt-career-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 craft missing - the card sends users to write CV/resume bullets, a path story and an offer comparison but gave no template, steps or done-definition",
+   "evidence": "added '## ผลงานที่ต้องส่ง' (CV bullet steps with checks + template, 3-sentence path story, total-compensation offer table, definition of done); additive: +44/-1 (only the last_edited line changed); validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "mt-career-judgment card Fork 2/3/8/9 (CV evidence, bridge, total comp)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

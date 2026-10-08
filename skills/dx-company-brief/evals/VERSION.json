@@ -1,0 +1,19 @@
+{
+ "skill": "dx-company-brief",
+ "history": [
+  {
+   "v": 1,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 forks missing - the card had a 6-part template and traps but no explicit decision forks (what to cut when time is short, parent vs distributor, source weight, low-fit, bad news)",
+   "evidence": "added '## ทางแยก (เลือกอะไรเมื่อไร)' (4-row situation table + 6 forks drawn from the card's own sections); additive: +21/-1; validate_repo + check_maturity_gate pass; G2-G4 n/a (decision shape)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "dx-company-brief card sections 1-6 + source-weight list",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

@@ -1,0 +1,23 @@
+{
+ "skill": "phi-data-handling",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 craft missing - the card says 'de-identify properly' but gave no ordered checklist, data-use sheet or done-definition",
+   "evidence": "added '## ผลงานที่ต้องส่ง' (data-use request sheet, 7-step de-identification checklist with measurable checks incl. small-cell n<5 and re-identification test, definition of done); additive: +34/-1; validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "phi-data-handling card Fork 1-7",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "digital-judgment card k-anonymity note (zip + sex + birth date)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

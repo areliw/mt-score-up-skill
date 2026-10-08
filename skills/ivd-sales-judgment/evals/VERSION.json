@@ -1,0 +1,23 @@
+{
+ "skill": "ivd-sales-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 craft missing - the card tells the user to design the opening and the offer but had no call-plan or one-page-offer template (gate keyword hit was spurious: 'spec' matched the cover keyword; the artifact gap is real)",
+   "evidence": "added '## ผลงานที่ต้องส่ง' (7-step call plan with checks + fill-in table, one-page reagent-rental/cost-per-reportable-result offer, definition of done); additive: +42/-1; validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "ivd-sales-judgment card Fork 1-7",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "Medical-sales buyer-literacy pack (internal digest): budget-headroom and cost-per-result sections",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

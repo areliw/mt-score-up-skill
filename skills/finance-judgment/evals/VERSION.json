@@ -1,0 +1,11 @@
+{
+ "skill": "finance-judgment",
+ "history": [
+  {"v": 2, "date": "2026-10-08", "trigger": "GAP: G3 tools missing - the card teaches computable steps (compound growth, months-to-goal, back-calculated saving, rule of 72, real rate, emergency-fund months, debt payoff, 3-step ladder, ratio reading) but shipped no script", "evidence": "scripts/fin_calc.py + scripts/statement_ratios.py; evals/test_fin_tools.py 53/53 green incl. 5 test_must_fail_control_* (simple interest, nominal-as-real, naive debt division, profit without CFO, skipped debt rung); source mutants (simple interest, removed NEVER guard, removed CFO flag, >=15 threshold) turn the oracles red; expected values from the SET e-Learning finance digest (30-year savings table, months-to-million table, rule of 72) + hand arithmetic", "gate": "pass"}
+ ],
+ "sources": [
+  {"ref": "Finance / investing / entrepreneurship digest (SET e-Learning WMD1001, EQD1504), section 1 compounding + 1st Million ladder", "last_verified": "2026-10-08"},
+  {"ref": "finance-judgment card Fork 2 (ratio table), Fork 6 (back-calculation, rule of 72), Fork 8 (real vs nominal), ladder", "last_verified": "2026-10-08"}
+ ],
+ "telemetry": {}
+}

@@ -1,0 +1,23 @@
+{
+ "skill": "mt-law-ethics-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 craft (narrow) - gate keyword was 'post', but the card does instruct written artifacts (scope record, pre-post de-identification check, resignation/revocation-of-sign-off notice) with no template",
+   "evidence": "added '## ผลงานที่ต้องส่ง' (scope-check memo steps + table, pre-post/case-sharing checklist, resignation + sign-off withdrawal notice skeleton, definition of done); every legal claim tagged [✓ตัวบท]/[ต้อง verify]; additive: +43/-1; validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "MT law & ethics digest (BSc MT 510418) sections 2-4 (scope, ethics, confidentiality + PDPA stack)",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "mt-law-ethics-judgment card Fork 1-3, 5, 8",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

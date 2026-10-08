@@ -1,0 +1,19 @@
+{
+ "skill": "ikigai-finder",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 forks missing (borderline) - the 4-way overlap map existed as steps but 'which path when' was not stated as decision forks",
+   "evidence": "added '## ทางแยก (เลือกอะไรเมื่อไร)' (9-row signal -> choice -> do-not table covering revealed-preference check, passion/profession/mission/vocation, ikigai-as-direction, crisis hand-off); additive: +18/-1; validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "ikigai-finder card steps 1-5 and traps",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

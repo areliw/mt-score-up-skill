@@ -1,0 +1,19 @@
+{
+ "skill": "digital-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 craft (mild) - gate keyword was 'post', but the card's PDPA consent / pre-post check / scam-screen are checklist deliverables with no template",
+   "evidence": "added '## ผลงานที่ต้องส่ง' (PDPA consent-notice steps, 3-question pre-post check, online-investment screen, definition of done); additive: +34/-1; validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "digital-judgment card forks (privacy / digital ethics / online investment)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

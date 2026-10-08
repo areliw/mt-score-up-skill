@@ -1,0 +1,19 @@
+{
+ "skill": "offload-to-automation",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 tools (card table: repeated + stable + frequent + long-lived -> automate; one-off / rules keep changing / low volume -> manual)",
+   "evidence": "scripts/roi.py (saved x frequency vs build + upkeep, break-even, AUTOMATE/MANUAL/SCRIPT-ONCE) + evals/test_roi.py 9/9 incl. 2 must-fail controls (ignore frequency, ignore upkeep); card ## เครื่องมือ added, additions only",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/offload-to-automation.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

@@ -1,0 +1,19 @@
+{
+ "skill": "ai-assistant-calibration",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 tools (gate keyword was a false alarm: 'calibRATIOn' matched 'ratio'; but the card does state checkable rules: verdict first, 2-5 lines, no unchecked 'น่าจะ/มั้ง', no rule#/scaffolding, no unasked options/recap/apology spam)",
+   "evidence": "scripts/reply_lint.py + data/reply_{bad,good}_example.txt + evals/test_reply_lint.py 13/13 incl. 2 must-fail controls; card ## เครื่องมือ added, additions only; status semi-stable -> draft per docs/design/maturity-ladder.md (body edited -> eval/ab-coverage.json body_hash stale; re-run eval/harness/ab-x3.js to earn semi-stable back)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/ai-assistant-calibration.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

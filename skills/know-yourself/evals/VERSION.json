@@ -1,0 +1,19 @@
+{
+ "skill": "know-yourself",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 craft missing - output is a master profile for resume/LinkedIn/interview but the card had forks only, no round-by-round procedure, template or done-definition",
+   "evidence": "added '## ผลงานที่ต้องส่ง' (5-round interview with gates, 9-section master-profile template with evidence slots, definition of done, hand-off to mt-career-judgment for the resume itself); additive: +38/-1; validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "know-yourself card Fork 1-6",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

@@ -1,0 +1,16 @@
+# TEACHING DATA (synthetic binary mask after a colour threshold, not from a real smear)
+# 3x3 cell (rows 2-4, cols 2-4) · speck at (2,9) · speck at (9,2) · ring cell (rows 7-9, cols 7-9) with a hole at (8,8)
+# With the 3x3 square SE: opening keeps only the solid cell (specks AND the thin ring vanish);
+# closing fills the hole and keeps both specks. Objects sit >= 2 px from the edge, so --border zero/ignore agree.
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 0 0 0 0 1 0 0
+0 0 1 1 1 0 0 0 0 0 0 0
+0 0 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 0 0
+0 0 0 0 0 0 0 1 0 1 0 0
+0 0 1 0 0 0 0 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0

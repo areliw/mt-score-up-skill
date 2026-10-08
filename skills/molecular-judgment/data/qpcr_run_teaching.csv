@@ -1,0 +1,8 @@
+well,role,target_ct,ic_ct,tube
+PC,pos,27.80,30.10,
+NTC,ntc,undet,undet,
+S1,sample,24.60,30.50,edta
+S2,sample,undet,30.20,edta
+S3,sample,undet,undet,edta
+S4,sample,39.50,30.40,edta
+S5,sample,undet,31.00,heparin

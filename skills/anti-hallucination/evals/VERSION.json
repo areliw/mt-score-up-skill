@@ -1,0 +1,19 @@
+{
+ "skill": "anti-hallucination",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 tools (card rule: every number/date/citation must carry a source or confidence tag; never trust a well-formed DOI)",
+   "evidence": "scripts/claim_check.py (started by an interrupted agent; finished + fixed: literal backspace byte in the bare-DOI regex, cp874 stdin, dates/money as claims, honest [~mem] citations -> CHECK) + evals/test_claim_check.py 20/20 incl. 3 must-fail controls; card ## เครื่องมือ added, additions only; status semi-stable -> draft per docs/design/maturity-ladder.md (body edited -> eval/ab-coverage.json body_hash stale; re-run eval/harness/ab-x3.js to earn semi-stable back)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/anti-hallucination.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

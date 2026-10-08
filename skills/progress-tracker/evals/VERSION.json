@@ -1,0 +1,19 @@
+{
+ "skill": "progress-tracker",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 tools (gate keyword was a false alarm: 't-test' in the description; but the card states checkable rules: ✅ only when seen, ⏭️ needs a reason, X/Y position, 5-7 steps)",
+   "evidence": "scripts/progress.py (X/Y, % done, slip from due/finished) + data/steps_example.csv (the card's own example -> 3/5, 40%) + evals/test_progress.py 10/10 incl. 2 must-fail controls; card ## เครื่องมือ added, additions only; status semi-stable -> draft per docs/design/maturity-ladder.md (body edited -> eval/ab-coverage.json body_hash stale; re-run eval/harness/ab-x3.js to earn semi-stable back)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/progress-tracker.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

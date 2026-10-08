@@ -1,0 +1,14 @@
+{
+ "skill": "clinmicro-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "FAIL: owner correction (LESSONS.jsonl)",
+   "evidence": "Murray & Washington, Mayo Clin Proc 1975, PMID 1127999 (abstract read via Europe PMC 2026-10-08): >10 SEC/LPF = oropharyngeal flora; <10 SEC resembles transtrac",
+   "gate": "pass (bug fix, rung unchanged)"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

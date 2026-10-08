@@ -1,0 +1,17 @@
+{
+ "_label": "TEACHING isolate - constructed to exercise the ESBL combination-disk read, not patient data",
+ "organism": "Klebsiella pneumoniae",
+ "group": "Enterobacterales",
+ "results": [
+  {"drug": "ceftazidime", "sir": "R"},
+  {"drug": "ceftriaxone", "sir": "R"},
+  {"drug": "amikacin", "sir": "S"}
+ ],
+ "esbl_combo": [
+  {"drug": "ceftazidime", "alone": 14, "with_clav": 21},
+  {"drug": "cefotaxime", "alone": 17, "with_clav": 20}
+ ],
+ "qc": [
+  {"strain": "E. coli ATCC 25922", "drug": "amikacin", "value": 22}
+ ]
+}

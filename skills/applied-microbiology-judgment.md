@@ -4,7 +4,7 @@ title: โค้ชจุลชีววิทยาประยุกต์ —
 type: ADVISE               # ช่วยตัดสินใจ applied micro ไม่ใช่ตำราเชื้อ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดงานจุลชีววิทยาประยุกต์ (อาหาร/อุตสาหกรรม/สิ่งแวดล้อม) เพื่อการศึกษา ไม่ใช่คำสั่งความปลอดภัยอาหาร/สิ่งแวดล้อมทางการ — ต้องอ้างมาตรฐาน (เช่น food safety/ISO) + ผู้เชี่ยวชาญจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -19,6 +19,12 @@ disclaimer: "ช่วยคิดงานจุลชีววิทยาป�
 > คนละเลนกับ clinical micro (เจอเชื้อในคนไข้ → ID+AST ดู `clinmicro-judgment`) · เลือก molecular method/แปล qPCR → `molecular-judgment` · บริหาร/ขายเครื่องตรวจ → `lab-management-judgment`
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+นับ plate count / คิด CFU → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/applied-microbiology-judgment/scripts/`)
+- `python scripts/plate_count.py --range 30 300 --volume 1 --plate 1e-2:150 --plate 1e-2:170 --plate 1e-3:14` (หรือ `--input data/apc_two_dilutions_teaching.json`) → ตาราง plate ไหนนับ/ทิ้ง + สูตรที่ใช้ + N · **ช่วงนับ = ของ method ต้องใส่เอง** (digest วิชานี้ 30–300 · digest 508304 ใช้ 25–250) · 2 dilution ใช้สูตรถ่วง ΣC ÷ ((n₁ + 0.1n₂) × d × V) · ไม่มี plate ในช่วง = **ไม่ใช่ค่าที่รายงานได้** (มีแค่ EST ให้เห็นหลัก) · ทุก plate = 0 → รายงาน "< detection limit" ไม่ใช่ 0 (= ตรวจไม่พบ ≠ ไม่มี ตามกฎ #1) · `--limit` = เกณฑ์ของมาตรฐานที่คุณใส่เอง สคริปต์ไม่สมมุติเกณฑ์
+- ไม่ทำเครื่องมือ MPN — ค่า MPN อ่านจากตารางมาตรฐาน (ไม่คัดตารางลงโค้ด)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_applied_microbiology_judgment_tools.py` (13 ข้อ รวม must-fail control 2 ตัว: นับทุก plate ไม่กรองช่วง · รายงาน 0 แทน < detection limit — ต้องแดง)
 
 ## ใช้เมื่อ
 - เลือกวิธีถนอมอาหาร / เข้าใจทำไม spoilage เกิด

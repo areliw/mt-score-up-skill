@@ -4,7 +4,7 @@ title: รับคำติ/รีวิวให้เป็น — take/drop/
 type: ADVISE               # ช่วยตัดสินใจตอบ feedback ไม่ใช่ที่ปรึกษา HR/relationship
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-15
+last_edited: 2026-10-08
 status: draft
 disclaimer: "กรอบคิดการรับ/ตอบ feedback เพื่อการศึกษา — บริบทงาน/ทีม/เจ้าของ-decision ต่างกัน ต้องปรับเอง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -16,6 +16,11 @@ disclaimer: "กรอบคิดการรับ/ตอบ feedback เพ�
 > **กฎ #1:** feedback ไม่ได้น้ำหนักเท่ากัน — แยก **correctness/security (รับก่อน)** vs **style/taste (ใช้วิจารณญาณ/disagree-and-commit ได้)**. แก้ทุก comment เท่ากัน = เสียทั้งเวลาและ design
 > **กับดัก #1:** apply feedback แบบ **literal** โดยไม่เข้าใจ "ทำไม" → แก้ผิดจุด. comment คือ *อาการ* ที่ reviewer เห็น — หา intent/ root ก่อนแก้ (โดยเฉพาะ nit เล็กๆ ที่จริงชี้ปัญหาใหญ่)
 > โยง: `critical-appraisal-judgment` (ฝั่งประเมินงานคนอื่น) · `verification-panel` (ตรวจของตัวเองหลายมุมก่อนยอมรับ) · `anti-hallucination` (verify ข้อ flag จาก tool ก่อนเชื่อ) · `polite-but-clear` (เรียบเรียง push-back) · `report-up-judgment` (ตอบกลับขึ้นบน)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+จัด comment ลงตาราง triage ตาม § ผลงานที่ต้องส่ง แล้ว **รันตัวตรวจก่อนส่งคำตอบ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/receiving-review-judgment/scripts/`)
+- `python scripts/triage_check.py triage.csv` — ตรวจทุกแถว: มี verdict + เหตุผล · PUSH-BACK มีทางเลือก · DEFER มี log · correctness/security/legal/ethics ที่ DROP/DEFER/COMMIT ต้องมี escalate หรือบันทึกความเสี่ยง · flag จาก tool (automated) ต้อง verify ก่อน TAKE และตัวที่ severity สูงต้อง verify ก่อนปัดทิ้ง · TAKE ที่ไม่บันทึก intent = เตือน · `NOTE` บอกกลิ่น caved/ego และ comment หลายตัวที่ root เดียวกัน (pattern)
+- ตัวตรวจ = เช็คความครบของบันทึก triage ไม่ได้ตัดสินว่าแก้ถูกหรือไม่ · เจ้าของ decision ตัดสินสุดท้าย · ทดสอบแล้ว: `evals/test_receiving_review_tools.py` (18 ข้อ รวม must-fail control: เชื่อ flag จาก tool ดิบ และ commit เงียบกับ correctness — ต้องแดง)
 
 ## ใช้เมื่อ
 - ได้ code review / รีวิวเปเปอร์ / คอมเมนต์งาน แล้วต้องตัดสินว่า comment ไหนแก้ ไหนแย้ง ไหนพอ
@@ -65,6 +70,20 @@ disclaimer: "กรอบคิดการรับ/ตอบ feedback เพ�
 - **เชื่อ automated review ดิบ** — ไม่ verify false-positive ก่อน apply
 - **push-back ทุกอย่างจนคนเลิกรีวิวให้** — ฆ่า feedback loop ตัวเอง
 - **ดอง comment "drop" ไว้เฉยๆ** ไม่ log → ลืม → หนี้ทางเทคนิคสะสม
+
+---
+
+## ผลงานที่ต้องส่ง
+output ของ skill นี้ = **ตาราง triage + ร่างคำตอบต่อ comment** (ไม่ใช่แก้ตามทันที)
+
+**A. ตาราง triage** (หัวคอลัมน์ตรงกับ `scripts/triage_check.py`)
+
+| id | source (human/automated) | category | verdict (TAKE/PUSH-BACK/DROP/DEFER/COMMIT) | reason | root_intent | alternative | verified | owner | log_ref | escalated |
+|---|---|---|---|---|---|---|---|---|---|---|
+
+**B. ร่างคำตอบ PUSH-BACK** (Fork 2 · เรียบเรียงต่อด้วย `polite-but-clear`): (1) ยอมรับประเด็นที่ reviewer เห็น → (2) ให้ข้อมูล/constraint ที่เขาไม่เห็น → (3) เสนอทางเลือก → (4) ถามกลับ "มีมุมที่ผมมองข้ามไหม?"
+
+นิยามเสร็จ: ทุก comment อยู่ในตาราง (ไม่มีตัวหาย) · `python scripts/triage_check.py triage.csv` ขึ้น `DEFINITION OF DONE: MET` · ทุกแถว PUSH-BACK มีร่างคำตอบตาม B · `NOTE` เรื่อง caved/ego/pattern ถูกพิจารณาแล้ว · เรื่อง correctness/security/legal/ethics ที่ไม่ได้ TAKE มีชื่อคนรับเรื่องหรือ ref บันทึกความเสี่ยง
 
 ---
 

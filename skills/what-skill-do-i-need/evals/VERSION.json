@@ -1,0 +1,19 @@
+{
+ "skill": "what-skill-do-i-need",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 mostly keyword false alarm (step 2 decision test + table already a fork); one real missing branch: when to stop digging 'why'",
+   "evidence": "added ## ทางแยก (เลือกอะไรเมื่อไร): stop-digging rule, gap type, in-library vs missing vs cannot-see, single vs chained; additions only; status semi-stable -> draft per docs/design/maturity-ladder.md (body edited -> eval/ab-coverage.json body_hash stale; re-run eval/harness/ab-x3.js to earn semi-stable back)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/what-skill-do-i-need.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

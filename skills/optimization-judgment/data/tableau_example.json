@@ -1,0 +1,7 @@
+{"name": "Production LP from the CMU 261475 tableau example (max 350x1+300x2) - teaching example",
+ "sense": "max", "vars": ["x1", "x2"], "c": [350, 300],
+ "constraints": [
+  {"name": "S1", "a": [12, 16], "op": "<=", "b": 2880},
+  {"name": "S2", "a": [9, 6], "op": "<=", "b": 1566},
+  {"name": "S3", "a": [1, 1], "op": "<=", "b": 200}
+ ]}

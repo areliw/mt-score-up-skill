@@ -4,7 +4,7 @@ title: โค้ช Molecular Dx — เลือก method/แปลผล/ก�
 type: ADVISE               # ช่วยตัดสินใจหน้างาน molecular ไม่ใช่ตำรา PCR
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-28
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดเลือก method/แปลผล molecular เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา — งานวินิจฉัยระดับโมเลกุลกระทบการรักษาผู้ป่วยโดยตรง ต้องตาม SOP + validation ของแล็บ และยืนยันกับ MT/แพทย์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -18,6 +18,12 @@ disclaimer: "ช่วยคิดเลือก method/แปลผล molecul
 > เลือกโมเดล ML ต่อจาก genotype → ดู `ml-judgment` · วาง stat/sens-spec → `choose-stat-test`
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ (คู่กับ `anti-hallucination`)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ตัดสิน call ราย well / คิดเลข qPCR → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่าง (3 ด่าน + Fork 4–6) ตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/molecular-judgment/scripts/`)
+- `python scripts/pcr_call.py run.csv --ct-cutoff <ค่าจาก IFU>` — CSV `well,role,target_ct,ic_ct[,tube,melt_tm,melt_peaks]` (role = sample/ntc/neg/pos) → ตรวจ run gate ก่อน (ไม่มี NTC/PC, NTC ขึ้น, PC ไม่ขึ้น = `RUN INVALID` ทั้ง run) แล้วค่อย call ราย well: ไม่ขึ้นทั้ง target และ IC = `INVALID` ไม่ใช่ negative · ไม่มีคอลัมน์ IC = `NO-CALL` · heparin = `REJECT SPECIMEN` · `--chemistry sybr --melt-tm 82.5 --melt-tol 1.0` = positive ต้องมี melt peak เดียวตรง Tm
+- `python scripts/qpcr_calc.py curve --csv standards.csv --unknown 25.0` → slope, R², efficiency = 10^(−1/slope)−1, ผ่าน/ไม่ผ่านเกณฑ์ (default = Fork 5: 90–110%, R²>0.98 — ใส่ค่า validation ของแล็บด้วย `--eff-min/--eff-max/--r2-min`) + copies ของ unknown (`EXTRAPOLATED` ถ้านอกช่วง standard) · `ddct --t-s --r-s --t-c --r-c [--eff-t --eff-r]` (ต้องมี reference gene) · `fold --dct 3.32` (ΔCt → template ต่างกันกี่เท่า)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · Ct cut-off / IC cut-off / Tm = ค่าของ assay ใส่เอง · ค่าตัวอย่างสอนอยู่ใน `data/` · ทดสอบแล้ว: `evals/test_molecular_tools.py` (20 ข้อ รวม must-fail control 4 ตัว: อ่าน IC fail เป็น negative, เมิน NTC ที่ขึ้น, quantify ทั้งที่ efficiency ไม่ผ่าน, ใช้ 2^+ΔΔCt — ต้องแดง)
 
 ## ใช้เมื่อ
 - ต้อง detect mutation/SNP/fusion/เชื้อ → **เลือก method ไหน** (cost/turnaround/known-vs-unknown variant)

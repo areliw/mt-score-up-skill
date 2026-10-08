@@ -1,0 +1,8 @@
+{"name": "Reddy Mikks (Taha, Operations Research) - teaching example",
+ "sense": "max", "vars": ["x1", "x2"], "c": [5, 4],
+ "constraints": [
+  {"name": "M1", "a": [6, 4], "op": "<=", "b": 24},
+  {"name": "M2", "a": [1, 2], "op": "<=", "b": 6},
+  {"name": "market", "a": [-1, 1], "op": "<=", "b": 1},
+  {"name": "demand", "a": [0, 1], "op": "<=", "b": 2}
+ ]}

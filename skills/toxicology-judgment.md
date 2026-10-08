@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจงานพิษวิท�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-28
+last_edited: 2026-10-08
 status: draft
 disclaimer: "skill นี้เป็นเครื่องช่วยคิดเพื่อการศึกษาสำหรับงาน clinical/forensic toxicology เท่านั้น ไม่ใช่คำสั่งทางการหรือตัวตัดสินใจแทนผู้ป่วย/ผู้เชี่ยวชาญ การให้ antidote/chelator ผิด = อันตรายถึงชีวิต ผล screen-positive ต้อง confirm ก่อนเสมอ ทุกการตัดสินใจต้องทำตาม protocol ของหน่วยงาน + ยืนยันกับแพทย์/ศูนย์พิษวิทยา (รามาธิบดี สายด่วน 1367) ก่อนปฏิบัติจริง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -22,6 +22,12 @@ disclaimer: "skill นี้เป็นเครื่องช่วยคิ�
 > ⚠️ **ขอบเขต:** ตัวเลขในสกิล = teaching illustration — ค่าตัดสินจริงยึด **ref/baseline แลบคุณ + SOP** เสมอ · logic เน้น **ผู้ใหญ่**; เด็ก/ทารก/ตั้งครรภ์ (dose/antidote/chelator) ยึด **protocol เฉพาะทาง + ปรึกษาแพทย์/ศูนย์พิษวิทยา 1367**
 
 > 🛑 **RED FLAGS — เจอข้อใด = หยุด ยืนยันกับแพทย์/ศูนย์พิษวิทยา 1367 ก่อน อย่าเชื่อ AI เดี่ยว:** จะให้ antidote/chelator (OP/โลหะ/methanol) · cholinergic crisis แยก OP-vs-carbamate ไม่ได้ · เด็ก/ตั้งครรภ์ · forensic/ตัวอย่างใช้ในศาล · screen-positive กำลังจะรายงานโดยไม่ confirm · critical level (paracetamol/methanol/lithium). — ผิด = ถึงชีวิต
+
+## เครื่องมือ (รันก่อนคิดเลข)
+จับคู่ยาแก้พิษ/chelator, คิด % ChE ลด, เช็คเวลาเจาะ TDM หรือชนิดหลอด → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** (อย่าจำคู่เอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/toxicology-judgment/scripts/`)
+- `python scripts/antidote_check.py --agent lead --give Na-EDTA` (ใส่ `--give` ได้หลายตัว) → แต่ละคู่ได้สถานะตามตาราง Fork 3–4: `MATCHES CARD` / `CONDITIONAL` / `FORBIDDEN BY CARD` / `WRONG PAIR` / `NOT IN CARD TABLE` + เตือนเมื่อขาดตัวคู่ (2-PAM ไม่มี atropine, cholinergic ที่ยังแยก OP ไม่ได้แต่ไม่มี 2-PAM) · พิมพ์ "EDTA" เฉยๆ = `AMBIGUOUS` (เกลือคือกับดัก) · `--co-suspected` ทำให้ nitrite ใน cyanide = ห้าม · คู่ที่ไม่มีในตาราง **ไม่เคยถูกบอกว่า OK** → ถาม 1367 · ไม่มีขนาดยา
+- `python scripts/tox_calc.py che --current 2500 --baseline 6000 --type plasma` (% ลดจาก baseline ของคนไข้เอง; >50% = ระดับ OP ตาม Fork 5; ไม่มี baseline ต้องใส่ `--ref-low` ของแล็บ — ช่วง 3,500–8,000 ในการ์ดไม่ถูกฝังในสคริปต์) · `tdm --half-life --since-start [--interval --since-last-dose --trough-window <ของ SOP> --order trough]` (ถึง steady state หรือยัง = 1−0.5^(t/t½), เกณฑ์ default 5 half-lives; ใช้ t½ ของคนไข้) · `specimen --analyte phenytoin --tube gel` (phenytoin ห้าม gel · tacrolimus/cyclosporine ต้อง whole blood · สารระเหย/CN ต้อง whole blood ปิดสนิท)
+- อ่าน output: บรรทัด `VERDICT` (`STOP` / `CHECK` / consistent) หรือ `reading` · สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้สั่งยา: ทุก output มีบรรทัด RED FLAG/`ADVISORY` → แพทย์/ศูนย์พิษวิทยา 1367 ตัดสิน · ทดสอบแล้ว: `evals/test_toxicology_tools.py` (21 ข้อ รวม must-fail control 2 ตัว: ยอมให้ Na-EDTA กับ Pb และอ่าน "% ที่เหลือ" เป็น "% ที่ลด" — ต้องแดง)
 
 ## ใช้เมื่อ
 - "screen แล้วต้อง confirm มั้ย?" · "positive รายงานเลยได้ไหม?"

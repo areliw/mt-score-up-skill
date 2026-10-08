@@ -1,0 +1,6 @@
+# TEACHING DATA (made-up RGB values, not from a real smear or patient)
+# r g b per line
+180 60 200   # purple-stained nucleus, bright field
+90 30 100    # the SAME stain with half the light: RGB distance ~138, hue identical
+200 200 200  # gray background: M = m, hue undefined (reported 0) - must not pass a hue window
+230 150 170  # pinkish cytoplasm: M = r branch with a negative raw hue -> needs mod 360 (345 deg)

@@ -4,7 +4,7 @@ title: ตัวช่วยตัดสินใจแล็บจุลชี�
 type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-13
+last_edited: 2026-10-08
 status: draft
 disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำหรับการตัดสินใจในแล็บจุลชีววิทยาคลินิกเพื่อการศึกษา ไม่ตัดสินแทน และไม่ใช่คำสั่งวินิจฉัย/รักษา ทุกผลต้อง correlate กับ Gram stain + clinical + colony morphology และทำตาม SOP/QC ของห้องแล็บเสมอ ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง ความผิดพลาดในการรายงานเชื้อก่อโรค/ความไวต่อยา อาจกระทบความปลอดภัยของผู้ป่วยโดยตรง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -19,6 +19,14 @@ disclaimer: "Skill นี้เป็นตัวช่วย 'คิด' สำ
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
 
 > 🛑 **RED FLAGS — เจอข้อใด = หยุด correlate Gram/clinical + escalate ก่อนรายงาน:** MDR alert (MRSA/VRE/ESBL/CRE/MDR-TB → report + IC + กรมควบคุมโรค/NARST) · AST ขัด Gram/ID (S แต่ดื้อจริง — AmpC / inducible-clinda / ESBL) · sterile site (blood/CSF) ขึ้นเชื้อ · contaminant-vs-pathogen ใน specimen สำคัญ · QC strain นอก range แต่จะรายงาน. — รายงานผิด = ยาผิด/ระบาด
+
+## เครื่องมือ (รันก่อนคิดเลข)
+คิด colony count / ตัดสิน sputum / ไล่ blood culture / อ่าน AST panel → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** (อย่าคูณเลขหรือไล่ breakpoint ด้วยตาเอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/clinmicro-judgment/scripts/`) · **cutoff ทุกตัว = ของแล็บ ต้องใส่เอง** (`data/*_teaching.json` = ค่าสอนจาก digest ติดป้ายแล้ว ไม่ใช่ SOP)
+- `python scripts/culture_screen.py sputum --sec 15 --pmn 30 --cutoffs data/micro_cutoffs_teaching.json --profile sputum-murray-washington-1975` → ACCEPT / BORDERLINE / REJECT · เกณฑ์: รับเมื่อ SEC <10 + WBC/PMN >25 ต่อ LPF · ปฏิเสธเมื่อ SEC >10/LPF (Murray & Washington 1975, PMID 1127999 · owner ยืนยัน 2026-10-08) · profile เก่า `sputum-card-fork5` (reject เฉพาะ SEC >25) ถูกแทนที่และจะพิมพ์ WARNING ถ้าเรียกใช้ · SOP แล็บยังเป็นตัวตัดสินสุดท้าย
+- `python scripts/culture_screen.py count --loop-ml 0.001 --org "E. coli=150" --symptoms yes --cutoffs data/micro_cutoffs_teaching.json --profile urine-509402` → CFU/ml = colony ÷ ปริมาตร loop (ml) × dilution + band + flag mixed growth / สถานะอาการ (FORK 3) · 0 colony รายงาน "< detection limit" ไม่ใช่ 0 · BAL ใช้ `--loop-ml 0.01 --profile bal-508304`
+- `python scripts/culture_screen.py blood --organism "Staphylococcus epidermidis" --positive 1 --drawn 2 --flora data/blood_culture_flora_teaching.json` (+ `--line` ถ้ามีสาย/prosthesis) → LIKELY CONTAMINANT / CORRELATE / SIGNIFICANT / INDETERMINATE (FORK 3)
+- `python scripts/ast_read.py isolate.json --rules <ไฟล์ breakpoint ของแล็บ>.json` → ตาราง raw vs FINAL S/I/R + ALERT · **ไม่มีตาราง CLSI/EUCAST ในโค้ด** — breakpoint + QC range ใส่จาก M100 ฉบับที่แล็บใช้ · ลำดับที่ไล่: QC strain นอก range → HOLD ยานั้น · breakpoint ค้นตาม group เท่านั้น (CoNS ห้ามยืม 21 mm ของ S. aureus) · D-test · ESBL combo ≥ เกณฑ์ · penicillin ขอบ zone คม = R · intrinsic R · AmpC core-3 flag
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · การ report จริงตาม SOP + ผู้ลงนาม · ทดสอบแล้ว: `evals/test_clinmicro_judgment_tools.py` (28 ข้อ รวม must-fail control 4 ตัว: คูณ ×1,000 ทุก loop · รายงาน skin flora เป็น pathogen · ยืม breakpoint ข้าม group · ข้าม D-test — ต้องแดงทุกตัว)
 
 ## ใช้เมื่อ
 - ต้อง decide ในงาน Micro — เชื้อจริงหรือปน, ID พอยัง, อ่าน AST, รายงาน MDR
@@ -66,7 +74,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 - (สาย sales/MolDx) GeneXpert Carba-R / mecA PCR = ตัดเวลา confirmatory phenotype.
 
 ### FORK 5 — Specimen quality: รับหรือปฏิเสธ
-- Sputum Q-score/Bartlett: accept ถ้า SEC <10/lpf + PMN >25/lpf (เป็น LRT จริง) · reject ถ้า SEC >25/lpf (ปนน้ำลาย) → ขอใหม่ · 10–25/lpf = borderline correlate กับ Gram/clinical ก่อนตัดสิน.
+- Sputum (Murray & Washington 1975, PMID 1127999): accept ถ้า SEC <10/lpf + WBC/PMN >25/lpf (เป็น LRT จริง) · reject ถ้า SEC >10/lpf (ปนน้ำลาย: เพาะได้ oral flora แทบทุกตัว เจอ pathogen <15%) → ขอใหม่ · SEC <10 แต่ WBC ≤25 = borderline correlate กับ Gram/clinical ก่อนตัดสิน · ⚠️ แก้ 2026-10-08 (owner): ข้อความเดิม "reject เฉพาะ SEC >25 · 10–25 borderline" ปนแต้มของ Bartlett score (SEC 10–25 = −1, >25 = −2) ซึ่งเป็นตัวให้คะแนน ไม่ใช่เส้นปฏิเสธ.
 - Reject เมื่อ: ฉลากไม่ตรง/ไม่มี, container รั่ว, transport ผิด, ปริมาณไม่พอ, ซ้ำใน 24h ไม่จำเป็น.
 - GIGO. แต่ specimen หายาก (CSF, biopsy, intraop) → อย่าทิ้ง ติดต่อแพทย์/process + note limitation.
 
@@ -78,7 +86,7 @@ Urine colony count (loop 0.001 ml): ≥10⁵ CFU/ml pure/predominant = indicated
 ### FORK 7 — Specimen-site → เชื้อที่คาด + media ตาม syndrome (อย่าหว่านจานเดียวกันทุก site)
 อ่าน **site + host + syndrome** กำหนด workup ก่อนเพาะ:
 - **CSF/meningitis:** อ่าน CSF profile ก่อนเดา — neutrophil↑ + glucose↓มาก + protein↑ = bacterial (รายงานด่วน); lymphocyte + glucose ปกติ = viral; lymphocyte + glucose↓ ปานกลาง = TB/fungal · เชื้อตาม **อายุ** (newborn GBS/E.coli/Listeria · เด็ก Nm/Spn/Hib · สูงอายุ +GNB/Listeria) · ⚠️ Cryptococcus cell count อาจปกติ → **สั่ง CrAg/India ink เสมอ อย่าตัดออกเพราะ cell ปกติ**
-- **LRTI:** Gram screen ก่อนเพาะ (accept PMN>25 + SEC<10/lpf; reject SEC>25/lpf; 10–25 = borderline — ตรงกับ FORK 5) · **VAP/BAL = quantitative** (≥10⁴ CFU/ml = จริง) ไม่ใช่ qualitative · TB ใช้ early-morning sputum ×3
+- **LRTI:** Gram screen ก่อนเพาะ (accept WBC/PMN>25 + SEC<10/lpf; reject SEC>10/lpf — ตรงกับ FORK 5 ฉบับแก้ 2026-10-08) · **VAP/BAL = quantitative** (≥10⁴ CFU/ml = จริง) ไม่ใช่ qualitative · TB ใช้ early-morning sputum ×3
 - **Stool:** เพาะเมื่อ bloody/leukocyte+/ไข้/travel · media ตาม syndrome (TCBS+APW→Vibrio · SS/XLD/HE+enrich→Salmonella/Shigella · CCFA→C.diff · 42°C microaerophilic→Campylobacter) · ⚠️ ไม่ enrich = จับ Vibrio/Salmonella ไม่ได้
 - **Genital:** GC→Thayer-Martin/VCN · **BV ไม่เพาะ** ใช้ pH>4.5 + whiff + clue cells
 - **Sterile fluid** (pleural/peritoneal/joint/CSF): เชื้อใดก็ significant → ลง BA/CA/MC + **thioglycollate (anaerobe, ดู 7 วัน)**; อย่ามองข้าม anaerobe ใน deep pus

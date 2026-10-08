@@ -1,0 +1,16 @@
+{
+ "_label": "TEACHING isolate - constructed to exercise the traps, not patient data",
+ "organism": "Staphylococcus epidermidis",
+ "group": "CoNS",
+ "results": [
+  {"drug": "cefoxitin", "method": "disk", "value": 23},
+  {"drug": "erythromycin", "sir": "R"},
+  {"drug": "clindamycin", "sir": "S"},
+  {"drug": "penicillin", "method": "disk", "value": 30, "edge": "sharp"},
+  {"drug": "gentamicin", "sir": "S"}
+ ],
+ "d_test": "positive",
+ "qc": [
+  {"strain": "S. aureus ATCC 25923", "drug": "gentamicin", "value": 28}
+ ]
+}

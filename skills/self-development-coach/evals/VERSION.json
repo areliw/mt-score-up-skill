@@ -1,0 +1,19 @@
+{
+ "skill": "self-development-coach",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 forks missing (borderline) - safety step, probing, 1-leverage and the 5+ misses test existed as steps but not as decision forks",
+   "evidence": "added '## ทางแยก (เลือกอะไรเมื่อไร)' (9-row situation -> choose -> do-not table: crisis, big money/legal, vague goal, table phrases, bluntness consent, 1 leverage action, 5+ misses test, MT context); additive: +18/-1; validate_repo + check_maturity_gate pass",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "self-development-coach card steps 0-5 and traps",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

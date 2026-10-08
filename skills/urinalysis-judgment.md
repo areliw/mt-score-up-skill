@@ -4,7 +4,7 @@ title: โค้ชยูริน + body fluid microscopy — strip↔micro↔c
 type: ADVISE               # ช่วยตัดสินใจหน้า bench ไม่ใช่ atlas ตะกอน/ผลึก
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น้ำในร่างกายเพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย/รักษา และไม่ตัดสินใจแทน · ทุกผลที่กระทบการรักษา (RBC cast, crystal พิษ, CSF cell) ต้องดูด้วยกล้อง + correlate clinical + ทำตาม SOP/reference ของแล็บ + ยืนยันกับ MT/แพทย์ก่อนรายงานเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,12 @@ disclaimer: "ช่วยคิดงานตรวจปัสสาวะ/น
 > **กับดัก #1 (ขั้น hard):** **nitrite negative ไม่ตัด UTI** — เชื้อที่ไม่สร้าง nitrate reductase (Enterococcus, Staph, Pseudomonas, Acinetobacter) หรือปัสสาวะค้างใน bladder ไม่นานพอ → nitrite ลบทั้งที่ติดเชื้อ. และ leukocyte esterase ลบได้ใน early/neutropenia. **strip ลบ ≠ ปกติ** → ดู micro + บริบทเสมอ
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ไล่ strip ↔ sediment ↔ specimen หรือคิด Light's / CSF / synovial → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** (อย่าไล่กฎด้วยตาเอง) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/urinalysis-judgment/scripts/`) · สคริปต์ไม่ได้ "ดูกล้อง" แทนคน — มันเช็ค logic ของสิ่งที่คนอ่านมาแล้ว
+- `python scripts/ua_reconcile.py --blood 2+ --rbc 0 --rbc-max <ของแล็บ> --nitrite neg --le 1+ --wbc 25 --wbc-max <ของแล็บ> --bacteria many --ph 7.8 --crystal uric-acid --cast rbc --age-h 1` → รายการ finding เรียงตามระดับ `HOLD` (ต้อง resolve ก่อน report) / `RECOLLECT` / `FLAG` / `CAUTION` / `INFO` พร้อม fork ที่มา + บรรทัด `STATUS` · ครอบคลุม: กฎ 2 ชม./แช่เย็น, blood+ ไม่มี RBC, LE↔WBC ไม่ตรง, **nitrite ลบไม่เคยถูกตีว่า "ไม่มี UTI"**, SSA เมื่อสงสัย myeloma, squamous เยอะ/ประจำเดือน → re-collect, RTE, cast ที่ต้อง flag, crystal↔pH, Ca oxalate + AKI = ethylene glycol · ไม่ใส่ `--rbc-max/--wbc-max` = นับ ">0 ต่อ HPF" ว่า "เห็น" (สคริปต์บอกไว้)
+- `python scripts/fluid_calc.py lights --fluid-protein --serum-protein --fluid-ldh --serum-ldh --ldh-uln <ของแล็บ>` (exudate ถ้าเข้า ≥1 ข้อ; เตือนว่าเกณฑ์นี้มาจาก pleural — ascites ใช้ตาม SOP) · `csf --tube1-rbc --tube3-rbc [--minutes-to-count]` (RBC ลดข้ามหลอด = หนุน traumatic tap แต่ **ไม่ตัด SAH**) · `synovial --shape needle --birefringence negative` (MSU/CPPD; ไม่เข้าคู่ = ให้เช็คใหม่)
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_urinalysis_tools.py` (22 ข้อ รวม must-fail control 2 ตัว: "nitrite ลบ = ไม่มี UTI" และ Light's ที่บังคับครบ 3 ข้อ — ต้องแดง)
 
 ## ใช้เมื่อ
 - strip ↔ sediment ไม่ตรง → ตัวไหนเชื่อ? ต้อง resolve ยังไง

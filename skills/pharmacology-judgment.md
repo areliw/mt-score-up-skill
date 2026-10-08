@@ -4,7 +4,7 @@ title: โค้ชยาเบื้องต้น — ADME/แพ้ยา/�
 type: ADVISE               # ช่วยเข้าใจ/เฝ้าระวังเรื่องยา ไม่ใช่สั่งจ่ายยา
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิด/เฝ้าระวังเรื่องยาเพื่อการศึกษา ไม่ใช่คำสั่งใช้ยา/สั่งจ่ายยา — MT ไม่สั่งจ่ายยา การใช้/ปรับ/หยุดยาต้องปรึกษาแพทย์/เภสัชกรเสมอ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -18,6 +18,12 @@ disclaimer: "ช่วยคิด/เฝ้าระวังเรื่อง
 > MT ไม่สั่งจ่ายยา — แต่ต้องรู้ทันว่า **ยาบิดค่าแล็บ/ทำให้แพ้/ตีกัน** ยังไง + จุดที่ genomics เชื่อมกับยา · pharmacogenomics ดู `molecular-judgment` · พิษยา/overdose ดู `toxicology-judgment` · ร้อยกับเคส ดู `clinical-correlation-judgment`
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ตัดสินว่า "ระดับยานี้อ่านได้ไหม" (TDM, Fork 7) / คิด t½–steady state → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/pharmacology-judgment/scripts/`) · **ไม่มีคำสั่งคำนวณขนาดยา (MT ไม่สั่งจ่ายยา)**
+- `python scripts/tdm_timing.py --drug-class digoxin --half-life 40 --hours-on-regimen 72 --sample trough --purpose efficacy [--level 1.6 --range <ช่วงของแล็บ> --k 3.1 --k-low <ค่าแล็บ>]` → ผ่านมากี่ t½ (<4 t½ = ยังไม่ steady state) · sample ตรงกฎไหม (efficacy→trough, toxicity→peak, aminoglycoside ต้องคู่ peak+trough, vancomycin = AUC ไม่ใช่ peak/trough) · digoxin ไม่มี K⁺ = อ่านไม่ได้ · อ่านบรรทัด `->` (`INTERPRETABLE` / `WITH CAUTION` / `NOT INTERPRETABLE AS REQUESTED`) · `--csv` ตรวจหลายคำขอ
+- `python scripts/pk_calc.py halflife --vd 641 --cl 7.5` (t½ = 0.7×Vd/CL ตาม digest) · `steady-state --half-life 40 --hours 72` (% steady state = 1−0.5ⁿ) · `--kinetics zero` (phenytoin ฯลฯ) = ปฏิเสธการคิดจาก t½
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · therapeutic range / ขีด K⁺ = ค่าของแล็บ ใส่เอง (range ใน digest = ค่าสอน) · ค่าตัวอย่างสอนอยู่ใน `data/` · ทดสอบแล้ว: `evals/test_pharmacology_tools.py` (18 ข้อ รวม must-fail control 3 ตัว: นับ 1 t½ เป็น steady state, สลับ peak↔trough, อ่าน vancomycin แบบ trough — ต้องแดง)
 
 ## ใช้เมื่อ
 - อ่านอาการ/ค่าแล็บแล้วสงสัยเกี่ยวกับยา (drug effect/interaction บิดผล)

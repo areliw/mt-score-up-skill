@@ -1,0 +1,19 @@
+{
+ "skill": "never-lose-a-file",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 mostly keyword false alarm ('ตัดสินใจ 5 วิ' is a fork); real missing branch: two similar files with different hashes",
+   "evidence": "added ## ทางแยก (เลือกอะไรเมื่อไร): where it goes, same-hash vs different-hash duplicates (never delete different-hash), edit-in-home, naming, manual vs script (dry-run + backup); additions only; no tool (G3 not applicable)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/never-lose-a-file.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

@@ -1,0 +1,25 @@
+{
+ "_label": "TEACHING rule-out rules from the parasitology-judgment card + 317331 digest. NOT a lab SOP - replace with your lab's numbers.",
+ "malaria": {
+  "min_films": 3,
+  "min_interval_h": 12,
+  "max_interval_h": 24,
+  "min_thick_fields": 100,
+  "_src": "card rule #1 + FORK 3 (repeat every 12-24 h x >= 3; negative only after >= 100 thick fields); 317331 digest Part 2 Lab Dx (negative set -> repeat 12-24 h)"
+ },
+ "stool_routine": {
+  "min_specimens": 1,
+  "min_gap_days": null,
+  "_src": "317331 digest §5.1 (routine = 1). A routine single negative is NOT a rule-out (card trap: single stool = false negative)."
+ },
+ "stool_ruleout": {
+  "min_specimens": 3,
+  "min_gap_days": 2,
+  "_src": "card rule #1 + 317331 digest §5.1 (confirm = 3 specimens on alternate days); 'alternate days' read as >= 2 calendar days apart"
+ },
+ "e_histolytica": {
+  "min_specimens": 6,
+  "min_gap_days": null,
+  "_src": "card rule #1 + 317331 digest §5.1 (E. histolytica = 6); the source gives no spacing"
+ }
+}

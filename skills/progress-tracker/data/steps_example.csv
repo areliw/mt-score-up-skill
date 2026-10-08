@@ -1,0 +1,6 @@
+step,status,evidence,reason,due,finished
+ถาม 3 คำถาม,done,เปรียบเทียบค่าเฉลี่ย 2 กลุ่มอิสระ (คำตอบผู้ใช้),,2026-10-06,2026-10-06
+เช็คเงื่อนไข normality,done,Shapiro-Wilk p = 0.21 (output ที่รันแล้ว),,2026-10-07,2026-10-08
+เลือก test: two-sample Welch,doing,,,2026-10-07,
+บอก assumption ที่ต้องตรวจ,todo,,,2026-10-09,
+เตือนกับดักที่เกี่ยว,todo,,,2026-10-09,

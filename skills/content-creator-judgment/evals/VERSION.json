@@ -1,0 +1,14 @@
+{
+ "skill": "content-creator-judgment",
+ "history": [
+  {
+   "v": 1,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 reported - closed as keyword false alarm, no card change",
+   "evidence": "skill_gates COMPUTE regex matched 'ratio' inside the word 'saturation' in the installed description; the repo card states no metric arithmetic (no CTR/retention/conversion formula) so there is nothing rule-checkable to tool. Card untouched. Needs override computes:false in skill_gates_overrides.json (owner/orchestrator action) to clear the gate",
+   "gate": "pass"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

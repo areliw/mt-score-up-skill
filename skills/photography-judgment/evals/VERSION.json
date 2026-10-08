@@ -1,0 +1,14 @@
+{
+ "skill": "photography-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 (artifact output without a craft section)",
+   "evidence": "added ## ผลงานที่ต้องส่ง (shot brief + capture log: 7 ordered steps with checks, fill-in template, definition of done, lab de-identify step); additions only; no tool (card sets no computable rule beyond the 1/focal-length shutter heuristic)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

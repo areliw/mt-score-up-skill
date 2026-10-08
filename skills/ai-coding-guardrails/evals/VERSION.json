@@ -1,0 +1,19 @@
+{
+ "skill": "ai-coding-guardrails",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 keyword false alarm (risk-tier choice already a fork) + G2 partly real (steps and checklist existed under non-craft headings; no copy-paste prompt template, no single done-definition)",
+   "evidence": "added ## ทางแยก (เลือกอะไรเมื่อไร) (every row from the card's layers/VERDICT/traps) and ## ผลงานที่ต้องส่ง (5 gated steps, prompt template, done-definition by risk tier); additions only; status semi-stable -> draft per docs/design/maturity-ladder.md (body edited -> eval/ab-coverage.json body_hash stale; re-run eval/harness/ab-x3.js to earn semi-stable back)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/ai-coding-guardrails.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

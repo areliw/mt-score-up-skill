@@ -4,7 +4,7 @@ title: ฝั่งผู้บริจาค/ผลิตเลือด — e
 type: ADVISE               # ช่วยตัดสินใจฝั่ง donor/collection/ผลิต/QC ไม่ใช่ตำราเกณฑ์/วินิจฉัยแทน
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-16
+last_edited: 2026-10-08
 status: draft
 disclaimer: "เพื่อการศึกษา/ช่วยทบทวน ไม่ใช่คำสั่งทางการแพทย์หรือผู้ตัดสินใจแทน — งานบริการโลหิตเกี่ยวกับชีวิตทั้งผู้บริจาคและผู้รับโดยตรง ต้องทำตาม SOP ของหน่วยงาน + วิจารณญาณ MT/แพทย์ผู้มีใบประกอบฯ และยึด มาตรฐานธนาคารเลือดและงานบริการโลหิต ศูนย์บริการโลหิตแห่งชาติ สภากาชาดไทย (AABB/ISBT/FDA = อ้างอิงสากล) เสมอ · **ตัวเลขทุกตัวในสกิล (Hb/น้ำหนัก/อายุ/ระยะห่าง/อุณหภูมิ/อายุเก็บ/เกณฑ์ QC/dose) = teaching illustration ต่างกันตามมาตรฐาน/ชนิด anticoagulant/ประชากร/edition — verify กับ SOP จริงทุกครั้ง** · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -23,6 +23,13 @@ disclaimer: "เพื่อการศึกษา/ช่วยทบทวน
 > ⚠️ **logic เน้นผู้ใหญ่/ผู้บริจาคทั่วไป** — autologous · directed · neonatal/intrauterine component · apheresis ในเด็ก = ยึด protocol เฉพาะ + ปรึกษาแพทย์
 
 > 🛑 **RED FLAGS — เจอข้อใด = หยุด ยืนยันกับแพทย์/MT อาวุโส/ศูนย์บริการโลหิตก่อน อย่าเชื่อ AI เดี่ยว:** TTI confirmed-positive → แจ้ง/counsel donor · **look-back / recall** หน่วยที่อาจ transfuse ไปแล้ว · apheresis citrate reaction รุนแรง (tetany/arrhythmia) · donor reaction รุนแรง/หมดสติ/ชัก · **hematoma โตเร็ว/ปวดรุนแรง/ชา-อ่อนแรง/มือซีดเย็น** (สงสัยโดนเส้นเลือดแดง-เส้นประสาท) · **granulocyte** collection/component (donor ต้องกระตุ้นยา + protocol เฉพาะ) · component สำหรับทารก/intrauterine/exchange · สงสัย **bacterial contamination** ของ platelet — กลุ่มนี้กระทบชีวิตจริง ต้องมีคนยืนยันเสมอ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+เทียบค่าที่วัดของ donor กับเกณฑ์ · คิดปริมาตร / จำนวนหน่วยที่ต้อง QC / ตัดสิน batch · รับ unit คืน stock → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/blood-donor-component-judgment/scripts/`) · **สคริปต์ไม่มีเกณฑ์ตัวเลขฝังไว้ — ใส่จาก SOP/มาตรฐานที่ใช้จริงเอง** (ตรงกับกฎ "ตัวเลข = teaching illustration")
+- `python scripts/donor_eligibility.py --criteria <ไฟล์เกณฑ์ JSON จาก SOP> --sex F --age 22 --weight-kg 48 --hb 12.9 --temp-c 36.8 --sbp 118 --dbp 76 --pulse 72 --days-since-last 120` → ตารางเกณฑ์ทีละข้อ (PASS / DEFER ชั่วคราว / NOT ELIGIBLE / NOT ASSESSED) + ปริมาตรถุงตามช่วงน้ำหนัก · ค่าที่ไม่ได้วัด = INCOMPLETE ไม่ใช่ผ่าน · Hb/Hct แยกเพศ · ผลดีที่สุดคือ "MEASURED CRITERIA MET" — แบบสอบถาม/พฤติกรรมเสี่ยง/ยา/รายการ defer ถาวร ยังเป็นงาน judgment (Fork 1 ข้อ 3–4) · ไฟล์ตัวอย่าง `data/criteria_teaching_512303_whole_blood.json` = ค่าสอนจาก digest 512303 §10.1 **ไม่ใช่ SOP** · ⚠️ แก้ 2026-10-08 (owner): น้ำหนัก **45 กก. ขึ้นไป (รวม 45)** ตามหน้าคุณสมบัติผู้บริจาคของศูนย์บริการโลหิตแห่งชาติ (เดิม OCR อ่านเป็น ">45") · ถุง 350 mL = 45 ถึง <50 กก. · 450 mL = ≥50 กก. ตาม owner — หน้าทางการไม่ได้ระบุการแบ่งถุง และแต่ละ รพ. ต่างกัน
+- `python scripts/component_qc.py volume --gross-g 312 --tare-g 52 --sg <SG ตาม SOP>` ((น้ำหนักถุง − ถุงเปล่า) / SG, 512304 §9) · `sample-size --produced 850` (≥1% ของแต่ละ component, 512304 §9) · `batch qc.csv --spec ชื่อ:min:max[:อัตราผ่าน] --expect culture=neg --pass-rate <ตามมาตรฐาน> --critical culture` → ผ่าน/ไม่ผ่านรายหน่วย + สัดส่วนผ่านรายพารามิเตอร์ + verdict ตามบันได Fork 5 (PASS · PASS WITH ISOLATED FAILURES = quarantine หน่วยนั้น + co-component แล้วสอบสวน/trend · BATCH FAIL = quarantine lot/process · RED FLAG = พารามิเตอร์ critical/bacterial) · ไม่มีอัตราผ่าน default
+- `python scripts/unit_return.py --minutes-out 20 --max-minutes <SOP> --temp-c 6 --temp-range <SOP lo:hi>` → RETURN TO STOCK ได้ก็ต่อเมื่อ **ทั้งเวลาและอุณหภูมิ** อยู่ในเกณฑ์ (Fork 6) · ไม่ได้วัดอุณหภูมิ = QUARANTINE
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · การรับ donor / ปล่อย lot / คืน stock จริงตาม SOP + ผู้รับผิดชอบ · ทดสอบแล้ว: `evals/test_blood_donor_component_tools.py` (41 ข้อ รวม must-fail control 4 ตัว: ใช้เกณฑ์ Hb เดียวไม่แยกเพศ, ค่าที่ไม่ได้วัดนับว่าผ่าน, ทิ้งหน่วยที่ fail แล้วเดินต่อ, รับคืนโดยดูแค่เวลา — ทุกตัวต้องแดง)
 
 ## ใช้เมื่อ
 - donor มา → **รับ / defer ชั่วคราว / defer ถาวร / ส่งต่อ** (Hb/vitals/ประวัติ/ระยะห่าง)

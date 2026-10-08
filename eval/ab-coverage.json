@@ -12,7 +12,7 @@
  },
  "ai-agent-team": {
   "status": "draft",
-  "body_hash": "14da4a7122ce",
+  "body_hash": "799210ff8cc8",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -22,8 +22,8 @@
   "peer": false
  },
  "ai-assistant-calibration": {
-  "status": "semi-stable",
-  "body_hash": "4a10705f0d2f",
+  "status": "draft",
+  "body_hash": "ab66a8d192eb",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -33,8 +33,8 @@
   "peer": false
  },
  "ai-coding-guardrails": {
-  "status": "semi-stable",
-  "body_hash": "c53632b00f51",
+  "status": "draft",
+  "body_hash": "91157fbb2df5",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -44,8 +44,8 @@
   "peer": false
  },
  "anti-hallucination": {
-  "status": "semi-stable",
-  "body_hash": "148de71f94a4",
+  "status": "draft",
+  "body_hash": "8ec71aa95308",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -56,7 +56,7 @@
  },
  "applied-microbiology-judgment": {
   "status": "draft",
-  "body_hash": "c4bf347e3e65",
+  "body_hash": "a57982b04d2b",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -67,7 +67,7 @@
  },
  "blood-donor-component-judgment": {
   "status": "draft",
-  "body_hash": "f3dc2bf7eab0",
+  "body_hash": "efa0420da99b",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -78,7 +78,7 @@
  },
  "bloodbank-judgment": {
   "status": "draft",
-  "body_hash": "a1ebe96999b3",
+  "body_hash": "7e27b515decf",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -89,7 +89,7 @@
  },
  "chemistry-interpretation-judgment": {
   "status": "draft",
-  "body_hash": "cb6248085168",
+  "body_hash": "a05a226620c2",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -111,7 +111,7 @@
  },
  "clinchem-judgment": {
   "status": "draft",
-  "body_hash": "3d190cd71186",
+  "body_hash": "d62053425b1d",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -122,7 +122,7 @@
  },
  "clinical-correlation-judgment": {
   "status": "draft",
-  "body_hash": "715b5e526cc0",
+  "body_hash": "e2a93ea090d0",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -133,7 +133,7 @@
  },
  "clinmicro-judgment": {
   "status": "draft",
-  "body_hash": "8aadb01b2c4a",
+  "body_hash": "636d190b154b",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -144,12 +144,12 @@
  },
  "content-creator-copyright": {
   "status": "draft",
-  "body_hash": "2601707a6250",
-  "ab": false,
+  "body_hash": "d89bb02d7ba1",
+  "ab": true,
   "ab_full": false,
-  "ab_tier": null,
-  "ab_method": null,
-  "ab_delta": null,
+  "ab_tier": "manual",
+  "ab_method": "x3-agents",
+  "ab_delta": -0.33,
   "screen": false,
   "peer": false
  },
@@ -188,7 +188,7 @@
  },
  "cv-judgment": {
   "status": "draft",
-  "body_hash": "868a653fc807",
+  "body_hash": "4825db016e02",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -221,7 +221,7 @@
  },
  "db-judgment": {
   "status": "draft",
-  "body_hash": "dd41fb65097a",
+  "body_hash": "747134f84c9c",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -254,7 +254,7 @@
  },
  "digital-judgment": {
   "status": "draft",
-  "body_hash": "f8f9aace71be",
+  "body_hash": "5d0537998339",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -265,7 +265,7 @@
  },
  "dx-company-brief": {
   "status": "draft",
-  "body_hash": "23e056c09cd2",
+  "body_hash": "c69569bc5b64",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -276,7 +276,7 @@
  },
  "explain-simply": {
   "status": "draft",
-  "body_hash": "13b4676450bd",
+  "body_hash": "d64fcec50508",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -287,7 +287,7 @@
  },
  "finance-judgment": {
   "status": "draft",
-  "body_hash": "6d9054e47f7b",
+  "body_hash": "75463045ba22",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -309,7 +309,7 @@
  },
  "flow-cytometry-judgment": {
   "status": "draft",
-  "body_hash": "642e425b0df6",
+  "body_hash": "c584aa1f81e6",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -342,7 +342,7 @@
  },
  "hematology-judgment": {
   "status": "draft",
-  "body_hash": "3d6b0ec20f44",
+  "body_hash": "b94647fd8053",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -353,7 +353,7 @@
  },
  "histotech-cytology-judgment": {
   "status": "draft",
-  "body_hash": "90e1c43ad586",
+  "body_hash": "6b31fdbe7650",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -375,7 +375,7 @@
  },
  "ikigai-finder": {
   "status": "draft",
-  "body_hash": "2ed329ca9473",
+  "body_hash": "ddebd7f482d0",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -386,7 +386,7 @@
  },
  "immunoassay-judgment": {
   "status": "draft",
-  "body_hash": "77bf9503ebd0",
+  "body_hash": "964df1a5f43f",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -408,7 +408,7 @@
  },
  "infection-control-judgment": {
   "status": "draft",
-  "body_hash": "f70d17088640",
+  "body_hash": "a7af819cf62f",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -441,7 +441,7 @@
  },
  "ivd-sales-judgment": {
   "status": "draft",
-  "body_hash": "b896a2e44e2a",
+  "body_hash": "d9d06a506891",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -452,7 +452,7 @@
  },
  "know-yourself": {
   "status": "draft",
-  "body_hash": "70218e4ebacb",
+  "body_hash": "8295457bbad3",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -474,7 +474,7 @@
  },
  "lab-management-judgment": {
   "status": "draft",
-  "body_hash": "6a892179ad7a",
+  "body_hash": "3fd113dceac0",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -540,7 +540,7 @@
  },
  "method-validation-stats": {
   "status": "draft",
-  "body_hash": "d3e97c325cd6",
+  "body_hash": "468c9f927221",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -561,8 +561,8 @@
   "peer": false
  },
  "ml-judgment": {
-  "status": "semi-stable",
-  "body_hash": "26f7814f3a43",
+  "status": "draft",
+  "body_hash": "97e046682dca",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -573,7 +573,7 @@
  },
  "molecular-judgment": {
   "status": "draft",
-  "body_hash": "78cffdf406f0",
+  "body_hash": "0863ada259bd",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -584,7 +584,7 @@
  },
  "mt-career-judgment": {
   "status": "draft",
-  "body_hash": "0b2c4138f024",
+  "body_hash": "cecb68dd01cc",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -617,7 +617,7 @@
  },
  "mt-law-ethics-judgment": {
   "status": "draft",
-  "body_hash": "cec1ddf3c9b0",
+  "body_hash": "4f27f66ded0a",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -628,7 +628,7 @@
  },
  "never-lose-a-file": {
   "status": "draft",
-  "body_hash": "7862b827b9c1",
+  "body_hash": "880ab98da121",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -639,7 +639,7 @@
  },
  "offload-to-automation": {
   "status": "draft",
-  "body_hash": "17f10b9c2f31",
+  "body_hash": "2c45131c1a48",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -649,8 +649,8 @@
   "peer": false
  },
  "optimization-judgment": {
-  "status": "semi-stable",
-  "body_hash": "fd3bbcdf0669",
+  "status": "draft",
+  "body_hash": "822eb6514416",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -661,7 +661,7 @@
  },
  "parasitology-judgment": {
   "status": "draft",
-  "body_hash": "7620c819007b",
+  "body_hash": "9b3ea2ad574a",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -672,7 +672,7 @@
  },
  "pathology-judgment": {
   "status": "draft",
-  "body_hash": "e07af909cc77",
+  "body_hash": "6dd74e906bb5",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -683,7 +683,7 @@
  },
  "pharmacology-judgment": {
   "status": "draft",
-  "body_hash": "8abbcdbabfb5",
+  "body_hash": "892aae836258",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -694,7 +694,7 @@
  },
  "phi-data-handling": {
   "status": "draft",
-  "body_hash": "70deff30b6a8",
+  "body_hash": "89450f809554",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -705,7 +705,7 @@
  },
  "photography-judgment": {
   "status": "draft",
-  "body_hash": "bf5d579c9ca0",
+  "body_hash": "021a92099dee",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -716,7 +716,7 @@
  },
  "poct-judgment": {
   "status": "draft",
-  "body_hash": "028ec8c7d1b6",
+  "body_hash": "a10b626a3c4b",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -727,7 +727,7 @@
  },
  "polite-but-clear": {
   "status": "draft",
-  "body_hash": "907abf5a46ba",
+  "body_hash": "ee3fd3972767",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -749,7 +749,7 @@
  },
  "preanalytical-judgment": {
   "status": "draft",
-  "body_hash": "8eb96ef7576a",
+  "body_hash": "4eb614dfe053",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -770,8 +770,8 @@
   "peer": false
  },
  "progress-tracker": {
-  "status": "semi-stable",
-  "body_hash": "14e1b7ee385f",
+  "status": "draft",
+  "body_hash": "30e6b4c763f1",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -792,8 +792,8 @@
   "peer": false
  },
  "pubmed-search-judgment": {
-  "status": "semi-stable",
-  "body_hash": "c19cf030f961",
+  "status": "draft",
+  "body_hash": "7a7514bf376c",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -814,8 +814,8 @@
   "peer": false
  },
  "r2r-research-proposal": {
-  "status": "semi-stable",
-  "body_hash": "30203e42f15e",
+  "status": "draft",
+  "body_hash": "2f431280627e",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -837,7 +837,7 @@
  },
  "receiving-review-judgment": {
   "status": "draft",
-  "body_hash": "b61a0ddd6052",
+  "body_hash": "b5540ad716df",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -847,8 +847,8 @@
   "peer": false
  },
  "report-up-judgment": {
-  "status": "semi-stable",
-  "body_hash": "7cc8c79c5310",
+  "status": "draft",
+  "body_hash": "04bc30c1775b",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -881,7 +881,7 @@
  },
  "result-release-judgment": {
   "status": "draft",
-  "body_hash": "ba73eae91ec6",
+  "body_hash": "ec84f08e4e3b",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -902,8 +902,8 @@
   "peer": false
  },
  "sample-size-power": {
-  "status": "semi-stable",
-  "body_hash": "02227301a6ad",
+  "status": "draft",
+  "body_hash": "e2ed9d4e0005",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -914,7 +914,7 @@
  },
  "self-development-coach": {
   "status": "draft",
-  "body_hash": "f710d6154e81",
+  "body_hash": "f89d3526b1cb",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -936,7 +936,7 @@
  },
  "source-credibility-judgment": {
   "status": "draft",
-  "body_hash": "e3215a86fb8a",
+  "body_hash": "c7f7e382c358",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -946,8 +946,8 @@
   "peer": false
  },
  "spreadsheet-judgment": {
-  "status": "semi-stable",
-  "body_hash": "162c43bcd7ac",
+  "status": "draft",
+  "body_hash": "26425b905d1a",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -991,7 +991,7 @@
  },
  "toxicology-judgment": {
   "status": "draft",
-  "body_hash": "ad9277109fc9",
+  "body_hash": "d17b7f0b3340",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -1002,7 +1002,7 @@
  },
  "urinalysis-judgment": {
   "status": "draft",
-  "body_hash": "c1d94f71f0ca",
+  "body_hash": "77ba22e48fb1",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -1023,8 +1023,8 @@
   "peer": false
  },
  "what-skill-do-i-need": {
-  "status": "semi-stable",
-  "body_hash": "43398a8d5dd5",
+  "status": "draft",
+  "body_hash": "25597989684d",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",
@@ -1046,7 +1046,7 @@
  },
  "writing-judgment": {
   "status": "draft",
-  "body_hash": "808f848a934f",
+  "body_hash": "d1e1c62fa147",
   "ab": true,
   "ab_full": true,
   "ab_tier": "full",

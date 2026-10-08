@@ -1,0 +1,9 @@
+id,hbsag,anti_hbc,anti_hbs,igm_anti_hbc,hbsag_months
+T1-acute,pos,pos,neg,pos,
+T2-chronic,pos,pos,neg,neg,9
+T3-recovered,neg,pos,pos,,
+T4-vaccinated,neg,neg,pos,,
+T5-core-window,neg,pos,neg,pos,
+T6-isolated-core,neg,pos,neg,neg,
+T7-antiHBs-only-no-core,neg,na,pos,,
+T8-susceptible,neg,neg,neg,,

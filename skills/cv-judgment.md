@@ -4,7 +4,7 @@ title: โค้ช Computer Vision — เลือกเทคนิคภา�
 type: ADVISE               # ช่วยตัดสินใจเลือกเทคนิค ไม่ใช่ตำราสูตร
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดเลือกเทคนิค image analysis เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์ — งานวินิจฉัยจากภาพ (เช่นเซลล์/สเมียร์) ต้องมี MT/แพทย์ยืนยันเสมอ ไม่ใช้ผลโมเดลตัดสินคนไข้ลำพัง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -16,6 +16,13 @@ disclaimer: "ช่วยคิดเลือกเทคนิค image analys
 > **กฎ #1: data น้อย/feature ชัด → classical (HOG/GLCM → SVM) ก่อนเสมอ; อย่าไป deep CNN.** Deep บน data น้อย = overfit จำไม่ generalize. **กับดัก #1: threshold "สี" ใน RGB** — เพี้ยนทันทีที่แสงเปลี่ยน → ใช้ **HSV** เมื่อสีคือ criterion.
 > **กับดัก edge: "ภาพเยอะ" ≠ data เยอะ** — หลาย patch/ภาพจากคนไข้/สไลด์เดียว = data จุดเดียว → split train/test ที่ระดับ **คนไข้/สไลด์ ไม่ใช่ patch** ไม่งั้น leakage → accuracy หลอกตา.
 > มีเลนพิเศษ **blood smear / cell morphology** ด้านล่าง · เลือก classifier ลึกๆ → ดู `ml-judgment`
+
+## เครื่องมือ (รันก่อนคิดเลข)
+เลขใน fork C/F + เลนเซลล์เลือด (HSV, GLCM, opening/closing) → **รันสคริปต์ก่อน แล้วค่อยใช้ judgment ข้างล่างเลือก/ตีความ** (อย่านับคู่ GLCM หรือเลือกสูตร hue ด้วยมือ) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/cv-judgment/scripts/`) · histogram/filter/Sobel/labeling ไม่อยู่ที่นี่ → `scripts/vision_calc.py` ของ `image-processing-judgment`
+- `python scripts/cv_calc.py hsv @data/stain_two_lightings_rgb.txt --h-range 270 320 --s-min 0.2` — fork F + กับดัก #1: อ่านบรรทัด `branch` (M=r/g/b ใช้สูตรไหน; แถว M=r ต้อง mod 360) แล้วตาราง `vs pixel #1` (สีย้อมเดียวกันแสงต่าง = ระยะ RGB ~138 แต่ Δh = 0) · pixel เทา (M = m) ได้ h = 0 ตามนิยาม **ไม่ใช่สีแดง** → ใส่ `--s-min` · `--h-range 330 30` = ช่วงแดงที่วนผ่าน 0°
+- `python scripts/cv_calc.py glcm @data/glcm_slide5_7x6.txt --dx 0 --dy 1 --symmetric` — fork C + เลนเซลล์ข้อ 3: อ่าน C → C_SYM → P = C/ΣC → ตารางพจน์ต่อช่อง → max prob / ASM (=Energy) / contrast / homogeneity / entropy / correlation · ตามสไลด์ GLCM: **x = แถว (ลง), y = คอลัมน์ (ขวา)** → `--dx 0 --dy 1` = เพื่อนบ้านทางขวา · `--angle 45` = ขวาบน (Haralick/MATLAB) ≠ skimage π/4 (ขวาล่าง) — สคริปต์พิมพ์คำสั่ง skimage ที่ตรงกันให้ · บรรทัดวงเล็บ `[skimage …]` = ค่าที่ไลบรารีตั้งชื่อเหมือนแต่สูตรต่าง (homogeneity ใช้ (i−j)², energy = √ASM, entropy ใช้ ln) · `--quantize 4` = 0–63/64–127/128–191/192–255 · `--given` = โจทย์ให้ GLCM มาแล้ว
+- `python scripts/cv_calc.py morph @data/smear_mask_12x12.txt --op open` (เทียบ `--op close`) — เลนเซลล์ข้อ 2 + กับดัก Opening↔Closing: พิมพ์ภาพหลังแต่ละขั้น + พิกเซลที่หาย/เพิ่ม (opening ลบจุดเล็กและวงบาง · closing อุดรู เก็บจุดเล็กไว้) · dilation = แปะ SE ตามที่วาดบนทุกพิกเซล 1 · `--border zero` (นอกภาพ = 0 ตามสไลด์) ≠ `ignore` (ค่าเริ่มต้นของ skimage) ที่ขอบภาพ
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_cv_calc.py` (35 ข้อ ค่าคาดหวังจากสไลด์วิชา + Haralick 1973 Fig. 2 · must-fail control 12 ตัว: hue_without_mod_360, hue_branch_offsets_swapped, glcm_axes_swapped, glcm_offset_reversed, glcm_not_symmetrized, glcm_features_on_raw_counts, glcm_skimage_angle_map, homogeneity_squared_denominator, entropy_natural_log, opening_closing_swapped, dilation_touch_rule_mirrors_se, border_ignore_breaks_slide115)
 
 ## ใช้เมื่อ
 - "ภาพ contrast ต่ำ/noisy ควร preprocess อะไร" · "ใช้ edge/feature/descriptor ตัวไหน" · "classical หรือ deep"

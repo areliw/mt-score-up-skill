@@ -1,0 +1,6 @@
+# TEACHING EXAMPLE ONLY - invented values/limits, not patient data and not a real SOP
+id1,id2,analyte,value,unit,result_time,call_time,caller,receiver,receiver_role,method,read_back,reached,escalated_to,escalation_time
+HN-TEACH-1,DOB-TEACH-1,K,7.0,mmol/L,2026-10-08 09:00,2026-10-08 09:12,MT-A,RN-B,ward nurse,verbal,Y,Y,,
+HN-TEACH-2,,Glucose,35,mg/dL,2026-10-08 10:00,2026-10-08 10:05,MT-A,RN-C,ward nurse,verbal,N,Y,,
+HN-TEACH-3,DOB-TEACH-3,Na,118,mmol/L,2026-10-08 11:00,,MT-A,,,,,N,,
+HN-TEACH-4,DOB-TEACH-4,WBC,1.9,x10^3/uL,2026-10-08 12:00,2026-10-08 13:10,MT-A,MD-D,resident,electronic,,Y,,

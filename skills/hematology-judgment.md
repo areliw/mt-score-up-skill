@@ -5,7 +5,7 @@ type: ADVISE
 needs: any
 author: "Phanuphong Tameesak - MT Score UP!"
 contributors: ["สมาชิกแห่งความมืด–องค์กรลับแห่งรัตติกาล — graft กับดัก pseudothrombocytopenia (Fork 4)"]
-last_edited: 2026-06-28
+last_edited: 2026-10-08
 status: draft
 disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศึกษา ไม่ตัดสินใจแทนและไม่วินิจฉัยแทนผู้ป่วย · blast / ค่าวิกฤต = เร่งด่วน ต้องแจ้งแพทย์ทันที · ทุกผลที่กระทบการรักษาต้อง review smear ด้วยตา + ยืนยันกับ MT ผู้รับผิดชอบ/แพทย์ก่อนรายงาน · AI อาจผิดได้ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -18,6 +18,13 @@ disclaimer: "skill นี้ช่วย 'คิด' เพื่อการศ
 > **กับดัก #1 (ขั้น hard):** ตัวเลข/flag เครื่อง "ปกติ" ≠ smear ปกติ — เครื่องนับ blast เป็น lymph/mono ได้ ปล่อย acute leukemia ทั้งที่ WBC ปกติ. **เลขปกติแต่อาการ/บริบทค้าน = ยังต้อง smear** อย่าให้ "ไม่มี flag" เป็นใบผ่าน
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+คิดเลข CBC/retic/LAP/platelet/coag → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** (อย่าคิด RPI/ดัชนีในหัว) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/hematology-judgment/scripts/`)
+- `python scripts/cbc_calc.py indices --hb 11.2 --hct 35 --rbc 5.6` → MCV/MCH/MCHC + กลุ่ม micro/normo/macro (Fork 2) + thal screen MCV<80/MCH<27 + MCHC flag ที่บอกทั้งสองทาง artifact vs spherocytosis (Fork 1) + Mentzer (Fork 5 — แค่เบาะแส) · `retic --retic-pct 6 --hct 25` → corrected retic + RPI → อ่านบรรทัด `verdict` (hyper/hypo — Fork 2) และ `note` เมื่อ retic ดิบหลอกตา · `nrbc-wbc --wbc 15000 --nrbc 25` (WBC แก้ NRBC — Fork 1) · `lap --counts 90 8 2 0 0` (LAP score — Fork 3 CML vs leukemoid)
+- `python scripts/platelet_check.py estimate --fields … --factor <ค่าที่แล็บ validate> --analyzer <เลขเครื่อง> --tolerance-pct <ตาม SOP>` → estimate จาก smear เทียบเครื่อง: `DISCORDANT` ทิศเครื่องต่ำ = สงสัย clump/clot (Fork 4 ขั้น 0–2) · `citrate --count 90000` → คูณ dilution factor ของหลอด citrate (Fork 4 ขั้น 3)
+- `python scripts/coag.py pattern --pt 18.2 --pt-uln <ของแล็บ> --aptt 31 --aptt-uln <ของแล็บ> [--tt …] [--bleeding]` → pattern ตาม Fork 6 + บอกว่าต้อง mixing ไหม (PT/aPTT ปกติแต่เลือดออก = ห้ามจบ — กับดัก #9) · `mixing --mix … --uln …` (หรือ Rosner index + cutoff ของแล็บ) → corrected / not corrected / criteria ขัดกัน · `citrate-hct --hct 65` → ปริมาณ citrate เมื่อ Hct >55 (กับดัก #10) · ค่าเริ่มต้น = **สูตร CLSI H21: C = 1.85×10⁻³ × (100 − Hct) × V เลือด** (ใช้ตรงกันที่ LabCorp/ARUP/Mayo/CAP · ตรวจ 2026-10-08) + บอกปริมาณที่ต้องดูดออกจากหลอด · สูตร digest 503402 §6 ยังเลือกได้ด้วย `--formula digest`
+- reference range/ULN ของ PT/aPTT/TT, platelet factor, tolerance, Rosner cutoff = **ของแล็บ ต้องใส่เอง ไม่มี default** · default ที่มี (MCV 80/100, MCH 27, MCHC 36, RPI 2 + ตาราง maturation, LAP 20/100, citrate 9:1 และ 0.5 mL) = ค่าสอนจาก digest 503402/501 ติดป้ายไว้ใน `--help` · สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` และ **ไม่แทน smear review (กฎ #1 / กับดัก #1)** · ทดสอบแล้ว: `evals/test_hematology_tools.py` (40 ข้อ รวม must-fail control 7 ตัว — ตัวที่ 7: ใช้สูตร digest เป็นค่าเริ่มต้นแล้วไม่ตรงตัวอย่าง ARUP — RPI จาก retic ดิบไม่แก้ Hct · ลบ NRBC เป็น % · LAP ใช้เกรดเฉลี่ย · ไม่คูณ factor หลอด citrate · ทิ้ง branch "PT/aPTT ปกติแต่เลือดออก" · ไม่ปรับ citrate ที่ Hct 65 — ทุกตัวต้องแดง)
 
 ## ใช้เมื่อ
 - เห็น CBC/analyzer flag → ต้อง review smear ด้วยตามั้ย? reflex test อะไร?

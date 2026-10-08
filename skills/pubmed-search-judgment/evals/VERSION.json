@@ -1,0 +1,30 @@
+{
+ "skill": "pubmed-search-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G2 craft missing (the Fork 5 log table existed, but no ordered steps with checks, no fill-in search record, no definition of done)",
+   "evidence": "skills/pubmed-search-judgment.md: + ## เครื่องมือ + ## ผลงานที่ต้องส่ง (9 steps with checks, search-record template, DoD); scripts/pubmed_query_check.py (balance, uppercase operators, ungrouped AND/OR, concept count, MeSH-only, [majr], UK/US spelling, whole sentence, date range, RCT-only on diagnostic) + data/example_queries.txt; evals/test_pubmed_query_check.py 43 tests green incl. 5 must-fail controls (whole sentence, RCT-only on diagnostic, ungrouped OR/AND, MeSH-only + single spelling, mutant grouping rule); 11/11 hand-made mutants of the checker killed; existing card text only added to (git diff: 0 deleted lines); last_edited bumped to 2026-10-08",
+   "gate": "pass"
+  },
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "maturity: body changed by the v2 upgrade",
+   "evidence": "status semi-stable -> draft per docs/design/maturity-ladder.md; earn back with a fresh A/B + build_ab_coverage.py",
+   "gate": "pending-retest"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "PubMed User Guide https://pubmed.ncbi.nlm.nih.gov/help/ (uppercase Boolean operators; left-to-right processing; field tag after several words searches a phrase; tag list)",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "skills/pubmed-search-judgment.md Forks 1-5 + Anti-patterns (the card's own rules and examples are the oracle for the tool)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

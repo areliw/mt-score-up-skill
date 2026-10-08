@@ -1,0 +1,14 @@
+{
+ "skill": "hematology-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "source conflict: digest vs CLSI citrate formula (owner did not know -> decide from data)",
+   "evidence": "default switched to CLSI H21 C=0.00185x(100-Hct)xV used by LabCorp/ARUP/Mayo/CAP; ARUP worked example reproduced (0.18 mL, remove 0.09)",
+   "gate": "pass (bug fix, rung unchanged)"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

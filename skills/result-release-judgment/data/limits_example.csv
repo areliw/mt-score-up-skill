@@ -1,0 +1,5 @@
+# TEACHING EXAMPLE ONLY - invented values/limits, not patient data and not a real SOP
+analyte,amr_low,amr_high,crit_low,crit_high,delta_abs,delta_pct
+K,1.0,10.0,2.5,6.5,1.0,
+Glucose,2,700,40,500,,30
+Na,80,200,120,160,8,

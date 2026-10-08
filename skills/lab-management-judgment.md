@@ -4,7 +4,7 @@ title: โค้ชบริหารแล็บ — QMS/accreditation/QC strat
 type: ADVISE               # ช่วยตัดสินใจบริหารแล็บ ไม่ใช่ตำรา ISO
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดบริหารแล็บเพื่อการศึกษา ไม่ใช่ที่ปรึกษา accreditation/จัดซื้อ/กฎหมายทางการ — ข้อกำหนด ISO/มาตรฐานจริงต้องอ้างฉบับล่าสุด + ผู้ตรวจประเมิน/ผู้มีอำนาจของหน่วยงาน · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,14 @@ disclaimer: "ช่วยคิดบริหารแล็บเพื่อ�
 > **กับดักขั้นกว่า (จุดที่พลาดจริง): "ใช้ค่าแล็บเอง" ยังไม่พอ — ต้องเก็บ ≥20 จุด คนละวัน ≥20 วัน. เก็บ 20 จุดรวดเดียววันเดียว = ได้แค่ within-run SD (แคบเกิน) → false reject ท่วม. และพอ "เปลี่ยน lot control/น้ำยา" ต้องตั้ง mean/SD ใหม่ ห้าม carry ค่าเก่าข้าม lot.**
 > นี่คือชั้น "วางระบบ/วางแผน" เหนือหน้า bench — QC accept/reject รายวันดู `clinchem-judgment`; skill นี้คือ **ออกแบบ QC ทั้งระบบ + ผ่าน audit + คุมต้นทุน**
 > กรอบร้อยทุกอย่าง = **Total Testing Process: Pre → Analytical → Post** (~46–68% error อยู่ที่ pre-analytical, มัก quote ~60%; Plebani)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ตั้ง QC limit / คิด TAT KPI / อ่านผล EQA → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/lab-management-judgment/scripts/`)
+- `python scripts/qc_setup_check.py qc.csv --insert-low 90 --insert-high 110` — คอลัมน์ `date,value,lot,level` → แยกตาม level × lot · เช็คกฎ #1 (≥20 จุด **และ** ≥20 วันต่างกัน, lot เดียว) → mean/SD(n−1)/CV/±1–3SD + `READY`/`NOT READY` · 20 จุดวันเดียว = เตือน within-run SD · ไม่บันทึก lot = ไม่ผ่าน · ใส่ช่วงกล่องน้ำยาเพื่อดูว่ากว้างกว่า ±2SD ของแล็บกี่เท่า (ห้ามใช้แทน) · ตัดสิน run ด้วย Westgard → `scripts/westgard.py` ของ `clinchem-judgment`
+- `python scripts/tat_stats.py tat.csv --start received --end reported --by priority --target 60` — median/IQR/P90 + % ภายในเป้า แยก STAT/routine · บอกช่วงเวลาที่วัดเสมอ · แถวเวลาหาย/ติดลบ = ตัดออก**และนับให้เห็น** · mean พิมพ์ไว้เทียบเท่านั้น (TAT เบ้ → รายงาน percentile)
+- `python scripts/eqa_eval.py eqa.csv --fail-sdi 2` (หรือ `--fail-bias-pct`) — bias% = (lab − peer mean)/peer mean ×100 + SDI + band สอนจาก 510403 · เกณฑ์ fail = ของ scheme ต้องใส่เอง (ไม่ใส่ = `NO CRITERION`) · แยก "miss เดี่ยว" vs "pattern" (หลาย analyte ใน round เดียว / analyte เดิมหลาย round) · พิมพ์ลำดับสอบสวน Fork 9 (clerical ก่อน) + ข้อห้าม (รันซ้ำจนผ่าน, PT referral)
+- sigma-based QC planning (Fork 3) → `scripts/qc_calc.py sigma` ของ `clinchem-judgment` · ⚠️ สคริปต์นั้นใช้ตาราง 505402 §3.1 ซึ่ง**ไม่ตรง**กับตาราง Fork 3 ข้างล่างที่ 5σ และ <4σ → ยึด QC policy ของแล็บ
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_lab_management_tools.py` (18 ข้อ รวม must-fail control: นับจุดเป็นวัน, ใช้ mean เป็น TAT KPI, โทษเครื่องก่อน clerical, หาร bias ด้วยค่าแล็บ — ต้องแดงทุกตัว)
 
 ## ใช้เมื่อ
 - เตรียม/ต่ออายุ accreditation (ISO 15189 / LA / HA) — เลือกระดับ + เตรียมเอกสาร
@@ -112,6 +120,26 @@ Sigma = [TEa(%) − Bias(%)] / CV(%)   ← ทั้ง 3 ตัวต้อง�
 - **สับ verification กับ validation** → รับเครื่องโดยไม่ทวนสอบเองก่อนใช้
 - **(ผู้ประเมิน) กางมาตรฐาน รพ.ใหญ่จับ รพ.สต. เป็นเอาเป็นตาย → ให้ตกดิบ** → ไม่ยกระดับ + ทำลายขวัญ (เขาไม่ได้เรียนสาย MT + งานหลายหน้า) → บริบทช่วย *ตีความ+โค้ช* ไม่ใช่ยกเว้นเกณฑ์; อธิบายหัวใจของข้อ (Fork 10)
 - **(ผู้ประเมิน) ปั๊มผ่านเพราะถูกบีบ / โค้ชแล้วให้คะแนนแล็บเดียวกันในรอบ accreditation ทางการ (COI)** → มาตรฐานกลายเป็นพิธี · คะแนนต้อง earned + แยกคนโค้ชกับคนให้คะแนน; เจอแรงกดดัน = บันทึก+escalate ไม่ใช่ปั๊มผ่าน (Fork 10)
+
+---
+
+## ผลงานที่ต้องส่ง
+เมื่อ output เป็น **บันทึกสอบสวน EQA/PT + CAPA** (หลักฐานที่ผู้ตรวจ LA/ISO 15189 ขอดู — Fork 9) ใช้ template นี้ (แบบฟอร์มจริงตามระบบเอกสารของแล็บ)
+
+| ช่อง | กรอกอะไร |
+|---|---|
+| scheme · round · analyte · วันที่ทำ | ตามรายงานผู้จัด |
+| ผลแล็บ vs target · bias% · SDI | จาก `scripts/eqa_eval.py` |
+| เกณฑ์ของ scheme · ผล (ผ่าน/ไม่ผ่าน) | ตามรายงานผู้จัด |
+| miss เดี่ยว หรือ pattern | จาก `SUMMARY` ของสคริปต์ + ประวัติ round ก่อน |
+| ขั้น 1–5 (clerical → IQC วันนั้น → peer/method group → lot/calibration → competency) | ทุกขั้น: สิ่งที่พบ + หลักฐาน (เอกสาร/หน้าจอ/บันทึก) |
+| commutability / target group ที่ใช้เทียบ | ตรวจแล้วหรือยัง |
+| root cause | ระบุ หรือ "ไม่พบ" + เหตุผล |
+| correction (แก้ทันที) · corrective action (กันซ้ำ) | ผู้รับผิดชอบ + วันครบกำหนด |
+| วิธีวัดผลว่าแก้ได้จริง | เช่น round ถัดไป / IQC / ทดสอบตัวอย่างเก่า |
+| ผู้ทบทวน/ลงนาม + วันที่ | ผู้มีอำนาจของแล็บ |
+
+นิยามเสร็จ: ขั้น 1–5 มีสิ่งที่พบ + หลักฐานครบ (ไม่เว้นว่าง) · มี root cause หรือเหตุผลที่หาไม่พบ · CAPA มีผู้รับผิดชอบ + วันครบกำหนด + วิธีวัดผล · ไม่มีการรันซ้ำจนผ่าน และไม่มีการแลกผลกับแล็บอื่น · ลงนามแล้ว — ส่วนนี้ไม่มีสคริปต์ตรวจ ให้คนตรวจตามรายการนี้
 
 ---
 

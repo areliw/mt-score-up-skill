@@ -4,7 +4,7 @@ title: งานชิ้นเนื้อ/เซลล์วิทยา (hist
 type: ADVISE               # ช่วยตัดสินด่าน process ไม่ใช่วินิจฉัย/อ่านผลแทน pathologist
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-16
+last_edited: 2026-10-08
 status: draft
 disclaimer: "เพื่อการศึกษา/ช่วยทบทวนงาน process ทาง histo/cyto ไม่ใช่การวินิจฉัย — เกณฑ์ adequacy/fixation time/protocol ต่างกันตาม guideline (เช่น Bethesda, CAP/ASCO)/SOP/ชนิดงาน ต้อง verify ฉบับล่าสุดเอง · การแปลผล benign/malignant เป็นของพยาธิแพทย์ · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -16,6 +16,12 @@ disclaimer: "เพื่อการศึกษา/ช่วยทบทวน
 > **กฎ #1:** **fixation/cold-ischemia = ขั้นที่ "ทำซ้ำบนเนื้อเดิมไม่ได้"** (ต่างจาก re-cut/re-stain). fixation ช้า/ผิด/นานเกิน → **อาจ**กระทบ morphology + antigen/nucleic-acid → IHC/molecular (เช่น ER/PR/HER2) **อาจ uninterpretable** (ขึ้นกับ assay/tissue/marker/validation) → document/flag ให้แล็บ/พยาธิแพทย์ตัดสิน repeat/specimen ใหม่. เวลา/ชนิด fixative ตาม guideline (เช่น CAP/ASCO breast markers — verify edition) + ปลายทางที่จะส่งตรวจ — *ตัดสินก่อนจุ่ม*
 > **กับดัก #1:** รับ specimen ที่ **inadequate** มา process/screen แล้วอ่าน → **false-negative** เพราะ "ไม่มีเซลล์เป้า" ≠ "ปกติ" (พลาดมะเร็งได้). เช็ค adequacy *ก่อน*
 > โยง: `pathology-judgment` (ฝั่งอ่านผล — MT ไม่วินิจฉัย) · `preanalytical-judgment` (การรับ/ขนส่ง specimen ต้นทาง) · `molecular-judgment` (fixation/decalcification กระทบ molecular downstream)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+คิดเวลา cold-ischemia/fixation หรือไล่ control ของ IHC/special stain → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตัดสิน** · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/histotech-cytology-judgment/scripts/`)
+- `python scripts/fixation_time.py --collected "…" --into-fixative "…" --out "…" --max-cold-min <…> --min-fix-h <…> --max-fix-h <…>` หรือ `--csv log.csv` (ตัวอย่าง `data/fixation_log.csv`) → cold ischemia (นาที) + fixation (ชม.) + ช่วงเวลาที่ควรเข้า processing · นับวันจริง (ศุกร์ 15:00 → จันทร์ 16:00 = 73 ชม. ไม่ใช่ "1 ชม.") · `FLAG` = document + แจ้งพยาธิแพทย์ (Fork 2) · `WAIT` = ยังไม่ถึงเวลาขั้นต่ำ
+- `python scripts/stain_run_check.py run.csv` — CSV `run,marker,slide,role,result` (ตัวอย่าง `data/ihc_run_example.csv`) → แต่ละผล `VALID` / `INVALID - re-stain (NOT a true negative)` / `HOLD` · control พัง = invalid **เฉพาะ marker นั้น** ไม่ลาก antibody อื่นใน run · internal control คิดระดับสไลด์ · negative reagent control บังคับเฉพาะเมื่อใส่ `--require-neg-control` (ตาม CAP/SOP) (Fork 5)
+- limit ของ cold-ischemia/fixation **ไม่มี default** — ใส่ตาม guideline edition/SOP/assay ที่แล็บใช้ (การ์ดนี้ไม่ฟันธงเลขสากล) · สคริปต์ = ตัวช่วยตรวจ ไม่อ่านสไลด์ ไม่วินิจฉัย: ทุก output มีบรรทัด `ADVISORY` · adequacy (Fork 1), air-dried vs wet-fixed (Fork 3), artifact (Fork 4) = judgment ล้วน ไม่มีสคริปต์ · ทดสอบแล้ว: `evals/test_histotech_cytology_tools.py` (13 ข้อ รวม must-fail control 3 ตัว: คิดเวลาแค่นาฬิกาไม่ดูวันที่ · รายงานผลโดยไม่ดู control · control พัง 1 ตัวโมฆะทั้ง run — ทุกตัวต้องแดง)
 
 ## ใช้เมื่อ
 - รับชิ้นเนื้อ/cytology แล้วตัดสิน **accept / process-with-flag / recollect** (adequate ไหม)

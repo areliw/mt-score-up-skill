@@ -1,0 +1,10 @@
+{
+ "_label": "TEACHING organism-class list for culture_screen.py blood - edit to your lab SOP. Matching is case-insensitive, whole-word.",
+ "_src": "skin_flora: card FORK 3 (CoNS / diphtheroid / Bacillus) + CLINMICRO1 digest trap #1 (viridans strep, Bacillus from air). classical: CLINMICRO1 digest §1 (Salmonella, Shigella, M. tuberculosis = never flora). overrides: 508304 digest §2 primary RT pathogens (toxigenic C. diphtheriae) and §5 zoonosis (B. anthracis).",
+ "skin_flora": ["coagulase-negative", "CoNS", "Staphylococcus epidermidis", "diphtheroid", "diphtheroids", "Corynebacterium", "Bacillus", "viridans"],
+ "classical": ["Salmonella", "Shigella", "Mycobacterium tuberculosis"],
+ "overrides": {
+  "Bacillus anthracis": "classical",
+  "Corynebacterium diphtheriae": "classical"
+ }
+}

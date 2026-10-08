@@ -1,0 +1,14 @@
+{
+ "skill": "polite-but-clear",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 (no labelled fork), G2 (no craft section)",
+   "evidence": "added ## ทางแยก (เลือกอะไรเมื่อไร) (situation->action table, every row from the card's steps/rules) and ## ผลงานที่ต้องส่ง (6 ordered steps with checks, before/after template, definition of done); additions only; no tool (card sets no numeric limits)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

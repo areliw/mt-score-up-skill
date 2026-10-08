@@ -1,0 +1,49 @@
+{
+ "skill": "ml-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 (no tools; metrics, fold feasibility and selection-leak checks are computable)",
+   "evidence": "scripts/clf_metrics.py + scripts/cv_check.py + evals/test_ml_tools.py 21/21 incl. 4 must-fail controls (accuracy without baseline, PPV ignoring prevalence, no stratification, feature selection outside the CV fold); card gains ## เครื่องมือ (9 insertions, 1 changed line = last_edited)",
+   "gate": "pass"
+  },
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "maturity: body changed by the v2 upgrade",
+   "evidence": "status semi-stable -> draft per docs/design/maturity-ladder.md (edit body -> hash stale -> level drops until re-test; precedent PR #65/#70). Earn back with a fresh A/B (eval/harness) + build_ab_coverage.py",
+   "gate": "pending-retest"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "01_Study_Masters/961701-.../961701-COURSE-DIGEST-2026-05-31.md (Confusion Matrix Metrics, Imbalanced Data, K-Fold CV, 5-fold CV inside a Pipeline)",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "01_Study_Masters/229711-Lec.001801/Lecture-Series-2026-04/229711-COURSE-DIGEST-2026-05-31.md (confusion matrix, imbalance -> accuracy misleads)",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "01_Study_Masters/204725-.../204725-COURSE-DIGEST-2026-05-31.md (checked: no precision/recall detail, only classification error and CV for C)",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "Han, Kamber & Pei, Data Mining: Concepts and Techniques - cancer classifier-evaluation example (TP 90, FN 210, FP 140, TN 9560)",
+   "last_verified": null,
+   "note": "counts quoted from memory, not re-opened; every derived figure is re-computed by hand in the test comments and is self-consistent"
+  },
+  {
+   "ref": "scikit-learn docs: roc_auc_score / average_precision_score examples (0.75 / 0.8333)",
+   "last_verified": null,
+   "note": "from memory; both values re-derived by hand in the tests"
+  },
+  {
+   "ref": "Hastie, Tibshirani, Friedman, Elements of Statistical Learning 2nd ed. s7.10.2 (wrong and right way to cross-validate)",
+   "last_verified": null,
+   "note": "cited from memory; tests assert only the qualitative result (wrong way >= 0.85, right way <= 0.75 on null data), not the book's exact percentages"
+  }
+ ],
+ "telemetry": {}
+}

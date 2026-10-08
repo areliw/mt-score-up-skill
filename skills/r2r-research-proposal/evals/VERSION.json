@@ -1,0 +1,26 @@
+{
+ "skill": "r2r-research-proposal",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 explicit forks missing (traps present) + G2 craft missing (no fill-in proposal sheet / definition of done for the artifact the coaching produces)",
+   "evidence": "skills/r2r-research-proposal.md: + ## ทางแยก (เลือกอะไรเมื่อไร) (15 rows, every row traced to a numbered step / the traps / the disclaimer of the card, no new rule) + ## ผลงานที่ต้องส่ง (6 gated steps, 9-field Proposal Sheet template, DoD built from the card's own 4-item checklist + EC-before-data rule); no script on purpose: no step is rule-checkable with certainty (question sharpness and design fit are judgments); existing card text only added to (git diff: 0 deleted body lines); last_edited bumped to 2026-10-08",
+   "gate": "pass"
+  },
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "maturity: body changed by the v2 upgrade",
+   "evidence": "status semi-stable -> draft per docs/design/maturity-ladder.md; earn back with a fresh A/B + build_ab_coverage.py",
+   "gate": "pending-retest"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/r2r-research-proposal.md steps 1-5, anti-patterns and disclaimer (the card's own content; it cites no external source)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

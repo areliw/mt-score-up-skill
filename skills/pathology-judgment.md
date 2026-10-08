@@ -4,7 +4,7 @@ title: โค้ชพยาธิวิทยา — อ่าน pattern + ใ
 type: ADVISE               # ช่วยอ่าน pattern/กลไก ไม่ใช่ตำราลิสต์โรค
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคทางพยาธิ เพื่อการศึกษา ไม่ใช่คำสั่งวินิจฉัย — การวินิจฉัยพยาธิจริงต้องโดยพยาธิแพทย์ + ยืนยันด้วย test/IHC/molecular ตาม SOP · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -19,6 +19,11 @@ disclaimer: "ช่วยคิดอ่าน pattern/กลไกโรคท�
 > เชื่อมเคส lab → ตั้ง DDx/ชี้ทาง (ส่งต่อแพทย์) → ดู `clinical-correlation-judgment`
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+แยก exudate vs transudate (Fork 8) → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ตีความ** (อย่าหารอัตราส่วนในหัว) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/pathology-judgment/scripts/`)
+- `python scripts/lights_criteria.py --fluid-protein 2.5 --serum-protein 7.0 --fluid-ldh 180 --serum-ldh 400 --ldh-uln <ULN ของ serum LDH ของแล็บ>` → ตาราง 3 เกณฑ์ (ค่า / threshold / met) + บรรทัด `CALL` · เข้าข้อเดียวก็ = EXUDATE · ข้อมูลไม่ครบและไม่เข้าข้อไหน = `INDETERMINATE` ไม่ใช่ transudate · `--sg` บันทึกไว้แต่ **ไม่ใช้ตัดสิน** (SG = ตัวประมาณคร่าว)
+- ULN ของ serum LDH = **ของแล็บ ต้องใส่เอง ไม่มี default** · fork อื่นของการ์ด (benign/malignant, injury, necrosis, grading/staging, dysplasia, granuloma, hypersensitivity) = judgment อ่านภาพ/รายงาน ไม่มีส่วนที่คำนวณได้ → ไม่มีสคริปต์ · สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_pathology_tools.py` (9 ข้อ รวม must-fail control 3 ตัว: ต้องเข้าครบ 3 ข้อ (AND แทน OR) · ใช้ 2/3 ของ serum LDH คนไข้แทน ULN · ค่าที่หายนับเป็น "ไม่เข้า" — ทุกตัวต้องแดง)
 
 ## ใช้เมื่อ
 - อ่านชิ้นเนื้อ/รายงานพยาธิ/เคส → **benign หรือ malignant**, dysplasia ข้ามเส้นยัง, grade/stage

@@ -1,0 +1,14 @@
+{
+ "skill": "explain-simply",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 (no fork section; card was a step list + rule #1)",
+   "evidence": "added ## ทางแยก (เลือกอะไรเมื่อไร): term keep-vs-drop, analogy-vs-example, cut-or-keep (rule #1 test), vague-word handling, length; additions only; no craft/tool (output is an explanation, not an artifact)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [],
+ "telemetry": {}
+}

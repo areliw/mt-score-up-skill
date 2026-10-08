@@ -1,0 +1,7 @@
+{"name": "Wyndor Glass (Hillier & Lieberman, ch.3) - teaching example",
+ "sense": "max", "vars": ["x1", "x2"], "c": [3, 5],
+ "constraints": [
+  {"name": "plant1", "a": [1, 0], "op": "<=", "b": 4},
+  {"name": "plant2", "a": [0, 2], "op": "<=", "b": 12},
+  {"name": "plant3", "a": [3, 2], "op": "<=", "b": 18}
+ ]}

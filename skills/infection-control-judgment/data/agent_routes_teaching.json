@@ -1,0 +1,19 @@
+{
+ "_label": "TEACHING agent -> transmission-route map, taken from the infection-control-judgment card's own examples. Edit to your hospital IPC policy.",
+ "_src": "card Fork 3 table (contact: MRSA/VRE/MDR-GNB/C. diff; droplet: influenza/pertussis/meningococcus; airborne: TB/measles/varicella) + Fork 4 (varicella and disseminated zoster = airborne + contact; draining extrapulmonary TB = airborne + contact) + Fork 1 (soap + water: C. difficile, anthrax spores, norovirus)",
+ "agents": {
+  "tuberculosis": ["airborne"],
+  "measles": ["airborne"],
+  "varicella": ["airborne", "contact"],
+  "disseminated zoster": ["airborne", "contact"],
+  "draining extrapulmonary tuberculosis": ["airborne", "contact"],
+  "MRSA": ["contact"],
+  "VRE": ["contact"],
+  "MDR-GNB": ["contact"],
+  "C. difficile": ["contact"],
+  "influenza": ["droplet"],
+  "pertussis": ["droplet"],
+  "meningococcus": ["droplet"]
+ },
+ "soap_and_water_agents": ["C. difficile", "anthrax", "norovirus"]
+}

@@ -1,0 +1,10 @@
+{
+ "_label": "TEACHING plate series - constructed numbers to exercise the two-dilution APC formula, not a real sample",
+ "_src": "formula and 25-250 range: 508304 lecture digest §3 Food & water (APC); compare --range 30 300 from APPLIED-MICRO digest §2",
+ "range": [25, 250],
+ "volume": 1,
+ "unit": "g",
+ "limit": 1000000,
+ "_limit_src": "508304 digest §3 teaching line 'SPC >= 1e6 CFU/g = spoil' - replace with your standard",
+ "plates": ["1e-1:TNTC", "1e-1:TNTC", "1e-2:232", "1e-2:244", "1e-3:33", "1e-3:28", "1e-4:2", "1e-4:4"]
+}

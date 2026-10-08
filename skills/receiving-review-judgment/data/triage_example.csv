@@ -1,0 +1,9 @@
+# TEACHING EXAMPLE ONLY - invented review comments
+id,source,category,verdict,reason,root_intent,alternative,verified,owner,log_ref,escalated
+C1,human,correctness,TAKE,off-by-one drops the last row,loop bound unclear,,,,,
+C2,automated,security,TAKE,SQL built by string concat - confirmed injectable,untrusted input reaches query,,Y,,,
+C3,automated,style,DROP,linter wants a rule we disabled on purpose (generated code),,,N,,,
+C4,human,taste,COMMIT,prefer early return - reviewer is the module owner,,,,maintainer,,
+C5,human,scope,DEFER,valid but outside this fix,,,,,ISSUE-142,
+C6,human,style,PUSH-BACK,rename would break the public API used by 3 callers,naming unclear,keep name + add docstring,,,,
+C7,human,clarity,TAKE,reviewer could not follow the retry logic,naming unclear,,,,,

@@ -1,0 +1,41 @@
+{
+ "skill": "optimization-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 (no tools; the card itself says Simplex must not be done in the model's head)",
+   "evidence": "scripts/lp_check.py (solve / check / assign, exact Fractions) + evals/test_lp_check.py 19/19 incl. 3 must-fail controls (forgotten constraint, rounding an LP answer, extrapolating a shadow price); card gains ## เครื่องมือ (10 insertions, 1 changed line = last_edited)",
+   "gate": "pass"
+  },
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "maturity: body changed by the v2 upgrade",
+   "evidence": "status semi-stable -> draft per docs/design/maturity-ladder.md (edit body -> hash stale -> level drops until re-test; precedent PR #65/#70). Earn back with a fresh A/B (eval/harness) + build_ab_coverage.py",
+   "gate": "pending-retest"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "01_Study_Masters/261475- OPTIMIZATION -Lec.001801[268]/261475-COURSE-DIGEST-2026-05-31.md (tableau example 122/78/66,100, S2 shadow price 16.67, unbounded special case, graphical vertex principle, sensitivity rules)",
+   "last_verified": "2026-10-08"
+  },
+  {
+   "ref": "Hillier & Lieberman, Introduction to Operations Research - Wyndor Glass: optimum (2,6), Z=36, dual (0, 3/2, 1)",
+   "last_verified": null,
+   "note": "from memory, not re-opened; optimum and duals are re-derived by hand and by strong duality in the test comments"
+  },
+  {
+   "ref": "Taha, Operations Research - Reddy Mikks LP optimum (3, 1.5), Z=21",
+   "last_verified": null,
+   "note": "from memory; the integer optimum (4,0)=20 is enumerated by hand in the test"
+  },
+  {
+   "ref": "Winston, Operations Research - Machineco assignment, minimum total 15",
+   "last_verified": null,
+   "note": "from memory; the total is independently confirmed by brute force over all 24 permutations and by 25 random matrices vs the Hungarian result"
+  }
+ ],
+ "telemetry": {}
+}

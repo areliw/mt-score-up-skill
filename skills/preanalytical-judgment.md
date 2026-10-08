@@ -4,7 +4,7 @@ title: โค้ช pre-analytical — เจาะ/หลอด/ระบุต
 type: ADVISE               # ช่วยตัดสินใจคุณภาพตัวอย่าง ไม่ใช่ตำราเทคนิคเจาะ
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดเรื่องคุณภาพตัวอย่างก่อนวิเคราะห์เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ตัวอย่างผิด = ผลผิด = หมอรักษาผิด → ทุก reject/accept/แก้ค่า ต้องทำตาม SOP แลบ + ยืนยันกับ MT ผู้รับผิดชอบ; การระบุตัวผู้ป่วย/wrong-blood-in-tube เกี่ยวชีวิตโดยตรง · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,12 @@ disclaimer: "ช่วยคิดเรื่องคุณภาพตัว�
 > **กับดัก #1 (ขั้น hard):** "ค่าเพี้ยน แต่ analyzer + QC ปกติ" → ส่วนใหญ่คือ pre-analytical ไม่ใช่ analytic. **รีรันหลอดเดิมได้ค่าเดิม ≠ ค่าถูก** — ถ้า hemolyzed/clotted/wrong-tube/IV-contaminated รีรันก็ผิดซ้ำ. ต้อง **ดูตัวอย่าง + เจาะใหม่** ไม่ใช่กดรีรัน
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยันก่อนลงมือ
+
+## เครื่องมือ (รันก่อนคิดเลข)
+ไล่ลำดับหลอด หรือเช็คเกณฑ์ reject ตัวอย่าง → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** (อย่าไล่ลำดับหลอด/รายชื่อ analyte ที่ hemolysis กระทบจากความจำ) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/preanalytical-judgment/scripts/`)
+- `python scripts/order_of_draw.py serum edta citrate --winged` — หลอดเรียงตามที่เจาะจริง → ตารางลำดับ + คู่ที่กลับลำดับพร้อมผล carryover (EDTA → K↑ Ca↓ ปลอม) + เตือน discard tube · เขียน `tube:test+test` (เช่น `citrate:PT edta:CBC serum:K`) เพื่อเช็คว่า test อยู่ถูกหลอด (K จาก EDTA, BUN-urease ในหลอด NaF, PCR ในหลอด heparin = `FAIL`) · test ที่สคริปต์ไม่มีกฎ = `NO-RULE` ไม่ได้แปลว่าผ่าน
+- `python scripts/specimen_check.py specimen.json --hi-limit <SOP> --min-fill <SOP> --max-hours <SOP>` — ไล่ checklist: identity (2 identifiers, label ข้างเตียง) → HIL → clot/fill/Hct → IV line → ขนส่ง/stability → บอก analyte ที่ **ห้ามรายงาน (now)** + ACCEPT/HOLD/RECOLLECT/REJECT · cutoff HIL/fill/stability = ค่าของแล็บ ต้องใส่เอง · ช่องที่ไม่ได้กรอก = `NOT CHECKED` (identity ไม่ได้กรอก = HOLD) ไม่นับว่าผ่าน
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · reject/accept จริงตาม SOP + MT ผู้รับผิดชอบ · ทดสอบแล้ว: `evals/test_preanalytical_tools.py` (32 ข้อ รวม must-fail control: ตารางลำดับที่ให้ EDTA มาก่อน serum, รายชื่อ hemolysis ที่ไม่มี K, และการนับช่องว่างเป็นผ่าน — ทั้งสามต้องแดง)
 
 ## ใช้เมื่อ
 - ค่าผิดปกติ/delta check fail → analytic หรือ pre-analytical? รีรันหรือเจาะใหม่?

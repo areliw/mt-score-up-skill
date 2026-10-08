@@ -1,0 +1,6 @@
+# TEACHING EXAMPLE ONLY - not patient data. One tube per line, in the order drawn.
+# tube:test+test  (aliases: blue/red/green/lavender/gray ...)
+serum:K+Na+BUN
+edta:CBC
+citrate:PT+aPTT
+gray:glucose

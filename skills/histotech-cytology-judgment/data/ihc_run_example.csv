@@ -1,0 +1,14 @@
+run,marker,slide,role,result
+R1,ER,CTRL-ER,pos_control,pos
+R1,ER,S1,patient,pos
+R1,ER,S2,patient,neg
+R1,ER,S2,internal_control,pos
+R1,ER,S3,patient,neg
+R1,ER,S3,internal_control,neg
+R1,HER2,CTRL-HER2,pos_control,neg
+R1,HER2,S1,patient,neg
+R1,HER2,S2,patient,neg
+R1,PR,CTRL-PR,pos_control,pos
+R1,PR,CTRL-PR-NRC,neg_control,pos
+R1,PR,S1,patient,pos
+R1,Ki67,S1,patient,pos

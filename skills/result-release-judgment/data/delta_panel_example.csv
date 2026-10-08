@@ -1,0 +1,6 @@
+# TEACHING EXAMPLE ONLY - invented values/limits, not patient data and not a real SOP
+analyte,prev,cur,abs_limit,pct_limit,ref_low,ref_high
+K,4.0,6.1,1.0,,3.5,5.0
+Hb,13.0,8.1,,20,12,16
+MCV,88,65,,10,80,100
+Cr,1.0,1.1,,20,0.6,1.3

@@ -1,0 +1,11 @@
+{
+ "skill": "db-judgment",
+ "history": [
+  {"v": 2, "date": "2026-10-08", "trigger": "GAP: G3 (the trap list is lintable and the iron rule 'SELECT-preview before UPDATE/DELETE' is automatable)", "evidence": "scripts/sql_lint.py + scripts/dml_preview.py + evals/test_db_tools.py 21/21 (oracle = real SQLite behaviour for every flagged trap) incl. 3 must-fail controls (WHERE only inside a subquery, a preview that commits, lint without masking comments); card gains ## เครื่องมือ (9 insertions, 1 changed line = last_edited)", "gate": "pass"}
+ ],
+ "sources": [
+  {"ref": "01_Study_Masters/270701-Lec.801/270701-COURSE-DIGEST-2026-05-31.md (three-valued logic / IS NULL, DELETE without WHERE deletes all rows, CROSS JOIN = Cartesian product, HAVING vs WHERE, EXISTS / NOT EXISTS)", "last_verified": "2026-10-08"},
+  {"ref": "SQLite behaviour as executed by Python's standard-library sqlite3 (the oracle in evals/test_db_tools.py)", "last_verified": "2026-10-08"}
+ ],
+ "telemetry": {}
+}

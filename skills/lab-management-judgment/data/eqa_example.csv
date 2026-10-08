@@ -1,0 +1,6 @@
+# TEACHING EXAMPLE ONLY - invented EQA round, not a real scheme report
+analyte,round,result,peer_mean,peer_sd
+Glucose,R1,105,100,2.5
+Cholesterol,R1,212,200,5
+K,R1,4.1,4.0,0.1
+ALT,R1,48,40,3

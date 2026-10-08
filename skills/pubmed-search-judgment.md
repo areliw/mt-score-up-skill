@@ -4,8 +4,8 @@ title: ค้น PubMed ให้เจอของจริง (PubMed Search)
 type: ADVISE               # ช่วยวางวิธีค้น + กับดัก ไม่ได้ค้นแทน
 needs: any                 # ใช้ได้ทุก AI — เต็มที่สุดกับ AI ที่เปิด PubMed/เน็ตได้
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
-status: semi-stable
+last_edited: 2026-10-08
+status: draft
 disclaimer: "ช่วยวางกลยุทธ์ค้น PubMed/วรรณกรรม ไม่ใช่คำแนะนำทางการแพทย์ — ผลที่เจอต้องเปิดอ่านต้นฉบับจริงก่อนอ้าง (AI แต่ง PMID/citation ได้เนียน) ผู้นำไปใช้รับผิดชอบงานที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -24,6 +24,12 @@ disclaimer: "ช่วยวางกลยุทธ์ค้น PubMed/วร�
 
 ## วิธีใช้
 วาง skill นี้ + เล่าคำถามวิจัยของคุณ (โรค/test/อยากได้งานชนิดไหน) → AI ช่วยแตก concept, เสนอ MeSH + คำพ้อง, ประกอบ query ให้ก๊อปไปวางช่องค้น PubMed ได้เลย + บอกวิธีกรองผล. **ผลที่เจอต้องเปิดอ่านเองก่อนอ้างทุกครั้ง**
+
+## เครื่องมือ (รันก่อนกด Search)
+ประกอบ query เสร็จ → **รัน `scripts/pubmed_query_check.py "<query>"` ก่อนเอาไปวางช่องค้น** (ใน repo: `skills/pubmed-search-judgment/scripts/`) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · Python stdlib อย่างเดียว · exit 1 = มี ERROR
+- ตรวจ: วงเล็บ/ปีกกา/quote ครบคู่ · `AND`/`OR`/`NOT` ต้องตัวพิมพ์ใหญ่ [✓src PubMed User Guide, อ่าน 2026-10-08] · `AND` กับ `OR` ระดับเดียวกันโดยไม่มีวงเล็บ = ERROR เพราะ PubMed ประมวลผลซ้าย→ขวา [✓src] · tag ที่ไม่รู้จัก · concept เกิน 3 · concept ที่มีแต่ MeSH (Fork 1) · `[majr]` และ `[majr]`+`[ti]` (Fork 3) · สะกด UK/US (anemia/anaemia ฯลฯ) · พิมพ์ทั้งประโยค · ช่วงปีกลับด้าน `2026:2020[dp]` · **RCT filter ในคำถาม diagnostic** (Fork 2 VERDICT)
+- `--question diagnostic|treatment` ถ้า auto เดาผิด · `--row --filters "2018:2026, Humans"` พิมพ์แถวตาราง Fork 5 โดยช่องผลเป็น `(เปิดดูจริง)` เสมอ — เครื่องมือ**ไม่เคยค้น PubMed** จำนวนผลต้องอ่านจากหน้าจอ
+- เครื่องมือ = ตัวช่วยตรวจรูปแบบ ไม่ใช่ผู้ตัดสินว่าค้นครบ/คัดถูก/citation มีจริง (ทุก output ลงท้าย `ADVISORY`; AI แต่ง PMID ได้เนียน — เปิดยืนยันทุกอัน) · ทดสอบแล้ว: `evals/test_pubmed_query_check.py` เทียบตัวอย่างของการ์ดนี้เอง + PubMed User Guide + must-fail control (พิมพ์ทั้งประโยค, RCT-only กับ diagnostic, OR/AND ไม่ใส่วงเล็บ, MeSH-only กับหัวข้อใหม่ + สะกดเดียว, mutant ที่ปิดกฎ grouping — ต้องแดงทุกตัว) · query ตัวอย่างสำหรับสอน (ค่าสอน ไม่ใช่ผลค้น): `data/example_queries.txt`
 
 ---
 
@@ -73,6 +79,42 @@ disclaimer: "ช่วยวางกลยุทธ์ค้น PubMed/วร�
 | 2026-06-08 | `(thalassemia[mh]) AND (machine learning[tiab] OR deep learning[tiab])` | 2018:2026, Humans | (เปิดดูจริง) |
 
 > ตารางนี้ = ตัวอย่างฟอร์แมต **ห้ามกรอกตัวเลขผลจากการเดา** — เลขผลต้องมาจากหน้าจอ PubMed จริง
+
+---
+
+## ผลงานที่ต้องส่ง (บันทึกการค้นที่ทำซ้ำได้)
+ใช้เมื่อ output คือ **ชุด query + บันทึกการค้น** สำหรับ lit review / R2R / thesis / journal club (ถ้าแค่ถามวิธีแก้ query สั้นๆ ไม่ต้องใช้ template นี้) ทำตามลำดับ — แต่ละขั้นมีด่านเช็ค:
+1. **คำถาม + ชนิดคำถาม** (diagnostic accuracy / treatment / prevalence / prognosis) → กำหนดชนิดงานที่ควรเจอ (Fork 2 VERDICT) · ด่าน: ไม่กรอง RCT-only กับคำถาม diagnostic
+2. **แตก 2–3 concept** (โรค/ภาวะ × test/method; เพิ่ม "ชนิดงาน" เฉพาะเมื่อจำเป็น) · ด่าน: ไม่เกิน 3
+3. **แต่ละ concept = MeSH `[mh]` + คำพ้อง `[tiab]` (รวม UK/US) OR กัน** (Fork 1: หัวข้อใหม่/niche ต้องมี keyword) · ด่าน: ไม่มี concept ที่มีแต่ MeSH
+4. **ประกอบ** `(concept1) AND (concept2) AND (concept3)` + filter (ปี `2020:2026[dp]`, Humans) เฉพาะที่ justify ได้ · ด่าน: `scripts/pubmed_query_check.py` ไม่มี ERROR และอ่านทุก WARN
+5. **ค้นบนหน้าเว็บ PubMed จริง** → จดจำนวนผลและวันที่ค้น**จากหน้าจอ** · ด่าน: เลขผลไม่ได้มาจากการเดา
+6. **ปรับตาม Fork 3** (0–3 / พันๆ / ไม่เกี่ยว / ตกงานที่รู้ว่ามี) ทีละอย่าง ลงบันทึกทุกรอบ · ด่าน: query ทุกเวอร์ชันผ่านเครื่องมือ
+7. **คัดจาก abstract** เพื่อ include/exclude เท่านั้น (ชนิดงาน + ปี + ตรง concept; test ใหม่ vs gold standard → ดู sens/spec เทียบ reference อะไร, ระวัง PPV กับ prevalence) · ด่าน: ตัวเลขที่จะอ้างมาจาก full text
+8. **ยืนยันทุก citation:** เปิด PubMed ใส่ PMID/ชื่อ → มีจริง + abstract ตรงที่อ้าง (ดู `anti-hallucination`)
+9. **งานที่ต้องครบ (SR/thesis):** ค้นเสริม Scopus/Embase/Google Scholar ถ้ามีสิทธิ์ แล้วบันทึกแยก
+
+**Template (กรอกช่อง `[ ]`)**
+```
+คำถามวิจัย: [..]          ชนิดคำถาม: [diagnostic accuracy | treatment | prevalence | prognosis]
+Concept 1: [..]   MeSH: [..]   คำพ้อง / สะกด UK-US: [..]
+Concept 2: [..]   MeSH: [..]   คำพ้อง / สะกด UK-US: [..]
+(Concept 3 ถ้าจำเป็น: [..])
+| วันที่ค้น | Query | Filter | ผล |
+|---|---|---|---:|
+| [YYYY-MM-DD] | `[query ที่ผ่าน pubmed_query_check]` | [ปี, Humans, …] | [อ่านจากหน้าจอ PubMed] |
+คัดเข้า / คัดออก: [จำนวน + เหตุผลสั้นๆ ต่อกลุ่ม]
+Citation ที่ยืนยันแล้ว (เปิด PubMed จริง): [PMID — ชื่อ — ตรงที่อ้าง ใช่/ไม่ใช่]
+ฐานอื่นที่ค้นเสริม: [Scopus | Embase | Google Scholar | ไม่มีสิทธิ์]
+```
+
+**นิยามว่า "เสร็จ"**
+- [ ] ทุก query ที่ลงบันทึกผ่าน `pubmed_query_check.py` (0 ERROR) และ WARN แต่ละอันแก้หรือมีเหตุผล
+- [ ] บันทึกครบ: query เป๊ะ · วันที่ค้น · filter · จำนวนผล (จากหน้าจอ) · ที่คัดออกเอง
+- [ ] ทุก concept มี MeSH + keyword + สะกด UK/US · ชนิดงานตรงชนิดคำถาม
+- [ ] ทุก citation ที่จะอ้างเปิดยืนยันแล้ว · ตัวเลขที่อ้างมาจาก full text
+- [ ] งานที่ต้องครบมีฐานข้อมูลอื่นเสริม หรือระบุเหตุผลที่ไม่มี
+- เครื่องมือตรวจ**ไม่ได้**: ค้นครบหรือยัง · คัดถูกหรือเปล่า · citation มีจริงไหม → คนต้องเปิดอ่านเอง
 
 ---
 

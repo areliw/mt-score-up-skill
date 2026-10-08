@@ -4,8 +4,8 @@ title: โค้ช Optimization/OR — เลือกวิธีให้ถ�
 type: ADVISE               # ช่วยตัดสินใจ formulate/เลือกวิธี ไม่ใช่ตำรา Simplex
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-04
-status: semi-stable
+last_edited: 2026-10-08
+status: draft
 disclaimer: "ช่วยคิดเลือกวิธี optimize + เลี่ยงกับดัก เพื่อการศึกษา ไม่ใช่คำสั่งทางการ — ผลต้องตรวจกับเงื่อนไขจริงและทดสอบก่อนใช้ตัดสินใจจริง (เช่นจัดเวร/จัดสรรทรัพยากร) · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
 
@@ -16,6 +16,15 @@ disclaimer: "ช่วยคิดเลือกวิธี optimize + เล�
 > **กฎ #1 (เลือกวิธี):** เชิงเส้น + แน่นอน (deterministic) + เล็ก-กลาง → ใช้ **LP/MIP** เสมอ (รับประกัน optimal) — อย่าเพิ่งหยิบ GA/PSO. ไป metaheuristic เฉพาะตอน nonlinear/combinatorial/ใหญ่มาก, ไป simulation เฉพาะตอนมี randomness/คิว. **หยิบ GA ทั้งที่ LP แก้ได้ = over-engineer ผิด.**
 > **กับดัก #1 (คำตอบพัง):** **ลืม constraint** → optimal สวยแต่ละเมิดเงื่อนไขจริง = ใช้ไม่ได้. ก่อน solve ต้อง formulate ครบ 3 ชิ้น (objective · decision vars · constraints) แล้ว **ไล่ constraint จากโจทย์คำต่อคำ** (รวม ≥0, integer, capacity).
 > งานเลข Simplex/PSO อย่าให้ AI กะในหัว → ใช้ solver (ดู `offload-to-automation`)
+
+## เครื่องมือ (รันก่อนคิดเลข)
+มีโมเดล LP/IP/assignment เล็กๆ หรือมี "คำตอบ" ที่จะเชื่อ → **รันสคริปต์ก่อน แล้วค่อยตัดสินด้วย fork/กับดักข้างล่าง** (อย่ากะ Simplex หรือไล่ constraint ด้วยตา) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/optimization-judgment/scripts/`) · โมเดลเขียนเป็น JSON (`sense`, `vars`, `c`, `constraints[{name,a,op,b}]`, ทุกตัวแปร ≥ 0) ดูตัวอย่างใน `data/`
+- `python scripts/lp_check.py solve data/wyndor.json --delta 6` → สถานะ **OPTIMAL / INFEASIBLE / UNBOUNDED** (เลขเศษส่วนแท้ ไม่ปัด) · ค่าตัวแปร + objective · ตาราง constraint: LHS, RHS, slack, **binding**, shadow price ต่อ +1 RHS · `--delta D` เทียบการเปลี่ยนจริงกับ shadow price × D ถ้าไม่ตรงจะพิมพ์ `OUTSIDE allowable range` (กับดัก "ใช้ shadow price นอกช่วง")
+- `python scripts/lp_check.py solve data/reddy_mikks.json --integer all` → branch-and-bound + ผลของ "ปัดเศษคำตอบ LP" (ได้ 3, 2 = infeasible; integer optimum จริงได้ค่าต่างจาก LP) · `--integer x1,x2` เลือกเฉพาะตัวแปรที่ต้องเป็นจำนวนเต็ม
+- `python scripts/lp_check.py check data/wyndor.json --x 4 6` → ไล่ **ทุก constraint คำต่อคำ** + ≥ 0 + จำนวนเต็ม ของคำตอบที่ใครเสนอมา · exit 1 ถ้าไม่ feasible (กับดัก #1 "ลืม constraint": solve โมเดลที่ขาด plant3 ได้ 42 ซึ่งสวยกว่า 36 แต่ `check` จับว่าผิด)
+- `python scripts/lp_check.py assign data/machineco.csv [--max]` → assignment (Hungarian) จากตารางต้นทุนจัตุรัส ไม่มี header
+- ขอบเขต: vertex enumeration แม่นแต่โตแบบ exponential → ~4 ตัวแปร / ~12 constraint (เกินจะปฏิเสธ) · งานจริงใช้ Excel Solver / OR-Tools / GUROBI (ดู `offload-to-automation`) · **ไม่มี tool** สำหรับ GA/PSO/Pareto/simulation เพราะผลสุ่มและไม่มีเลขที่ตรวจซ้ำแบบแน่นอนได้ · ทุก output มีบรรทัด `ADVISORY` — เป็นตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน
+- ทดสอบแล้ว: `evals/test_lp_check.py` (19 ข้อ เทียบ Wyndor ของ Hillier-Lieberman (2,6)/36 + dual (0, 3/2, 1), Reddy Mikks ของ Taha (3, 1.5)/21, Machineco ของ Winston = 15, และตัวอย่างใน digest 261475: 122/78/66,100, shadow price S2 = 16.67, unbounded case · Hungarian เทียบ brute force 25 เมทริกซ์สุ่ม · must-fail control 3 ตัว: ลืม constraint · ปัดเศษแทน integer · ขยาย shadow price นอกช่วง → ต้องแดง)
 
 ## ใช้เมื่อ
 - ตั้งโจทย์ optimization / เลือก solver-method / ทำ sensitivity analysis

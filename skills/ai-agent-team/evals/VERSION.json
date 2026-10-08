@@ -1,0 +1,19 @@
+{
+ "skill": "ai-agent-team",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G1 (no labelled fork; steps had Verdict lines but no test for 'big vs small' or 'parallel vs sequential')",
+   "evidence": "added ## ทางแยก (เลือกอะไรเมื่อไร): single vs team, parallel vs sequential (criterion from ai-assistant-calibration), route clear vs ask, when to add QA, conflicting departments, roster; additions only; no tool (output is a way of working, nothing to compute)",
+   "gate": "pass"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "skills/ai-agent-team.md (card rules the tools/forks encode)",
+   "last_verified": "2026-10-08"
+  }
+ ],
+ "telemetry": {}
+}

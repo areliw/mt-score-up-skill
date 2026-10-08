@@ -1,0 +1,37 @@
+{
+ "skill": "spreadsheet-judgment",
+ "history": [
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "GAP: G3 (autoconvert damage, STDEV.S vs STDEV.P and percentile definitions are checkable)",
+   "evidence": "scripts/sheet_audit.py + scripts/sheet_stats.py + evals/test_sheet_tools.py 17/17 incl. 3 must-fail controls (STDEV.P for a sample, percentile rank off by one, assuming Excel converts nothing); card gains ## เครื่องมือ (8 insertions, 1 changed line = last_edited)",
+   "gate": "pass"
+  },
+  {
+   "v": 2,
+   "date": "2026-10-08",
+   "trigger": "maturity: body changed by the v2 upgrade",
+   "evidence": "status semi-stable -> draft per docs/design/maturity-ladder.md (edit body -> hash stale -> level drops until re-test; precedent PR #65/#70). Earn back with a fresh A/B (eval/harness) + build_ab_coverage.py",
+   "gate": "pending-retest"
+  }
+ ],
+ "sources": [
+  {
+   "ref": "Microsoft Office docs: STDEV.S / STDEV.P breaking-strength example (27.46391572 / 26.05455814), PERCENTILE.INC ({1,2,3,4}, 0.3) = 1.9, PERCENTILE.EXC ({1,2,3,4}, 0.25) = 1.25",
+   "last_verified": null,
+   "note": "quoted from memory, page not re-opened; all four values were recomputed independently (statistics.stdev/pstdev and hand rank arithmetic) and match to 8 digits"
+  },
+  {
+   "ref": "Ziemann M, Eren Y, El-Osta A (2016) Gene name errors are widespread in the scientific literature. Genome Biol 17:177 (SEPT2, MARCH1, DEC1 converted to dates)",
+   "last_verified": null,
+   "note": "cited from memory; not opened"
+  },
+  {
+   "ref": "Microsoft Excel specifications and limits: 15 significant digits of number precision",
+   "last_verified": null,
+   "note": "cited from memory; not opened"
+  }
+ ],
+ "telemetry": {}
+}

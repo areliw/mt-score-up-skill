@@ -4,7 +4,7 @@ title: โค้ช POCT — แล็บนอกแล็บต้องเช
 type: ADVISE               # ช่วยตัดสินใจการใช้/คุม POCT ไม่ใช่คู่มือเครื่อง
 needs: any                 # ใช้ได้กับ AI ทุกตัว
 author: "Phanuphong Tameesak - MT Score UP!"
-last_edited: 2026-06-08
+last_edited: 2026-10-08
 status: draft
 disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพื่อการศึกษา ไม่ใช่คำสั่งทางการแพทย์และไม่ตัดสินใจแทน · ผล POCT ที่กระทบการรักษาต้องผ่าน QC + operator competency + ทำตาม SOP/ISO 15189; ค่าวิกฤตแจ้ง/ยืนยันตาม policy · ผู้นำไปใช้รับผิดชอบการตัดสินใจที่นำไปใช้จริง · ผู้สร้างไม่รับผิดต่อความเสียหายจากการนำไปใช้"
 ---
@@ -17,6 +17,12 @@ disclaimer: "ช่วยคิดการใช้/กำกับ POCT เพ
 > **กับดัก #1 (ขั้น hard):** ผล POCT ที่ **ไม่ผ่าน QC / operator ไม่ผ่าน competency = ค่าที่เชื่อไม่ได้** แต่ถูกเอาไปรักษาทันที (ER/ICU). ค่าวิกฤตจาก POCT ต้องแจ้ง/พิจารณา confirm เหมือนแล็บกลาง
 
 > **verify-first:** decision-support ไม่ใช่คำตอบสุดท้าย — เช็คข้อเท็จจริงก่อนเชื่อ (คู่กับ `anti-hallucination`) · ขั้นที่กระทบคนไข้ = MT/แพทย์ยืนยัน
+
+## เครื่องมือ (รันก่อนคิดเลข)
+จะใช้ผล POCT ตัวไหน หรือเทียบ POCT กับแล็บกลาง → **รันสคริปต์ก่อน แล้วค่อยใช้ fork ข้างล่างตีความ** (อย่าไล่ gate ด้วยความจำ) · รัน `--help` ก่อน ไม่ต้องอ่านซอร์ส · ไฟล์อยู่ใน `scripts/` ของโฟลเดอร์ skill (ใน repo: `skills/poct-judgment/scripts/`)
+- `python scripts/poct_gate.py --value 45 --qc pass --operator-competent --lot-verified --range <ช่วงวัดของเครื่อง> --critical <ค่าวิกฤตตาม policy> --method gdh-pqq --interferent icodextrin --hct 65 --hct-range <ช่วง Hct ของเครื่อง>` → finding เรียงระดับ `BLOCK` / `CONFIRM` / `NOTIFY` / `CAUTION` + บรรทัด `STATUS` · ไล่ gate: QC, competency (+ วันหมดอายุด้วย `--competency-date --competency-interval-days`), lot verify, นอกช่วงวัด, **ทิศ Hct** (สูง → ต่ำปลอม / ต่ำ → สูงปลอม), GDH-PQQ + maltose/icodextrin/galactose, GOx + O₂/arterial, capillary ใน shock/บวม/vasopressor, จดมือ, ค่าวิกฤต · ทุกช่วง/ค่าวิกฤต = ของผู้ผลิต/policy ที่ต้องใส่เอง ไม่มีค่าฝังในสคริปต์
+- `python scripts/poct_compare.py data/poct_pairs_teaching_example.csv --limit-pct <เกณฑ์ยอมรับของ policy> [--limit-abs --switch-at] --drift-pct 5` → ตาราง diff/% ต่อคู่ (แล็บกลางเป็นตัวเทียบ), mean bias, % คู่ที่ผ่านเกณฑ์ และ **drift ครึ่งแรก vs ครึ่งหลัง** (ไฟล์ตัวอย่าง = ค่าสอน: ผ่านเกณฑ์ทุกคู่แต่ยังไหล — กับดัก #7) · `--meter-cal whole-blood` เตือนว่า plasma สูงกว่า whole blood ~12–15% = matrix ไม่ใช่ error
+- สคริปต์ = ตัวช่วยตรวจ ไม่ใช่ผู้ตัดสิน: ทุก output มีบรรทัด `ADVISORY` · ทดสอบแล้ว: `evals/test_poct_tools.py` (16 ข้อ รวม must-fail control 2 ตัว: gate ที่ไม่ดู QC และทิศ Hct กลับด้าน — ต้องแดง)
 
 ## ใช้เมื่อ
 - ตัดสินใจว่างานนี้ควรใช้ POCT หรือส่งแล็บกลาง

@@ -1,0 +1,15 @@
+{
+ "skill": "cv-judgment",
+ "history": [
+  {"v": 1, "date": "2026-06-01", "trigger": "built from 261753 course digest", "evidence": "judgment card (forks A-F + blood-smear lane + traps); legacy full-tier A/B in eval/ab-coverage.json: with 5 vs without 5 (delta 0, neutral); eval/round3 leakage scenario 4 vs 3.5 (delta +0.5, neutral); status draft", "gate": "pass"},
+  {"v": 2, "date": "2026-10-08", "trigger": "GAP: G3 tools", "evidence": "scripts/cv_calc.py (hsv, glcm, morph) + evals/test_cv_calc.py 35/35 incl. 12 must-fail controls; expected values from 261753 deck #1 slides 20-25, deck #2 slides 96-115, deck #5 slides 3-26 and Haralick 1973 Fig. 2; skimage 0.25.2 / scipy 1.15.3 / OpenCV 4.11 values recorded as constants", "gate": "pass"}
+ ],
+ "sources": [
+  {"ref": "01_Study_Masters/261753-COMPUTER VISION-Lec.801[2 68]/Course Materials/268_ComputerVision_01_261753.pdf slides 16-25 (RGB->HSV)", "last_verified": "2026-10-08"},
+  {"ref": "01_Study_Masters/261753-COMPUTER VISION-Lec.801[2 68]/Course Materials/268_Chapter2_Part2.pdf slides 94-116 (dilation, erosion, opening, closing)", "last_verified": "2026-10-08"},
+  {"ref": "01_Study_Masters/261753-COMPUTER VISION-Lec.801[2 68]/Course Materials/268_ComputerVision_05.pdf slides 3-29 (GLCM)", "last_verified": "2026-10-08"},
+  {"ref": "01_Study_Masters/261753-COMPUTER VISION-Lec.801[2 68]/261753-COURSE-DIGEST-2026-05-31.md §1 §3 §6 (note: §6 'x = column' conflicts with deck #5 slide 3 'x = row'; the tool follows the slide)", "last_verified": "2026-10-08"},
+  {"ref": "Haralick, Shanmugam & Dinstein 1973, IEEE Trans. SMC-3(6):610-621, Fig. 2", "last_verified": "2026-10-08"}
+ ],
+ "telemetry": {}
+}

@@ -22,8 +22,9 @@ Black-box tool for urinalysis-judgment (Fork 5). Run --help first. Sources:
   eqa-check a reported count vs the EQA assigned range; when it misses, tests which classic slip lands it in
             range (forgot DF / applied DF twice / x10 chamber slip / x1000 unit slip / swapped sample number)
             and, on a 0-cell sample, separates "within your background/LoQ limit" from "above it -> investigate".
-  pd        peritoneal dialysate: peritonitis suspected when WBC > 100/uL AND neutrophils >= 50% of TNCC
-            (common teaching form; ISPD 2022 writes > 50% after a dwell of >= 2 h -> exactly 50% = boundary).
+  pd        peritoneal dialysate: peritonitis suspected when WBC > 100/uL AND neutrophils > 50% of TNCC
+            (ISPD 2022, after a dwell of >= 2 h). Exactly 50% = INDETERMINATE boundary: some teaching material
+            writes >= 50%, so the lab SOP decides.
             Not met != no peritonitis (ISPD = 2 of 3: clinical, effluent, culture); PMN >= 50% with a low count
             after a short dwell = INDETERMINATE, not negative.
 ADVISORY ONLY.
@@ -177,20 +178,23 @@ def eqa_check(reported, low, high, dfactor=None, others=None, background_limit=N
 def pd(wbc, neut_pct):
     if wbc < 0 or not 0 <= neut_pct <= 100:
         raise ValueError("need WBC >= 0 and neutrophils between 0 and 100%")
-    high_wbc, high_neut = wbc > 100, neut_pct >= 50
-    if high_wbc and high_neut:
-        result = "PERITONITIS SUSPECTED (WBC > 100/uL AND neutrophils >= 50%) -> Gram stain + culture now"
+    high_wbc, high_neut = wbc > 100, neut_pct > 50
+    if neut_pct == 50:
+        result = ("INDETERMINATE - exactly 50% neutrophils is the boundary: ISPD 2022 requires > 50%, some SOPs "
+                  "use >= 50% -> follow your SOP; Gram + culture if in doubt")
+    elif high_wbc and high_neut:
+        result = "PERITONITIS SUSPECTED (WBC > 100/uL AND neutrophils > 50%) -> Gram stain + culture now"
     elif high_neut:
-        result = ("INDETERMINATE - neutrophils >= 50% with WBC <= 100/uL: after a short dwell (APD) ISPD counts "
+        result = ("INDETERMINATE - neutrophils > 50% with WBC <= 100/uL: after a short dwell (APD) ISPD counts "
                   "PMN > 50% as strong evidence of peritonitis -> ask the dwell time, Gram + culture per SOP")
     else:
         result = ("effluent criterion not met - does NOT exclude peritonitis (ISPD: 2 of 3 = clinical features, "
                   "effluent count, positive culture)")
-    res = {"wbc_per_uL": wbc, "neut_pct": neut_pct, "wbc_gt_100": high_wbc, "neut_ge_50": high_neut,
+    res = {"wbc_per_uL": wbc, "neut_pct": neut_pct, "wbc_gt_100": high_wbc, "neut_gt_50": high_neut,
            "result": result}
     if neut_pct == 50:
         res["boundary"] = "exactly 50%: teaching material often writes >= 50%, ISPD 2022 uses > 50% -> follow your SOP"
-    if high_wbc and not high_neut:
+    if high_wbc and neut_pct < 50:
         res["note"] = ("WBC > 100/uL with mononuclear predominance: think TB / fungal / non-infectious causes "
                        "-> culture per SOP")
     return res

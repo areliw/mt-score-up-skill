@@ -185,7 +185,7 @@ def test_cli_prints_advisory(mod, argv, capsys):
 
 # ---------------------------------------------------------------- EQA 2569 count traps (tnc / eqa-check / pd)
 # Sources: EQA round-review failure causes for body-fluid counts (DF / units / swapped IDs / analyzer background);
-# PD rule WBC > 100/uL AND PMN >= 50%, ISPD 2022 peritonitis recommendations (> 50% after a dwell >= 2 h;
+# PD rule WBC > 100/uL AND PMN > 50% (exactly 50% = boundary), ISPD 2022 peritonitis recommendations (> 50% after a dwell >= 2 h;
 # short-dwell PMN fraction; diagnosis = 2 of 3). Assigned ranges below are MADE-UP teaching values:
 # A1 1,800-2,400 · A2 80-120 · B1 0 · B2 700-1,000 cells/cu.mm.
 # Arithmetic by hand: one large Neubauer square = 1 mm2 x 0.1 mm = 0.1 uL.
@@ -267,7 +267,8 @@ def test_pd_rule_needs_both_criteria():
     assert "mononuclear" in high_mono["note"]
     low = fluid_calc.pd(80, 70)  # short-dwell APD: PMN fraction counts -> never a plain "not met"
     assert low["result"].startswith("INDETERMINATE") and "dwell" in low["result"]
-    assert "boundary" in fluid_calc.pd(150, 50)
+    edge = fluid_calc.pd(150, 50)  # exactly 50%: ISPD needs > 50% -> boundary, never a positive headline
+    assert "boundary" in edge and edge["result"].startswith("INDETERMINATE")
 
 
 def test_must_fail_control_pd_or_instead_of_and(monkeypatch):

@@ -181,3 +181,126 @@ def test_synovial_crystals():
 def test_cli_prints_advisory(mod, argv, capsys):
     assert mod.main(argv) == 0
     assert "ADVISORY" in capsys.readouterr().out
+
+
+# ---------------------------------------------------------------- EQA 2569 count traps (tnc / eqa-check / pd)
+# Sources: EQA round-review failure causes for body-fluid counts (DF / units / swapped IDs / analyzer background);
+# PD rule WBC > 100/uL AND PMN > 50% (exactly 50% = boundary), ISPD 2022 peritonitis recommendations (> 50% after a dwell >= 2 h;
+# short-dwell PMN fraction; diagnosis = 2 of 3). Assigned ranges below are MADE-UP teaching values:
+# A1 1,800-2,400 · A2 80-120 · B1 0 · B2 700-1,000 cells/cu.mm.
+# Arithmetic by hand: one large Neubauer square = 1 mm2 x 0.1 mm = 0.1 uL.
+def test_tnc_undiluted_four_squares():
+    r = fluid_calc.tnc(52, 4)  # 52 / 0.4 uL
+    assert r["TNC_per_uL"] == pytest.approx(130.0)
+    assert r["volume_counted_uL"] == pytest.approx(0.4)
+
+
+def test_tnc_with_dilution_from_volumes_lands_in_a1():
+    df = fluid_calc.dilution_factor(sample_ul=20, diluent_ul=80)  # 100 / 20 = 5
+    assert df == pytest.approx(5.0)
+    r = fluid_calc.tnc(389, 9, df)  # 389 x 5 / 0.9 = 2161.1
+    assert r["TNC_per_uL"] == pytest.approx(2161.11, abs=0.01)
+    assert 1800 <= r["TNC_per_uL"] <= 2400
+
+
+def test_dilution_factor_rejects_fraction_and_half_volumes():
+    with pytest.raises(ValueError):
+        fluid_calc.dilution_factor(df=0.2)  # someone typed 1/5 as 0.2
+    with pytest.raises(ValueError):
+        fluid_calc.dilution_factor(sample_ul=20)  # diluent missing
+
+
+def test_must_fail_control_tnc_forgets_dilution(monkeypatch):
+    """EQA trap: DF dropped from the formula."""
+    monkeypatch.setattr(fluid_calc, "tnc",
+                        lambda cells, squares, dfactor=1.0, square_mm2=1.0, depth_mm=0.1:
+                        {"TNC_per_uL": cells / (squares * square_mm2 * depth_mm), "volume_counted_uL": squares * 0.1})
+    with pytest.raises(AssertionError):
+        test_tnc_with_dilution_from_volumes_lands_in_a1()
+
+
+def test_eqa_check_in_range():
+    assert fluid_calc.eqa_check(2161, 1800, 2400)["verdict"] == "IN RANGE"
+
+
+def test_eqa_check_names_the_forgotten_dilution():
+    r = fluid_calc.eqa_check(432, 1800, 2400, dfactor=5)  # 432 x 5 = 2160
+    assert r["verdict"] == "OUT OF RANGE"
+    assert any("DF slip" in c and "too low" in c for c in r["likely_causes"])
+
+
+def test_eqa_check_names_x10_and_x1000_slips():
+    assert any("x10 chamber" in c for c in fluid_calc.eqa_check(21611, 1800, 2400)["likely_causes"])
+    assert any("x1000 unit" in c for c in fluid_calc.eqa_check(2.16, 1800, 2400)["likely_causes"])
+
+
+def test_eqa_check_catches_swapped_sample_numbers():
+    r = fluid_calc.eqa_check(98, 1800, 2400, others={"A2": (80, 120)})
+    assert any("swapped" in c and "A2" in c for c in r["likely_causes"])
+
+
+def test_must_fail_control_swap_check_removed(monkeypatch):
+    real = fluid_calc.eqa_check
+    monkeypatch.setattr(fluid_calc, "eqa_check",
+                        lambda reported, low, high, dfactor=None, others=None, background_limit=None:
+                        real(reported, low, high, dfactor, None, background_limit))
+    with pytest.raises(AssertionError):
+        test_eqa_check_catches_swapped_sample_numbers()
+
+
+def test_eqa_check_zero_cell_sample_points_at_background():
+    r = fluid_calc.eqa_check(6, 0, 0, background_limit=10)  # sample B1 assigned 0
+    assert any("background" in c for c in r["likely_causes"])
+    assert any("<= your background limit" in c for c in r["likely_causes"])
+
+
+def test_eqa_check_zero_cell_sample_far_above_background_is_not_background():
+    r = fluid_calc.eqa_check(500, 0, 0, background_limit=10)  # 50x the limit: not background
+    assert any("NOT explained by background" in c for c in r["likely_causes"])
+    assert not any("-> report < LoQ" in c for c in r["likely_causes"])
+
+
+def test_pd_rule_needs_both_criteria():
+    assert fluid_calc.pd(240, 62)["result"].startswith("PERITONITIS SUSPECTED")
+    high_mono = fluid_calc.pd(240, 30)
+    assert high_mono["result"].startswith("effluent criterion not met") and "NOT exclude" in high_mono["result"]
+    assert "mononuclear" in high_mono["note"]
+    low = fluid_calc.pd(80, 70)  # short-dwell APD: PMN fraction counts -> never a plain "not met"
+    assert low["result"].startswith("INDETERMINATE") and "dwell" in low["result"]
+    edge = fluid_calc.pd(150, 50)  # exactly 50%: ISPD needs > 50% -> boundary, never a positive headline
+    assert "boundary" in edge and edge["result"].startswith("INDETERMINATE")
+
+
+def test_must_fail_control_pd_or_instead_of_and(monkeypatch):
+    monkeypatch.setattr(fluid_calc, "pd", lambda wbc, neut_pct: {
+        "result": "PERITONITIS SUSPECTED" if (wbc > 100 or neut_pct >= 50) else "effluent criterion not met",
+        "note": "mononuclear"})
+    with pytest.raises(AssertionError):
+        test_pd_rule_needs_both_criteria()
+
+
+@pytest.mark.parametrize("argv", [
+    ["tnc", "--cells", "389", "--squares", "9", "--sample-ul", "20", "--diluent-ul", "80"],
+    ["eqa-check", "--reported", "432", "--low", "1800", "--high", "2400", "--df", "5", "--other", "A2=80-120"],
+    ["pd", "--wbc", "240", "--neut-pct", "62"],
+])
+def test_new_cli_runs_and_prints_advisory(argv, capsys):
+    assert fluid_calc.main(argv) == 0
+    out = capsys.readouterr().out
+    assert "ADVISORY" in out
+
+
+def test_cli_bad_other_exits_cleanly():
+    with pytest.raises(SystemExit):
+        fluid_calc.main(["eqa-check", "--reported", "5", "--low", "1", "--high", "2", "--other", "A2"])
+
+
+@pytest.mark.parametrize("call", [
+    lambda: fluid_calc.tnc(-5, 4),                                  # negative count
+    lambda: fluid_calc.pd(240, 130),                                # PMN above 100%
+    lambda: fluid_calc.eqa_check(10, 2400, 1800),                   # low > high
+    lambda: fluid_calc.dilution_factor(sample_ul=20, diluent_ul=80, df=10),  # DF and volumes disagree
+])
+def test_malformed_input_is_rejected(call):
+    with pytest.raises(ValueError):
+        call()

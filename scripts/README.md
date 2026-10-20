@@ -16,6 +16,7 @@
 | `check_maturity_gate.py` | PR gate: `status` must not out-rank evidence (semi-stable ⟹ full-tier A/B or round4/5 screen) + body hash must match `eval/ab-coverage.json`. | CI gate (advisory) |
 | `build_ab_coverage.py` | Maintainer: rebuild `eval/ab-coverage.json` maturity registry (body hashes + evidence flags). | maintainer |
 | `maturity_report.py` | Advisory: claimed `status:` vs actual A/B evidence — surfaces over-claims without mutating files. | advisory |
+| `evidence_counts.py` | Read-only: recomputes every number quoted in [`EVIDENCE.md`](../EVIDENCE.md) (status, A/B results, lab-bench cards). | advisory |
 | `create_contribution_form.gs` | Google Apps Script for the public contribution intake form. | helper (GAS) |
 
 ## Skill library pipeline

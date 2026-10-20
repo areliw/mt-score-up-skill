@@ -97,7 +97,7 @@
 | `time-blocking` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/time-blocking.md | 2026-06-08 |
 | `token-budget-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/token-budget-judgment.md | 2026-06-08 |
 | `toxicology-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/toxicology-judgment.md | 2026-10-08 |
-| `urinalysis-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/urinalysis-judgment.md | 2026-10-08 |
+| `urinalysis-judgment` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/urinalysis-judgment.md | 2026-10-20 |
 | `verification-panel` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/verification-panel.md | 2026-06-08 |
 | `what-skill-do-i-need` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/what-skill-do-i-need.md | 2026-10-08 |
 | `write-a-skill` | https://raw.githubusercontent.com/areliw/mt-score-up-skill/main/skills/write-a-skill.md | 2026-06-08 |
